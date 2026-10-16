@@ -27,17 +27,24 @@ Future<SchemaSchemaa0ee7c0b> listScimDirectories(ClientConfig config,
   return (await sdkRequest<SchemaSchemaa0ee7c0b>('GET', '/scim_directories',
           config: config,
           query: {
-            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit), style: 'form', explode: true),
-            'offset': SdkQueryValue(SdkUtils.unwrapOptional(offset), style: 'form', explode: true)
+            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit),
+                style: 'form', explode: true),
+            'offset': SdkQueryValue(SdkUtils.unwrapOptional(offset),
+                style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'listScimDirectories',
-          fromJsonRaw: (value) => SchemaSchemaa0ee7c0b.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              SchemaSchemaa0ee7c0b.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '403': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '401': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>),
+            '403': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Creates a SCIM directory for the instance and associates it with an enterprise connection. Supply `enterprise_connection_id` and `provider`; you can also include group-to-role mappings to create with the directory. The created directory response includes its SCIM endpoint URL and API key.
 ///
@@ -53,7 +60,8 @@ Future<SCIMDirectory> createScimDirectory(ClientConfig config,
     {required String enterpriseConnectionId,
     required String provider,
     SdkOptional<String> name = const SdkOmitted(),
-    SdkOptional<List<CreateSCIMDirectoryRequestBodyGroupRoleMappingsItem>> groupRoleMappings = const SdkOmitted(),
+    SdkOptional<List<CreateSCIMDirectoryRequestBodyGroupRoleMappingsItem>>
+        groupRoleMappings = const SdkOmitted(),
     RequestOptions? requestOptions}) async {
   return (await sdkRequest<SCIMDirectory>('POST', '/scim_directories',
           config: config,
@@ -65,12 +73,21 @@ Future<SCIMDirectory> createScimDirectory(ClientConfig config,
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'createScimDirectory',
-          fromJsonRaw: (value) => SCIMDirectory.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              SCIMDirectory.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '401': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '403': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '422': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '400': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>),
+            '401': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>),
+            '403': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>),
+            '422': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Retrieves the configuration for a SCIM directory. Use its identifier to look up details such as its provider, endpoint URL, enabled state, and attribute mappings.
 ///
@@ -84,12 +101,16 @@ Future<SCIMDirectory> getScimDirectory(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'getScimDirectory',
-          fromJsonRaw: (value) => SCIMDirectory.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              SCIMDirectory.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '403': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '404': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '401': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>),
+        '403': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>),
+        '404': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// Updates the configuration of a SCIM directory. Supply only the settings you want to change; `attribute_mapping` entries are merged, and setting a key to `null` removes it from the mapping.
 ///
@@ -120,16 +141,28 @@ Future<SCIMDirectory> updateScimDirectory(ClientConfig config,
             'enabled': SdkUtils.unwrapOptional(enabled),
             'provider': SdkUtils.unwrapOptional(provider),
             'attribute_mapping': SdkUtils.unwrapOptional(attributeMapping),
-            'group_role_mapping_enabled': SdkUtils.unwrapOptional(groupRoleMappingEnabled)
+            'group_role_mapping_enabled':
+                SdkUtils.unwrapOptional(groupRoleMappingEnabled)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'updateScimDirectory',
-          fromJsonRaw: (value) => SCIMDirectory.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              SCIMDirectory.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '401': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '403': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '404': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '422': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '400': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>),
+            '401': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>),
+            '403': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>),
+            '404': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>),
+            '422': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Deletes a directory and stops provisioning for it. SCIM requests authenticated with the directory's API key are rejected afterwards.
 ///
@@ -141,12 +174,16 @@ Future<DeletedObject> deleteScimDirectory(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'deleteScimDirectory',
-          fromJsonRaw: (value) => DeletedObject.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              DeletedObject.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '403': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '404': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '401': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>),
+        '403': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>),
+        '404': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// Generates a new API key for the directory and returns it in the `api_key` field. This is the only way to obtain the key after creation, so make sure to update it in your identity provider. The previous key remains valid for a short grace period before it expires.
 ///
@@ -158,12 +195,17 @@ Future<SCIMDirectory> rotateScimDirectoryApiKey(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'rotateScimDirectoryApiKey',
-          fromJsonRaw: (value) => SCIMDirectory.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              SCIMDirectory.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '403': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '404': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '422': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '401': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>),
+        '403': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>),
+        '404': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>),
+        '422': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// Returns the list of SCIM group to organization role mappings for a directory, ordered by precedence.
 ///
@@ -175,12 +217,16 @@ Future<SchemaSchemac6c780d9> listScimGroupRoleMappings(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'listScimGroupRoleMappings',
-          fromJsonRaw: (value) => SchemaSchemac6c780d9.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              SchemaSchemac6c780d9.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '403': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '404': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '401': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>),
+        '403': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>),
+        '404': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// Creates a new SCIM group to organization role mapping for a directory. Mappings can be created while group role mapping is disabled on the directory, but they only take effect once it is enabled.
 ///
@@ -211,12 +257,23 @@ Future<SCIMGroupRoleMapping> createScimGroupRoleMapping(ClientConfig config,
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'createScimGroupRoleMapping',
-          fromJsonRaw: (value) => SCIMGroupRoleMapping.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              SCIMGroupRoleMapping.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '401': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '403': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '404': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '422': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '400': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>),
+            '401': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>),
+            '403': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>),
+            '404': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>),
+            '422': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Replaces the entire set of SCIM group role mappings for a directory. The position of each item in the `mappings` array determines its precedence (the first item gets precedence 1). Passing an empty array removes all mappings. Mappings can be replaced while group role mapping is disabled on the directory, but they only take effect once it is enabled.
 ///
@@ -233,12 +290,23 @@ Future<SchemaSchemac6c780d9> replaceScimGroupRoleMappings(ClientConfig config,
           body: {'mappings': mappings},
           decoder: SdkResponseDecoder.json,
           operationId: 'replaceScimGroupRoleMappings',
-          fromJsonRaw: (value) => SchemaSchemac6c780d9.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              SchemaSchemac6c780d9.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '401': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '403': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '404': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '422': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '400': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>),
+            '401': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>),
+            '403': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>),
+            '404': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>),
+            '422': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Deletes a single SCIM group role mapping. Mappings can be deleted while group role mapping is disabled on the directory, but the change only takes effect once it is enabled.
 ///
@@ -253,8 +321,14 @@ Future<SchemaSchemab78302a9> deleteScimGroupRoleMapping(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'deleteScimGroupRoleMapping',
-          fromJsonRaw: (value) => SchemaSchemab78302a9.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              SchemaSchemab78302a9.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '401': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '403': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '404': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '400': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>),
+        '401': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>),
+        '403': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>),
+        '404': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }

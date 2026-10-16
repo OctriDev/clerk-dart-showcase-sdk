@@ -8,174 +8,363 @@ part of 'shared_verification.dart';
 class VerificationSaml {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Optional enumerated value serialized in the `object` wire field.
   final SdkOptional<VerificationSamlObject> object;
+
   /// Required enumerated value serialized in the `status` wire field.
   final VerificationSamlStatus status;
+
   /// Required enumerated value serialized in the `strategy` wire field.
   final VerificationSamlStrategy strategy;
+
   /// Optional `string` value serialized in the `external_verification_redirect_url` wire field.
   final SdkOptional<String?> externalVerificationRedirectUrl;
+
   /// Optional object value serialized in the `error` wire field.
   final SdkOptional<ClerkError?> error;
+
   /// Optional `integer` value serialized in the `expire_at` wire field.
   final SdkOptional<int?> expireAt;
+
   /// Required `integer` value serialized in the `attempts` wire field.
   final int? attempts;
+
   /// Optional `string` value serialized in the `verified_at_client` wire field.
   final SdkOptional<String?> verifiedAtClient;
 
-  const VerificationSaml({this.object = const SdkOmitted(), required this.status, required this.strategy, this.externalVerificationRedirectUrl = const SdkOmitted(), this.error = const SdkOmitted(), this.expireAt = const SdkOmitted(), required this.attempts, this.verifiedAtClient = const SdkOmitted()});
+  const VerificationSaml(
+      {this.object = const SdkOmitted(),
+      required this.status,
+      required this.strategy,
+      this.externalVerificationRedirectUrl = const SdkOmitted(),
+      this.error = const SdkOmitted(),
+      this.expireAt = const SdkOmitted(),
+      required this.attempts,
+      this.verifiedAtClient = const SdkOmitted()});
 
-  VerificationSaml Function({SdkOptional<VerificationSamlObject> object, VerificationSamlStatus status, VerificationSamlStrategy strategy, SdkOptional<String?> externalVerificationRedirectUrl, SdkOptional<ClerkError?> error, SdkOptional<int?> expireAt, int? attempts, SdkOptional<String?> verifiedAtClient}) get copyWith => _copyWith;
+  VerificationSaml Function(
+      {SdkOptional<VerificationSamlObject> object,
+      VerificationSamlStatus status,
+      VerificationSamlStrategy strategy,
+      SdkOptional<String?> externalVerificationRedirectUrl,
+      SdkOptional<ClerkError?> error,
+      SdkOptional<int?> expireAt,
+      int? attempts,
+      SdkOptional<String?> verifiedAtClient}) get copyWith => _copyWith;
 
-  VerificationSaml _copyWith({Object? object = sdkOmittedValue, Object? status = sdkOmittedValue, Object? strategy = sdkOmittedValue, Object? externalVerificationRedirectUrl = sdkOmittedValue, Object? error = sdkOmittedValue, Object? expireAt = sdkOmittedValue, Object? attempts = sdkOmittedValue, Object? verifiedAtClient = sdkOmittedValue}) => VerificationSaml(
-    object: identical(object, sdkOmittedValue) ? this.object : object as SdkOptional<VerificationSamlObject>,
-    status: identical(status, sdkOmittedValue) ? this.status : status as VerificationSamlStatus,
-    strategy: identical(strategy, sdkOmittedValue) ? this.strategy : strategy as VerificationSamlStrategy,
-    externalVerificationRedirectUrl: identical(externalVerificationRedirectUrl, sdkOmittedValue) ? this.externalVerificationRedirectUrl : externalVerificationRedirectUrl as SdkOptional<String?>,
-    error: identical(error, sdkOmittedValue) ? this.error : error as SdkOptional<ClerkError?>,
-    expireAt: identical(expireAt, sdkOmittedValue) ? this.expireAt : expireAt as SdkOptional<int?>,
-    attempts: identical(attempts, sdkOmittedValue) ? this.attempts : attempts as int?,
-    verifiedAtClient: identical(verifiedAtClient, sdkOmittedValue) ? this.verifiedAtClient : verifiedAtClient as SdkOptional<String?>,
-  );
+  VerificationSaml _copyWith(
+          {Object? object = sdkOmittedValue,
+          Object? status = sdkOmittedValue,
+          Object? strategy = sdkOmittedValue,
+          Object? externalVerificationRedirectUrl = sdkOmittedValue,
+          Object? error = sdkOmittedValue,
+          Object? expireAt = sdkOmittedValue,
+          Object? attempts = sdkOmittedValue,
+          Object? verifiedAtClient = sdkOmittedValue}) =>
+      VerificationSaml(
+        object: identical(object, sdkOmittedValue)
+            ? this.object
+            : object as SdkOptional<VerificationSamlObject>,
+        status: identical(status, sdkOmittedValue)
+            ? this.status
+            : status as VerificationSamlStatus,
+        strategy: identical(strategy, sdkOmittedValue)
+            ? this.strategy
+            : strategy as VerificationSamlStrategy,
+        externalVerificationRedirectUrl:
+            identical(externalVerificationRedirectUrl, sdkOmittedValue)
+                ? this.externalVerificationRedirectUrl
+                : externalVerificationRedirectUrl as SdkOptional<String?>,
+        error: identical(error, sdkOmittedValue)
+            ? this.error
+            : error as SdkOptional<ClerkError?>,
+        expireAt: identical(expireAt, sdkOmittedValue)
+            ? this.expireAt
+            : expireAt as SdkOptional<int?>,
+        attempts: identical(attempts, sdkOmittedValue)
+            ? this.attempts
+            : attempts as int?,
+        verifiedAtClient: identical(verifiedAtClient, sdkOmittedValue)
+            ? this.verifiedAtClient
+            : verifiedAtClient as SdkOptional<String?>,
+      );
 
-  factory VerificationSaml.fromJson(Map<String, dynamic> json) => VerificationSaml(
-    object: json['object'] != null ? SdkPresent((json['object'] != null ? VerificationSamlObject.fromJson(json['object'] as String) : null)!) : const SdkOmitted(),
-    status: (json['status'] != null ? VerificationSamlStatus.fromJson(json['status'] as String) : null)!,
-    strategy: (json['strategy'] != null ? VerificationSamlStrategy.fromJson(json['strategy'] as String) : null)!,
-    externalVerificationRedirectUrl: json.containsKey('external_verification_redirect_url') ? SdkPresent(json['external_verification_redirect_url'] as String?) : const SdkOmitted(),
-    error: json.containsKey('error') ? SdkPresent(json['error'] != null ? ClerkError.fromJson(json['error'] as Map<String, dynamic>) : null) : const SdkOmitted(),
-    expireAt: json.containsKey('expire_at') ? SdkPresent((json['expire_at'] as num?)?.toInt()) : const SdkOmitted(),
-    attempts: json.containsKey('attempts') ? (json['attempts'] as num?)?.toInt() : throw ArgumentError.value(null, 'attempts', 'Required property is missing'),
-    verifiedAtClient: json.containsKey('verified_at_client') ? SdkPresent(json['verified_at_client'] as String?) : const SdkOmitted(),
-  );
+  factory VerificationSaml.fromJson(Map<String, dynamic> json) =>
+      VerificationSaml(
+        object: json['object'] != null
+            ? SdkPresent((json['object'] != null
+                ? VerificationSamlObject.fromJson(json['object'] as String)
+                : null)!)
+            : const SdkOmitted(),
+        status: (json['status'] != null
+            ? VerificationSamlStatus.fromJson(json['status'] as String)
+            : null)!,
+        strategy: (json['strategy'] != null
+            ? VerificationSamlStrategy.fromJson(json['strategy'] as String)
+            : null)!,
+        externalVerificationRedirectUrl: json
+                .containsKey('external_verification_redirect_url')
+            ? SdkPresent(json['external_verification_redirect_url'] as String?)
+            : const SdkOmitted(),
+        error: json.containsKey('error')
+            ? SdkPresent(json['error'] != null
+                ? ClerkError.fromJson(json['error'] as Map<String, dynamic>)
+                : null)
+            : const SdkOmitted(),
+        expireAt: json.containsKey('expire_at')
+            ? SdkPresent((json['expire_at'] as num?)?.toInt())
+            : const SdkOmitted(),
+        attempts: json.containsKey('attempts')
+            ? (json['attempts'] as num?)?.toInt()
+            : throw ArgumentError.value(
+                null, 'attempts', 'Required property is missing'),
+        verifiedAtClient: json.containsKey('verified_at_client')
+            ? SdkPresent(json['verified_at_client'] as String?)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (object) {
-      SdkPresent<VerificationSamlObject>(value: final value) => {'object': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    'status': status.toJson(),
-    'strategy': strategy.toJson(),
-    ...switch (externalVerificationRedirectUrl) {
-      SdkPresent<String?>(value: final value) => {'external_verification_redirect_url': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (error) {
-      SdkPresent<ClerkError?>(value: final value) => {'error': value?.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (expireAt) {
-      SdkPresent<int?>(value: final value) => {'expire_at': value,},
-      _ => const <String, dynamic>{},
-    },
-    'attempts': attempts,
-    ...switch (verifiedAtClient) {
-      SdkPresent<String?>(value: final value) => {'verified_at_client': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (object) {
+          SdkPresent<VerificationSamlObject>(value: final value) => {
+              'object': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        'status': status.toJson(),
+        'strategy': strategy.toJson(),
+        ...switch (externalVerificationRedirectUrl) {
+          SdkPresent<String?>(value: final value) => {
+              'external_verification_redirect_url': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (error) {
+          SdkPresent<ClerkError?>(value: final value) => {
+              'error': value?.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (expireAt) {
+          SdkPresent<int?>(value: final value) => {
+              'expire_at': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        'attempts': attempts,
+        ...switch (verifiedAtClient) {
+          SdkPresent<String?>(value: final value) => {
+              'verified_at_client': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Typed representation of the `VerificationScim` API schema.
 class VerificationScim {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Optional enumerated value serialized in the `object` wire field.
   final SdkOptional<VerificationScimObject> object;
+
   /// Required enumerated value serialized in the `status` wire field.
   final VerificationScimStatus status;
+
   /// Required enumerated value serialized in the `strategy` wire field.
   final VerificationScimStrategy strategy;
+
   /// Required `integer` value serialized in the `attempts` wire field.
   final int? attempts;
+
   /// Required `integer` value serialized in the `expire_at` wire field.
   final int? expireAt;
 
-  const VerificationScim({this.object = const SdkOmitted(), required this.status, required this.strategy, required this.attempts, required this.expireAt});
+  const VerificationScim(
+      {this.object = const SdkOmitted(),
+      required this.status,
+      required this.strategy,
+      required this.attempts,
+      required this.expireAt});
 
-  VerificationScim Function({SdkOptional<VerificationScimObject> object, VerificationScimStatus status, VerificationScimStrategy strategy, int? attempts, int? expireAt}) get copyWith => _copyWith;
+  VerificationScim Function(
+      {SdkOptional<VerificationScimObject> object,
+      VerificationScimStatus status,
+      VerificationScimStrategy strategy,
+      int? attempts,
+      int? expireAt}) get copyWith => _copyWith;
 
-  VerificationScim _copyWith({Object? object = sdkOmittedValue, Object? status = sdkOmittedValue, Object? strategy = sdkOmittedValue, Object? attempts = sdkOmittedValue, Object? expireAt = sdkOmittedValue}) => VerificationScim(
-    object: identical(object, sdkOmittedValue) ? this.object : object as SdkOptional<VerificationScimObject>,
-    status: identical(status, sdkOmittedValue) ? this.status : status as VerificationScimStatus,
-    strategy: identical(strategy, sdkOmittedValue) ? this.strategy : strategy as VerificationScimStrategy,
-    attempts: identical(attempts, sdkOmittedValue) ? this.attempts : attempts as int?,
-    expireAt: identical(expireAt, sdkOmittedValue) ? this.expireAt : expireAt as int?,
-  );
+  VerificationScim _copyWith(
+          {Object? object = sdkOmittedValue,
+          Object? status = sdkOmittedValue,
+          Object? strategy = sdkOmittedValue,
+          Object? attempts = sdkOmittedValue,
+          Object? expireAt = sdkOmittedValue}) =>
+      VerificationScim(
+        object: identical(object, sdkOmittedValue)
+            ? this.object
+            : object as SdkOptional<VerificationScimObject>,
+        status: identical(status, sdkOmittedValue)
+            ? this.status
+            : status as VerificationScimStatus,
+        strategy: identical(strategy, sdkOmittedValue)
+            ? this.strategy
+            : strategy as VerificationScimStrategy,
+        attempts: identical(attempts, sdkOmittedValue)
+            ? this.attempts
+            : attempts as int?,
+        expireAt: identical(expireAt, sdkOmittedValue)
+            ? this.expireAt
+            : expireAt as int?,
+      );
 
-  factory VerificationScim.fromJson(Map<String, dynamic> json) => VerificationScim(
-    object: json['object'] != null ? SdkPresent((json['object'] != null ? VerificationScimObject.fromJson(json['object'] as String) : null)!) : const SdkOmitted(),
-    status: (json['status'] != null ? VerificationScimStatus.fromJson(json['status'] as String) : null)!,
-    strategy: (json['strategy'] != null ? VerificationScimStrategy.fromJson(json['strategy'] as String) : null)!,
-    attempts: json.containsKey('attempts') ? (json['attempts'] as num?)?.toInt() : throw ArgumentError.value(null, 'attempts', 'Required property is missing'),
-    expireAt: json.containsKey('expire_at') ? (json['expire_at'] as num?)?.toInt() : throw ArgumentError.value(null, 'expire_at', 'Required property is missing'),
-  );
+  factory VerificationScim.fromJson(Map<String, dynamic> json) =>
+      VerificationScim(
+        object: json['object'] != null
+            ? SdkPresent((json['object'] != null
+                ? VerificationScimObject.fromJson(json['object'] as String)
+                : null)!)
+            : const SdkOmitted(),
+        status: (json['status'] != null
+            ? VerificationScimStatus.fromJson(json['status'] as String)
+            : null)!,
+        strategy: (json['strategy'] != null
+            ? VerificationScimStrategy.fromJson(json['strategy'] as String)
+            : null)!,
+        attempts: json.containsKey('attempts')
+            ? (json['attempts'] as num?)?.toInt()
+            : throw ArgumentError.value(
+                null, 'attempts', 'Required property is missing'),
+        expireAt: json.containsKey('expire_at')
+            ? (json['expire_at'] as num?)?.toInt()
+            : throw ArgumentError.value(
+                null, 'expire_at', 'Required property is missing'),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (object) {
-      SdkPresent<VerificationScimObject>(value: final value) => {'object': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    'status': status.toJson(),
-    'strategy': strategy.toJson(),
-    'attempts': attempts,
-    'expire_at': expireAt,
-  };
+        ...switch (object) {
+          SdkPresent<VerificationScimObject>(value: final value) => {
+              'object': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        'status': status.toJson(),
+        'strategy': strategy.toJson(),
+        'attempts': attempts,
+        'expire_at': expireAt,
+      };
 }
 
 /// Typed representation of the `VerificationTicket` API schema.
 class VerificationTicket {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Optional enumerated value serialized in the `object` wire field.
   final SdkOptional<VerificationTicketObject> object;
+
   /// Required enumerated value serialized in the `status` wire field.
   final VerificationTicketStatus status;
+
   /// Required enumerated value serialized in the `strategy` wire field.
   final VerificationTicketStrategy strategy;
+
   /// Required `integer` value serialized in the `attempts` wire field.
   final int? attempts;
+
   /// Required `integer` value serialized in the `expire_at` wire field.
   final int? expireAt;
+
   /// Optional `string` value serialized in the `verified_at_client` wire field.
   final SdkOptional<String?> verifiedAtClient;
 
-  const VerificationTicket({this.object = const SdkOmitted(), required this.status, required this.strategy, required this.attempts, required this.expireAt, this.verifiedAtClient = const SdkOmitted()});
+  const VerificationTicket(
+      {this.object = const SdkOmitted(),
+      required this.status,
+      required this.strategy,
+      required this.attempts,
+      required this.expireAt,
+      this.verifiedAtClient = const SdkOmitted()});
 
-  VerificationTicket Function({SdkOptional<VerificationTicketObject> object, VerificationTicketStatus status, VerificationTicketStrategy strategy, int? attempts, int? expireAt, SdkOptional<String?> verifiedAtClient}) get copyWith => _copyWith;
+  VerificationTicket Function(
+      {SdkOptional<VerificationTicketObject> object,
+      VerificationTicketStatus status,
+      VerificationTicketStrategy strategy,
+      int? attempts,
+      int? expireAt,
+      SdkOptional<String?> verifiedAtClient}) get copyWith => _copyWith;
 
-  VerificationTicket _copyWith({Object? object = sdkOmittedValue, Object? status = sdkOmittedValue, Object? strategy = sdkOmittedValue, Object? attempts = sdkOmittedValue, Object? expireAt = sdkOmittedValue, Object? verifiedAtClient = sdkOmittedValue}) => VerificationTicket(
-    object: identical(object, sdkOmittedValue) ? this.object : object as SdkOptional<VerificationTicketObject>,
-    status: identical(status, sdkOmittedValue) ? this.status : status as VerificationTicketStatus,
-    strategy: identical(strategy, sdkOmittedValue) ? this.strategy : strategy as VerificationTicketStrategy,
-    attempts: identical(attempts, sdkOmittedValue) ? this.attempts : attempts as int?,
-    expireAt: identical(expireAt, sdkOmittedValue) ? this.expireAt : expireAt as int?,
-    verifiedAtClient: identical(verifiedAtClient, sdkOmittedValue) ? this.verifiedAtClient : verifiedAtClient as SdkOptional<String?>,
-  );
+  VerificationTicket _copyWith(
+          {Object? object = sdkOmittedValue,
+          Object? status = sdkOmittedValue,
+          Object? strategy = sdkOmittedValue,
+          Object? attempts = sdkOmittedValue,
+          Object? expireAt = sdkOmittedValue,
+          Object? verifiedAtClient = sdkOmittedValue}) =>
+      VerificationTicket(
+        object: identical(object, sdkOmittedValue)
+            ? this.object
+            : object as SdkOptional<VerificationTicketObject>,
+        status: identical(status, sdkOmittedValue)
+            ? this.status
+            : status as VerificationTicketStatus,
+        strategy: identical(strategy, sdkOmittedValue)
+            ? this.strategy
+            : strategy as VerificationTicketStrategy,
+        attempts: identical(attempts, sdkOmittedValue)
+            ? this.attempts
+            : attempts as int?,
+        expireAt: identical(expireAt, sdkOmittedValue)
+            ? this.expireAt
+            : expireAt as int?,
+        verifiedAtClient: identical(verifiedAtClient, sdkOmittedValue)
+            ? this.verifiedAtClient
+            : verifiedAtClient as SdkOptional<String?>,
+      );
 
-  factory VerificationTicket.fromJson(Map<String, dynamic> json) => VerificationTicket(
-    object: json['object'] != null ? SdkPresent((json['object'] != null ? VerificationTicketObject.fromJson(json['object'] as String) : null)!) : const SdkOmitted(),
-    status: (json['status'] != null ? VerificationTicketStatus.fromJson(json['status'] as String) : null)!,
-    strategy: (json['strategy'] != null ? VerificationTicketStrategy.fromJson(json['strategy'] as String) : null)!,
-    attempts: json.containsKey('attempts') ? (json['attempts'] as num?)?.toInt() : throw ArgumentError.value(null, 'attempts', 'Required property is missing'),
-    expireAt: json.containsKey('expire_at') ? (json['expire_at'] as num?)?.toInt() : throw ArgumentError.value(null, 'expire_at', 'Required property is missing'),
-    verifiedAtClient: json.containsKey('verified_at_client') ? SdkPresent(json['verified_at_client'] as String?) : const SdkOmitted(),
-  );
+  factory VerificationTicket.fromJson(Map<String, dynamic> json) =>
+      VerificationTicket(
+        object: json['object'] != null
+            ? SdkPresent((json['object'] != null
+                ? VerificationTicketObject.fromJson(json['object'] as String)
+                : null)!)
+            : const SdkOmitted(),
+        status: (json['status'] != null
+            ? VerificationTicketStatus.fromJson(json['status'] as String)
+            : null)!,
+        strategy: (json['strategy'] != null
+            ? VerificationTicketStrategy.fromJson(json['strategy'] as String)
+            : null)!,
+        attempts: json.containsKey('attempts')
+            ? (json['attempts'] as num?)?.toInt()
+            : throw ArgumentError.value(
+                null, 'attempts', 'Required property is missing'),
+        expireAt: json.containsKey('expire_at')
+            ? (json['expire_at'] as num?)?.toInt()
+            : throw ArgumentError.value(
+                null, 'expire_at', 'Required property is missing'),
+        verifiedAtClient: json.containsKey('verified_at_client')
+            ? SdkPresent(json['verified_at_client'] as String?)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (object) {
-      SdkPresent<VerificationTicketObject>(value: final value) => {'object': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    'status': status.toJson(),
-    'strategy': strategy.toJson(),
-    'attempts': attempts,
-    'expire_at': expireAt,
-    ...switch (verifiedAtClient) {
-      SdkPresent<String?>(value: final value) => {'verified_at_client': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (object) {
+          SdkPresent<VerificationTicketObject>(value: final value) => {
+              'object': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        'status': status.toJson(),
+        'strategy': strategy.toJson(),
+        'attempts': attempts,
+        'expire_at': expireAt,
+        ...switch (verifiedAtClient) {
+          SdkPresent<String?>(value: final value) => {
+              'verified_at_client': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

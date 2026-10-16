@@ -7,22 +7,34 @@ part of 'inline.dart';
 class VerifyOAuthAccessTokenResponseVariant1 {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Indicates that a JWT access token is not active (expired)
   final VerifyOAuthAccessTokenResponseVariant1Active active;
 
   const VerifyOAuthAccessTokenResponseVariant1({required this.active});
 
-  VerifyOAuthAccessTokenResponseVariant1 Function({VerifyOAuthAccessTokenResponseVariant1Active active}) get copyWith => _copyWith;
+  VerifyOAuthAccessTokenResponseVariant1 Function(
+          {VerifyOAuthAccessTokenResponseVariant1Active active})
+      get copyWith => _copyWith;
 
-  VerifyOAuthAccessTokenResponseVariant1 _copyWith({Object? active = sdkOmittedValue}) => VerifyOAuthAccessTokenResponseVariant1(
-    active: identical(active, sdkOmittedValue) ? this.active : active as VerifyOAuthAccessTokenResponseVariant1Active,
-  );
+  VerifyOAuthAccessTokenResponseVariant1 _copyWith(
+          {Object? active = sdkOmittedValue}) =>
+      VerifyOAuthAccessTokenResponseVariant1(
+        active: identical(active, sdkOmittedValue)
+            ? this.active
+            : active as VerifyOAuthAccessTokenResponseVariant1Active,
+      );
 
-  factory VerifyOAuthAccessTokenResponseVariant1.fromJson(Map<String, dynamic> json) => VerifyOAuthAccessTokenResponseVariant1(
-    active: (json['active'] != null ? VerifyOAuthAccessTokenResponseVariant1Active.fromJson(json['active'] as bool) : null)!,
-  );
+  factory VerifyOAuthAccessTokenResponseVariant1.fromJson(
+          Map<String, dynamic> json) =>
+      VerifyOAuthAccessTokenResponseVariant1(
+        active: (json['active'] != null
+            ? VerifyOAuthAccessTokenResponseVariant1Active.fromJson(
+                json['active'] as bool)
+            : null)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'active': active.toJson(),
-  };
+        'active': active.toJson(),
+      };
 }

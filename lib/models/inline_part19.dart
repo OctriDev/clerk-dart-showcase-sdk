@@ -7,276 +7,512 @@ part of 'inline.dart';
 class UpdateEmailAddressRequestBody {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The email address will be marked as verified.
   final SdkOptional<bool?> verified;
+
   /// Set this email address as the primary email address for the user.
   final SdkOptional<bool?> primary;
+
   /// If set to `true` and this update makes the email address the user's new primary, the previous primary email address is notified of the change. By default, no notification is sent.
   final SdkOptional<bool?> notifyPrimaryEmailAddressChanged;
 
-  const UpdateEmailAddressRequestBody({this.verified = const SdkOmitted(), this.primary = const SdkOmitted(), this.notifyPrimaryEmailAddressChanged = const SdkOmitted()});
+  const UpdateEmailAddressRequestBody(
+      {this.verified = const SdkOmitted(),
+      this.primary = const SdkOmitted(),
+      this.notifyPrimaryEmailAddressChanged = const SdkOmitted()});
 
-  UpdateEmailAddressRequestBody Function({SdkOptional<bool?> verified, SdkOptional<bool?> primary, SdkOptional<bool?> notifyPrimaryEmailAddressChanged}) get copyWith => _copyWith;
+  UpdateEmailAddressRequestBody Function(
+          {SdkOptional<bool?> verified,
+          SdkOptional<bool?> primary,
+          SdkOptional<bool?> notifyPrimaryEmailAddressChanged})
+      get copyWith => _copyWith;
 
-  UpdateEmailAddressRequestBody _copyWith({Object? verified = sdkOmittedValue, Object? primary = sdkOmittedValue, Object? notifyPrimaryEmailAddressChanged = sdkOmittedValue}) => UpdateEmailAddressRequestBody(
-    verified: identical(verified, sdkOmittedValue) ? this.verified : verified as SdkOptional<bool?>,
-    primary: identical(primary, sdkOmittedValue) ? this.primary : primary as SdkOptional<bool?>,
-    notifyPrimaryEmailAddressChanged: identical(notifyPrimaryEmailAddressChanged, sdkOmittedValue) ? this.notifyPrimaryEmailAddressChanged : notifyPrimaryEmailAddressChanged as SdkOptional<bool?>,
-  );
+  UpdateEmailAddressRequestBody _copyWith(
+          {Object? verified = sdkOmittedValue,
+          Object? primary = sdkOmittedValue,
+          Object? notifyPrimaryEmailAddressChanged = sdkOmittedValue}) =>
+      UpdateEmailAddressRequestBody(
+        verified: identical(verified, sdkOmittedValue)
+            ? this.verified
+            : verified as SdkOptional<bool?>,
+        primary: identical(primary, sdkOmittedValue)
+            ? this.primary
+            : primary as SdkOptional<bool?>,
+        notifyPrimaryEmailAddressChanged:
+            identical(notifyPrimaryEmailAddressChanged, sdkOmittedValue)
+                ? this.notifyPrimaryEmailAddressChanged
+                : notifyPrimaryEmailAddressChanged as SdkOptional<bool?>,
+      );
 
-  factory UpdateEmailAddressRequestBody.fromJson(Map<String, dynamic> json) => UpdateEmailAddressRequestBody(
-    verified: json.containsKey('verified') ? SdkPresent(json['verified'] as bool?) : const SdkOmitted(),
-    primary: json.containsKey('primary') ? SdkPresent(json['primary'] as bool?) : const SdkOmitted(),
-    notifyPrimaryEmailAddressChanged: json.containsKey('notify_primary_email_address_changed') ? SdkPresent(json['notify_primary_email_address_changed'] as bool?) : const SdkOmitted(),
-  );
+  factory UpdateEmailAddressRequestBody.fromJson(Map<String, dynamic> json) =>
+      UpdateEmailAddressRequestBody(
+        verified: json.containsKey('verified')
+            ? SdkPresent(json['verified'] as bool?)
+            : const SdkOmitted(),
+        primary: json.containsKey('primary')
+            ? SdkPresent(json['primary'] as bool?)
+            : const SdkOmitted(),
+        notifyPrimaryEmailAddressChanged: json
+                .containsKey('notify_primary_email_address_changed')
+            ? SdkPresent(json['notify_primary_email_address_changed'] as bool?)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (verified) {
-      SdkPresent<bool?>(value: final value) => {'verified': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (primary) {
-      SdkPresent<bool?>(value: final value) => {'primary': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (notifyPrimaryEmailAddressChanged) {
-      SdkPresent<bool?>(value: final value) => {'notify_primary_email_address_changed': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (verified) {
+          SdkPresent<bool?>(value: final value) => {
+              'verified': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (primary) {
+          SdkPresent<bool?>(value: final value) => {
+              'primary': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (notifyPrimaryEmailAddressChanged) {
+          SdkPresent<bool?>(value: final value) => {
+              'notify_primary_email_address_changed': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 class SchemaSchema3e93ce8e {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The type of the verification object.
   final SdkOptional<String> object;
+
   /// The ID of the verification. Pass this to attempt_verification.
   final SdkOptional<String> id;
+
   /// The status of the verification (unverified, verified, expired, or failed).
   final SdkOptional<String> status;
+
   /// The verification strategy (email_code or phone_code).
   final SdkOptional<String> strategy;
+
   /// The number of attempts made against this verification.
   final SdkOptional<int?> attempts;
+
   /// Unix timestamp (milliseconds) at which the code expires.
   final SdkOptional<int?> expireAt;
+
   /// The channel the code was sent over (phone numbers only).
   final SdkOptional<String?> channel;
 
-  const SchemaSchema3e93ce8e({this.object = const SdkOmitted(), this.id = const SdkOmitted(), this.status = const SdkOmitted(), this.strategy = const SdkOmitted(), this.attempts = const SdkOmitted(), this.expireAt = const SdkOmitted(), this.channel = const SdkOmitted()});
+  const SchemaSchema3e93ce8e(
+      {this.object = const SdkOmitted(),
+      this.id = const SdkOmitted(),
+      this.status = const SdkOmitted(),
+      this.strategy = const SdkOmitted(),
+      this.attempts = const SdkOmitted(),
+      this.expireAt = const SdkOmitted(),
+      this.channel = const SdkOmitted()});
 
-  SchemaSchema3e93ce8e Function({SdkOptional<String> object, SdkOptional<String> id, SdkOptional<String> status, SdkOptional<String> strategy, SdkOptional<int?> attempts, SdkOptional<int?> expireAt, SdkOptional<String?> channel}) get copyWith => _copyWith;
+  SchemaSchema3e93ce8e Function(
+      {SdkOptional<String> object,
+      SdkOptional<String> id,
+      SdkOptional<String> status,
+      SdkOptional<String> strategy,
+      SdkOptional<int?> attempts,
+      SdkOptional<int?> expireAt,
+      SdkOptional<String?> channel}) get copyWith => _copyWith;
 
-  SchemaSchema3e93ce8e _copyWith({Object? object = sdkOmittedValue, Object? id = sdkOmittedValue, Object? status = sdkOmittedValue, Object? strategy = sdkOmittedValue, Object? attempts = sdkOmittedValue, Object? expireAt = sdkOmittedValue, Object? channel = sdkOmittedValue}) => SchemaSchema3e93ce8e(
-    object: identical(object, sdkOmittedValue) ? this.object : object as SdkOptional<String>,
-    id: identical(id, sdkOmittedValue) ? this.id : id as SdkOptional<String>,
-    status: identical(status, sdkOmittedValue) ? this.status : status as SdkOptional<String>,
-    strategy: identical(strategy, sdkOmittedValue) ? this.strategy : strategy as SdkOptional<String>,
-    attempts: identical(attempts, sdkOmittedValue) ? this.attempts : attempts as SdkOptional<int?>,
-    expireAt: identical(expireAt, sdkOmittedValue) ? this.expireAt : expireAt as SdkOptional<int?>,
-    channel: identical(channel, sdkOmittedValue) ? this.channel : channel as SdkOptional<String?>,
-  );
+  SchemaSchema3e93ce8e _copyWith(
+          {Object? object = sdkOmittedValue,
+          Object? id = sdkOmittedValue,
+          Object? status = sdkOmittedValue,
+          Object? strategy = sdkOmittedValue,
+          Object? attempts = sdkOmittedValue,
+          Object? expireAt = sdkOmittedValue,
+          Object? channel = sdkOmittedValue}) =>
+      SchemaSchema3e93ce8e(
+        object: identical(object, sdkOmittedValue)
+            ? this.object
+            : object as SdkOptional<String>,
+        id: identical(id, sdkOmittedValue)
+            ? this.id
+            : id as SdkOptional<String>,
+        status: identical(status, sdkOmittedValue)
+            ? this.status
+            : status as SdkOptional<String>,
+        strategy: identical(strategy, sdkOmittedValue)
+            ? this.strategy
+            : strategy as SdkOptional<String>,
+        attempts: identical(attempts, sdkOmittedValue)
+            ? this.attempts
+            : attempts as SdkOptional<int?>,
+        expireAt: identical(expireAt, sdkOmittedValue)
+            ? this.expireAt
+            : expireAt as SdkOptional<int?>,
+        channel: identical(channel, sdkOmittedValue)
+            ? this.channel
+            : channel as SdkOptional<String?>,
+      );
 
-  factory SchemaSchema3e93ce8e.fromJson(Map<String, dynamic> json) => SchemaSchema3e93ce8e(
-    object: json['object'] != null ? SdkPresent((json['object'] as String?)!) : const SdkOmitted(),
-    id: json['id'] != null ? SdkPresent((json['id'] as String?)!) : const SdkOmitted(),
-    status: json['status'] != null ? SdkPresent((json['status'] as String?)!) : const SdkOmitted(),
-    strategy: json['strategy'] != null ? SdkPresent((json['strategy'] as String?)!) : const SdkOmitted(),
-    attempts: json.containsKey('attempts') ? SdkPresent((json['attempts'] as num?)?.toInt()) : const SdkOmitted(),
-    expireAt: json.containsKey('expire_at') ? SdkPresent((json['expire_at'] as num?)?.toInt()) : const SdkOmitted(),
-    channel: json.containsKey('channel') ? SdkPresent(json['channel'] as String?) : const SdkOmitted(),
-  );
+  factory SchemaSchema3e93ce8e.fromJson(Map<String, dynamic> json) =>
+      SchemaSchema3e93ce8e(
+        object: json['object'] != null
+            ? SdkPresent((json['object'] as String?)!)
+            : const SdkOmitted(),
+        id: json['id'] != null
+            ? SdkPresent((json['id'] as String?)!)
+            : const SdkOmitted(),
+        status: json['status'] != null
+            ? SdkPresent((json['status'] as String?)!)
+            : const SdkOmitted(),
+        strategy: json['strategy'] != null
+            ? SdkPresent((json['strategy'] as String?)!)
+            : const SdkOmitted(),
+        attempts: json.containsKey('attempts')
+            ? SdkPresent((json['attempts'] as num?)?.toInt())
+            : const SdkOmitted(),
+        expireAt: json.containsKey('expire_at')
+            ? SdkPresent((json['expire_at'] as num?)?.toInt())
+            : const SdkOmitted(),
+        channel: json.containsKey('channel')
+            ? SdkPresent(json['channel'] as String?)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (object) {
-      SdkPresent<String>(value: final value) => {'object': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (id) {
-      SdkPresent<String>(value: final value) => {'id': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (status) {
-      SdkPresent<String>(value: final value) => {'status': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (strategy) {
-      SdkPresent<String>(value: final value) => {'strategy': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (attempts) {
-      SdkPresent<int?>(value: final value) => {'attempts': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (expireAt) {
-      SdkPresent<int?>(value: final value) => {'expire_at': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (channel) {
-      SdkPresent<String?>(value: final value) => {'channel': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (object) {
+          SdkPresent<String>(value: final value) => {
+              'object': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (id) {
+          SdkPresent<String>(value: final value) => {
+              'id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (status) {
+          SdkPresent<String>(value: final value) => {
+              'status': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (strategy) {
+          SdkPresent<String>(value: final value) => {
+              'strategy': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (attempts) {
+          SdkPresent<int?>(value: final value) => {
+              'attempts': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (expireAt) {
+          SdkPresent<int?>(value: final value) => {
+              'expire_at': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (channel) {
+          SdkPresent<String?>(value: final value) => {
+              'channel': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 class AttemptEmailAddressVerificationRequestBody {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The ID of the verification to check, such as one returned by prepare_verification
   final String verificationId;
+
   /// The verification code that was sent to the email address
   final String code;
 
-  const AttemptEmailAddressVerificationRequestBody({required this.verificationId, required this.code});
+  const AttemptEmailAddressVerificationRequestBody(
+      {required this.verificationId, required this.code});
 
-  AttemptEmailAddressVerificationRequestBody Function({String verificationId, String code}) get copyWith => _copyWith;
+  AttemptEmailAddressVerificationRequestBody Function(
+      {String verificationId, String code}) get copyWith => _copyWith;
 
-  AttemptEmailAddressVerificationRequestBody _copyWith({Object? verificationId = sdkOmittedValue, Object? code = sdkOmittedValue}) => AttemptEmailAddressVerificationRequestBody(
-    verificationId: identical(verificationId, sdkOmittedValue) ? this.verificationId : verificationId as String,
-    code: identical(code, sdkOmittedValue) ? this.code : code as String,
-  );
+  AttemptEmailAddressVerificationRequestBody _copyWith(
+          {Object? verificationId = sdkOmittedValue,
+          Object? code = sdkOmittedValue}) =>
+      AttemptEmailAddressVerificationRequestBody(
+        verificationId: identical(verificationId, sdkOmittedValue)
+            ? this.verificationId
+            : verificationId as String,
+        code: identical(code, sdkOmittedValue) ? this.code : code as String,
+      );
 
-  factory AttemptEmailAddressVerificationRequestBody.fromJson(Map<String, dynamic> json) => AttemptEmailAddressVerificationRequestBody(
-    verificationId: (json['verification_id'] as String?)!,
-    code: (json['code'] as String?)!,
-  );
+  factory AttemptEmailAddressVerificationRequestBody.fromJson(
+          Map<String, dynamic> json) =>
+      AttemptEmailAddressVerificationRequestBody(
+        verificationId: (json['verification_id'] as String?)!,
+        code: (json['code'] as String?)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'verification_id': verificationId,
-    'code': code,
-  };
+        'verification_id': verificationId,
+        'code': code,
+      };
 }
 
 class ReplaceUserEmailAddressRequestBody {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The new email address. Must adhere to the RFC 5322 specification for email address format.
   final String emailAddress;
+
   /// Controls the status of the replacement email address. Defaults to `verified`. Set to `reserved` to create it reserved (unverified but usable for sign-in and locked so no other user can claim it), or to `unverified` to create it neither usable for sign-in nor locked. **Warning:** `unverified` can lock the user out of their account. An unverified email address cannot be used to sign in, so if the user has no other verified or reserved identifier, they will be unable to authenticate and unable to verify this address. Prefer `reserved` unless you specifically need the address left unclaimed — for example so that another user can also hold it until one of them verifies it.
-  final SdkOptional<ReplaceUserEmailAddressRequestBodyIdentificationStatus> identificationStatus;
+  final SdkOptional<ReplaceUserEmailAddressRequestBodyIdentificationStatus>
+      identificationStatus;
+
   /// If set to `true`, the user's previous primary email address is notified that the primary email address has changed. No notification is sent when the replacement is the user's current primary email address. By default, no notification is sent.
   final SdkOptional<bool?> notifyPrimaryEmailAddressChanged;
 
-  const ReplaceUserEmailAddressRequestBody({required this.emailAddress, this.identificationStatus = const SdkOmitted(), this.notifyPrimaryEmailAddressChanged = const SdkOmitted()});
+  const ReplaceUserEmailAddressRequestBody(
+      {required this.emailAddress,
+      this.identificationStatus = const SdkOmitted(),
+      this.notifyPrimaryEmailAddressChanged = const SdkOmitted()});
 
-  ReplaceUserEmailAddressRequestBody Function({String emailAddress, SdkOptional<ReplaceUserEmailAddressRequestBodyIdentificationStatus> identificationStatus, SdkOptional<bool?> notifyPrimaryEmailAddressChanged}) get copyWith => _copyWith;
+  ReplaceUserEmailAddressRequestBody Function(
+          {String emailAddress,
+          SdkOptional<ReplaceUserEmailAddressRequestBodyIdentificationStatus>
+              identificationStatus,
+          SdkOptional<bool?> notifyPrimaryEmailAddressChanged})
+      get copyWith => _copyWith;
 
-  ReplaceUserEmailAddressRequestBody _copyWith({Object? emailAddress = sdkOmittedValue, Object? identificationStatus = sdkOmittedValue, Object? notifyPrimaryEmailAddressChanged = sdkOmittedValue}) => ReplaceUserEmailAddressRequestBody(
-    emailAddress: identical(emailAddress, sdkOmittedValue) ? this.emailAddress : emailAddress as String,
-    identificationStatus: identical(identificationStatus, sdkOmittedValue) ? this.identificationStatus : identificationStatus as SdkOptional<ReplaceUserEmailAddressRequestBodyIdentificationStatus>,
-    notifyPrimaryEmailAddressChanged: identical(notifyPrimaryEmailAddressChanged, sdkOmittedValue) ? this.notifyPrimaryEmailAddressChanged : notifyPrimaryEmailAddressChanged as SdkOptional<bool?>,
-  );
+  ReplaceUserEmailAddressRequestBody _copyWith(
+          {Object? emailAddress = sdkOmittedValue,
+          Object? identificationStatus = sdkOmittedValue,
+          Object? notifyPrimaryEmailAddressChanged = sdkOmittedValue}) =>
+      ReplaceUserEmailAddressRequestBody(
+        emailAddress: identical(emailAddress, sdkOmittedValue)
+            ? this.emailAddress
+            : emailAddress as String,
+        identificationStatus: identical(identificationStatus, sdkOmittedValue)
+            ? this.identificationStatus
+            : identificationStatus as SdkOptional<
+                ReplaceUserEmailAddressRequestBodyIdentificationStatus>,
+        notifyPrimaryEmailAddressChanged:
+            identical(notifyPrimaryEmailAddressChanged, sdkOmittedValue)
+                ? this.notifyPrimaryEmailAddressChanged
+                : notifyPrimaryEmailAddressChanged as SdkOptional<bool?>,
+      );
 
-  factory ReplaceUserEmailAddressRequestBody.fromJson(Map<String, dynamic> json) => ReplaceUserEmailAddressRequestBody(
-    emailAddress: (json['email_address'] as String?)!,
-    identificationStatus: json['identification_status'] != null ? SdkPresent((json['identification_status'] != null ? ReplaceUserEmailAddressRequestBodyIdentificationStatus.fromJson(json['identification_status'] as String) : null)!) : const SdkOmitted(),
-    notifyPrimaryEmailAddressChanged: json.containsKey('notify_primary_email_address_changed') ? SdkPresent(json['notify_primary_email_address_changed'] as bool?) : const SdkOmitted(),
-  );
+  factory ReplaceUserEmailAddressRequestBody.fromJson(
+          Map<String, dynamic> json) =>
+      ReplaceUserEmailAddressRequestBody(
+        emailAddress: (json['email_address'] as String?)!,
+        identificationStatus: json['identification_status'] != null
+            ? SdkPresent((json['identification_status'] != null
+                ? ReplaceUserEmailAddressRequestBodyIdentificationStatus
+                    .fromJson(json['identification_status'] as String)
+                : null)!)
+            : const SdkOmitted(),
+        notifyPrimaryEmailAddressChanged: json
+                .containsKey('notify_primary_email_address_changed')
+            ? SdkPresent(json['notify_primary_email_address_changed'] as bool?)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    'email_address': emailAddress,
-    ...switch (identificationStatus) {
-      SdkPresent<ReplaceUserEmailAddressRequestBodyIdentificationStatus>(value: final value) => {'identification_status': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (notifyPrimaryEmailAddressChanged) {
-      SdkPresent<bool?>(value: final value) => {'notify_primary_email_address_changed': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        'email_address': emailAddress,
+        ...switch (identificationStatus) {
+          SdkPresent<ReplaceUserEmailAddressRequestBodyIdentificationStatus>(
+            value: final value
+          ) =>
+            {
+              'identification_status': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (notifyPrimaryEmailAddressChanged) {
+          SdkPresent<bool?>(value: final value) => {
+              'notify_primary_email_address_changed': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 class CreatePhoneNumberRequestBody {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The ID representing the user
   final String userId;
+
   /// The new phone number. Must adhere to the E.164 standard for phone number format.
   final String phoneNumber;
+
   /// When created, the phone number will be marked as verified.
   final SdkOptional<bool?> verified;
+
   /// Create this phone number as the primary phone number for the user. Default: false, unless it is the first phone number.
   final SdkOptional<bool?> primary;
+
   /// Create this phone number as reserved for multi-factor authentication. The phone number must also be verified. If there are no other reserved second factors, the phone number will be set as the default second factor.
   final SdkOptional<bool?> reservedForSecondFactor;
 
-  const CreatePhoneNumberRequestBody({required this.userId, required this.phoneNumber, this.verified = const SdkOmitted(), this.primary = const SdkOmitted(), this.reservedForSecondFactor = const SdkOmitted()});
+  const CreatePhoneNumberRequestBody(
+      {required this.userId,
+      required this.phoneNumber,
+      this.verified = const SdkOmitted(),
+      this.primary = const SdkOmitted(),
+      this.reservedForSecondFactor = const SdkOmitted()});
 
-  CreatePhoneNumberRequestBody Function({String userId, String phoneNumber, SdkOptional<bool?> verified, SdkOptional<bool?> primary, SdkOptional<bool?> reservedForSecondFactor}) get copyWith => _copyWith;
+  CreatePhoneNumberRequestBody Function(
+      {String userId,
+      String phoneNumber,
+      SdkOptional<bool?> verified,
+      SdkOptional<bool?> primary,
+      SdkOptional<bool?> reservedForSecondFactor}) get copyWith => _copyWith;
 
-  CreatePhoneNumberRequestBody _copyWith({Object? userId = sdkOmittedValue, Object? phoneNumber = sdkOmittedValue, Object? verified = sdkOmittedValue, Object? primary = sdkOmittedValue, Object? reservedForSecondFactor = sdkOmittedValue}) => CreatePhoneNumberRequestBody(
-    userId: identical(userId, sdkOmittedValue) ? this.userId : userId as String,
-    phoneNumber: identical(phoneNumber, sdkOmittedValue) ? this.phoneNumber : phoneNumber as String,
-    verified: identical(verified, sdkOmittedValue) ? this.verified : verified as SdkOptional<bool?>,
-    primary: identical(primary, sdkOmittedValue) ? this.primary : primary as SdkOptional<bool?>,
-    reservedForSecondFactor: identical(reservedForSecondFactor, sdkOmittedValue) ? this.reservedForSecondFactor : reservedForSecondFactor as SdkOptional<bool?>,
-  );
+  CreatePhoneNumberRequestBody _copyWith(
+          {Object? userId = sdkOmittedValue,
+          Object? phoneNumber = sdkOmittedValue,
+          Object? verified = sdkOmittedValue,
+          Object? primary = sdkOmittedValue,
+          Object? reservedForSecondFactor = sdkOmittedValue}) =>
+      CreatePhoneNumberRequestBody(
+        userId:
+            identical(userId, sdkOmittedValue) ? this.userId : userId as String,
+        phoneNumber: identical(phoneNumber, sdkOmittedValue)
+            ? this.phoneNumber
+            : phoneNumber as String,
+        verified: identical(verified, sdkOmittedValue)
+            ? this.verified
+            : verified as SdkOptional<bool?>,
+        primary: identical(primary, sdkOmittedValue)
+            ? this.primary
+            : primary as SdkOptional<bool?>,
+        reservedForSecondFactor:
+            identical(reservedForSecondFactor, sdkOmittedValue)
+                ? this.reservedForSecondFactor
+                : reservedForSecondFactor as SdkOptional<bool?>,
+      );
 
-  factory CreatePhoneNumberRequestBody.fromJson(Map<String, dynamic> json) => CreatePhoneNumberRequestBody(
-    userId: (json['user_id'] as String?)!,
-    phoneNumber: (json['phone_number'] as String?)!,
-    verified: json.containsKey('verified') ? SdkPresent(json['verified'] as bool?) : const SdkOmitted(),
-    primary: json.containsKey('primary') ? SdkPresent(json['primary'] as bool?) : const SdkOmitted(),
-    reservedForSecondFactor: json.containsKey('reserved_for_second_factor') ? SdkPresent(json['reserved_for_second_factor'] as bool?) : const SdkOmitted(),
-  );
+  factory CreatePhoneNumberRequestBody.fromJson(Map<String, dynamic> json) =>
+      CreatePhoneNumberRequestBody(
+        userId: (json['user_id'] as String?)!,
+        phoneNumber: (json['phone_number'] as String?)!,
+        verified: json.containsKey('verified')
+            ? SdkPresent(json['verified'] as bool?)
+            : const SdkOmitted(),
+        primary: json.containsKey('primary')
+            ? SdkPresent(json['primary'] as bool?)
+            : const SdkOmitted(),
+        reservedForSecondFactor: json.containsKey('reserved_for_second_factor')
+            ? SdkPresent(json['reserved_for_second_factor'] as bool?)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    'user_id': userId,
-    'phone_number': phoneNumber,
-    ...switch (verified) {
-      SdkPresent<bool?>(value: final value) => {'verified': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (primary) {
-      SdkPresent<bool?>(value: final value) => {'primary': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (reservedForSecondFactor) {
-      SdkPresent<bool?>(value: final value) => {'reserved_for_second_factor': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        'user_id': userId,
+        'phone_number': phoneNumber,
+        ...switch (verified) {
+          SdkPresent<bool?>(value: final value) => {
+              'verified': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (primary) {
+          SdkPresent<bool?>(value: final value) => {
+              'primary': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (reservedForSecondFactor) {
+          SdkPresent<bool?>(value: final value) => {
+              'reserved_for_second_factor': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 class UpdatePhoneNumberRequestBody {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The phone number will be marked as verified.
   final SdkOptional<bool?> verified;
+
   /// Set this phone number as the primary phone number for the user.
   final SdkOptional<bool?> primary;
+
   /// Set this phone number as reserved for multi-factor authentication. The phone number must also be verified. If there are no other reserved second factors, the phone number will be set as the default second factor.
   final SdkOptional<bool?> reservedForSecondFactor;
 
-  const UpdatePhoneNumberRequestBody({this.verified = const SdkOmitted(), this.primary = const SdkOmitted(), this.reservedForSecondFactor = const SdkOmitted()});
+  const UpdatePhoneNumberRequestBody(
+      {this.verified = const SdkOmitted(),
+      this.primary = const SdkOmitted(),
+      this.reservedForSecondFactor = const SdkOmitted()});
 
-  UpdatePhoneNumberRequestBody Function({SdkOptional<bool?> verified, SdkOptional<bool?> primary, SdkOptional<bool?> reservedForSecondFactor}) get copyWith => _copyWith;
+  UpdatePhoneNumberRequestBody Function(
+      {SdkOptional<bool?> verified,
+      SdkOptional<bool?> primary,
+      SdkOptional<bool?> reservedForSecondFactor}) get copyWith => _copyWith;
 
-  UpdatePhoneNumberRequestBody _copyWith({Object? verified = sdkOmittedValue, Object? primary = sdkOmittedValue, Object? reservedForSecondFactor = sdkOmittedValue}) => UpdatePhoneNumberRequestBody(
-    verified: identical(verified, sdkOmittedValue) ? this.verified : verified as SdkOptional<bool?>,
-    primary: identical(primary, sdkOmittedValue) ? this.primary : primary as SdkOptional<bool?>,
-    reservedForSecondFactor: identical(reservedForSecondFactor, sdkOmittedValue) ? this.reservedForSecondFactor : reservedForSecondFactor as SdkOptional<bool?>,
-  );
+  UpdatePhoneNumberRequestBody _copyWith(
+          {Object? verified = sdkOmittedValue,
+          Object? primary = sdkOmittedValue,
+          Object? reservedForSecondFactor = sdkOmittedValue}) =>
+      UpdatePhoneNumberRequestBody(
+        verified: identical(verified, sdkOmittedValue)
+            ? this.verified
+            : verified as SdkOptional<bool?>,
+        primary: identical(primary, sdkOmittedValue)
+            ? this.primary
+            : primary as SdkOptional<bool?>,
+        reservedForSecondFactor:
+            identical(reservedForSecondFactor, sdkOmittedValue)
+                ? this.reservedForSecondFactor
+                : reservedForSecondFactor as SdkOptional<bool?>,
+      );
 
-  factory UpdatePhoneNumberRequestBody.fromJson(Map<String, dynamic> json) => UpdatePhoneNumberRequestBody(
-    verified: json.containsKey('verified') ? SdkPresent(json['verified'] as bool?) : const SdkOmitted(),
-    primary: json.containsKey('primary') ? SdkPresent(json['primary'] as bool?) : const SdkOmitted(),
-    reservedForSecondFactor: json.containsKey('reserved_for_second_factor') ? SdkPresent(json['reserved_for_second_factor'] as bool?) : const SdkOmitted(),
-  );
+  factory UpdatePhoneNumberRequestBody.fromJson(Map<String, dynamic> json) =>
+      UpdatePhoneNumberRequestBody(
+        verified: json.containsKey('verified')
+            ? SdkPresent(json['verified'] as bool?)
+            : const SdkOmitted(),
+        primary: json.containsKey('primary')
+            ? SdkPresent(json['primary'] as bool?)
+            : const SdkOmitted(),
+        reservedForSecondFactor: json.containsKey('reserved_for_second_factor')
+            ? SdkPresent(json['reserved_for_second_factor'] as bool?)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (verified) {
-      SdkPresent<bool?>(value: final value) => {'verified': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (primary) {
-      SdkPresent<bool?>(value: final value) => {'primary': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (reservedForSecondFactor) {
-      SdkPresent<bool?>(value: final value) => {'reserved_for_second_factor': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (verified) {
+          SdkPresent<bool?>(value: final value) => {
+              'verified': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (primary) {
+          SdkPresent<bool?>(value: final value) => {
+              'primary': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (reservedForSecondFactor) {
+          SdkPresent<bool?>(value: final value) => {
+              'reserved_for_second_factor': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

@@ -8,209 +8,398 @@ part of 'shared_commerce.dart';
 class CommerceDiscountsResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Required API value serialized in the `proration` wire field.
   final CommerceProrationDiscountResponse? proration;
+
   /// Required object value serialized in the `total` wire field.
   final CommerceMoneyResponse total;
 
-  const CommerceDiscountsResponse({required this.proration, required this.total});
+  const CommerceDiscountsResponse(
+      {required this.proration, required this.total});
 
-  CommerceDiscountsResponse Function({CommerceProrationDiscountResponse? proration, CommerceMoneyResponse total}) get copyWith => _copyWith;
+  CommerceDiscountsResponse Function(
+      {CommerceProrationDiscountResponse? proration,
+      CommerceMoneyResponse total}) get copyWith => _copyWith;
 
-  CommerceDiscountsResponse _copyWith({Object? proration = sdkOmittedValue, Object? total = sdkOmittedValue}) => CommerceDiscountsResponse(
-    proration: identical(proration, sdkOmittedValue) ? this.proration : proration as CommerceProrationDiscountResponse?,
-    total: identical(total, sdkOmittedValue) ? this.total : total as CommerceMoneyResponse,
-  );
+  CommerceDiscountsResponse _copyWith(
+          {Object? proration = sdkOmittedValue,
+          Object? total = sdkOmittedValue}) =>
+      CommerceDiscountsResponse(
+        proration: identical(proration, sdkOmittedValue)
+            ? this.proration
+            : proration as CommerceProrationDiscountResponse?,
+        total: identical(total, sdkOmittedValue)
+            ? this.total
+            : total as CommerceMoneyResponse,
+      );
 
-  factory CommerceDiscountsResponse.fromJson(Map<String, dynamic> json) => CommerceDiscountsResponse(
-    proration: json.containsKey('proration') ? json['proration'] != null ? CommerceProrationDiscountResponse.fromJson(json['proration'] as Map<String, dynamic>) : null : throw ArgumentError.value(null, 'proration', 'Required property is missing'),
-    total: (json['total'] != null ? CommerceMoneyResponse.fromJson(json['total'] as Map<String, dynamic>) : null)!,
-  );
+  factory CommerceDiscountsResponse.fromJson(Map<String, dynamic> json) =>
+      CommerceDiscountsResponse(
+        proration: json.containsKey('proration')
+            ? json['proration'] != null
+                ? CommerceProrationDiscountResponse.fromJson(
+                    json['proration'] as Map<String, dynamic>)
+                : null
+            : throw ArgumentError.value(
+                null, 'proration', 'Required property is missing'),
+        total: (json['total'] != null
+            ? CommerceMoneyResponse.fromJson(
+                json['total'] as Map<String, dynamic>)
+            : null)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'proration': proration?.toJson(),
-    'total': total.toJson(),
-  };
+        'proration': proration?.toJson(),
+        'total': total.toJson(),
+      };
 }
 
 /// Typed representation of the `CommerceMoneyResponse` API schema.
 class CommerceMoneyResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The amount in cents.
   final int amount;
+
   /// The formatted amount as a string (e.g., "$49.99").
   final String amountFormatted;
+
   /// The currency code (e.g., "USD").
   final String currency;
+
   /// The currency symbol (e.g., "$").
   final String currencySymbol;
 
-  const CommerceMoneyResponse({required this.amount, required this.amountFormatted, required this.currency, required this.currencySymbol});
+  const CommerceMoneyResponse(
+      {required this.amount,
+      required this.amountFormatted,
+      required this.currency,
+      required this.currencySymbol});
 
-  CommerceMoneyResponse Function({int amount, String amountFormatted, String currency, String currencySymbol}) get copyWith => _copyWith;
+  CommerceMoneyResponse Function(
+      {int amount,
+      String amountFormatted,
+      String currency,
+      String currencySymbol}) get copyWith => _copyWith;
 
-  CommerceMoneyResponse _copyWith({Object? amount = sdkOmittedValue, Object? amountFormatted = sdkOmittedValue, Object? currency = sdkOmittedValue, Object? currencySymbol = sdkOmittedValue}) => CommerceMoneyResponse(
-    amount: identical(amount, sdkOmittedValue) ? this.amount : amount as int,
-    amountFormatted: identical(amountFormatted, sdkOmittedValue) ? this.amountFormatted : amountFormatted as String,
-    currency: identical(currency, sdkOmittedValue) ? this.currency : currency as String,
-    currencySymbol: identical(currencySymbol, sdkOmittedValue) ? this.currencySymbol : currencySymbol as String,
-  );
+  CommerceMoneyResponse _copyWith(
+          {Object? amount = sdkOmittedValue,
+          Object? amountFormatted = sdkOmittedValue,
+          Object? currency = sdkOmittedValue,
+          Object? currencySymbol = sdkOmittedValue}) =>
+      CommerceMoneyResponse(
+        amount:
+            identical(amount, sdkOmittedValue) ? this.amount : amount as int,
+        amountFormatted: identical(amountFormatted, sdkOmittedValue)
+            ? this.amountFormatted
+            : amountFormatted as String,
+        currency: identical(currency, sdkOmittedValue)
+            ? this.currency
+            : currency as String,
+        currencySymbol: identical(currencySymbol, sdkOmittedValue)
+            ? this.currencySymbol
+            : currencySymbol as String,
+      );
 
-  factory CommerceMoneyResponse.fromJson(Map<String, dynamic> json) => CommerceMoneyResponse(
-    amount: ((json['amount'] as num?)?.toInt())!,
-    amountFormatted: (json['amount_formatted'] as String?)!,
-    currency: (json['currency'] as String?)!,
-    currencySymbol: (json['currency_symbol'] as String?)!,
-  );
+  factory CommerceMoneyResponse.fromJson(Map<String, dynamic> json) =>
+      CommerceMoneyResponse(
+        amount: ((json['amount'] as num?)?.toInt())!,
+        amountFormatted: (json['amount_formatted'] as String?)!,
+        currency: (json['currency'] as String?)!,
+        currencySymbol: (json['currency_symbol'] as String?)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'amount': amount,
-    'amount_formatted': amountFormatted,
-    'currency': currency,
-    'currency_symbol': currencySymbol,
-  };
+        'amount': amount,
+        'amount_formatted': amountFormatted,
+        'currency': currency,
+        'currency_symbol': currencySymbol,
+      };
 }
 
 /// Typed representation of the `CommercePayerCreditResponse` API schema.
 class CommercePayerCreditResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Required object value serialized in the `remaining_balance` wire field.
   final CommerceMoneyResponse remainingBalance;
+
   /// Required object value serialized in the `applied_amount` wire field.
   final CommerceMoneyResponse appliedAmount;
 
-  const CommercePayerCreditResponse({required this.remainingBalance, required this.appliedAmount});
+  const CommercePayerCreditResponse(
+      {required this.remainingBalance, required this.appliedAmount});
 
-  CommercePayerCreditResponse Function({CommerceMoneyResponse remainingBalance, CommerceMoneyResponse appliedAmount}) get copyWith => _copyWith;
+  CommercePayerCreditResponse Function(
+      {CommerceMoneyResponse remainingBalance,
+      CommerceMoneyResponse appliedAmount}) get copyWith => _copyWith;
 
-  CommercePayerCreditResponse _copyWith({Object? remainingBalance = sdkOmittedValue, Object? appliedAmount = sdkOmittedValue}) => CommercePayerCreditResponse(
-    remainingBalance: identical(remainingBalance, sdkOmittedValue) ? this.remainingBalance : remainingBalance as CommerceMoneyResponse,
-    appliedAmount: identical(appliedAmount, sdkOmittedValue) ? this.appliedAmount : appliedAmount as CommerceMoneyResponse,
-  );
+  CommercePayerCreditResponse _copyWith(
+          {Object? remainingBalance = sdkOmittedValue,
+          Object? appliedAmount = sdkOmittedValue}) =>
+      CommercePayerCreditResponse(
+        remainingBalance: identical(remainingBalance, sdkOmittedValue)
+            ? this.remainingBalance
+            : remainingBalance as CommerceMoneyResponse,
+        appliedAmount: identical(appliedAmount, sdkOmittedValue)
+            ? this.appliedAmount
+            : appliedAmount as CommerceMoneyResponse,
+      );
 
-  factory CommercePayerCreditResponse.fromJson(Map<String, dynamic> json) => CommercePayerCreditResponse(
-    remainingBalance: (json['remaining_balance'] != null ? CommerceMoneyResponse.fromJson(json['remaining_balance'] as Map<String, dynamic>) : null)!,
-    appliedAmount: (json['applied_amount'] != null ? CommerceMoneyResponse.fromJson(json['applied_amount'] as Map<String, dynamic>) : null)!,
-  );
+  factory CommercePayerCreditResponse.fromJson(Map<String, dynamic> json) =>
+      CommercePayerCreditResponse(
+        remainingBalance: (json['remaining_balance'] != null
+            ? CommerceMoneyResponse.fromJson(
+                json['remaining_balance'] as Map<String, dynamic>)
+            : null)!,
+        appliedAmount: (json['applied_amount'] != null
+            ? CommerceMoneyResponse.fromJson(
+                json['applied_amount'] as Map<String, dynamic>)
+            : null)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'remaining_balance': remainingBalance.toJson(),
-    'applied_amount': appliedAmount.toJson(),
-  };
+        'remaining_balance': remainingBalance.toJson(),
+        'applied_amount': appliedAmount.toJson(),
+      };
 }
 
 /// Typed representation of the `CommercePayerResponse` API schema.
 class CommercePayerResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// String representing the object's type. Objects of the same type share the same value.
   final CommercePayerResponseObject object;
+
   /// Unique identifier for the payer.
   final String id;
+
   /// Unique identifier for the Clerk instance.
   final String instanceId;
+
   /// User ID for user-type payers.
   final SdkOptional<String?> userId;
+
   /// First name of the payer.
   final SdkOptional<String?> firstName;
+
   /// Last name of the payer.
   final SdkOptional<String?> lastName;
+
   /// Email address of the payer.
   final SdkOptional<String?> email;
+
   /// Organization ID for org-type payers.
   final SdkOptional<String?> organizationId;
+
   /// Organization name for org-type payers.
   final SdkOptional<String?> organizationName;
+
   /// URL of the payer's image/avatar.
   final SdkOptional<String> imageUrl;
+
   /// Current credits balance for the payer.
   final SdkOptional<CommerceMoneyResponse> creditsBalance;
+
   /// Unix timestamp (in milliseconds) when the payer was created.
   final SdkOptional<int> createdAt;
+
   /// Unix timestamp (in milliseconds) when the payer was last updated.
   final SdkOptional<int> updatedAt;
 
-  const CommercePayerResponse({required this.object, required this.id, required this.instanceId, this.userId = const SdkOmitted(), this.firstName = const SdkOmitted(), this.lastName = const SdkOmitted(), this.email = const SdkOmitted(), this.organizationId = const SdkOmitted(), this.organizationName = const SdkOmitted(), this.imageUrl = const SdkOmitted(), this.creditsBalance = const SdkOmitted(), this.createdAt = const SdkOmitted(), this.updatedAt = const SdkOmitted()});
+  const CommercePayerResponse(
+      {required this.object,
+      required this.id,
+      required this.instanceId,
+      this.userId = const SdkOmitted(),
+      this.firstName = const SdkOmitted(),
+      this.lastName = const SdkOmitted(),
+      this.email = const SdkOmitted(),
+      this.organizationId = const SdkOmitted(),
+      this.organizationName = const SdkOmitted(),
+      this.imageUrl = const SdkOmitted(),
+      this.creditsBalance = const SdkOmitted(),
+      this.createdAt = const SdkOmitted(),
+      this.updatedAt = const SdkOmitted()});
 
-  CommercePayerResponse Function({CommercePayerResponseObject object, String id, String instanceId, SdkOptional<String?> userId, SdkOptional<String?> firstName, SdkOptional<String?> lastName, SdkOptional<String?> email, SdkOptional<String?> organizationId, SdkOptional<String?> organizationName, SdkOptional<String> imageUrl, SdkOptional<CommerceMoneyResponse> creditsBalance, SdkOptional<int> createdAt, SdkOptional<int> updatedAt}) get copyWith => _copyWith;
+  CommercePayerResponse Function(
+      {CommercePayerResponseObject object,
+      String id,
+      String instanceId,
+      SdkOptional<String?> userId,
+      SdkOptional<String?> firstName,
+      SdkOptional<String?> lastName,
+      SdkOptional<String?> email,
+      SdkOptional<String?> organizationId,
+      SdkOptional<String?> organizationName,
+      SdkOptional<String> imageUrl,
+      SdkOptional<CommerceMoneyResponse> creditsBalance,
+      SdkOptional<int> createdAt,
+      SdkOptional<int> updatedAt}) get copyWith => _copyWith;
 
-  CommercePayerResponse _copyWith({Object? object = sdkOmittedValue, Object? id = sdkOmittedValue, Object? instanceId = sdkOmittedValue, Object? userId = sdkOmittedValue, Object? firstName = sdkOmittedValue, Object? lastName = sdkOmittedValue, Object? email = sdkOmittedValue, Object? organizationId = sdkOmittedValue, Object? organizationName = sdkOmittedValue, Object? imageUrl = sdkOmittedValue, Object? creditsBalance = sdkOmittedValue, Object? createdAt = sdkOmittedValue, Object? updatedAt = sdkOmittedValue}) => CommercePayerResponse(
-    object: identical(object, sdkOmittedValue) ? this.object : object as CommercePayerResponseObject,
-    id: identical(id, sdkOmittedValue) ? this.id : id as String,
-    instanceId: identical(instanceId, sdkOmittedValue) ? this.instanceId : instanceId as String,
-    userId: identical(userId, sdkOmittedValue) ? this.userId : userId as SdkOptional<String?>,
-    firstName: identical(firstName, sdkOmittedValue) ? this.firstName : firstName as SdkOptional<String?>,
-    lastName: identical(lastName, sdkOmittedValue) ? this.lastName : lastName as SdkOptional<String?>,
-    email: identical(email, sdkOmittedValue) ? this.email : email as SdkOptional<String?>,
-    organizationId: identical(organizationId, sdkOmittedValue) ? this.organizationId : organizationId as SdkOptional<String?>,
-    organizationName: identical(organizationName, sdkOmittedValue) ? this.organizationName : organizationName as SdkOptional<String?>,
-    imageUrl: identical(imageUrl, sdkOmittedValue) ? this.imageUrl : imageUrl as SdkOptional<String>,
-    creditsBalance: identical(creditsBalance, sdkOmittedValue) ? this.creditsBalance : creditsBalance as SdkOptional<CommerceMoneyResponse>,
-    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as SdkOptional<int>,
-    updatedAt: identical(updatedAt, sdkOmittedValue) ? this.updatedAt : updatedAt as SdkOptional<int>,
-  );
+  CommercePayerResponse _copyWith(
+          {Object? object = sdkOmittedValue,
+          Object? id = sdkOmittedValue,
+          Object? instanceId = sdkOmittedValue,
+          Object? userId = sdkOmittedValue,
+          Object? firstName = sdkOmittedValue,
+          Object? lastName = sdkOmittedValue,
+          Object? email = sdkOmittedValue,
+          Object? organizationId = sdkOmittedValue,
+          Object? organizationName = sdkOmittedValue,
+          Object? imageUrl = sdkOmittedValue,
+          Object? creditsBalance = sdkOmittedValue,
+          Object? createdAt = sdkOmittedValue,
+          Object? updatedAt = sdkOmittedValue}) =>
+      CommercePayerResponse(
+        object: identical(object, sdkOmittedValue)
+            ? this.object
+            : object as CommercePayerResponseObject,
+        id: identical(id, sdkOmittedValue) ? this.id : id as String,
+        instanceId: identical(instanceId, sdkOmittedValue)
+            ? this.instanceId
+            : instanceId as String,
+        userId: identical(userId, sdkOmittedValue)
+            ? this.userId
+            : userId as SdkOptional<String?>,
+        firstName: identical(firstName, sdkOmittedValue)
+            ? this.firstName
+            : firstName as SdkOptional<String?>,
+        lastName: identical(lastName, sdkOmittedValue)
+            ? this.lastName
+            : lastName as SdkOptional<String?>,
+        email: identical(email, sdkOmittedValue)
+            ? this.email
+            : email as SdkOptional<String?>,
+        organizationId: identical(organizationId, sdkOmittedValue)
+            ? this.organizationId
+            : organizationId as SdkOptional<String?>,
+        organizationName: identical(organizationName, sdkOmittedValue)
+            ? this.organizationName
+            : organizationName as SdkOptional<String?>,
+        imageUrl: identical(imageUrl, sdkOmittedValue)
+            ? this.imageUrl
+            : imageUrl as SdkOptional<String>,
+        creditsBalance: identical(creditsBalance, sdkOmittedValue)
+            ? this.creditsBalance
+            : creditsBalance as SdkOptional<CommerceMoneyResponse>,
+        createdAt: identical(createdAt, sdkOmittedValue)
+            ? this.createdAt
+            : createdAt as SdkOptional<int>,
+        updatedAt: identical(updatedAt, sdkOmittedValue)
+            ? this.updatedAt
+            : updatedAt as SdkOptional<int>,
+      );
 
-  factory CommercePayerResponse.fromJson(Map<String, dynamic> json) => CommercePayerResponse(
-    object: (json['object'] != null ? CommercePayerResponseObject.fromJson(json['object'] as String) : null)!,
-    id: (json['id'] as String?)!,
-    instanceId: (json['instance_id'] as String?)!,
-    userId: json.containsKey('user_id') ? SdkPresent(json['user_id'] as String?) : const SdkOmitted(),
-    firstName: json.containsKey('first_name') ? SdkPresent(json['first_name'] as String?) : const SdkOmitted(),
-    lastName: json.containsKey('last_name') ? SdkPresent(json['last_name'] as String?) : const SdkOmitted(),
-    email: json.containsKey('email') ? SdkPresent(json['email'] as String?) : const SdkOmitted(),
-    organizationId: json.containsKey('organization_id') ? SdkPresent(json['organization_id'] as String?) : const SdkOmitted(),
-    organizationName: json.containsKey('organization_name') ? SdkPresent(json['organization_name'] as String?) : const SdkOmitted(),
-    imageUrl: json['image_url'] != null ? SdkPresent((json['image_url'] as String?)!) : const SdkOmitted(),
-    creditsBalance: json['credits_balance'] != null ? SdkPresent((json['credits_balance'] != null ? CommerceMoneyResponse.fromJson(json['credits_balance'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-    createdAt: json['created_at'] != null ? SdkPresent(((json['created_at'] as num?)?.toInt())!) : const SdkOmitted(),
-    updatedAt: json['updated_at'] != null ? SdkPresent(((json['updated_at'] as num?)?.toInt())!) : const SdkOmitted(),
-  );
+  factory CommercePayerResponse.fromJson(Map<String, dynamic> json) =>
+      CommercePayerResponse(
+        object: (json['object'] != null
+            ? CommercePayerResponseObject.fromJson(json['object'] as String)
+            : null)!,
+        id: (json['id'] as String?)!,
+        instanceId: (json['instance_id'] as String?)!,
+        userId: json.containsKey('user_id')
+            ? SdkPresent(json['user_id'] as String?)
+            : const SdkOmitted(),
+        firstName: json.containsKey('first_name')
+            ? SdkPresent(json['first_name'] as String?)
+            : const SdkOmitted(),
+        lastName: json.containsKey('last_name')
+            ? SdkPresent(json['last_name'] as String?)
+            : const SdkOmitted(),
+        email: json.containsKey('email')
+            ? SdkPresent(json['email'] as String?)
+            : const SdkOmitted(),
+        organizationId: json.containsKey('organization_id')
+            ? SdkPresent(json['organization_id'] as String?)
+            : const SdkOmitted(),
+        organizationName: json.containsKey('organization_name')
+            ? SdkPresent(json['organization_name'] as String?)
+            : const SdkOmitted(),
+        imageUrl: json['image_url'] != null
+            ? SdkPresent((json['image_url'] as String?)!)
+            : const SdkOmitted(),
+        creditsBalance: json['credits_balance'] != null
+            ? SdkPresent((json['credits_balance'] != null
+                ? CommerceMoneyResponse.fromJson(
+                    json['credits_balance'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+        createdAt: json['created_at'] != null
+            ? SdkPresent(((json['created_at'] as num?)?.toInt())!)
+            : const SdkOmitted(),
+        updatedAt: json['updated_at'] != null
+            ? SdkPresent(((json['updated_at'] as num?)?.toInt())!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    'object': object.toJson(),
-    'id': id,
-    'instance_id': instanceId,
-    ...switch (userId) {
-      SdkPresent<String?>(value: final value) => {'user_id': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (firstName) {
-      SdkPresent<String?>(value: final value) => {'first_name': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (lastName) {
-      SdkPresent<String?>(value: final value) => {'last_name': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (email) {
-      SdkPresent<String?>(value: final value) => {'email': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (organizationId) {
-      SdkPresent<String?>(value: final value) => {'organization_id': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (organizationName) {
-      SdkPresent<String?>(value: final value) => {'organization_name': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (imageUrl) {
-      SdkPresent<String>(value: final value) => {'image_url': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (creditsBalance) {
-      SdkPresent<CommerceMoneyResponse>(value: final value) => {'credits_balance': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (createdAt) {
-      SdkPresent<int>(value: final value) => {'created_at': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (updatedAt) {
-      SdkPresent<int>(value: final value) => {'updated_at': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        'object': object.toJson(),
+        'id': id,
+        'instance_id': instanceId,
+        ...switch (userId) {
+          SdkPresent<String?>(value: final value) => {
+              'user_id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (firstName) {
+          SdkPresent<String?>(value: final value) => {
+              'first_name': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (lastName) {
+          SdkPresent<String?>(value: final value) => {
+              'last_name': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (email) {
+          SdkPresent<String?>(value: final value) => {
+              'email': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (organizationId) {
+          SdkPresent<String?>(value: final value) => {
+              'organization_id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (organizationName) {
+          SdkPresent<String?>(value: final value) => {
+              'organization_name': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (imageUrl) {
+          SdkPresent<String>(value: final value) => {
+              'image_url': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (creditsBalance) {
+          SdkPresent<CommerceMoneyResponse>(value: final value) => {
+              'credits_balance': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (createdAt) {
+          SdkPresent<int>(value: final value) => {
+              'created_at': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (updatedAt) {
+          SdkPresent<int>(value: final value) => {
+              'updated_at': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

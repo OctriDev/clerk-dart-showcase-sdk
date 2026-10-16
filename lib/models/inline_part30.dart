@@ -7,294 +7,515 @@ part of 'inline.dart';
 class UpdateJWTTemplateRequestBody {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// JWT template name
   final String name;
+
   /// JWT template claims in JSON format
   final Map<String, dynamic> claims;
+
   /// JWT lifetime
   final SdkOptional<int?> lifetime;
+
   /// JWT allowed clock skew
   final SdkOptional<int?> allowedClockSkew;
+
   /// Whether a custom signing key/algorithm is also provided for this template
   final SdkOptional<bool> customSigningKey;
+
   /// The custom signing algorithm to use when minting JWTs. Required if `custom_signing_key` is `true`.
   final SdkOptional<String?> signingAlgorithm;
+
   /// The custom signing private key to use when minting JWTs. Required if `custom_signing_key` is `true`.
   final SdkOptional<String?> signingKey;
 
-  const UpdateJWTTemplateRequestBody({required this.name, required this.claims, this.lifetime = const SdkOmitted(), this.allowedClockSkew = const SdkOmitted(), this.customSigningKey = const SdkOmitted(), this.signingAlgorithm = const SdkOmitted(), this.signingKey = const SdkOmitted()});
+  const UpdateJWTTemplateRequestBody(
+      {required this.name,
+      required this.claims,
+      this.lifetime = const SdkOmitted(),
+      this.allowedClockSkew = const SdkOmitted(),
+      this.customSigningKey = const SdkOmitted(),
+      this.signingAlgorithm = const SdkOmitted(),
+      this.signingKey = const SdkOmitted()});
 
-  UpdateJWTTemplateRequestBody Function({String name, Map<String, dynamic> claims, SdkOptional<int?> lifetime, SdkOptional<int?> allowedClockSkew, SdkOptional<bool> customSigningKey, SdkOptional<String?> signingAlgorithm, SdkOptional<String?> signingKey}) get copyWith => _copyWith;
+  UpdateJWTTemplateRequestBody Function(
+      {String name,
+      Map<String, dynamic> claims,
+      SdkOptional<int?> lifetime,
+      SdkOptional<int?> allowedClockSkew,
+      SdkOptional<bool> customSigningKey,
+      SdkOptional<String?> signingAlgorithm,
+      SdkOptional<String?> signingKey}) get copyWith => _copyWith;
 
-  UpdateJWTTemplateRequestBody _copyWith({Object? name = sdkOmittedValue, Object? claims = sdkOmittedValue, Object? lifetime = sdkOmittedValue, Object? allowedClockSkew = sdkOmittedValue, Object? customSigningKey = sdkOmittedValue, Object? signingAlgorithm = sdkOmittedValue, Object? signingKey = sdkOmittedValue}) => UpdateJWTTemplateRequestBody(
-    name: identical(name, sdkOmittedValue) ? this.name : name as String,
-    claims: identical(claims, sdkOmittedValue) ? this.claims : claims as Map<String, dynamic>,
-    lifetime: identical(lifetime, sdkOmittedValue) ? this.lifetime : lifetime as SdkOptional<int?>,
-    allowedClockSkew: identical(allowedClockSkew, sdkOmittedValue) ? this.allowedClockSkew : allowedClockSkew as SdkOptional<int?>,
-    customSigningKey: identical(customSigningKey, sdkOmittedValue) ? this.customSigningKey : customSigningKey as SdkOptional<bool>,
-    signingAlgorithm: identical(signingAlgorithm, sdkOmittedValue) ? this.signingAlgorithm : signingAlgorithm as SdkOptional<String?>,
-    signingKey: identical(signingKey, sdkOmittedValue) ? this.signingKey : signingKey as SdkOptional<String?>,
-  );
+  UpdateJWTTemplateRequestBody _copyWith(
+          {Object? name = sdkOmittedValue,
+          Object? claims = sdkOmittedValue,
+          Object? lifetime = sdkOmittedValue,
+          Object? allowedClockSkew = sdkOmittedValue,
+          Object? customSigningKey = sdkOmittedValue,
+          Object? signingAlgorithm = sdkOmittedValue,
+          Object? signingKey = sdkOmittedValue}) =>
+      UpdateJWTTemplateRequestBody(
+        name: identical(name, sdkOmittedValue) ? this.name : name as String,
+        claims: identical(claims, sdkOmittedValue)
+            ? this.claims
+            : claims as Map<String, dynamic>,
+        lifetime: identical(lifetime, sdkOmittedValue)
+            ? this.lifetime
+            : lifetime as SdkOptional<int?>,
+        allowedClockSkew: identical(allowedClockSkew, sdkOmittedValue)
+            ? this.allowedClockSkew
+            : allowedClockSkew as SdkOptional<int?>,
+        customSigningKey: identical(customSigningKey, sdkOmittedValue)
+            ? this.customSigningKey
+            : customSigningKey as SdkOptional<bool>,
+        signingAlgorithm: identical(signingAlgorithm, sdkOmittedValue)
+            ? this.signingAlgorithm
+            : signingAlgorithm as SdkOptional<String?>,
+        signingKey: identical(signingKey, sdkOmittedValue)
+            ? this.signingKey
+            : signingKey as SdkOptional<String?>,
+      );
 
-  factory UpdateJWTTemplateRequestBody.fromJson(Map<String, dynamic> json) => UpdateJWTTemplateRequestBody(
-    name: (json['name'] as String?)!,
-    claims: (json['claims'] == null ? null : json['claims'] as Map<String, dynamic>)!,
-    lifetime: json.containsKey('lifetime') ? SdkPresent((json['lifetime'] as num?)?.toInt()) : const SdkOmitted(),
-    allowedClockSkew: json.containsKey('allowed_clock_skew') ? SdkPresent((json['allowed_clock_skew'] as num?)?.toInt()) : const SdkOmitted(),
-    customSigningKey: json['custom_signing_key'] != null ? SdkPresent((json['custom_signing_key'] as bool?)!) : const SdkOmitted(),
-    signingAlgorithm: json.containsKey('signing_algorithm') ? SdkPresent(json['signing_algorithm'] as String?) : const SdkOmitted(),
-    signingKey: json.containsKey('signing_key') ? SdkPresent(json['signing_key'] as String?) : const SdkOmitted(),
-  );
+  factory UpdateJWTTemplateRequestBody.fromJson(Map<String, dynamic> json) =>
+      UpdateJWTTemplateRequestBody(
+        name: (json['name'] as String?)!,
+        claims: (json['claims'] == null
+            ? null
+            : json['claims'] as Map<String, dynamic>)!,
+        lifetime: json.containsKey('lifetime')
+            ? SdkPresent((json['lifetime'] as num?)?.toInt())
+            : const SdkOmitted(),
+        allowedClockSkew: json.containsKey('allowed_clock_skew')
+            ? SdkPresent((json['allowed_clock_skew'] as num?)?.toInt())
+            : const SdkOmitted(),
+        customSigningKey: json['custom_signing_key'] != null
+            ? SdkPresent((json['custom_signing_key'] as bool?)!)
+            : const SdkOmitted(),
+        signingAlgorithm: json.containsKey('signing_algorithm')
+            ? SdkPresent(json['signing_algorithm'] as String?)
+            : const SdkOmitted(),
+        signingKey: json.containsKey('signing_key')
+            ? SdkPresent(json['signing_key'] as String?)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    'name': name,
-    'claims': claims,
-    ...switch (lifetime) {
-      SdkPresent<int?>(value: final value) => {'lifetime': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (allowedClockSkew) {
-      SdkPresent<int?>(value: final value) => {'allowed_clock_skew': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (customSigningKey) {
-      SdkPresent<bool>(value: final value) => {'custom_signing_key': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (signingAlgorithm) {
-      SdkPresent<String?>(value: final value) => {'signing_algorithm': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (signingKey) {
-      SdkPresent<String?>(value: final value) => {'signing_key': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        'name': name,
+        'claims': claims,
+        ...switch (lifetime) {
+          SdkPresent<int?>(value: final value) => {
+              'lifetime': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (allowedClockSkew) {
+          SdkPresent<int?>(value: final value) => {
+              'allowed_clock_skew': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (customSigningKey) {
+          SdkPresent<bool>(value: final value) => {
+              'custom_signing_key': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (signingAlgorithm) {
+          SdkPresent<String?>(value: final value) => {
+              'signing_algorithm': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (signingKey) {
+          SdkPresent<String?>(value: final value) => {
+              'signing_key': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 class SchemaSchema11ae8042 {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
   final List<Machine> data;
+
   /// Total number of machines
   final int totalCount;
 
   const SchemaSchema11ae8042({required this.data, required this.totalCount});
 
-  SchemaSchema11ae8042 Function({List<Machine> data, int totalCount}) get copyWith => _copyWith;
+  SchemaSchema11ae8042 Function({List<Machine> data, int totalCount})
+      get copyWith => _copyWith;
 
-  SchemaSchema11ae8042 _copyWith({Object? data = sdkOmittedValue, Object? totalCount = sdkOmittedValue}) => SchemaSchema11ae8042(
-    data: identical(data, sdkOmittedValue) ? this.data : data as List<Machine>,
-    totalCount: identical(totalCount, sdkOmittedValue) ? this.totalCount : totalCount as int,
-  );
+  SchemaSchema11ae8042 _copyWith(
+          {Object? data = sdkOmittedValue,
+          Object? totalCount = sdkOmittedValue}) =>
+      SchemaSchema11ae8042(
+        data: identical(data, sdkOmittedValue)
+            ? this.data
+            : data as List<Machine>,
+        totalCount: identical(totalCount, sdkOmittedValue)
+            ? this.totalCount
+            : totalCount as int,
+      );
 
-  factory SchemaSchema11ae8042.fromJson(Map<String, dynamic> json) => SchemaSchema11ae8042(
-    data: ((json['data'] as List?)?.map((e) => Machine.fromJson(e as Map<String, dynamic>)).toList())!,
-    totalCount: ((json['total_count'] as num?)?.toInt())!,
-  );
+  factory SchemaSchema11ae8042.fromJson(Map<String, dynamic> json) =>
+      SchemaSchema11ae8042(
+        data: ((json['data'] as List?)
+            ?.map((e) => Machine.fromJson(e as Map<String, dynamic>))
+            .toList())!,
+        totalCount: ((json['total_count'] as num?)?.toInt())!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'data': data.map((item) => item.toJson()).toList(),
-    'total_count': totalCount,
-  };
+        'data': data.map((item) => item.toJson()).toList(),
+        'total_count': totalCount,
+      };
 }
 
 class CreateMachineRequestBody {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The name of the machine
   final String name;
+
   /// Array of machine IDs that this machine will have access to. Maximum of 150 scopes per machine.
   final SdkOptional<List<String>> scopedMachines;
+
   /// The default time-to-live (TTL) in seconds for tokens created by this machine. Must be at least 1 second.
   final SdkOptional<int> defaultTokenTtl;
 
-  const CreateMachineRequestBody({required this.name, this.scopedMachines = const SdkOmitted(), this.defaultTokenTtl = const SdkOmitted()});
+  const CreateMachineRequestBody(
+      {required this.name,
+      this.scopedMachines = const SdkOmitted(),
+      this.defaultTokenTtl = const SdkOmitted()});
 
-  CreateMachineRequestBody Function({String name, SdkOptional<List<String>> scopedMachines, SdkOptional<int> defaultTokenTtl}) get copyWith => _copyWith;
+  CreateMachineRequestBody Function(
+      {String name,
+      SdkOptional<List<String>> scopedMachines,
+      SdkOptional<int> defaultTokenTtl}) get copyWith => _copyWith;
 
-  CreateMachineRequestBody _copyWith({Object? name = sdkOmittedValue, Object? scopedMachines = sdkOmittedValue, Object? defaultTokenTtl = sdkOmittedValue}) => CreateMachineRequestBody(
-    name: identical(name, sdkOmittedValue) ? this.name : name as String,
-    scopedMachines: identical(scopedMachines, sdkOmittedValue) ? this.scopedMachines : scopedMachines as SdkOptional<List<String>>,
-    defaultTokenTtl: identical(defaultTokenTtl, sdkOmittedValue) ? this.defaultTokenTtl : defaultTokenTtl as SdkOptional<int>,
-  );
+  CreateMachineRequestBody _copyWith(
+          {Object? name = sdkOmittedValue,
+          Object? scopedMachines = sdkOmittedValue,
+          Object? defaultTokenTtl = sdkOmittedValue}) =>
+      CreateMachineRequestBody(
+        name: identical(name, sdkOmittedValue) ? this.name : name as String,
+        scopedMachines: identical(scopedMachines, sdkOmittedValue)
+            ? this.scopedMachines
+            : scopedMachines as SdkOptional<List<String>>,
+        defaultTokenTtl: identical(defaultTokenTtl, sdkOmittedValue)
+            ? this.defaultTokenTtl
+            : defaultTokenTtl as SdkOptional<int>,
+      );
 
-  factory CreateMachineRequestBody.fromJson(Map<String, dynamic> json) => CreateMachineRequestBody(
-    name: (json['name'] as String?)!,
-    scopedMachines: json['scoped_machines'] != null ? SdkPresent(((json['scoped_machines'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
-    defaultTokenTtl: json['default_token_ttl'] != null ? SdkPresent(((json['default_token_ttl'] as num?)?.toInt())!) : const SdkOmitted(),
-  );
+  factory CreateMachineRequestBody.fromJson(Map<String, dynamic> json) =>
+      CreateMachineRequestBody(
+        name: (json['name'] as String?)!,
+        scopedMachines: json['scoped_machines'] != null
+            ? SdkPresent(((json['scoped_machines'] as List?)
+                ?.map((e) => e as String)
+                .toList())!)
+            : const SdkOmitted(),
+        defaultTokenTtl: json['default_token_ttl'] != null
+            ? SdkPresent(((json['default_token_ttl'] as num?)?.toInt())!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    'name': name,
-    ...switch (scopedMachines) {
-      SdkPresent<List<String>>(value: final value) => {'scoped_machines': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (defaultTokenTtl) {
-      SdkPresent<int>(value: final value) => {'default_token_ttl': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        'name': name,
+        ...switch (scopedMachines) {
+          SdkPresent<List<String>>(value: final value) => {
+              'scoped_machines': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (defaultTokenTtl) {
+          SdkPresent<int>(value: final value) => {
+              'default_token_ttl': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 class SchemaSchema6ad3d7e4 {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Required enumerated value serialized in the `object` wire field.
   final MachineWithoutScopedMachinesObject object;
+
   /// Unique identifier for the machine.
   final String id;
+
   /// The name of the machine.
   final String name;
+
   /// The ID of the instance this machine belongs to.
   final String instanceId;
+
   /// Unix timestamp of creation.
   final int createdAt;
+
   /// Unix timestamp of last update.
   final int updatedAt;
+
   /// The default time-to-live (TTL) in seconds for tokens created by this machine.
   final SdkOptional<int> defaultTokenTtl;
+
   /// Array of machines this machine has access to.
   final List<MachineWithoutScopedMachines> scopedMachines;
+
   /// The secret key for the machine, only returned upon creation.
   final String secretKey;
 
-  const SchemaSchema6ad3d7e4({required this.object, required this.id, required this.name, required this.instanceId, required this.createdAt, required this.updatedAt, this.defaultTokenTtl = const SdkOmitted(), required this.scopedMachines, required this.secretKey});
+  const SchemaSchema6ad3d7e4(
+      {required this.object,
+      required this.id,
+      required this.name,
+      required this.instanceId,
+      required this.createdAt,
+      required this.updatedAt,
+      this.defaultTokenTtl = const SdkOmitted(),
+      required this.scopedMachines,
+      required this.secretKey});
 
-  SchemaSchema6ad3d7e4 Function({MachineWithoutScopedMachinesObject object, String id, String name, String instanceId, int createdAt, int updatedAt, SdkOptional<int> defaultTokenTtl, List<MachineWithoutScopedMachines> scopedMachines, String secretKey}) get copyWith => _copyWith;
+  SchemaSchema6ad3d7e4 Function(
+      {MachineWithoutScopedMachinesObject object,
+      String id,
+      String name,
+      String instanceId,
+      int createdAt,
+      int updatedAt,
+      SdkOptional<int> defaultTokenTtl,
+      List<MachineWithoutScopedMachines> scopedMachines,
+      String secretKey}) get copyWith => _copyWith;
 
-  SchemaSchema6ad3d7e4 _copyWith({Object? object = sdkOmittedValue, Object? id = sdkOmittedValue, Object? name = sdkOmittedValue, Object? instanceId = sdkOmittedValue, Object? createdAt = sdkOmittedValue, Object? updatedAt = sdkOmittedValue, Object? defaultTokenTtl = sdkOmittedValue, Object? scopedMachines = sdkOmittedValue, Object? secretKey = sdkOmittedValue}) => SchemaSchema6ad3d7e4(
-    object: identical(object, sdkOmittedValue) ? this.object : object as MachineWithoutScopedMachinesObject,
-    id: identical(id, sdkOmittedValue) ? this.id : id as String,
-    name: identical(name, sdkOmittedValue) ? this.name : name as String,
-    instanceId: identical(instanceId, sdkOmittedValue) ? this.instanceId : instanceId as String,
-    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as int,
-    updatedAt: identical(updatedAt, sdkOmittedValue) ? this.updatedAt : updatedAt as int,
-    defaultTokenTtl: identical(defaultTokenTtl, sdkOmittedValue) ? this.defaultTokenTtl : defaultTokenTtl as SdkOptional<int>,
-    scopedMachines: identical(scopedMachines, sdkOmittedValue) ? this.scopedMachines : scopedMachines as List<MachineWithoutScopedMachines>,
-    secretKey: identical(secretKey, sdkOmittedValue) ? this.secretKey : secretKey as String,
-  );
+  SchemaSchema6ad3d7e4 _copyWith(
+          {Object? object = sdkOmittedValue,
+          Object? id = sdkOmittedValue,
+          Object? name = sdkOmittedValue,
+          Object? instanceId = sdkOmittedValue,
+          Object? createdAt = sdkOmittedValue,
+          Object? updatedAt = sdkOmittedValue,
+          Object? defaultTokenTtl = sdkOmittedValue,
+          Object? scopedMachines = sdkOmittedValue,
+          Object? secretKey = sdkOmittedValue}) =>
+      SchemaSchema6ad3d7e4(
+        object: identical(object, sdkOmittedValue)
+            ? this.object
+            : object as MachineWithoutScopedMachinesObject,
+        id: identical(id, sdkOmittedValue) ? this.id : id as String,
+        name: identical(name, sdkOmittedValue) ? this.name : name as String,
+        instanceId: identical(instanceId, sdkOmittedValue)
+            ? this.instanceId
+            : instanceId as String,
+        createdAt: identical(createdAt, sdkOmittedValue)
+            ? this.createdAt
+            : createdAt as int,
+        updatedAt: identical(updatedAt, sdkOmittedValue)
+            ? this.updatedAt
+            : updatedAt as int,
+        defaultTokenTtl: identical(defaultTokenTtl, sdkOmittedValue)
+            ? this.defaultTokenTtl
+            : defaultTokenTtl as SdkOptional<int>,
+        scopedMachines: identical(scopedMachines, sdkOmittedValue)
+            ? this.scopedMachines
+            : scopedMachines as List<MachineWithoutScopedMachines>,
+        secretKey: identical(secretKey, sdkOmittedValue)
+            ? this.secretKey
+            : secretKey as String,
+      );
 
-  factory SchemaSchema6ad3d7e4.fromJson(Map<String, dynamic> json) => SchemaSchema6ad3d7e4(
-    object: (json['object'] != null ? MachineWithoutScopedMachinesObject.fromJson(json['object'] as String) : null)!,
-    id: (json['id'] as String?)!,
-    name: (json['name'] as String?)!,
-    instanceId: (json['instance_id'] as String?)!,
-    createdAt: ((json['created_at'] as num?)?.toInt())!,
-    updatedAt: ((json['updated_at'] as num?)?.toInt())!,
-    defaultTokenTtl: json['default_token_ttl'] != null ? SdkPresent(((json['default_token_ttl'] as num?)?.toInt())!) : const SdkOmitted(),
-    scopedMachines: ((json['scoped_machines'] as List?)?.map((e) => MachineWithoutScopedMachines.fromJson(e as Map<String, dynamic>)).toList())!,
-    secretKey: (json['secret_key'] as String?)!,
-  );
+  factory SchemaSchema6ad3d7e4.fromJson(Map<String, dynamic> json) =>
+      SchemaSchema6ad3d7e4(
+        object: (json['object'] != null
+            ? MachineWithoutScopedMachinesObject.fromJson(
+                json['object'] as String)
+            : null)!,
+        id: (json['id'] as String?)!,
+        name: (json['name'] as String?)!,
+        instanceId: (json['instance_id'] as String?)!,
+        createdAt: ((json['created_at'] as num?)?.toInt())!,
+        updatedAt: ((json['updated_at'] as num?)?.toInt())!,
+        defaultTokenTtl: json['default_token_ttl'] != null
+            ? SdkPresent(((json['default_token_ttl'] as num?)?.toInt())!)
+            : const SdkOmitted(),
+        scopedMachines: ((json['scoped_machines'] as List?)
+            ?.map((e) => MachineWithoutScopedMachines.fromJson(
+                e as Map<String, dynamic>))
+            .toList())!,
+        secretKey: (json['secret_key'] as String?)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'object': object.toJson(),
-    'id': id,
-    'name': name,
-    'instance_id': instanceId,
-    'created_at': createdAt,
-    'updated_at': updatedAt,
-    ...switch (defaultTokenTtl) {
-      SdkPresent<int>(value: final value) => {'default_token_ttl': value,},
-      _ => const <String, dynamic>{},
-    },
-    'scoped_machines': scopedMachines.map((item) => item.toJson()).toList(),
-    'secret_key': secretKey,
-  };
+        'object': object.toJson(),
+        'id': id,
+        'name': name,
+        'instance_id': instanceId,
+        'created_at': createdAt,
+        'updated_at': updatedAt,
+        ...switch (defaultTokenTtl) {
+          SdkPresent<int>(value: final value) => {
+              'default_token_ttl': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        'scoped_machines': scopedMachines.map((item) => item.toJson()).toList(),
+        'secret_key': secretKey,
+      };
 }
 
 class UpdateMachineRequestBody {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The name of the machine
   final SdkOptional<String> name;
+
   /// The default time-to-live (TTL) in seconds for tokens created by this machine. Must be at least 1 second.
   final SdkOptional<int> defaultTokenTtl;
 
-  const UpdateMachineRequestBody({this.name = const SdkOmitted(), this.defaultTokenTtl = const SdkOmitted()});
+  const UpdateMachineRequestBody(
+      {this.name = const SdkOmitted(),
+      this.defaultTokenTtl = const SdkOmitted()});
 
-  UpdateMachineRequestBody Function({SdkOptional<String> name, SdkOptional<int> defaultTokenTtl}) get copyWith => _copyWith;
+  UpdateMachineRequestBody Function(
+      {SdkOptional<String> name,
+      SdkOptional<int> defaultTokenTtl}) get copyWith => _copyWith;
 
-  UpdateMachineRequestBody _copyWith({Object? name = sdkOmittedValue, Object? defaultTokenTtl = sdkOmittedValue}) => UpdateMachineRequestBody(
-    name: identical(name, sdkOmittedValue) ? this.name : name as SdkOptional<String>,
-    defaultTokenTtl: identical(defaultTokenTtl, sdkOmittedValue) ? this.defaultTokenTtl : defaultTokenTtl as SdkOptional<int>,
-  );
+  UpdateMachineRequestBody _copyWith(
+          {Object? name = sdkOmittedValue,
+          Object? defaultTokenTtl = sdkOmittedValue}) =>
+      UpdateMachineRequestBody(
+        name: identical(name, sdkOmittedValue)
+            ? this.name
+            : name as SdkOptional<String>,
+        defaultTokenTtl: identical(defaultTokenTtl, sdkOmittedValue)
+            ? this.defaultTokenTtl
+            : defaultTokenTtl as SdkOptional<int>,
+      );
 
-  factory UpdateMachineRequestBody.fromJson(Map<String, dynamic> json) => UpdateMachineRequestBody(
-    name: json['name'] != null ? SdkPresent((json['name'] as String?)!) : const SdkOmitted(),
-    defaultTokenTtl: json['default_token_ttl'] != null ? SdkPresent(((json['default_token_ttl'] as num?)?.toInt())!) : const SdkOmitted(),
-  );
+  factory UpdateMachineRequestBody.fromJson(Map<String, dynamic> json) =>
+      UpdateMachineRequestBody(
+        name: json['name'] != null
+            ? SdkPresent((json['name'] as String?)!)
+            : const SdkOmitted(),
+        defaultTokenTtl: json['default_token_ttl'] != null
+            ? SdkPresent(((json['default_token_ttl'] as num?)?.toInt())!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (name) {
-      SdkPresent<String>(value: final value) => {'name': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (defaultTokenTtl) {
-      SdkPresent<int>(value: final value) => {'default_token_ttl': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (name) {
+          SdkPresent<String>(value: final value) => {
+              'name': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (defaultTokenTtl) {
+          SdkPresent<int>(value: final value) => {
+              'default_token_ttl': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 class SchemaSchema7a4a2eaa {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// String representing the object's type.
   final SchemaSchemaObject384b96ba object;
+
   /// The ID of the deleted machine
   final String id;
+
   /// Whether the machine was successfully deleted
   final SchemaSchemaDeletedb1392ec9 deleted;
 
-  const SchemaSchema7a4a2eaa({required this.object, required this.id, required this.deleted});
+  const SchemaSchema7a4a2eaa(
+      {required this.object, required this.id, required this.deleted});
 
-  SchemaSchema7a4a2eaa Function({SchemaSchemaObject384b96ba object, String id, SchemaSchemaDeletedb1392ec9 deleted}) get copyWith => _copyWith;
+  SchemaSchema7a4a2eaa Function(
+      {SchemaSchemaObject384b96ba object,
+      String id,
+      SchemaSchemaDeletedb1392ec9 deleted}) get copyWith => _copyWith;
 
-  SchemaSchema7a4a2eaa _copyWith({Object? object = sdkOmittedValue, Object? id = sdkOmittedValue, Object? deleted = sdkOmittedValue}) => SchemaSchema7a4a2eaa(
-    object: identical(object, sdkOmittedValue) ? this.object : object as SchemaSchemaObject384b96ba,
-    id: identical(id, sdkOmittedValue) ? this.id : id as String,
-    deleted: identical(deleted, sdkOmittedValue) ? this.deleted : deleted as SchemaSchemaDeletedb1392ec9,
-  );
+  SchemaSchema7a4a2eaa _copyWith(
+          {Object? object = sdkOmittedValue,
+          Object? id = sdkOmittedValue,
+          Object? deleted = sdkOmittedValue}) =>
+      SchemaSchema7a4a2eaa(
+        object: identical(object, sdkOmittedValue)
+            ? this.object
+            : object as SchemaSchemaObject384b96ba,
+        id: identical(id, sdkOmittedValue) ? this.id : id as String,
+        deleted: identical(deleted, sdkOmittedValue)
+            ? this.deleted
+            : deleted as SchemaSchemaDeletedb1392ec9,
+      );
 
-  factory SchemaSchema7a4a2eaa.fromJson(Map<String, dynamic> json) => SchemaSchema7a4a2eaa(
-    object: (json['object'] != null ? SchemaSchemaObject384b96ba.fromJson(json['object'] as String) : null)!,
-    id: (json['id'] as String?)!,
-    deleted: (json['deleted'] != null ? SchemaSchemaDeletedb1392ec9.fromJson(json['deleted'] as bool) : null)!,
-  );
+  factory SchemaSchema7a4a2eaa.fromJson(Map<String, dynamic> json) =>
+      SchemaSchema7a4a2eaa(
+        object: (json['object'] != null
+            ? SchemaSchemaObject384b96ba.fromJson(json['object'] as String)
+            : null)!,
+        id: (json['id'] as String?)!,
+        deleted: (json['deleted'] != null
+            ? SchemaSchemaDeletedb1392ec9.fromJson(json['deleted'] as bool)
+            : null)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'object': object.toJson(),
-    'id': id,
-    'deleted': deleted.toJson(),
-  };
+        'object': object.toJson(),
+        'id': id,
+        'deleted': deleted.toJson(),
+      };
 }
 
 class SchemaSchema23990ad7 {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// String representing the object's type.
   final SchemaSchemaObjectab22cdb6 object;
+
   /// The secret key for the machine.
   final String secret;
 
   const SchemaSchema23990ad7({required this.object, required this.secret});
 
-  SchemaSchema23990ad7 Function({SchemaSchemaObjectab22cdb6 object, String secret}) get copyWith => _copyWith;
+  SchemaSchema23990ad7 Function(
+      {SchemaSchemaObjectab22cdb6 object,
+      String secret}) get copyWith => _copyWith;
 
-  SchemaSchema23990ad7 _copyWith({Object? object = sdkOmittedValue, Object? secret = sdkOmittedValue}) => SchemaSchema23990ad7(
-    object: identical(object, sdkOmittedValue) ? this.object : object as SchemaSchemaObjectab22cdb6,
-    secret: identical(secret, sdkOmittedValue) ? this.secret : secret as String,
-  );
+  SchemaSchema23990ad7 _copyWith(
+          {Object? object = sdkOmittedValue,
+          Object? secret = sdkOmittedValue}) =>
+      SchemaSchema23990ad7(
+        object: identical(object, sdkOmittedValue)
+            ? this.object
+            : object as SchemaSchemaObjectab22cdb6,
+        secret:
+            identical(secret, sdkOmittedValue) ? this.secret : secret as String,
+      );
 
-  factory SchemaSchema23990ad7.fromJson(Map<String, dynamic> json) => SchemaSchema23990ad7(
-    object: (json['object'] != null ? SchemaSchemaObjectab22cdb6.fromJson(json['object'] as String) : null)!,
-    secret: (json['secret'] as String?)!,
-  );
+  factory SchemaSchema23990ad7.fromJson(Map<String, dynamic> json) =>
+      SchemaSchema23990ad7(
+        object: (json['object'] != null
+            ? SchemaSchemaObjectab22cdb6.fromJson(json['object'] as String)
+            : null)!,
+        secret: (json['secret'] as String?)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'object': object.toJson(),
-    'secret': secret,
-  };
+        'object': object.toJson(),
+        'secret': secret,
+      };
 }

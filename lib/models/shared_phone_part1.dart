@@ -8,86 +8,181 @@ part of 'shared_phone.dart';
 class PhoneNumber {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Optional `string` value serialized in the `id` wire field.
   final SdkOptional<String> id;
+
   /// String representing the object's type. Objects of the same type share the same value.
   final PhoneNumberObject object;
+
   /// Required `string` value serialized in the `phone_number` wire field.
   final String phoneNumber;
+
   /// Optional `boolean` value serialized in the `reserved_for_second_factor` wire field.
   final SdkOptional<bool> reservedForSecondFactor;
+
   /// Optional `boolean` value serialized in the `default_second_factor` wire field.
   final SdkOptional<bool> defaultSecondFactor;
+
   /// Required `boolean` value serialized in the `reserved` wire field.
   final bool reserved;
+
   /// Required object value serialized in the `verification` wire field.
   final PhoneNumberVerification? verification;
+
   /// Required array value serialized in the `linked_to` wire field.
   final List<IdentificationLink> linkedTo;
+
   /// Optional array value serialized in the `backup_codes` wire field.
   final SdkOptional<List<String>?> backupCodes;
+
   /// Unix timestamp of creation
   final int createdAt;
+
   /// Unix timestamp of creation
   final int updatedAt;
 
-  const PhoneNumber({this.id = const SdkOmitted(), required this.object, required this.phoneNumber, this.reservedForSecondFactor = const SdkOmitted(), this.defaultSecondFactor = const SdkOmitted(), required this.reserved, required this.verification, required this.linkedTo, this.backupCodes = const SdkOmitted(), required this.createdAt, required this.updatedAt});
+  const PhoneNumber(
+      {this.id = const SdkOmitted(),
+      required this.object,
+      required this.phoneNumber,
+      this.reservedForSecondFactor = const SdkOmitted(),
+      this.defaultSecondFactor = const SdkOmitted(),
+      required this.reserved,
+      required this.verification,
+      required this.linkedTo,
+      this.backupCodes = const SdkOmitted(),
+      required this.createdAt,
+      required this.updatedAt});
 
-  PhoneNumber Function({SdkOptional<String> id, PhoneNumberObject object, String phoneNumber, SdkOptional<bool> reservedForSecondFactor, SdkOptional<bool> defaultSecondFactor, bool reserved, PhoneNumberVerification? verification, List<IdentificationLink> linkedTo, SdkOptional<List<String>?> backupCodes, int createdAt, int updatedAt}) get copyWith => _copyWith;
+  PhoneNumber Function(
+      {SdkOptional<String> id,
+      PhoneNumberObject object,
+      String phoneNumber,
+      SdkOptional<bool> reservedForSecondFactor,
+      SdkOptional<bool> defaultSecondFactor,
+      bool reserved,
+      PhoneNumberVerification? verification,
+      List<IdentificationLink> linkedTo,
+      SdkOptional<List<String>?> backupCodes,
+      int createdAt,
+      int updatedAt}) get copyWith => _copyWith;
 
-  PhoneNumber _copyWith({Object? id = sdkOmittedValue, Object? object = sdkOmittedValue, Object? phoneNumber = sdkOmittedValue, Object? reservedForSecondFactor = sdkOmittedValue, Object? defaultSecondFactor = sdkOmittedValue, Object? reserved = sdkOmittedValue, Object? verification = sdkOmittedValue, Object? linkedTo = sdkOmittedValue, Object? backupCodes = sdkOmittedValue, Object? createdAt = sdkOmittedValue, Object? updatedAt = sdkOmittedValue}) => PhoneNumber(
-    id: identical(id, sdkOmittedValue) ? this.id : id as SdkOptional<String>,
-    object: identical(object, sdkOmittedValue) ? this.object : object as PhoneNumberObject,
-    phoneNumber: identical(phoneNumber, sdkOmittedValue) ? this.phoneNumber : phoneNumber as String,
-    reservedForSecondFactor: identical(reservedForSecondFactor, sdkOmittedValue) ? this.reservedForSecondFactor : reservedForSecondFactor as SdkOptional<bool>,
-    defaultSecondFactor: identical(defaultSecondFactor, sdkOmittedValue) ? this.defaultSecondFactor : defaultSecondFactor as SdkOptional<bool>,
-    reserved: identical(reserved, sdkOmittedValue) ? this.reserved : reserved as bool,
-    verification: identical(verification, sdkOmittedValue) ? this.verification : verification as PhoneNumberVerification?,
-    linkedTo: identical(linkedTo, sdkOmittedValue) ? this.linkedTo : linkedTo as List<IdentificationLink>,
-    backupCodes: identical(backupCodes, sdkOmittedValue) ? this.backupCodes : backupCodes as SdkOptional<List<String>?>,
-    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as int,
-    updatedAt: identical(updatedAt, sdkOmittedValue) ? this.updatedAt : updatedAt as int,
-  );
+  PhoneNumber _copyWith(
+          {Object? id = sdkOmittedValue,
+          Object? object = sdkOmittedValue,
+          Object? phoneNumber = sdkOmittedValue,
+          Object? reservedForSecondFactor = sdkOmittedValue,
+          Object? defaultSecondFactor = sdkOmittedValue,
+          Object? reserved = sdkOmittedValue,
+          Object? verification = sdkOmittedValue,
+          Object? linkedTo = sdkOmittedValue,
+          Object? backupCodes = sdkOmittedValue,
+          Object? createdAt = sdkOmittedValue,
+          Object? updatedAt = sdkOmittedValue}) =>
+      PhoneNumber(
+        id: identical(id, sdkOmittedValue)
+            ? this.id
+            : id as SdkOptional<String>,
+        object: identical(object, sdkOmittedValue)
+            ? this.object
+            : object as PhoneNumberObject,
+        phoneNumber: identical(phoneNumber, sdkOmittedValue)
+            ? this.phoneNumber
+            : phoneNumber as String,
+        reservedForSecondFactor:
+            identical(reservedForSecondFactor, sdkOmittedValue)
+                ? this.reservedForSecondFactor
+                : reservedForSecondFactor as SdkOptional<bool>,
+        defaultSecondFactor: identical(defaultSecondFactor, sdkOmittedValue)
+            ? this.defaultSecondFactor
+            : defaultSecondFactor as SdkOptional<bool>,
+        reserved: identical(reserved, sdkOmittedValue)
+            ? this.reserved
+            : reserved as bool,
+        verification: identical(verification, sdkOmittedValue)
+            ? this.verification
+            : verification as PhoneNumberVerification?,
+        linkedTo: identical(linkedTo, sdkOmittedValue)
+            ? this.linkedTo
+            : linkedTo as List<IdentificationLink>,
+        backupCodes: identical(backupCodes, sdkOmittedValue)
+            ? this.backupCodes
+            : backupCodes as SdkOptional<List<String>?>,
+        createdAt: identical(createdAt, sdkOmittedValue)
+            ? this.createdAt
+            : createdAt as int,
+        updatedAt: identical(updatedAt, sdkOmittedValue)
+            ? this.updatedAt
+            : updatedAt as int,
+      );
 
   factory PhoneNumber.fromJson(Map<String, dynamic> json) => PhoneNumber(
-    id: json['id'] != null ? SdkPresent((json['id'] as String?)!) : const SdkOmitted(),
-    object: (json['object'] != null ? PhoneNumberObject.fromJson(json['object'] as String) : null)!,
-    phoneNumber: (json['phone_number'] as String?)!,
-    reservedForSecondFactor: json['reserved_for_second_factor'] != null ? SdkPresent((json['reserved_for_second_factor'] as bool?)!) : const SdkOmitted(),
-    defaultSecondFactor: json['default_second_factor'] != null ? SdkPresent((json['default_second_factor'] as bool?)!) : const SdkOmitted(),
-    reserved: (json['reserved'] as bool?)!,
-    verification: json.containsKey('verification') ? json['verification'] != null ? PhoneNumberVerification.fromJson(json['verification']) : null : throw ArgumentError.value(null, 'verification', 'Required property is missing'),
-    linkedTo: ((json['linked_to'] as List?)?.map((e) => IdentificationLink.fromJson(e as Map<String, dynamic>)).toList())!,
-    backupCodes: json.containsKey('backup_codes') ? SdkPresent((json['backup_codes'] as List?)?.map((e) => e as String).toList()) : const SdkOmitted(),
-    createdAt: ((json['created_at'] as num?)?.toInt())!,
-    updatedAt: ((json['updated_at'] as num?)?.toInt())!,
-  );
+        id: json['id'] != null
+            ? SdkPresent((json['id'] as String?)!)
+            : const SdkOmitted(),
+        object: (json['object'] != null
+            ? PhoneNumberObject.fromJson(json['object'] as String)
+            : null)!,
+        phoneNumber: (json['phone_number'] as String?)!,
+        reservedForSecondFactor: json['reserved_for_second_factor'] != null
+            ? SdkPresent((json['reserved_for_second_factor'] as bool?)!)
+            : const SdkOmitted(),
+        defaultSecondFactor: json['default_second_factor'] != null
+            ? SdkPresent((json['default_second_factor'] as bool?)!)
+            : const SdkOmitted(),
+        reserved: (json['reserved'] as bool?)!,
+        verification: json.containsKey('verification')
+            ? json['verification'] != null
+                ? PhoneNumberVerification.fromJson(json['verification'])
+                : null
+            : throw ArgumentError.value(
+                null, 'verification', 'Required property is missing'),
+        linkedTo: ((json['linked_to'] as List?)
+            ?.map((e) => IdentificationLink.fromJson(e as Map<String, dynamic>))
+            .toList())!,
+        backupCodes: json.containsKey('backup_codes')
+            ? SdkPresent((json['backup_codes'] as List?)
+                ?.map((e) => e as String)
+                .toList())
+            : const SdkOmitted(),
+        createdAt: ((json['created_at'] as num?)?.toInt())!,
+        updatedAt: ((json['updated_at'] as num?)?.toInt())!,
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (id) {
-      SdkPresent<String>(value: final value) => {'id': value,},
-      _ => const <String, dynamic>{},
-    },
-    'object': object.toJson(),
-    'phone_number': phoneNumber,
-    ...switch (reservedForSecondFactor) {
-      SdkPresent<bool>(value: final value) => {'reserved_for_second_factor': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (defaultSecondFactor) {
-      SdkPresent<bool>(value: final value) => {'default_second_factor': value,},
-      _ => const <String, dynamic>{},
-    },
-    'reserved': reserved,
-    'verification': verification?.toJson(),
-    'linked_to': linkedTo.map((item) => item.toJson()).toList(),
-    ...switch (backupCodes) {
-      SdkPresent<List<String>?>(value: final value) => {'backup_codes': value,},
-      _ => const <String, dynamic>{},
-    },
-    'created_at': createdAt,
-    'updated_at': updatedAt,
-  };
+        ...switch (id) {
+          SdkPresent<String>(value: final value) => {
+              'id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        'object': object.toJson(),
+        'phone_number': phoneNumber,
+        ...switch (reservedForSecondFactor) {
+          SdkPresent<bool>(value: final value) => {
+              'reserved_for_second_factor': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (defaultSecondFactor) {
+          SdkPresent<bool>(value: final value) => {
+              'default_second_factor': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        'reserved': reserved,
+        'verification': verification?.toJson(),
+        'linked_to': linkedTo.map((item) => item.toJson()).toList(),
+        ...switch (backupCodes) {
+          SdkPresent<List<String>?>(value: final value) => {
+              'backup_codes': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        'created_at': createdAt,
+        'updated_at': updatedAt,
+      };
 }
 
 sealed class PhoneNumberVerification {
@@ -95,29 +190,45 @@ sealed class PhoneNumberVerification {
   static const String constructionSurface = 'named';
   const PhoneNumberVerification();
   factory PhoneNumberVerification.fromJson(Object? json) {
-    try { return PhoneNumberVerificationVerificationOtp(VerificationOtp.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return PhoneNumberVerificationVerificationAdmin(VerificationAdmin.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    if (json is Map<String, dynamic> && json["object"] is String && !const {"verification_otp", "verification_admin"}.contains(json["object"])) { return UnknownPhoneNumberVerification(json); }
+    try {
+      return PhoneNumberVerificationVerificationOtp(
+          VerificationOtp.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return PhoneNumberVerificationVerificationAdmin(
+          VerificationAdmin.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    if (json is Map<String, dynamic> &&
+        json["object"] is String &&
+        !const {"verification_otp", "verification_admin"}
+            .contains(json["object"])) {
+      return UnknownPhoneNumberVerification(json);
+    }
     throw FormatException("No variant matched for PhoneNumberVerification");
   }
   Object? toJson();
 }
 
-final class PhoneNumberVerificationVerificationOtp extends PhoneNumberVerification {
+final class PhoneNumberVerificationVerificationOtp
+    extends PhoneNumberVerification {
   final VerificationOtp value;
   const PhoneNumberVerificationVerificationOtp(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class PhoneNumberVerificationVerificationAdmin extends PhoneNumberVerification {
+final class PhoneNumberVerificationVerificationAdmin
+    extends PhoneNumberVerification {
   final VerificationAdmin value;
   const PhoneNumberVerificationVerificationAdmin(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 /// A [PhoneNumberVerification] whose `object` names no branch this SDK knows, kept as received.
 final class UnknownPhoneNumberVerification extends PhoneNumberVerification {
   final Map<String, dynamic> raw;
   const UnknownPhoneNumberVerification(this.raw);
-  @override Object? toJson() => raw;
+  @override
+  Object? toJson() => raw;
 }

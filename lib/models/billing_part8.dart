@@ -8,246 +8,481 @@ part of 'billing.dart';
 class CommerceSubscriptionItem2PaymentSource {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// String representing the object's type. Objects of the same type share the same value.
   final CommercePaymentSourceResponseObject object;
+
   /// Unique identifier for the payment source.
   final String id;
+
   /// Unique identifier for the payer.
   final String payerId;
+
   /// The payment method type.
   final CommercePaymentSourceResponsePaymentMethod paymentMethod;
+
   /// Whether this is the default payment source for the payer.
   final SdkOptional<bool?> isDefault;
+
   /// The payment gateway.
   final String gateway;
+
   /// External ID in the payment gateway.
   final String gatewayExternalId;
+
   /// External account ID in the payment gateway.
   final SdkOptional<String?> gatewayExternalAccountId;
+
   /// Last 4 digits of the card (for card payment sources).
   final String last4;
+
   /// Status of the payment source.
   final CommercePaymentSourceResponseStatus status;
+
   /// Type of wallet (if applicable).
   final String walletType;
+
   /// Type of card (if applicable).
   final String cardType;
+
   /// Card expiration year (for card payment sources).
   final SdkOptional<int> expiryYear;
+
   /// Card expiration month (for card payment sources).
   final SdkOptional<int> expiryMonth;
+
   /// Unix timestamp (in milliseconds) when the payment source was created.
   final int createdAt;
+
   /// Unix timestamp (in milliseconds) when the payment source was last updated.
   final int updatedAt;
+
   /// Whether this payment source can be removed.
   final SdkOptional<bool?> isRemovable;
 
-  const CommerceSubscriptionItem2PaymentSource({required this.object, required this.id, required this.payerId, required this.paymentMethod, this.isDefault = const SdkOmitted(), required this.gateway, required this.gatewayExternalId, this.gatewayExternalAccountId = const SdkOmitted(), required this.last4, required this.status, required this.walletType, required this.cardType, this.expiryYear = const SdkOmitted(), this.expiryMonth = const SdkOmitted(), required this.createdAt, required this.updatedAt, this.isRemovable = const SdkOmitted()});
+  const CommerceSubscriptionItem2PaymentSource(
+      {required this.object,
+      required this.id,
+      required this.payerId,
+      required this.paymentMethod,
+      this.isDefault = const SdkOmitted(),
+      required this.gateway,
+      required this.gatewayExternalId,
+      this.gatewayExternalAccountId = const SdkOmitted(),
+      required this.last4,
+      required this.status,
+      required this.walletType,
+      required this.cardType,
+      this.expiryYear = const SdkOmitted(),
+      this.expiryMonth = const SdkOmitted(),
+      required this.createdAt,
+      required this.updatedAt,
+      this.isRemovable = const SdkOmitted()});
 
-  CommerceSubscriptionItem2PaymentSource Function({CommercePaymentSourceResponseObject object, String id, String payerId, CommercePaymentSourceResponsePaymentMethod paymentMethod, SdkOptional<bool?> isDefault, String gateway, String gatewayExternalId, SdkOptional<String?> gatewayExternalAccountId, String last4, CommercePaymentSourceResponseStatus status, String walletType, String cardType, SdkOptional<int> expiryYear, SdkOptional<int> expiryMonth, int createdAt, int updatedAt, SdkOptional<bool?> isRemovable}) get copyWith => _copyWith;
+  CommerceSubscriptionItem2PaymentSource Function(
+      {CommercePaymentSourceResponseObject object,
+      String id,
+      String payerId,
+      CommercePaymentSourceResponsePaymentMethod paymentMethod,
+      SdkOptional<bool?> isDefault,
+      String gateway,
+      String gatewayExternalId,
+      SdkOptional<String?> gatewayExternalAccountId,
+      String last4,
+      CommercePaymentSourceResponseStatus status,
+      String walletType,
+      String cardType,
+      SdkOptional<int> expiryYear,
+      SdkOptional<int> expiryMonth,
+      int createdAt,
+      int updatedAt,
+      SdkOptional<bool?> isRemovable}) get copyWith => _copyWith;
 
-  CommerceSubscriptionItem2PaymentSource _copyWith({Object? object = sdkOmittedValue, Object? id = sdkOmittedValue, Object? payerId = sdkOmittedValue, Object? paymentMethod = sdkOmittedValue, Object? isDefault = sdkOmittedValue, Object? gateway = sdkOmittedValue, Object? gatewayExternalId = sdkOmittedValue, Object? gatewayExternalAccountId = sdkOmittedValue, Object? last4 = sdkOmittedValue, Object? status = sdkOmittedValue, Object? walletType = sdkOmittedValue, Object? cardType = sdkOmittedValue, Object? expiryYear = sdkOmittedValue, Object? expiryMonth = sdkOmittedValue, Object? createdAt = sdkOmittedValue, Object? updatedAt = sdkOmittedValue, Object? isRemovable = sdkOmittedValue}) => CommerceSubscriptionItem2PaymentSource(
-    object: identical(object, sdkOmittedValue) ? this.object : object as CommercePaymentSourceResponseObject,
-    id: identical(id, sdkOmittedValue) ? this.id : id as String,
-    payerId: identical(payerId, sdkOmittedValue) ? this.payerId : payerId as String,
-    paymentMethod: identical(paymentMethod, sdkOmittedValue) ? this.paymentMethod : paymentMethod as CommercePaymentSourceResponsePaymentMethod,
-    isDefault: identical(isDefault, sdkOmittedValue) ? this.isDefault : isDefault as SdkOptional<bool?>,
-    gateway: identical(gateway, sdkOmittedValue) ? this.gateway : gateway as String,
-    gatewayExternalId: identical(gatewayExternalId, sdkOmittedValue) ? this.gatewayExternalId : gatewayExternalId as String,
-    gatewayExternalAccountId: identical(gatewayExternalAccountId, sdkOmittedValue) ? this.gatewayExternalAccountId : gatewayExternalAccountId as SdkOptional<String?>,
-    last4: identical(last4, sdkOmittedValue) ? this.last4 : last4 as String,
-    status: identical(status, sdkOmittedValue) ? this.status : status as CommercePaymentSourceResponseStatus,
-    walletType: identical(walletType, sdkOmittedValue) ? this.walletType : walletType as String,
-    cardType: identical(cardType, sdkOmittedValue) ? this.cardType : cardType as String,
-    expiryYear: identical(expiryYear, sdkOmittedValue) ? this.expiryYear : expiryYear as SdkOptional<int>,
-    expiryMonth: identical(expiryMonth, sdkOmittedValue) ? this.expiryMonth : expiryMonth as SdkOptional<int>,
-    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as int,
-    updatedAt: identical(updatedAt, sdkOmittedValue) ? this.updatedAt : updatedAt as int,
-    isRemovable: identical(isRemovable, sdkOmittedValue) ? this.isRemovable : isRemovable as SdkOptional<bool?>,
-  );
+  CommerceSubscriptionItem2PaymentSource _copyWith(
+          {Object? object = sdkOmittedValue,
+          Object? id = sdkOmittedValue,
+          Object? payerId = sdkOmittedValue,
+          Object? paymentMethod = sdkOmittedValue,
+          Object? isDefault = sdkOmittedValue,
+          Object? gateway = sdkOmittedValue,
+          Object? gatewayExternalId = sdkOmittedValue,
+          Object? gatewayExternalAccountId = sdkOmittedValue,
+          Object? last4 = sdkOmittedValue,
+          Object? status = sdkOmittedValue,
+          Object? walletType = sdkOmittedValue,
+          Object? cardType = sdkOmittedValue,
+          Object? expiryYear = sdkOmittedValue,
+          Object? expiryMonth = sdkOmittedValue,
+          Object? createdAt = sdkOmittedValue,
+          Object? updatedAt = sdkOmittedValue,
+          Object? isRemovable = sdkOmittedValue}) =>
+      CommerceSubscriptionItem2PaymentSource(
+        object: identical(object, sdkOmittedValue)
+            ? this.object
+            : object as CommercePaymentSourceResponseObject,
+        id: identical(id, sdkOmittedValue) ? this.id : id as String,
+        payerId: identical(payerId, sdkOmittedValue)
+            ? this.payerId
+            : payerId as String,
+        paymentMethod: identical(paymentMethod, sdkOmittedValue)
+            ? this.paymentMethod
+            : paymentMethod as CommercePaymentSourceResponsePaymentMethod,
+        isDefault: identical(isDefault, sdkOmittedValue)
+            ? this.isDefault
+            : isDefault as SdkOptional<bool?>,
+        gateway: identical(gateway, sdkOmittedValue)
+            ? this.gateway
+            : gateway as String,
+        gatewayExternalId: identical(gatewayExternalId, sdkOmittedValue)
+            ? this.gatewayExternalId
+            : gatewayExternalId as String,
+        gatewayExternalAccountId:
+            identical(gatewayExternalAccountId, sdkOmittedValue)
+                ? this.gatewayExternalAccountId
+                : gatewayExternalAccountId as SdkOptional<String?>,
+        last4: identical(last4, sdkOmittedValue) ? this.last4 : last4 as String,
+        status: identical(status, sdkOmittedValue)
+            ? this.status
+            : status as CommercePaymentSourceResponseStatus,
+        walletType: identical(walletType, sdkOmittedValue)
+            ? this.walletType
+            : walletType as String,
+        cardType: identical(cardType, sdkOmittedValue)
+            ? this.cardType
+            : cardType as String,
+        expiryYear: identical(expiryYear, sdkOmittedValue)
+            ? this.expiryYear
+            : expiryYear as SdkOptional<int>,
+        expiryMonth: identical(expiryMonth, sdkOmittedValue)
+            ? this.expiryMonth
+            : expiryMonth as SdkOptional<int>,
+        createdAt: identical(createdAt, sdkOmittedValue)
+            ? this.createdAt
+            : createdAt as int,
+        updatedAt: identical(updatedAt, sdkOmittedValue)
+            ? this.updatedAt
+            : updatedAt as int,
+        isRemovable: identical(isRemovable, sdkOmittedValue)
+            ? this.isRemovable
+            : isRemovable as SdkOptional<bool?>,
+      );
 
-  factory CommerceSubscriptionItem2PaymentSource.fromJson(Map<String, dynamic> json) => CommerceSubscriptionItem2PaymentSource(
-    object: (json['object'] != null ? CommercePaymentSourceResponseObject.fromJson(json['object'] as String) : null)!,
-    id: (json['id'] as String?)!,
-    payerId: (json['payer_id'] as String?)!,
-    paymentMethod: (json['payment_method'] != null ? CommercePaymentSourceResponsePaymentMethod.fromJson(json['payment_method'] as String) : null)!,
-    isDefault: json.containsKey('is_default') ? SdkPresent(json['is_default'] as bool?) : const SdkOmitted(),
-    gateway: (json['gateway'] as String?)!,
-    gatewayExternalId: (json['gateway_external_id'] as String?)!,
-    gatewayExternalAccountId: json.containsKey('gateway_external_account_id') ? SdkPresent(json['gateway_external_account_id'] as String?) : const SdkOmitted(),
-    last4: (json['last4'] as String?)!,
-    status: (json['status'] != null ? CommercePaymentSourceResponseStatus.fromJson(json['status'] as String) : null)!,
-    walletType: (json['wallet_type'] as String?)!,
-    cardType: (json['card_type'] as String?)!,
-    expiryYear: json['expiry_year'] != null ? SdkPresent(((json['expiry_year'] as num?)?.toInt())!) : const SdkOmitted(),
-    expiryMonth: json['expiry_month'] != null ? SdkPresent(((json['expiry_month'] as num?)?.toInt())!) : const SdkOmitted(),
-    createdAt: ((json['created_at'] as num?)?.toInt())!,
-    updatedAt: ((json['updated_at'] as num?)?.toInt())!,
-    isRemovable: json.containsKey('is_removable') ? SdkPresent(json['is_removable'] as bool?) : const SdkOmitted(),
-  );
+  factory CommerceSubscriptionItem2PaymentSource.fromJson(
+          Map<String, dynamic> json) =>
+      CommerceSubscriptionItem2PaymentSource(
+        object: (json['object'] != null
+            ? CommercePaymentSourceResponseObject.fromJson(
+                json['object'] as String)
+            : null)!,
+        id: (json['id'] as String?)!,
+        payerId: (json['payer_id'] as String?)!,
+        paymentMethod: (json['payment_method'] != null
+            ? CommercePaymentSourceResponsePaymentMethod.fromJson(
+                json['payment_method'] as String)
+            : null)!,
+        isDefault: json.containsKey('is_default')
+            ? SdkPresent(json['is_default'] as bool?)
+            : const SdkOmitted(),
+        gateway: (json['gateway'] as String?)!,
+        gatewayExternalId: (json['gateway_external_id'] as String?)!,
+        gatewayExternalAccountId:
+            json.containsKey('gateway_external_account_id')
+                ? SdkPresent(json['gateway_external_account_id'] as String?)
+                : const SdkOmitted(),
+        last4: (json['last4'] as String?)!,
+        status: (json['status'] != null
+            ? CommercePaymentSourceResponseStatus.fromJson(
+                json['status'] as String)
+            : null)!,
+        walletType: (json['wallet_type'] as String?)!,
+        cardType: (json['card_type'] as String?)!,
+        expiryYear: json['expiry_year'] != null
+            ? SdkPresent(((json['expiry_year'] as num?)?.toInt())!)
+            : const SdkOmitted(),
+        expiryMonth: json['expiry_month'] != null
+            ? SdkPresent(((json['expiry_month'] as num?)?.toInt())!)
+            : const SdkOmitted(),
+        createdAt: ((json['created_at'] as num?)?.toInt())!,
+        updatedAt: ((json['updated_at'] as num?)?.toInt())!,
+        isRemovable: json.containsKey('is_removable')
+            ? SdkPresent(json['is_removable'] as bool?)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    'object': object.toJson(),
-    'id': id,
-    'payer_id': payerId,
-    'payment_method': paymentMethod.toJson(),
-    ...switch (isDefault) {
-      SdkPresent<bool?>(value: final value) => {'is_default': value,},
-      _ => const <String, dynamic>{},
-    },
-    'gateway': gateway,
-    'gateway_external_id': gatewayExternalId,
-    ...switch (gatewayExternalAccountId) {
-      SdkPresent<String?>(value: final value) => {'gateway_external_account_id': value,},
-      _ => const <String, dynamic>{},
-    },
-    'last4': last4,
-    'status': status.toJson(),
-    'wallet_type': walletType,
-    'card_type': cardType,
-    ...switch (expiryYear) {
-      SdkPresent<int>(value: final value) => {'expiry_year': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (expiryMonth) {
-      SdkPresent<int>(value: final value) => {'expiry_month': value,},
-      _ => const <String, dynamic>{},
-    },
-    'created_at': createdAt,
-    'updated_at': updatedAt,
-    ...switch (isRemovable) {
-      SdkPresent<bool?>(value: final value) => {'is_removable': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        'object': object.toJson(),
+        'id': id,
+        'payer_id': payerId,
+        'payment_method': paymentMethod.toJson(),
+        ...switch (isDefault) {
+          SdkPresent<bool?>(value: final value) => {
+              'is_default': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        'gateway': gateway,
+        'gateway_external_id': gatewayExternalId,
+        ...switch (gatewayExternalAccountId) {
+          SdkPresent<String?>(value: final value) => {
+              'gateway_external_account_id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        'last4': last4,
+        'status': status.toJson(),
+        'wallet_type': walletType,
+        'card_type': cardType,
+        ...switch (expiryYear) {
+          SdkPresent<int>(value: final value) => {
+              'expiry_year': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (expiryMonth) {
+          SdkPresent<int>(value: final value) => {
+              'expiry_month': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        'created_at': createdAt,
+        'updated_at': updatedAt,
+        ...switch (isRemovable) {
+          SdkPresent<bool?>(value: final value) => {
+              'is_removable': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Total amount paid over the lifetime of this subscription.
 class CommerceSubscriptionItem2LifetimePaid {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The amount in cents.
   final int amount;
+
   /// The formatted amount as a string (e.g., "$49.99").
   final String amountFormatted;
+
   /// The currency code (e.g., "USD").
   final String currency;
+
   /// The currency symbol (e.g., "$").
   final String currencySymbol;
 
-  const CommerceSubscriptionItem2LifetimePaid({required this.amount, required this.amountFormatted, required this.currency, required this.currencySymbol});
+  const CommerceSubscriptionItem2LifetimePaid(
+      {required this.amount,
+      required this.amountFormatted,
+      required this.currency,
+      required this.currencySymbol});
 
-  CommerceSubscriptionItem2LifetimePaid Function({int amount, String amountFormatted, String currency, String currencySymbol}) get copyWith => _copyWith;
+  CommerceSubscriptionItem2LifetimePaid Function(
+      {int amount,
+      String amountFormatted,
+      String currency,
+      String currencySymbol}) get copyWith => _copyWith;
 
-  CommerceSubscriptionItem2LifetimePaid _copyWith({Object? amount = sdkOmittedValue, Object? amountFormatted = sdkOmittedValue, Object? currency = sdkOmittedValue, Object? currencySymbol = sdkOmittedValue}) => CommerceSubscriptionItem2LifetimePaid(
-    amount: identical(amount, sdkOmittedValue) ? this.amount : amount as int,
-    amountFormatted: identical(amountFormatted, sdkOmittedValue) ? this.amountFormatted : amountFormatted as String,
-    currency: identical(currency, sdkOmittedValue) ? this.currency : currency as String,
-    currencySymbol: identical(currencySymbol, sdkOmittedValue) ? this.currencySymbol : currencySymbol as String,
-  );
+  CommerceSubscriptionItem2LifetimePaid _copyWith(
+          {Object? amount = sdkOmittedValue,
+          Object? amountFormatted = sdkOmittedValue,
+          Object? currency = sdkOmittedValue,
+          Object? currencySymbol = sdkOmittedValue}) =>
+      CommerceSubscriptionItem2LifetimePaid(
+        amount:
+            identical(amount, sdkOmittedValue) ? this.amount : amount as int,
+        amountFormatted: identical(amountFormatted, sdkOmittedValue)
+            ? this.amountFormatted
+            : amountFormatted as String,
+        currency: identical(currency, sdkOmittedValue)
+            ? this.currency
+            : currency as String,
+        currencySymbol: identical(currencySymbol, sdkOmittedValue)
+            ? this.currencySymbol
+            : currencySymbol as String,
+      );
 
-  factory CommerceSubscriptionItem2LifetimePaid.fromJson(Map<String, dynamic> json) => CommerceSubscriptionItem2LifetimePaid(
-    amount: ((json['amount'] as num?)?.toInt())!,
-    amountFormatted: (json['amount_formatted'] as String?)!,
-    currency: (json['currency'] as String?)!,
-    currencySymbol: (json['currency_symbol'] as String?)!,
-  );
+  factory CommerceSubscriptionItem2LifetimePaid.fromJson(
+          Map<String, dynamic> json) =>
+      CommerceSubscriptionItem2LifetimePaid(
+        amount: ((json['amount'] as num?)?.toInt())!,
+        amountFormatted: (json['amount_formatted'] as String?)!,
+        currency: (json['currency'] as String?)!,
+        currencySymbol: (json['currency_symbol'] as String?)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'amount': amount,
-    'amount_formatted': amountFormatted,
-    'currency': currency,
-    'currency_symbol': currencySymbol,
-  };
+        'amount': amount,
+        'amount_formatted': amountFormatted,
+        'currency': currency,
+        'currency_symbol': currencySymbol,
+      };
 }
 
 /// Current amount for this subscription.
 class CommerceSubscriptionItem2Amount {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The amount in cents.
   final int amount;
+
   /// The formatted amount as a string (e.g., "$49.99").
   final String amountFormatted;
+
   /// The currency code (e.g., "USD").
   final String currency;
+
   /// The currency symbol (e.g., "$").
   final String currencySymbol;
 
-  const CommerceSubscriptionItem2Amount({required this.amount, required this.amountFormatted, required this.currency, required this.currencySymbol});
+  const CommerceSubscriptionItem2Amount(
+      {required this.amount,
+      required this.amountFormatted,
+      required this.currency,
+      required this.currencySymbol});
 
-  CommerceSubscriptionItem2Amount Function({int amount, String amountFormatted, String currency, String currencySymbol}) get copyWith => _copyWith;
+  CommerceSubscriptionItem2Amount Function(
+      {int amount,
+      String amountFormatted,
+      String currency,
+      String currencySymbol}) get copyWith => _copyWith;
 
-  CommerceSubscriptionItem2Amount _copyWith({Object? amount = sdkOmittedValue, Object? amountFormatted = sdkOmittedValue, Object? currency = sdkOmittedValue, Object? currencySymbol = sdkOmittedValue}) => CommerceSubscriptionItem2Amount(
-    amount: identical(amount, sdkOmittedValue) ? this.amount : amount as int,
-    amountFormatted: identical(amountFormatted, sdkOmittedValue) ? this.amountFormatted : amountFormatted as String,
-    currency: identical(currency, sdkOmittedValue) ? this.currency : currency as String,
-    currencySymbol: identical(currencySymbol, sdkOmittedValue) ? this.currencySymbol : currencySymbol as String,
-  );
+  CommerceSubscriptionItem2Amount _copyWith(
+          {Object? amount = sdkOmittedValue,
+          Object? amountFormatted = sdkOmittedValue,
+          Object? currency = sdkOmittedValue,
+          Object? currencySymbol = sdkOmittedValue}) =>
+      CommerceSubscriptionItem2Amount(
+        amount:
+            identical(amount, sdkOmittedValue) ? this.amount : amount as int,
+        amountFormatted: identical(amountFormatted, sdkOmittedValue)
+            ? this.amountFormatted
+            : amountFormatted as String,
+        currency: identical(currency, sdkOmittedValue)
+            ? this.currency
+            : currency as String,
+        currencySymbol: identical(currencySymbol, sdkOmittedValue)
+            ? this.currencySymbol
+            : currencySymbol as String,
+      );
 
-  factory CommerceSubscriptionItem2Amount.fromJson(Map<String, dynamic> json) => CommerceSubscriptionItem2Amount(
-    amount: ((json['amount'] as num?)?.toInt())!,
-    amountFormatted: (json['amount_formatted'] as String?)!,
-    currency: (json['currency'] as String?)!,
-    currencySymbol: (json['currency_symbol'] as String?)!,
-  );
+  factory CommerceSubscriptionItem2Amount.fromJson(Map<String, dynamic> json) =>
+      CommerceSubscriptionItem2Amount(
+        amount: ((json['amount'] as num?)?.toInt())!,
+        amountFormatted: (json['amount_formatted'] as String?)!,
+        currency: (json['currency'] as String?)!,
+        currencySymbol: (json['currency_symbol'] as String?)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'amount': amount,
-    'amount_formatted': amountFormatted,
-    'currency': currency,
-    'currency_symbol': currencySymbol,
-  };
+        'amount': amount,
+        'amount_formatted': amountFormatted,
+        'currency': currency,
+        'currency_symbol': currencySymbol,
+      };
 }
 
 /// Information about the next invoice.
 class CommerceSubscriptionItem2NextInvoice {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Base plan fee for the next payment. Does not include per-unit (e.g. seat) charges; see `totals.grand_total` for the full amount.
   final SdkOptional<CommerceMoneyResponse?> amount;
+
   /// Unix timestamp (in milliseconds) for the next payment date.
   final SdkOptional<int?> date;
+
   /// Per-unit total breakdown (for example, seats) for the next payment.
   final SdkOptional<List<CommercePerUnitTotal>> perUnitTotals;
+
   /// Breakdown of the recurring amount that will be billed at renewal (base fee + per-unit charges). Tax and credits are not previewed.
   final SdkOptional<CommerceTotalsResponse?> totals;
 
-  const CommerceSubscriptionItem2NextInvoice({this.amount = const SdkOmitted(), this.date = const SdkOmitted(), this.perUnitTotals = const SdkOmitted(), this.totals = const SdkOmitted()});
+  const CommerceSubscriptionItem2NextInvoice(
+      {this.amount = const SdkOmitted(),
+      this.date = const SdkOmitted(),
+      this.perUnitTotals = const SdkOmitted(),
+      this.totals = const SdkOmitted()});
 
-  CommerceSubscriptionItem2NextInvoice Function({SdkOptional<CommerceMoneyResponse?> amount, SdkOptional<int?> date, SdkOptional<List<CommercePerUnitTotal>> perUnitTotals, SdkOptional<CommerceTotalsResponse?> totals}) get copyWith => _copyWith;
+  CommerceSubscriptionItem2NextInvoice Function(
+      {SdkOptional<CommerceMoneyResponse?> amount,
+      SdkOptional<int?> date,
+      SdkOptional<List<CommercePerUnitTotal>> perUnitTotals,
+      SdkOptional<CommerceTotalsResponse?> totals}) get copyWith => _copyWith;
 
-  CommerceSubscriptionItem2NextInvoice _copyWith({Object? amount = sdkOmittedValue, Object? date = sdkOmittedValue, Object? perUnitTotals = sdkOmittedValue, Object? totals = sdkOmittedValue}) => CommerceSubscriptionItem2NextInvoice(
-    amount: identical(amount, sdkOmittedValue) ? this.amount : amount as SdkOptional<CommerceMoneyResponse?>,
-    date: identical(date, sdkOmittedValue) ? this.date : date as SdkOptional<int?>,
-    perUnitTotals: identical(perUnitTotals, sdkOmittedValue) ? this.perUnitTotals : perUnitTotals as SdkOptional<List<CommercePerUnitTotal>>,
-    totals: identical(totals, sdkOmittedValue) ? this.totals : totals as SdkOptional<CommerceTotalsResponse?>,
-  );
+  CommerceSubscriptionItem2NextInvoice _copyWith(
+          {Object? amount = sdkOmittedValue,
+          Object? date = sdkOmittedValue,
+          Object? perUnitTotals = sdkOmittedValue,
+          Object? totals = sdkOmittedValue}) =>
+      CommerceSubscriptionItem2NextInvoice(
+        amount: identical(amount, sdkOmittedValue)
+            ? this.amount
+            : amount as SdkOptional<CommerceMoneyResponse?>,
+        date: identical(date, sdkOmittedValue)
+            ? this.date
+            : date as SdkOptional<int?>,
+        perUnitTotals: identical(perUnitTotals, sdkOmittedValue)
+            ? this.perUnitTotals
+            : perUnitTotals as SdkOptional<List<CommercePerUnitTotal>>,
+        totals: identical(totals, sdkOmittedValue)
+            ? this.totals
+            : totals as SdkOptional<CommerceTotalsResponse?>,
+      );
 
-  factory CommerceSubscriptionItem2NextInvoice.fromJson(Map<String, dynamic> json) => CommerceSubscriptionItem2NextInvoice(
-    amount: json.containsKey('amount') ? SdkPresent(json['amount'] != null ? CommerceMoneyResponse.fromJson(json['amount'] as Map<String, dynamic>) : null) : const SdkOmitted(),
-    date: json.containsKey('date') ? SdkPresent((json['date'] as num?)?.toInt()) : const SdkOmitted(),
-    perUnitTotals: json['per_unit_totals'] != null ? SdkPresent(((json['per_unit_totals'] as List?)?.map((e) => CommercePerUnitTotal.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-    totals: json.containsKey('totals') ? SdkPresent(json['totals'] != null ? CommerceTotalsResponse.fromJson(json['totals'] as Map<String, dynamic>) : null) : const SdkOmitted(),
-  );
+  factory CommerceSubscriptionItem2NextInvoice.fromJson(
+          Map<String, dynamic> json) =>
+      CommerceSubscriptionItem2NextInvoice(
+        amount: json.containsKey('amount')
+            ? SdkPresent(json['amount'] != null
+                ? CommerceMoneyResponse.fromJson(
+                    json['amount'] as Map<String, dynamic>)
+                : null)
+            : const SdkOmitted(),
+        date: json.containsKey('date')
+            ? SdkPresent((json['date'] as num?)?.toInt())
+            : const SdkOmitted(),
+        perUnitTotals: json['per_unit_totals'] != null
+            ? SdkPresent(((json['per_unit_totals'] as List?)
+                ?.map((e) =>
+                    CommercePerUnitTotal.fromJson(e as Map<String, dynamic>))
+                .toList())!)
+            : const SdkOmitted(),
+        totals: json.containsKey('totals')
+            ? SdkPresent(json['totals'] != null
+                ? CommerceTotalsResponse.fromJson(
+                    json['totals'] as Map<String, dynamic>)
+                : null)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (amount) {
-      SdkPresent<CommerceMoneyResponse?>(value: final value) => {'amount': value?.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (date) {
-      SdkPresent<int?>(value: final value) => {'date': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (perUnitTotals) {
-      SdkPresent<List<CommercePerUnitTotal>>(value: final value) => {'per_unit_totals': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (totals) {
-      SdkPresent<CommerceTotalsResponse?>(value: final value) => {'totals': value?.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (amount) {
+          SdkPresent<CommerceMoneyResponse?>(value: final value) => {
+              'amount': value?.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (date) {
+          SdkPresent<int?>(value: final value) => {
+              'date': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (perUnitTotals) {
+          SdkPresent<List<CommercePerUnitTotal>>(value: final value) => {
+              'per_unit_totals': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (totals) {
+          SdkPresent<CommerceTotalsResponse?>(value: final value) => {
+              'totals': value?.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

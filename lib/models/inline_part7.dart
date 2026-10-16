@@ -6,28 +6,31 @@ part of 'inline.dart';
 // Inline operation models (part 7)
 /// String representing the object's type. Objects of the same type share the same value.
 final class InstanceRestrictionsObject {
-
   final String value;
 
   const InstanceRestrictionsObject._(this.value);
 
-  factory InstanceRestrictionsObject.fromJson(String value) => InstanceRestrictionsObject._(value);
+  factory InstanceRestrictionsObject.fromJson(String value) =>
+      InstanceRestrictionsObject._(value);
 
-  static const instanceRestrictions = InstanceRestrictionsObject._('instance_restrictions');
+  static const instanceRestrictions =
+      InstanceRestrictionsObject._('instance_restrictions');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is InstanceRestrictionsObject && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is InstanceRestrictionsObject && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Required enumerated value serialized in the `object` wire field.
 final class InvitationObject {
-
   final String value;
 
   const InvitationObject._(this.value);
@@ -38,17 +41,19 @@ final class InvitationObject {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is InvitationObject && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is InvitationObject && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Required enumerated value serialized in the `status` wire field.
 final class InvitationStatus {
-
   final String value;
 
   const InvitationStatus._(this.value);
@@ -62,220 +67,253 @@ final class InvitationStatus {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is InvitationStatus && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is InvitationStatus && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Required enumerated value serialized in the `kty` wire field.
 final class JWKSEcdsaPrivateKeyKty {
-
   final String value;
 
   const JWKSEcdsaPrivateKeyKty._(this.value);
 
-  factory JWKSEcdsaPrivateKeyKty.fromJson(String value) => JWKSEcdsaPrivateKeyKty._(value);
+  factory JWKSEcdsaPrivateKeyKty.fromJson(String value) =>
+      JWKSEcdsaPrivateKeyKty._(value);
 
   static const ec = JWKSEcdsaPrivateKeyKty._('EC');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is JWKSEcdsaPrivateKeyKty && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is JWKSEcdsaPrivateKeyKty && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Required enumerated value serialized in the `kty` wire field.
 final class JWKSEcdsaPublicKeyKty {
-
   final String value;
 
   const JWKSEcdsaPublicKeyKty._(this.value);
 
-  factory JWKSEcdsaPublicKeyKty.fromJson(String value) => JWKSEcdsaPublicKeyKty._(value);
+  factory JWKSEcdsaPublicKeyKty.fromJson(String value) =>
+      JWKSEcdsaPublicKeyKty._(value);
 
   static const ec = JWKSEcdsaPublicKeyKty._('EC');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is JWKSEcdsaPublicKeyKty && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is JWKSEcdsaPublicKeyKty && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Required enumerated value serialized in the `crv` wire field.
 final class JWKSEd25519PrivateKeyCrv {
-
   final String value;
 
   const JWKSEd25519PrivateKeyCrv._(this.value);
 
-  factory JWKSEd25519PrivateKeyCrv.fromJson(String value) => JWKSEd25519PrivateKeyCrv._(value);
+  factory JWKSEd25519PrivateKeyCrv.fromJson(String value) =>
+      JWKSEd25519PrivateKeyCrv._(value);
 
   static const ed25519 = JWKSEd25519PrivateKeyCrv._('Ed25519');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is JWKSEd25519PrivateKeyCrv && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is JWKSEd25519PrivateKeyCrv && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Required enumerated value serialized in the `kty` wire field.
 final class JWKSEd25519PrivateKeyKty {
-
   final String value;
 
   const JWKSEd25519PrivateKeyKty._(this.value);
 
-  factory JWKSEd25519PrivateKeyKty.fromJson(String value) => JWKSEd25519PrivateKeyKty._(value);
+  factory JWKSEd25519PrivateKeyKty.fromJson(String value) =>
+      JWKSEd25519PrivateKeyKty._(value);
 
   static const okp = JWKSEd25519PrivateKeyKty._('OKP');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is JWKSEd25519PrivateKeyKty && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is JWKSEd25519PrivateKeyKty && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Required enumerated value serialized in the `crv` wire field.
 final class JWKSEd25519PublicKeyCrv {
-
   final String value;
 
   const JWKSEd25519PublicKeyCrv._(this.value);
 
-  factory JWKSEd25519PublicKeyCrv.fromJson(String value) => JWKSEd25519PublicKeyCrv._(value);
+  factory JWKSEd25519PublicKeyCrv.fromJson(String value) =>
+      JWKSEd25519PublicKeyCrv._(value);
 
   static const ed25519 = JWKSEd25519PublicKeyCrv._('Ed25519');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is JWKSEd25519PublicKeyCrv && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is JWKSEd25519PublicKeyCrv && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Required enumerated value serialized in the `kty` wire field.
 final class JWKSEd25519PublicKeyKty {
-
   final String value;
 
   const JWKSEd25519PublicKeyKty._(this.value);
 
-  factory JWKSEd25519PublicKeyKty.fromJson(String value) => JWKSEd25519PublicKeyKty._(value);
+  factory JWKSEd25519PublicKeyKty.fromJson(String value) =>
+      JWKSEd25519PublicKeyKty._(value);
 
   static const okp = JWKSEd25519PublicKeyKty._('OKP');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is JWKSEd25519PublicKeyKty && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is JWKSEd25519PublicKeyKty && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Required enumerated value serialized in the `kty` wire field.
 final class JWKSRsaPrivateKeyKty {
-
   final String value;
 
   const JWKSRsaPrivateKeyKty._(this.value);
 
-  factory JWKSRsaPrivateKeyKty.fromJson(String value) => JWKSRsaPrivateKeyKty._(value);
+  factory JWKSRsaPrivateKeyKty.fromJson(String value) =>
+      JWKSRsaPrivateKeyKty._(value);
 
   static const rsa = JWKSRsaPrivateKeyKty._('RSA');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is JWKSRsaPrivateKeyKty && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is JWKSRsaPrivateKeyKty && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Required enumerated value serialized in the `kty` wire field.
 final class JWKSRsaPublicKeyKty {
-
   final String value;
 
   const JWKSRsaPublicKeyKty._(this.value);
 
-  factory JWKSRsaPublicKeyKty.fromJson(String value) => JWKSRsaPublicKeyKty._(value);
+  factory JWKSRsaPublicKeyKty.fromJson(String value) =>
+      JWKSRsaPublicKeyKty._(value);
 
   static const rsa = JWKSRsaPublicKeyKty._('RSA');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is JWKSRsaPublicKeyKty && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is JWKSRsaPublicKeyKty && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Required enumerated value serialized in the `kty` wire field.
 final class JWKSSymmetricKeyKty {
-
   final String value;
 
   const JWKSSymmetricKeyKty._(this.value);
 
-  factory JWKSSymmetricKeyKty.fromJson(String value) => JWKSSymmetricKeyKty._(value);
+  factory JWKSSymmetricKeyKty.fromJson(String value) =>
+      JWKSSymmetricKeyKty._(value);
 
   static const oct = JWKSSymmetricKeyKty._('oct');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is JWKSSymmetricKeyKty && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is JWKSSymmetricKeyKty && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Required enumerated value serialized in the `object` wire field.
 final class JWTTemplateObject {
-
   final String value;
 
   const JWTTemplateObject._(this.value);
 
-  factory JWTTemplateObject.fromJson(String value) => JWTTemplateObject._(value);
+  factory JWTTemplateObject.fromJson(String value) =>
+      JWTTemplateObject._(value);
 
   static const jwtTemplate = JWTTemplateObject._('jwt_template');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is JWTTemplateObject && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is JWTTemplateObject && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }

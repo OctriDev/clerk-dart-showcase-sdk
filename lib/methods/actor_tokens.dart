@@ -29,16 +29,26 @@ Future<ActorToken> createActorToken(ClientConfig config,
             'user_id': userId,
             'actor': actor,
             'expires_in_seconds': SdkUtils.unwrapOptional(expiresInSeconds),
-            'session_max_duration_in_seconds': SdkUtils.unwrapOptional(sessionMaxDurationInSeconds)
+            'session_max_duration_in_seconds':
+                SdkUtils.unwrapOptional(sessionMaxDurationInSeconds)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'createActorToken',
-          fromJsonRaw: (value) => ActorToken.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              ActorToken.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '402': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '403': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '422': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '400': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>),
+            '402': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>),
+            '403': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>),
+            '422': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Revokes a pending actor token, changing its status to revoked. Use `actor_token_id` to identify the token; the response includes its resulting status and associated actor and user details.
 ///
@@ -52,8 +62,12 @@ Future<ActorToken> revokeActorToken(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'revokeActorToken',
-          fromJsonRaw: (value) => ActorToken.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              ActorToken.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '404': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '400': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>),
+        '404': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }

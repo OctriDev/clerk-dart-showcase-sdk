@@ -40,7 +40,8 @@ Future<CreateApiKeyResponse> createApiKey(ClientConfig config,
   if (secondsUntilExpiration is SdkPresent<double?>) {
     final secondsUntilExpirationValue = secondsUntilExpiration.value;
     if (secondsUntilExpirationValue != null) {
-      validateRange('seconds_until_expiration', secondsUntilExpirationValue, exclusiveMin: 0);
+      validateRange('seconds_until_expiration', secondsUntilExpirationValue,
+          exclusiveMin: 0);
     }
   }
 
@@ -54,15 +55,16 @@ Future<CreateApiKeyResponse> createApiKey(ClientConfig config,
             'claims': SdkUtils.unwrapOptional(claims),
             'scopes': SdkUtils.unwrapOptional(scopes),
             'created_by': SdkUtils.unwrapOptional(createdBy),
-            'seconds_until_expiration': SdkUtils.unwrapOptional(secondsUntilExpiration)
+            'seconds_until_expiration':
+                SdkUtils.unwrapOptional(secondsUntilExpiration)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'createApiKey',
-          fromJsonRaw: (value) => CreateApiKeyResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              CreateApiKeyResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions))
       .data;
 }
-
 
 /// Lists API keys associated with a specified subject. Use `include_invalid` to control whether invalid keys are included, and use `query` to filter the results. Use `limit` and `offset` to paginate the results.
 Future<ListApiKeysResponse> listApiKeys(ClientConfig config,
@@ -92,19 +94,26 @@ Future<ListApiKeysResponse> listApiKeys(ClientConfig config,
           config: config,
           query: {
             'subject': SdkQueryValue(subject, style: 'form', explode: true),
-            'type': SdkQueryValue(SdkUtils.unwrapOptional(type_), style: 'form', explode: true),
-            'include_invalid': SdkQueryValue(SdkUtils.unwrapOptional(includeInvalid), style: 'form', explode: true),
-            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit), style: 'form', explode: true),
-            'offset': SdkQueryValue(SdkUtils.unwrapOptional(offset), style: 'form', explode: true),
-            'query': SdkQueryValue(SdkUtils.unwrapOptional(query), style: 'form', explode: true)
+            'type': SdkQueryValue(SdkUtils.unwrapOptional(type_),
+                style: 'form', explode: true),
+            'include_invalid': SdkQueryValue(
+                SdkUtils.unwrapOptional(includeInvalid),
+                style: 'form',
+                explode: true),
+            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit),
+                style: 'form', explode: true),
+            'offset': SdkQueryValue(SdkUtils.unwrapOptional(offset),
+                style: 'form', explode: true),
+            'query': SdkQueryValue(SdkUtils.unwrapOptional(query),
+                style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'listApiKeys',
-          fromJsonRaw: (value) => ListApiKeysResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              ListApiKeysResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions))
       .data;
 }
-
 
 /// Retrieves an API key by its identifier. Supply the key ID in the path using either the `ak_` or `api_key_` prefix followed by 32 hexadecimal characters. The response contains the key's configuration and status.
 Future<GetApiKeyResponse> getApiKey(ClientConfig config,
@@ -116,11 +125,11 @@ Future<GetApiKeyResponse> getApiKey(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'getApiKey',
-          fromJsonRaw: (value) => GetApiKeyResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              GetApiKeyResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions))
       .data;
 }
-
 
 /// Updates configurable properties of an API key. Include only the fields you want to change, such as `scopes`, `description`, `subject`, or `seconds_until_expiration`. The response contains the updated API key object.
 Future<UpdateApiKeyResponse> updateApiKey(ClientConfig config,
@@ -139,12 +148,14 @@ Future<UpdateApiKeyResponse> updateApiKey(ClientConfig config,
     }
   }
   if (subject is SdkPresent<String>) {
-    sdkValidatePattern('subject', subject.value, '^(user|org|mch|scim)_\\w{27}\$');
+    sdkValidatePattern(
+        'subject', subject.value, '^(user|org|mch|scim)_\\w{27}\$');
   }
   if (secondsUntilExpiration is SdkPresent<double?>) {
     final secondsUntilExpirationValue = secondsUntilExpiration.value;
     if (secondsUntilExpirationValue != null) {
-      validateRange('seconds_until_expiration', secondsUntilExpirationValue, exclusiveMin: 0);
+      validateRange('seconds_until_expiration', secondsUntilExpirationValue,
+          exclusiveMin: 0);
     }
   }
 
@@ -156,15 +167,16 @@ Future<UpdateApiKeyResponse> updateApiKey(ClientConfig config,
             'scopes': SdkUtils.unwrapOptional(scopes),
             'description': SdkUtils.unwrapOptional(description),
             'subject': SdkUtils.unwrapOptional(subject),
-            'seconds_until_expiration': SdkUtils.unwrapOptional(secondsUntilExpiration)
+            'seconds_until_expiration':
+                SdkUtils.unwrapOptional(secondsUntilExpiration)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'updateApiKey',
-          fromJsonRaw: (value) => UpdateApiKeyResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              UpdateApiKeyResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions))
       .data;
 }
-
 
 /// Deletes an API key identified by its ID. Supply the identifier using the `ak_` or `api_key_` prefix followed by 32 hexadecimal characters. The response confirms that the key was deleted.
 Future<DeleteApiKeyResponse> deleteApiKey(ClientConfig config,
@@ -176,11 +188,11 @@ Future<DeleteApiKeyResponse> deleteApiKey(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'deleteApiKey',
-          fromJsonRaw: (value) => DeleteApiKeyResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              DeleteApiKeyResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions))
       .data;
 }
-
 
 /// Retrieves the secret for an API key by its identifier. Supply the key ID using the `ak_` or `api_key_` prefix followed by 32 hexadecimal characters. Treat the returned secret as a credential.
 Future<GetApiKeySecretResponse> getApiKeySecret(ClientConfig config,
@@ -192,11 +204,11 @@ Future<GetApiKeySecretResponse> getApiKeySecret(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'getApiKeySecret',
-          fromJsonRaw: (value) => GetApiKeySecretResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              GetApiKeySecretResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions))
       .data;
 }
-
 
 /// Revokes an API key identified by its ID. You can include `revocation_reason` to record why the key was revoked. The response contains the API key's updated revocation state.
 Future<RevokeApiKeyResponse> revokeApiKey(ClientConfig config,
@@ -205,19 +217,19 @@ Future<RevokeApiKeyResponse> revokeApiKey(ClientConfig config,
     RequestOptions? requestOptions}) async {
   sdkValidatePattern('apiKeyID', apiKeyId, '^(ak|api_key)_[0-9A-Fa-f]{32}\$');
 
-  return (await sdkRequest<RevokeApiKeyResponse>('POST',
-          '/api_keys/${Uri.encodeComponent(apiKeyId.toString())}/revoke',
+  return (await sdkRequest<RevokeApiKeyResponse>(
+          'POST', '/api_keys/${Uri.encodeComponent(apiKeyId.toString())}/revoke',
           config: config,
           body: {
             'revocation_reason': SdkUtils.unwrapOptional(revocationReason)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'revokeApiKey',
-          fromJsonRaw: (value) => RevokeApiKeyResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              RevokeApiKeyResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions))
       .data;
 }
-
 
 /// Verifies an API key using its secret. Supply the key in the `secret` field to retrieve its metadata and status. The response includes whether the key is revoked or expired and its associated subject and scopes.
 Future<VerifyApiKeyResponse> verifyApiKey(ClientConfig config,
@@ -227,7 +239,8 @@ Future<VerifyApiKeyResponse> verifyApiKey(ClientConfig config,
           body: {'secret': secret},
           decoder: SdkResponseDecoder.json,
           operationId: 'verifyApiKey',
-          fromJsonRaw: (value) => VerifyApiKeyResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              VerifyApiKeyResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions))
       .data;
 }

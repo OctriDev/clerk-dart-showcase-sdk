@@ -16,60 +16,126 @@ class CreateApiKeyRequestBody {
   final SdkOptional<String?> createdBy;
   final SdkOptional<double?> secondsUntilExpiration;
 
-  const CreateApiKeyRequestBody({this.type_ = const SdkOmitted(), required this.name, this.description = const SdkOmitted(), required this.subject, this.claims = const SdkOmitted(), this.scopes = const SdkOmitted(), this.createdBy = const SdkOmitted(), this.secondsUntilExpiration = const SdkOmitted()});
+  const CreateApiKeyRequestBody(
+      {this.type_ = const SdkOmitted(),
+      required this.name,
+      this.description = const SdkOmitted(),
+      required this.subject,
+      this.claims = const SdkOmitted(),
+      this.scopes = const SdkOmitted(),
+      this.createdBy = const SdkOmitted(),
+      this.secondsUntilExpiration = const SdkOmitted()});
 
-  CreateApiKeyRequestBody Function({SdkOptional<String> type_, String name, SdkOptional<String?> description, String subject, SdkOptional<dynamic> claims, SdkOptional<List<String>> scopes, SdkOptional<String?> createdBy, SdkOptional<double?> secondsUntilExpiration}) get copyWith => _copyWith;
+  CreateApiKeyRequestBody Function(
+      {SdkOptional<String> type_,
+      String name,
+      SdkOptional<String?> description,
+      String subject,
+      SdkOptional<dynamic> claims,
+      SdkOptional<List<String>> scopes,
+      SdkOptional<String?> createdBy,
+      SdkOptional<double?> secondsUntilExpiration}) get copyWith => _copyWith;
 
-  CreateApiKeyRequestBody _copyWith({Object? type_ = sdkOmittedValue, Object? name = sdkOmittedValue, Object? description = sdkOmittedValue, Object? subject = sdkOmittedValue, Object? claims = sdkOmittedValue, Object? scopes = sdkOmittedValue, Object? createdBy = sdkOmittedValue, Object? secondsUntilExpiration = sdkOmittedValue}) => CreateApiKeyRequestBody(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as SdkOptional<String>,
-    name: identical(name, sdkOmittedValue) ? this.name : name as String,
-    description: identical(description, sdkOmittedValue) ? this.description : description as SdkOptional<String?>,
-    subject: identical(subject, sdkOmittedValue) ? this.subject : subject as String,
-    claims: identical(claims, sdkOmittedValue) ? this.claims : claims as SdkOptional<dynamic>,
-    scopes: identical(scopes, sdkOmittedValue) ? this.scopes : scopes as SdkOptional<List<String>>,
-    createdBy: identical(createdBy, sdkOmittedValue) ? this.createdBy : createdBy as SdkOptional<String?>,
-    secondsUntilExpiration: identical(secondsUntilExpiration, sdkOmittedValue) ? this.secondsUntilExpiration : secondsUntilExpiration as SdkOptional<double?>,
-  );
+  CreateApiKeyRequestBody _copyWith(
+          {Object? type_ = sdkOmittedValue,
+          Object? name = sdkOmittedValue,
+          Object? description = sdkOmittedValue,
+          Object? subject = sdkOmittedValue,
+          Object? claims = sdkOmittedValue,
+          Object? scopes = sdkOmittedValue,
+          Object? createdBy = sdkOmittedValue,
+          Object? secondsUntilExpiration = sdkOmittedValue}) =>
+      CreateApiKeyRequestBody(
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as SdkOptional<String>,
+        name: identical(name, sdkOmittedValue) ? this.name : name as String,
+        description: identical(description, sdkOmittedValue)
+            ? this.description
+            : description as SdkOptional<String?>,
+        subject: identical(subject, sdkOmittedValue)
+            ? this.subject
+            : subject as String,
+        claims: identical(claims, sdkOmittedValue)
+            ? this.claims
+            : claims as SdkOptional<dynamic>,
+        scopes: identical(scopes, sdkOmittedValue)
+            ? this.scopes
+            : scopes as SdkOptional<List<String>>,
+        createdBy: identical(createdBy, sdkOmittedValue)
+            ? this.createdBy
+            : createdBy as SdkOptional<String?>,
+        secondsUntilExpiration:
+            identical(secondsUntilExpiration, sdkOmittedValue)
+                ? this.secondsUntilExpiration
+                : secondsUntilExpiration as SdkOptional<double?>,
+      );
 
-  factory CreateApiKeyRequestBody.fromJson(Map<String, dynamic> json) => CreateApiKeyRequestBody(
-    type_: json['type'] != null ? SdkPresent((json['type'] as String?)!) : const SdkOmitted(),
-    name: (json['name'] as String?)!,
-    description: json.containsKey('description') ? SdkPresent(json['description'] as String?) : const SdkOmitted(),
-    subject: (json['subject'] as String?)!,
-    claims: json.containsKey('claims') ? SdkPresent(json['claims']) : const SdkOmitted(),
-    scopes: json['scopes'] != null ? SdkPresent(((json['scopes'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
-    createdBy: json.containsKey('created_by') ? SdkPresent(json['created_by'] as String?) : const SdkOmitted(),
-    secondsUntilExpiration: json.containsKey('seconds_until_expiration') ? SdkPresent((json['seconds_until_expiration'] as num?)?.toDouble()) : const SdkOmitted(),
-  );
+  factory CreateApiKeyRequestBody.fromJson(Map<String, dynamic> json) =>
+      CreateApiKeyRequestBody(
+        type_: json['type'] != null
+            ? SdkPresent((json['type'] as String?)!)
+            : const SdkOmitted(),
+        name: (json['name'] as String?)!,
+        description: json.containsKey('description')
+            ? SdkPresent(json['description'] as String?)
+            : const SdkOmitted(),
+        subject: (json['subject'] as String?)!,
+        claims: json.containsKey('claims')
+            ? SdkPresent(json['claims'])
+            : const SdkOmitted(),
+        scopes: json['scopes'] != null
+            ? SdkPresent(
+                ((json['scopes'] as List?)?.map((e) => e as String).toList())!)
+            : const SdkOmitted(),
+        createdBy: json.containsKey('created_by')
+            ? SdkPresent(json['created_by'] as String?)
+            : const SdkOmitted(),
+        secondsUntilExpiration: json.containsKey('seconds_until_expiration')
+            ? SdkPresent((json['seconds_until_expiration'] as num?)?.toDouble())
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (type_) {
-      SdkPresent<String>(value: final value) => {'type': value,},
-      _ => const <String, dynamic>{},
-    },
-    'name': name,
-    ...switch (description) {
-      SdkPresent<String?>(value: final value) => {'description': value,},
-      _ => const <String, dynamic>{},
-    },
-    'subject': subject,
-    ...switch (claims) {
-      SdkPresent<dynamic>(value: final value) => {'claims': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (scopes) {
-      SdkPresent<List<String>>(value: final value) => {'scopes': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (createdBy) {
-      SdkPresent<String?>(value: final value) => {'created_by': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (secondsUntilExpiration) {
-      SdkPresent<double?>(value: final value) => {'seconds_until_expiration': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (type_) {
+          SdkPresent<String>(value: final value) => {
+              'type': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        'name': name,
+        ...switch (description) {
+          SdkPresent<String?>(value: final value) => {
+              'description': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        'subject': subject,
+        ...switch (claims) {
+          SdkPresent<dynamic>(value: final value) => {
+              'claims': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (scopes) {
+          SdkPresent<List<String>>(value: final value) => {
+              'scopes': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (createdBy) {
+          SdkPresent<String?>(value: final value) => {
+              'created_by': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (secondsUntilExpiration) {
+          SdkPresent<double?>(value: final value) => {
+              'seconds_until_expiration': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 class CreateApiKeyResponse {
@@ -87,82 +153,187 @@ class CreateApiKeyResponse {
   final bool revoked;
   final String? revocationReason;
   final bool expired;
+
   /// The timestamp for when the API key will expire, in milliseconds
   final double? expiration;
   final String? createdBy;
+
   /// The timestamp for when the API key was last used, in milliseconds
   final double? lastUsedAt;
+
   /// The timestamp for when the API key was created, in milliseconds
   final double createdAt;
+
   /// The timestamp for when the API key was last updated, in milliseconds
   final double updatedAt;
 
-  const CreateApiKeyResponse({required this.object, required this.id, required this.type_, required this.subject, required this.name, this.description = const SdkOmitted(), required this.claims, required this.scopes, required this.secret, required this.revoked, required this.revocationReason, required this.expired, required this.expiration, required this.createdBy, required this.lastUsedAt, required this.createdAt, required this.updatedAt});
+  const CreateApiKeyResponse(
+      {required this.object,
+      required this.id,
+      required this.type_,
+      required this.subject,
+      required this.name,
+      this.description = const SdkOmitted(),
+      required this.claims,
+      required this.scopes,
+      required this.secret,
+      required this.revoked,
+      required this.revocationReason,
+      required this.expired,
+      required this.expiration,
+      required this.createdBy,
+      required this.lastUsedAt,
+      required this.createdAt,
+      required this.updatedAt});
 
-  CreateApiKeyResponse Function({CreateApiKeyResponseObject object, String id, String type_, String subject, String name, SdkOptional<String?> description, dynamic claims, List<String> scopes, String secret, bool revoked, String? revocationReason, bool expired, double? expiration, String? createdBy, double? lastUsedAt, double createdAt, double updatedAt}) get copyWith => _copyWith;
+  CreateApiKeyResponse Function(
+      {CreateApiKeyResponseObject object,
+      String id,
+      String type_,
+      String subject,
+      String name,
+      SdkOptional<String?> description,
+      dynamic claims,
+      List<String> scopes,
+      String secret,
+      bool revoked,
+      String? revocationReason,
+      bool expired,
+      double? expiration,
+      String? createdBy,
+      double? lastUsedAt,
+      double createdAt,
+      double updatedAt}) get copyWith => _copyWith;
 
-  CreateApiKeyResponse _copyWith({Object? object = sdkOmittedValue, Object? id = sdkOmittedValue, Object? type_ = sdkOmittedValue, Object? subject = sdkOmittedValue, Object? name = sdkOmittedValue, Object? description = sdkOmittedValue, Object? claims = sdkOmittedValue, Object? scopes = sdkOmittedValue, Object? secret = sdkOmittedValue, Object? revoked = sdkOmittedValue, Object? revocationReason = sdkOmittedValue, Object? expired = sdkOmittedValue, Object? expiration = sdkOmittedValue, Object? createdBy = sdkOmittedValue, Object? lastUsedAt = sdkOmittedValue, Object? createdAt = sdkOmittedValue, Object? updatedAt = sdkOmittedValue}) => CreateApiKeyResponse(
-    object: identical(object, sdkOmittedValue) ? this.object : object as CreateApiKeyResponseObject,
-    id: identical(id, sdkOmittedValue) ? this.id : id as String,
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as String,
-    subject: identical(subject, sdkOmittedValue) ? this.subject : subject as String,
-    name: identical(name, sdkOmittedValue) ? this.name : name as String,
-    description: identical(description, sdkOmittedValue) ? this.description : description as SdkOptional<String?>,
-    claims: identical(claims, sdkOmittedValue) ? this.claims : claims as dynamic,
-    scopes: identical(scopes, sdkOmittedValue) ? this.scopes : scopes as List<String>,
-    secret: identical(secret, sdkOmittedValue) ? this.secret : secret as String,
-    revoked: identical(revoked, sdkOmittedValue) ? this.revoked : revoked as bool,
-    revocationReason: identical(revocationReason, sdkOmittedValue) ? this.revocationReason : revocationReason as String?,
-    expired: identical(expired, sdkOmittedValue) ? this.expired : expired as bool,
-    expiration: identical(expiration, sdkOmittedValue) ? this.expiration : expiration as double?,
-    createdBy: identical(createdBy, sdkOmittedValue) ? this.createdBy : createdBy as String?,
-    lastUsedAt: identical(lastUsedAt, sdkOmittedValue) ? this.lastUsedAt : lastUsedAt as double?,
-    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as double,
-    updatedAt: identical(updatedAt, sdkOmittedValue) ? this.updatedAt : updatedAt as double,
-  );
+  CreateApiKeyResponse _copyWith(
+          {Object? object = sdkOmittedValue,
+          Object? id = sdkOmittedValue,
+          Object? type_ = sdkOmittedValue,
+          Object? subject = sdkOmittedValue,
+          Object? name = sdkOmittedValue,
+          Object? description = sdkOmittedValue,
+          Object? claims = sdkOmittedValue,
+          Object? scopes = sdkOmittedValue,
+          Object? secret = sdkOmittedValue,
+          Object? revoked = sdkOmittedValue,
+          Object? revocationReason = sdkOmittedValue,
+          Object? expired = sdkOmittedValue,
+          Object? expiration = sdkOmittedValue,
+          Object? createdBy = sdkOmittedValue,
+          Object? lastUsedAt = sdkOmittedValue,
+          Object? createdAt = sdkOmittedValue,
+          Object? updatedAt = sdkOmittedValue}) =>
+      CreateApiKeyResponse(
+        object: identical(object, sdkOmittedValue)
+            ? this.object
+            : object as CreateApiKeyResponseObject,
+        id: identical(id, sdkOmittedValue) ? this.id : id as String,
+        type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as String,
+        subject: identical(subject, sdkOmittedValue)
+            ? this.subject
+            : subject as String,
+        name: identical(name, sdkOmittedValue) ? this.name : name as String,
+        description: identical(description, sdkOmittedValue)
+            ? this.description
+            : description as SdkOptional<String?>,
+        claims: identical(claims, sdkOmittedValue)
+            ? this.claims
+            : claims as dynamic,
+        scopes: identical(scopes, sdkOmittedValue)
+            ? this.scopes
+            : scopes as List<String>,
+        secret:
+            identical(secret, sdkOmittedValue) ? this.secret : secret as String,
+        revoked: identical(revoked, sdkOmittedValue)
+            ? this.revoked
+            : revoked as bool,
+        revocationReason: identical(revocationReason, sdkOmittedValue)
+            ? this.revocationReason
+            : revocationReason as String?,
+        expired: identical(expired, sdkOmittedValue)
+            ? this.expired
+            : expired as bool,
+        expiration: identical(expiration, sdkOmittedValue)
+            ? this.expiration
+            : expiration as double?,
+        createdBy: identical(createdBy, sdkOmittedValue)
+            ? this.createdBy
+            : createdBy as String?,
+        lastUsedAt: identical(lastUsedAt, sdkOmittedValue)
+            ? this.lastUsedAt
+            : lastUsedAt as double?,
+        createdAt: identical(createdAt, sdkOmittedValue)
+            ? this.createdAt
+            : createdAt as double,
+        updatedAt: identical(updatedAt, sdkOmittedValue)
+            ? this.updatedAt
+            : updatedAt as double,
+      );
 
-  factory CreateApiKeyResponse.fromJson(Map<String, dynamic> json) => CreateApiKeyResponse(
-    object: (json['object'] != null ? CreateApiKeyResponseObject.fromJson(json['object'] as String) : null)!,
-    id: (json['id'] as String?)!,
-    type_: (json['type'] as String?)!,
-    subject: (json['subject'] as String?)!,
-    name: (json['name'] as String?)!,
-    description: json.containsKey('description') ? SdkPresent(json['description'] as String?) : const SdkOmitted(),
-    claims: json.containsKey('claims') ? json['claims'] : throw ArgumentError.value(null, 'claims', 'Required property is missing'),
-    scopes: ((json['scopes'] as List?)?.map((e) => e as String).toList())!,
-    secret: (json['secret'] as String?)!,
-    revoked: (json['revoked'] as bool?)!,
-    revocationReason: json.containsKey('revocation_reason') ? json['revocation_reason'] as String? : throw ArgumentError.value(null, 'revocation_reason', 'Required property is missing'),
-    expired: (json['expired'] as bool?)!,
-    expiration: json.containsKey('expiration') ? (json['expiration'] as num?)?.toDouble() : throw ArgumentError.value(null, 'expiration', 'Required property is missing'),
-    createdBy: json.containsKey('created_by') ? json['created_by'] as String? : throw ArgumentError.value(null, 'created_by', 'Required property is missing'),
-    lastUsedAt: json.containsKey('last_used_at') ? (json['last_used_at'] as num?)?.toDouble() : throw ArgumentError.value(null, 'last_used_at', 'Required property is missing'),
-    createdAt: ((json['created_at'] as num?)?.toDouble())!,
-    updatedAt: ((json['updated_at'] as num?)?.toDouble())!,
-  );
+  factory CreateApiKeyResponse.fromJson(Map<String, dynamic> json) =>
+      CreateApiKeyResponse(
+        object: (json['object'] != null
+            ? CreateApiKeyResponseObject.fromJson(json['object'] as String)
+            : null)!,
+        id: (json['id'] as String?)!,
+        type_: (json['type'] as String?)!,
+        subject: (json['subject'] as String?)!,
+        name: (json['name'] as String?)!,
+        description: json.containsKey('description')
+            ? SdkPresent(json['description'] as String?)
+            : const SdkOmitted(),
+        claims: json.containsKey('claims')
+            ? json['claims']
+            : throw ArgumentError.value(
+                null, 'claims', 'Required property is missing'),
+        scopes: ((json['scopes'] as List?)?.map((e) => e as String).toList())!,
+        secret: (json['secret'] as String?)!,
+        revoked: (json['revoked'] as bool?)!,
+        revocationReason: json.containsKey('revocation_reason')
+            ? json['revocation_reason'] as String?
+            : throw ArgumentError.value(
+                null, 'revocation_reason', 'Required property is missing'),
+        expired: (json['expired'] as bool?)!,
+        expiration: json.containsKey('expiration')
+            ? (json['expiration'] as num?)?.toDouble()
+            : throw ArgumentError.value(
+                null, 'expiration', 'Required property is missing'),
+        createdBy: json.containsKey('created_by')
+            ? json['created_by'] as String?
+            : throw ArgumentError.value(
+                null, 'created_by', 'Required property is missing'),
+        lastUsedAt: json.containsKey('last_used_at')
+            ? (json['last_used_at'] as num?)?.toDouble()
+            : throw ArgumentError.value(
+                null, 'last_used_at', 'Required property is missing'),
+        createdAt: ((json['created_at'] as num?)?.toDouble())!,
+        updatedAt: ((json['updated_at'] as num?)?.toDouble())!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'object': object.toJson(),
-    'id': id,
-    'type': type_,
-    'subject': subject,
-    'name': name,
-    ...switch (description) {
-      SdkPresent<String?>(value: final value) => {'description': value,},
-      _ => const <String, dynamic>{},
-    },
-    'claims': claims,
-    'scopes': scopes,
-    'secret': secret,
-    'revoked': revoked,
-    'revocation_reason': revocationReason,
-    'expired': expired,
-    'expiration': expiration,
-    'created_by': createdBy,
-    'last_used_at': lastUsedAt,
-    'created_at': createdAt,
-    'updated_at': updatedAt,
-  };
+        'object': object.toJson(),
+        'id': id,
+        'type': type_,
+        'subject': subject,
+        'name': name,
+        ...switch (description) {
+          SdkPresent<String?>(value: final value) => {
+              'description': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        'claims': claims,
+        'scopes': scopes,
+        'secret': secret,
+        'revoked': revoked,
+        'revocation_reason': revocationReason,
+        'expired': expired,
+        'expiration': expiration,
+        'created_by': createdBy,
+        'last_used_at': lastUsedAt,
+        'created_at': createdAt,
+        'updated_at': updatedAt,
+      };
 }
 
 class ListApiKeysResponseDataItem {
@@ -179,79 +350,181 @@ class ListApiKeysResponseDataItem {
   final bool revoked;
   final String? revocationReason;
   final bool expired;
+
   /// The timestamp for when the API key will expire, in milliseconds
   final double? expiration;
   final String? createdBy;
+
   /// The timestamp for when the API key was last used, in milliseconds
   final double? lastUsedAt;
+
   /// The timestamp for when the API key was created, in milliseconds
   final double createdAt;
+
   /// The timestamp for when the API key was last updated, in milliseconds
   final double updatedAt;
 
-  const ListApiKeysResponseDataItem({required this.object, required this.id, required this.type_, required this.subject, required this.name, this.description = const SdkOmitted(), required this.claims, required this.scopes, required this.revoked, required this.revocationReason, required this.expired, required this.expiration, required this.createdBy, required this.lastUsedAt, required this.createdAt, required this.updatedAt});
+  const ListApiKeysResponseDataItem(
+      {required this.object,
+      required this.id,
+      required this.type_,
+      required this.subject,
+      required this.name,
+      this.description = const SdkOmitted(),
+      required this.claims,
+      required this.scopes,
+      required this.revoked,
+      required this.revocationReason,
+      required this.expired,
+      required this.expiration,
+      required this.createdBy,
+      required this.lastUsedAt,
+      required this.createdAt,
+      required this.updatedAt});
 
-  ListApiKeysResponseDataItem Function({ListApiKeysResponseDataItemObject object, String id, String type_, String subject, String name, SdkOptional<String?> description, dynamic claims, List<String> scopes, bool revoked, String? revocationReason, bool expired, double? expiration, String? createdBy, double? lastUsedAt, double createdAt, double updatedAt}) get copyWith => _copyWith;
+  ListApiKeysResponseDataItem Function(
+      {ListApiKeysResponseDataItemObject object,
+      String id,
+      String type_,
+      String subject,
+      String name,
+      SdkOptional<String?> description,
+      dynamic claims,
+      List<String> scopes,
+      bool revoked,
+      String? revocationReason,
+      bool expired,
+      double? expiration,
+      String? createdBy,
+      double? lastUsedAt,
+      double createdAt,
+      double updatedAt}) get copyWith => _copyWith;
 
-  ListApiKeysResponseDataItem _copyWith({Object? object = sdkOmittedValue, Object? id = sdkOmittedValue, Object? type_ = sdkOmittedValue, Object? subject = sdkOmittedValue, Object? name = sdkOmittedValue, Object? description = sdkOmittedValue, Object? claims = sdkOmittedValue, Object? scopes = sdkOmittedValue, Object? revoked = sdkOmittedValue, Object? revocationReason = sdkOmittedValue, Object? expired = sdkOmittedValue, Object? expiration = sdkOmittedValue, Object? createdBy = sdkOmittedValue, Object? lastUsedAt = sdkOmittedValue, Object? createdAt = sdkOmittedValue, Object? updatedAt = sdkOmittedValue}) => ListApiKeysResponseDataItem(
-    object: identical(object, sdkOmittedValue) ? this.object : object as ListApiKeysResponseDataItemObject,
-    id: identical(id, sdkOmittedValue) ? this.id : id as String,
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as String,
-    subject: identical(subject, sdkOmittedValue) ? this.subject : subject as String,
-    name: identical(name, sdkOmittedValue) ? this.name : name as String,
-    description: identical(description, sdkOmittedValue) ? this.description : description as SdkOptional<String?>,
-    claims: identical(claims, sdkOmittedValue) ? this.claims : claims as dynamic,
-    scopes: identical(scopes, sdkOmittedValue) ? this.scopes : scopes as List<String>,
-    revoked: identical(revoked, sdkOmittedValue) ? this.revoked : revoked as bool,
-    revocationReason: identical(revocationReason, sdkOmittedValue) ? this.revocationReason : revocationReason as String?,
-    expired: identical(expired, sdkOmittedValue) ? this.expired : expired as bool,
-    expiration: identical(expiration, sdkOmittedValue) ? this.expiration : expiration as double?,
-    createdBy: identical(createdBy, sdkOmittedValue) ? this.createdBy : createdBy as String?,
-    lastUsedAt: identical(lastUsedAt, sdkOmittedValue) ? this.lastUsedAt : lastUsedAt as double?,
-    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as double,
-    updatedAt: identical(updatedAt, sdkOmittedValue) ? this.updatedAt : updatedAt as double,
-  );
+  ListApiKeysResponseDataItem _copyWith(
+          {Object? object = sdkOmittedValue,
+          Object? id = sdkOmittedValue,
+          Object? type_ = sdkOmittedValue,
+          Object? subject = sdkOmittedValue,
+          Object? name = sdkOmittedValue,
+          Object? description = sdkOmittedValue,
+          Object? claims = sdkOmittedValue,
+          Object? scopes = sdkOmittedValue,
+          Object? revoked = sdkOmittedValue,
+          Object? revocationReason = sdkOmittedValue,
+          Object? expired = sdkOmittedValue,
+          Object? expiration = sdkOmittedValue,
+          Object? createdBy = sdkOmittedValue,
+          Object? lastUsedAt = sdkOmittedValue,
+          Object? createdAt = sdkOmittedValue,
+          Object? updatedAt = sdkOmittedValue}) =>
+      ListApiKeysResponseDataItem(
+        object: identical(object, sdkOmittedValue)
+            ? this.object
+            : object as ListApiKeysResponseDataItemObject,
+        id: identical(id, sdkOmittedValue) ? this.id : id as String,
+        type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as String,
+        subject: identical(subject, sdkOmittedValue)
+            ? this.subject
+            : subject as String,
+        name: identical(name, sdkOmittedValue) ? this.name : name as String,
+        description: identical(description, sdkOmittedValue)
+            ? this.description
+            : description as SdkOptional<String?>,
+        claims: identical(claims, sdkOmittedValue)
+            ? this.claims
+            : claims as dynamic,
+        scopes: identical(scopes, sdkOmittedValue)
+            ? this.scopes
+            : scopes as List<String>,
+        revoked: identical(revoked, sdkOmittedValue)
+            ? this.revoked
+            : revoked as bool,
+        revocationReason: identical(revocationReason, sdkOmittedValue)
+            ? this.revocationReason
+            : revocationReason as String?,
+        expired: identical(expired, sdkOmittedValue)
+            ? this.expired
+            : expired as bool,
+        expiration: identical(expiration, sdkOmittedValue)
+            ? this.expiration
+            : expiration as double?,
+        createdBy: identical(createdBy, sdkOmittedValue)
+            ? this.createdBy
+            : createdBy as String?,
+        lastUsedAt: identical(lastUsedAt, sdkOmittedValue)
+            ? this.lastUsedAt
+            : lastUsedAt as double?,
+        createdAt: identical(createdAt, sdkOmittedValue)
+            ? this.createdAt
+            : createdAt as double,
+        updatedAt: identical(updatedAt, sdkOmittedValue)
+            ? this.updatedAt
+            : updatedAt as double,
+      );
 
-  factory ListApiKeysResponseDataItem.fromJson(Map<String, dynamic> json) => ListApiKeysResponseDataItem(
-    object: (json['object'] != null ? ListApiKeysResponseDataItemObject.fromJson(json['object'] as String) : null)!,
-    id: (json['id'] as String?)!,
-    type_: (json['type'] as String?)!,
-    subject: (json['subject'] as String?)!,
-    name: (json['name'] as String?)!,
-    description: json.containsKey('description') ? SdkPresent(json['description'] as String?) : const SdkOmitted(),
-    claims: json.containsKey('claims') ? json['claims'] : throw ArgumentError.value(null, 'claims', 'Required property is missing'),
-    scopes: ((json['scopes'] as List?)?.map((e) => e as String).toList())!,
-    revoked: (json['revoked'] as bool?)!,
-    revocationReason: json.containsKey('revocation_reason') ? json['revocation_reason'] as String? : throw ArgumentError.value(null, 'revocation_reason', 'Required property is missing'),
-    expired: (json['expired'] as bool?)!,
-    expiration: json.containsKey('expiration') ? (json['expiration'] as num?)?.toDouble() : throw ArgumentError.value(null, 'expiration', 'Required property is missing'),
-    createdBy: json.containsKey('created_by') ? json['created_by'] as String? : throw ArgumentError.value(null, 'created_by', 'Required property is missing'),
-    lastUsedAt: json.containsKey('last_used_at') ? (json['last_used_at'] as num?)?.toDouble() : throw ArgumentError.value(null, 'last_used_at', 'Required property is missing'),
-    createdAt: ((json['created_at'] as num?)?.toDouble())!,
-    updatedAt: ((json['updated_at'] as num?)?.toDouble())!,
-  );
+  factory ListApiKeysResponseDataItem.fromJson(Map<String, dynamic> json) =>
+      ListApiKeysResponseDataItem(
+        object: (json['object'] != null
+            ? ListApiKeysResponseDataItemObject.fromJson(
+                json['object'] as String)
+            : null)!,
+        id: (json['id'] as String?)!,
+        type_: (json['type'] as String?)!,
+        subject: (json['subject'] as String?)!,
+        name: (json['name'] as String?)!,
+        description: json.containsKey('description')
+            ? SdkPresent(json['description'] as String?)
+            : const SdkOmitted(),
+        claims: json.containsKey('claims')
+            ? json['claims']
+            : throw ArgumentError.value(
+                null, 'claims', 'Required property is missing'),
+        scopes: ((json['scopes'] as List?)?.map((e) => e as String).toList())!,
+        revoked: (json['revoked'] as bool?)!,
+        revocationReason: json.containsKey('revocation_reason')
+            ? json['revocation_reason'] as String?
+            : throw ArgumentError.value(
+                null, 'revocation_reason', 'Required property is missing'),
+        expired: (json['expired'] as bool?)!,
+        expiration: json.containsKey('expiration')
+            ? (json['expiration'] as num?)?.toDouble()
+            : throw ArgumentError.value(
+                null, 'expiration', 'Required property is missing'),
+        createdBy: json.containsKey('created_by')
+            ? json['created_by'] as String?
+            : throw ArgumentError.value(
+                null, 'created_by', 'Required property is missing'),
+        lastUsedAt: json.containsKey('last_used_at')
+            ? (json['last_used_at'] as num?)?.toDouble()
+            : throw ArgumentError.value(
+                null, 'last_used_at', 'Required property is missing'),
+        createdAt: ((json['created_at'] as num?)?.toDouble())!,
+        updatedAt: ((json['updated_at'] as num?)?.toDouble())!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'object': object.toJson(),
-    'id': id,
-    'type': type_,
-    'subject': subject,
-    'name': name,
-    ...switch (description) {
-      SdkPresent<String?>(value: final value) => {'description': value,},
-      _ => const <String, dynamic>{},
-    },
-    'claims': claims,
-    'scopes': scopes,
-    'revoked': revoked,
-    'revocation_reason': revocationReason,
-    'expired': expired,
-    'expiration': expiration,
-    'created_by': createdBy,
-    'last_used_at': lastUsedAt,
-    'created_at': createdAt,
-    'updated_at': updatedAt,
-  };
+        'object': object.toJson(),
+        'id': id,
+        'type': type_,
+        'subject': subject,
+        'name': name,
+        ...switch (description) {
+          SdkPresent<String?>(value: final value) => {
+              'description': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        'claims': claims,
+        'scopes': scopes,
+        'revoked': revoked,
+        'revocation_reason': revocationReason,
+        'expired': expired,
+        'expiration': expiration,
+        'created_by': createdBy,
+        'last_used_at': lastUsedAt,
+        'created_at': createdAt,
+        'updated_at': updatedAt,
+      };
 }
 
 class ListApiKeysResponse {
@@ -262,20 +535,33 @@ class ListApiKeysResponse {
 
   const ListApiKeysResponse({required this.data, required this.totalCount});
 
-  ListApiKeysResponse Function({List<ListApiKeysResponseDataItem> data, double totalCount}) get copyWith => _copyWith;
+  ListApiKeysResponse Function(
+      {List<ListApiKeysResponseDataItem> data,
+      double totalCount}) get copyWith => _copyWith;
 
-  ListApiKeysResponse _copyWith({Object? data = sdkOmittedValue, Object? totalCount = sdkOmittedValue}) => ListApiKeysResponse(
-    data: identical(data, sdkOmittedValue) ? this.data : data as List<ListApiKeysResponseDataItem>,
-    totalCount: identical(totalCount, sdkOmittedValue) ? this.totalCount : totalCount as double,
-  );
+  ListApiKeysResponse _copyWith(
+          {Object? data = sdkOmittedValue,
+          Object? totalCount = sdkOmittedValue}) =>
+      ListApiKeysResponse(
+        data: identical(data, sdkOmittedValue)
+            ? this.data
+            : data as List<ListApiKeysResponseDataItem>,
+        totalCount: identical(totalCount, sdkOmittedValue)
+            ? this.totalCount
+            : totalCount as double,
+      );
 
-  factory ListApiKeysResponse.fromJson(Map<String, dynamic> json) => ListApiKeysResponse(
-    data: ((json['data'] as List?)?.map((e) => ListApiKeysResponseDataItem.fromJson(e as Map<String, dynamic>)).toList())!,
-    totalCount: ((json['total_count'] as num?)?.toDouble())!,
-  );
+  factory ListApiKeysResponse.fromJson(Map<String, dynamic> json) =>
+      ListApiKeysResponse(
+        data: ((json['data'] as List?)
+            ?.map((e) =>
+                ListApiKeysResponseDataItem.fromJson(e as Map<String, dynamic>))
+            .toList())!,
+        totalCount: ((json['total_count'] as num?)?.toDouble())!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'data': data.map((item) => item.toJson()).toList(),
-    'total_count': totalCount,
-  };
+        'data': data.map((item) => item.toJson()).toList(),
+        'total_count': totalCount,
+      };
 }

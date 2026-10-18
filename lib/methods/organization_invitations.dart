@@ -25,7 +25,8 @@ import '../types.dart';
 Future<OrganizationInvitationsWithPublicOrganizationData>
     listInstanceOrganizationInvitations(ClientConfig config,
         {SdkOptional<String> orderBy = const SdkOmitted(),
-        SdkOptional<ListInstanceOrganizationInvitationsStatus> status = const SdkOmitted(),
+        SdkOptional<ListInstanceOrganizationInvitationsStatus> status =
+            const SdkOmitted(),
         SdkOptional<String> query = const SdkOmitted(),
         SdkOptional<int> limit = const SdkOmitted(),
         SdkOptional<int> offset = const SdkOmitted(),
@@ -41,20 +42,35 @@ Future<OrganizationInvitationsWithPublicOrganizationData>
           'GET', '/organization_invitations',
           config: config,
           query: {
-            'order_by': SdkQueryValue(SdkUtils.unwrapOptional(orderBy), style: 'form', explode: true),
-            'status': SdkQueryValue(SdkUtils.unwrapOptional(status), style: 'form', explode: true),
-            'query': SdkQueryValue(SdkUtils.unwrapOptional(query), style: 'form', explode: true),
-            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit), style: 'form', explode: true),
-            'offset': SdkQueryValue(SdkUtils.unwrapOptional(offset), style: 'form', explode: true)
+            'order_by': SdkQueryValue(SdkUtils.unwrapOptional(orderBy),
+                style: 'form', explode: true),
+            'status': SdkQueryValue(SdkUtils.unwrapOptional(status),
+                style: 'form', explode: true),
+            'query': SdkQueryValue(SdkUtils.unwrapOptional(query),
+                style: 'form', explode: true),
+            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit),
+                style: 'form', explode: true),
+            'offset': SdkQueryValue(SdkUtils.unwrapOptional(offset),
+                style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'listInstanceOrganizationInvitations',
-          fromJsonRaw: (value) => OrganizationInvitationsWithPublicOrganizationData.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              OrganizationInvitationsWithPublicOrganizationData.fromJson(
+                  value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '404': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '422': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '500': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '400': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>),
+            '404': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>),
+            '422': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>),
+            '500': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Creates a new organization invitation and sends an email to the provided `email_address` with a link to accept the invitation and join the organization. You can specify the `role` for the invited organization member. New organization invitations get a "pending" status until they are revoked by an organization administrator or accepted by the invitee. The request body supports passing an optional `redirect_url` parameter. When the invited user clicks the link to accept the invitation, they will be redirected to the URL provided. Use this parameter to implement a custom invitation acceptance flow. You can specify the ID of the user that will send the invitation with the `inviter_user_id` parameter. That user must be a member with administrator privileges in the organization. Only "admin" members can create organization invitations. You can optionally provide public and private metadata for the organization invitation. The public metadata are visible by both the Frontend and the Backend whereas the private ones only by the Backend. When the organization invitation is accepted, the metadata will be transferred to the newly created organization membership.
 ///
@@ -111,12 +127,23 @@ Future<OrganizationInvitation> createOrganizationInvitation(ClientConfig config,
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'createOrganizationInvitation',
-          fromJsonRaw: (value) => OrganizationInvitation.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              OrganizationInvitation.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '402': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '403': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '404': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '422': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '400': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>),
+            '402': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>),
+            '403': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>),
+            '404': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>),
+            '422': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// This request returns the list of organization invitations. Results can be paginated using the optional `limit` and `offset` query parameters. You can filter them by providing the 'status' query parameter, that accepts multiple values. The organization invitations are ordered by descending creation date. Most recent invitations will be returned first. Any invitations created as a result of an Organization Domain are not included in the results.
 ///
@@ -154,31 +181,45 @@ Future<OrganizationInvitations> listOrganizationInvitations(ClientConfig config,
           '/organizations/${Uri.encodeComponent(organizationId.toString())}/invitations',
           config: config,
           query: {
-            'status': SdkQueryValue(SdkUtils.unwrapOptional(status), style: 'form', explode: true),
-            'email_address': SdkQueryValue(SdkUtils.unwrapOptional(emailAddress), style: 'form', explode: true),
-            'order_by': SdkQueryValue(SdkUtils.unwrapOptional(orderBy), style: 'form', explode: true),
-            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit), style: 'form', explode: true),
-            'offset': SdkQueryValue(SdkUtils.unwrapOptional(offset), style: 'form', explode: true)
+            'status': SdkQueryValue(SdkUtils.unwrapOptional(status),
+                style: 'form', explode: true),
+            'email_address': SdkQueryValue(
+                SdkUtils.unwrapOptional(emailAddress),
+                style: 'form',
+                explode: true),
+            'order_by': SdkQueryValue(SdkUtils.unwrapOptional(orderBy),
+                style: 'form', explode: true),
+            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit),
+                style: 'form', explode: true),
+            'offset': SdkQueryValue(SdkUtils.unwrapOptional(offset),
+                style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'listOrganizationInvitations',
-          fromJsonRaw: (value) => OrganizationInvitations.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              OrganizationInvitations.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '404': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '422': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '400': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>),
+            '404': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>),
+            '422': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Creates and sends organization invitations in bulk for a specified organization. Provide 1–10 invitation objects, each with `email_address` and `role`; you can set a different role and inviter for each invitation. Invitations remain pending until accepted or revoked, and `notify` controls whether an invitation email is sent.
 ///
 /// Creates new organization invitations in bulk and sends out emails to the provided email addresses with a link to accept the invitation and join the organization. This endpoint is limited to a maximum of 10 invitations per API call. If you need to send more invitations, please make multiple requests. You can specify a different `role` for each invited organization member. New organization invitations get a "pending" status until they are revoked by an organization administrator or accepted by the invitee. The request body supports passing an optional `redirect_url` parameter for each invitation. When the invited user clicks the link to accept the invitation, they will be redirected to the provided URL. Use this parameter to implement a custom invitation acceptance flow. You can specify the ID of the user that will send the invitation with the `inviter_user_id` parameter. Each invitation can have a different inviter user. Inviter users must be members with administrator privileges in the organization. Only "admin" members can create organization invitations. You can optionally provide public and private metadata for each organization invitation. The public metadata are visible by both the Frontend and the Backend, whereas the private metadata are only visible by the Backend. When the organization invitation is accepted, the metadata will be transferred to the newly created organization membership.
 ///
 /// [organizationId] The organization ID.
-Future<OrganizationInvitations>
-    createOrganizationInvitationBulk(ClientConfig config,
-        {required String organizationId,
-        required List<CreateOrganizationInvitationBulkRequestBodyItem> body,
-        RequestOptions? requestOptions}) async {
+Future<OrganizationInvitations> createOrganizationInvitationBulk(
+    ClientConfig config,
+    {required String organizationId,
+    required List<CreateOrganizationInvitationBulkRequestBodyItem> body,
+    RequestOptions? requestOptions}) async {
   validateItems('body', body, min: 1, max: 10);
 
   return (await sdkRequest<OrganizationInvitations>('POST',
@@ -187,12 +228,17 @@ Future<OrganizationInvitations>
           body: body,
           decoder: SdkResponseDecoder.json,
           operationId: 'createOrganizationInvitationBulk',
-          fromJsonRaw: (value) => OrganizationInvitations.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              OrganizationInvitations.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '403': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '404': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '422': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '400': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>),
+        '403': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>),
+        '404': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>),
+        '422': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// This request returns the list of organization invitations with "pending" status. These are the organization invitations that can still be used to join the organization, but have not been accepted by the invited user yet. Results can be paginated using the optional `limit` and `offset` query parameters. The organization invitations are ordered by descending creation date. Most recent invitations will be returned first. Any invitations created as a result of an Organization Domain are not included in the results.
 ///
@@ -203,12 +249,12 @@ Future<OrganizationInvitations>
 ///   integer greater or equal to zero. To be used in conjunction with `limit`.
 ///
 /// **Deprecated:** this operation is deprecated and may be removed in a future release.
-Future<OrganizationInvitations>
-    listPendingOrganizationInvitations(ClientConfig config,
-        {required String organizationId,
-        SdkOptional<int> limit = const SdkOmitted(),
-        SdkOptional<int> offset = const SdkOmitted(),
-        RequestOptions? requestOptions}) async {
+Future<OrganizationInvitations> listPendingOrganizationInvitations(
+    ClientConfig config,
+    {required String organizationId,
+    SdkOptional<int> limit = const SdkOmitted(),
+    SdkOptional<int> offset = const SdkOmitted(),
+    RequestOptions? requestOptions}) async {
   if (limit is SdkPresent<int>) {
     validateRange('limit', limit.value, min: 1, max: 500);
   }
@@ -220,17 +266,24 @@ Future<OrganizationInvitations>
           '/organizations/${Uri.encodeComponent(organizationId.toString())}/invitations/pending',
           config: config,
           query: {
-            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit), style: 'form', explode: true),
-            'offset': SdkQueryValue(SdkUtils.unwrapOptional(offset), style: 'form', explode: true)
+            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit),
+                style: 'form', explode: true),
+            'offset': SdkQueryValue(SdkUtils.unwrapOptional(offset),
+                style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'listPendingOrganizationInvitations',
-          fromJsonRaw: (value) => OrganizationInvitations.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              OrganizationInvitations.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '404': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '400': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>),
+            '404': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Use this request to get an existing organization invitation by ID.
 ///
@@ -245,12 +298,16 @@ Future<OrganizationInvitation> getOrganizationInvitation(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'getOrganizationInvitation',
-          fromJsonRaw: (value) => OrganizationInvitation.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              OrganizationInvitation.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '403': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '404': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '400': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>),
+        '403': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>),
+        '404': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// Use this request to revoke a previously issued organization invitation. Revoking an organization invitation makes it invalid; the invited user will no longer be able to join the organization with the revoked invitation. Only organization invitations with "pending" status can be revoked. The request accepts the `requesting_user_id` parameter to specify the user which revokes the invitation. Only users with "admin" role can revoke invitations.
 ///
@@ -271,8 +328,16 @@ Future<OrganizationInvitation> revokeOrganizationInvitation(ClientConfig config,
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'revokeOrganizationInvitation',
-          fromJsonRaw: (value) => OrganizationInvitation.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              OrganizationInvitation.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '403': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '404': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '400': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>),
+            '403': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>),
+            '404': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }

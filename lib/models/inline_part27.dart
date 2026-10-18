@@ -7,217 +7,364 @@ part of 'inline.dart';
 class UpdateProductionInstanceDomainRequestBody {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The new home URL of the production instance e.g. https://www.example.com
   final SdkOptional<String> homeUrl;
+
   /// Whether the domain is a secondary app.
   final SdkOptional<bool> isSecondary;
 
-  const UpdateProductionInstanceDomainRequestBody({this.homeUrl = const SdkOmitted(), this.isSecondary = const SdkOmitted()});
+  const UpdateProductionInstanceDomainRequestBody(
+      {this.homeUrl = const SdkOmitted(),
+      this.isSecondary = const SdkOmitted()});
 
-  UpdateProductionInstanceDomainRequestBody Function({SdkOptional<String> homeUrl, SdkOptional<bool> isSecondary}) get copyWith => _copyWith;
+  UpdateProductionInstanceDomainRequestBody Function(
+      {SdkOptional<String> homeUrl,
+      SdkOptional<bool> isSecondary}) get copyWith => _copyWith;
 
-  UpdateProductionInstanceDomainRequestBody _copyWith({Object? homeUrl = sdkOmittedValue, Object? isSecondary = sdkOmittedValue}) => UpdateProductionInstanceDomainRequestBody(
-    homeUrl: identical(homeUrl, sdkOmittedValue) ? this.homeUrl : homeUrl as SdkOptional<String>,
-    isSecondary: identical(isSecondary, sdkOmittedValue) ? this.isSecondary : isSecondary as SdkOptional<bool>,
-  );
+  UpdateProductionInstanceDomainRequestBody _copyWith(
+          {Object? homeUrl = sdkOmittedValue,
+          Object? isSecondary = sdkOmittedValue}) =>
+      UpdateProductionInstanceDomainRequestBody(
+        homeUrl: identical(homeUrl, sdkOmittedValue)
+            ? this.homeUrl
+            : homeUrl as SdkOptional<String>,
+        isSecondary: identical(isSecondary, sdkOmittedValue)
+            ? this.isSecondary
+            : isSecondary as SdkOptional<bool>,
+      );
 
-  factory UpdateProductionInstanceDomainRequestBody.fromJson(Map<String, dynamic> json) => UpdateProductionInstanceDomainRequestBody(
-    homeUrl: json['home_url'] != null ? SdkPresent((json['home_url'] as String?)!) : const SdkOmitted(),
-    isSecondary: json['is_secondary'] != null ? SdkPresent((json['is_secondary'] as bool?)!) : const SdkOmitted(),
-  );
+  factory UpdateProductionInstanceDomainRequestBody.fromJson(
+          Map<String, dynamic> json) =>
+      UpdateProductionInstanceDomainRequestBody(
+        homeUrl: json['home_url'] != null
+            ? SdkPresent((json['home_url'] as String?)!)
+            : const SdkOmitted(),
+        isSecondary: json['is_secondary'] != null
+            ? SdkPresent((json['is_secondary'] as bool?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (homeUrl) {
-      SdkPresent<String>(value: final value) => {'home_url': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (isSecondary) {
-      SdkPresent<bool>(value: final value) => {'is_secondary': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (homeUrl) {
+          SdkPresent<String>(value: final value) => {
+              'home_url': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (isSecondary) {
+          SdkPresent<bool>(value: final value) => {
+              'is_secondary': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 class ChangeProductionInstanceDomainRequestBody {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The new home URL of the production instance e.g. https://www.example.com
   final SdkOptional<String> homeUrl;
+
   /// Whether this is a domain for a secondary app, meaning that any subdomain provided is significant and will be stored as part of the domain. This is useful for supporting multiple apps (one primary and multiple secondaries) on the same root domain (eTLD+1).
   final SdkOptional<bool> isSecondary;
 
-  const ChangeProductionInstanceDomainRequestBody({this.homeUrl = const SdkOmitted(), this.isSecondary = const SdkOmitted()});
+  const ChangeProductionInstanceDomainRequestBody(
+      {this.homeUrl = const SdkOmitted(),
+      this.isSecondary = const SdkOmitted()});
 
-  ChangeProductionInstanceDomainRequestBody Function({SdkOptional<String> homeUrl, SdkOptional<bool> isSecondary}) get copyWith => _copyWith;
+  ChangeProductionInstanceDomainRequestBody Function(
+      {SdkOptional<String> homeUrl,
+      SdkOptional<bool> isSecondary}) get copyWith => _copyWith;
 
-  ChangeProductionInstanceDomainRequestBody _copyWith({Object? homeUrl = sdkOmittedValue, Object? isSecondary = sdkOmittedValue}) => ChangeProductionInstanceDomainRequestBody(
-    homeUrl: identical(homeUrl, sdkOmittedValue) ? this.homeUrl : homeUrl as SdkOptional<String>,
-    isSecondary: identical(isSecondary, sdkOmittedValue) ? this.isSecondary : isSecondary as SdkOptional<bool>,
-  );
+  ChangeProductionInstanceDomainRequestBody _copyWith(
+          {Object? homeUrl = sdkOmittedValue,
+          Object? isSecondary = sdkOmittedValue}) =>
+      ChangeProductionInstanceDomainRequestBody(
+        homeUrl: identical(homeUrl, sdkOmittedValue)
+            ? this.homeUrl
+            : homeUrl as SdkOptional<String>,
+        isSecondary: identical(isSecondary, sdkOmittedValue)
+            ? this.isSecondary
+            : isSecondary as SdkOptional<bool>,
+      );
 
-  factory ChangeProductionInstanceDomainRequestBody.fromJson(Map<String, dynamic> json) => ChangeProductionInstanceDomainRequestBody(
-    homeUrl: json['home_url'] != null ? SdkPresent((json['home_url'] as String?)!) : const SdkOmitted(),
-    isSecondary: json['is_secondary'] != null ? SdkPresent((json['is_secondary'] as bool?)!) : const SdkOmitted(),
-  );
+  factory ChangeProductionInstanceDomainRequestBody.fromJson(
+          Map<String, dynamic> json) =>
+      ChangeProductionInstanceDomainRequestBody(
+        homeUrl: json['home_url'] != null
+            ? SdkPresent((json['home_url'] as String?)!)
+            : const SdkOmitted(),
+        isSecondary: json['is_secondary'] != null
+            ? SdkPresent((json['is_secondary'] as bool?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (homeUrl) {
-      SdkPresent<String>(value: final value) => {'home_url': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (isSecondary) {
-      SdkPresent<bool>(value: final value) => {'is_secondary': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (homeUrl) {
+          SdkPresent<String>(value: final value) => {
+              'home_url': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (isSecondary) {
+          SdkPresent<bool>(value: final value) => {
+              'is_secondary': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// The actor payload. It needs to include a sub property which should contain the ID of the actor. This whole payload will be also included in the JWT session token.
 class CreateActorTokenRequestBodyActor {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The ID of the actor.
   final String sub;
   final Map<String, dynamic> additionalProperties;
 
-  const CreateActorTokenRequestBodyActor({required this.sub, this.additionalProperties = const <String, dynamic>{}});
+  const CreateActorTokenRequestBodyActor(
+      {required this.sub,
+      this.additionalProperties = const <String, dynamic>{}});
 
-  CreateActorTokenRequestBodyActor Function({String sub}) get copyWith => _copyWith;
+  CreateActorTokenRequestBodyActor Function({String sub}) get copyWith =>
+      _copyWith;
 
-  CreateActorTokenRequestBodyActor _copyWith({Object? sub = sdkOmittedValue}) => CreateActorTokenRequestBodyActor(
-    sub: identical(sub, sdkOmittedValue) ? this.sub : sub as String,
-    additionalProperties: additionalProperties,
-  );
+  CreateActorTokenRequestBodyActor _copyWith({Object? sub = sdkOmittedValue}) =>
+      CreateActorTokenRequestBodyActor(
+        sub: identical(sub, sdkOmittedValue) ? this.sub : sub as String,
+        additionalProperties: additionalProperties,
+      );
 
-  factory CreateActorTokenRequestBodyActor.fromJson(Map<String, dynamic> json) => CreateActorTokenRequestBodyActor(
-    sub: (json['sub'] as String?)!,
-    additionalProperties: Map.of(json)..removeWhere((key, _) => const <String>{'sub'}.contains(key)),
-  );
+  factory CreateActorTokenRequestBodyActor.fromJson(
+          Map<String, dynamic> json) =>
+      CreateActorTokenRequestBodyActor(
+        sub: (json['sub'] as String?)!,
+        additionalProperties: Map.of(json)
+          ..removeWhere((key, _) => const <String>{'sub'}.contains(key)),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...additionalProperties,
-    'sub': sub,
-  };
+        ...additionalProperties,
+        'sub': sub,
+      };
 }
 
 class CreateActorTokenRequestBody {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The ID of the user being impersonated.
   final String userId;
+
   /// The actor payload. It needs to include a sub property which should contain the ID of the actor. This whole payload will be also included in the JWT session token.
   final CreateActorTokenRequestBodyActor actor;
+
   /// Optional parameter to specify the life duration of the actor token in seconds. By default, the duration is 1 hour.
   final SdkOptional<int> expiresInSeconds;
+
   /// The maximum duration that the session which will be created by the generated actor token should last. By default, the duration of a session created via an actor token, lasts 30 minutes.
   final SdkOptional<int> sessionMaxDurationInSeconds;
 
-  const CreateActorTokenRequestBody({required this.userId, required this.actor, this.expiresInSeconds = const SdkOmitted(), this.sessionMaxDurationInSeconds = const SdkOmitted()});
+  const CreateActorTokenRequestBody(
+      {required this.userId,
+      required this.actor,
+      this.expiresInSeconds = const SdkOmitted(),
+      this.sessionMaxDurationInSeconds = const SdkOmitted()});
 
-  CreateActorTokenRequestBody Function({String userId, CreateActorTokenRequestBodyActor actor, SdkOptional<int> expiresInSeconds, SdkOptional<int> sessionMaxDurationInSeconds}) get copyWith => _copyWith;
+  CreateActorTokenRequestBody Function(
+      {String userId,
+      CreateActorTokenRequestBodyActor actor,
+      SdkOptional<int> expiresInSeconds,
+      SdkOptional<int> sessionMaxDurationInSeconds}) get copyWith => _copyWith;
 
-  CreateActorTokenRequestBody _copyWith({Object? userId = sdkOmittedValue, Object? actor = sdkOmittedValue, Object? expiresInSeconds = sdkOmittedValue, Object? sessionMaxDurationInSeconds = sdkOmittedValue}) => CreateActorTokenRequestBody(
-    userId: identical(userId, sdkOmittedValue) ? this.userId : userId as String,
-    actor: identical(actor, sdkOmittedValue) ? this.actor : actor as CreateActorTokenRequestBodyActor,
-    expiresInSeconds: identical(expiresInSeconds, sdkOmittedValue) ? this.expiresInSeconds : expiresInSeconds as SdkOptional<int>,
-    sessionMaxDurationInSeconds: identical(sessionMaxDurationInSeconds, sdkOmittedValue) ? this.sessionMaxDurationInSeconds : sessionMaxDurationInSeconds as SdkOptional<int>,
-  );
+  CreateActorTokenRequestBody _copyWith(
+          {Object? userId = sdkOmittedValue,
+          Object? actor = sdkOmittedValue,
+          Object? expiresInSeconds = sdkOmittedValue,
+          Object? sessionMaxDurationInSeconds = sdkOmittedValue}) =>
+      CreateActorTokenRequestBody(
+        userId:
+            identical(userId, sdkOmittedValue) ? this.userId : userId as String,
+        actor: identical(actor, sdkOmittedValue)
+            ? this.actor
+            : actor as CreateActorTokenRequestBodyActor,
+        expiresInSeconds: identical(expiresInSeconds, sdkOmittedValue)
+            ? this.expiresInSeconds
+            : expiresInSeconds as SdkOptional<int>,
+        sessionMaxDurationInSeconds:
+            identical(sessionMaxDurationInSeconds, sdkOmittedValue)
+                ? this.sessionMaxDurationInSeconds
+                : sessionMaxDurationInSeconds as SdkOptional<int>,
+      );
 
-  factory CreateActorTokenRequestBody.fromJson(Map<String, dynamic> json) => CreateActorTokenRequestBody(
-    userId: (json['user_id'] as String?)!,
-    actor: (json['actor'] != null ? CreateActorTokenRequestBodyActor.fromJson(json['actor'] as Map<String, dynamic>) : null)!,
-    expiresInSeconds: json['expires_in_seconds'] != null ? SdkPresent(((json['expires_in_seconds'] as num?)?.toInt())!) : const SdkOmitted(),
-    sessionMaxDurationInSeconds: json['session_max_duration_in_seconds'] != null ? SdkPresent(((json['session_max_duration_in_seconds'] as num?)?.toInt())!) : const SdkOmitted(),
-  );
+  factory CreateActorTokenRequestBody.fromJson(Map<String, dynamic> json) =>
+      CreateActorTokenRequestBody(
+        userId: (json['user_id'] as String?)!,
+        actor: (json['actor'] != null
+            ? CreateActorTokenRequestBodyActor.fromJson(
+                json['actor'] as Map<String, dynamic>)
+            : null)!,
+        expiresInSeconds: json['expires_in_seconds'] != null
+            ? SdkPresent(((json['expires_in_seconds'] as num?)?.toInt())!)
+            : const SdkOmitted(),
+        sessionMaxDurationInSeconds: json['session_max_duration_in_seconds'] !=
+                null
+            ? SdkPresent(
+                ((json['session_max_duration_in_seconds'] as num?)?.toInt())!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    'user_id': userId,
-    'actor': actor.toJson(),
-    ...switch (expiresInSeconds) {
-      SdkPresent<int>(value: final value) => {'expires_in_seconds': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (sessionMaxDurationInSeconds) {
-      SdkPresent<int>(value: final value) => {'session_max_duration_in_seconds': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        'user_id': userId,
+        'actor': actor.toJson(),
+        ...switch (expiresInSeconds) {
+          SdkPresent<int>(value: final value) => {
+              'expires_in_seconds': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (sessionMaxDurationInSeconds) {
+          SdkPresent<int>(value: final value) => {
+              'session_max_duration_in_seconds': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 class AddDomainRequestBody {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The new domain name. Can contain the port for development instances.
   final String name;
+
   /// Marks the new domain as satellite. Set to `false` only when migrating a production instance from an active provider domain to a custom domain.
   final bool isSatellite;
+
   /// The full URL of the proxy which will forward requests to the Clerk Frontend API for this domain. Applicable only to production instances.
   final SdkOptional<String?> proxyUrl;
 
-  const AddDomainRequestBody({required this.name, required this.isSatellite, this.proxyUrl = const SdkOmitted()});
+  const AddDomainRequestBody(
+      {required this.name,
+      required this.isSatellite,
+      this.proxyUrl = const SdkOmitted()});
 
-  AddDomainRequestBody Function({String name, bool isSatellite, SdkOptional<String?> proxyUrl}) get copyWith => _copyWith;
+  AddDomainRequestBody Function(
+      {String name,
+      bool isSatellite,
+      SdkOptional<String?> proxyUrl}) get copyWith => _copyWith;
 
-  AddDomainRequestBody _copyWith({Object? name = sdkOmittedValue, Object? isSatellite = sdkOmittedValue, Object? proxyUrl = sdkOmittedValue}) => AddDomainRequestBody(
-    name: identical(name, sdkOmittedValue) ? this.name : name as String,
-    isSatellite: identical(isSatellite, sdkOmittedValue) ? this.isSatellite : isSatellite as bool,
-    proxyUrl: identical(proxyUrl, sdkOmittedValue) ? this.proxyUrl : proxyUrl as SdkOptional<String?>,
-  );
+  AddDomainRequestBody _copyWith(
+          {Object? name = sdkOmittedValue,
+          Object? isSatellite = sdkOmittedValue,
+          Object? proxyUrl = sdkOmittedValue}) =>
+      AddDomainRequestBody(
+        name: identical(name, sdkOmittedValue) ? this.name : name as String,
+        isSatellite: identical(isSatellite, sdkOmittedValue)
+            ? this.isSatellite
+            : isSatellite as bool,
+        proxyUrl: identical(proxyUrl, sdkOmittedValue)
+            ? this.proxyUrl
+            : proxyUrl as SdkOptional<String?>,
+      );
 
-  factory AddDomainRequestBody.fromJson(Map<String, dynamic> json) => AddDomainRequestBody(
-    name: (json['name'] as String?)!,
-    isSatellite: (json['is_satellite'] as bool?)!,
-    proxyUrl: json.containsKey('proxy_url') ? SdkPresent(json['proxy_url'] as String?) : const SdkOmitted(),
-  );
+  factory AddDomainRequestBody.fromJson(Map<String, dynamic> json) =>
+      AddDomainRequestBody(
+        name: (json['name'] as String?)!,
+        isSatellite: (json['is_satellite'] as bool?)!,
+        proxyUrl: json.containsKey('proxy_url')
+            ? SdkPresent(json['proxy_url'] as String?)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    'name': name,
-    'is_satellite': isSatellite,
-    ...switch (proxyUrl) {
-      SdkPresent<String?>(value: final value) => {'proxy_url': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        'name': name,
+        'is_satellite': isSatellite,
+        ...switch (proxyUrl) {
+          SdkPresent<String?>(value: final value) => {
+              'proxy_url': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 class UpdateDomainRequestBody {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The new domain name. For development instances, can contain the port, i.e `myhostname:3000`. For production instances, must be a valid FQDN, i.e `mysite.com`. Cannot contain protocol scheme.
   final SdkOptional<String?> name;
+
   /// The full URL of the proxy that will forward requests to Clerk's Frontend API. Can only be updated for production instances.
   final SdkOptional<String?> proxyUrl;
+
   /// Whether this is a domain for a secondary app, meaning that any subdomain provided is significant and will be stored as part of the domain. This is useful for supporting multiple apps (one primary and multiple secondaries) on the same root domain (eTLD+1).
   final SdkOptional<bool?> isSecondary;
 
-  const UpdateDomainRequestBody({this.name = const SdkOmitted(), this.proxyUrl = const SdkOmitted(), this.isSecondary = const SdkOmitted()});
+  const UpdateDomainRequestBody(
+      {this.name = const SdkOmitted(),
+      this.proxyUrl = const SdkOmitted(),
+      this.isSecondary = const SdkOmitted()});
 
-  UpdateDomainRequestBody Function({SdkOptional<String?> name, SdkOptional<String?> proxyUrl, SdkOptional<bool?> isSecondary}) get copyWith => _copyWith;
+  UpdateDomainRequestBody Function(
+      {SdkOptional<String?> name,
+      SdkOptional<String?> proxyUrl,
+      SdkOptional<bool?> isSecondary}) get copyWith => _copyWith;
 
-  UpdateDomainRequestBody _copyWith({Object? name = sdkOmittedValue, Object? proxyUrl = sdkOmittedValue, Object? isSecondary = sdkOmittedValue}) => UpdateDomainRequestBody(
-    name: identical(name, sdkOmittedValue) ? this.name : name as SdkOptional<String?>,
-    proxyUrl: identical(proxyUrl, sdkOmittedValue) ? this.proxyUrl : proxyUrl as SdkOptional<String?>,
-    isSecondary: identical(isSecondary, sdkOmittedValue) ? this.isSecondary : isSecondary as SdkOptional<bool?>,
-  );
+  UpdateDomainRequestBody _copyWith(
+          {Object? name = sdkOmittedValue,
+          Object? proxyUrl = sdkOmittedValue,
+          Object? isSecondary = sdkOmittedValue}) =>
+      UpdateDomainRequestBody(
+        name: identical(name, sdkOmittedValue)
+            ? this.name
+            : name as SdkOptional<String?>,
+        proxyUrl: identical(proxyUrl, sdkOmittedValue)
+            ? this.proxyUrl
+            : proxyUrl as SdkOptional<String?>,
+        isSecondary: identical(isSecondary, sdkOmittedValue)
+            ? this.isSecondary
+            : isSecondary as SdkOptional<bool?>,
+      );
 
-  factory UpdateDomainRequestBody.fromJson(Map<String, dynamic> json) => UpdateDomainRequestBody(
-    name: json.containsKey('name') ? SdkPresent(json['name'] as String?) : const SdkOmitted(),
-    proxyUrl: json.containsKey('proxy_url') ? SdkPresent(json['proxy_url'] as String?) : const SdkOmitted(),
-    isSecondary: json.containsKey('is_secondary') ? SdkPresent(json['is_secondary'] as bool?) : const SdkOmitted(),
-  );
+  factory UpdateDomainRequestBody.fromJson(Map<String, dynamic> json) =>
+      UpdateDomainRequestBody(
+        name: json.containsKey('name')
+            ? SdkPresent(json['name'] as String?)
+            : const SdkOmitted(),
+        proxyUrl: json.containsKey('proxy_url')
+            ? SdkPresent(json['proxy_url'] as String?)
+            : const SdkOmitted(),
+        isSecondary: json.containsKey('is_secondary')
+            ? SdkPresent(json['is_secondary'] as bool?)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (name) {
-      SdkPresent<String?>(value: final value) => {'name': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (proxyUrl) {
-      SdkPresent<String?>(value: final value) => {'proxy_url': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (isSecondary) {
-      SdkPresent<bool?>(value: final value) => {'is_secondary': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (name) {
+          SdkPresent<String?>(value: final value) => {
+              'name': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (proxyUrl) {
+          SdkPresent<String?>(value: final value) => {
+              'proxy_url': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (isSecondary) {
+          SdkPresent<bool?>(value: final value) => {
+              'is_secondary': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

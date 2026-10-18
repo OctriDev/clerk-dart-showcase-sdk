@@ -8,32 +8,59 @@ part of 'saml_connections.dart';
 class SAMLConnectionIdpCertificatesItem {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The X.509 certificate, base64 DER without PEM armor
   final String certificate;
+
   /// Unix timestamp (milliseconds) of the X.509 NotBefore
   final int? issuedAt;
+
   /// Unix timestamp (milliseconds) of the X.509 NotAfter
   final int? expiresAt;
 
-  const SAMLConnectionIdpCertificatesItem({required this.certificate, required this.issuedAt, required this.expiresAt});
+  const SAMLConnectionIdpCertificatesItem(
+      {required this.certificate,
+      required this.issuedAt,
+      required this.expiresAt});
 
-  SAMLConnectionIdpCertificatesItem Function({String certificate, int? issuedAt, int? expiresAt}) get copyWith => _copyWith;
+  SAMLConnectionIdpCertificatesItem Function(
+      {String certificate,
+      int? issuedAt,
+      int? expiresAt}) get copyWith => _copyWith;
 
-  SAMLConnectionIdpCertificatesItem _copyWith({Object? certificate = sdkOmittedValue, Object? issuedAt = sdkOmittedValue, Object? expiresAt = sdkOmittedValue}) => SAMLConnectionIdpCertificatesItem(
-    certificate: identical(certificate, sdkOmittedValue) ? this.certificate : certificate as String,
-    issuedAt: identical(issuedAt, sdkOmittedValue) ? this.issuedAt : issuedAt as int?,
-    expiresAt: identical(expiresAt, sdkOmittedValue) ? this.expiresAt : expiresAt as int?,
-  );
+  SAMLConnectionIdpCertificatesItem _copyWith(
+          {Object? certificate = sdkOmittedValue,
+          Object? issuedAt = sdkOmittedValue,
+          Object? expiresAt = sdkOmittedValue}) =>
+      SAMLConnectionIdpCertificatesItem(
+        certificate: identical(certificate, sdkOmittedValue)
+            ? this.certificate
+            : certificate as String,
+        issuedAt: identical(issuedAt, sdkOmittedValue)
+            ? this.issuedAt
+            : issuedAt as int?,
+        expiresAt: identical(expiresAt, sdkOmittedValue)
+            ? this.expiresAt
+            : expiresAt as int?,
+      );
 
-  factory SAMLConnectionIdpCertificatesItem.fromJson(Map<String, dynamic> json) => SAMLConnectionIdpCertificatesItem(
-    certificate: (json['certificate'] as String?)!,
-    issuedAt: json.containsKey('issued_at') ? (json['issued_at'] as num?)?.toInt() : throw ArgumentError.value(null, 'issued_at', 'Required property is missing'),
-    expiresAt: json.containsKey('expires_at') ? (json['expires_at'] as num?)?.toInt() : throw ArgumentError.value(null, 'expires_at', 'Required property is missing'),
-  );
+  factory SAMLConnectionIdpCertificatesItem.fromJson(
+          Map<String, dynamic> json) =>
+      SAMLConnectionIdpCertificatesItem(
+        certificate: (json['certificate'] as String?)!,
+        issuedAt: json.containsKey('issued_at')
+            ? (json['issued_at'] as num?)?.toInt()
+            : throw ArgumentError.value(
+                null, 'issued_at', 'Required property is missing'),
+        expiresAt: json.containsKey('expires_at')
+            ? (json['expires_at'] as num?)?.toInt()
+            : throw ArgumentError.value(
+                null, 'expires_at', 'Required property is missing'),
+      );
 
   Map<String, dynamic> toJson() => {
-    'certificate': certificate,
-    'issued_at': issuedAt,
-    'expires_at': expiresAt,
-  };
+        'certificate': certificate,
+        'issued_at': issuedAt,
+        'expires_at': expiresAt,
+      };
 }

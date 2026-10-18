@@ -10,24 +10,34 @@ import '../types.dart';
 ///
 /// [enterpriseConnectionId] Restrict the list to the users this enterprise
 ///   connection serves.
-Future<List<SSOBypassAllowlistUser>>
-    listSsoBypassAllowlistUsers(ClientConfig config,
-        {SdkOptional<String> enterpriseConnectionId = const SdkOmitted(),
-        RequestOptions? requestOptions}) async {
+Future<List<SSOBypassAllowlistUser>> listSsoBypassAllowlistUsers(
+    ClientConfig config,
+    {SdkOptional<String> enterpriseConnectionId = const SdkOmitted(),
+    RequestOptions? requestOptions}) async {
   return (await sdkRequest<List<SSOBypassAllowlistUser>>(
           'GET', '/sso_bypass_allowlist_users',
           config: config,
           query: {
-            'enterprise_connection_id': SdkQueryValue(SdkUtils.unwrapOptional(enterpriseConnectionId), style: 'form', explode: true)
+            'enterprise_connection_id': SdkQueryValue(
+                SdkUtils.unwrapOptional(enterpriseConnectionId),
+                style: 'form',
+                explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'listSsoBypassAllowlistUsers',
-          fromJsonRaw: (value) => (value as List).map((item) => SSOBypassAllowlistUser.fromJson(item as Map<String, dynamic>)).toList(),
+          fromJsonRaw: (value) => (value as List)
+              .map((item) =>
+                  SSOBypassAllowlistUser.fromJson(item as Map<String, dynamic>))
+              .toList(),
           options: requestOptions,
-          errors: {'403': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '404': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '403': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>),
+            '404': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Puts a user on the allowlist. The request is rejected unless the user holds a verified email address on a domain one of the instance's enterprise connections serves.
 ///
@@ -40,12 +50,21 @@ Future<SSOBypassAllowlistUser> createSsoBypassAllowlistUser(ClientConfig config,
           body: {'user_id': userId},
           decoder: SdkResponseDecoder.json,
           operationId: 'createSsoBypassAllowlistUser',
-          fromJsonRaw: (value) => SSOBypassAllowlistUser.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              SSOBypassAllowlistUser.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'402': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '403': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '404': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '422': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '402': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>),
+            '403': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>),
+            '404': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>),
+            '422': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Removes the user from the allowlist, across every enterprise connection that serves them.
 ///
@@ -57,8 +76,12 @@ Future<DeletedObject> deleteSsoBypassAllowlistUser(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'deleteSsoBypassAllowlistUser',
-          fromJsonRaw: (value) => DeletedObject.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              DeletedObject.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'403': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '404': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '403': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>),
+        '404': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }

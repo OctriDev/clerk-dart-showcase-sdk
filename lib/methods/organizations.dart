@@ -40,7 +40,8 @@ import '../types.dart';
 ///   integer greater or equal to zero. To be used in conjunction with `limit`.
 Future<Organizations> listOrganizations(ClientConfig config,
     {SdkOptional<bool> includeMembersCount = const SdkOmitted(),
-    SdkOptional<bool> includeMissingMemberWithElevatedPermissions = const SdkOmitted(),
+    SdkOptional<bool> includeMissingMemberWithElevatedPermissions =
+        const SdkOmitted(),
     SdkOptional<String> query = const SdkOmitted(),
     SdkOptional<List<String>> userId = const SdkOmitted(),
     SdkOptional<List<String>> organizationId = const SdkOmitted(),
@@ -58,23 +59,45 @@ Future<Organizations> listOrganizations(ClientConfig config,
   return (await sdkRequest<Organizations>('GET', '/organizations',
           config: config,
           query: {
-            'include_members_count': SdkQueryValue(SdkUtils.unwrapOptional(includeMembersCount), style: 'form', explode: true),
-            'include_missing_member_with_elevated_permissions': SdkQueryValue(SdkUtils.unwrapOptional(includeMissingMemberWithElevatedPermissions), style: 'form', explode: true),
-            'query': SdkQueryValue(SdkUtils.unwrapOptional(query), style: 'form', explode: true),
-            'user_id': SdkQueryValue(SdkUtils.unwrapOptional(userId), style: 'form', explode: true),
-            'organization_id': SdkQueryValue(SdkUtils.unwrapOptional(organizationId), style: 'form', explode: true),
-            'order_by': SdkQueryValue(SdkUtils.unwrapOptional(orderBy), style: 'form', explode: true),
-            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit), style: 'form', explode: true),
-            'offset': SdkQueryValue(SdkUtils.unwrapOptional(offset), style: 'form', explode: true)
+            'include_members_count': SdkQueryValue(
+                SdkUtils.unwrapOptional(includeMembersCount),
+                style: 'form',
+                explode: true),
+            'include_missing_member_with_elevated_permissions': SdkQueryValue(
+                SdkUtils.unwrapOptional(
+                    includeMissingMemberWithElevatedPermissions),
+                style: 'form',
+                explode: true),
+            'query': SdkQueryValue(SdkUtils.unwrapOptional(query),
+                style: 'form', explode: true),
+            'user_id': SdkQueryValue(SdkUtils.unwrapOptional(userId),
+                style: 'form', explode: true),
+            'organization_id': SdkQueryValue(
+                SdkUtils.unwrapOptional(organizationId),
+                style: 'form',
+                explode: true),
+            'order_by': SdkQueryValue(SdkUtils.unwrapOptional(orderBy),
+                style: 'form', explode: true),
+            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit),
+                style: 'form', explode: true),
+            'offset': SdkQueryValue(SdkUtils.unwrapOptional(offset),
+                style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'listOrganizations',
-          fromJsonRaw: (value) => Organizations.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              Organizations.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '403': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '422': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '400': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>),
+            '403': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>),
+            '422': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Creates a new organization with the given name for an instance. You can specify an optional slug for the new organization. If provided, the organization slug can contain only lowercase alphanumeric characters (letters and digits) and the dash "-". Organization slugs must be unique for the instance. You can provide additional metadata for the organization and set any custom attribute you want. Organizations support private and public metadata. Private metadata can only be accessed from the Backend API. Public metadata can be accessed from the Backend API, and are read-only from the Frontend API. The `created_by` user will see this as their [active organization](https://clerk.com/docs/organizations/overview#active-organization) the next time they create a session, presuming they don't explicitly set a different organization as active before then.
 ///
@@ -112,7 +135,8 @@ Future<Organization> createOrganization(ClientConfig config,
   if (maxAllowedMemberships is SdkPresent<int?>) {
     final maxAllowedMembershipsValue = maxAllowedMemberships.value;
     if (maxAllowedMembershipsValue != null) {
-      validateRange('max_allowed_memberships', maxAllowedMembershipsValue, min: 0);
+      validateRange('max_allowed_memberships', maxAllowedMembershipsValue,
+          min: 0);
     }
   }
 
@@ -124,18 +148,28 @@ Future<Organization> createOrganization(ClientConfig config,
             'private_metadata': SdkUtils.unwrapOptional(privateMetadata),
             'public_metadata': SdkUtils.unwrapOptional(publicMetadata),
             'slug': SdkUtils.unwrapOptional(slug),
-            'max_allowed_memberships': SdkUtils.unwrapOptional(maxAllowedMemberships),
+            'max_allowed_memberships':
+                SdkUtils.unwrapOptional(maxAllowedMemberships),
             'created_at': SdkUtils.unwrapOptional(createdAt),
             'role_set_key': SdkUtils.unwrapOptional(roleSetKey)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'createOrganization',
-          fromJsonRaw: (value) => Organization.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              Organization.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '402': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '403': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '422': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '400': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>),
+            '402': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>),
+            '403': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>),
+            '422': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Fetches the organization whose ID or slug matches the provided `id_or_slug` URL query parameter.
 ///
@@ -148,23 +182,36 @@ Future<Organization> createOrganization(ClientConfig config,
 Future<Organization> getOrganization(ClientConfig config,
     {required String organizationId,
     SdkOptional<bool> includeMembersCount = const SdkOmitted(),
-    SdkOptional<bool> includeMissingMemberWithElevatedPermissions = const SdkOmitted(),
+    SdkOptional<bool> includeMissingMemberWithElevatedPermissions =
+        const SdkOmitted(),
     RequestOptions? requestOptions}) async {
   return (await sdkRequest<Organization>('GET',
           '/organizations/${Uri.encodeComponent(organizationId.toString())}',
           config: config,
           query: {
-            'include_members_count': SdkQueryValue(SdkUtils.unwrapOptional(includeMembersCount), style: 'form', explode: true),
-            'include_missing_member_with_elevated_permissions': SdkQueryValue(SdkUtils.unwrapOptional(includeMissingMemberWithElevatedPermissions), style: 'form', explode: true)
+            'include_members_count': SdkQueryValue(
+                SdkUtils.unwrapOptional(includeMembersCount),
+                style: 'form',
+                explode: true),
+            'include_missing_member_with_elevated_permissions': SdkQueryValue(
+                SdkUtils.unwrapOptional(
+                    includeMissingMemberWithElevatedPermissions),
+                style: 'form',
+                explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'getOrganization',
-          fromJsonRaw: (value) => Organization.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              Organization.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'403': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '404': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '403': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>),
+            '404': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Updates an existing organization. As of API version 2026-05-12, this endpoint no longer accepts `public_metadata` or `private_metadata`. Use `PATCH /v1/organizations/{organization_id}/metadata` to merge updates into existing metadata, or `PUT /v1/organizations/{organization_id}/metadata` to replace a metadata field entirely.
 ///
@@ -202,12 +249,14 @@ Future<Organization> updateOrganization(ClientConfig config,
     SdkOptional<bool?> selfServeDirectorySyncEnabled = const SdkOmitted(),
     SdkOptional<String?> createdAt = const SdkOmitted(),
     SdkOptional<String?> roleSetKey = const SdkOmitted(),
-    SdkOptional<Map<String, dynamic>?> reassignmentMappings = const SdkOmitted(),
+    SdkOptional<Map<String, dynamic>?> reassignmentMappings =
+        const SdkOmitted(),
     RequestOptions? requestOptions}) async {
   if (maxAllowedMemberships is SdkPresent<int?>) {
     final maxAllowedMembershipsValue = maxAllowedMemberships.value;
     if (maxAllowedMembershipsValue != null) {
-      validateRange('max_allowed_memberships', maxAllowedMembershipsValue, min: 0);
+      validateRange('max_allowed_memberships', maxAllowedMembershipsValue,
+          min: 0);
     }
   }
 
@@ -217,22 +266,37 @@ Future<Organization> updateOrganization(ClientConfig config,
           body: {
             'name': SdkUtils.unwrapOptional(name),
             'slug': SdkUtils.unwrapOptional(slug),
-            'max_allowed_memberships': SdkUtils.unwrapOptional(maxAllowedMemberships),
+            'max_allowed_memberships':
+                SdkUtils.unwrapOptional(maxAllowedMemberships),
             'admin_delete_enabled': SdkUtils.unwrapOptional(adminDeleteEnabled),
-            'self_serve_sso_enabled': SdkUtils.unwrapOptional(selfServeSsoEnabled),
-            'self_serve_directory_sync_enabled': SdkUtils.unwrapOptional(selfServeDirectorySyncEnabled),
+            'self_serve_sso_enabled':
+                SdkUtils.unwrapOptional(selfServeSsoEnabled),
+            'self_serve_directory_sync_enabled':
+                SdkUtils.unwrapOptional(selfServeDirectorySyncEnabled),
             'created_at': SdkUtils.unwrapOptional(createdAt),
             'role_set_key': SdkUtils.unwrapOptional(roleSetKey),
-            'reassignment_mappings': SdkUtils.unwrapOptional(reassignmentMappings)
+            'reassignment_mappings':
+                SdkUtils.unwrapOptional(reassignmentMappings)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'updateOrganization',
-          fromJsonRaw: (value) => Organization.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              Organization.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '402': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '403': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '404': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '422': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '400': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>),
+            '402': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>),
+            '403': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>),
+            '404': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>),
+            '422': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Deletes the given organization. Please note that deleting an organization will also delete all memberships and invitations. This is not reversible. After the organization is deleted, any user's active sessions that contain the deleted organization will be cleared.
 ///
@@ -244,12 +308,14 @@ Future<DeletedObject> deleteOrganization(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'deleteOrganization',
-          fromJsonRaw: (value) => DeletedObject.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              DeletedObject.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'404': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '404': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// Update organization metadata attributes by merging existing values with the provided parameters. Metadata values will be updated via a deep merge. Deep meaning that any nested JSON objects will be merged as well. You can remove metadata keys at any level by setting their value to `null`.
 ///
@@ -274,12 +340,21 @@ Future<Organization> mergeOrganizationMetadata(ClientConfig config,
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'mergeOrganizationMetadata',
-          fromJsonRaw: (value) => Organization.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              Organization.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '401': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '404': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '422': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '400': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>),
+            '401': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>),
+            '404': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>),
+            '422': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Replace an organization's metadata attributes with the provided values. Unlike `PATCH /v1/organizations/{organization_id}/metadata` (merge semantics), this endpoint replaces the supplied metadata fields entirely — the prior contents of each supplied field are discarded. Fields omitted from the request body are left unchanged. Prefer the `PATCH` endpoint for partial updates. Use `PUT` only when you explicitly intend to overwrite a metadata field wholesale.
 ///
@@ -304,12 +379,21 @@ Future<Organization> replaceOrganizationMetadata(ClientConfig config,
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'replaceOrganizationMetadata',
-          fromJsonRaw: (value) => Organization.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              Organization.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '401': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '404': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '422': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '400': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>),
+            '401': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>),
+            '404': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>),
+            '422': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Uploads an image file as the logo for an organization. Send the request as `multipart/form-data`; files must be no larger than 10 MB and use a supported image content type. A 200 response returns the organization with its logo URL.
 ///
@@ -333,12 +417,21 @@ Future<OrganizationWithLogo> uploadOrganizationLogo(ClientConfig config,
           contentType: 'multipart/form-data',
           decoder: SdkResponseDecoder.json,
           operationId: 'uploadOrganizationLogo',
-          fromJsonRaw: (value) => OrganizationWithLogo.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              OrganizationWithLogo.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '403': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '404': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '413': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '400': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>),
+            '403': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>),
+            '404': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>),
+            '413': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Deletes the logo associated with an organization. Use `organization_id` to identify the organization whose logo you want to remove. A 200 response returns the organization with its updated logo-related fields.
 ///
@@ -355,44 +448,63 @@ Future<Organization> deleteOrganizationLogo(ClientConfig config,
           operationId: 'deleteOrganizationLogo',
           fromJsonRaw: (value) => Organization.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'404': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '404': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// Retrieves the billing subscription for the specified organization. This includes subscription details, active plans, billing information, and payment status. The subscription contains subscription items which represent the individual plans the organization is subscribed to.
 ///
 /// [organizationId] The ID of the organization whose subscription to retrieve
-Future<CommerceSubscription> getOrganizationBillingSubscription(ClientConfig config,
-    {required String organizationId, RequestOptions? requestOptions}) async {
+Future<CommerceSubscription> getOrganizationBillingSubscription(
+    ClientConfig config,
+    {required String organizationId,
+    RequestOptions? requestOptions}) async {
   return (await sdkRequest<CommerceSubscription>('GET',
           '/organizations/${Uri.encodeComponent(organizationId.toString())}/billing/subscription',
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'getOrganizationBillingSubscription',
-          fromJsonRaw: (value) => CommerceSubscription.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              CommerceSubscription.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '401': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '403': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '404': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '422': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '500': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '400': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>),
+        '401': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>),
+        '403': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>),
+        '404': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>),
+        '422': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>),
+        '500': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// Retrieves the current credit balance for the specified organization. Credits can be applied during checkout to reduce the charge or automatically applied to upcoming recurring charges.
 ///
 /// [organizationId] The ID of the organization whose credit balance to retrieve
-Future<CommerceCreditBalanceResponse> getOrganizationBillingCreditBalance(ClientConfig config,
-    {required String organizationId, RequestOptions? requestOptions}) async {
+Future<CommerceCreditBalanceResponse> getOrganizationBillingCreditBalance(
+    ClientConfig config,
+    {required String organizationId,
+    RequestOptions? requestOptions}) async {
   return (await sdkRequest<CommerceCreditBalanceResponse>('GET',
           '/organizations/${Uri.encodeComponent(organizationId.toString())}/billing/credits',
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'getOrganizationBillingCreditBalance',
-          fromJsonRaw: (value) => CommerceCreditBalanceResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => CommerceCreditBalanceResponse.fromJson(
+              value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '401': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '403': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '404': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '422': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '500': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '400': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>),
+        '401': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>),
+        '403': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>),
+        '404': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>),
+        '422': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>),
+        '500': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// Increases or decreases the credit balance for the specified organization. Each adjustment is recorded as a ledger entry. The idempotency_key parameter ensures that duplicate requests are safely handled.
 ///
@@ -403,15 +515,15 @@ Future<CommerceCreditBalanceResponse> getOrganizationBillingCreditBalance(Client
 ///   Repeated requests with the same key return the original ledger entry.
 /// [currency] The currency code (e.g. "USD"). Defaults to USD if not provided.
 /// [note] An optional note to attach to the ledger entry.
-Future<CommerceCreditLedgerResponse>
-    adjustOrganizationBillingCreditBalance(ClientConfig config,
-        {required String organizationId,
-        required int amount,
-        required AdjustCreditBalanceRequestAction action,
-        required String idempotencyKey,
-        SdkOptional<String> currency = const SdkOmitted(),
-        SdkOptional<String> note = const SdkOmitted(),
-        RequestOptions? requestOptions}) async {
+Future<CommerceCreditLedgerResponse> adjustOrganizationBillingCreditBalance(
+    ClientConfig config,
+    {required String organizationId,
+    required int amount,
+    required AdjustCreditBalanceRequestAction action,
+    required String idempotencyKey,
+    SdkOptional<String> currency = const SdkOmitted(),
+    SdkOptional<String> note = const SdkOmitted(),
+    RequestOptions? requestOptions}) async {
   return (await sdkRequest<CommerceCreditLedgerResponse>('POST',
           '/organizations/${Uri.encodeComponent(organizationId.toString())}/billing/credits',
           config: config,
@@ -424,8 +536,24 @@ Future<CommerceCreditLedgerResponse>
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'adjustOrganizationBillingCreditBalance',
-          fromJsonRaw: (value) => CommerceCreditLedgerResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => CommerceCreditLedgerResponse.fromJson(
+              value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '401': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '403': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '404': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '409': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '422': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '500': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '400': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>),
+            '401': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>),
+            '403': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>),
+            '404': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>),
+            '409': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>),
+            '422': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>),
+            '500': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }

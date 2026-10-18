@@ -13,17 +13,19 @@ class VerifyM2MTokenRequestBody {
 
   VerifyM2MTokenRequestBody Function({String token}) get copyWith => _copyWith;
 
-  VerifyM2MTokenRequestBody _copyWith({Object? token = sdkOmittedValue}) => VerifyM2MTokenRequestBody(
-    token: identical(token, sdkOmittedValue) ? this.token : token as String,
-  );
+  VerifyM2MTokenRequestBody _copyWith({Object? token = sdkOmittedValue}) =>
+      VerifyM2MTokenRequestBody(
+        token: identical(token, sdkOmittedValue) ? this.token : token as String,
+      );
 
-  factory VerifyM2MTokenRequestBody.fromJson(Map<String, dynamic> json) => VerifyM2MTokenRequestBody(
-    token: (json['token'] as String?)!,
-  );
+  factory VerifyM2MTokenRequestBody.fromJson(Map<String, dynamic> json) =>
+      VerifyM2MTokenRequestBody(
+        token: (json['token'] as String?)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'token': token,
-  };
+        'token': token,
+      };
 }
 
 class VerifyM2MTokenResponse {
@@ -37,103 +39,210 @@ class VerifyM2MTokenResponse {
   final bool revoked;
   final String? revocationReason;
   final bool expired;
+
   /// The timestamp for when the token will expire, in milliseconds
   final double? expiration;
+
   /// The timestamp for when the token was last used, in milliseconds
   final double? lastUsedAt;
+
   /// The timestamp for when the token was created, in milliseconds
   final double createdAt;
+
   /// The timestamp for when the token was last updated, in milliseconds
   final double updatedAt;
 
-  const VerifyM2MTokenResponse({required this.object, required this.id, required this.subject, this.claims = const SdkOmitted(), this.scopes = const SdkOmitted(), required this.revoked, required this.revocationReason, required this.expired, required this.expiration, required this.lastUsedAt, required this.createdAt, required this.updatedAt});
+  const VerifyM2MTokenResponse(
+      {required this.object,
+      required this.id,
+      required this.subject,
+      this.claims = const SdkOmitted(),
+      this.scopes = const SdkOmitted(),
+      required this.revoked,
+      required this.revocationReason,
+      required this.expired,
+      required this.expiration,
+      required this.lastUsedAt,
+      required this.createdAt,
+      required this.updatedAt});
 
-  VerifyM2MTokenResponse Function({VerifyM2MTokenResponseObject object, String id, String subject, SdkOptional<dynamic> claims, SdkOptional<List<String>> scopes, bool revoked, String? revocationReason, bool expired, double? expiration, double? lastUsedAt, double createdAt, double updatedAt}) get copyWith => _copyWith;
+  VerifyM2MTokenResponse Function(
+      {VerifyM2MTokenResponseObject object,
+      String id,
+      String subject,
+      SdkOptional<dynamic> claims,
+      SdkOptional<List<String>> scopes,
+      bool revoked,
+      String? revocationReason,
+      bool expired,
+      double? expiration,
+      double? lastUsedAt,
+      double createdAt,
+      double updatedAt}) get copyWith => _copyWith;
 
-  VerifyM2MTokenResponse _copyWith({Object? object = sdkOmittedValue, Object? id = sdkOmittedValue, Object? subject = sdkOmittedValue, Object? claims = sdkOmittedValue, Object? scopes = sdkOmittedValue, Object? revoked = sdkOmittedValue, Object? revocationReason = sdkOmittedValue, Object? expired = sdkOmittedValue, Object? expiration = sdkOmittedValue, Object? lastUsedAt = sdkOmittedValue, Object? createdAt = sdkOmittedValue, Object? updatedAt = sdkOmittedValue}) => VerifyM2MTokenResponse(
-    object: identical(object, sdkOmittedValue) ? this.object : object as VerifyM2MTokenResponseObject,
-    id: identical(id, sdkOmittedValue) ? this.id : id as String,
-    subject: identical(subject, sdkOmittedValue) ? this.subject : subject as String,
-    claims: identical(claims, sdkOmittedValue) ? this.claims : claims as SdkOptional<dynamic>,
-    scopes: identical(scopes, sdkOmittedValue) ? this.scopes : scopes as SdkOptional<List<String>>,
-    revoked: identical(revoked, sdkOmittedValue) ? this.revoked : revoked as bool,
-    revocationReason: identical(revocationReason, sdkOmittedValue) ? this.revocationReason : revocationReason as String?,
-    expired: identical(expired, sdkOmittedValue) ? this.expired : expired as bool,
-    expiration: identical(expiration, sdkOmittedValue) ? this.expiration : expiration as double?,
-    lastUsedAt: identical(lastUsedAt, sdkOmittedValue) ? this.lastUsedAt : lastUsedAt as double?,
-    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as double,
-    updatedAt: identical(updatedAt, sdkOmittedValue) ? this.updatedAt : updatedAt as double,
-  );
+  VerifyM2MTokenResponse _copyWith(
+          {Object? object = sdkOmittedValue,
+          Object? id = sdkOmittedValue,
+          Object? subject = sdkOmittedValue,
+          Object? claims = sdkOmittedValue,
+          Object? scopes = sdkOmittedValue,
+          Object? revoked = sdkOmittedValue,
+          Object? revocationReason = sdkOmittedValue,
+          Object? expired = sdkOmittedValue,
+          Object? expiration = sdkOmittedValue,
+          Object? lastUsedAt = sdkOmittedValue,
+          Object? createdAt = sdkOmittedValue,
+          Object? updatedAt = sdkOmittedValue}) =>
+      VerifyM2MTokenResponse(
+        object: identical(object, sdkOmittedValue)
+            ? this.object
+            : object as VerifyM2MTokenResponseObject,
+        id: identical(id, sdkOmittedValue) ? this.id : id as String,
+        subject: identical(subject, sdkOmittedValue)
+            ? this.subject
+            : subject as String,
+        claims: identical(claims, sdkOmittedValue)
+            ? this.claims
+            : claims as SdkOptional<dynamic>,
+        scopes: identical(scopes, sdkOmittedValue)
+            ? this.scopes
+            : scopes as SdkOptional<List<String>>,
+        revoked: identical(revoked, sdkOmittedValue)
+            ? this.revoked
+            : revoked as bool,
+        revocationReason: identical(revocationReason, sdkOmittedValue)
+            ? this.revocationReason
+            : revocationReason as String?,
+        expired: identical(expired, sdkOmittedValue)
+            ? this.expired
+            : expired as bool,
+        expiration: identical(expiration, sdkOmittedValue)
+            ? this.expiration
+            : expiration as double?,
+        lastUsedAt: identical(lastUsedAt, sdkOmittedValue)
+            ? this.lastUsedAt
+            : lastUsedAt as double?,
+        createdAt: identical(createdAt, sdkOmittedValue)
+            ? this.createdAt
+            : createdAt as double,
+        updatedAt: identical(updatedAt, sdkOmittedValue)
+            ? this.updatedAt
+            : updatedAt as double,
+      );
 
-  factory VerifyM2MTokenResponse.fromJson(Map<String, dynamic> json) => VerifyM2MTokenResponse(
-    object: (json['object'] != null ? VerifyM2MTokenResponseObject.fromJson(json['object'] as String) : null)!,
-    id: (json['id'] as String?)!,
-    subject: (json['subject'] as String?)!,
-    claims: json.containsKey('claims') ? SdkPresent(json['claims']) : const SdkOmitted(),
-    scopes: json['scopes'] != null ? SdkPresent(((json['scopes'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
-    revoked: (json['revoked'] as bool?)!,
-    revocationReason: json.containsKey('revocation_reason') ? json['revocation_reason'] as String? : throw ArgumentError.value(null, 'revocation_reason', 'Required property is missing'),
-    expired: (json['expired'] as bool?)!,
-    expiration: json.containsKey('expiration') ? (json['expiration'] as num?)?.toDouble() : throw ArgumentError.value(null, 'expiration', 'Required property is missing'),
-    lastUsedAt: json.containsKey('last_used_at') ? (json['last_used_at'] as num?)?.toDouble() : throw ArgumentError.value(null, 'last_used_at', 'Required property is missing'),
-    createdAt: ((json['created_at'] as num?)?.toDouble())!,
-    updatedAt: ((json['updated_at'] as num?)?.toDouble())!,
-  );
+  factory VerifyM2MTokenResponse.fromJson(Map<String, dynamic> json) =>
+      VerifyM2MTokenResponse(
+        object: (json['object'] != null
+            ? VerifyM2MTokenResponseObject.fromJson(json['object'] as String)
+            : null)!,
+        id: (json['id'] as String?)!,
+        subject: (json['subject'] as String?)!,
+        claims: json.containsKey('claims')
+            ? SdkPresent(json['claims'])
+            : const SdkOmitted(),
+        scopes: json['scopes'] != null
+            ? SdkPresent(
+                ((json['scopes'] as List?)?.map((e) => e as String).toList())!)
+            : const SdkOmitted(),
+        revoked: (json['revoked'] as bool?)!,
+        revocationReason: json.containsKey('revocation_reason')
+            ? json['revocation_reason'] as String?
+            : throw ArgumentError.value(
+                null, 'revocation_reason', 'Required property is missing'),
+        expired: (json['expired'] as bool?)!,
+        expiration: json.containsKey('expiration')
+            ? (json['expiration'] as num?)?.toDouble()
+            : throw ArgumentError.value(
+                null, 'expiration', 'Required property is missing'),
+        lastUsedAt: json.containsKey('last_used_at')
+            ? (json['last_used_at'] as num?)?.toDouble()
+            : throw ArgumentError.value(
+                null, 'last_used_at', 'Required property is missing'),
+        createdAt: ((json['created_at'] as num?)?.toDouble())!,
+        updatedAt: ((json['updated_at'] as num?)?.toDouble())!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'object': object.toJson(),
-    'id': id,
-    'subject': subject,
-    ...switch (claims) {
-      SdkPresent<dynamic>(value: final value) => {'claims': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (scopes) {
-      SdkPresent<List<String>>(value: final value) => {'scopes': value,},
-      _ => const <String, dynamic>{},
-    },
-    'revoked': revoked,
-    'revocation_reason': revocationReason,
-    'expired': expired,
-    'expiration': expiration,
-    'last_used_at': lastUsedAt,
-    'created_at': createdAt,
-    'updated_at': updatedAt,
-  };
+        'object': object.toJson(),
+        'id': id,
+        'subject': subject,
+        ...switch (claims) {
+          SdkPresent<dynamic>(value: final value) => {
+              'claims': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (scopes) {
+          SdkPresent<List<String>>(value: final value) => {
+              'scopes': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        'revoked': revoked,
+        'revocation_reason': revocationReason,
+        'expired': expired,
+        'expiration': expiration,
+        'last_used_at': lastUsedAt,
+        'created_at': createdAt,
+        'updated_at': updatedAt,
+      };
 }
 
 class VerifyOAuthAccessTokenRequestBody {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The access token to verify.
   final SdkOptional<String> accessToken;
+
   /// The access token to verify. This is deprecated, use `access_token` instead.
   final SdkOptional<String> secret;
 
-  const VerifyOAuthAccessTokenRequestBody({this.accessToken = const SdkOmitted(), this.secret = const SdkOmitted()});
+  const VerifyOAuthAccessTokenRequestBody(
+      {this.accessToken = const SdkOmitted(),
+      this.secret = const SdkOmitted()});
 
-  VerifyOAuthAccessTokenRequestBody Function({SdkOptional<String> accessToken, SdkOptional<String> secret}) get copyWith => _copyWith;
+  VerifyOAuthAccessTokenRequestBody Function(
+      {SdkOptional<String> accessToken,
+      SdkOptional<String> secret}) get copyWith => _copyWith;
 
-  VerifyOAuthAccessTokenRequestBody _copyWith({Object? accessToken = sdkOmittedValue, Object? secret = sdkOmittedValue}) => VerifyOAuthAccessTokenRequestBody(
-    accessToken: identical(accessToken, sdkOmittedValue) ? this.accessToken : accessToken as SdkOptional<String>,
-    secret: identical(secret, sdkOmittedValue) ? this.secret : secret as SdkOptional<String>,
-  );
+  VerifyOAuthAccessTokenRequestBody _copyWith(
+          {Object? accessToken = sdkOmittedValue,
+          Object? secret = sdkOmittedValue}) =>
+      VerifyOAuthAccessTokenRequestBody(
+        accessToken: identical(accessToken, sdkOmittedValue)
+            ? this.accessToken
+            : accessToken as SdkOptional<String>,
+        secret: identical(secret, sdkOmittedValue)
+            ? this.secret
+            : secret as SdkOptional<String>,
+      );
 
-  factory VerifyOAuthAccessTokenRequestBody.fromJson(Map<String, dynamic> json) => VerifyOAuthAccessTokenRequestBody(
-    accessToken: json['access_token'] != null ? SdkPresent((json['access_token'] as String?)!) : const SdkOmitted(),
-    secret: json['secret'] != null ? SdkPresent((json['secret'] as String?)!) : const SdkOmitted(),
-  );
+  factory VerifyOAuthAccessTokenRequestBody.fromJson(
+          Map<String, dynamic> json) =>
+      VerifyOAuthAccessTokenRequestBody(
+        accessToken: json['access_token'] != null
+            ? SdkPresent((json['access_token'] as String?)!)
+            : const SdkOmitted(),
+        secret: json['secret'] != null
+            ? SdkPresent((json['secret'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (accessToken) {
-      SdkPresent<String>(value: final value) => {'access_token': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (secret) {
-      SdkPresent<String>(value: final value) => {'secret': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (accessToken) {
+          SdkPresent<String>(value: final value) => {
+              'access_token': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (secret) {
+          SdkPresent<String>(value: final value) => {
+              'secret': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 class VerifyOAuthAccessTokenResponseVariant0ActAct {
@@ -142,27 +251,39 @@ class VerifyOAuthAccessTokenResponseVariant0ActAct {
   final SdkOptional<String> iss;
   final String sub;
 
-  const VerifyOAuthAccessTokenResponseVariant0ActAct({this.iss = const SdkOmitted(), required this.sub});
+  const VerifyOAuthAccessTokenResponseVariant0ActAct(
+      {this.iss = const SdkOmitted(), required this.sub});
 
-  VerifyOAuthAccessTokenResponseVariant0ActAct Function({SdkOptional<String> iss, String sub}) get copyWith => _copyWith;
+  VerifyOAuthAccessTokenResponseVariant0ActAct Function(
+      {SdkOptional<String> iss, String sub}) get copyWith => _copyWith;
 
-  VerifyOAuthAccessTokenResponseVariant0ActAct _copyWith({Object? iss = sdkOmittedValue, Object? sub = sdkOmittedValue}) => VerifyOAuthAccessTokenResponseVariant0ActAct(
-    iss: identical(iss, sdkOmittedValue) ? this.iss : iss as SdkOptional<String>,
-    sub: identical(sub, sdkOmittedValue) ? this.sub : sub as String,
-  );
+  VerifyOAuthAccessTokenResponseVariant0ActAct _copyWith(
+          {Object? iss = sdkOmittedValue, Object? sub = sdkOmittedValue}) =>
+      VerifyOAuthAccessTokenResponseVariant0ActAct(
+        iss: identical(iss, sdkOmittedValue)
+            ? this.iss
+            : iss as SdkOptional<String>,
+        sub: identical(sub, sdkOmittedValue) ? this.sub : sub as String,
+      );
 
-  factory VerifyOAuthAccessTokenResponseVariant0ActAct.fromJson(Map<String, dynamic> json) => VerifyOAuthAccessTokenResponseVariant0ActAct(
-    iss: json['iss'] != null ? SdkPresent((json['iss'] as String?)!) : const SdkOmitted(),
-    sub: (json['sub'] as String?)!,
-  );
+  factory VerifyOAuthAccessTokenResponseVariant0ActAct.fromJson(
+          Map<String, dynamic> json) =>
+      VerifyOAuthAccessTokenResponseVariant0ActAct(
+        iss: json['iss'] != null
+            ? SdkPresent((json['iss'] as String?)!)
+            : const SdkOmitted(),
+        sub: (json['sub'] as String?)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (iss) {
-      SdkPresent<String>(value: final value) => {'iss': value,},
-      _ => const <String, dynamic>{},
-    },
-    'sub': sub,
-  };
+        ...switch (iss) {
+          SdkPresent<String>(value: final value) => {
+              'iss': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        'sub': sub,
+      };
 }
 
 /// The actor chain of an access token issued by an OAuth 2.0 Token Exchange (RFC 8693 section 4.1). Omitted for other access tokens.
@@ -173,33 +294,64 @@ class VerifyOAuthAccessTokenResponseVariant0Act {
   final String sub;
   final SdkOptional<VerifyOAuthAccessTokenResponseVariant0ActAct> act;
 
-  const VerifyOAuthAccessTokenResponseVariant0Act({this.iss = const SdkOmitted(), required this.sub, this.act = const SdkOmitted()});
+  const VerifyOAuthAccessTokenResponseVariant0Act(
+      {this.iss = const SdkOmitted(),
+      required this.sub,
+      this.act = const SdkOmitted()});
 
-  VerifyOAuthAccessTokenResponseVariant0Act Function({SdkOptional<String> iss, String sub, SdkOptional<VerifyOAuthAccessTokenResponseVariant0ActAct> act}) get copyWith => _copyWith;
+  VerifyOAuthAccessTokenResponseVariant0Act Function(
+          {SdkOptional<String> iss,
+          String sub,
+          SdkOptional<VerifyOAuthAccessTokenResponseVariant0ActAct> act})
+      get copyWith => _copyWith;
 
-  VerifyOAuthAccessTokenResponseVariant0Act _copyWith({Object? iss = sdkOmittedValue, Object? sub = sdkOmittedValue, Object? act = sdkOmittedValue}) => VerifyOAuthAccessTokenResponseVariant0Act(
-    iss: identical(iss, sdkOmittedValue) ? this.iss : iss as SdkOptional<String>,
-    sub: identical(sub, sdkOmittedValue) ? this.sub : sub as String,
-    act: identical(act, sdkOmittedValue) ? this.act : act as SdkOptional<VerifyOAuthAccessTokenResponseVariant0ActAct>,
-  );
+  VerifyOAuthAccessTokenResponseVariant0Act _copyWith(
+          {Object? iss = sdkOmittedValue,
+          Object? sub = sdkOmittedValue,
+          Object? act = sdkOmittedValue}) =>
+      VerifyOAuthAccessTokenResponseVariant0Act(
+        iss: identical(iss, sdkOmittedValue)
+            ? this.iss
+            : iss as SdkOptional<String>,
+        sub: identical(sub, sdkOmittedValue) ? this.sub : sub as String,
+        act: identical(act, sdkOmittedValue)
+            ? this.act
+            : act as SdkOptional<VerifyOAuthAccessTokenResponseVariant0ActAct>,
+      );
 
-  factory VerifyOAuthAccessTokenResponseVariant0Act.fromJson(Map<String, dynamic> json) => VerifyOAuthAccessTokenResponseVariant0Act(
-    iss: json['iss'] != null ? SdkPresent((json['iss'] as String?)!) : const SdkOmitted(),
-    sub: (json['sub'] as String?)!,
-    act: json['act'] != null ? SdkPresent((json['act'] != null ? VerifyOAuthAccessTokenResponseVariant0ActAct.fromJson(json['act'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-  );
+  factory VerifyOAuthAccessTokenResponseVariant0Act.fromJson(
+          Map<String, dynamic> json) =>
+      VerifyOAuthAccessTokenResponseVariant0Act(
+        iss: json['iss'] != null
+            ? SdkPresent((json['iss'] as String?)!)
+            : const SdkOmitted(),
+        sub: (json['sub'] as String?)!,
+        act: json['act'] != null
+            ? SdkPresent((json['act'] != null
+                ? VerifyOAuthAccessTokenResponseVariant0ActAct.fromJson(
+                    json['act'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (iss) {
-      SdkPresent<String>(value: final value) => {'iss': value,},
-      _ => const <String, dynamic>{},
-    },
-    'sub': sub,
-    ...switch (act) {
-      SdkPresent<VerifyOAuthAccessTokenResponseVariant0ActAct>(value: final value) => {'act': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (iss) {
+          SdkPresent<String>(value: final value) => {
+              'iss': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        'sub': sub,
+        ...switch (act) {
+          SdkPresent<VerifyOAuthAccessTokenResponseVariant0ActAct>(
+            value: final value
+          ) =>
+            {
+              'act': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 class VerifyOAuthAccessTokenResponseVariant0 {
@@ -210,8 +362,10 @@ class VerifyOAuthAccessTokenResponseVariant0 {
   final String clientId;
   final String subject;
   final List<String> scopes;
+
   /// The audiences of the access token. Omitted when no audience is set.
   final SdkOptional<List<String>> aud;
+
   /// The actor chain of an access token issued by an OAuth 2.0 Token Exchange (RFC 8693 section 4.1). Omitted for other access tokens.
   final SdkOptional<VerifyOAuthAccessTokenResponseVariant0Act> act;
   final bool revoked;
@@ -221,61 +375,151 @@ class VerifyOAuthAccessTokenResponseVariant0 {
   final double createdAt;
   final double updatedAt;
 
-  const VerifyOAuthAccessTokenResponseVariant0({required this.object, required this.id, required this.clientId, required this.subject, required this.scopes, this.aud = const SdkOmitted(), this.act = const SdkOmitted(), required this.revoked, required this.revocationReason, required this.expired, required this.expiration, required this.createdAt, required this.updatedAt});
+  const VerifyOAuthAccessTokenResponseVariant0(
+      {required this.object,
+      required this.id,
+      required this.clientId,
+      required this.subject,
+      required this.scopes,
+      this.aud = const SdkOmitted(),
+      this.act = const SdkOmitted(),
+      required this.revoked,
+      required this.revocationReason,
+      required this.expired,
+      required this.expiration,
+      required this.createdAt,
+      required this.updatedAt});
 
-  VerifyOAuthAccessTokenResponseVariant0 Function({VerifyOAuthAccessTokenResponseVariant0Object object, String id, String clientId, String subject, List<String> scopes, SdkOptional<List<String>> aud, SdkOptional<VerifyOAuthAccessTokenResponseVariant0Act> act, bool revoked, String? revocationReason, bool expired, double? expiration, double createdAt, double updatedAt}) get copyWith => _copyWith;
+  VerifyOAuthAccessTokenResponseVariant0 Function(
+      {VerifyOAuthAccessTokenResponseVariant0Object object,
+      String id,
+      String clientId,
+      String subject,
+      List<String> scopes,
+      SdkOptional<List<String>> aud,
+      SdkOptional<VerifyOAuthAccessTokenResponseVariant0Act> act,
+      bool revoked,
+      String? revocationReason,
+      bool expired,
+      double? expiration,
+      double createdAt,
+      double updatedAt}) get copyWith => _copyWith;
 
-  VerifyOAuthAccessTokenResponseVariant0 _copyWith({Object? object = sdkOmittedValue, Object? id = sdkOmittedValue, Object? clientId = sdkOmittedValue, Object? subject = sdkOmittedValue, Object? scopes = sdkOmittedValue, Object? aud = sdkOmittedValue, Object? act = sdkOmittedValue, Object? revoked = sdkOmittedValue, Object? revocationReason = sdkOmittedValue, Object? expired = sdkOmittedValue, Object? expiration = sdkOmittedValue, Object? createdAt = sdkOmittedValue, Object? updatedAt = sdkOmittedValue}) => VerifyOAuthAccessTokenResponseVariant0(
-    object: identical(object, sdkOmittedValue) ? this.object : object as VerifyOAuthAccessTokenResponseVariant0Object,
-    id: identical(id, sdkOmittedValue) ? this.id : id as String,
-    clientId: identical(clientId, sdkOmittedValue) ? this.clientId : clientId as String,
-    subject: identical(subject, sdkOmittedValue) ? this.subject : subject as String,
-    scopes: identical(scopes, sdkOmittedValue) ? this.scopes : scopes as List<String>,
-    aud: identical(aud, sdkOmittedValue) ? this.aud : aud as SdkOptional<List<String>>,
-    act: identical(act, sdkOmittedValue) ? this.act : act as SdkOptional<VerifyOAuthAccessTokenResponseVariant0Act>,
-    revoked: identical(revoked, sdkOmittedValue) ? this.revoked : revoked as bool,
-    revocationReason: identical(revocationReason, sdkOmittedValue) ? this.revocationReason : revocationReason as String?,
-    expired: identical(expired, sdkOmittedValue) ? this.expired : expired as bool,
-    expiration: identical(expiration, sdkOmittedValue) ? this.expiration : expiration as double?,
-    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as double,
-    updatedAt: identical(updatedAt, sdkOmittedValue) ? this.updatedAt : updatedAt as double,
-  );
+  VerifyOAuthAccessTokenResponseVariant0 _copyWith(
+          {Object? object = sdkOmittedValue,
+          Object? id = sdkOmittedValue,
+          Object? clientId = sdkOmittedValue,
+          Object? subject = sdkOmittedValue,
+          Object? scopes = sdkOmittedValue,
+          Object? aud = sdkOmittedValue,
+          Object? act = sdkOmittedValue,
+          Object? revoked = sdkOmittedValue,
+          Object? revocationReason = sdkOmittedValue,
+          Object? expired = sdkOmittedValue,
+          Object? expiration = sdkOmittedValue,
+          Object? createdAt = sdkOmittedValue,
+          Object? updatedAt = sdkOmittedValue}) =>
+      VerifyOAuthAccessTokenResponseVariant0(
+        object: identical(object, sdkOmittedValue)
+            ? this.object
+            : object as VerifyOAuthAccessTokenResponseVariant0Object,
+        id: identical(id, sdkOmittedValue) ? this.id : id as String,
+        clientId: identical(clientId, sdkOmittedValue)
+            ? this.clientId
+            : clientId as String,
+        subject: identical(subject, sdkOmittedValue)
+            ? this.subject
+            : subject as String,
+        scopes: identical(scopes, sdkOmittedValue)
+            ? this.scopes
+            : scopes as List<String>,
+        aud: identical(aud, sdkOmittedValue)
+            ? this.aud
+            : aud as SdkOptional<List<String>>,
+        act: identical(act, sdkOmittedValue)
+            ? this.act
+            : act as SdkOptional<VerifyOAuthAccessTokenResponseVariant0Act>,
+        revoked: identical(revoked, sdkOmittedValue)
+            ? this.revoked
+            : revoked as bool,
+        revocationReason: identical(revocationReason, sdkOmittedValue)
+            ? this.revocationReason
+            : revocationReason as String?,
+        expired: identical(expired, sdkOmittedValue)
+            ? this.expired
+            : expired as bool,
+        expiration: identical(expiration, sdkOmittedValue)
+            ? this.expiration
+            : expiration as double?,
+        createdAt: identical(createdAt, sdkOmittedValue)
+            ? this.createdAt
+            : createdAt as double,
+        updatedAt: identical(updatedAt, sdkOmittedValue)
+            ? this.updatedAt
+            : updatedAt as double,
+      );
 
-  factory VerifyOAuthAccessTokenResponseVariant0.fromJson(Map<String, dynamic> json) => VerifyOAuthAccessTokenResponseVariant0(
-    object: (json['object'] != null ? VerifyOAuthAccessTokenResponseVariant0Object.fromJson(json['object'] as String) : null)!,
-    id: (json['id'] as String?)!,
-    clientId: (json['client_id'] as String?)!,
-    subject: (json['subject'] as String?)!,
-    scopes: ((json['scopes'] as List?)?.map((e) => e as String).toList())!,
-    aud: json['aud'] != null ? SdkPresent(((json['aud'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
-    act: json['act'] != null ? SdkPresent((json['act'] != null ? VerifyOAuthAccessTokenResponseVariant0Act.fromJson(json['act'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-    revoked: (json['revoked'] as bool?)!,
-    revocationReason: json.containsKey('revocation_reason') ? json['revocation_reason'] as String? : throw ArgumentError.value(null, 'revocation_reason', 'Required property is missing'),
-    expired: (json['expired'] as bool?)!,
-    expiration: json.containsKey('expiration') ? (json['expiration'] as num?)?.toDouble() : throw ArgumentError.value(null, 'expiration', 'Required property is missing'),
-    createdAt: ((json['created_at'] as num?)?.toDouble())!,
-    updatedAt: ((json['updated_at'] as num?)?.toDouble())!,
-  );
+  factory VerifyOAuthAccessTokenResponseVariant0.fromJson(
+          Map<String, dynamic> json) =>
+      VerifyOAuthAccessTokenResponseVariant0(
+        object: (json['object'] != null
+            ? VerifyOAuthAccessTokenResponseVariant0Object.fromJson(
+                json['object'] as String)
+            : null)!,
+        id: (json['id'] as String?)!,
+        clientId: (json['client_id'] as String?)!,
+        subject: (json['subject'] as String?)!,
+        scopes: ((json['scopes'] as List?)?.map((e) => e as String).toList())!,
+        aud: json['aud'] != null
+            ? SdkPresent(
+                ((json['aud'] as List?)?.map((e) => e as String).toList())!)
+            : const SdkOmitted(),
+        act: json['act'] != null
+            ? SdkPresent((json['act'] != null
+                ? VerifyOAuthAccessTokenResponseVariant0Act.fromJson(
+                    json['act'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+        revoked: (json['revoked'] as bool?)!,
+        revocationReason: json.containsKey('revocation_reason')
+            ? json['revocation_reason'] as String?
+            : throw ArgumentError.value(
+                null, 'revocation_reason', 'Required property is missing'),
+        expired: (json['expired'] as bool?)!,
+        expiration: json.containsKey('expiration')
+            ? (json['expiration'] as num?)?.toDouble()
+            : throw ArgumentError.value(
+                null, 'expiration', 'Required property is missing'),
+        createdAt: ((json['created_at'] as num?)?.toDouble())!,
+        updatedAt: ((json['updated_at'] as num?)?.toDouble())!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'object': object.toJson(),
-    'id': id,
-    'client_id': clientId,
-    'subject': subject,
-    'scopes': scopes,
-    ...switch (aud) {
-      SdkPresent<List<String>>(value: final value) => {'aud': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (act) {
-      SdkPresent<VerifyOAuthAccessTokenResponseVariant0Act>(value: final value) => {'act': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    'revoked': revoked,
-    'revocation_reason': revocationReason,
-    'expired': expired,
-    'expiration': expiration,
-    'created_at': createdAt,
-    'updated_at': updatedAt,
-  };
+        'object': object.toJson(),
+        'id': id,
+        'client_id': clientId,
+        'subject': subject,
+        'scopes': scopes,
+        ...switch (aud) {
+          SdkPresent<List<String>>(value: final value) => {
+              'aud': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (act) {
+          SdkPresent<VerifyOAuthAccessTokenResponseVariant0Act>(
+            value: final value
+          ) =>
+            {
+              'act': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        'revoked': revoked,
+        'revocation_reason': revocationReason,
+        'expired': expired,
+        'expiration': expiration,
+        'created_at': createdAt,
+        'updated_at': updatedAt,
+      };
 }

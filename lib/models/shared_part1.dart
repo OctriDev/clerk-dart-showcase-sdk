@@ -8,257 +8,465 @@ part of 'shared.dart';
 class AdjustCreditBalanceRequest {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The credit amount in cents. Must be greater than zero.
   final int amount;
+
   /// Whether to increase or decrease the credit balance.
   final AdjustCreditBalanceRequestAction action;
+
   /// The currency code (e.g. "USD"). Defaults to USD if not provided.
   final SdkOptional<String> currency;
+
   /// A unique key to ensure the adjustment is applied only once. Repeated requests with the same key return the original ledger entry.
   final String idempotencyKey;
+
   /// An optional note to attach to the ledger entry.
   final SdkOptional<String> note;
 
-  const AdjustCreditBalanceRequest({required this.amount, required this.action, this.currency = const SdkOmitted(), required this.idempotencyKey, this.note = const SdkOmitted()});
+  const AdjustCreditBalanceRequest(
+      {required this.amount,
+      required this.action,
+      this.currency = const SdkOmitted(),
+      required this.idempotencyKey,
+      this.note = const SdkOmitted()});
 
-  AdjustCreditBalanceRequest Function({int amount, AdjustCreditBalanceRequestAction action, SdkOptional<String> currency, String idempotencyKey, SdkOptional<String> note}) get copyWith => _copyWith;
+  AdjustCreditBalanceRequest Function(
+      {int amount,
+      AdjustCreditBalanceRequestAction action,
+      SdkOptional<String> currency,
+      String idempotencyKey,
+      SdkOptional<String> note}) get copyWith => _copyWith;
 
-  AdjustCreditBalanceRequest _copyWith({Object? amount = sdkOmittedValue, Object? action = sdkOmittedValue, Object? currency = sdkOmittedValue, Object? idempotencyKey = sdkOmittedValue, Object? note = sdkOmittedValue}) => AdjustCreditBalanceRequest(
-    amount: identical(amount, sdkOmittedValue) ? this.amount : amount as int,
-    action: identical(action, sdkOmittedValue) ? this.action : action as AdjustCreditBalanceRequestAction,
-    currency: identical(currency, sdkOmittedValue) ? this.currency : currency as SdkOptional<String>,
-    idempotencyKey: identical(idempotencyKey, sdkOmittedValue) ? this.idempotencyKey : idempotencyKey as String,
-    note: identical(note, sdkOmittedValue) ? this.note : note as SdkOptional<String>,
-  );
+  AdjustCreditBalanceRequest _copyWith(
+          {Object? amount = sdkOmittedValue,
+          Object? action = sdkOmittedValue,
+          Object? currency = sdkOmittedValue,
+          Object? idempotencyKey = sdkOmittedValue,
+          Object? note = sdkOmittedValue}) =>
+      AdjustCreditBalanceRequest(
+        amount:
+            identical(amount, sdkOmittedValue) ? this.amount : amount as int,
+        action: identical(action, sdkOmittedValue)
+            ? this.action
+            : action as AdjustCreditBalanceRequestAction,
+        currency: identical(currency, sdkOmittedValue)
+            ? this.currency
+            : currency as SdkOptional<String>,
+        idempotencyKey: identical(idempotencyKey, sdkOmittedValue)
+            ? this.idempotencyKey
+            : idempotencyKey as String,
+        note: identical(note, sdkOmittedValue)
+            ? this.note
+            : note as SdkOptional<String>,
+      );
 
-  factory AdjustCreditBalanceRequest.fromJson(Map<String, dynamic> json) => AdjustCreditBalanceRequest(
-    amount: ((json['amount'] as num?)?.toInt())!,
-    action: (json['action'] != null ? AdjustCreditBalanceRequestAction.fromJson(json['action'] as String) : null)!,
-    currency: json['currency'] != null ? SdkPresent((json['currency'] as String?)!) : const SdkOmitted(),
-    idempotencyKey: (json['idempotency_key'] as String?)!,
-    note: json['note'] != null ? SdkPresent((json['note'] as String?)!) : const SdkOmitted(),
-  );
+  factory AdjustCreditBalanceRequest.fromJson(Map<String, dynamic> json) =>
+      AdjustCreditBalanceRequest(
+        amount: ((json['amount'] as num?)?.toInt())!,
+        action: (json['action'] != null
+            ? AdjustCreditBalanceRequestAction.fromJson(
+                json['action'] as String)
+            : null)!,
+        currency: json['currency'] != null
+            ? SdkPresent((json['currency'] as String?)!)
+            : const SdkOmitted(),
+        idempotencyKey: (json['idempotency_key'] as String?)!,
+        note: json['note'] != null
+            ? SdkPresent((json['note'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    'amount': amount,
-    'action': action.toJson(),
-    ...switch (currency) {
-      SdkPresent<String>(value: final value) => {'currency': value,},
-      _ => const <String, dynamic>{},
-    },
-    'idempotency_key': idempotencyKey,
-    ...switch (note) {
-      SdkPresent<String>(value: final value) => {'note': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        'amount': amount,
+        'action': action.toJson(),
+        ...switch (currency) {
+          SdkPresent<String>(value: final value) => {
+              'currency': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        'idempotency_key': idempotencyKey,
+        ...switch (note) {
+          SdkPresent<String>(value: final value) => {
+              'note': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Typed representation of the `DeletedObject` API schema.
 class DeletedObject {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Required `string` value serialized in the `object` wire field.
   final String object;
+
   /// Optional `string` value serialized in the `id` wire field.
   final SdkOptional<String> id;
+
   /// Optional `string` value serialized in the `slug` wire field.
   final SdkOptional<String> slug;
+
   /// Required `boolean` value serialized in the `deleted` wire field.
   final bool deleted;
+
   /// Optional `string` value serialized in the `external_id` wire field.
   final SdkOptional<String> externalId;
 
-  const DeletedObject({required this.object, this.id = const SdkOmitted(), this.slug = const SdkOmitted(), required this.deleted, this.externalId = const SdkOmitted()});
+  const DeletedObject(
+      {required this.object,
+      this.id = const SdkOmitted(),
+      this.slug = const SdkOmitted(),
+      required this.deleted,
+      this.externalId = const SdkOmitted()});
 
-  DeletedObject Function({String object, SdkOptional<String> id, SdkOptional<String> slug, bool deleted, SdkOptional<String> externalId}) get copyWith => _copyWith;
+  DeletedObject Function(
+      {String object,
+      SdkOptional<String> id,
+      SdkOptional<String> slug,
+      bool deleted,
+      SdkOptional<String> externalId}) get copyWith => _copyWith;
 
-  DeletedObject _copyWith({Object? object = sdkOmittedValue, Object? id = sdkOmittedValue, Object? slug = sdkOmittedValue, Object? deleted = sdkOmittedValue, Object? externalId = sdkOmittedValue}) => DeletedObject(
-    object: identical(object, sdkOmittedValue) ? this.object : object as String,
-    id: identical(id, sdkOmittedValue) ? this.id : id as SdkOptional<String>,
-    slug: identical(slug, sdkOmittedValue) ? this.slug : slug as SdkOptional<String>,
-    deleted: identical(deleted, sdkOmittedValue) ? this.deleted : deleted as bool,
-    externalId: identical(externalId, sdkOmittedValue) ? this.externalId : externalId as SdkOptional<String>,
-  );
+  DeletedObject _copyWith(
+          {Object? object = sdkOmittedValue,
+          Object? id = sdkOmittedValue,
+          Object? slug = sdkOmittedValue,
+          Object? deleted = sdkOmittedValue,
+          Object? externalId = sdkOmittedValue}) =>
+      DeletedObject(
+        object:
+            identical(object, sdkOmittedValue) ? this.object : object as String,
+        id: identical(id, sdkOmittedValue)
+            ? this.id
+            : id as SdkOptional<String>,
+        slug: identical(slug, sdkOmittedValue)
+            ? this.slug
+            : slug as SdkOptional<String>,
+        deleted: identical(deleted, sdkOmittedValue)
+            ? this.deleted
+            : deleted as bool,
+        externalId: identical(externalId, sdkOmittedValue)
+            ? this.externalId
+            : externalId as SdkOptional<String>,
+      );
 
   factory DeletedObject.fromJson(Map<String, dynamic> json) => DeletedObject(
-    object: (json['object'] as String?)!,
-    id: json['id'] != null ? SdkPresent((json['id'] as String?)!) : const SdkOmitted(),
-    slug: json['slug'] != null ? SdkPresent((json['slug'] as String?)!) : const SdkOmitted(),
-    deleted: (json['deleted'] as bool?)!,
-    externalId: json['external_id'] != null ? SdkPresent((json['external_id'] as String?)!) : const SdkOmitted(),
-  );
+        object: (json['object'] as String?)!,
+        id: json['id'] != null
+            ? SdkPresent((json['id'] as String?)!)
+            : const SdkOmitted(),
+        slug: json['slug'] != null
+            ? SdkPresent((json['slug'] as String?)!)
+            : const SdkOmitted(),
+        deleted: (json['deleted'] as bool?)!,
+        externalId: json['external_id'] != null
+            ? SdkPresent((json['external_id'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    'object': object,
-    ...switch (id) {
-      SdkPresent<String>(value: final value) => {'id': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (slug) {
-      SdkPresent<String>(value: final value) => {'slug': value,},
-      _ => const <String, dynamic>{},
-    },
-    'deleted': deleted,
-    ...switch (externalId) {
-      SdkPresent<String>(value: final value) => {'external_id': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        'object': object,
+        ...switch (id) {
+          SdkPresent<String>(value: final value) => {
+              'id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (slug) {
+          SdkPresent<String>(value: final value) => {
+              'slug': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        'deleted': deleted,
+        ...switch (externalId) {
+          SdkPresent<String>(value: final value) => {
+              'external_id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Typed representation of the `FeatureResponse` API schema.
 class FeatureResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// String representing the object's type. Objects of the same type share the same value.
   final FeatureResponseObject object;
+
   /// Unique identifier for the feature.
   final String id;
+
   /// The name of the feature.
   final String name;
+
   /// The description of the feature.
   final String? description;
+
   /// The URL-friendly slug for the feature.
   final String slug;
+
   /// The URL of the feature's avatar image.
   final String? avatarUrl;
 
-  const FeatureResponse({required this.object, required this.id, required this.name, required this.description, required this.slug, required this.avatarUrl});
+  const FeatureResponse(
+      {required this.object,
+      required this.id,
+      required this.name,
+      required this.description,
+      required this.slug,
+      required this.avatarUrl});
 
-  FeatureResponse Function({FeatureResponseObject object, String id, String name, String? description, String slug, String? avatarUrl}) get copyWith => _copyWith;
+  FeatureResponse Function(
+      {FeatureResponseObject object,
+      String id,
+      String name,
+      String? description,
+      String slug,
+      String? avatarUrl}) get copyWith => _copyWith;
 
-  FeatureResponse _copyWith({Object? object = sdkOmittedValue, Object? id = sdkOmittedValue, Object? name = sdkOmittedValue, Object? description = sdkOmittedValue, Object? slug = sdkOmittedValue, Object? avatarUrl = sdkOmittedValue}) => FeatureResponse(
-    object: identical(object, sdkOmittedValue) ? this.object : object as FeatureResponseObject,
-    id: identical(id, sdkOmittedValue) ? this.id : id as String,
-    name: identical(name, sdkOmittedValue) ? this.name : name as String,
-    description: identical(description, sdkOmittedValue) ? this.description : description as String?,
-    slug: identical(slug, sdkOmittedValue) ? this.slug : slug as String,
-    avatarUrl: identical(avatarUrl, sdkOmittedValue) ? this.avatarUrl : avatarUrl as String?,
-  );
+  FeatureResponse _copyWith(
+          {Object? object = sdkOmittedValue,
+          Object? id = sdkOmittedValue,
+          Object? name = sdkOmittedValue,
+          Object? description = sdkOmittedValue,
+          Object? slug = sdkOmittedValue,
+          Object? avatarUrl = sdkOmittedValue}) =>
+      FeatureResponse(
+        object: identical(object, sdkOmittedValue)
+            ? this.object
+            : object as FeatureResponseObject,
+        id: identical(id, sdkOmittedValue) ? this.id : id as String,
+        name: identical(name, sdkOmittedValue) ? this.name : name as String,
+        description: identical(description, sdkOmittedValue)
+            ? this.description
+            : description as String?,
+        slug: identical(slug, sdkOmittedValue) ? this.slug : slug as String,
+        avatarUrl: identical(avatarUrl, sdkOmittedValue)
+            ? this.avatarUrl
+            : avatarUrl as String?,
+      );
 
-  factory FeatureResponse.fromJson(Map<String, dynamic> json) => FeatureResponse(
-    object: (json['object'] != null ? FeatureResponseObject.fromJson(json['object'] as String) : null)!,
-    id: (json['id'] as String?)!,
-    name: (json['name'] as String?)!,
-    description: json.containsKey('description') ? json['description'] as String? : throw ArgumentError.value(null, 'description', 'Required property is missing'),
-    slug: (json['slug'] as String?)!,
-    avatarUrl: json.containsKey('avatar_url') ? json['avatar_url'] as String? : throw ArgumentError.value(null, 'avatar_url', 'Required property is missing'),
-  );
+  factory FeatureResponse.fromJson(Map<String, dynamic> json) =>
+      FeatureResponse(
+        object: (json['object'] != null
+            ? FeatureResponseObject.fromJson(json['object'] as String)
+            : null)!,
+        id: (json['id'] as String?)!,
+        name: (json['name'] as String?)!,
+        description: json.containsKey('description')
+            ? json['description'] as String?
+            : throw ArgumentError.value(
+                null, 'description', 'Required property is missing'),
+        slug: (json['slug'] as String?)!,
+        avatarUrl: json.containsKey('avatar_url')
+            ? json['avatar_url'] as String?
+            : throw ArgumentError.value(
+                null, 'avatar_url', 'Required property is missing'),
+      );
 
   Map<String, dynamic> toJson() => {
-    'object': object.toJson(),
-    'id': id,
-    'name': name,
-    'description': description,
-    'slug': slug,
-    'avatar_url': avatarUrl,
-  };
+        'object': object.toJson(),
+        'id': id,
+        'name': name,
+        'description': description,
+        'slug': slug,
+        'avatar_url': avatarUrl,
+      };
 }
 
 /// Typed representation of the `IdentificationLink` API schema.
 class IdentificationLink {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Required `string` value serialized in the `type` wire field.
   final String type_;
+
   /// Required `string` value serialized in the `id` wire field.
   final String id;
 
   const IdentificationLink({required this.type_, required this.id});
 
-  IdentificationLink Function({String type_, String id}) get copyWith => _copyWith;
+  IdentificationLink Function({String type_, String id}) get copyWith =>
+      _copyWith;
 
-  IdentificationLink _copyWith({Object? type_ = sdkOmittedValue, Object? id = sdkOmittedValue}) => IdentificationLink(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as String,
-    id: identical(id, sdkOmittedValue) ? this.id : id as String,
-  );
+  IdentificationLink _copyWith(
+          {Object? type_ = sdkOmittedValue, Object? id = sdkOmittedValue}) =>
+      IdentificationLink(
+        type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as String,
+        id: identical(id, sdkOmittedValue) ? this.id : id as String,
+      );
 
-  factory IdentificationLink.fromJson(Map<String, dynamic> json) => IdentificationLink(
-    type_: (json['type'] as String?)!,
-    id: (json['id'] as String?)!,
-  );
+  factory IdentificationLink.fromJson(Map<String, dynamic> json) =>
+      IdentificationLink(
+        type_: (json['type'] as String?)!,
+        id: (json['id'] as String?)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'type': type_,
-    'id': id,
-  };
+        'type': type_,
+        'id': id,
+      };
 }
 
 /// Typed representation of the `Invitation` API schema.
 class Invitation {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Required enumerated value serialized in the `object` wire field.
   final InvitationObject object;
+
   /// Required `string` value serialized in the `id` wire field.
   final String id;
+
   /// Required `email`-formatted value serialized in the `email_address` wire field.
   final String emailAddress;
+
   /// Required object value serialized in the `public_metadata` wire field.
   final Map<String, Object?> publicMetadata;
+
   /// Optional `boolean` value serialized in the `revoked` wire field.
   final SdkOptional<bool> revoked;
+
   /// Required enumerated value serialized in the `status` wire field.
   final InvitationStatus status;
+
   /// Optional `string` value serialized in the `url` wire field.
   final SdkOptional<String> url;
+
   /// Unix timestamp of expiration.
   final SdkOptional<int?> expiresAt;
+
   /// Unix timestamp of creation.
   final int createdAt;
+
   /// Unix timestamp of last update.
   final int updatedAt;
 
-  const Invitation({required this.object, required this.id, required this.emailAddress, required this.publicMetadata, this.revoked = const SdkOmitted(), required this.status, this.url = const SdkOmitted(), this.expiresAt = const SdkOmitted(), required this.createdAt, required this.updatedAt});
+  const Invitation(
+      {required this.object,
+      required this.id,
+      required this.emailAddress,
+      required this.publicMetadata,
+      this.revoked = const SdkOmitted(),
+      required this.status,
+      this.url = const SdkOmitted(),
+      this.expiresAt = const SdkOmitted(),
+      required this.createdAt,
+      required this.updatedAt});
 
-  Invitation Function({InvitationObject object, String id, String emailAddress, Map<String, Object?> publicMetadata, SdkOptional<bool> revoked, InvitationStatus status, SdkOptional<String> url, SdkOptional<int?> expiresAt, int createdAt, int updatedAt}) get copyWith => _copyWith;
+  Invitation Function(
+      {InvitationObject object,
+      String id,
+      String emailAddress,
+      Map<String, Object?> publicMetadata,
+      SdkOptional<bool> revoked,
+      InvitationStatus status,
+      SdkOptional<String> url,
+      SdkOptional<int?> expiresAt,
+      int createdAt,
+      int updatedAt}) get copyWith => _copyWith;
 
-  Invitation _copyWith({Object? object = sdkOmittedValue, Object? id = sdkOmittedValue, Object? emailAddress = sdkOmittedValue, Object? publicMetadata = sdkOmittedValue, Object? revoked = sdkOmittedValue, Object? status = sdkOmittedValue, Object? url = sdkOmittedValue, Object? expiresAt = sdkOmittedValue, Object? createdAt = sdkOmittedValue, Object? updatedAt = sdkOmittedValue}) => Invitation(
-    object: identical(object, sdkOmittedValue) ? this.object : object as InvitationObject,
-    id: identical(id, sdkOmittedValue) ? this.id : id as String,
-    emailAddress: identical(emailAddress, sdkOmittedValue) ? this.emailAddress : emailAddress as String,
-    publicMetadata: identical(publicMetadata, sdkOmittedValue) ? this.publicMetadata : publicMetadata as Map<String, Object?>,
-    revoked: identical(revoked, sdkOmittedValue) ? this.revoked : revoked as SdkOptional<bool>,
-    status: identical(status, sdkOmittedValue) ? this.status : status as InvitationStatus,
-    url: identical(url, sdkOmittedValue) ? this.url : url as SdkOptional<String>,
-    expiresAt: identical(expiresAt, sdkOmittedValue) ? this.expiresAt : expiresAt as SdkOptional<int?>,
-    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as int,
-    updatedAt: identical(updatedAt, sdkOmittedValue) ? this.updatedAt : updatedAt as int,
-  );
+  Invitation _copyWith(
+          {Object? object = sdkOmittedValue,
+          Object? id = sdkOmittedValue,
+          Object? emailAddress = sdkOmittedValue,
+          Object? publicMetadata = sdkOmittedValue,
+          Object? revoked = sdkOmittedValue,
+          Object? status = sdkOmittedValue,
+          Object? url = sdkOmittedValue,
+          Object? expiresAt = sdkOmittedValue,
+          Object? createdAt = sdkOmittedValue,
+          Object? updatedAt = sdkOmittedValue}) =>
+      Invitation(
+        object: identical(object, sdkOmittedValue)
+            ? this.object
+            : object as InvitationObject,
+        id: identical(id, sdkOmittedValue) ? this.id : id as String,
+        emailAddress: identical(emailAddress, sdkOmittedValue)
+            ? this.emailAddress
+            : emailAddress as String,
+        publicMetadata: identical(publicMetadata, sdkOmittedValue)
+            ? this.publicMetadata
+            : publicMetadata as Map<String, Object?>,
+        revoked: identical(revoked, sdkOmittedValue)
+            ? this.revoked
+            : revoked as SdkOptional<bool>,
+        status: identical(status, sdkOmittedValue)
+            ? this.status
+            : status as InvitationStatus,
+        url: identical(url, sdkOmittedValue)
+            ? this.url
+            : url as SdkOptional<String>,
+        expiresAt: identical(expiresAt, sdkOmittedValue)
+            ? this.expiresAt
+            : expiresAt as SdkOptional<int?>,
+        createdAt: identical(createdAt, sdkOmittedValue)
+            ? this.createdAt
+            : createdAt as int,
+        updatedAt: identical(updatedAt, sdkOmittedValue)
+            ? this.updatedAt
+            : updatedAt as int,
+      );
 
   factory Invitation.fromJson(Map<String, dynamic> json) => Invitation(
-    object: (json['object'] != null ? InvitationObject.fromJson(json['object'] as String) : null)!,
-    id: (json['id'] as String?)!,
-    emailAddress: (json['email_address'] as String?)!,
-    publicMetadata: (json['public_metadata'] == null ? null : Map<String, dynamic>.from(json['public_metadata'] as Map).map((key, value) => MapEntry(key, value)))!,
-    revoked: json['revoked'] != null ? SdkPresent((json['revoked'] as bool?)!) : const SdkOmitted(),
-    status: (json['status'] != null ? InvitationStatus.fromJson(json['status'] as String) : null)!,
-    url: json['url'] != null ? SdkPresent((json['url'] as String?)!) : const SdkOmitted(),
-    expiresAt: json.containsKey('expires_at') ? SdkPresent((json['expires_at'] as num?)?.toInt()) : const SdkOmitted(),
-    createdAt: ((json['created_at'] as num?)?.toInt())!,
-    updatedAt: ((json['updated_at'] as num?)?.toInt())!,
-  );
+        object: (json['object'] != null
+            ? InvitationObject.fromJson(json['object'] as String)
+            : null)!,
+        id: (json['id'] as String?)!,
+        emailAddress: (json['email_address'] as String?)!,
+        publicMetadata: (json['public_metadata'] == null
+            ? null
+            : Map<String, dynamic>.from(json['public_metadata'] as Map)
+                .map((key, value) => MapEntry(key, value)))!,
+        revoked: json['revoked'] != null
+            ? SdkPresent((json['revoked'] as bool?)!)
+            : const SdkOmitted(),
+        status: (json['status'] != null
+            ? InvitationStatus.fromJson(json['status'] as String)
+            : null)!,
+        url: json['url'] != null
+            ? SdkPresent((json['url'] as String?)!)
+            : const SdkOmitted(),
+        expiresAt: json.containsKey('expires_at')
+            ? SdkPresent((json['expires_at'] as num?)?.toInt())
+            : const SdkOmitted(),
+        createdAt: ((json['created_at'] as num?)?.toInt())!,
+        updatedAt: ((json['updated_at'] as num?)?.toInt())!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'object': object.toJson(),
-    'id': id,
-    'email_address': emailAddress,
-    'public_metadata': publicMetadata,
-    ...switch (revoked) {
-      SdkPresent<bool>(value: final value) => {'revoked': value,},
-      _ => const <String, dynamic>{},
-    },
-    'status': status.toJson(),
-    ...switch (url) {
-      SdkPresent<String>(value: final value) => {'url': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (expiresAt) {
-      SdkPresent<int?>(value: final value) => {'expires_at': value,},
-      _ => const <String, dynamic>{},
-    },
-    'created_at': createdAt,
-    'updated_at': updatedAt,
-  };
+        'object': object.toJson(),
+        'id': id,
+        'email_address': emailAddress,
+        'public_metadata': publicMetadata,
+        ...switch (revoked) {
+          SdkPresent<bool>(value: final value) => {
+              'revoked': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        'status': status.toJson(),
+        ...switch (url) {
+          SdkPresent<String>(value: final value) => {
+              'url': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (expiresAt) {
+          SdkPresent<int?>(value: final value) => {
+              'expires_at': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        'created_at': createdAt,
+        'updated_at': updatedAt,
+      };
 }

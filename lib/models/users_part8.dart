@@ -258,6 +258,20 @@ sealed class Web3WalletVerification {
   static const String constructionSurface = 'named';
   const Web3WalletVerification();
   factory Web3WalletVerification.fromJson(Object? json) {
+    if (json is Map<String, dynamic>) {
+      try {
+        final value = VerificationWeb3.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return Web3WalletVerificationVerificationWeb3(value);
+        }
+      } catch (_) {}
+      try {
+        final value = VerificationAdmin.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return Web3WalletVerificationVerificationAdmin(value);
+        }
+      } catch (_) {}
+    }
     try {
       return Web3WalletVerificationVerificationWeb3(
           VerificationWeb3.fromJson(json as Map<String, dynamic>));

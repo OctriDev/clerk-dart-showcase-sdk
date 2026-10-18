@@ -4,296 +4,6 @@
 part of 'inline.dart';
 
 // Inline operation models (part 1)
-/// Whether the directory group role mapping was successfully deleted.
-final class SchemaSchemaDeleted {
-  final bool value;
-
-  const SchemaSchemaDeleted._(this.value);
-
-  factory SchemaSchemaDeleted.fromJson(bool value) =>
-      SchemaSchemaDeleted._(value);
-
-  static const true_ = SchemaSchemaDeleted._(true);
-
-  bool toJson() => value;
-
-  @override
-  String toString() => value.toString();
-
-  @override
-  bool operator ==(Object other) =>
-      other is SchemaSchemaDeleted && other.value == value;
-
-  @override
-  int get hashCode => value.hashCode;
-}
-
-/// String representing the object's type.
-final class SchemaSchemaObject {
-  final String value;
-
-  const SchemaSchemaObject._(this.value);
-
-  factory SchemaSchemaObject.fromJson(String value) =>
-      SchemaSchemaObject._(value);
-
-  static const directoryGroupRoleMapping =
-      SchemaSchemaObject._('directory_group_role_mapping');
-
-  String toJson() => value;
-
-  @override
-  String toString() => value.toString();
-
-  @override
-  bool operator ==(Object other) =>
-      other is SchemaSchemaObject && other.value == value;
-
-  @override
-  int get hashCode => value.hashCode;
-}
-
-/// String representing the object's type. Objects of the same type share the same value.
-final class SchemaSchemaObjecte5de16a2 {
-  final String value;
-
-  const SchemaSchemaObjecte5de16a2._(this.value);
-
-  factory SchemaSchemaObjecte5de16a2.fromJson(String value) =>
-      SchemaSchemaObjecte5de16a2._(value);
-
-  static const instanceSettings =
-      SchemaSchemaObjecte5de16a2._('instance_settings');
-
-  String toJson() => value;
-
-  @override
-  String toString() => value.toString();
-
-  @override
-  bool operator ==(Object other) =>
-      other is SchemaSchemaObjecte5de16a2 && other.value == value;
-
-  @override
-  int get hashCode => value.hashCode;
-}
-
-final class SchemaSchemaVariant1Revoked {
-  final bool value;
-
-  const SchemaSchemaVariant1Revoked._(this.value);
-
-  factory SchemaSchemaVariant1Revoked.fromJson(bool value) =>
-      SchemaSchemaVariant1Revoked._(value);
-
-  static const true_ = SchemaSchemaVariant1Revoked._(true);
-
-  bool toJson() => value;
-
-  @override
-  String toString() => value.toString();
-
-  @override
-  bool operator ==(Object other) =>
-      other is SchemaSchemaVariant1Revoked && other.value == value;
-
-  @override
-  int get hashCode => value.hashCode;
-}
-
-final class SchemaSchemaVariant1Status {
-  final String value;
-
-  const SchemaSchemaVariant1Status._(this.value);
-
-  factory SchemaSchemaVariant1Status.fromJson(String value) =>
-      SchemaSchemaVariant1Status._(value);
-
-  static const revoked = SchemaSchemaVariant1Status._('revoked');
-
-  String toJson() => value;
-
-  @override
-  String toString() => value.toString();
-
-  @override
-  bool operator ==(Object other) =>
-      other is SchemaSchemaVariant1Status && other.value == value;
-
-  @override
-  int get hashCode => value.hashCode;
-}
-
-/// Whether the machine was successfully deleted
-final class SchemaSchemaDeletedb1392ec9 {
-  final bool value;
-
-  const SchemaSchemaDeletedb1392ec9._(this.value);
-
-  factory SchemaSchemaDeletedb1392ec9.fromJson(bool value) =>
-      SchemaSchemaDeletedb1392ec9._(value);
-
-  static const true_ = SchemaSchemaDeletedb1392ec9._(true);
-
-  bool toJson() => value;
-
-  @override
-  String toString() => value.toString();
-
-  @override
-  bool operator ==(Object other) =>
-      other is SchemaSchemaDeletedb1392ec9 && other.value == value;
-
-  @override
-  int get hashCode => value.hashCode;
-}
-
-/// String representing the object's type.
-final class SchemaSchemaObject384b96ba {
-  final String value;
-
-  const SchemaSchemaObject384b96ba._(this.value);
-
-  factory SchemaSchemaObject384b96ba.fromJson(String value) =>
-      SchemaSchemaObject384b96ba._(value);
-
-  static const machine = SchemaSchemaObject384b96ba._('machine');
-
-  String toJson() => value;
-
-  @override
-  String toString() => value.toString();
-
-  @override
-  bool operator ==(Object other) =>
-      other is SchemaSchemaObject384b96ba && other.value == value;
-
-  @override
-  int get hashCode => value.hashCode;
-}
-
-/// Whether the machine scope was successfully deleted
-final class SchemaSchemaDeleted92e27971 {
-  final bool value;
-
-  const SchemaSchemaDeleted92e27971._(this.value);
-
-  factory SchemaSchemaDeleted92e27971.fromJson(bool value) =>
-      SchemaSchemaDeleted92e27971._(value);
-
-  static const true_ = SchemaSchemaDeleted92e27971._(true);
-
-  bool toJson() => value;
-
-  @override
-  String toString() => value.toString();
-
-  @override
-  bool operator ==(Object other) =>
-      other is SchemaSchemaDeleted92e27971 && other.value == value;
-
-  @override
-  int get hashCode => value.hashCode;
-}
-
-/// String representing the object's type.
-final class SchemaSchemaObject47b1d8ed {
-  final String value;
-
-  const SchemaSchemaObject47b1d8ed._(this.value);
-
-  factory SchemaSchemaObject47b1d8ed.fromJson(String value) =>
-      SchemaSchemaObject47b1d8ed._(value);
-
-  static const machineScope = SchemaSchemaObject47b1d8ed._('machine_scope');
-
-  String toJson() => value;
-
-  @override
-  String toString() => value.toString();
-
-  @override
-  bool operator ==(Object other) =>
-      other is SchemaSchemaObject47b1d8ed && other.value == value;
-
-  @override
-  int get hashCode => value.hashCode;
-}
-
-/// String representing the object's type.
-final class SchemaSchemaObjectab22cdb6 {
-  final String value;
-
-  const SchemaSchemaObjectab22cdb6._(this.value);
-
-  factory SchemaSchemaObjectab22cdb6.fromJson(String value) =>
-      SchemaSchemaObjectab22cdb6._(value);
-
-  static const machineSecretKey =
-      SchemaSchemaObjectab22cdb6._('machine_secret_key');
-
-  String toJson() => value;
-
-  @override
-  String toString() => value.toString();
-
-  @override
-  bool operator ==(Object other) =>
-      other is SchemaSchemaObjectab22cdb6 && other.value == value;
-
-  @override
-  int get hashCode => value.hashCode;
-}
-
-/// Whether the SCIM group role mapping was successfully deleted.
-final class SchemaSchemaDeleted85fe41d0 {
-  final bool value;
-
-  const SchemaSchemaDeleted85fe41d0._(this.value);
-
-  factory SchemaSchemaDeleted85fe41d0.fromJson(bool value) =>
-      SchemaSchemaDeleted85fe41d0._(value);
-
-  static const true_ = SchemaSchemaDeleted85fe41d0._(true);
-
-  bool toJson() => value;
-
-  @override
-  String toString() => value.toString();
-
-  @override
-  bool operator ==(Object other) =>
-      other is SchemaSchemaDeleted85fe41d0 && other.value == value;
-
-  @override
-  int get hashCode => value.hashCode;
-}
-
-/// String representing the object's type.
-final class SchemaSchemaObject3d55986b {
-  final String value;
-
-  const SchemaSchemaObject3d55986b._(this.value);
-
-  factory SchemaSchemaObject3d55986b.fromJson(String value) =>
-      SchemaSchemaObject3d55986b._(value);
-
-  static const scimGroupRoleMapping =
-      SchemaSchemaObject3d55986b._('scim_group_role_mapping');
-
-  String toJson() => value;
-
-  @override
-  String toString() => value.toString();
-
-  @override
-  bool operator ==(Object other) =>
-      other is SchemaSchemaObject3d55986b && other.value == value;
-
-  @override
-  int get hashCode => value.hashCode;
-}
-
 /// Required enumerated value serialized in the `object` wire field.
 final class ActorTokenObject {
   final String value;
@@ -312,6 +22,309 @@ final class ActorTokenObject {
   @override
   bool operator ==(Object other) =>
       other is ActorTokenObject && other.value == value;
+
+  @override
+  int get hashCode => value.hashCode;
+}
+
+/// Required enumerated value serialized in the `status` wire field.
+final class ActorTokenStatus {
+  final String value;
+
+  const ActorTokenStatus._(this.value);
+
+  factory ActorTokenStatus.fromJson(String value) => ActorTokenStatus._(value);
+
+  static const pending = ActorTokenStatus._('pending');
+  static const accepted = ActorTokenStatus._('accepted');
+  static const revoked = ActorTokenStatus._('revoked');
+
+  String toJson() => value;
+
+  @override
+  String toString() => value.toString();
+
+  @override
+  bool operator ==(Object other) =>
+      other is ActorTokenStatus && other.value == value;
+
+  @override
+  int get hashCode => value.hashCode;
+}
+
+/// Whether to increase or decrease the credit balance.
+final class AdjustCreditBalanceRequestAction {
+  final String value;
+
+  const AdjustCreditBalanceRequestAction._(this.value);
+
+  factory AdjustCreditBalanceRequestAction.fromJson(String value) =>
+      AdjustCreditBalanceRequestAction._(value);
+
+  static const increase = AdjustCreditBalanceRequestAction._('increase');
+  static const decrease = AdjustCreditBalanceRequestAction._('decrease');
+
+  String toJson() => value;
+
+  @override
+  String toString() => value.toString();
+
+  @override
+  bool operator ==(Object other) =>
+      other is AdjustCreditBalanceRequestAction && other.value == value;
+
+  @override
+  int get hashCode => value.hashCode;
+}
+
+/// Required enumerated value serialized in the `object` wire field.
+final class AgentTaskObject {
+  final String value;
+
+  const AgentTaskObject._(this.value);
+
+  factory AgentTaskObject.fromJson(String value) => AgentTaskObject._(value);
+
+  static const agentTask = AgentTaskObject._('agent_task');
+
+  String toJson() => value;
+
+  @override
+  String toString() => value.toString();
+
+  @override
+  bool operator ==(Object other) =>
+      other is AgentTaskObject && other.value == value;
+
+  @override
+  int get hashCode => value.hashCode;
+}
+
+/// Optional enumerated value serialized in the `identifier_type` wire field.
+final class AllowlistIdentifierIdentifierType {
+  final String value;
+
+  const AllowlistIdentifierIdentifierType._(this.value);
+
+  factory AllowlistIdentifierIdentifierType.fromJson(String value) =>
+      AllowlistIdentifierIdentifierType._(value);
+
+  static const emailAddress =
+      AllowlistIdentifierIdentifierType._('email_address');
+  static const phoneNumber =
+      AllowlistIdentifierIdentifierType._('phone_number');
+  static const web3Wallet = AllowlistIdentifierIdentifierType._('web3_wallet');
+
+  String toJson() => value;
+
+  @override
+  String toString() => value.toString();
+
+  @override
+  bool operator ==(Object other) =>
+      other is AllowlistIdentifierIdentifierType && other.value == value;
+
+  @override
+  int get hashCode => value.hashCode;
+}
+
+/// String representing the object's type. Objects of the same type share the same value.
+final class AllowlistIdentifierObject {
+  final String value;
+
+  const AllowlistIdentifierObject._(this.value);
+
+  factory AllowlistIdentifierObject.fromJson(String value) =>
+      AllowlistIdentifierObject._(value);
+
+  static const allowlistIdentifier =
+      AllowlistIdentifierObject._('allowlist_identifier');
+
+  String toJson() => value;
+
+  @override
+  String toString() => value.toString();
+
+  @override
+  bool operator ==(Object other) =>
+      other is AllowlistIdentifierObject && other.value == value;
+
+  @override
+  int get hashCode => value.hashCode;
+}
+
+/// String representing the object's type. Objects of the same type share the same value.
+final class BillingPaymentAttemptObject {
+  final String value;
+
+  const BillingPaymentAttemptObject._(this.value);
+
+  factory BillingPaymentAttemptObject.fromJson(String value) =>
+      BillingPaymentAttemptObject._(value);
+
+  static const commercePayment =
+      BillingPaymentAttemptObject._('commerce_payment');
+
+  String toJson() => value;
+
+  @override
+  String toString() => value.toString();
+
+  @override
+  bool operator ==(Object other) =>
+      other is BillingPaymentAttemptObject && other.value == value;
+
+  @override
+  int get hashCode => value.hashCode;
+}
+
+/// The current status of the payment attempt.
+final class BillingPaymentAttemptStatus {
+  final String value;
+
+  const BillingPaymentAttemptStatus._(this.value);
+
+  factory BillingPaymentAttemptStatus.fromJson(String value) =>
+      BillingPaymentAttemptStatus._(value);
+
+  static const pending = BillingPaymentAttemptStatus._('pending');
+  static const paid = BillingPaymentAttemptStatus._('paid');
+  static const failed = BillingPaymentAttemptStatus._('failed');
+
+  String toJson() => value;
+
+  @override
+  String toString() => value.toString();
+
+  @override
+  bool operator ==(Object other) =>
+      other is BillingPaymentAttemptStatus && other.value == value;
+
+  @override
+  int get hashCode => value.hashCode;
+}
+
+/// String representing the object's type. Objects of the same type share the same value.
+final class BillingPriceResponseObject {
+  final String value;
+
+  const BillingPriceResponseObject._(this.value);
+
+  factory BillingPriceResponseObject.fromJson(String value) =>
+      BillingPriceResponseObject._(value);
+
+  static const commercePrice = BillingPriceResponseObject._('commerce_price');
+
+  String toJson() => value;
+
+  @override
+  String toString() => value.toString();
+
+  @override
+  bool operator ==(Object other) =>
+      other is BillingPriceResponseObject && other.value == value;
+
+  @override
+  int get hashCode => value.hashCode;
+}
+
+/// Which billing periods this price supports.
+final class BillingPriceResponseSupportedBillingPeriods {
+  final String value;
+
+  const BillingPriceResponseSupportedBillingPeriods._(this.value);
+
+  factory BillingPriceResponseSupportedBillingPeriods.fromJson(String value) =>
+      BillingPriceResponseSupportedBillingPeriods._(value);
+
+  static const month = BillingPriceResponseSupportedBillingPeriods._('month');
+  static const annual = BillingPriceResponseSupportedBillingPeriods._('annual');
+  static const both = BillingPriceResponseSupportedBillingPeriods._('both');
+
+  String toJson() => value;
+
+  @override
+  String toString() => value.toString();
+
+  @override
+  bool operator ==(Object other) =>
+      other is BillingPriceResponseSupportedBillingPeriods &&
+      other.value == value;
+
+  @override
+  int get hashCode => value.hashCode;
+}
+
+/// String representing the object's type. Objects of the same type share the same value.
+final class BillingStatementGroupsItemObject {
+  final String value;
+
+  const BillingStatementGroupsItemObject._(this.value);
+
+  factory BillingStatementGroupsItemObject.fromJson(String value) =>
+      BillingStatementGroupsItemObject._(value);
+
+  static const commerceStatementGroup =
+      BillingStatementGroupsItemObject._('commerce_statement_group');
+
+  String toJson() => value;
+
+  @override
+  String toString() => value.toString();
+
+  @override
+  bool operator ==(Object other) =>
+      other is BillingStatementGroupsItemObject && other.value == value;
+
+  @override
+  int get hashCode => value.hashCode;
+}
+
+/// String representing the object's type. Objects of the same type share the same value.
+final class BillingStatementObject {
+  final String value;
+
+  const BillingStatementObject._(this.value);
+
+  factory BillingStatementObject.fromJson(String value) =>
+      BillingStatementObject._(value);
+
+  static const commerceStatement =
+      BillingStatementObject._('commerce_statement');
+
+  String toJson() => value;
+
+  @override
+  String toString() => value.toString();
+
+  @override
+  bool operator ==(Object other) =>
+      other is BillingStatementObject && other.value == value;
+
+  @override
+  int get hashCode => value.hashCode;
+}
+
+/// The current status of the statement.
+final class BillingStatementStatus {
+  final String value;
+
+  const BillingStatementStatus._(this.value);
+
+  factory BillingStatementStatus.fromJson(String value) =>
+      BillingStatementStatus._(value);
+
+  static const open = BillingStatementStatus._('open');
+  static const closed = BillingStatementStatus._('closed');
+
+  String toJson() => value;
+
+  @override
+  String toString() => value.toString();
+
+  @override
+  bool operator ==(Object other) =>
+      other is BillingStatementStatus && other.value == value;
 
   @override
   int get hashCode => value.hashCode;

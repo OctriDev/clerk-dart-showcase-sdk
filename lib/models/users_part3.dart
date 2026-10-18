@@ -4,6 +4,15 @@
 part of 'users.dart';
 
 // users domain models (part 3)
+final class ExternalAccountWithVerificationVerificationVerificationOauth
+    extends ExternalAccountWithVerificationVerification {
+  final VerificationOauth value;
+  const ExternalAccountWithVerificationVerificationVerificationOauth(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
+}
+
 final class ExternalAccountWithVerificationVerificationVerificationGoogleOneTap
     extends ExternalAccountWithVerificationVerification {
   final VerificationGoogleOneTap value;

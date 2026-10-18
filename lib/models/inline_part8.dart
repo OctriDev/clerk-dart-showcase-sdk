@@ -4,54 +4,6 @@
 part of 'inline.dart';
 
 // Inline operation models (part 8)
-/// Required enumerated value serialized in the `object` wire field.
-final class MachineScopeObject {
-  final String value;
-
-  const MachineScopeObject._(this.value);
-
-  factory MachineScopeObject.fromJson(String value) =>
-      MachineScopeObject._(value);
-
-  static const machineScope = MachineScopeObject._('machine_scope');
-
-  String toJson() => value;
-
-  @override
-  String toString() => value.toString();
-
-  @override
-  bool operator ==(Object other) =>
-      other is MachineScopeObject && other.value == value;
-
-  @override
-  int get hashCode => value.hashCode;
-}
-
-/// Required enumerated value serialized in the `object` wire field.
-final class MachineWithoutScopedMachinesObject {
-  final String value;
-
-  const MachineWithoutScopedMachinesObject._(this.value);
-
-  factory MachineWithoutScopedMachinesObject.fromJson(String value) =>
-      MachineWithoutScopedMachinesObject._(value);
-
-  static const machine = MachineWithoutScopedMachinesObject._('machine');
-
-  String toJson() => value;
-
-  @override
-  String toString() => value.toString();
-
-  @override
-  bool operator ==(Object other) =>
-      other is MachineWithoutScopedMachinesObject && other.value == value;
-
-  @override
-  int get hashCode => value.hashCode;
-}
-
 final class OAuthAccessTokenItemObject {
   final String value;
 
@@ -335,6 +287,52 @@ final class OrganizationSettingsObject {
   @override
   bool operator ==(Object other) =>
       other is OrganizationSettingsObject && other.value == value;
+
+  @override
+  int get hashCode => value.hashCode;
+}
+
+/// String representing the object's type. Objects of the same type share the same value.
+final class PasskeyObject {
+  final String value;
+
+  const PasskeyObject._(this.value);
+
+  factory PasskeyObject.fromJson(String value) => PasskeyObject._(value);
+
+  static const passkey = PasskeyObject._('passkey');
+
+  String toJson() => value;
+
+  @override
+  String toString() => value.toString();
+
+  @override
+  bool operator ==(Object other) =>
+      other is PasskeyObject && other.value == value;
+
+  @override
+  int get hashCode => value.hashCode;
+}
+
+/// Required enumerated value serialized in the `object` wire field.
+final class PermissionObject {
+  final String value;
+
+  const PermissionObject._(this.value);
+
+  factory PermissionObject.fromJson(String value) => PermissionObject._(value);
+
+  static const permission = PermissionObject._('permission');
+
+  String toJson() => value;
+
+  @override
+  String toString() => value.toString();
+
+  @override
+  bool operator ==(Object other) =>
+      other is PermissionObject && other.value == value;
 
   @override
   int get hashCode => value.hashCode;

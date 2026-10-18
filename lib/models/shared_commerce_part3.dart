@@ -4,333 +4,6 @@
 part of 'shared_commerce.dart';
 
 // shared_commerce domain models (part 3)
-/// Typed representation of the `CommercePaymentMethodResponse` API schema.
-class CommercePaymentMethodResponse {
-  /// This model is constructed from named fields in one call.
-  static const String constructionSurface = 'named';
-
-  /// String representing the object's type. Objects of the same type share the same value.
-  final CommercePaymentMethodResponseObject object;
-
-  /// Unique identifier for the payment method.
-  final String id;
-
-  /// Unique identifier for the payer.
-  final String payerId;
-
-  /// The payment method type.
-  final CommercePaymentMethodResponsePaymentType paymentType;
-
-  /// Whether this is the default payment method for the payer.
-  final SdkOptional<bool> isDefault;
-
-  /// The payment gateway.
-  final String gateway;
-
-  /// External ID in the payment gateway.
-  final String gatewayExternalId;
-
-  /// External account ID in the payment gateway.
-  final String? gatewayExternalAccountId;
-
-  /// Last 4 digits of the card (for card payment methods).
-  final String? last4;
-
-  /// Status of the payment method.
-  final CommercePaymentMethodResponseStatus status;
-
-  /// Type of wallet (if applicable).
-  final SdkOptional<String?> walletType;
-
-  /// Type of card (if applicable).
-  final String? cardType;
-
-  /// Card expiration year (for card payment methods).
-  final SdkOptional<int?> expiryYear;
-
-  /// Card expiration month (for card payment methods).
-  final SdkOptional<int?> expiryMonth;
-
-  /// Unix timestamp (in milliseconds) when the payment method was created.
-  final SdkOptional<int> createdAt;
-
-  /// Unix timestamp (in milliseconds) when the payment method was last updated.
-  final SdkOptional<int> updatedAt;
-
-  /// Whether this payment method can be removed.
-  final SdkOptional<bool> isRemovable;
-
-  const CommercePaymentMethodResponse(
-      {required this.object,
-      required this.id,
-      required this.payerId,
-      required this.paymentType,
-      this.isDefault = const SdkOmitted(),
-      required this.gateway,
-      required this.gatewayExternalId,
-      required this.gatewayExternalAccountId,
-      required this.last4,
-      required this.status,
-      this.walletType = const SdkOmitted(),
-      required this.cardType,
-      this.expiryYear = const SdkOmitted(),
-      this.expiryMonth = const SdkOmitted(),
-      this.createdAt = const SdkOmitted(),
-      this.updatedAt = const SdkOmitted(),
-      this.isRemovable = const SdkOmitted()});
-
-  CommercePaymentMethodResponse Function(
-      {CommercePaymentMethodResponseObject object,
-      String id,
-      String payerId,
-      CommercePaymentMethodResponsePaymentType paymentType,
-      SdkOptional<bool> isDefault,
-      String gateway,
-      String gatewayExternalId,
-      String? gatewayExternalAccountId,
-      String? last4,
-      CommercePaymentMethodResponseStatus status,
-      SdkOptional<String?> walletType,
-      String? cardType,
-      SdkOptional<int?> expiryYear,
-      SdkOptional<int?> expiryMonth,
-      SdkOptional<int> createdAt,
-      SdkOptional<int> updatedAt,
-      SdkOptional<bool> isRemovable}) get copyWith => _copyWith;
-
-  CommercePaymentMethodResponse _copyWith(
-          {Object? object = sdkOmittedValue,
-          Object? id = sdkOmittedValue,
-          Object? payerId = sdkOmittedValue,
-          Object? paymentType = sdkOmittedValue,
-          Object? isDefault = sdkOmittedValue,
-          Object? gateway = sdkOmittedValue,
-          Object? gatewayExternalId = sdkOmittedValue,
-          Object? gatewayExternalAccountId = sdkOmittedValue,
-          Object? last4 = sdkOmittedValue,
-          Object? status = sdkOmittedValue,
-          Object? walletType = sdkOmittedValue,
-          Object? cardType = sdkOmittedValue,
-          Object? expiryYear = sdkOmittedValue,
-          Object? expiryMonth = sdkOmittedValue,
-          Object? createdAt = sdkOmittedValue,
-          Object? updatedAt = sdkOmittedValue,
-          Object? isRemovable = sdkOmittedValue}) =>
-      CommercePaymentMethodResponse(
-        object: identical(object, sdkOmittedValue)
-            ? this.object
-            : object as CommercePaymentMethodResponseObject,
-        id: identical(id, sdkOmittedValue) ? this.id : id as String,
-        payerId: identical(payerId, sdkOmittedValue)
-            ? this.payerId
-            : payerId as String,
-        paymentType: identical(paymentType, sdkOmittedValue)
-            ? this.paymentType
-            : paymentType as CommercePaymentMethodResponsePaymentType,
-        isDefault: identical(isDefault, sdkOmittedValue)
-            ? this.isDefault
-            : isDefault as SdkOptional<bool>,
-        gateway: identical(gateway, sdkOmittedValue)
-            ? this.gateway
-            : gateway as String,
-        gatewayExternalId: identical(gatewayExternalId, sdkOmittedValue)
-            ? this.gatewayExternalId
-            : gatewayExternalId as String,
-        gatewayExternalAccountId:
-            identical(gatewayExternalAccountId, sdkOmittedValue)
-                ? this.gatewayExternalAccountId
-                : gatewayExternalAccountId as String?,
-        last4:
-            identical(last4, sdkOmittedValue) ? this.last4 : last4 as String?,
-        status: identical(status, sdkOmittedValue)
-            ? this.status
-            : status as CommercePaymentMethodResponseStatus,
-        walletType: identical(walletType, sdkOmittedValue)
-            ? this.walletType
-            : walletType as SdkOptional<String?>,
-        cardType: identical(cardType, sdkOmittedValue)
-            ? this.cardType
-            : cardType as String?,
-        expiryYear: identical(expiryYear, sdkOmittedValue)
-            ? this.expiryYear
-            : expiryYear as SdkOptional<int?>,
-        expiryMonth: identical(expiryMonth, sdkOmittedValue)
-            ? this.expiryMonth
-            : expiryMonth as SdkOptional<int?>,
-        createdAt: identical(createdAt, sdkOmittedValue)
-            ? this.createdAt
-            : createdAt as SdkOptional<int>,
-        updatedAt: identical(updatedAt, sdkOmittedValue)
-            ? this.updatedAt
-            : updatedAt as SdkOptional<int>,
-        isRemovable: identical(isRemovable, sdkOmittedValue)
-            ? this.isRemovable
-            : isRemovable as SdkOptional<bool>,
-      );
-
-  factory CommercePaymentMethodResponse.fromJson(Map<String, dynamic> json) =>
-      CommercePaymentMethodResponse(
-        object: (json['object'] != null
-            ? CommercePaymentMethodResponseObject.fromJson(
-                json['object'] as String)
-            : null)!,
-        id: (json['id'] as String?)!,
-        payerId: (json['payer_id'] as String?)!,
-        paymentType: (json['payment_type'] != null
-            ? CommercePaymentMethodResponsePaymentType.fromJson(
-                json['payment_type'] as String)
-            : null)!,
-        isDefault: json['is_default'] != null
-            ? SdkPresent((json['is_default'] as bool?)!)
-            : const SdkOmitted(),
-        gateway: (json['gateway'] as String?)!,
-        gatewayExternalId: (json['gateway_external_id'] as String?)!,
-        gatewayExternalAccountId:
-            json.containsKey('gateway_external_account_id')
-                ? json['gateway_external_account_id'] as String?
-                : throw ArgumentError.value(null, 'gateway_external_account_id',
-                    'Required property is missing'),
-        last4: json.containsKey('last4')
-            ? json['last4'] as String?
-            : throw ArgumentError.value(
-                null, 'last4', 'Required property is missing'),
-        status: (json['status'] != null
-            ? CommercePaymentMethodResponseStatus.fromJson(
-                json['status'] as String)
-            : null)!,
-        walletType: json.containsKey('wallet_type')
-            ? SdkPresent(json['wallet_type'] as String?)
-            : const SdkOmitted(),
-        cardType: json.containsKey('card_type')
-            ? json['card_type'] as String?
-            : throw ArgumentError.value(
-                null, 'card_type', 'Required property is missing'),
-        expiryYear: json.containsKey('expiry_year')
-            ? SdkPresent((json['expiry_year'] as num?)?.toInt())
-            : const SdkOmitted(),
-        expiryMonth: json.containsKey('expiry_month')
-            ? SdkPresent((json['expiry_month'] as num?)?.toInt())
-            : const SdkOmitted(),
-        createdAt: json['created_at'] != null
-            ? SdkPresent(((json['created_at'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        updatedAt: json['updated_at'] != null
-            ? SdkPresent(((json['updated_at'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        isRemovable: json['is_removable'] != null
-            ? SdkPresent((json['is_removable'] as bool?)!)
-            : const SdkOmitted(),
-      );
-
-  Map<String, dynamic> toJson() => {
-        'object': object.toJson(),
-        'id': id,
-        'payer_id': payerId,
-        'payment_type': paymentType.toJson(),
-        ...switch (isDefault) {
-          SdkPresent<bool>(value: final value) => {
-              'is_default': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        'gateway': gateway,
-        'gateway_external_id': gatewayExternalId,
-        'gateway_external_account_id': gatewayExternalAccountId,
-        'last4': last4,
-        'status': status.toJson(),
-        ...switch (walletType) {
-          SdkPresent<String?>(value: final value) => {
-              'wallet_type': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        'card_type': cardType,
-        ...switch (expiryYear) {
-          SdkPresent<int?>(value: final value) => {
-              'expiry_year': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (expiryMonth) {
-          SdkPresent<int?>(value: final value) => {
-              'expiry_month': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (createdAt) {
-          SdkPresent<int>(value: final value) => {
-              'created_at': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (updatedAt) {
-          SdkPresent<int>(value: final value) => {
-              'updated_at': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (isRemovable) {
-          SdkPresent<bool>(value: final value) => {
-              'is_removable': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
-}
-
-/// Typed representation of the `CommercePerUnitTotal` API schema.
-class CommercePerUnitTotal {
-  /// This model is constructed from named fields in one call.
-  static const String constructionSurface = 'named';
-
-  /// Name of the billable unit (for example, `seats`).
-  final String name;
-
-  /// Number of units included in each pricing block.
-  final int blockSize;
-
-  /// Computed totals for each pricing tier.
-  final List<CommercePerUnitTotalTier> tiers;
-
-  const CommercePerUnitTotal(
-      {required this.name, required this.blockSize, required this.tiers});
-
-  CommercePerUnitTotal Function(
-      {String name,
-      int blockSize,
-      List<CommercePerUnitTotalTier> tiers}) get copyWith => _copyWith;
-
-  CommercePerUnitTotal _copyWith(
-          {Object? name = sdkOmittedValue,
-          Object? blockSize = sdkOmittedValue,
-          Object? tiers = sdkOmittedValue}) =>
-      CommercePerUnitTotal(
-        name: identical(name, sdkOmittedValue) ? this.name : name as String,
-        blockSize: identical(blockSize, sdkOmittedValue)
-            ? this.blockSize
-            : blockSize as int,
-        tiers: identical(tiers, sdkOmittedValue)
-            ? this.tiers
-            : tiers as List<CommercePerUnitTotalTier>,
-      );
-
-  factory CommercePerUnitTotal.fromJson(Map<String, dynamic> json) =>
-      CommercePerUnitTotal(
-        name: (json['name'] as String?)!,
-        blockSize: ((json['block_size'] as num?)?.toInt())!,
-        tiers: ((json['tiers'] as List?)
-            ?.map((e) =>
-                CommercePerUnitTotalTier.fromJson(e as Map<String, dynamic>))
-            .toList())!,
-      );
-
-  Map<String, dynamic> toJson() => {
-        'name': name,
-        'block_size': blockSize,
-        'tiers': tiers.map((item) => item.toJson()).toList(),
-      };
-}
-
 /// Typed representation of the `CommercePerUnitTotal2` API schema.
 class CommercePerUnitTotal2 {
   /// This model is constructed from named fields in one call.
@@ -515,5 +188,331 @@ class CommercePerUnitTotalTier2 {
         },
         'fee_per_block': feePerBlock.toJson(),
         'total': total.toJson(),
+      };
+}
+
+/// Typed representation of the `CommercePlan` API schema.
+class CommercePlan {
+  /// This model is constructed from named fields in one call.
+  static const String constructionSurface = 'named';
+
+  /// String representing the object's type. Objects of the same type share the same value.
+  final CommercePlanObject object;
+
+  /// Unique identifier for the plan.
+  final String id;
+
+  /// The name of the plan.
+  final String name;
+
+  /// Required object value serialized in the `fee` wire field.
+  final CommerceMoneyResponse? fee;
+
+  /// Required object value serialized in the `annual_monthly_fee` wire field.
+  final CommerceMoneyResponse? annualMonthlyFee;
+
+  /// Required object value serialized in the `annual_fee` wire field.
+  final CommerceMoneyResponse? annualFee;
+
+  /// The description of the plan.
+  final String? description;
+
+  /// The ID of the product this plan belongs to.
+  final String productId;
+
+  /// Whether this is the default plan.
+  final bool isDefault;
+
+  /// Whether this is a recurring plan.
+  final bool isRecurring;
+
+  /// Whether this plan is publicly visible.
+  final bool publiclyVisible;
+
+  /// Whether this plan has a base fee.
+  final bool hasBaseFee;
+
+  /// The payer type this plan is designed for.
+  final String forPayerType;
+
+  /// The URL-friendly slug for the plan.
+  final String slug;
+
+  /// The URL of the plan's avatar image.
+  final String? avatarUrl;
+
+  /// The features included in this plan.
+  final SdkOptional<List<FeatureResponse>> features;
+
+  /// Whether free trial is enabled for this plan.
+  final bool freeTrialEnabled;
+
+  /// Number of free trial days for this plan.
+  final int? freeTrialDays;
+
+  /// Per-unit pricing tiers for this plan (for example, seats)
+  final SdkOptional<List<CommercePlanUnitPrice>> unitPrices;
+
+  const CommercePlan(
+      {required this.object,
+      required this.id,
+      required this.name,
+      required this.fee,
+      required this.annualMonthlyFee,
+      required this.annualFee,
+      required this.description,
+      required this.productId,
+      required this.isDefault,
+      required this.isRecurring,
+      required this.publiclyVisible,
+      required this.hasBaseFee,
+      required this.forPayerType,
+      required this.slug,
+      required this.avatarUrl,
+      this.features = const SdkOmitted(),
+      required this.freeTrialEnabled,
+      required this.freeTrialDays,
+      this.unitPrices = const SdkOmitted()});
+
+  CommercePlan Function(
+          {CommercePlanObject object,
+          String id,
+          String name,
+          CommerceMoneyResponse? fee,
+          CommerceMoneyResponse? annualMonthlyFee,
+          CommerceMoneyResponse? annualFee,
+          String? description,
+          String productId,
+          bool isDefault,
+          bool isRecurring,
+          bool publiclyVisible,
+          bool hasBaseFee,
+          String forPayerType,
+          String slug,
+          String? avatarUrl,
+          SdkOptional<List<FeatureResponse>> features,
+          bool freeTrialEnabled,
+          int? freeTrialDays,
+          SdkOptional<List<CommercePlanUnitPrice>> unitPrices})
+      get copyWith => _copyWith;
+
+  CommercePlan _copyWith(
+          {Object? object = sdkOmittedValue,
+          Object? id = sdkOmittedValue,
+          Object? name = sdkOmittedValue,
+          Object? fee = sdkOmittedValue,
+          Object? annualMonthlyFee = sdkOmittedValue,
+          Object? annualFee = sdkOmittedValue,
+          Object? description = sdkOmittedValue,
+          Object? productId = sdkOmittedValue,
+          Object? isDefault = sdkOmittedValue,
+          Object? isRecurring = sdkOmittedValue,
+          Object? publiclyVisible = sdkOmittedValue,
+          Object? hasBaseFee = sdkOmittedValue,
+          Object? forPayerType = sdkOmittedValue,
+          Object? slug = sdkOmittedValue,
+          Object? avatarUrl = sdkOmittedValue,
+          Object? features = sdkOmittedValue,
+          Object? freeTrialEnabled = sdkOmittedValue,
+          Object? freeTrialDays = sdkOmittedValue,
+          Object? unitPrices = sdkOmittedValue}) =>
+      CommercePlan(
+        object: identical(object, sdkOmittedValue)
+            ? this.object
+            : object as CommercePlanObject,
+        id: identical(id, sdkOmittedValue) ? this.id : id as String,
+        name: identical(name, sdkOmittedValue) ? this.name : name as String,
+        fee: identical(fee, sdkOmittedValue)
+            ? this.fee
+            : fee as CommerceMoneyResponse?,
+        annualMonthlyFee: identical(annualMonthlyFee, sdkOmittedValue)
+            ? this.annualMonthlyFee
+            : annualMonthlyFee as CommerceMoneyResponse?,
+        annualFee: identical(annualFee, sdkOmittedValue)
+            ? this.annualFee
+            : annualFee as CommerceMoneyResponse?,
+        description: identical(description, sdkOmittedValue)
+            ? this.description
+            : description as String?,
+        productId: identical(productId, sdkOmittedValue)
+            ? this.productId
+            : productId as String,
+        isDefault: identical(isDefault, sdkOmittedValue)
+            ? this.isDefault
+            : isDefault as bool,
+        isRecurring: identical(isRecurring, sdkOmittedValue)
+            ? this.isRecurring
+            : isRecurring as bool,
+        publiclyVisible: identical(publiclyVisible, sdkOmittedValue)
+            ? this.publiclyVisible
+            : publiclyVisible as bool,
+        hasBaseFee: identical(hasBaseFee, sdkOmittedValue)
+            ? this.hasBaseFee
+            : hasBaseFee as bool,
+        forPayerType: identical(forPayerType, sdkOmittedValue)
+            ? this.forPayerType
+            : forPayerType as String,
+        slug: identical(slug, sdkOmittedValue) ? this.slug : slug as String,
+        avatarUrl: identical(avatarUrl, sdkOmittedValue)
+            ? this.avatarUrl
+            : avatarUrl as String?,
+        features: identical(features, sdkOmittedValue)
+            ? this.features
+            : features as SdkOptional<List<FeatureResponse>>,
+        freeTrialEnabled: identical(freeTrialEnabled, sdkOmittedValue)
+            ? this.freeTrialEnabled
+            : freeTrialEnabled as bool,
+        freeTrialDays: identical(freeTrialDays, sdkOmittedValue)
+            ? this.freeTrialDays
+            : freeTrialDays as int?,
+        unitPrices: identical(unitPrices, sdkOmittedValue)
+            ? this.unitPrices
+            : unitPrices as SdkOptional<List<CommercePlanUnitPrice>>,
+      );
+
+  factory CommercePlan.fromJson(Map<String, dynamic> json) => CommercePlan(
+        object: (json['object'] != null
+            ? CommercePlanObject.fromJson(json['object'] as String)
+            : null)!,
+        id: (json['id'] as String?)!,
+        name: (json['name'] as String?)!,
+        fee: json.containsKey('fee')
+            ? json['fee'] != null
+                ? CommerceMoneyResponse.fromJson(
+                    json['fee'] as Map<String, dynamic>)
+                : null
+            : throw ArgumentError.value(
+                null, 'fee', 'Required property is missing'),
+        annualMonthlyFee: json.containsKey('annual_monthly_fee')
+            ? json['annual_monthly_fee'] != null
+                ? CommerceMoneyResponse.fromJson(
+                    json['annual_monthly_fee'] as Map<String, dynamic>)
+                : null
+            : throw ArgumentError.value(
+                null, 'annual_monthly_fee', 'Required property is missing'),
+        annualFee: json.containsKey('annual_fee')
+            ? json['annual_fee'] != null
+                ? CommerceMoneyResponse.fromJson(
+                    json['annual_fee'] as Map<String, dynamic>)
+                : null
+            : throw ArgumentError.value(
+                null, 'annual_fee', 'Required property is missing'),
+        description: json.containsKey('description')
+            ? json['description'] as String?
+            : throw ArgumentError.value(
+                null, 'description', 'Required property is missing'),
+        productId: (json['product_id'] as String?)!,
+        isDefault: (json['is_default'] as bool?)!,
+        isRecurring: (json['is_recurring'] as bool?)!,
+        publiclyVisible: (json['publicly_visible'] as bool?)!,
+        hasBaseFee: (json['has_base_fee'] as bool?)!,
+        forPayerType: (json['for_payer_type'] as String?)!,
+        slug: (json['slug'] as String?)!,
+        avatarUrl: json.containsKey('avatar_url')
+            ? json['avatar_url'] as String?
+            : throw ArgumentError.value(
+                null, 'avatar_url', 'Required property is missing'),
+        features: json['features'] != null
+            ? SdkPresent(((json['features'] as List?)
+                ?.map(
+                    (e) => FeatureResponse.fromJson(e as Map<String, dynamic>))
+                .toList())!)
+            : const SdkOmitted(),
+        freeTrialEnabled: (json['free_trial_enabled'] as bool?)!,
+        freeTrialDays: json.containsKey('free_trial_days')
+            ? (json['free_trial_days'] as num?)?.toInt()
+            : throw ArgumentError.value(
+                null, 'free_trial_days', 'Required property is missing'),
+        unitPrices: json['unit_prices'] != null
+            ? SdkPresent(((json['unit_prices'] as List?)
+                ?.map((e) =>
+                    CommercePlanUnitPrice.fromJson(e as Map<String, dynamic>))
+                .toList())!)
+            : const SdkOmitted(),
+      );
+
+  Map<String, dynamic> toJson() => {
+        'object': object.toJson(),
+        'id': id,
+        'name': name,
+        'fee': fee?.toJson(),
+        'annual_monthly_fee': annualMonthlyFee?.toJson(),
+        'annual_fee': annualFee?.toJson(),
+        'description': description,
+        'product_id': productId,
+        'is_default': isDefault,
+        'is_recurring': isRecurring,
+        'publicly_visible': publiclyVisible,
+        'has_base_fee': hasBaseFee,
+        'for_payer_type': forPayerType,
+        'slug': slug,
+        'avatar_url': avatarUrl,
+        ...switch (features) {
+          SdkPresent<List<FeatureResponse>>(value: final value) => {
+              'features': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        'free_trial_enabled': freeTrialEnabled,
+        'free_trial_days': freeTrialDays,
+        ...switch (unitPrices) {
+          SdkPresent<List<CommercePlanUnitPrice>>(value: final value) => {
+              'unit_prices': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
+}
+
+/// Typed representation of the `CommercePlanUnitPrice` API schema.
+class CommercePlanUnitPrice {
+  /// This model is constructed from named fields in one call.
+  static const String constructionSurface = 'named';
+
+  /// Name of the billable unit (for example, seats)
+  final String name;
+
+  /// Number of units included in each pricing block
+  final int blockSize;
+
+  /// Tiered pricing configuration for this unit
+  final List<CommercePlanUnitPriceTier> tiers;
+
+  const CommercePlanUnitPrice(
+      {required this.name, required this.blockSize, required this.tiers});
+
+  CommercePlanUnitPrice Function(
+      {String name,
+      int blockSize,
+      List<CommercePlanUnitPriceTier> tiers}) get copyWith => _copyWith;
+
+  CommercePlanUnitPrice _copyWith(
+          {Object? name = sdkOmittedValue,
+          Object? blockSize = sdkOmittedValue,
+          Object? tiers = sdkOmittedValue}) =>
+      CommercePlanUnitPrice(
+        name: identical(name, sdkOmittedValue) ? this.name : name as String,
+        blockSize: identical(blockSize, sdkOmittedValue)
+            ? this.blockSize
+            : blockSize as int,
+        tiers: identical(tiers, sdkOmittedValue)
+            ? this.tiers
+            : tiers as List<CommercePlanUnitPriceTier>,
+      );
+
+  factory CommercePlanUnitPrice.fromJson(Map<String, dynamic> json) =>
+      CommercePlanUnitPrice(
+        name: (json['name'] as String?)!,
+        blockSize: ((json['block_size'] as num?)?.toInt())!,
+        tiers: ((json['tiers'] as List?)
+            ?.map((e) =>
+                CommercePlanUnitPriceTier.fromJson(e as Map<String, dynamic>))
+            .toList())!,
+      );
+
+  Map<String, dynamic> toJson() => {
+        'name': name,
+        'block_size': blockSize,
+        'tiers': tiers.map((item) => item.toJson()).toList(),
       };
 }

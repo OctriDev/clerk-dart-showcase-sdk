@@ -4,54 +4,6 @@
 part of 'inline.dart';
 
 // Inline operation models (part 10)
-/// String representing the object's type. Objects of the same type share the same value.
-final class SAMLAccountObject {
-  final String value;
-
-  const SAMLAccountObject._(this.value);
-
-  factory SAMLAccountObject.fromJson(String value) =>
-      SAMLAccountObject._(value);
-
-  static const samlAccount = SAMLAccountObject._('saml_account');
-
-  String toJson() => value;
-
-  @override
-  String toString() => value.toString();
-
-  @override
-  bool operator ==(Object other) =>
-      other is SAMLAccountObject && other.value == value;
-
-  @override
-  int get hashCode => value.hashCode;
-}
-
-/// Required enumerated value serialized in the `object` wire field.
-final class SAMLConnectionObject {
-  final String value;
-
-  const SAMLConnectionObject._(this.value);
-
-  factory SAMLConnectionObject.fromJson(String value) =>
-      SAMLConnectionObject._(value);
-
-  static const samlConnection = SAMLConnectionObject._('saml_connection');
-
-  String toJson() => value;
-
-  @override
-  String toString() => value.toString();
-
-  @override
-  bool operator ==(Object other) =>
-      other is SAMLConnectionObject && other.value == value;
-
-  @override
-  int get hashCode => value.hashCode;
-}
-
 /// Controls the login_hint sent to the IdP on SSO sign-in
 final class SAMLConnectionLoginHintMode {
   final String value;
@@ -123,6 +75,55 @@ final class SCIMGroupRoleMappingObject {
   @override
   bool operator ==(Object other) =>
       other is SCIMGroupRoleMappingObject && other.value == value;
+
+  @override
+  int get hashCode => value.hashCode;
+}
+
+/// Whether the SCIM group role mapping was successfully deleted.
+final class SCIMGroupRoleMappingDeletedDeleted {
+  final bool value;
+
+  const SCIMGroupRoleMappingDeletedDeleted._(this.value);
+
+  factory SCIMGroupRoleMappingDeletedDeleted.fromJson(bool value) =>
+      SCIMGroupRoleMappingDeletedDeleted._(value);
+
+  static const true_ = SCIMGroupRoleMappingDeletedDeleted._(true);
+
+  bool toJson() => value;
+
+  @override
+  String toString() => value.toString();
+
+  @override
+  bool operator ==(Object other) =>
+      other is SCIMGroupRoleMappingDeletedDeleted && other.value == value;
+
+  @override
+  int get hashCode => value.hashCode;
+}
+
+/// String representing the object's type.
+final class SCIMGroupRoleMappingDeletedObject {
+  final String value;
+
+  const SCIMGroupRoleMappingDeletedObject._(this.value);
+
+  factory SCIMGroupRoleMappingDeletedObject.fromJson(String value) =>
+      SCIMGroupRoleMappingDeletedObject._(value);
+
+  static const scimGroupRoleMapping =
+      SCIMGroupRoleMappingDeletedObject._('scim_group_role_mapping');
+
+  String toJson() => value;
+
+  @override
+  String toString() => value.toString();
+
+  @override
+  bool operator ==(Object other) =>
+      other is SCIMGroupRoleMappingDeletedObject && other.value == value;
 
   @override
   int get hashCode => value.hashCode;

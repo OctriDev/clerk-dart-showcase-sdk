@@ -4,151 +4,6 @@
 part of 'inline.dart';
 
 // Inline operation models (part 20)
-class AttemptPhoneNumberVerificationRequestBody {
-  /// This model is constructed from named fields in one call.
-  static const String constructionSurface = 'named';
-
-  /// The ID of the verification to check, such as one returned by prepare_verification
-  final String verificationId;
-
-  /// The verification code that was sent to the phone number
-  final String code;
-
-  const AttemptPhoneNumberVerificationRequestBody(
-      {required this.verificationId, required this.code});
-
-  AttemptPhoneNumberVerificationRequestBody Function(
-      {String verificationId, String code}) get copyWith => _copyWith;
-
-  AttemptPhoneNumberVerificationRequestBody _copyWith(
-          {Object? verificationId = sdkOmittedValue,
-          Object? code = sdkOmittedValue}) =>
-      AttemptPhoneNumberVerificationRequestBody(
-        verificationId: identical(verificationId, sdkOmittedValue)
-            ? this.verificationId
-            : verificationId as String,
-        code: identical(code, sdkOmittedValue) ? this.code : code as String,
-      );
-
-  factory AttemptPhoneNumberVerificationRequestBody.fromJson(
-          Map<String, dynamic> json) =>
-      AttemptPhoneNumberVerificationRequestBody(
-        verificationId: (json['verification_id'] as String?)!,
-        code: (json['code'] as String?)!,
-      );
-
-  Map<String, dynamic> toJson() => {
-        'verification_id': verificationId,
-        'code': code,
-      };
-}
-
-class ReplaceUserPhoneNumberRequestBody {
-  /// This model is constructed from named fields in one call.
-  static const String constructionSurface = 'named';
-
-  /// The new phone number. Must adhere to the E.164 standard for phone number format.
-  final String phoneNumber;
-
-  /// Controls the status of the replacement phone number. Defaults to `verified`. Set to `reserved` to create it reserved (unverified but usable for sign-in and locked so no other user can claim it), or to `unverified` to create it neither usable for sign-in nor locked. **Warning:** `unverified` can lock the user out of their account. An unverified phone number cannot be used to sign in, so if the user has no other verified or reserved identifier, they will be unable to authenticate and unable to verify this number. Prefer `reserved` unless you specifically need the number left unclaimed — for example so that another user can also hold it until one of them verifies it.
-  final SdkOptional<ReplaceUserPhoneNumberRequestBodyIdentificationStatus>
-      identificationStatus;
-
-  const ReplaceUserPhoneNumberRequestBody(
-      {required this.phoneNumber,
-      this.identificationStatus = const SdkOmitted()});
-
-  ReplaceUserPhoneNumberRequestBody Function(
-      {String phoneNumber,
-      SdkOptional<ReplaceUserPhoneNumberRequestBodyIdentificationStatus>
-          identificationStatus}) get copyWith => _copyWith;
-
-  ReplaceUserPhoneNumberRequestBody _copyWith(
-          {Object? phoneNumber = sdkOmittedValue,
-          Object? identificationStatus = sdkOmittedValue}) =>
-      ReplaceUserPhoneNumberRequestBody(
-        phoneNumber: identical(phoneNumber, sdkOmittedValue)
-            ? this.phoneNumber
-            : phoneNumber as String,
-        identificationStatus: identical(identificationStatus, sdkOmittedValue)
-            ? this.identificationStatus
-            : identificationStatus as SdkOptional<
-                ReplaceUserPhoneNumberRequestBodyIdentificationStatus>,
-      );
-
-  factory ReplaceUserPhoneNumberRequestBody.fromJson(
-          Map<String, dynamic> json) =>
-      ReplaceUserPhoneNumberRequestBody(
-        phoneNumber: (json['phone_number'] as String?)!,
-        identificationStatus: json['identification_status'] != null
-            ? SdkPresent((json['identification_status'] != null
-                ? ReplaceUserPhoneNumberRequestBodyIdentificationStatus
-                    .fromJson(json['identification_status'] as String)
-                : null)!)
-            : const SdkOmitted(),
-      );
-
-  Map<String, dynamic> toJson() => {
-        'phone_number': phoneNumber,
-        ...switch (identificationStatus) {
-          SdkPresent<ReplaceUserPhoneNumberRequestBodyIdentificationStatus>(
-            value: final value
-          ) =>
-            {
-              'identification_status': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
-}
-
-class CreateSessionRequestBody {
-  /// This model is constructed from named fields in one call.
-  static const String constructionSurface = 'named';
-
-  /// The ID representing the user
-  final String userId;
-
-  /// The ID of the organization to set as active for this session
-  final SdkOptional<String> activeOrganizationId;
-
-  const CreateSessionRequestBody(
-      {required this.userId, this.activeOrganizationId = const SdkOmitted()});
-
-  CreateSessionRequestBody Function(
-      {String userId,
-      SdkOptional<String> activeOrganizationId}) get copyWith => _copyWith;
-
-  CreateSessionRequestBody _copyWith(
-          {Object? userId = sdkOmittedValue,
-          Object? activeOrganizationId = sdkOmittedValue}) =>
-      CreateSessionRequestBody(
-        userId:
-            identical(userId, sdkOmittedValue) ? this.userId : userId as String,
-        activeOrganizationId: identical(activeOrganizationId, sdkOmittedValue)
-            ? this.activeOrganizationId
-            : activeOrganizationId as SdkOptional<String>,
-      );
-
-  factory CreateSessionRequestBody.fromJson(Map<String, dynamic> json) =>
-      CreateSessionRequestBody(
-        userId: (json['user_id'] as String?)!,
-        activeOrganizationId: json['active_organization_id'] != null
-            ? SdkPresent((json['active_organization_id'] as String?)!)
-            : const SdkOmitted(),
-      );
-
-  Map<String, dynamic> toJson() => {
-        'user_id': userId,
-        ...switch (activeOrganizationId) {
-          SdkPresent<String>(value: final value) => {
-              'active_organization_id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
-}
-
 class RefreshSessionRequestBody {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
@@ -444,6 +299,152 @@ class CreateSessionTokenFromTemplateResponse {
         ...switch (jwt) {
           SdkPresent<String>(value: final value) => {
               'jwt': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
+}
+
+class UpsertTemplateRequestBody {
+  /// This model is constructed from named fields in one call.
+  static const String constructionSurface = 'named';
+
+  /// The user-friendly name of the template
+  final SdkOptional<String> name;
+
+  /// The email subject. Applicable only to email templates.
+  final SdkOptional<String?> subject;
+
+  /// The editor markup used to generate the body of the template
+  final SdkOptional<String?> markup;
+
+  /// The template body before variable interpolation
+  final SdkOptional<String> body;
+
+  /// Whether Clerk should deliver emails or SMS messages based on the current template
+  final SdkOptional<bool?> deliveredByClerk;
+
+  /// The local part of the From email address that will be used for emails. For example, in the address 'hello@example.com', the local part is 'hello'. Applicable only to email templates.
+  final SdkOptional<String> fromEmailName;
+
+  /// The local part of the Reply To email address that will be used for emails. For example, in the address 'hello@example.com', the local part is 'hello'. Applicable only to email templates.
+  final SdkOptional<String> replyToEmailName;
+
+  const UpsertTemplateRequestBody(
+      {this.name = const SdkOmitted(),
+      this.subject = const SdkOmitted(),
+      this.markup = const SdkOmitted(),
+      this.body = const SdkOmitted(),
+      this.deliveredByClerk = const SdkOmitted(),
+      this.fromEmailName = const SdkOmitted(),
+      this.replyToEmailName = const SdkOmitted()});
+
+  UpsertTemplateRequestBody Function(
+      {SdkOptional<String> name,
+      SdkOptional<String?> subject,
+      SdkOptional<String?> markup,
+      SdkOptional<String> body,
+      SdkOptional<bool?> deliveredByClerk,
+      SdkOptional<String> fromEmailName,
+      SdkOptional<String> replyToEmailName}) get copyWith => _copyWith;
+
+  UpsertTemplateRequestBody _copyWith(
+          {Object? name = sdkOmittedValue,
+          Object? subject = sdkOmittedValue,
+          Object? markup = sdkOmittedValue,
+          Object? body = sdkOmittedValue,
+          Object? deliveredByClerk = sdkOmittedValue,
+          Object? fromEmailName = sdkOmittedValue,
+          Object? replyToEmailName = sdkOmittedValue}) =>
+      UpsertTemplateRequestBody(
+        name: identical(name, sdkOmittedValue)
+            ? this.name
+            : name as SdkOptional<String>,
+        subject: identical(subject, sdkOmittedValue)
+            ? this.subject
+            : subject as SdkOptional<String?>,
+        markup: identical(markup, sdkOmittedValue)
+            ? this.markup
+            : markup as SdkOptional<String?>,
+        body: identical(body, sdkOmittedValue)
+            ? this.body
+            : body as SdkOptional<String>,
+        deliveredByClerk: identical(deliveredByClerk, sdkOmittedValue)
+            ? this.deliveredByClerk
+            : deliveredByClerk as SdkOptional<bool?>,
+        fromEmailName: identical(fromEmailName, sdkOmittedValue)
+            ? this.fromEmailName
+            : fromEmailName as SdkOptional<String>,
+        replyToEmailName: identical(replyToEmailName, sdkOmittedValue)
+            ? this.replyToEmailName
+            : replyToEmailName as SdkOptional<String>,
+      );
+
+  factory UpsertTemplateRequestBody.fromJson(Map<String, dynamic> json) =>
+      UpsertTemplateRequestBody(
+        name: json['name'] != null
+            ? SdkPresent((json['name'] as String?)!)
+            : const SdkOmitted(),
+        subject: json.containsKey('subject')
+            ? SdkPresent(json['subject'] as String?)
+            : const SdkOmitted(),
+        markup: json.containsKey('markup')
+            ? SdkPresent(json['markup'] as String?)
+            : const SdkOmitted(),
+        body: json['body'] != null
+            ? SdkPresent((json['body'] as String?)!)
+            : const SdkOmitted(),
+        deliveredByClerk: json.containsKey('delivered_by_clerk')
+            ? SdkPresent(json['delivered_by_clerk'] as bool?)
+            : const SdkOmitted(),
+        fromEmailName: json['from_email_name'] != null
+            ? SdkPresent((json['from_email_name'] as String?)!)
+            : const SdkOmitted(),
+        replyToEmailName: json['reply_to_email_name'] != null
+            ? SdkPresent((json['reply_to_email_name'] as String?)!)
+            : const SdkOmitted(),
+      );
+
+  Map<String, dynamic> toJson() => {
+        ...switch (name) {
+          SdkPresent<String>(value: final value) => {
+              'name': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (subject) {
+          SdkPresent<String?>(value: final value) => {
+              'subject': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (markup) {
+          SdkPresent<String?>(value: final value) => {
+              'markup': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (body) {
+          SdkPresent<String>(value: final value) => {
+              'body': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (deliveredByClerk) {
+          SdkPresent<bool?>(value: final value) => {
+              'delivered_by_clerk': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (fromEmailName) {
+          SdkPresent<String>(value: final value) => {
+              'from_email_name': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (replyToEmailName) {
+          SdkPresent<String>(value: final value) => {
+              'reply_to_email_name': value,
             },
           _ => const <String, dynamic>{},
         },

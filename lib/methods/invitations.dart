@@ -176,15 +176,15 @@ Future<DeletedObject> deleteInvitation(ClientConfig config,
 /// Revokes the given invitation. Revoking an invitation will prevent the user from using the invitation link that was sent to them. However, it doesn't prevent the user from signing up if they follow the sign up flow. Only active (i.e. non-revoked) invitations can be revoked.
 ///
 /// [invitationId] The ID of the invitation to be revoked
-Future<SchemaSchemadd079084> revokeInvitation(ClientConfig config,
+Future<InvitationRevoked> revokeInvitation(ClientConfig config,
     {required String invitationId, RequestOptions? requestOptions}) async {
-  return (await sdkRequest<SchemaSchemadd079084>('POST',
+  return (await sdkRequest<InvitationRevoked>('POST',
           '/invitations/${Uri.encodeComponent(invitationId.toString())}/revoke',
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'revokeInvitation',
           fromJsonRaw: (value) =>
-              SchemaSchemadd079084.fromJson(value as Map<String, dynamic>),
+              InvitationRevoked.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
           errors: {
         '400': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>),

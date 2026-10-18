@@ -13,7 +13,3 @@ part 'shared_commerce_part3.dart';
 part 'shared_commerce_part4.dart';
 part 'shared_commerce_part5.dart';
 part 'shared_commerce_part6.dart';
-part 'shared_commerce_part7.dart';
-part 'shared_commerce_part8.dart';
-part 'shared_commerce_part9.dart';
-part 'shared_commerce_part10.dart';

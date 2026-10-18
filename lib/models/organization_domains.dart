@@ -7,4 +7,3 @@ import 'inline.dart';
 import 'shared_organization.dart';
 
 part 'organization_domains_part1.dart';
-part 'organization_domains_part2.dart';

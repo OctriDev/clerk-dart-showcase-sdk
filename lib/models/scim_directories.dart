@@ -7,3 +7,4 @@ import 'inline.dart';
 import 'shared.dart';
 
 part 'scim_directories_part1.dart';
+part 'scim_directories_part2.dart';

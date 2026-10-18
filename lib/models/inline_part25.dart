@@ -72,84 +72,6 @@ class DeleteBackupCodeResponse {
       };
 }
 
-class SchemaSchema36c20f95 {
-  /// This model is constructed from named fields in one call.
-  static const String constructionSurface = 'named';
-  final List<TrustedDevice> data;
-
-  /// Total number of trusted devices
-  final int totalCount;
-
-  const SchemaSchema36c20f95({required this.data, required this.totalCount});
-
-  SchemaSchema36c20f95 Function({List<TrustedDevice> data, int totalCount})
-      get copyWith => _copyWith;
-
-  SchemaSchema36c20f95 _copyWith(
-          {Object? data = sdkOmittedValue,
-          Object? totalCount = sdkOmittedValue}) =>
-      SchemaSchema36c20f95(
-        data: identical(data, sdkOmittedValue)
-            ? this.data
-            : data as List<TrustedDevice>,
-        totalCount: identical(totalCount, sdkOmittedValue)
-            ? this.totalCount
-            : totalCount as int,
-      );
-
-  factory SchemaSchema36c20f95.fromJson(Map<String, dynamic> json) =>
-      SchemaSchema36c20f95(
-        data: ((json['data'] as List?)
-            ?.map((e) => TrustedDevice.fromJson(e as Map<String, dynamic>))
-            .toList())!,
-        totalCount: ((json['total_count'] as num?)?.toInt())!,
-      );
-
-  Map<String, dynamic> toJson() => {
-        'data': data.map((item) => item.toJson()).toList(),
-        'total_count': totalCount,
-      };
-}
-
-class SchemaSchema {
-  /// This model is constructed from named fields in one call.
-  static const String constructionSurface = 'named';
-  final List<BiometricCredential> data;
-
-  /// Total number of biometric credentials
-  final int totalCount;
-
-  const SchemaSchema({required this.data, required this.totalCount});
-
-  SchemaSchema Function({List<BiometricCredential> data, int totalCount})
-      get copyWith => _copyWith;
-
-  SchemaSchema _copyWith(
-          {Object? data = sdkOmittedValue,
-          Object? totalCount = sdkOmittedValue}) =>
-      SchemaSchema(
-        data: identical(data, sdkOmittedValue)
-            ? this.data
-            : data as List<BiometricCredential>,
-        totalCount: identical(totalCount, sdkOmittedValue)
-            ? this.totalCount
-            : totalCount as int,
-      );
-
-  factory SchemaSchema.fromJson(Map<String, dynamic> json) => SchemaSchema(
-        data: ((json['data'] as List?)
-            ?.map(
-                (e) => BiometricCredential.fromJson(e as Map<String, dynamic>))
-            .toList())!,
-        totalCount: ((json['total_count'] as num?)?.toInt())!,
-      );
-
-  Map<String, dynamic> toJson() => {
-        'data': data.map((item) => item.toJson()).toList(),
-        'total_count': totalCount,
-      };
-}
-
 class DeleteTOTPResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
@@ -361,6 +283,158 @@ class CreateInvitationRequestBody {
         },
         ...switch (templateSlug) {
           SdkPresent<CreateInvitationRequestBodyTemplateSlug>(
+            value: final value
+          ) =>
+            {
+              'template_slug': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
+}
+
+class CreateBulkInvitationsRequestBodyItem {
+  /// This model is constructed from named fields in one call.
+  static const String constructionSurface = 'named';
+
+  /// The email address the invitation will be sent to
+  final String emailAddress;
+
+  /// Metadata that will be attached to the newly created invitation. The value of this property should be a well-formed JSON object. Once the user accepts the invitation and signs up, these metadata will end up in the user's public metadata.
+  final SdkOptional<Map<String, Object?>?> publicMetadata;
+
+  /// The URL where the user is redirected upon visiting the invitation link, where they can accept the invitation. Required if you have implemented a custom flow for handling application invitations.
+  final SdkOptional<String?> redirectUrl;
+
+  /// Optional flag which denotes whether an email invitation should be sent to the given email address. Defaults to true.
+  final SdkOptional<bool?> notify;
+
+  /// Whether an invitation should be created if there is already an existing invitation for this email address, or it's claimed by another user.
+  final SdkOptional<bool?> ignoreExisting;
+
+  /// The number of days the invitation will be valid for. By default, the invitation expires after 30 days.
+  final SdkOptional<int?> expiresInDays;
+
+  /// The slug of the email template to use for the invitation email.
+  final SdkOptional<CreateBulkInvitationsRequestBodyItemTemplateSlug>
+      templateSlug;
+
+  const CreateBulkInvitationsRequestBodyItem(
+      {required this.emailAddress,
+      this.publicMetadata = const SdkOmitted(),
+      this.redirectUrl = const SdkOmitted(),
+      this.notify = const SdkOmitted(),
+      this.ignoreExisting = const SdkOmitted(),
+      this.expiresInDays = const SdkOmitted(),
+      this.templateSlug = const SdkOmitted()});
+
+  CreateBulkInvitationsRequestBodyItem Function(
+      {String emailAddress,
+      SdkOptional<Map<String, Object?>?> publicMetadata,
+      SdkOptional<String?> redirectUrl,
+      SdkOptional<bool?> notify,
+      SdkOptional<bool?> ignoreExisting,
+      SdkOptional<int?> expiresInDays,
+      SdkOptional<CreateBulkInvitationsRequestBodyItemTemplateSlug>
+          templateSlug}) get copyWith => _copyWith;
+
+  CreateBulkInvitationsRequestBodyItem _copyWith(
+          {Object? emailAddress = sdkOmittedValue,
+          Object? publicMetadata = sdkOmittedValue,
+          Object? redirectUrl = sdkOmittedValue,
+          Object? notify = sdkOmittedValue,
+          Object? ignoreExisting = sdkOmittedValue,
+          Object? expiresInDays = sdkOmittedValue,
+          Object? templateSlug = sdkOmittedValue}) =>
+      CreateBulkInvitationsRequestBodyItem(
+        emailAddress: identical(emailAddress, sdkOmittedValue)
+            ? this.emailAddress
+            : emailAddress as String,
+        publicMetadata: identical(publicMetadata, sdkOmittedValue)
+            ? this.publicMetadata
+            : publicMetadata as SdkOptional<Map<String, Object?>?>,
+        redirectUrl: identical(redirectUrl, sdkOmittedValue)
+            ? this.redirectUrl
+            : redirectUrl as SdkOptional<String?>,
+        notify: identical(notify, sdkOmittedValue)
+            ? this.notify
+            : notify as SdkOptional<bool?>,
+        ignoreExisting: identical(ignoreExisting, sdkOmittedValue)
+            ? this.ignoreExisting
+            : ignoreExisting as SdkOptional<bool?>,
+        expiresInDays: identical(expiresInDays, sdkOmittedValue)
+            ? this.expiresInDays
+            : expiresInDays as SdkOptional<int?>,
+        templateSlug: identical(templateSlug, sdkOmittedValue)
+            ? this.templateSlug
+            : templateSlug as SdkOptional<
+                CreateBulkInvitationsRequestBodyItemTemplateSlug>,
+      );
+
+  factory CreateBulkInvitationsRequestBodyItem.fromJson(
+          Map<String, dynamic> json) =>
+      CreateBulkInvitationsRequestBodyItem(
+        emailAddress: (json['email_address'] as String?)!,
+        publicMetadata: json.containsKey('public_metadata')
+            ? SdkPresent(json['public_metadata'] == null
+                ? null
+                : Map<String, dynamic>.from(json['public_metadata'] as Map)
+                    .map((key, value) => MapEntry(key, value)))
+            : const SdkOmitted(),
+        redirectUrl: json.containsKey('redirect_url')
+            ? SdkPresent(json['redirect_url'] as String?)
+            : const SdkOmitted(),
+        notify: json.containsKey('notify')
+            ? SdkPresent(json['notify'] as bool?)
+            : const SdkOmitted(),
+        ignoreExisting: json.containsKey('ignore_existing')
+            ? SdkPresent(json['ignore_existing'] as bool?)
+            : const SdkOmitted(),
+        expiresInDays: json.containsKey('expires_in_days')
+            ? SdkPresent((json['expires_in_days'] as num?)?.toInt())
+            : const SdkOmitted(),
+        templateSlug: json['template_slug'] != null
+            ? SdkPresent((json['template_slug'] != null
+                ? CreateBulkInvitationsRequestBodyItemTemplateSlug.fromJson(
+                    json['template_slug'] as String)
+                : null)!)
+            : const SdkOmitted(),
+      );
+
+  Map<String, dynamic> toJson() => {
+        'email_address': emailAddress,
+        ...switch (publicMetadata) {
+          SdkPresent<Map<String, Object?>?>(value: final value) => {
+              'public_metadata': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (redirectUrl) {
+          SdkPresent<String?>(value: final value) => {
+              'redirect_url': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (notify) {
+          SdkPresent<bool?>(value: final value) => {
+              'notify': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (ignoreExisting) {
+          SdkPresent<bool?>(value: final value) => {
+              'ignore_existing': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (expiresInDays) {
+          SdkPresent<int?>(value: final value) => {
+              'expires_in_days': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (templateSlug) {
+          SdkPresent<CreateBulkInvitationsRequestBodyItemTemplateSlug>(
             value: final value
           ) =>
             {

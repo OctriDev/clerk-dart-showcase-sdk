@@ -81,152 +81,6 @@ class UpdateEmailAddressRequestBody {
       };
 }
 
-class SchemaSchema3e93ce8e {
-  /// This model is constructed from named fields in one call.
-  static const String constructionSurface = 'named';
-
-  /// The type of the verification object.
-  final SdkOptional<String> object;
-
-  /// The ID of the verification. Pass this to attempt_verification.
-  final SdkOptional<String> id;
-
-  /// The status of the verification (unverified, verified, expired, or failed).
-  final SdkOptional<String> status;
-
-  /// The verification strategy (email_code or phone_code).
-  final SdkOptional<String> strategy;
-
-  /// The number of attempts made against this verification.
-  final SdkOptional<int?> attempts;
-
-  /// Unix timestamp (milliseconds) at which the code expires.
-  final SdkOptional<int?> expireAt;
-
-  /// The channel the code was sent over (phone numbers only).
-  final SdkOptional<String?> channel;
-
-  const SchemaSchema3e93ce8e(
-      {this.object = const SdkOmitted(),
-      this.id = const SdkOmitted(),
-      this.status = const SdkOmitted(),
-      this.strategy = const SdkOmitted(),
-      this.attempts = const SdkOmitted(),
-      this.expireAt = const SdkOmitted(),
-      this.channel = const SdkOmitted()});
-
-  SchemaSchema3e93ce8e Function(
-      {SdkOptional<String> object,
-      SdkOptional<String> id,
-      SdkOptional<String> status,
-      SdkOptional<String> strategy,
-      SdkOptional<int?> attempts,
-      SdkOptional<int?> expireAt,
-      SdkOptional<String?> channel}) get copyWith => _copyWith;
-
-  SchemaSchema3e93ce8e _copyWith(
-          {Object? object = sdkOmittedValue,
-          Object? id = sdkOmittedValue,
-          Object? status = sdkOmittedValue,
-          Object? strategy = sdkOmittedValue,
-          Object? attempts = sdkOmittedValue,
-          Object? expireAt = sdkOmittedValue,
-          Object? channel = sdkOmittedValue}) =>
-      SchemaSchema3e93ce8e(
-        object: identical(object, sdkOmittedValue)
-            ? this.object
-            : object as SdkOptional<String>,
-        id: identical(id, sdkOmittedValue)
-            ? this.id
-            : id as SdkOptional<String>,
-        status: identical(status, sdkOmittedValue)
-            ? this.status
-            : status as SdkOptional<String>,
-        strategy: identical(strategy, sdkOmittedValue)
-            ? this.strategy
-            : strategy as SdkOptional<String>,
-        attempts: identical(attempts, sdkOmittedValue)
-            ? this.attempts
-            : attempts as SdkOptional<int?>,
-        expireAt: identical(expireAt, sdkOmittedValue)
-            ? this.expireAt
-            : expireAt as SdkOptional<int?>,
-        channel: identical(channel, sdkOmittedValue)
-            ? this.channel
-            : channel as SdkOptional<String?>,
-      );
-
-  factory SchemaSchema3e93ce8e.fromJson(Map<String, dynamic> json) =>
-      SchemaSchema3e93ce8e(
-        object: json['object'] != null
-            ? SdkPresent((json['object'] as String?)!)
-            : const SdkOmitted(),
-        id: json['id'] != null
-            ? SdkPresent((json['id'] as String?)!)
-            : const SdkOmitted(),
-        status: json['status'] != null
-            ? SdkPresent((json['status'] as String?)!)
-            : const SdkOmitted(),
-        strategy: json['strategy'] != null
-            ? SdkPresent((json['strategy'] as String?)!)
-            : const SdkOmitted(),
-        attempts: json.containsKey('attempts')
-            ? SdkPresent((json['attempts'] as num?)?.toInt())
-            : const SdkOmitted(),
-        expireAt: json.containsKey('expire_at')
-            ? SdkPresent((json['expire_at'] as num?)?.toInt())
-            : const SdkOmitted(),
-        channel: json.containsKey('channel')
-            ? SdkPresent(json['channel'] as String?)
-            : const SdkOmitted(),
-      );
-
-  Map<String, dynamic> toJson() => {
-        ...switch (object) {
-          SdkPresent<String>(value: final value) => {
-              'object': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (id) {
-          SdkPresent<String>(value: final value) => {
-              'id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (status) {
-          SdkPresent<String>(value: final value) => {
-              'status': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (strategy) {
-          SdkPresent<String>(value: final value) => {
-              'strategy': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (attempts) {
-          SdkPresent<int?>(value: final value) => {
-              'attempts': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (expireAt) {
-          SdkPresent<int?>(value: final value) => {
-              'expire_at': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (channel) {
-          SdkPresent<String?>(value: final value) => {
-              'channel': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
-}
-
 class AttemptEmailAddressVerificationRequestBody {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
@@ -511,6 +365,151 @@ class UpdatePhoneNumberRequestBody {
         ...switch (reservedForSecondFactor) {
           SdkPresent<bool?>(value: final value) => {
               'reserved_for_second_factor': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
+}
+
+class AttemptPhoneNumberVerificationRequestBody {
+  /// This model is constructed from named fields in one call.
+  static const String constructionSurface = 'named';
+
+  /// The ID of the verification to check, such as one returned by prepare_verification
+  final String verificationId;
+
+  /// The verification code that was sent to the phone number
+  final String code;
+
+  const AttemptPhoneNumberVerificationRequestBody(
+      {required this.verificationId, required this.code});
+
+  AttemptPhoneNumberVerificationRequestBody Function(
+      {String verificationId, String code}) get copyWith => _copyWith;
+
+  AttemptPhoneNumberVerificationRequestBody _copyWith(
+          {Object? verificationId = sdkOmittedValue,
+          Object? code = sdkOmittedValue}) =>
+      AttemptPhoneNumberVerificationRequestBody(
+        verificationId: identical(verificationId, sdkOmittedValue)
+            ? this.verificationId
+            : verificationId as String,
+        code: identical(code, sdkOmittedValue) ? this.code : code as String,
+      );
+
+  factory AttemptPhoneNumberVerificationRequestBody.fromJson(
+          Map<String, dynamic> json) =>
+      AttemptPhoneNumberVerificationRequestBody(
+        verificationId: (json['verification_id'] as String?)!,
+        code: (json['code'] as String?)!,
+      );
+
+  Map<String, dynamic> toJson() => {
+        'verification_id': verificationId,
+        'code': code,
+      };
+}
+
+class ReplaceUserPhoneNumberRequestBody {
+  /// This model is constructed from named fields in one call.
+  static const String constructionSurface = 'named';
+
+  /// The new phone number. Must adhere to the E.164 standard for phone number format.
+  final String phoneNumber;
+
+  /// Controls the status of the replacement phone number. Defaults to `verified`. Set to `reserved` to create it reserved (unverified but usable for sign-in and locked so no other user can claim it), or to `unverified` to create it neither usable for sign-in nor locked. **Warning:** `unverified` can lock the user out of their account. An unverified phone number cannot be used to sign in, so if the user has no other verified or reserved identifier, they will be unable to authenticate and unable to verify this number. Prefer `reserved` unless you specifically need the number left unclaimed — for example so that another user can also hold it until one of them verifies it.
+  final SdkOptional<ReplaceUserPhoneNumberRequestBodyIdentificationStatus>
+      identificationStatus;
+
+  const ReplaceUserPhoneNumberRequestBody(
+      {required this.phoneNumber,
+      this.identificationStatus = const SdkOmitted()});
+
+  ReplaceUserPhoneNumberRequestBody Function(
+      {String phoneNumber,
+      SdkOptional<ReplaceUserPhoneNumberRequestBodyIdentificationStatus>
+          identificationStatus}) get copyWith => _copyWith;
+
+  ReplaceUserPhoneNumberRequestBody _copyWith(
+          {Object? phoneNumber = sdkOmittedValue,
+          Object? identificationStatus = sdkOmittedValue}) =>
+      ReplaceUserPhoneNumberRequestBody(
+        phoneNumber: identical(phoneNumber, sdkOmittedValue)
+            ? this.phoneNumber
+            : phoneNumber as String,
+        identificationStatus: identical(identificationStatus, sdkOmittedValue)
+            ? this.identificationStatus
+            : identificationStatus as SdkOptional<
+                ReplaceUserPhoneNumberRequestBodyIdentificationStatus>,
+      );
+
+  factory ReplaceUserPhoneNumberRequestBody.fromJson(
+          Map<String, dynamic> json) =>
+      ReplaceUserPhoneNumberRequestBody(
+        phoneNumber: (json['phone_number'] as String?)!,
+        identificationStatus: json['identification_status'] != null
+            ? SdkPresent((json['identification_status'] != null
+                ? ReplaceUserPhoneNumberRequestBodyIdentificationStatus
+                    .fromJson(json['identification_status'] as String)
+                : null)!)
+            : const SdkOmitted(),
+      );
+
+  Map<String, dynamic> toJson() => {
+        'phone_number': phoneNumber,
+        ...switch (identificationStatus) {
+          SdkPresent<ReplaceUserPhoneNumberRequestBodyIdentificationStatus>(
+            value: final value
+          ) =>
+            {
+              'identification_status': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
+}
+
+class CreateSessionRequestBody {
+  /// This model is constructed from named fields in one call.
+  static const String constructionSurface = 'named';
+
+  /// The ID representing the user
+  final String userId;
+
+  /// The ID of the organization to set as active for this session
+  final SdkOptional<String> activeOrganizationId;
+
+  const CreateSessionRequestBody(
+      {required this.userId, this.activeOrganizationId = const SdkOmitted()});
+
+  CreateSessionRequestBody Function(
+      {String userId,
+      SdkOptional<String> activeOrganizationId}) get copyWith => _copyWith;
+
+  CreateSessionRequestBody _copyWith(
+          {Object? userId = sdkOmittedValue,
+          Object? activeOrganizationId = sdkOmittedValue}) =>
+      CreateSessionRequestBody(
+        userId:
+            identical(userId, sdkOmittedValue) ? this.userId : userId as String,
+        activeOrganizationId: identical(activeOrganizationId, sdkOmittedValue)
+            ? this.activeOrganizationId
+            : activeOrganizationId as SdkOptional<String>,
+      );
+
+  factory CreateSessionRequestBody.fromJson(Map<String, dynamic> json) =>
+      CreateSessionRequestBody(
+        userId: (json['user_id'] as String?)!,
+        activeOrganizationId: json['active_organization_id'] != null
+            ? SdkPresent((json['active_organization_id'] as String?)!)
+            : const SdkOmitted(),
+      );
+
+  Map<String, dynamic> toJson() => {
+        'user_id': userId,
+        ...switch (activeOrganizationId) {
+          SdkPresent<String>(value: final value) => {
+              'active_organization_id': value,
             },
           _ => const <String, dynamic>{},
         },

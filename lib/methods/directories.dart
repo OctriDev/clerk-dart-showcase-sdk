@@ -13,7 +13,7 @@ import '../types.dart';
 ///   paginating the results together with `offset`.
 /// [offset] Skip the first `offset` results when paginating. Needs to be an
 ///   integer greater or equal to zero. To be used in conjunction with `limit`.
-Future<SchemaSchemadb46323d> listDirectories(ClientConfig config,
+Future<DirectoryList> listDirectories(ClientConfig config,
     {SdkOptional<int> limit = const SdkOmitted(),
     SdkOptional<int> offset = const SdkOmitted(),
     RequestOptions? requestOptions}) async {
@@ -24,7 +24,7 @@ Future<SchemaSchemadb46323d> listDirectories(ClientConfig config,
     validateRange('offset', offset.value, min: 0);
   }
 
-  return (await sdkRequest<SchemaSchemadb46323d>('GET', '/directories',
+  return (await sdkRequest<DirectoryList>('GET', '/directories',
           config: config,
           query: {
             'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit),
@@ -35,7 +35,7 @@ Future<SchemaSchemadb46323d> listDirectories(ClientConfig config,
           decoder: SdkResponseDecoder.json,
           operationId: 'listDirectories',
           fromJsonRaw: (value) =>
-              SchemaSchemadb46323d.fromJson(value as Map<String, dynamic>),
+              DirectoryList.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
           errors: {
             '401': (value) =>
@@ -210,15 +210,17 @@ Future<Directory> rotateDirectoryApiKey(ClientConfig config,
 /// Returns the list of directory group to organization role mappings for a directory, ordered by precedence.
 ///
 /// [directoryId] The ID of the directory.
-Future<SchemaSchema1459c10b> listDirectoryGroupRoleMappings(ClientConfig config,
-    {required String directoryId, RequestOptions? requestOptions}) async {
-  return (await sdkRequest<SchemaSchema1459c10b>('GET',
+Future<DirectoryGroupRoleMappingList> listDirectoryGroupRoleMappings(
+    ClientConfig config,
+    {required String directoryId,
+    RequestOptions? requestOptions}) async {
+  return (await sdkRequest<DirectoryGroupRoleMappingList>('GET',
           '/directories/${Uri.encodeComponent(directoryId.toString())}/group_role_mappings',
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'listDirectoryGroupRoleMappings',
-          fromJsonRaw: (value) =>
-              SchemaSchema1459c10b.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => DirectoryGroupRoleMappingList.fromJson(
+              value as Map<String, dynamic>),
           options: requestOptions,
           errors: {
         '401': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>),
@@ -285,20 +287,20 @@ Future<DirectoryGroupRoleMapping> createDirectoryGroupRoleMapping(
 /// [directoryId] The ID of the directory.
 /// [mappings] The desired set of mappings. Array order sets precedence
 ///   (1-indexed). An empty array clears all mappings.
-Future<SchemaSchema1459c10b> replaceDirectoryGroupRoleMappings(
+Future<DirectoryGroupRoleMappingList> replaceDirectoryGroupRoleMappings(
     ClientConfig config,
     {required String directoryId,
     required List<ReplaceDirectoryGroupRoleMappingsRequestBodyMappingsItem>
         mappings,
     RequestOptions? requestOptions}) async {
-  return (await sdkRequest<SchemaSchema1459c10b>('PUT',
+  return (await sdkRequest<DirectoryGroupRoleMappingList>('PUT',
           '/directories/${Uri.encodeComponent(directoryId.toString())}/group_role_mappings',
           config: config,
           body: {'mappings': mappings},
           decoder: SdkResponseDecoder.json,
           operationId: 'replaceDirectoryGroupRoleMappings',
-          fromJsonRaw: (value) =>
-              SchemaSchema1459c10b.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => DirectoryGroupRoleMappingList.fromJson(
+              value as Map<String, dynamic>),
           options: requestOptions,
           errors: {
             '400': (value) =>
@@ -319,18 +321,18 @@ Future<SchemaSchema1459c10b> replaceDirectoryGroupRoleMappings(
 ///
 /// [directoryId] The ID of the directory.
 /// [mappingId] The ID of the directory group role mapping to delete.
-Future<SchemaSchema0a4178a1> deleteDirectoryGroupRoleMapping(
+Future<DirectoryGroupRoleMappingDeleted> deleteDirectoryGroupRoleMapping(
     ClientConfig config,
     {required String directoryId,
     required String mappingId,
     RequestOptions? requestOptions}) async {
-  return (await sdkRequest<SchemaSchema0a4178a1>('DELETE',
+  return (await sdkRequest<DirectoryGroupRoleMappingDeleted>('DELETE',
           '/directories/${Uri.encodeComponent(directoryId.toString())}/group_role_mappings/${Uri.encodeComponent(mappingId.toString())}',
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'deleteDirectoryGroupRoleMapping',
-          fromJsonRaw: (value) =>
-              SchemaSchema0a4178a1.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => DirectoryGroupRoleMappingDeleted.fromJson(
+              value as Map<String, dynamic>),
           options: requestOptions,
           errors: {
         '400': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>),

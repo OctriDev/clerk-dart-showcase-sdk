@@ -186,14 +186,14 @@ class EmailAddressesNamespace {
   }
 
   /// Sends a one-time code to the given email address so that a backend can verify the user controls it (for example, in a custom, backend-driven sign-in flow). The code is tracked on its own verification; confirm it with attempt_verification.
-  Future<SchemaSchema3e93ce8e> prepareEmailAddressVerification(
+  Future<VerificationResponse> prepareEmailAddressVerification(
       {required String emailAddressId, RequestOptions? requestOptions}) async {
     return email_addresses_methods.prepareEmailAddressVerification(_config,
         emailAddressId: emailAddressId, requestOptions: requestOptions);
   }
 
   /// Checks a one-time code against the verification identified by verification_id, and returns the verification with its updated status (`verified`, `unverified`, `expired`, or `failed`) and attempt count, so a backend driving its own frontend can react on every attempt — an incorrect or expired code is reported through the status, not as an error. Resubmitting a verification whose code was already accepted is rejected with a `verification_already_verified` error. If the code is correct and the email address is not already verified, it is also marked as verified as a side effect (just as it would be in a frontend verification flow); an already verified email address is left unchanged. It never creates a session; to sign the user in afterwards, mint a sign-in token.
-  Future<SchemaSchema3e93ce8e> attemptEmailAddressVerification(
+  Future<VerificationResponse> attemptEmailAddressVerification(
       {required String emailAddressId,
       required String verificationId,
       required String code,
@@ -281,14 +281,14 @@ class PhoneNumbersNamespace {
   }
 
   /// Sends a one-time code to the given phone number so that a backend can verify the user controls it (for example, in a custom, backend-driven sign-in flow). The code is tracked on its own verification; confirm it with attempt_verification.
-  Future<SchemaSchema3e93ce8e> prepareVerification(
+  Future<VerificationResponse> prepareVerification(
       {required String phoneNumberId, RequestOptions? requestOptions}) async {
     return phone_numbers_methods.preparePhoneNumberVerification(_config,
         phoneNumberId: phoneNumberId, requestOptions: requestOptions);
   }
 
   /// Checks a one-time code against the verification identified by verification_id, and returns the verification with its updated status (`verified`, `unverified`, `expired`, or `failed`) and attempt count, so a backend driving its own frontend can react on every attempt — an incorrect or expired code is reported through the status, not as an error. Resubmitting a verification whose code was already accepted is rejected with a `verification_already_verified` error. If the code for this verification could not be sent (the SMS provider refused or failed the send after prepare_verification had returned), the attempt is rejected with a `verification_code_not_sent` error and no attempt is counted; call prepare_verification again to send a new code. If too many codes have been checked for this phone number recently, the attempt is rejected with a `verification_code_too_many_attempts` error and no attempt is counted; the limit is per phone number, so wait for the `Retry-After` period rather than sending a new code. If the code is correct and the phone number is not already verified, it is also marked as verified as a side effect (just as it would be in a frontend verification flow); an already verified phone number is left unchanged. It never creates a session; to sign the user in afterwards, mint a sign-in token.
-  Future<SchemaSchema3e93ce8e> attemptVerification(
+  Future<VerificationResponse> attemptVerification(
       {required String phoneNumberId,
       required String verificationId,
       required String code,
@@ -1042,7 +1042,7 @@ class UsersNamespace {
   /// Returns the active trusted devices enrolled by the user.
   ///
   /// **Deprecated:** this operation is deprecated and may be removed in a future release.
-  Future<SchemaSchema36c20f95> listTrustedDevices(
+  Future<TrustedDeviceList> listTrustedDevices(
       {required String userId, RequestOptions? requestOptions}) async {
     return users_methods.listUserTrustedDevices(_config,
         userId: userId, requestOptions: requestOptions);
@@ -1062,7 +1062,7 @@ class UsersNamespace {
   }
 
   /// Returns the active biometric credentials enrolled by the user.
-  Future<SchemaSchema> listBiometricCredentials(
+  Future<BiometricCredentialList> listBiometricCredentials(
       {required String userId, RequestOptions? requestOptions}) async {
     return users_methods.listUserBiometricCredentials(_config,
         userId: userId, requestOptions: requestOptions);
@@ -1197,7 +1197,7 @@ class InvitationsNamespace {
   }
 
   /// Revokes the given invitation. Revoking an invitation will prevent the user from using the invitation link that was sent to them. However, it doesn't prevent the user from signing up if they follow the sign up flow. Only active (i.e. non-revoked) invitations can be revoked.
-  Future<SchemaSchemadd079084> revoke(
+  Future<InvitationRevoked> revoke(
       {required String invitationId, RequestOptions? requestOptions}) async {
     return invitations_methods.revokeInvitation(_config,
         invitationId: invitationId, requestOptions: requestOptions);
@@ -1395,7 +1395,7 @@ class BetaFeaturesNamespace {
   /// Updates instance authentication settings, including allowlist restrictions, the sender address for authentication emails, progressive sign-up, and test mode. Set `from_email_address` to an alphanumeric local part only; `restricted_to_allowlist` defaults to false when omitted, and test mode defaults to true for development instances.
   ///
   /// Updates the settings of an instance
-  Future<SchemaSchema382061cc> updateInstanceAuthConfig(
+  Future<InstanceSettings> updateInstanceAuthConfig(
       {SdkOptional<bool?> restrictedToAllowlist = const SdkOmitted(),
       SdkOptional<String?> fromEmailAddress = const SdkOmitted(),
       SdkOptional<bool?> progressiveSignUp = const SdkOmitted(),
@@ -1791,7 +1791,7 @@ class MachinesNamespace {
   MachinesNamespace(ClientConfig config) : _config = config;
 
   /// This request returns the list of machines for an instance. The machines are ordered by descending creation date (i.e. most recent machines will be returned first)
-  Future<SchemaSchema11ae8042> list(
+  Future<MachineList> list(
       {SdkOptional<int> limit = const SdkOmitted(),
       SdkOptional<int> offset = const SdkOmitted(),
       SdkOptional<String> query = const SdkOmitted(),
@@ -1808,7 +1808,7 @@ class MachinesNamespace {
   /// Creates a new machine. Provide a `name` and optionally configure its machine scopes and default token TTL. The response includes the machine's secret key, so store it securely.
   ///
   /// Creates a new machine.
-  Future<SchemaSchema6ad3d7e4> create(
+  Future<MachineCreated> create(
       {required String name,
       SdkOptional<List<String>> scopedMachines = const SdkOmitted(),
       SdkOptional<int> defaultTokenTtl = const SdkOmitted(),
@@ -1845,7 +1845,7 @@ class MachinesNamespace {
   /// Deletes a machine. Use its `machine_id` to identify the machine you want to remove. The response confirms deletion with the machine ID and a `deleted` value.
   ///
   /// Deletes a machine.
-  Future<SchemaSchema7a4a2eaa> delete(
+  Future<MachineDeleted> delete(
       {required String machineId, RequestOptions? requestOptions}) async {
     return machines_methods.deleteMachine(_config,
         machineId: machineId, requestOptions: requestOptions);
@@ -1854,14 +1854,14 @@ class MachinesNamespace {
   /// Retrieves the secret key for a machine. Use the `machine_id` to identify which machine's key you need.
   ///
   /// Returns the secret key for a machine.
-  Future<SchemaSchema23990ad7> getSecretKey(
+  Future<MachineSecretKey> getSecretKey(
       {required String machineId, RequestOptions? requestOptions}) async {
     return machines_methods.getMachineSecretKey(_config,
         machineId: machineId, requestOptions: requestOptions);
   }
 
   /// Rotates the machine's secret key. When the secret key is rotated, make sure to update it in your machine/application. The previous secret key will remain valid for the duration specified by the previous_token_ttl parameter.
-  Future<SchemaSchema23990ad7> rotateSecretKey(
+  Future<MachineSecretKey> rotateSecretKey(
       {required String machineId,
       required int previousTokenTtl,
       RequestOptions? requestOptions}) async {
@@ -1883,7 +1883,7 @@ class MachinesNamespace {
   }
 
   /// Deletes a machine scope, removing access from one machine to another.
-  Future<SchemaSchema5f07b6af> deleteScope(
+  Future<MachineScopeDeleted> deleteScope(
       {required String machineId,
       required String otherMachineId,
       RequestOptions? requestOptions}) async {
@@ -2994,7 +2994,7 @@ class WaitlistEntriesNamespace {
   WaitlistEntriesNamespace(ClientConfig config) : _config = config;
 
   /// Retrieve a list of waitlist entries for the instance. Entries are ordered by creation date in descending order by default. Supports filtering by email address or status and pagination with limit and offset parameters.
-  Future<SchemaSchema45ad91e0> list(
+  Future<WaitlistEntries> list(
       {SdkOptional<int> limit = const SdkOmitted(),
       SdkOptional<int> offset = const SdkOmitted(),
       SdkOptional<String> query = const SdkOmitted(),
@@ -3421,7 +3421,7 @@ class ScimDirectoriesNamespace {
   ScimDirectoriesNamespace(ClientConfig config) : _config = config;
 
   /// Returns a list of all directories for the instance.
-  Future<SchemaSchemaa0ee7c0b> list(
+  Future<SCIMDirectoryList> list(
       {SdkOptional<int> limit = const SdkOmitted(),
       SdkOptional<int> offset = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
@@ -3492,7 +3492,7 @@ class ScimDirectoriesNamespace {
   }
 
   /// Returns the list of SCIM group to organization role mappings for a directory, ordered by precedence.
-  Future<SchemaSchemac6c780d9> listScimGroupRoleMappings(
+  Future<SCIMGroupRoleMappingList> listScimGroupRoleMappings(
       {required String scimDirectoryId, RequestOptions? requestOptions}) async {
     return scim_directories_methods.listScimGroupRoleMappings(_config,
         scimDirectoryId: scimDirectoryId, requestOptions: requestOptions);
@@ -3514,7 +3514,7 @@ class ScimDirectoriesNamespace {
   }
 
   /// Replaces the entire set of SCIM group role mappings for a directory. The position of each item in the `mappings` array determines its precedence (the first item gets precedence 1). Passing an empty array removes all mappings. Mappings can be replaced while group role mapping is disabled on the directory, but they only take effect once it is enabled.
-  Future<SchemaSchemac6c780d9> replaceScimGroupRoleMappings(
+  Future<SCIMGroupRoleMappingList> replaceScimGroupRoleMappings(
       {required String scimDirectoryId,
       required List<ReplaceSCIMGroupRoleMappingsRequestBodyMappingsItem>
           mappings,
@@ -3526,7 +3526,7 @@ class ScimDirectoriesNamespace {
   }
 
   /// Deletes a single SCIM group role mapping. Mappings can be deleted while group role mapping is disabled on the directory, but the change only takes effect once it is enabled.
-  Future<SchemaSchemab78302a9> deleteScimGroupRoleMapping(
+  Future<SCIMGroupRoleMappingDeleted> deleteScimGroupRoleMapping(
       {required String scimDirectoryId,
       required String mappingId,
       RequestOptions? requestOptions}) async {
@@ -3542,7 +3542,7 @@ class DirectoriesNamespace {
   DirectoriesNamespace(ClientConfig config) : _config = config;
 
   /// Returns a list of all directories for the instance.
-  Future<SchemaSchemadb46323d> list(
+  Future<DirectoryList> list(
       {SdkOptional<int> limit = const SdkOmitted(),
       SdkOptional<int> offset = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
@@ -3613,7 +3613,7 @@ class DirectoriesNamespace {
   }
 
   /// Returns the list of directory group to organization role mappings for a directory, ordered by precedence.
-  Future<SchemaSchema1459c10b> listGroupRoleMappings(
+  Future<DirectoryGroupRoleMappingList> listGroupRoleMappings(
       {required String directoryId, RequestOptions? requestOptions}) async {
     return directories_methods.listDirectoryGroupRoleMappings(_config,
         directoryId: directoryId, requestOptions: requestOptions);
@@ -3637,7 +3637,7 @@ class DirectoriesNamespace {
   }
 
   /// Replaces the entire set of directory group role mappings for a directory. The position of each item in the `mappings` array determines its precedence (the first item gets precedence 1). Passing an empty array removes all mappings. Mappings can be replaced while group role mapping is disabled on the directory, but they only take effect once it is enabled.
-  Future<SchemaSchema1459c10b> replaceGroupRoleMappings(
+  Future<DirectoryGroupRoleMappingList> replaceGroupRoleMappings(
       {required String directoryId,
       required List<ReplaceDirectoryGroupRoleMappingsRequestBodyMappingsItem>
           mappings,
@@ -3649,7 +3649,7 @@ class DirectoriesNamespace {
   }
 
   /// Deletes a single directory group role mapping. Mappings can be deleted while group role mapping is disabled on the directory, but the change only takes effect once it is enabled.
-  Future<SchemaSchema0a4178a1> deleteGroupRoleMapping(
+  Future<DirectoryGroupRoleMappingDeleted> deleteGroupRoleMapping(
       {required String directoryId,
       required String mappingId,
       RequestOptions? requestOptions}) async {
@@ -3866,7 +3866,7 @@ class OAuthAccessTokensNamespace {
   OAuthAccessTokensNamespace(ClientConfig config) : _config = config;
 
   /// Verifies an OAuth access token and returns its token details or active status. Supply the token in `access_token`; the legacy `secret` field is deprecated. Use this endpoint to check whether an access token is active and retrieve its associated client, subject, and scopes when available.
-  Future<dynamic> verify(
+  Future<VerifyOAuthAccessTokenResponse> verify(
       {SdkOptional<String> accessToken = const SdkOmitted(),
       SdkOptional<String> secret = const SdkOmitted(),
       RequestOptions? requestOptions}) async {

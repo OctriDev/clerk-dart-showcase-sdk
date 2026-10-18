@@ -18,7 +18,7 @@ import '../types.dart';
 /// [orderBy] Specify the order of results. Supported values are: - `created_at`
 ///   - `email_address` - `invited_at` Use `+` for ascending or `-` for descending
 ///   order. Defaults to `-created_at`.
-Future<SchemaSchema45ad91e0> listWaitlistEntries(ClientConfig config,
+Future<WaitlistEntries> listWaitlistEntries(ClientConfig config,
     {SdkOptional<int> limit = const SdkOmitted(),
     SdkOptional<int> offset = const SdkOmitted(),
     SdkOptional<String> query = const SdkOmitted(),
@@ -32,7 +32,7 @@ Future<SchemaSchema45ad91e0> listWaitlistEntries(ClientConfig config,
     validateRange('offset', offset.value, min: 0);
   }
 
-  return (await sdkRequest<SchemaSchema45ad91e0>('GET', '/waitlist_entries',
+  return (await sdkRequest<WaitlistEntries>('GET', '/waitlist_entries',
           config: config,
           query: {
             'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit),
@@ -49,7 +49,7 @@ Future<SchemaSchema45ad91e0> listWaitlistEntries(ClientConfig config,
           decoder: SdkResponseDecoder.json,
           operationId: 'listWaitlistEntries',
           fromJsonRaw: (value) =>
-              SchemaSchema45ad91e0.fromJson(value as Map<String, dynamic>),
+              WaitlistEntries.fromJson(value as Map<String, dynamic>),
           options: requestOptions))
       .data;
 }

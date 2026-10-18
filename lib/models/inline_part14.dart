@@ -64,6 +64,57 @@ final class VerificationWeb3Strategy {
   int get hashCode => value.hashCode;
 }
 
+final class VerifyOAuthAccessTokenResponseVariant0Object {
+  final String value;
+
+  const VerifyOAuthAccessTokenResponseVariant0Object._(this.value);
+
+  factory VerifyOAuthAccessTokenResponseVariant0Object.fromJson(String value) =>
+      VerifyOAuthAccessTokenResponseVariant0Object._(value);
+
+  static const clerkIdpOauthAccessToken =
+      VerifyOAuthAccessTokenResponseVariant0Object._(
+          'clerk_idp_oauth_access_token');
+
+  String toJson() => value;
+
+  @override
+  String toString() => value.toString();
+
+  @override
+  bool operator ==(Object other) =>
+      other is VerifyOAuthAccessTokenResponseVariant0Object &&
+      other.value == value;
+
+  @override
+  int get hashCode => value.hashCode;
+}
+
+/// Indicates that a JWT access token is not active (expired)
+final class VerifyOAuthAccessTokenResponseVariant1Active {
+  final bool value;
+
+  const VerifyOAuthAccessTokenResponseVariant1Active._(this.value);
+
+  factory VerifyOAuthAccessTokenResponseVariant1Active.fromJson(bool value) =>
+      VerifyOAuthAccessTokenResponseVariant1Active._(value);
+
+  static const false_ = VerifyOAuthAccessTokenResponseVariant1Active._(false);
+
+  bool toJson() => value;
+
+  @override
+  String toString() => value.toString();
+
+  @override
+  bool operator ==(Object other) =>
+      other is VerifyOAuthAccessTokenResponseVariant1Active &&
+      other.value == value;
+
+  @override
+  int get hashCode => value.hashCode;
+}
+
 /// Required enumerated value serialized in the `object` wire field.
 final class WaitlistEntryObject {
   final String value;
@@ -275,52 +326,6 @@ final class CreateApiKeyResponseObject {
   @override
   bool operator ==(Object other) =>
       other is CreateApiKeyResponseObject && other.value == value;
-
-  @override
-  int get hashCode => value.hashCode;
-}
-
-final class DeleteApiKeyResponseDeleted {
-  final bool value;
-
-  const DeleteApiKeyResponseDeleted._(this.value);
-
-  factory DeleteApiKeyResponseDeleted.fromJson(bool value) =>
-      DeleteApiKeyResponseDeleted._(value);
-
-  static const true_ = DeleteApiKeyResponseDeleted._(true);
-
-  bool toJson() => value;
-
-  @override
-  String toString() => value.toString();
-
-  @override
-  bool operator ==(Object other) =>
-      other is DeleteApiKeyResponseDeleted && other.value == value;
-
-  @override
-  int get hashCode => value.hashCode;
-}
-
-final class DeleteApiKeyResponseObject {
-  final String value;
-
-  const DeleteApiKeyResponseObject._(this.value);
-
-  factory DeleteApiKeyResponseObject.fromJson(String value) =>
-      DeleteApiKeyResponseObject._(value);
-
-  static const apiKey = DeleteApiKeyResponseObject._('api_key');
-
-  String toJson() => value;
-
-  @override
-  String toString() => value.toString();
-
-  @override
-  bool operator ==(Object other) =>
-      other is DeleteApiKeyResponseObject && other.value == value;
 
   @override
   int get hashCode => value.hashCode;

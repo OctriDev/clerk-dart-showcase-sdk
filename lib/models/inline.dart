@@ -4,11 +4,6 @@
 // Models declared inline by operations.
 import 'dart:convert';
 import '../sdk_utils.dart';
-import 'directories.dart';
-import 'machines.dart';
-import 'scim_directories.dart';
-import 'users.dart';
-import 'waitlist_entries.dart';
 
 part 'inline_part1.dart';
 part 'inline_part2.dart';
@@ -58,6 +53,3 @@ part 'inline_part45.dart';
 part 'inline_part46.dart';
 part 'inline_part47.dart';
 part 'inline_part48.dart';
-part 'inline_part49.dart';
-part 'inline_part50.dart';
-part 'inline_part51.dart';

@@ -151,6 +151,50 @@ sealed class EmailAddressVerification {
   static const String constructionSurface = 'named';
   const EmailAddressVerification();
   factory EmailAddressVerification.fromJson(Object? json) {
+    if (json is Map<String, dynamic>) {
+      try {
+        final value = VerificationOtp.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return EmailAddressVerificationVerificationOtp(value);
+        }
+      } catch (_) {}
+      try {
+        final value = VerificationAdmin.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return EmailAddressVerificationVerificationAdmin(value);
+        }
+      } catch (_) {}
+      try {
+        final value = VerificationFromOauth.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return EmailAddressVerificationVerificationFromOauth(value);
+        }
+      } catch (_) {}
+      try {
+        final value = VerificationTicket.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return EmailAddressVerificationVerificationTicket(value);
+        }
+      } catch (_) {}
+      try {
+        final value = VerificationSaml.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return EmailAddressVerificationVerificationSaml(value);
+        }
+      } catch (_) {}
+      try {
+        final value = VerificationEmailLink.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return EmailAddressVerificationVerificationEmailLink(value);
+        }
+      } catch (_) {}
+      try {
+        final value = VerificationScim.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return EmailAddressVerificationVerificationScim(value);
+        }
+      } catch (_) {}
+    }
     try {
       return EmailAddressVerificationVerificationOtp(
           VerificationOtp.fromJson(json as Map<String, dynamic>));

@@ -4,339 +4,6 @@
 part of 'organization_domains.dart';
 
 // organization_domains domain models
-/// Verification details for the user-facing affiliation between the domain and the organization (e.g. affiliation_email_code).
-class OrganizationDomainAffiliationVerification {
-  /// This model is constructed from named fields in one call.
-  static const String constructionSurface = 'named';
-
-  /// Status of the verification. It can be `unverified`, `verified`, `failed`, or `expired`.
-  final String status;
-
-  /// Name of the strategy used to verify the domain
-  final String strategy;
-
-  /// How many attempts have been made to verify the domain
-  final int? attempts;
-
-  /// Unix timestamp of when the verification will expire
-  final int? expireAt;
-
-  /// Unix timestamp of when ownership was verified. Only populated on `ownership_verification`; null on `affiliation_verification`.
-  final int? verifiedAt;
-
-  const OrganizationDomainAffiliationVerification(
-      {required this.status,
-      required this.strategy,
-      required this.attempts,
-      required this.expireAt,
-      required this.verifiedAt});
-
-  OrganizationDomainAffiliationVerification Function(
-      {String status,
-      String strategy,
-      int? attempts,
-      int? expireAt,
-      int? verifiedAt}) get copyWith => _copyWith;
-
-  OrganizationDomainAffiliationVerification _copyWith(
-          {Object? status = sdkOmittedValue,
-          Object? strategy = sdkOmittedValue,
-          Object? attempts = sdkOmittedValue,
-          Object? expireAt = sdkOmittedValue,
-          Object? verifiedAt = sdkOmittedValue}) =>
-      OrganizationDomainAffiliationVerification(
-        status:
-            identical(status, sdkOmittedValue) ? this.status : status as String,
-        strategy: identical(strategy, sdkOmittedValue)
-            ? this.strategy
-            : strategy as String,
-        attempts: identical(attempts, sdkOmittedValue)
-            ? this.attempts
-            : attempts as int?,
-        expireAt: identical(expireAt, sdkOmittedValue)
-            ? this.expireAt
-            : expireAt as int?,
-        verifiedAt: identical(verifiedAt, sdkOmittedValue)
-            ? this.verifiedAt
-            : verifiedAt as int?,
-      );
-
-  factory OrganizationDomainAffiliationVerification.fromJson(
-          Map<String, dynamic> json) =>
-      OrganizationDomainAffiliationVerification(
-        status: (json['status'] as String?)!,
-        strategy: (json['strategy'] as String?)!,
-        attempts: json.containsKey('attempts')
-            ? (json['attempts'] as num?)?.toInt()
-            : throw ArgumentError.value(
-                null, 'attempts', 'Required property is missing'),
-        expireAt: json.containsKey('expire_at')
-            ? (json['expire_at'] as num?)?.toInt()
-            : throw ArgumentError.value(
-                null, 'expire_at', 'Required property is missing'),
-        verifiedAt: json.containsKey('verified_at')
-            ? (json['verified_at'] as num?)?.toInt()
-            : throw ArgumentError.value(
-                null, 'verified_at', 'Required property is missing'),
-      );
-
-  Map<String, dynamic> toJson() => {
-        'status': status,
-        'strategy': strategy,
-        'attempts': attempts,
-        'expire_at': expireAt,
-        'verified_at': verifiedAt,
-      };
-}
-
-/// Verification details for the underlying DNS domain ownership proof (TXT challenge or dashboard override). Null until ownership has been attempted.
-class OrganizationDomainOwnershipVerification {
-  /// This model is constructed from named fields in one call.
-  static const String constructionSurface = 'named';
-
-  /// Status of the verification. It can be `unverified`, `verified`, `failed`, or `expired`.
-  final String status;
-
-  /// Name of the strategy used to verify the domain
-  final String strategy;
-
-  /// How many attempts have been made to verify the domain
-  final int? attempts;
-
-  /// Unix timestamp of when the verification will expire
-  final int? expireAt;
-
-  /// Unix timestamp of when ownership was verified. Only populated on `ownership_verification`; null on `affiliation_verification`.
-  final int? verifiedAt;
-
-  const OrganizationDomainOwnershipVerification(
-      {required this.status,
-      required this.strategy,
-      required this.attempts,
-      required this.expireAt,
-      required this.verifiedAt});
-
-  OrganizationDomainOwnershipVerification Function(
-      {String status,
-      String strategy,
-      int? attempts,
-      int? expireAt,
-      int? verifiedAt}) get copyWith => _copyWith;
-
-  OrganizationDomainOwnershipVerification _copyWith(
-          {Object? status = sdkOmittedValue,
-          Object? strategy = sdkOmittedValue,
-          Object? attempts = sdkOmittedValue,
-          Object? expireAt = sdkOmittedValue,
-          Object? verifiedAt = sdkOmittedValue}) =>
-      OrganizationDomainOwnershipVerification(
-        status:
-            identical(status, sdkOmittedValue) ? this.status : status as String,
-        strategy: identical(strategy, sdkOmittedValue)
-            ? this.strategy
-            : strategy as String,
-        attempts: identical(attempts, sdkOmittedValue)
-            ? this.attempts
-            : attempts as int?,
-        expireAt: identical(expireAt, sdkOmittedValue)
-            ? this.expireAt
-            : expireAt as int?,
-        verifiedAt: identical(verifiedAt, sdkOmittedValue)
-            ? this.verifiedAt
-            : verifiedAt as int?,
-      );
-
-  factory OrganizationDomainOwnershipVerification.fromJson(
-          Map<String, dynamic> json) =>
-      OrganizationDomainOwnershipVerification(
-        status: (json['status'] as String?)!,
-        strategy: (json['strategy'] as String?)!,
-        attempts: json.containsKey('attempts')
-            ? (json['attempts'] as num?)?.toInt()
-            : throw ArgumentError.value(
-                null, 'attempts', 'Required property is missing'),
-        expireAt: json.containsKey('expire_at')
-            ? (json['expire_at'] as num?)?.toInt()
-            : throw ArgumentError.value(
-                null, 'expire_at', 'Required property is missing'),
-        verifiedAt: json.containsKey('verified_at')
-            ? (json['verified_at'] as num?)?.toInt()
-            : throw ArgumentError.value(
-                null, 'verified_at', 'Required property is missing'),
-      );
-
-  Map<String, dynamic> toJson() => {
-        'status': status,
-        'strategy': strategy,
-        'attempts': attempts,
-        'expire_at': expireAt,
-        'verified_at': verifiedAt,
-      };
-}
-
-/// Deprecated alias for `affiliation_verification`. Kept for backward compatibility on the current API version; will be removed in the next API version. Prefer `affiliation_verification`.
-class OrganizationDomainVerificationbfb353d3 {
-  /// This model is constructed from named fields in one call.
-  static const String constructionSurface = 'named';
-
-  /// Status of the verification. It can be `unverified`, `verified`, `failed`, or `expired`.
-  final String status;
-
-  /// Name of the strategy used to verify the domain
-  final String strategy;
-
-  /// How many attempts have been made to verify the domain
-  final int? attempts;
-
-  /// Unix timestamp of when the verification will expire
-  final int? expireAt;
-
-  /// Unix timestamp of when ownership was verified. Only populated on `ownership_verification`; null on `affiliation_verification`.
-  final int? verifiedAt;
-
-  const OrganizationDomainVerificationbfb353d3(
-      {required this.status,
-      required this.strategy,
-      required this.attempts,
-      required this.expireAt,
-      required this.verifiedAt});
-
-  OrganizationDomainVerificationbfb353d3 Function(
-      {String status,
-      String strategy,
-      int? attempts,
-      int? expireAt,
-      int? verifiedAt}) get copyWith => _copyWith;
-
-  OrganizationDomainVerificationbfb353d3 _copyWith(
-          {Object? status = sdkOmittedValue,
-          Object? strategy = sdkOmittedValue,
-          Object? attempts = sdkOmittedValue,
-          Object? expireAt = sdkOmittedValue,
-          Object? verifiedAt = sdkOmittedValue}) =>
-      OrganizationDomainVerificationbfb353d3(
-        status:
-            identical(status, sdkOmittedValue) ? this.status : status as String,
-        strategy: identical(strategy, sdkOmittedValue)
-            ? this.strategy
-            : strategy as String,
-        attempts: identical(attempts, sdkOmittedValue)
-            ? this.attempts
-            : attempts as int?,
-        expireAt: identical(expireAt, sdkOmittedValue)
-            ? this.expireAt
-            : expireAt as int?,
-        verifiedAt: identical(verifiedAt, sdkOmittedValue)
-            ? this.verifiedAt
-            : verifiedAt as int?,
-      );
-
-  factory OrganizationDomainVerificationbfb353d3.fromJson(
-          Map<String, dynamic> json) =>
-      OrganizationDomainVerificationbfb353d3(
-        status: (json['status'] as String?)!,
-        strategy: (json['strategy'] as String?)!,
-        attempts: json.containsKey('attempts')
-            ? (json['attempts'] as num?)?.toInt()
-            : throw ArgumentError.value(
-                null, 'attempts', 'Required property is missing'),
-        expireAt: json.containsKey('expire_at')
-            ? (json['expire_at'] as num?)?.toInt()
-            : throw ArgumentError.value(
-                null, 'expire_at', 'Required property is missing'),
-        verifiedAt: json.containsKey('verified_at')
-            ? (json['verified_at'] as num?)?.toInt()
-            : throw ArgumentError.value(
-                null, 'verified_at', 'Required property is missing'),
-      );
-
-  Map<String, dynamic> toJson() => {
-        'status': status,
-        'strategy': strategy,
-        'attempts': attempts,
-        'expire_at': expireAt,
-        'verified_at': verifiedAt,
-      };
-}
-
-/// Public organization data associated with this domain
-class OrganizationDomainPublicOrganizationData {
-  /// This model is constructed from named fields in one call.
-  static const String constructionSurface = 'named';
-
-  /// Required `string` value serialized in the `id` wire field.
-  final String id;
-
-  /// Required `string` value serialized in the `name` wire field.
-  final String name;
-
-  /// Required `string` value serialized in the `slug` wire field.
-  final String slug;
-
-  /// Optional `string` value serialized in the `image_url` wire field.
-  final SdkOptional<String> imageUrl;
-
-  /// Required `boolean` value serialized in the `has_image` wire field.
-  final bool hasImage;
-
-  const OrganizationDomainPublicOrganizationData(
-      {required this.id,
-      required this.name,
-      required this.slug,
-      this.imageUrl = const SdkOmitted(),
-      required this.hasImage});
-
-  OrganizationDomainPublicOrganizationData Function(
-      {String id,
-      String name,
-      String slug,
-      SdkOptional<String> imageUrl,
-      bool hasImage}) get copyWith => _copyWith;
-
-  OrganizationDomainPublicOrganizationData _copyWith(
-          {Object? id = sdkOmittedValue,
-          Object? name = sdkOmittedValue,
-          Object? slug = sdkOmittedValue,
-          Object? imageUrl = sdkOmittedValue,
-          Object? hasImage = sdkOmittedValue}) =>
-      OrganizationDomainPublicOrganizationData(
-        id: identical(id, sdkOmittedValue) ? this.id : id as String,
-        name: identical(name, sdkOmittedValue) ? this.name : name as String,
-        slug: identical(slug, sdkOmittedValue) ? this.slug : slug as String,
-        imageUrl: identical(imageUrl, sdkOmittedValue)
-            ? this.imageUrl
-            : imageUrl as SdkOptional<String>,
-        hasImage: identical(hasImage, sdkOmittedValue)
-            ? this.hasImage
-            : hasImage as bool,
-      );
-
-  factory OrganizationDomainPublicOrganizationData.fromJson(
-          Map<String, dynamic> json) =>
-      OrganizationDomainPublicOrganizationData(
-        id: (json['id'] as String?)!,
-        name: (json['name'] as String?)!,
-        slug: (json['slug'] as String?)!,
-        imageUrl: json['image_url'] != null
-            ? SdkPresent((json['image_url'] as String?)!)
-            : const SdkOmitted(),
-        hasImage: (json['has_image'] as bool?)!,
-      );
-
-  Map<String, dynamic> toJson() => {
-        'id': id,
-        'name': name,
-        'slug': slug,
-        ...switch (imageUrl) {
-          SdkPresent<String>(value: final value) => {
-              'image_url': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        'has_image': hasImage,
-      };
-}
-
 /// An organization domain
 class OrganizationDomain {
   /// This model is constructed from named fields in one call.
@@ -554,5 +221,131 @@ class OrganizationDomain {
         },
         'created_at': createdAt,
         'updated_at': updatedAt,
+      };
+}
+
+/// Typed representation of the `OrganizationDomains` API schema.
+class OrganizationDomains {
+  /// This model is constructed from named fields in one call.
+  static const String constructionSurface = 'named';
+
+  /// Required array value serialized in the `data` wire field.
+  final List<OrganizationDomain> data;
+
+  /// Total number of organization domains
+  final int totalCount;
+
+  const OrganizationDomains({required this.data, required this.totalCount});
+
+  OrganizationDomains Function({List<OrganizationDomain> data, int totalCount})
+      get copyWith => _copyWith;
+
+  OrganizationDomains _copyWith(
+          {Object? data = sdkOmittedValue,
+          Object? totalCount = sdkOmittedValue}) =>
+      OrganizationDomains(
+        data: identical(data, sdkOmittedValue)
+            ? this.data
+            : data as List<OrganizationDomain>,
+        totalCount: identical(totalCount, sdkOmittedValue)
+            ? this.totalCount
+            : totalCount as int,
+      );
+
+  factory OrganizationDomains.fromJson(Map<String, dynamic> json) =>
+      OrganizationDomains(
+        data: ((json['data'] as List?)
+            ?.map((e) => OrganizationDomain.fromJson(e as Map<String, dynamic>))
+            .toList())!,
+        totalCount: ((json['total_count'] as num?)?.toInt())!,
+      );
+
+  Map<String, dynamic> toJson() => {
+        'data': data.map((item) => item.toJson()).toList(),
+        'total_count': totalCount,
+      };
+}
+
+/// The verification object from an organization domain
+class OrganizationDomainVerification {
+  /// This model is constructed from named fields in one call.
+  static const String constructionSurface = 'named';
+
+  /// Status of the verification. It can be `unverified`, `verified`, `failed`, or `expired`.
+  final String status;
+
+  /// Name of the strategy used to verify the domain
+  final String strategy;
+
+  /// How many attempts have been made to verify the domain
+  final int? attempts;
+
+  /// Unix timestamp of when the verification will expire
+  final int? expireAt;
+
+  /// Unix timestamp of when ownership was verified. Only populated on `ownership_verification`; null on `affiliation_verification`.
+  final int? verifiedAt;
+
+  const OrganizationDomainVerification(
+      {required this.status,
+      required this.strategy,
+      required this.attempts,
+      required this.expireAt,
+      required this.verifiedAt});
+
+  OrganizationDomainVerification Function(
+      {String status,
+      String strategy,
+      int? attempts,
+      int? expireAt,
+      int? verifiedAt}) get copyWith => _copyWith;
+
+  OrganizationDomainVerification _copyWith(
+          {Object? status = sdkOmittedValue,
+          Object? strategy = sdkOmittedValue,
+          Object? attempts = sdkOmittedValue,
+          Object? expireAt = sdkOmittedValue,
+          Object? verifiedAt = sdkOmittedValue}) =>
+      OrganizationDomainVerification(
+        status:
+            identical(status, sdkOmittedValue) ? this.status : status as String,
+        strategy: identical(strategy, sdkOmittedValue)
+            ? this.strategy
+            : strategy as String,
+        attempts: identical(attempts, sdkOmittedValue)
+            ? this.attempts
+            : attempts as int?,
+        expireAt: identical(expireAt, sdkOmittedValue)
+            ? this.expireAt
+            : expireAt as int?,
+        verifiedAt: identical(verifiedAt, sdkOmittedValue)
+            ? this.verifiedAt
+            : verifiedAt as int?,
+      );
+
+  factory OrganizationDomainVerification.fromJson(Map<String, dynamic> json) =>
+      OrganizationDomainVerification(
+        status: (json['status'] as String?)!,
+        strategy: (json['strategy'] as String?)!,
+        attempts: json.containsKey('attempts')
+            ? (json['attempts'] as num?)?.toInt()
+            : throw ArgumentError.value(
+                null, 'attempts', 'Required property is missing'),
+        expireAt: json.containsKey('expire_at')
+            ? (json['expire_at'] as num?)?.toInt()
+            : throw ArgumentError.value(
+                null, 'expire_at', 'Required property is missing'),
+        verifiedAt: json.containsKey('verified_at')
+            ? (json['verified_at'] as num?)?.toInt()
+            : throw ArgumentError.value(
+                null, 'verified_at', 'Required property is missing'),
+      );
+
+  Map<String, dynamic> toJson() => {
+        'status': status,
+        'strategy': strategy,
+        'attempts': attempts,
+        'expire_at': expireAt,
+        'verified_at': verifiedAt,
       };
 }

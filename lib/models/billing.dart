@@ -4,7 +4,6 @@
 // billing domain model library.
 import '../sdk_utils.dart';
 import 'inline.dart';
-import 'shared_billing.dart';
 import 'shared_commerce.dart';
 
 part 'billing_part1.dart';
@@ -15,7 +14,3 @@ part 'billing_part5.dart';
 part 'billing_part6.dart';
 part 'billing_part7.dart';
 part 'billing_part8.dart';
-part 'billing_part9.dart';
-part 'billing_part10.dart';
-part 'billing_part11.dart';
-part 'billing_part12.dart';

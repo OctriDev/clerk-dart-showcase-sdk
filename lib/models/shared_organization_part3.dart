@@ -4,329 +4,6 @@
 part of 'shared_organization.dart';
 
 // shared_organization domain models (part 3)
-/// Required object value serialized in the `organization` wire field.
-class OrganizationMembershipOrganization {
-  /// This model is constructed from named fields in one call.
-  static const String constructionSurface = 'named';
-
-  /// Required enumerated value serialized in the `object` wire field.
-  final OrganizationObject object;
-
-  /// Required `string` value serialized in the `id` wire field.
-  final String id;
-
-  /// Required `string` value serialized in the `name` wire field.
-  final String name;
-
-  /// Required `string` value serialized in the `slug` wire field.
-  final String slug;
-
-  /// Optional `string` value serialized in the `image_url` wire field.
-  final SdkOptional<String> imageUrl;
-
-  /// Required `boolean` value serialized in the `has_image` wire field.
-  final bool hasImage;
-
-  /// Optional `integer` value serialized in the `members_count` wire field.
-  final SdkOptional<int> membersCount;
-
-  /// Optional `boolean` value serialized in the `missing_member_with_elevated_permissions` wire field.
-  final SdkOptional<bool> missingMemberWithElevatedPermissions;
-
-  /// Optional `integer` value serialized in the `pending_invitations_count` wire field.
-  final SdkOptional<int> pendingInvitationsCount;
-
-  /// Required `integer` value serialized in the `max_allowed_memberships` wire field.
-  final int maxAllowedMemberships;
-
-  /// Required `boolean` value serialized in the `admin_delete_enabled` wire field.
-  final bool adminDeleteEnabled;
-
-  /// Whether this organization can configure self-serve enterprise SSO.
-  final SdkOptional<bool> selfServeSsoEnabled;
-
-  /// Whether this organization can configure self-serve Directory Sync (SCIM).
-  final SdkOptional<bool> selfServeDirectorySyncEnabled;
-
-  /// Required object value serialized in the `public_metadata` wire field.
-  final Map<String, Object?> publicMetadata;
-
-  /// Optional object value serialized in the `private_metadata` wire field.
-  final SdkOptional<Map<String, Object?>> privateMetadata;
-
-  /// Optional `string` value serialized in the `created_by` wire field.
-  final SdkOptional<String> createdBy;
-
-  /// Unix timestamp of creation.
-  final int createdAt;
-
-  /// Unix timestamp of last update.
-  final int updatedAt;
-
-  /// Unix timestamp of last activity.
-  final SdkOptional<int> lastActiveAt;
-
-  /// The key of the [role set](https://clerk.com/docs/guides/organizations/control-access/role-sets) assigned to this organization.
-  final SdkOptional<String?> roleSetKey;
-
-  const OrganizationMembershipOrganization(
-      {required this.object,
-      required this.id,
-      required this.name,
-      required this.slug,
-      this.imageUrl = const SdkOmitted(),
-      required this.hasImage,
-      this.membersCount = const SdkOmitted(),
-      this.missingMemberWithElevatedPermissions = const SdkOmitted(),
-      this.pendingInvitationsCount = const SdkOmitted(),
-      required this.maxAllowedMemberships,
-      required this.adminDeleteEnabled,
-      this.selfServeSsoEnabled = const SdkOmitted(),
-      this.selfServeDirectorySyncEnabled = const SdkOmitted(),
-      required this.publicMetadata,
-      this.privateMetadata = const SdkOmitted(),
-      this.createdBy = const SdkOmitted(),
-      required this.createdAt,
-      required this.updatedAt,
-      this.lastActiveAt = const SdkOmitted(),
-      this.roleSetKey = const SdkOmitted()});
-
-  OrganizationMembershipOrganization Function(
-      {OrganizationObject object,
-      String id,
-      String name,
-      String slug,
-      SdkOptional<String> imageUrl,
-      bool hasImage,
-      SdkOptional<int> membersCount,
-      SdkOptional<bool> missingMemberWithElevatedPermissions,
-      SdkOptional<int> pendingInvitationsCount,
-      int maxAllowedMemberships,
-      bool adminDeleteEnabled,
-      SdkOptional<bool> selfServeSsoEnabled,
-      SdkOptional<bool> selfServeDirectorySyncEnabled,
-      Map<String, Object?> publicMetadata,
-      SdkOptional<Map<String, Object?>> privateMetadata,
-      SdkOptional<String> createdBy,
-      int createdAt,
-      int updatedAt,
-      SdkOptional<int> lastActiveAt,
-      SdkOptional<String?> roleSetKey}) get copyWith => _copyWith;
-
-  OrganizationMembershipOrganization _copyWith(
-          {Object? object = sdkOmittedValue,
-          Object? id = sdkOmittedValue,
-          Object? name = sdkOmittedValue,
-          Object? slug = sdkOmittedValue,
-          Object? imageUrl = sdkOmittedValue,
-          Object? hasImage = sdkOmittedValue,
-          Object? membersCount = sdkOmittedValue,
-          Object? missingMemberWithElevatedPermissions = sdkOmittedValue,
-          Object? pendingInvitationsCount = sdkOmittedValue,
-          Object? maxAllowedMemberships = sdkOmittedValue,
-          Object? adminDeleteEnabled = sdkOmittedValue,
-          Object? selfServeSsoEnabled = sdkOmittedValue,
-          Object? selfServeDirectorySyncEnabled = sdkOmittedValue,
-          Object? publicMetadata = sdkOmittedValue,
-          Object? privateMetadata = sdkOmittedValue,
-          Object? createdBy = sdkOmittedValue,
-          Object? createdAt = sdkOmittedValue,
-          Object? updatedAt = sdkOmittedValue,
-          Object? lastActiveAt = sdkOmittedValue,
-          Object? roleSetKey = sdkOmittedValue}) =>
-      OrganizationMembershipOrganization(
-        object: identical(object, sdkOmittedValue)
-            ? this.object
-            : object as OrganizationObject,
-        id: identical(id, sdkOmittedValue) ? this.id : id as String,
-        name: identical(name, sdkOmittedValue) ? this.name : name as String,
-        slug: identical(slug, sdkOmittedValue) ? this.slug : slug as String,
-        imageUrl: identical(imageUrl, sdkOmittedValue)
-            ? this.imageUrl
-            : imageUrl as SdkOptional<String>,
-        hasImage: identical(hasImage, sdkOmittedValue)
-            ? this.hasImage
-            : hasImage as bool,
-        membersCount: identical(membersCount, sdkOmittedValue)
-            ? this.membersCount
-            : membersCount as SdkOptional<int>,
-        missingMemberWithElevatedPermissions:
-            identical(missingMemberWithElevatedPermissions, sdkOmittedValue)
-                ? this.missingMemberWithElevatedPermissions
-                : missingMemberWithElevatedPermissions as SdkOptional<bool>,
-        pendingInvitationsCount:
-            identical(pendingInvitationsCount, sdkOmittedValue)
-                ? this.pendingInvitationsCount
-                : pendingInvitationsCount as SdkOptional<int>,
-        maxAllowedMemberships: identical(maxAllowedMemberships, sdkOmittedValue)
-            ? this.maxAllowedMemberships
-            : maxAllowedMemberships as int,
-        adminDeleteEnabled: identical(adminDeleteEnabled, sdkOmittedValue)
-            ? this.adminDeleteEnabled
-            : adminDeleteEnabled as bool,
-        selfServeSsoEnabled: identical(selfServeSsoEnabled, sdkOmittedValue)
-            ? this.selfServeSsoEnabled
-            : selfServeSsoEnabled as SdkOptional<bool>,
-        selfServeDirectorySyncEnabled:
-            identical(selfServeDirectorySyncEnabled, sdkOmittedValue)
-                ? this.selfServeDirectorySyncEnabled
-                : selfServeDirectorySyncEnabled as SdkOptional<bool>,
-        publicMetadata: identical(publicMetadata, sdkOmittedValue)
-            ? this.publicMetadata
-            : publicMetadata as Map<String, Object?>,
-        privateMetadata: identical(privateMetadata, sdkOmittedValue)
-            ? this.privateMetadata
-            : privateMetadata as SdkOptional<Map<String, Object?>>,
-        createdBy: identical(createdBy, sdkOmittedValue)
-            ? this.createdBy
-            : createdBy as SdkOptional<String>,
-        createdAt: identical(createdAt, sdkOmittedValue)
-            ? this.createdAt
-            : createdAt as int,
-        updatedAt: identical(updatedAt, sdkOmittedValue)
-            ? this.updatedAt
-            : updatedAt as int,
-        lastActiveAt: identical(lastActiveAt, sdkOmittedValue)
-            ? this.lastActiveAt
-            : lastActiveAt as SdkOptional<int>,
-        roleSetKey: identical(roleSetKey, sdkOmittedValue)
-            ? this.roleSetKey
-            : roleSetKey as SdkOptional<String?>,
-      );
-
-  factory OrganizationMembershipOrganization.fromJson(
-          Map<String, dynamic> json) =>
-      OrganizationMembershipOrganization(
-        object: (json['object'] != null
-            ? OrganizationObject.fromJson(json['object'] as String)
-            : null)!,
-        id: (json['id'] as String?)!,
-        name: (json['name'] as String?)!,
-        slug: (json['slug'] as String?)!,
-        imageUrl: json['image_url'] != null
-            ? SdkPresent((json['image_url'] as String?)!)
-            : const SdkOmitted(),
-        hasImage: (json['has_image'] as bool?)!,
-        membersCount: json['members_count'] != null
-            ? SdkPresent(((json['members_count'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        missingMemberWithElevatedPermissions:
-            json['missing_member_with_elevated_permissions'] != null
-                ? SdkPresent((json['missing_member_with_elevated_permissions']
-                    as bool?)!)
-                : const SdkOmitted(),
-        pendingInvitationsCount: json['pending_invitations_count'] != null
-            ? SdkPresent(
-                ((json['pending_invitations_count'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        maxAllowedMemberships:
-            ((json['max_allowed_memberships'] as num?)?.toInt())!,
-        adminDeleteEnabled: (json['admin_delete_enabled'] as bool?)!,
-        selfServeSsoEnabled: json['self_serve_sso_enabled'] != null
-            ? SdkPresent((json['self_serve_sso_enabled'] as bool?)!)
-            : const SdkOmitted(),
-        selfServeDirectorySyncEnabled:
-            json['self_serve_directory_sync_enabled'] != null
-                ? SdkPresent(
-                    (json['self_serve_directory_sync_enabled'] as bool?)!)
-                : const SdkOmitted(),
-        publicMetadata: (json['public_metadata'] == null
-            ? null
-            : Map<String, dynamic>.from(json['public_metadata'] as Map)
-                .map((key, value) => MapEntry(key, value)))!,
-        privateMetadata: json['private_metadata'] != null
-            ? SdkPresent((json['private_metadata'] == null
-                ? null
-                : Map<String, dynamic>.from(json['private_metadata'] as Map)
-                    .map((key, value) => MapEntry(key, value)))!)
-            : const SdkOmitted(),
-        createdBy: json['created_by'] != null
-            ? SdkPresent((json['created_by'] as String?)!)
-            : const SdkOmitted(),
-        createdAt: ((json['created_at'] as num?)?.toInt())!,
-        updatedAt: ((json['updated_at'] as num?)?.toInt())!,
-        lastActiveAt: json['last_active_at'] != null
-            ? SdkPresent(((json['last_active_at'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        roleSetKey: json.containsKey('role_set_key')
-            ? SdkPresent(json['role_set_key'] as String?)
-            : const SdkOmitted(),
-      );
-
-  Map<String, dynamic> toJson() => {
-        'object': object.toJson(),
-        'id': id,
-        'name': name,
-        'slug': slug,
-        ...switch (imageUrl) {
-          SdkPresent<String>(value: final value) => {
-              'image_url': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        'has_image': hasImage,
-        ...switch (membersCount) {
-          SdkPresent<int>(value: final value) => {
-              'members_count': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (missingMemberWithElevatedPermissions) {
-          SdkPresent<bool>(value: final value) => {
-              'missing_member_with_elevated_permissions': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (pendingInvitationsCount) {
-          SdkPresent<int>(value: final value) => {
-              'pending_invitations_count': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        'max_allowed_memberships': maxAllowedMemberships,
-        'admin_delete_enabled': adminDeleteEnabled,
-        ...switch (selfServeSsoEnabled) {
-          SdkPresent<bool>(value: final value) => {
-              'self_serve_sso_enabled': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (selfServeDirectorySyncEnabled) {
-          SdkPresent<bool>(value: final value) => {
-              'self_serve_directory_sync_enabled': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        'public_metadata': publicMetadata,
-        ...switch (privateMetadata) {
-          SdkPresent<Map<String, Object?>>(value: final value) => {
-              'private_metadata': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (createdBy) {
-          SdkPresent<String>(value: final value) => {
-              'created_by': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        'created_at': createdAt,
-        'updated_at': updatedAt,
-        ...switch (lastActiveAt) {
-          SdkPresent<int>(value: final value) => {
-              'last_active_at': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (roleSetKey) {
-          SdkPresent<String?>(value: final value) => {
-              'role_set_key': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
-}
-
 /// A user's membership in an organization
 class OrganizationMembership {
   /// This model is constructed from named fields in one call.
@@ -502,5 +179,217 @@ class OrganizationMembership {
         },
         'created_at': createdAt,
         'updated_at': updatedAt,
+      };
+}
+
+/// An organization membership with public user data populated
+class OrganizationMembershipPublicUserData {
+  /// This model is constructed from named fields in one call.
+  static const String constructionSurface = 'named';
+
+  /// Required `string` value serialized in the `user_id` wire field.
+  final String userId;
+
+  /// Required `string` value serialized in the `first_name` wire field.
+  final String? firstName;
+
+  /// Required `string` value serialized in the `last_name` wire field.
+  final String? lastName;
+
+  /// Required `string` value serialized in the `profile_image_url` wire field.
+  final String? profileImageUrl;
+
+  /// Required `string` value serialized in the `image_url` wire field.
+  final String imageUrl;
+
+  /// Required `boolean` value serialized in the `has_image` wire field.
+  final bool hasImage;
+
+  /// Optional `string` value serialized in the `identifier` wire field.
+  final SdkOptional<String?> identifier;
+
+  /// Optional `string` value serialized in the `username` wire field.
+  final SdkOptional<String?> username;
+
+  /// Optional `boolean` value serialized in the `banned` wire field.
+  final SdkOptional<bool> banned;
+
+  /// Optional `boolean` value serialized in the `deprovisioned` wire field.
+  final SdkOptional<bool> deprovisioned;
+
+  const OrganizationMembershipPublicUserData(
+      {required this.userId,
+      required this.firstName,
+      required this.lastName,
+      required this.profileImageUrl,
+      required this.imageUrl,
+      required this.hasImage,
+      this.identifier = const SdkOmitted(),
+      this.username = const SdkOmitted(),
+      this.banned = const SdkOmitted(),
+      this.deprovisioned = const SdkOmitted()});
+
+  OrganizationMembershipPublicUserData Function(
+      {String userId,
+      String? firstName,
+      String? lastName,
+      String? profileImageUrl,
+      String imageUrl,
+      bool hasImage,
+      SdkOptional<String?> identifier,
+      SdkOptional<String?> username,
+      SdkOptional<bool> banned,
+      SdkOptional<bool> deprovisioned}) get copyWith => _copyWith;
+
+  OrganizationMembershipPublicUserData _copyWith(
+          {Object? userId = sdkOmittedValue,
+          Object? firstName = sdkOmittedValue,
+          Object? lastName = sdkOmittedValue,
+          Object? profileImageUrl = sdkOmittedValue,
+          Object? imageUrl = sdkOmittedValue,
+          Object? hasImage = sdkOmittedValue,
+          Object? identifier = sdkOmittedValue,
+          Object? username = sdkOmittedValue,
+          Object? banned = sdkOmittedValue,
+          Object? deprovisioned = sdkOmittedValue}) =>
+      OrganizationMembershipPublicUserData(
+        userId:
+            identical(userId, sdkOmittedValue) ? this.userId : userId as String,
+        firstName: identical(firstName, sdkOmittedValue)
+            ? this.firstName
+            : firstName as String?,
+        lastName: identical(lastName, sdkOmittedValue)
+            ? this.lastName
+            : lastName as String?,
+        profileImageUrl: identical(profileImageUrl, sdkOmittedValue)
+            ? this.profileImageUrl
+            : profileImageUrl as String?,
+        imageUrl: identical(imageUrl, sdkOmittedValue)
+            ? this.imageUrl
+            : imageUrl as String,
+        hasImage: identical(hasImage, sdkOmittedValue)
+            ? this.hasImage
+            : hasImage as bool,
+        identifier: identical(identifier, sdkOmittedValue)
+            ? this.identifier
+            : identifier as SdkOptional<String?>,
+        username: identical(username, sdkOmittedValue)
+            ? this.username
+            : username as SdkOptional<String?>,
+        banned: identical(banned, sdkOmittedValue)
+            ? this.banned
+            : banned as SdkOptional<bool>,
+        deprovisioned: identical(deprovisioned, sdkOmittedValue)
+            ? this.deprovisioned
+            : deprovisioned as SdkOptional<bool>,
+      );
+
+  factory OrganizationMembershipPublicUserData.fromJson(
+          Map<String, dynamic> json) =>
+      OrganizationMembershipPublicUserData(
+        userId: (json['user_id'] as String?)!,
+        firstName: json.containsKey('first_name')
+            ? json['first_name'] as String?
+            : throw ArgumentError.value(
+                null, 'first_name', 'Required property is missing'),
+        lastName: json.containsKey('last_name')
+            ? json['last_name'] as String?
+            : throw ArgumentError.value(
+                null, 'last_name', 'Required property is missing'),
+        profileImageUrl: json.containsKey('profile_image_url')
+            ? json['profile_image_url'] as String?
+            : throw ArgumentError.value(
+                null, 'profile_image_url', 'Required property is missing'),
+        imageUrl: (json['image_url'] as String?)!,
+        hasImage: (json['has_image'] as bool?)!,
+        identifier: json.containsKey('identifier')
+            ? SdkPresent(json['identifier'] as String?)
+            : const SdkOmitted(),
+        username: json.containsKey('username')
+            ? SdkPresent(json['username'] as String?)
+            : const SdkOmitted(),
+        banned: json['banned'] != null
+            ? SdkPresent((json['banned'] as bool?)!)
+            : const SdkOmitted(),
+        deprovisioned: json['deprovisioned'] != null
+            ? SdkPresent((json['deprovisioned'] as bool?)!)
+            : const SdkOmitted(),
+      );
+
+  Map<String, dynamic> toJson() => {
+        'user_id': userId,
+        'first_name': firstName,
+        'last_name': lastName,
+        'profile_image_url': profileImageUrl,
+        'image_url': imageUrl,
+        'has_image': hasImage,
+        ...switch (identifier) {
+          SdkPresent<String?>(value: final value) => {
+              'identifier': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (username) {
+          SdkPresent<String?>(value: final value) => {
+              'username': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (banned) {
+          SdkPresent<bool>(value: final value) => {
+              'banned': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (deprovisioned) {
+          SdkPresent<bool>(value: final value) => {
+              'deprovisioned': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
+}
+
+/// Typed representation of the `OrganizationMemberships` API schema.
+class OrganizationMemberships {
+  /// This model is constructed from named fields in one call.
+  static const String constructionSurface = 'named';
+
+  /// Required array value serialized in the `data` wire field.
+  final List<OrganizationMembership> data;
+
+  /// Total number of organization memberships
+  final int totalCount;
+
+  const OrganizationMemberships({required this.data, required this.totalCount});
+
+  OrganizationMemberships Function(
+      {List<OrganizationMembership> data,
+      int totalCount}) get copyWith => _copyWith;
+
+  OrganizationMemberships _copyWith(
+          {Object? data = sdkOmittedValue,
+          Object? totalCount = sdkOmittedValue}) =>
+      OrganizationMemberships(
+        data: identical(data, sdkOmittedValue)
+            ? this.data
+            : data as List<OrganizationMembership>,
+        totalCount: identical(totalCount, sdkOmittedValue)
+            ? this.totalCount
+            : totalCount as int,
+      );
+
+  factory OrganizationMemberships.fromJson(Map<String, dynamic> json) =>
+      OrganizationMemberships(
+        data: ((json['data'] as List?)
+            ?.map((e) =>
+                OrganizationMembership.fromJson(e as Map<String, dynamic>))
+            .toList())!,
+        totalCount: ((json['total_count'] as num?)?.toInt())!,
+      );
+
+  Map<String, dynamic> toJson() => {
+        'data': data.map((item) => item.toJson()).toList(),
+        'total_count': totalCount,
       };
 }

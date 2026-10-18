@@ -4,221 +4,6 @@
 part of 'inline.dart';
 
 // Inline operation models (part 28)
-class CreateActorTokenRequestBody {
-  /// This model is constructed from named fields in one call.
-  static const String constructionSurface = 'named';
-
-  /// The ID of the user being impersonated.
-  final String userId;
-
-  /// The actor payload. It needs to include a sub property which should contain the ID of the actor. This whole payload will be also included in the JWT session token.
-  final CreateActorTokenRequestBodyActor actor;
-
-  /// Optional parameter to specify the life duration of the actor token in seconds. By default, the duration is 1 hour.
-  final SdkOptional<int> expiresInSeconds;
-
-  /// The maximum duration that the session which will be created by the generated actor token should last. By default, the duration of a session created via an actor token, lasts 30 minutes.
-  final SdkOptional<int> sessionMaxDurationInSeconds;
-
-  const CreateActorTokenRequestBody(
-      {required this.userId,
-      required this.actor,
-      this.expiresInSeconds = const SdkOmitted(),
-      this.sessionMaxDurationInSeconds = const SdkOmitted()});
-
-  CreateActorTokenRequestBody Function(
-      {String userId,
-      CreateActorTokenRequestBodyActor actor,
-      SdkOptional<int> expiresInSeconds,
-      SdkOptional<int> sessionMaxDurationInSeconds}) get copyWith => _copyWith;
-
-  CreateActorTokenRequestBody _copyWith(
-          {Object? userId = sdkOmittedValue,
-          Object? actor = sdkOmittedValue,
-          Object? expiresInSeconds = sdkOmittedValue,
-          Object? sessionMaxDurationInSeconds = sdkOmittedValue}) =>
-      CreateActorTokenRequestBody(
-        userId:
-            identical(userId, sdkOmittedValue) ? this.userId : userId as String,
-        actor: identical(actor, sdkOmittedValue)
-            ? this.actor
-            : actor as CreateActorTokenRequestBodyActor,
-        expiresInSeconds: identical(expiresInSeconds, sdkOmittedValue)
-            ? this.expiresInSeconds
-            : expiresInSeconds as SdkOptional<int>,
-        sessionMaxDurationInSeconds:
-            identical(sessionMaxDurationInSeconds, sdkOmittedValue)
-                ? this.sessionMaxDurationInSeconds
-                : sessionMaxDurationInSeconds as SdkOptional<int>,
-      );
-
-  factory CreateActorTokenRequestBody.fromJson(Map<String, dynamic> json) =>
-      CreateActorTokenRequestBody(
-        userId: (json['user_id'] as String?)!,
-        actor: (json['actor'] != null
-            ? CreateActorTokenRequestBodyActor.fromJson(
-                json['actor'] as Map<String, dynamic>)
-            : null)!,
-        expiresInSeconds: json['expires_in_seconds'] != null
-            ? SdkPresent(((json['expires_in_seconds'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        sessionMaxDurationInSeconds: json['session_max_duration_in_seconds'] !=
-                null
-            ? SdkPresent(
-                ((json['session_max_duration_in_seconds'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-      );
-
-  Map<String, dynamic> toJson() => {
-        'user_id': userId,
-        'actor': actor.toJson(),
-        ...switch (expiresInSeconds) {
-          SdkPresent<int>(value: final value) => {
-              'expires_in_seconds': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (sessionMaxDurationInSeconds) {
-          SdkPresent<int>(value: final value) => {
-              'session_max_duration_in_seconds': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
-}
-
-class AddDomainRequestBody {
-  /// This model is constructed from named fields in one call.
-  static const String constructionSurface = 'named';
-
-  /// The new domain name. Can contain the port for development instances.
-  final String name;
-
-  /// Marks the new domain as satellite. Set to `false` only when migrating a production instance from an active provider domain to a custom domain.
-  final bool isSatellite;
-
-  /// The full URL of the proxy which will forward requests to the Clerk Frontend API for this domain. Applicable only to production instances.
-  final SdkOptional<String?> proxyUrl;
-
-  const AddDomainRequestBody(
-      {required this.name,
-      required this.isSatellite,
-      this.proxyUrl = const SdkOmitted()});
-
-  AddDomainRequestBody Function(
-      {String name,
-      bool isSatellite,
-      SdkOptional<String?> proxyUrl}) get copyWith => _copyWith;
-
-  AddDomainRequestBody _copyWith(
-          {Object? name = sdkOmittedValue,
-          Object? isSatellite = sdkOmittedValue,
-          Object? proxyUrl = sdkOmittedValue}) =>
-      AddDomainRequestBody(
-        name: identical(name, sdkOmittedValue) ? this.name : name as String,
-        isSatellite: identical(isSatellite, sdkOmittedValue)
-            ? this.isSatellite
-            : isSatellite as bool,
-        proxyUrl: identical(proxyUrl, sdkOmittedValue)
-            ? this.proxyUrl
-            : proxyUrl as SdkOptional<String?>,
-      );
-
-  factory AddDomainRequestBody.fromJson(Map<String, dynamic> json) =>
-      AddDomainRequestBody(
-        name: (json['name'] as String?)!,
-        isSatellite: (json['is_satellite'] as bool?)!,
-        proxyUrl: json.containsKey('proxy_url')
-            ? SdkPresent(json['proxy_url'] as String?)
-            : const SdkOmitted(),
-      );
-
-  Map<String, dynamic> toJson() => {
-        'name': name,
-        'is_satellite': isSatellite,
-        ...switch (proxyUrl) {
-          SdkPresent<String?>(value: final value) => {
-              'proxy_url': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
-}
-
-class UpdateDomainRequestBody {
-  /// This model is constructed from named fields in one call.
-  static const String constructionSurface = 'named';
-
-  /// The new domain name. For development instances, can contain the port, i.e `myhostname:3000`. For production instances, must be a valid FQDN, i.e `mysite.com`. Cannot contain protocol scheme.
-  final SdkOptional<String?> name;
-
-  /// The full URL of the proxy that will forward requests to Clerk's Frontend API. Can only be updated for production instances.
-  final SdkOptional<String?> proxyUrl;
-
-  /// Whether this is a domain for a secondary app, meaning that any subdomain provided is significant and will be stored as part of the domain. This is useful for supporting multiple apps (one primary and multiple secondaries) on the same root domain (eTLD+1).
-  final SdkOptional<bool?> isSecondary;
-
-  const UpdateDomainRequestBody(
-      {this.name = const SdkOmitted(),
-      this.proxyUrl = const SdkOmitted(),
-      this.isSecondary = const SdkOmitted()});
-
-  UpdateDomainRequestBody Function(
-      {SdkOptional<String?> name,
-      SdkOptional<String?> proxyUrl,
-      SdkOptional<bool?> isSecondary}) get copyWith => _copyWith;
-
-  UpdateDomainRequestBody _copyWith(
-          {Object? name = sdkOmittedValue,
-          Object? proxyUrl = sdkOmittedValue,
-          Object? isSecondary = sdkOmittedValue}) =>
-      UpdateDomainRequestBody(
-        name: identical(name, sdkOmittedValue)
-            ? this.name
-            : name as SdkOptional<String?>,
-        proxyUrl: identical(proxyUrl, sdkOmittedValue)
-            ? this.proxyUrl
-            : proxyUrl as SdkOptional<String?>,
-        isSecondary: identical(isSecondary, sdkOmittedValue)
-            ? this.isSecondary
-            : isSecondary as SdkOptional<bool?>,
-      );
-
-  factory UpdateDomainRequestBody.fromJson(Map<String, dynamic> json) =>
-      UpdateDomainRequestBody(
-        name: json.containsKey('name')
-            ? SdkPresent(json['name'] as String?)
-            : const SdkOmitted(),
-        proxyUrl: json.containsKey('proxy_url')
-            ? SdkPresent(json['proxy_url'] as String?)
-            : const SdkOmitted(),
-        isSecondary: json.containsKey('is_secondary')
-            ? SdkPresent(json['is_secondary'] as bool?)
-            : const SdkOmitted(),
-      );
-
-  Map<String, dynamic> toJson() => {
-        ...switch (name) {
-          SdkPresent<String?>(value: final value) => {
-              'name': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (proxyUrl) {
-          SdkPresent<String?>(value: final value) => {
-              'proxy_url': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (isSecondary) {
-          SdkPresent<bool?>(value: final value) => {
-              'is_secondary': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
-}
-
 class UpdateInstanceRequestBody {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
@@ -561,6 +346,87 @@ class UpdateInstanceRestrictionsRequestBody {
         ...switch (blockDisposableEmailDomains) {
           SdkPresent<bool?>(value: final value) => {
               'block_disposable_email_domains': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
+}
+
+class UpdateInstanceProtectRequestBody {
+  /// This model is constructed from named fields in one call.
+  static const String constructionSurface = 'named';
+
+  /// Set true to enforce Protect rules on this instance. Set false to stop enforcing and return the instance to its default posture, where traffic is still evaluated in shadow but nothing is blocked. This does not remove the instance from Protect.
+  final SdkOptional<bool?> rulesEnabled;
+
+  const UpdateInstanceProtectRequestBody(
+      {this.rulesEnabled = const SdkOmitted()});
+
+  UpdateInstanceProtectRequestBody Function({SdkOptional<bool?> rulesEnabled})
+      get copyWith => _copyWith;
+
+  UpdateInstanceProtectRequestBody _copyWith(
+          {Object? rulesEnabled = sdkOmittedValue}) =>
+      UpdateInstanceProtectRequestBody(
+        rulesEnabled: identical(rulesEnabled, sdkOmittedValue)
+            ? this.rulesEnabled
+            : rulesEnabled as SdkOptional<bool?>,
+      );
+
+  factory UpdateInstanceProtectRequestBody.fromJson(
+          Map<String, dynamic> json) =>
+      UpdateInstanceProtectRequestBody(
+        rulesEnabled: json.containsKey('rules_enabled')
+            ? SdkPresent(json['rules_enabled'] as bool?)
+            : const SdkOmitted(),
+      );
+
+  Map<String, dynamic> toJson() => {
+        ...switch (rulesEnabled) {
+          SdkPresent<bool?>(value: final value) => {
+              'rules_enabled': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
+}
+
+class UpdateInstanceCommunicationRequestBody {
+  /// This model is constructed from named fields in one call.
+  static const String constructionSurface = 'named';
+
+  /// ISO 3166-1 alpha-2 country codes to block for SMS delivery. Whole-list replacement. Codes must be uppercase, 2-letter, and unique within the array.
+  final SdkOptional<List<String>?> blockedCountryCodes;
+
+  const UpdateInstanceCommunicationRequestBody(
+      {this.blockedCountryCodes = const SdkOmitted()});
+
+  UpdateInstanceCommunicationRequestBody Function(
+          {SdkOptional<List<String>?> blockedCountryCodes})
+      get copyWith => _copyWith;
+
+  UpdateInstanceCommunicationRequestBody _copyWith(
+          {Object? blockedCountryCodes = sdkOmittedValue}) =>
+      UpdateInstanceCommunicationRequestBody(
+        blockedCountryCodes: identical(blockedCountryCodes, sdkOmittedValue)
+            ? this.blockedCountryCodes
+            : blockedCountryCodes as SdkOptional<List<String>?>,
+      );
+
+  factory UpdateInstanceCommunicationRequestBody.fromJson(
+          Map<String, dynamic> json) =>
+      UpdateInstanceCommunicationRequestBody(
+        blockedCountryCodes: json.containsKey('blocked_country_codes')
+            ? SdkPresent((json['blocked_country_codes'] as List?)
+                ?.map((e) => e as String)
+                .toList())
+            : const SdkOmitted(),
+      );
+
+  Map<String, dynamic> toJson() => {
+        ...switch (blockedCountryCodes) {
+          SdkPresent<List<String>?>(value: final value) => {
+              'blocked_country_codes': value,
             },
           _ => const <String, dynamic>{},
         },

@@ -4,312 +4,6 @@
 part of 'inline.dart';
 
 // Inline operation models (part 26)
-class CreateBulkInvitationsRequestBodyItem {
-  /// This model is constructed from named fields in one call.
-  static const String constructionSurface = 'named';
-
-  /// The email address the invitation will be sent to
-  final String emailAddress;
-
-  /// Metadata that will be attached to the newly created invitation. The value of this property should be a well-formed JSON object. Once the user accepts the invitation and signs up, these metadata will end up in the user's public metadata.
-  final SdkOptional<Map<String, Object?>?> publicMetadata;
-
-  /// The URL where the user is redirected upon visiting the invitation link, where they can accept the invitation. Required if you have implemented a custom flow for handling application invitations.
-  final SdkOptional<String?> redirectUrl;
-
-  /// Optional flag which denotes whether an email invitation should be sent to the given email address. Defaults to true.
-  final SdkOptional<bool?> notify;
-
-  /// Whether an invitation should be created if there is already an existing invitation for this email address, or it's claimed by another user.
-  final SdkOptional<bool?> ignoreExisting;
-
-  /// The number of days the invitation will be valid for. By default, the invitation expires after 30 days.
-  final SdkOptional<int?> expiresInDays;
-
-  /// The slug of the email template to use for the invitation email.
-  final SdkOptional<CreateBulkInvitationsRequestBodyItemTemplateSlug>
-      templateSlug;
-
-  const CreateBulkInvitationsRequestBodyItem(
-      {required this.emailAddress,
-      this.publicMetadata = const SdkOmitted(),
-      this.redirectUrl = const SdkOmitted(),
-      this.notify = const SdkOmitted(),
-      this.ignoreExisting = const SdkOmitted(),
-      this.expiresInDays = const SdkOmitted(),
-      this.templateSlug = const SdkOmitted()});
-
-  CreateBulkInvitationsRequestBodyItem Function(
-      {String emailAddress,
-      SdkOptional<Map<String, Object?>?> publicMetadata,
-      SdkOptional<String?> redirectUrl,
-      SdkOptional<bool?> notify,
-      SdkOptional<bool?> ignoreExisting,
-      SdkOptional<int?> expiresInDays,
-      SdkOptional<CreateBulkInvitationsRequestBodyItemTemplateSlug>
-          templateSlug}) get copyWith => _copyWith;
-
-  CreateBulkInvitationsRequestBodyItem _copyWith(
-          {Object? emailAddress = sdkOmittedValue,
-          Object? publicMetadata = sdkOmittedValue,
-          Object? redirectUrl = sdkOmittedValue,
-          Object? notify = sdkOmittedValue,
-          Object? ignoreExisting = sdkOmittedValue,
-          Object? expiresInDays = sdkOmittedValue,
-          Object? templateSlug = sdkOmittedValue}) =>
-      CreateBulkInvitationsRequestBodyItem(
-        emailAddress: identical(emailAddress, sdkOmittedValue)
-            ? this.emailAddress
-            : emailAddress as String,
-        publicMetadata: identical(publicMetadata, sdkOmittedValue)
-            ? this.publicMetadata
-            : publicMetadata as SdkOptional<Map<String, Object?>?>,
-        redirectUrl: identical(redirectUrl, sdkOmittedValue)
-            ? this.redirectUrl
-            : redirectUrl as SdkOptional<String?>,
-        notify: identical(notify, sdkOmittedValue)
-            ? this.notify
-            : notify as SdkOptional<bool?>,
-        ignoreExisting: identical(ignoreExisting, sdkOmittedValue)
-            ? this.ignoreExisting
-            : ignoreExisting as SdkOptional<bool?>,
-        expiresInDays: identical(expiresInDays, sdkOmittedValue)
-            ? this.expiresInDays
-            : expiresInDays as SdkOptional<int?>,
-        templateSlug: identical(templateSlug, sdkOmittedValue)
-            ? this.templateSlug
-            : templateSlug as SdkOptional<
-                CreateBulkInvitationsRequestBodyItemTemplateSlug>,
-      );
-
-  factory CreateBulkInvitationsRequestBodyItem.fromJson(
-          Map<String, dynamic> json) =>
-      CreateBulkInvitationsRequestBodyItem(
-        emailAddress: (json['email_address'] as String?)!,
-        publicMetadata: json.containsKey('public_metadata')
-            ? SdkPresent(json['public_metadata'] == null
-                ? null
-                : Map<String, dynamic>.from(json['public_metadata'] as Map)
-                    .map((key, value) => MapEntry(key, value)))
-            : const SdkOmitted(),
-        redirectUrl: json.containsKey('redirect_url')
-            ? SdkPresent(json['redirect_url'] as String?)
-            : const SdkOmitted(),
-        notify: json.containsKey('notify')
-            ? SdkPresent(json['notify'] as bool?)
-            : const SdkOmitted(),
-        ignoreExisting: json.containsKey('ignore_existing')
-            ? SdkPresent(json['ignore_existing'] as bool?)
-            : const SdkOmitted(),
-        expiresInDays: json.containsKey('expires_in_days')
-            ? SdkPresent((json['expires_in_days'] as num?)?.toInt())
-            : const SdkOmitted(),
-        templateSlug: json['template_slug'] != null
-            ? SdkPresent((json['template_slug'] != null
-                ? CreateBulkInvitationsRequestBodyItemTemplateSlug.fromJson(
-                    json['template_slug'] as String)
-                : null)!)
-            : const SdkOmitted(),
-      );
-
-  Map<String, dynamic> toJson() => {
-        'email_address': emailAddress,
-        ...switch (publicMetadata) {
-          SdkPresent<Map<String, Object?>?>(value: final value) => {
-              'public_metadata': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (redirectUrl) {
-          SdkPresent<String?>(value: final value) => {
-              'redirect_url': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (notify) {
-          SdkPresent<bool?>(value: final value) => {
-              'notify': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (ignoreExisting) {
-          SdkPresent<bool?>(value: final value) => {
-              'ignore_existing': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (expiresInDays) {
-          SdkPresent<int?>(value: final value) => {
-              'expires_in_days': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (templateSlug) {
-          SdkPresent<CreateBulkInvitationsRequestBodyItemTemplateSlug>(
-            value: final value
-          ) =>
-            {
-              'template_slug': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
-}
-
-class SchemaSchemadd079084 {
-  /// This model is constructed from named fields in one call.
-  static const String constructionSurface = 'named';
-
-  /// Required enumerated value serialized in the `object` wire field.
-  final InvitationObject object;
-
-  /// Required `string` value serialized in the `id` wire field.
-  final String id;
-
-  /// Required `email`-formatted value serialized in the `email_address` wire field.
-  final String emailAddress;
-
-  /// Required object value serialized in the `public_metadata` wire field.
-  final Map<String, Object?> publicMetadata;
-  final SdkOptional<SchemaSchemaVariant1Revoked> revoked;
-  final SchemaSchemaVariant1Status status;
-
-  /// Optional `string` value serialized in the `url` wire field.
-  final SdkOptional<String> url;
-
-  /// Unix timestamp of expiration.
-  final SdkOptional<int?> expiresAt;
-
-  /// Unix timestamp of creation.
-  final int createdAt;
-
-  /// Unix timestamp of last update.
-  final int updatedAt;
-
-  const SchemaSchemadd079084(
-      {required this.object,
-      required this.id,
-      required this.emailAddress,
-      required this.publicMetadata,
-      this.revoked = const SdkOmitted(),
-      required this.status,
-      this.url = const SdkOmitted(),
-      this.expiresAt = const SdkOmitted(),
-      required this.createdAt,
-      required this.updatedAt});
-
-  SchemaSchemadd079084 Function(
-      {InvitationObject object,
-      String id,
-      String emailAddress,
-      Map<String, Object?> publicMetadata,
-      SdkOptional<SchemaSchemaVariant1Revoked> revoked,
-      SchemaSchemaVariant1Status status,
-      SdkOptional<String> url,
-      SdkOptional<int?> expiresAt,
-      int createdAt,
-      int updatedAt}) get copyWith => _copyWith;
-
-  SchemaSchemadd079084 _copyWith(
-          {Object? object = sdkOmittedValue,
-          Object? id = sdkOmittedValue,
-          Object? emailAddress = sdkOmittedValue,
-          Object? publicMetadata = sdkOmittedValue,
-          Object? revoked = sdkOmittedValue,
-          Object? status = sdkOmittedValue,
-          Object? url = sdkOmittedValue,
-          Object? expiresAt = sdkOmittedValue,
-          Object? createdAt = sdkOmittedValue,
-          Object? updatedAt = sdkOmittedValue}) =>
-      SchemaSchemadd079084(
-        object: identical(object, sdkOmittedValue)
-            ? this.object
-            : object as InvitationObject,
-        id: identical(id, sdkOmittedValue) ? this.id : id as String,
-        emailAddress: identical(emailAddress, sdkOmittedValue)
-            ? this.emailAddress
-            : emailAddress as String,
-        publicMetadata: identical(publicMetadata, sdkOmittedValue)
-            ? this.publicMetadata
-            : publicMetadata as Map<String, Object?>,
-        revoked: identical(revoked, sdkOmittedValue)
-            ? this.revoked
-            : revoked as SdkOptional<SchemaSchemaVariant1Revoked>,
-        status: identical(status, sdkOmittedValue)
-            ? this.status
-            : status as SchemaSchemaVariant1Status,
-        url: identical(url, sdkOmittedValue)
-            ? this.url
-            : url as SdkOptional<String>,
-        expiresAt: identical(expiresAt, sdkOmittedValue)
-            ? this.expiresAt
-            : expiresAt as SdkOptional<int?>,
-        createdAt: identical(createdAt, sdkOmittedValue)
-            ? this.createdAt
-            : createdAt as int,
-        updatedAt: identical(updatedAt, sdkOmittedValue)
-            ? this.updatedAt
-            : updatedAt as int,
-      );
-
-  factory SchemaSchemadd079084.fromJson(Map<String, dynamic> json) =>
-      SchemaSchemadd079084(
-        object: (json['object'] != null
-            ? InvitationObject.fromJson(json['object'] as String)
-            : null)!,
-        id: (json['id'] as String?)!,
-        emailAddress: (json['email_address'] as String?)!,
-        publicMetadata: (json['public_metadata'] == null
-            ? null
-            : Map<String, dynamic>.from(json['public_metadata'] as Map)
-                .map((key, value) => MapEntry(key, value)))!,
-        revoked: json['revoked'] != null
-            ? SdkPresent((json['revoked'] != null
-                ? SchemaSchemaVariant1Revoked.fromJson(json['revoked'] as bool)
-                : null)!)
-            : const SdkOmitted(),
-        status: (json['status'] != null
-            ? SchemaSchemaVariant1Status.fromJson(json['status'] as String)
-            : null)!,
-        url: json['url'] != null
-            ? SdkPresent((json['url'] as String?)!)
-            : const SdkOmitted(),
-        expiresAt: json.containsKey('expires_at')
-            ? SdkPresent((json['expires_at'] as num?)?.toInt())
-            : const SdkOmitted(),
-        createdAt: ((json['created_at'] as num?)?.toInt())!,
-        updatedAt: ((json['updated_at'] as num?)?.toInt())!,
-      );
-
-  Map<String, dynamic> toJson() => {
-        'object': object.toJson(),
-        'id': id,
-        'email_address': emailAddress,
-        'public_metadata': publicMetadata,
-        ...switch (revoked) {
-          SdkPresent<SchemaSchemaVariant1Revoked>(value: final value) => {
-              'revoked': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        'status': status.toJson(),
-        ...switch (url) {
-          SdkPresent<String>(value: final value) => {
-              'url': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (expiresAt) {
-          SdkPresent<int?>(value: final value) => {
-              'expires_at': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        'created_at': createdAt,
-        'updated_at': updatedAt,
-      };
-}
-
 class CreateOrganizationInvitationRequestBody {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
@@ -614,6 +308,217 @@ class CreateOrganizationInvitationBulkRequestBodyItem {
         ...switch (notify) {
           SdkPresent<bool?>(value: final value) => {
               'notify': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
+}
+
+class RevokeOrganizationInvitationRequestBody {
+  /// This model is constructed from named fields in one call.
+  static const String constructionSurface = 'named';
+
+  /// The ID of the user that revokes the invitation. Must be an administrator in the organization.
+  final SdkOptional<String?> requestingUserId;
+
+  const RevokeOrganizationInvitationRequestBody(
+      {this.requestingUserId = const SdkOmitted()});
+
+  RevokeOrganizationInvitationRequestBody Function(
+      {SdkOptional<String?> requestingUserId}) get copyWith => _copyWith;
+
+  RevokeOrganizationInvitationRequestBody _copyWith(
+          {Object? requestingUserId = sdkOmittedValue}) =>
+      RevokeOrganizationInvitationRequestBody(
+        requestingUserId: identical(requestingUserId, sdkOmittedValue)
+            ? this.requestingUserId
+            : requestingUserId as SdkOptional<String?>,
+      );
+
+  factory RevokeOrganizationInvitationRequestBody.fromJson(
+          Map<String, dynamic> json) =>
+      RevokeOrganizationInvitationRequestBody(
+        requestingUserId: json.containsKey('requesting_user_id')
+            ? SdkPresent(json['requesting_user_id'] as String?)
+            : const SdkOmitted(),
+      );
+
+  Map<String, dynamic> toJson() => {
+        ...switch (requestingUserId) {
+          SdkPresent<String?>(value: final value) => {
+              'requesting_user_id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
+}
+
+class CreateAllowlistIdentifierRequestBody {
+  /// This model is constructed from named fields in one call.
+  static const String constructionSurface = 'named';
+
+  /// The identifier to be added in the allow-list. This can be an email address, a phone number, or a web3 wallet.
+  final String identifier;
+
+  /// This flag denotes whether the given identifier will receive an invitation to join the application. Note that this only works for email address and phone number identifiers.
+  final SdkOptional<bool> notify;
+
+  const CreateAllowlistIdentifierRequestBody(
+      {required this.identifier, this.notify = const SdkOmitted()});
+
+  CreateAllowlistIdentifierRequestBody Function(
+      {String identifier, SdkOptional<bool> notify}) get copyWith => _copyWith;
+
+  CreateAllowlistIdentifierRequestBody _copyWith(
+          {Object? identifier = sdkOmittedValue,
+          Object? notify = sdkOmittedValue}) =>
+      CreateAllowlistIdentifierRequestBody(
+        identifier: identical(identifier, sdkOmittedValue)
+            ? this.identifier
+            : identifier as String,
+        notify: identical(notify, sdkOmittedValue)
+            ? this.notify
+            : notify as SdkOptional<bool>,
+      );
+
+  factory CreateAllowlistIdentifierRequestBody.fromJson(
+          Map<String, dynamic> json) =>
+      CreateAllowlistIdentifierRequestBody(
+        identifier: (json['identifier'] as String?)!,
+        notify: json['notify'] != null
+            ? SdkPresent((json['notify'] as bool?)!)
+            : const SdkOmitted(),
+      );
+
+  Map<String, dynamic> toJson() => {
+        'identifier': identifier,
+        ...switch (notify) {
+          SdkPresent<bool>(value: final value) => {
+              'notify': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
+}
+
+class CreateBlocklistIdentifierRequestBody {
+  /// This model is constructed from named fields in one call.
+  static const String constructionSurface = 'named';
+
+  /// The identifier to be added in the block-list. This can be an email address, a phone number, or a web3 wallet.
+  final String identifier;
+
+  const CreateBlocklistIdentifierRequestBody({required this.identifier});
+
+  CreateBlocklistIdentifierRequestBody Function({String identifier})
+      get copyWith => _copyWith;
+
+  CreateBlocklistIdentifierRequestBody _copyWith(
+          {Object? identifier = sdkOmittedValue}) =>
+      CreateBlocklistIdentifierRequestBody(
+        identifier: identical(identifier, sdkOmittedValue)
+            ? this.identifier
+            : identifier as String,
+      );
+
+  factory CreateBlocklistIdentifierRequestBody.fromJson(
+          Map<String, dynamic> json) =>
+      CreateBlocklistIdentifierRequestBody(
+        identifier: (json['identifier'] as String?)!,
+      );
+
+  Map<String, dynamic> toJson() => {
+        'identifier': identifier,
+      };
+}
+
+class UpdateInstanceAuthConfigRequestBody {
+  /// This model is constructed from named fields in one call.
+  static const String constructionSurface = 'named';
+
+  /// Whether sign up is restricted to email addresses, phone numbers and usernames that are on the allowlist.
+  final SdkOptional<bool?> restrictedToAllowlist;
+
+  /// The local part of the email address from which authentication-related emails (e.g. OTP code, magic links) will be sent. Only alphanumeric values are allowed. Note that this value should contain only the local part of the address (e.g. `foo` for `foo@example.com`).
+  final SdkOptional<String?> fromEmailAddress;
+
+  /// Enable the Progressive Sign Up algorithm. This feature is deprecated, please contact support if you need assistance.
+  final SdkOptional<bool?> progressiveSignUp;
+
+  /// Toggles test mode for this instance, allowing the use of test email addresses and phone numbers. Defaults to true for development instances.
+  final SdkOptional<bool?> testMode;
+
+  const UpdateInstanceAuthConfigRequestBody(
+      {this.restrictedToAllowlist = const SdkOmitted(),
+      this.fromEmailAddress = const SdkOmitted(),
+      this.progressiveSignUp = const SdkOmitted(),
+      this.testMode = const SdkOmitted()});
+
+  UpdateInstanceAuthConfigRequestBody Function(
+      {SdkOptional<bool?> restrictedToAllowlist,
+      SdkOptional<String?> fromEmailAddress,
+      SdkOptional<bool?> progressiveSignUp,
+      SdkOptional<bool?> testMode}) get copyWith => _copyWith;
+
+  UpdateInstanceAuthConfigRequestBody _copyWith(
+          {Object? restrictedToAllowlist = sdkOmittedValue,
+          Object? fromEmailAddress = sdkOmittedValue,
+          Object? progressiveSignUp = sdkOmittedValue,
+          Object? testMode = sdkOmittedValue}) =>
+      UpdateInstanceAuthConfigRequestBody(
+        restrictedToAllowlist: identical(restrictedToAllowlist, sdkOmittedValue)
+            ? this.restrictedToAllowlist
+            : restrictedToAllowlist as SdkOptional<bool?>,
+        fromEmailAddress: identical(fromEmailAddress, sdkOmittedValue)
+            ? this.fromEmailAddress
+            : fromEmailAddress as SdkOptional<String?>,
+        progressiveSignUp: identical(progressiveSignUp, sdkOmittedValue)
+            ? this.progressiveSignUp
+            : progressiveSignUp as SdkOptional<bool?>,
+        testMode: identical(testMode, sdkOmittedValue)
+            ? this.testMode
+            : testMode as SdkOptional<bool?>,
+      );
+
+  factory UpdateInstanceAuthConfigRequestBody.fromJson(
+          Map<String, dynamic> json) =>
+      UpdateInstanceAuthConfigRequestBody(
+        restrictedToAllowlist: json.containsKey('restricted_to_allowlist')
+            ? SdkPresent(json['restricted_to_allowlist'] as bool?)
+            : const SdkOmitted(),
+        fromEmailAddress: json.containsKey('from_email_address')
+            ? SdkPresent(json['from_email_address'] as String?)
+            : const SdkOmitted(),
+        progressiveSignUp: json.containsKey('progressive_sign_up')
+            ? SdkPresent(json['progressive_sign_up'] as bool?)
+            : const SdkOmitted(),
+        testMode: json.containsKey('test_mode')
+            ? SdkPresent(json['test_mode'] as bool?)
+            : const SdkOmitted(),
+      );
+
+  Map<String, dynamic> toJson() => {
+        ...switch (restrictedToAllowlist) {
+          SdkPresent<bool?>(value: final value) => {
+              'restricted_to_allowlist': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (fromEmailAddress) {
+          SdkPresent<String?>(value: final value) => {
+              'from_email_address': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (progressiveSignUp) {
+          SdkPresent<bool?>(value: final value) => {
+              'progressive_sign_up': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (testMode) {
+          SdkPresent<bool?>(value: final value) => {
+              'test_mode': value,
             },
           _ => const <String, dynamic>{},
         },

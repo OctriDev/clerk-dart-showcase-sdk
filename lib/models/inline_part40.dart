@@ -4,161 +4,343 @@
 part of 'inline.dart';
 
 // Inline operation models (part 40)
-class UpdateEnterpriseConnectionRequestBody {
+class CreateOrganizationPermissionRequestBody {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
 
-  /// The display name of the enterprise connection
+  /// The name of the permission.
+  final String name;
+
+  /// The key of the permission. Must have the format "org:feature:action" where feature and action are segments consisting of lowercase letters, digits, or underscores, for example "org:billing:manage" or "org:team:read". Cannot begin with "org:sys_" as that prefix is reserved for system permissions.
+  final String key;
+
+  /// A description of the permission.
+  final SdkOptional<String> description;
+
+  const CreateOrganizationPermissionRequestBody(
+      {required this.name,
+      required this.key,
+      this.description = const SdkOmitted()});
+
+  CreateOrganizationPermissionRequestBody Function(
+      {String name,
+      String key,
+      SdkOptional<String> description}) get copyWith => _copyWith;
+
+  CreateOrganizationPermissionRequestBody _copyWith(
+          {Object? name = sdkOmittedValue,
+          Object? key = sdkOmittedValue,
+          Object? description = sdkOmittedValue}) =>
+      CreateOrganizationPermissionRequestBody(
+        name: identical(name, sdkOmittedValue) ? this.name : name as String,
+        key: identical(key, sdkOmittedValue) ? this.key : key as String,
+        description: identical(description, sdkOmittedValue)
+            ? this.description
+            : description as SdkOptional<String>,
+      );
+
+  factory CreateOrganizationPermissionRequestBody.fromJson(
+          Map<String, dynamic> json) =>
+      CreateOrganizationPermissionRequestBody(
+        name: (json['name'] as String?)!,
+        key: (json['key'] as String?)!,
+        description: json['description'] != null
+            ? SdkPresent((json['description'] as String?)!)
+            : const SdkOmitted(),
+      );
+
+  Map<String, dynamic> toJson() => {
+        'name': name,
+        'key': key,
+        ...switch (description) {
+          SdkPresent<String>(value: final value) => {
+              'description': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
+}
+
+class UpdateOrganizationPermissionRequestBody {
+  /// This model is constructed from named fields in one call.
+  static const String constructionSurface = 'named';
+
+  /// The name of the permission.
+  final SdkOptional<String> name;
+
+  /// The key of the permission. Must have the format "org:feature:action" where feature and action are segments consisting of lowercase letters, digits, or underscores. Cannot begin with "org:sys_" as that prefix is reserved for system permissions.
+  final SdkOptional<String> key;
+
+  /// A description of the permission.
+  final SdkOptional<String> description;
+
+  const UpdateOrganizationPermissionRequestBody(
+      {this.name = const SdkOmitted(),
+      this.key = const SdkOmitted(),
+      this.description = const SdkOmitted()});
+
+  UpdateOrganizationPermissionRequestBody Function(
+      {SdkOptional<String> name,
+      SdkOptional<String> key,
+      SdkOptional<String> description}) get copyWith => _copyWith;
+
+  UpdateOrganizationPermissionRequestBody _copyWith(
+          {Object? name = sdkOmittedValue,
+          Object? key = sdkOmittedValue,
+          Object? description = sdkOmittedValue}) =>
+      UpdateOrganizationPermissionRequestBody(
+        name: identical(name, sdkOmittedValue)
+            ? this.name
+            : name as SdkOptional<String>,
+        key: identical(key, sdkOmittedValue)
+            ? this.key
+            : key as SdkOptional<String>,
+        description: identical(description, sdkOmittedValue)
+            ? this.description
+            : description as SdkOptional<String>,
+      );
+
+  factory UpdateOrganizationPermissionRequestBody.fromJson(
+          Map<String, dynamic> json) =>
+      UpdateOrganizationPermissionRequestBody(
+        name: json['name'] != null
+            ? SdkPresent((json['name'] as String?)!)
+            : const SdkOmitted(),
+        key: json['key'] != null
+            ? SdkPresent((json['key'] as String?)!)
+            : const SdkOmitted(),
+        description: json['description'] != null
+            ? SdkPresent((json['description'] as String?)!)
+            : const SdkOmitted(),
+      );
+
+  Map<String, dynamic> toJson() => {
+        ...switch (name) {
+          SdkPresent<String>(value: final value) => {
+              'name': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (key) {
+          SdkPresent<String>(value: final value) => {
+              'key': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (description) {
+          SdkPresent<String>(value: final value) => {
+              'description': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
+}
+
+class CreateRoleSetRequestBody {
+  /// This model is constructed from named fields in one call.
+  static const String constructionSurface = 'named';
+
+  /// The name of the new role set
+  final String name;
+
+  /// A unique key for the role set. Must start with 'role_set:' and contain only lowercase alphanumeric characters and underscores. If not provided, a key will be generated from the name.
+  final SdkOptional<String> key;
+
+  /// Optional description for the role set
+  final SdkOptional<String?> description;
+
+  /// The key of the role to use as the default role for new organization members. Must be one of the roles in the `roles` array.
+  final String defaultRoleKey;
+
+  /// The key of the role to assign to organization creators. Must be one of the roles in the `roles` array.
+  final String creatorRoleKey;
+
+  /// The type of the role set. "initial" role sets are the default for new organizations. Only one role set can be "initial" per instance.
+  final SdkOptional<CreateRoleSetRequestBodyType> type_;
+
+  /// Array of role keys to include in the role set. Must contain at least one role and no more than 10 roles.
+  final List<String> roles;
+
+  const CreateRoleSetRequestBody(
+      {required this.name,
+      this.key = const SdkOmitted(),
+      this.description = const SdkOmitted(),
+      required this.defaultRoleKey,
+      required this.creatorRoleKey,
+      this.type_ = const SdkOmitted(),
+      required this.roles});
+
+  CreateRoleSetRequestBody Function(
+      {String name,
+      SdkOptional<String> key,
+      SdkOptional<String?> description,
+      String defaultRoleKey,
+      String creatorRoleKey,
+      SdkOptional<CreateRoleSetRequestBodyType> type_,
+      List<String> roles}) get copyWith => _copyWith;
+
+  CreateRoleSetRequestBody _copyWith(
+          {Object? name = sdkOmittedValue,
+          Object? key = sdkOmittedValue,
+          Object? description = sdkOmittedValue,
+          Object? defaultRoleKey = sdkOmittedValue,
+          Object? creatorRoleKey = sdkOmittedValue,
+          Object? type_ = sdkOmittedValue,
+          Object? roles = sdkOmittedValue}) =>
+      CreateRoleSetRequestBody(
+        name: identical(name, sdkOmittedValue) ? this.name : name as String,
+        key: identical(key, sdkOmittedValue)
+            ? this.key
+            : key as SdkOptional<String>,
+        description: identical(description, sdkOmittedValue)
+            ? this.description
+            : description as SdkOptional<String?>,
+        defaultRoleKey: identical(defaultRoleKey, sdkOmittedValue)
+            ? this.defaultRoleKey
+            : defaultRoleKey as String,
+        creatorRoleKey: identical(creatorRoleKey, sdkOmittedValue)
+            ? this.creatorRoleKey
+            : creatorRoleKey as String,
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as SdkOptional<CreateRoleSetRequestBodyType>,
+        roles: identical(roles, sdkOmittedValue)
+            ? this.roles
+            : roles as List<String>,
+      );
+
+  factory CreateRoleSetRequestBody.fromJson(Map<String, dynamic> json) =>
+      CreateRoleSetRequestBody(
+        name: (json['name'] as String?)!,
+        key: json['key'] != null
+            ? SdkPresent((json['key'] as String?)!)
+            : const SdkOmitted(),
+        description: json.containsKey('description')
+            ? SdkPresent(json['description'] as String?)
+            : const SdkOmitted(),
+        defaultRoleKey: (json['default_role_key'] as String?)!,
+        creatorRoleKey: (json['creator_role_key'] as String?)!,
+        type_: json['type'] != null
+            ? SdkPresent((json['type'] != null
+                ? CreateRoleSetRequestBodyType.fromJson(json['type'] as String)
+                : null)!)
+            : const SdkOmitted(),
+        roles: ((json['roles'] as List?)?.map((e) => e as String).toList())!,
+      );
+
+  Map<String, dynamic> toJson() => {
+        'name': name,
+        ...switch (key) {
+          SdkPresent<String>(value: final value) => {
+              'key': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (description) {
+          SdkPresent<String?>(value: final value) => {
+              'description': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        'default_role_key': defaultRoleKey,
+        'creator_role_key': creatorRoleKey,
+        ...switch (type_) {
+          SdkPresent<CreateRoleSetRequestBodyType>(value: final value) => {
+              'type': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        'roles': roles,
+      };
+}
+
+class UpdateRoleSetRequestBody {
+  /// This model is constructed from named fields in one call.
+  static const String constructionSurface = 'named';
+
+  /// The new name for the role set
   final SdkOptional<String?> name;
 
-  /// Domains associated with the enterprise connection. Values are normalized to lowercase. Empty array means ignored (no change); non-empty array means set domains to the given list (replaces existing).
-  final SdkOptional<List<String>?> domains;
+  /// A unique key for the role set. Must start with 'role_set:' and contain only lowercase alphanumeric characters and underscores.
+  final SdkOptional<String?> key;
 
-  /// Whether the enterprise connection is active. When set to true (enabling), any existing verified organization domains for the same domain(s) will be removed so the connection can be enabled.
-  final SdkOptional<bool?> active;
+  /// Optional description for the role set
+  final SdkOptional<String?> description;
 
-  /// Whether to sync user attributes on sign-in
-  final SdkOptional<bool?> syncUserAttributes;
+  /// Set to "initial" to make this the default role set for new organizations. Only one role set can be "initial" per instance; setting this will change any existing initial role set to "custom".
+  final SdkOptional<UpdateRoleSetRequestBodyType?> type_;
 
-  /// Whether to disable additional identifications
-  final SdkOptional<bool?> disableAdditionalIdentifications;
+  /// The key of the role to use as the default role for new organization members. Must be an existing role in the role set.
+  final SdkOptional<String?> defaultRoleKey;
 
-  /// Whether this connection supports account linking via organization membership
-  final SdkOptional<bool?> allowOrganizationAccountLinking;
+  /// The key of the role to assign to organization creators. Must be an existing role in the role set.
+  final SdkOptional<String?> creatorRoleKey;
 
-  /// Organization ID to link to this enterprise connection. Only linking is supported; sending this field sets or changes the linked organization. There is no way to unlink an organization once linked.
-  final SdkOptional<String?> organizationId;
-
-  /// SAML connection-specific properties. Only applied when the enterprise connection uses SAML. Use this to update IdP configuration, attribute mapping, and other SAML-specific settings.
-  final SdkOptional<UpdateEnterpriseConnectionRequestBodySaml?> saml;
-
-  /// OIDC connection-specific properties. Only applied when the enterprise connection uses OIDC (e.g. oidc_custom, oidc_github_enterprise, or oidc_gitlab).
-  final SdkOptional<UpdateEnterpriseConnectionRequestBodyOidc?> oidc;
-
-  /// Custom attributes to map from the IdP to the user's profile via SSO or SCIM provisioning. Requires the custom attributes feature to be enabled for the instance.
-  final SdkOptional<
-          List<UpdateEnterpriseConnectionRequestBodyCustomAttributesItem>?>
-      customAttributes;
-
-  const UpdateEnterpriseConnectionRequestBody(
+  const UpdateRoleSetRequestBody(
       {this.name = const SdkOmitted(),
-      this.domains = const SdkOmitted(),
-      this.active = const SdkOmitted(),
-      this.syncUserAttributes = const SdkOmitted(),
-      this.disableAdditionalIdentifications = const SdkOmitted(),
-      this.allowOrganizationAccountLinking = const SdkOmitted(),
-      this.organizationId = const SdkOmitted(),
-      this.saml = const SdkOmitted(),
-      this.oidc = const SdkOmitted(),
-      this.customAttributes = const SdkOmitted()});
+      this.key = const SdkOmitted(),
+      this.description = const SdkOmitted(),
+      this.type_ = const SdkOmitted(),
+      this.defaultRoleKey = const SdkOmitted(),
+      this.creatorRoleKey = const SdkOmitted()});
 
-  UpdateEnterpriseConnectionRequestBody Function(
+  UpdateRoleSetRequestBody Function(
       {SdkOptional<String?> name,
-      SdkOptional<List<String>?> domains,
-      SdkOptional<bool?> active,
-      SdkOptional<bool?> syncUserAttributes,
-      SdkOptional<bool?> disableAdditionalIdentifications,
-      SdkOptional<bool?> allowOrganizationAccountLinking,
-      SdkOptional<String?> organizationId,
-      SdkOptional<UpdateEnterpriseConnectionRequestBodySaml?> saml,
-      SdkOptional<UpdateEnterpriseConnectionRequestBodyOidc?> oidc,
-      SdkOptional<
-              List<UpdateEnterpriseConnectionRequestBodyCustomAttributesItem>?>
-          customAttributes}) get copyWith => _copyWith;
+      SdkOptional<String?> key,
+      SdkOptional<String?> description,
+      SdkOptional<UpdateRoleSetRequestBodyType?> type_,
+      SdkOptional<String?> defaultRoleKey,
+      SdkOptional<String?> creatorRoleKey}) get copyWith => _copyWith;
 
-  UpdateEnterpriseConnectionRequestBody _copyWith(
+  UpdateRoleSetRequestBody _copyWith(
           {Object? name = sdkOmittedValue,
-          Object? domains = sdkOmittedValue,
-          Object? active = sdkOmittedValue,
-          Object? syncUserAttributes = sdkOmittedValue,
-          Object? disableAdditionalIdentifications = sdkOmittedValue,
-          Object? allowOrganizationAccountLinking = sdkOmittedValue,
-          Object? organizationId = sdkOmittedValue,
-          Object? saml = sdkOmittedValue,
-          Object? oidc = sdkOmittedValue,
-          Object? customAttributes = sdkOmittedValue}) =>
-      UpdateEnterpriseConnectionRequestBody(
+          Object? key = sdkOmittedValue,
+          Object? description = sdkOmittedValue,
+          Object? type_ = sdkOmittedValue,
+          Object? defaultRoleKey = sdkOmittedValue,
+          Object? creatorRoleKey = sdkOmittedValue}) =>
+      UpdateRoleSetRequestBody(
         name: identical(name, sdkOmittedValue)
             ? this.name
             : name as SdkOptional<String?>,
-        domains: identical(domains, sdkOmittedValue)
-            ? this.domains
-            : domains as SdkOptional<List<String>?>,
-        active: identical(active, sdkOmittedValue)
-            ? this.active
-            : active as SdkOptional<bool?>,
-        syncUserAttributes: identical(syncUserAttributes, sdkOmittedValue)
-            ? this.syncUserAttributes
-            : syncUserAttributes as SdkOptional<bool?>,
-        disableAdditionalIdentifications:
-            identical(disableAdditionalIdentifications, sdkOmittedValue)
-                ? this.disableAdditionalIdentifications
-                : disableAdditionalIdentifications as SdkOptional<bool?>,
-        allowOrganizationAccountLinking:
-            identical(allowOrganizationAccountLinking, sdkOmittedValue)
-                ? this.allowOrganizationAccountLinking
-                : allowOrganizationAccountLinking as SdkOptional<bool?>,
-        organizationId: identical(organizationId, sdkOmittedValue)
-            ? this.organizationId
-            : organizationId as SdkOptional<String?>,
-        saml: identical(saml, sdkOmittedValue)
-            ? this.saml
-            : saml as SdkOptional<UpdateEnterpriseConnectionRequestBodySaml?>,
-        oidc: identical(oidc, sdkOmittedValue)
-            ? this.oidc
-            : oidc as SdkOptional<UpdateEnterpriseConnectionRequestBodyOidc?>,
-        customAttributes: identical(customAttributes, sdkOmittedValue)
-            ? this.customAttributes
-            : customAttributes as SdkOptional<
-                List<
-                    UpdateEnterpriseConnectionRequestBodyCustomAttributesItem>?>,
+        key: identical(key, sdkOmittedValue)
+            ? this.key
+            : key as SdkOptional<String?>,
+        description: identical(description, sdkOmittedValue)
+            ? this.description
+            : description as SdkOptional<String?>,
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as SdkOptional<UpdateRoleSetRequestBodyType?>,
+        defaultRoleKey: identical(defaultRoleKey, sdkOmittedValue)
+            ? this.defaultRoleKey
+            : defaultRoleKey as SdkOptional<String?>,
+        creatorRoleKey: identical(creatorRoleKey, sdkOmittedValue)
+            ? this.creatorRoleKey
+            : creatorRoleKey as SdkOptional<String?>,
       );
 
-  factory UpdateEnterpriseConnectionRequestBody.fromJson(
-          Map<String, dynamic> json) =>
-      UpdateEnterpriseConnectionRequestBody(
+  factory UpdateRoleSetRequestBody.fromJson(Map<String, dynamic> json) =>
+      UpdateRoleSetRequestBody(
         name: json.containsKey('name')
             ? SdkPresent(json['name'] as String?)
             : const SdkOmitted(),
-        domains: json.containsKey('domains')
-            ? SdkPresent(
-                (json['domains'] as List?)?.map((e) => e as String).toList())
+        key: json.containsKey('key')
+            ? SdkPresent(json['key'] as String?)
             : const SdkOmitted(),
-        active: json.containsKey('active')
-            ? SdkPresent(json['active'] as bool?)
+        description: json.containsKey('description')
+            ? SdkPresent(json['description'] as String?)
             : const SdkOmitted(),
-        syncUserAttributes: json.containsKey('sync_user_attributes')
-            ? SdkPresent(json['sync_user_attributes'] as bool?)
-            : const SdkOmitted(),
-        disableAdditionalIdentifications: json
-                .containsKey('disable_additional_identifications')
-            ? SdkPresent(json['disable_additional_identifications'] as bool?)
-            : const SdkOmitted(),
-        allowOrganizationAccountLinking: json
-                .containsKey('allow_organization_account_linking')
-            ? SdkPresent(json['allow_organization_account_linking'] as bool?)
-            : const SdkOmitted(),
-        organizationId: json.containsKey('organization_id')
-            ? SdkPresent(json['organization_id'] as String?)
-            : const SdkOmitted(),
-        saml: json.containsKey('saml')
-            ? SdkPresent(json['saml'] != null
-                ? UpdateEnterpriseConnectionRequestBodySaml.fromJson(
-                    json['saml'] as Map<String, dynamic>)
+        type_: json.containsKey('type')
+            ? SdkPresent(json['type'] != null
+                ? UpdateRoleSetRequestBodyType.fromJson(json['type'] as String)
                 : null)
             : const SdkOmitted(),
-        oidc: json.containsKey('oidc')
-            ? SdkPresent(json['oidc'] != null
-                ? UpdateEnterpriseConnectionRequestBodyOidc.fromJson(
-                    json['oidc'] as Map<String, dynamic>)
-                : null)
+        defaultRoleKey: json.containsKey('default_role_key')
+            ? SdkPresent(json['default_role_key'] as String?)
             : const SdkOmitted(),
-        customAttributes: json.containsKey('custom_attributes')
-            ? SdkPresent((json['custom_attributes'] as List?)
-                ?.map((e) =>
-                    UpdateEnterpriseConnectionRequestBodyCustomAttributesItem
-                        .fromJson(e as Map<String, dynamic>))
-                .toList())
+        creatorRoleKey: json.containsKey('creator_role_key')
+            ? SdkPresent(json['creator_role_key'] as String?)
             : const SdkOmitted(),
       );
 
@@ -169,344 +351,153 @@ class UpdateEnterpriseConnectionRequestBody {
             },
           _ => const <String, dynamic>{},
         },
-        ...switch (domains) {
-          SdkPresent<List<String>?>(value: final value) => {
-              'domains': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (active) {
-          SdkPresent<bool?>(value: final value) => {
-              'active': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (syncUserAttributes) {
-          SdkPresent<bool?>(value: final value) => {
-              'sync_user_attributes': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (disableAdditionalIdentifications) {
-          SdkPresent<bool?>(value: final value) => {
-              'disable_additional_identifications': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (allowOrganizationAccountLinking) {
-          SdkPresent<bool?>(value: final value) => {
-              'allow_organization_account_linking': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (organizationId) {
+        ...switch (key) {
           SdkPresent<String?>(value: final value) => {
-              'organization_id': value,
+              'key': value,
             },
           _ => const <String, dynamic>{},
         },
-        ...switch (saml) {
-          SdkPresent<UpdateEnterpriseConnectionRequestBodySaml?>(
-            value: final value
-          ) =>
-            {
-              'saml': value?.toJson(),
+        ...switch (description) {
+          SdkPresent<String?>(value: final value) => {
+              'description': value,
             },
           _ => const <String, dynamic>{},
         },
-        ...switch (oidc) {
-          SdkPresent<UpdateEnterpriseConnectionRequestBodyOidc?>(
-            value: final value
-          ) =>
-            {
-              'oidc': value?.toJson(),
+        ...switch (type_) {
+          SdkPresent<UpdateRoleSetRequestBodyType?>(value: final value) => {
+              'type': value?.toJson(),
             },
           _ => const <String, dynamic>{},
         },
-        ...switch (customAttributes) {
-          SdkPresent<
-                List<
-                    UpdateEnterpriseConnectionRequestBodyCustomAttributesItem>?>(
-            value: final value
-          ) =>
-            {
-              'custom_attributes': value?.map((item) => item.toJson()).toList(),
+        ...switch (defaultRoleKey) {
+          SdkPresent<String?>(value: final value) => {
+              'default_role_key': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (creatorRoleKey) {
+          SdkPresent<String?>(value: final value) => {
+              'creator_role_key': value,
             },
           _ => const <String, dynamic>{},
         },
       };
 }
 
-class CreateSSOBypassAllowlistUserRequestBody {
+class ReplaceRoleSetRequestBody {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
 
-  /// The ID of the user to allowlist.
-  final String userId;
+  /// The key of the destination role set
+  final String destRoleSetKey;
 
-  const CreateSSOBypassAllowlistUserRequestBody({required this.userId});
+  /// Mappings from source role keys to destination role keys. Required if members have roles that need to be reassigned.
+  final SdkOptional<Map<String, dynamic>> reassignmentMappings;
 
-  CreateSSOBypassAllowlistUserRequestBody Function({String userId})
+  const ReplaceRoleSetRequestBody(
+      {required this.destRoleSetKey,
+      this.reassignmentMappings = const SdkOmitted()});
+
+  ReplaceRoleSetRequestBody Function(
+          {String destRoleSetKey,
+          SdkOptional<Map<String, dynamic>> reassignmentMappings})
       get copyWith => _copyWith;
 
-  CreateSSOBypassAllowlistUserRequestBody _copyWith(
-          {Object? userId = sdkOmittedValue}) =>
-      CreateSSOBypassAllowlistUserRequestBody(
-        userId:
-            identical(userId, sdkOmittedValue) ? this.userId : userId as String,
+  ReplaceRoleSetRequestBody _copyWith(
+          {Object? destRoleSetKey = sdkOmittedValue,
+          Object? reassignmentMappings = sdkOmittedValue}) =>
+      ReplaceRoleSetRequestBody(
+        destRoleSetKey: identical(destRoleSetKey, sdkOmittedValue)
+            ? this.destRoleSetKey
+            : destRoleSetKey as String,
+        reassignmentMappings: identical(reassignmentMappings, sdkOmittedValue)
+            ? this.reassignmentMappings
+            : reassignmentMappings as SdkOptional<Map<String, dynamic>>,
       );
 
-  factory CreateSSOBypassAllowlistUserRequestBody.fromJson(
-          Map<String, dynamic> json) =>
-      CreateSSOBypassAllowlistUserRequestBody(
-        userId: (json['user_id'] as String?)!,
+  factory ReplaceRoleSetRequestBody.fromJson(Map<String, dynamic> json) =>
+      ReplaceRoleSetRequestBody(
+        destRoleSetKey: (json['dest_role_set_key'] as String?)!,
+        reassignmentMappings: json['reassignment_mappings'] != null
+            ? SdkPresent((json['reassignment_mappings'] == null
+                ? null
+                : json['reassignment_mappings'] as Map<String, dynamic>)!)
+            : const SdkOmitted(),
       );
 
   Map<String, dynamic> toJson() => {
-        'user_id': userId,
+        'dest_role_set_key': destRoleSetKey,
+        ...switch (reassignmentMappings) {
+          SdkPresent<Map<String, dynamic>>(value: final value) => {
+              'reassignment_mappings': value,
+            },
+          _ => const <String, dynamic>{},
+        },
       };
 }
 
-/// Identifies the user on whose behalf the agent task is created. Exactly one of user_id or identifier must be provided.
-class CreateAgentTaskRequestBodyOnBehalfOf {
+class AddRolesToRoleSetRequestBody {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
 
-  /// The ID of the user.
-  final SdkOptional<String> userId;
+  /// Array of role keys to add to the role set. Must contain at least one role and no more than 10 roles.
+  final List<String> roleKeys;
 
-  /// A verified identifier (e.g. email address) belonging to the user.
-  final SdkOptional<String> identifier;
+  /// Optionally update the default role to one of the newly added roles.
+  final SdkOptional<String> defaultRoleKey;
 
-  const CreateAgentTaskRequestBodyOnBehalfOf(
-      {this.userId = const SdkOmitted(), this.identifier = const SdkOmitted()});
+  /// Optionally update the creator role to one of the newly added roles.
+  final SdkOptional<String> creatorRoleKey;
 
-  CreateAgentTaskRequestBodyOnBehalfOf Function(
-      {SdkOptional<String> userId,
-      SdkOptional<String> identifier}) get copyWith => _copyWith;
+  const AddRolesToRoleSetRequestBody(
+      {required this.roleKeys,
+      this.defaultRoleKey = const SdkOmitted(),
+      this.creatorRoleKey = const SdkOmitted()});
 
-  CreateAgentTaskRequestBodyOnBehalfOf _copyWith(
-          {Object? userId = sdkOmittedValue,
-          Object? identifier = sdkOmittedValue}) =>
-      CreateAgentTaskRequestBodyOnBehalfOf(
-        userId: identical(userId, sdkOmittedValue)
-            ? this.userId
-            : userId as SdkOptional<String>,
-        identifier: identical(identifier, sdkOmittedValue)
-            ? this.identifier
-            : identifier as SdkOptional<String>,
+  AddRolesToRoleSetRequestBody Function(
+      {List<String> roleKeys,
+      SdkOptional<String> defaultRoleKey,
+      SdkOptional<String> creatorRoleKey}) get copyWith => _copyWith;
+
+  AddRolesToRoleSetRequestBody _copyWith(
+          {Object? roleKeys = sdkOmittedValue,
+          Object? defaultRoleKey = sdkOmittedValue,
+          Object? creatorRoleKey = sdkOmittedValue}) =>
+      AddRolesToRoleSetRequestBody(
+        roleKeys: identical(roleKeys, sdkOmittedValue)
+            ? this.roleKeys
+            : roleKeys as List<String>,
+        defaultRoleKey: identical(defaultRoleKey, sdkOmittedValue)
+            ? this.defaultRoleKey
+            : defaultRoleKey as SdkOptional<String>,
+        creatorRoleKey: identical(creatorRoleKey, sdkOmittedValue)
+            ? this.creatorRoleKey
+            : creatorRoleKey as SdkOptional<String>,
       );
 
-  factory CreateAgentTaskRequestBodyOnBehalfOf.fromJson(
-          Map<String, dynamic> json) =>
-      CreateAgentTaskRequestBodyOnBehalfOf(
-        userId: json['user_id'] != null
-            ? SdkPresent((json['user_id'] as String?)!)
+  factory AddRolesToRoleSetRequestBody.fromJson(Map<String, dynamic> json) =>
+      AddRolesToRoleSetRequestBody(
+        roleKeys:
+            ((json['role_keys'] as List?)?.map((e) => e as String).toList())!,
+        defaultRoleKey: json['default_role_key'] != null
+            ? SdkPresent((json['default_role_key'] as String?)!)
             : const SdkOmitted(),
-        identifier: json['identifier'] != null
-            ? SdkPresent((json['identifier'] as String?)!)
+        creatorRoleKey: json['creator_role_key'] != null
+            ? SdkPresent((json['creator_role_key'] as String?)!)
             : const SdkOmitted(),
       );
 
   Map<String, dynamic> toJson() => {
-        ...switch (userId) {
+        'role_keys': roleKeys,
+        ...switch (defaultRoleKey) {
           SdkPresent<String>(value: final value) => {
-              'user_id': value,
+              'default_role_key': value,
             },
           _ => const <String, dynamic>{},
         },
-        ...switch (identifier) {
+        ...switch (creatorRoleKey) {
           SdkPresent<String>(value: final value) => {
-              'identifier': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
-}
-
-class CreateAgentTaskRequestBody {
-  /// This model is constructed from named fields in one call.
-  static const String constructionSurface = 'named';
-
-  /// Identifies the user on whose behalf the agent task is created. Exactly one of user_id or identifier must be provided.
-  final CreateAgentTaskRequestBodyOnBehalfOf onBehalfOf;
-
-  /// The permissions granted to the agent task. Must be "*" (all permissions).
-  final CreateAgentTaskRequestBodyPermissions permissions;
-
-  /// A name identifying the agent. Used to derive a stable agent_id per instance. Logged for audit purposes.
-  final String agentName;
-
-  /// A description of the task being performed. Logged for audit purposes.
-  final String taskDescription;
-
-  /// The URL the user is redirected to after the agent task is accepted. Must be a valid absolute URL with an `https` scheme in production instances. In development instances, `http` is also permitted. The URL's domain must belong to one of the instance's associated domains (primary or satellite); otherwise the redirect will be rejected when the task ticket is consumed.
-  final String redirectUrl;
-
-  /// The maximum duration that the session which will be created by the generated agent task should last. By default, the duration of a session created via an agent task lasts 30 minutes.
-  final SdkOptional<int> sessionMaxDurationInSeconds;
-
-  const CreateAgentTaskRequestBody(
-      {required this.onBehalfOf,
-      required this.permissions,
-      required this.agentName,
-      required this.taskDescription,
-      required this.redirectUrl,
-      this.sessionMaxDurationInSeconds = const SdkOmitted()});
-
-  CreateAgentTaskRequestBody Function(
-      {CreateAgentTaskRequestBodyOnBehalfOf onBehalfOf,
-      CreateAgentTaskRequestBodyPermissions permissions,
-      String agentName,
-      String taskDescription,
-      String redirectUrl,
-      SdkOptional<int> sessionMaxDurationInSeconds}) get copyWith => _copyWith;
-
-  CreateAgentTaskRequestBody _copyWith(
-          {Object? onBehalfOf = sdkOmittedValue,
-          Object? permissions = sdkOmittedValue,
-          Object? agentName = sdkOmittedValue,
-          Object? taskDescription = sdkOmittedValue,
-          Object? redirectUrl = sdkOmittedValue,
-          Object? sessionMaxDurationInSeconds = sdkOmittedValue}) =>
-      CreateAgentTaskRequestBody(
-        onBehalfOf: identical(onBehalfOf, sdkOmittedValue)
-            ? this.onBehalfOf
-            : onBehalfOf as CreateAgentTaskRequestBodyOnBehalfOf,
-        permissions: identical(permissions, sdkOmittedValue)
-            ? this.permissions
-            : permissions as CreateAgentTaskRequestBodyPermissions,
-        agentName: identical(agentName, sdkOmittedValue)
-            ? this.agentName
-            : agentName as String,
-        taskDescription: identical(taskDescription, sdkOmittedValue)
-            ? this.taskDescription
-            : taskDescription as String,
-        redirectUrl: identical(redirectUrl, sdkOmittedValue)
-            ? this.redirectUrl
-            : redirectUrl as String,
-        sessionMaxDurationInSeconds:
-            identical(sessionMaxDurationInSeconds, sdkOmittedValue)
-                ? this.sessionMaxDurationInSeconds
-                : sessionMaxDurationInSeconds as SdkOptional<int>,
-      );
-
-  factory CreateAgentTaskRequestBody.fromJson(Map<String, dynamic> json) =>
-      CreateAgentTaskRequestBody(
-        onBehalfOf: (json['on_behalf_of'] != null
-            ? CreateAgentTaskRequestBodyOnBehalfOf.fromJson(
-                json['on_behalf_of'] as Map<String, dynamic>)
-            : null)!,
-        permissions: (json['permissions'] != null
-            ? CreateAgentTaskRequestBodyPermissions.fromJson(
-                json['permissions'] as String)
-            : null)!,
-        agentName: (json['agent_name'] as String?)!,
-        taskDescription: (json['task_description'] as String?)!,
-        redirectUrl: (json['redirect_url'] as String?)!,
-        sessionMaxDurationInSeconds: json['session_max_duration_in_seconds'] !=
-                null
-            ? SdkPresent(
-                ((json['session_max_duration_in_seconds'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-      );
-
-  Map<String, dynamic> toJson() => {
-        'on_behalf_of': onBehalfOf.toJson(),
-        'permissions': permissions.toJson(),
-        'agent_name': agentName,
-        'task_description': taskDescription,
-        'redirect_url': redirectUrl,
-        ...switch (sessionMaxDurationInSeconds) {
-          SdkPresent<int>(value: final value) => {
-              'session_max_duration_in_seconds': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
-}
-
-class SchemaSchema45ad91e0 {
-  /// This model is constructed from named fields in one call.
-  static const String constructionSurface = 'named';
-  final List<WaitlistEntry> data;
-
-  /// Total number of waitlist entries
-  final int totalCount;
-
-  const SchemaSchema45ad91e0({required this.data, required this.totalCount});
-
-  SchemaSchema45ad91e0 Function({List<WaitlistEntry> data, int totalCount})
-      get copyWith => _copyWith;
-
-  SchemaSchema45ad91e0 _copyWith(
-          {Object? data = sdkOmittedValue,
-          Object? totalCount = sdkOmittedValue}) =>
-      SchemaSchema45ad91e0(
-        data: identical(data, sdkOmittedValue)
-            ? this.data
-            : data as List<WaitlistEntry>,
-        totalCount: identical(totalCount, sdkOmittedValue)
-            ? this.totalCount
-            : totalCount as int,
-      );
-
-  factory SchemaSchema45ad91e0.fromJson(Map<String, dynamic> json) =>
-      SchemaSchema45ad91e0(
-        data: ((json['data'] as List?)
-            ?.map((e) => WaitlistEntry.fromJson(e as Map<String, dynamic>))
-            .toList())!,
-        totalCount: ((json['total_count'] as num?)?.toInt())!,
-      );
-
-  Map<String, dynamic> toJson() => {
-        'data': data.map((item) => item.toJson()).toList(),
-        'total_count': totalCount,
-      };
-}
-
-class CreateWaitlistEntryRequestBody {
-  /// This model is constructed from named fields in one call.
-  static const String constructionSurface = 'named';
-
-  /// The email address to add to the waitlist
-  final String emailAddress;
-
-  /// Optional flag which denotes whether a confirmation email should be sent to the given email address. Defaults to `true`.
-  final SdkOptional<bool?> notify;
-
-  const CreateWaitlistEntryRequestBody(
-      {required this.emailAddress, this.notify = const SdkOmitted()});
-
-  CreateWaitlistEntryRequestBody Function(
-      {String emailAddress,
-      SdkOptional<bool?> notify}) get copyWith => _copyWith;
-
-  CreateWaitlistEntryRequestBody _copyWith(
-          {Object? emailAddress = sdkOmittedValue,
-          Object? notify = sdkOmittedValue}) =>
-      CreateWaitlistEntryRequestBody(
-        emailAddress: identical(emailAddress, sdkOmittedValue)
-            ? this.emailAddress
-            : emailAddress as String,
-        notify: identical(notify, sdkOmittedValue)
-            ? this.notify
-            : notify as SdkOptional<bool?>,
-      );
-
-  factory CreateWaitlistEntryRequestBody.fromJson(Map<String, dynamic> json) =>
-      CreateWaitlistEntryRequestBody(
-        emailAddress: (json['email_address'] as String?)!,
-        notify: json.containsKey('notify')
-            ? SdkPresent(json['notify'] as bool?)
-            : const SdkOmitted(),
-      );
-
-  Map<String, dynamic> toJson() => {
-        'email_address': emailAddress,
-        ...switch (notify) {
-          SdkPresent<bool?>(value: final value) => {
-              'notify': value,
+              'creator_role_key': value,
             },
           _ => const <String, dynamic>{},
         },

@@ -4,349 +4,439 @@
 part of 'billing.dart';
 
 // billing domain models (part 6)
-/// Amount charged immediately, if any.
-class CommercePriceTransitionDetailsImmediateCharge {
-  /// This model is constructed from named fields in one call.
-  static const String constructionSurface = 'named';
-
-  /// The amount in cents.
-  final int amount;
-
-  /// The formatted amount as a string (e.g., "$49.99").
-  final String amountFormatted;
-
-  /// The currency code (e.g., "USD").
-  final String currency;
-
-  /// The currency symbol (e.g., "$").
-  final String currencySymbol;
-
-  const CommercePriceTransitionDetailsImmediateCharge(
-      {required this.amount,
-      required this.amountFormatted,
-      required this.currency,
-      required this.currencySymbol});
-
-  CommercePriceTransitionDetailsImmediateCharge Function(
-      {int amount,
-      String amountFormatted,
-      String currency,
-      String currencySymbol}) get copyWith => _copyWith;
-
-  CommercePriceTransitionDetailsImmediateCharge _copyWith(
-          {Object? amount = sdkOmittedValue,
-          Object? amountFormatted = sdkOmittedValue,
-          Object? currency = sdkOmittedValue,
-          Object? currencySymbol = sdkOmittedValue}) =>
-      CommercePriceTransitionDetailsImmediateCharge(
-        amount:
-            identical(amount, sdkOmittedValue) ? this.amount : amount as int,
-        amountFormatted: identical(amountFormatted, sdkOmittedValue)
-            ? this.amountFormatted
-            : amountFormatted as String,
-        currency: identical(currency, sdkOmittedValue)
-            ? this.currency
-            : currency as String,
-        currencySymbol: identical(currencySymbol, sdkOmittedValue)
-            ? this.currencySymbol
-            : currencySymbol as String,
-      );
-
-  factory CommercePriceTransitionDetailsImmediateCharge.fromJson(
-          Map<String, dynamic> json) =>
-      CommercePriceTransitionDetailsImmediateCharge(
-        amount: ((json['amount'] as num?)?.toInt())!,
-        amountFormatted: (json['amount_formatted'] as String?)!,
-        currency: (json['currency'] as String?)!,
-        currencySymbol: (json['currency_symbol'] as String?)!,
-      );
-
-  Map<String, dynamic> toJson() => {
-        'amount': amount,
-        'amount_formatted': amountFormatted,
-        'currency': currency,
-        'currency_symbol': currencySymbol,
-      };
-}
-
-/// Typed representation of the `CommercePriceTransitionDetails` API schema.
-class CommercePriceTransitionDetails {
-  /// This model is constructed from named fields in one call.
-  static const String constructionSurface = 'named';
-
-  /// Required object value serialized in the `previous_plan` wire field.
-  final CommercePlan2 previousPlan;
-
-  /// Required object value serialized in the `previous_price` wire field.
-  final BillingPriceResponse previousPrice;
-
-  /// Unix timestamp (milliseconds) when the new price takes effect.
-  final int effectiveAt;
-
-  /// When the new price takes effect.
-  final CommercePriceTransitionDetailsEffectiveMode effectiveMode;
-
-  /// Unix timestamp (milliseconds) for the next billing date.
-  final SdkOptional<int?> nextBillingDate;
-
-  /// Whether an immediate charge was made.
-  final bool chargedImmediately;
-
-  /// Amount charged immediately, if any.
-  final SdkOptional<CommerceMoneyResponse?> immediateCharge;
-
-  /// The status of the previous subscription item after transition.
-  final CommercePriceTransitionDetailsPreviousSubscriptionItemStatus
-      previousSubscriptionItemStatus;
-
-  /// The ID of the previous subscription item.
-  final String previousSubscriptionItemId;
-
-  const CommercePriceTransitionDetails(
-      {required this.previousPlan,
-      required this.previousPrice,
-      required this.effectiveAt,
-      required this.effectiveMode,
-      this.nextBillingDate = const SdkOmitted(),
-      required this.chargedImmediately,
-      this.immediateCharge = const SdkOmitted(),
-      required this.previousSubscriptionItemStatus,
-      required this.previousSubscriptionItemId});
-
-  CommercePriceTransitionDetails Function(
-      {CommercePlan2 previousPlan,
-      BillingPriceResponse previousPrice,
-      int effectiveAt,
-      CommercePriceTransitionDetailsEffectiveMode effectiveMode,
-      SdkOptional<int?> nextBillingDate,
-      bool chargedImmediately,
-      SdkOptional<CommerceMoneyResponse?> immediateCharge,
-      CommercePriceTransitionDetailsPreviousSubscriptionItemStatus
-          previousSubscriptionItemStatus,
-      String previousSubscriptionItemId}) get copyWith => _copyWith;
-
-  CommercePriceTransitionDetails _copyWith(
-          {Object? previousPlan = sdkOmittedValue,
-          Object? previousPrice = sdkOmittedValue,
-          Object? effectiveAt = sdkOmittedValue,
-          Object? effectiveMode = sdkOmittedValue,
-          Object? nextBillingDate = sdkOmittedValue,
-          Object? chargedImmediately = sdkOmittedValue,
-          Object? immediateCharge = sdkOmittedValue,
-          Object? previousSubscriptionItemStatus = sdkOmittedValue,
-          Object? previousSubscriptionItemId = sdkOmittedValue}) =>
-      CommercePriceTransitionDetails(
-        previousPlan: identical(previousPlan, sdkOmittedValue)
-            ? this.previousPlan
-            : previousPlan as CommercePlan2,
-        previousPrice: identical(previousPrice, sdkOmittedValue)
-            ? this.previousPrice
-            : previousPrice as BillingPriceResponse,
-        effectiveAt: identical(effectiveAt, sdkOmittedValue)
-            ? this.effectiveAt
-            : effectiveAt as int,
-        effectiveMode: identical(effectiveMode, sdkOmittedValue)
-            ? this.effectiveMode
-            : effectiveMode as CommercePriceTransitionDetailsEffectiveMode,
-        nextBillingDate: identical(nextBillingDate, sdkOmittedValue)
-            ? this.nextBillingDate
-            : nextBillingDate as SdkOptional<int?>,
-        chargedImmediately: identical(chargedImmediately, sdkOmittedValue)
-            ? this.chargedImmediately
-            : chargedImmediately as bool,
-        immediateCharge: identical(immediateCharge, sdkOmittedValue)
-            ? this.immediateCharge
-            : immediateCharge as SdkOptional<CommerceMoneyResponse?>,
-        previousSubscriptionItemStatus: identical(
-                previousSubscriptionItemStatus, sdkOmittedValue)
-            ? this.previousSubscriptionItemStatus
-            : previousSubscriptionItemStatus
-                as CommercePriceTransitionDetailsPreviousSubscriptionItemStatus,
-        previousSubscriptionItemId:
-            identical(previousSubscriptionItemId, sdkOmittedValue)
-                ? this.previousSubscriptionItemId
-                : previousSubscriptionItemId as String,
-      );
-
-  factory CommercePriceTransitionDetails.fromJson(Map<String, dynamic> json) =>
-      CommercePriceTransitionDetails(
-        previousPlan: (json['previous_plan'] != null
-            ? CommercePlan2.fromJson(
-                json['previous_plan'] as Map<String, dynamic>)
-            : null)!,
-        previousPrice: (json['previous_price'] != null
-            ? BillingPriceResponse.fromJson(
-                json['previous_price'] as Map<String, dynamic>)
-            : null)!,
-        effectiveAt: ((json['effective_at'] as num?)?.toInt())!,
-        effectiveMode: (json['effective_mode'] != null
-            ? CommercePriceTransitionDetailsEffectiveMode.fromJson(
-                json['effective_mode'] as String)
-            : null)!,
-        nextBillingDate: json.containsKey('next_billing_date')
-            ? SdkPresent((json['next_billing_date'] as num?)?.toInt())
-            : const SdkOmitted(),
-        chargedImmediately: (json['charged_immediately'] as bool?)!,
-        immediateCharge: json.containsKey('immediate_charge')
-            ? SdkPresent(json['immediate_charge'] != null
-                ? CommerceMoneyResponse.fromJson(
-                    json['immediate_charge'] as Map<String, dynamic>)
-                : null)
-            : const SdkOmitted(),
-        previousSubscriptionItemStatus:
-            (json['previous_subscription_item_status'] != null
-                ? CommercePriceTransitionDetailsPreviousSubscriptionItemStatus
-                    .fromJson(
-                        json['previous_subscription_item_status'] as String)
-                : null)!,
-        previousSubscriptionItemId:
-            (json['previous_subscription_item_id'] as String?)!,
-      );
-
-  Map<String, dynamic> toJson() => {
-        'previous_plan': previousPlan.toJson(),
-        'previous_price': previousPrice.toJson(),
-        'effective_at': effectiveAt,
-        'effective_mode': effectiveMode.toJson(),
-        ...switch (nextBillingDate) {
-          SdkPresent<int?>(value: final value) => {
-              'next_billing_date': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        'charged_immediately': chargedImmediately,
-        ...switch (immediateCharge) {
-          SdkPresent<CommerceMoneyResponse?>(value: final value) => {
-              'immediate_charge': value?.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        'previous_subscription_item_status':
-            previousSubscriptionItemStatus.toJson(),
-        'previous_subscription_item_id': previousSubscriptionItemId,
-      };
-}
-
-/// Typed representation of the `CommercePriceTransitionResponse` API schema.
-class CommercePriceTransitionResponse {
+/// Typed representation of the `CommerceSubscriptionItem2` API schema.
+class CommerceSubscriptionItem2 {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
 
   /// String representing the object's type. Objects of the same type share the same value.
-  final CommercePriceTransitionResponseObject object;
+  final CommerceSubscriptionItem2Object object;
 
-  /// Required object value serialized in the `subscription_item` wire field.
-  final CommerceSubscriptionItem2 subscriptionItem;
+  /// Unique identifier for the subscription item.
+  final String id;
 
-  /// Required object value serialized in the `transition` wire field.
-  final CommercePriceTransitionDetails transition;
+  /// Unique identifier for the Clerk instance.
+  final String instanceId;
 
-  const CommercePriceTransitionResponse(
-      {required this.object,
-      required this.subscriptionItem,
-      required this.transition});
+  /// Current status of the subscription item.
+  final CommerceSubscriptionItem2Status status;
 
-  CommercePriceTransitionResponse Function(
-      {CommercePriceTransitionResponseObject object,
-      CommerceSubscriptionItem2 subscriptionItem,
-      CommercePriceTransitionDetails transition}) get copyWith => _copyWith;
+  /// Credit information (only available in PaymentAttempt events).
+  final SdkOptional<CommerceSubscriptionCreditResponse?> credit;
 
-  CommercePriceTransitionResponse _copyWith(
-          {Object? object = sdkOmittedValue,
-          Object? subscriptionItem = sdkOmittedValue,
-          Object? transition = sdkOmittedValue}) =>
-      CommercePriceTransitionResponse(
-        object: identical(object, sdkOmittedValue)
-            ? this.object
-            : object as CommercePriceTransitionResponseObject,
-        subscriptionItem: identical(subscriptionItem, sdkOmittedValue)
-            ? this.subscriptionItem
-            : subscriptionItem as CommerceSubscriptionItem2,
-        transition: identical(transition, sdkOmittedValue)
-            ? this.transition
-            : transition as CommercePriceTransitionDetails,
-      );
+  /// Unique identifier for the associated plan.
+  final String planId;
 
-  factory CommercePriceTransitionResponse.fromJson(Map<String, dynamic> json) =>
-      CommercePriceTransitionResponse(
-        object: (json['object'] != null
-            ? CommercePriceTransitionResponseObject.fromJson(
-                json['object'] as String)
-            : null)!,
-        subscriptionItem: (json['subscription_item'] != null
-            ? CommerceSubscriptionItem2.fromJson(
-                json['subscription_item'] as Map<String, dynamic>)
-            : null)!,
-        transition: (json['transition'] != null
-            ? CommercePriceTransitionDetails.fromJson(
-                json['transition'] as Map<String, dynamic>)
-            : null)!,
-      );
+  /// Unique identifier for the associated price
+  final SdkOptional<String> priceId;
 
-  Map<String, dynamic> toJson() => {
-        'object': object.toJson(),
-        'subscription_item': subscriptionItem.toJson(),
-        'transition': transition.toJson(),
-      };
-}
+  /// The associated commerce plan.
+  final CommercePlan2? plan;
 
-/// Credit information (only available in PaymentAttempt events).
-class CommerceSubscriptionItem2Credit {
-  /// This model is constructed from named fields in one call.
-  static const String constructionSurface = 'named';
+  /// The billing period for this subscription.
+  final CommerceSubscriptionItem2PlanPeriod planPeriod;
 
-  /// Credit amount.
+  /// Unique identifier for the payment source.
+  final String paymentSourceId;
+
+  /// The payment source associated with this subscription.
+  final SdkOptional<CommercePaymentSourceResponse?> paymentSource;
+
+  /// Total amount paid over the lifetime of this subscription.
+  final SdkOptional<CommerceMoneyResponse?> lifetimePaid;
+
+  /// Current amount for this subscription.
   final SdkOptional<CommerceMoneyResponse?> amount;
 
-  /// Percentage of the billing cycle remaining.
-  final SdkOptional<double> cycleRemainingPercent;
+  /// Information about the next invoice.
+  final SdkOptional<CommerceSubscriptionItemNextPaymentResponse?> nextInvoice;
 
-  const CommerceSubscriptionItem2Credit(
-      {this.amount = const SdkOmitted(),
-      this.cycleRemainingPercent = const SdkOmitted()});
+  /// Information about the next payment.
+  final SdkOptional<CommerceSubscriptionItemNextPaymentResponse?> nextPayment;
 
-  CommerceSubscriptionItem2Credit Function(
-      {SdkOptional<CommerceMoneyResponse?> amount,
-      SdkOptional<double> cycleRemainingPercent}) get copyWith => _copyWith;
+  /// Unique identifier for the payer.
+  final String payerId;
 
-  CommerceSubscriptionItem2Credit _copyWith(
-          {Object? amount = sdkOmittedValue,
-          Object? cycleRemainingPercent = sdkOmittedValue}) =>
-      CommerceSubscriptionItem2Credit(
+  /// The payer associated with this subscription.
+  final SdkOptional<CommercePayerResponse2?> payer;
+
+  /// Whether this subscription is currently on a free trial.
+  final bool isFreeTrial;
+
+  /// Unix timestamp (in milliseconds) when the current period started.
+  final SdkOptional<int?> periodStart;
+
+  /// Unix timestamp (in milliseconds) when the current period ends.
+  final SdkOptional<int?> periodEnd;
+
+  /// Date used for proration calculations.
+  final String prorationDate;
+
+  /// Unix timestamp (in milliseconds) when the subscription was canceled.
+  final SdkOptional<int?> canceledAt;
+
+  /// Unix timestamp (in milliseconds) when the subscription became past due.
+  final SdkOptional<int?> pastDueAt;
+
+  /// Unix timestamp (in milliseconds) when the subscription ended.
+  final SdkOptional<int?> endedAt;
+
+  /// Unix timestamp (in milliseconds) when the subscription was created.
+  final int createdAt;
+
+  /// Unix timestamp (in milliseconds) when the subscription was last updated.
+  final int updatedAt;
+
+  const CommerceSubscriptionItem2(
+      {required this.object,
+      required this.id,
+      required this.instanceId,
+      required this.status,
+      this.credit = const SdkOmitted(),
+      required this.planId,
+      this.priceId = const SdkOmitted(),
+      required this.plan,
+      required this.planPeriod,
+      required this.paymentSourceId,
+      this.paymentSource = const SdkOmitted(),
+      this.lifetimePaid = const SdkOmitted(),
+      this.amount = const SdkOmitted(),
+      this.nextInvoice = const SdkOmitted(),
+      this.nextPayment = const SdkOmitted(),
+      required this.payerId,
+      this.payer = const SdkOmitted(),
+      required this.isFreeTrial,
+      this.periodStart = const SdkOmitted(),
+      this.periodEnd = const SdkOmitted(),
+      required this.prorationDate,
+      this.canceledAt = const SdkOmitted(),
+      this.pastDueAt = const SdkOmitted(),
+      this.endedAt = const SdkOmitted(),
+      required this.createdAt,
+      required this.updatedAt});
+
+  CommerceSubscriptionItem2 Function(
+      {CommerceSubscriptionItem2Object object,
+      String id,
+      String instanceId,
+      CommerceSubscriptionItem2Status status,
+      SdkOptional<CommerceSubscriptionCreditResponse?> credit,
+      String planId,
+      SdkOptional<String> priceId,
+      CommercePlan2? plan,
+      CommerceSubscriptionItem2PlanPeriod planPeriod,
+      String paymentSourceId,
+      SdkOptional<CommercePaymentSourceResponse?> paymentSource,
+      SdkOptional<CommerceMoneyResponse?> lifetimePaid,
+      SdkOptional<CommerceMoneyResponse?> amount,
+      SdkOptional<CommerceSubscriptionItemNextPaymentResponse?> nextInvoice,
+      SdkOptional<CommerceSubscriptionItemNextPaymentResponse?> nextPayment,
+      String payerId,
+      SdkOptional<CommercePayerResponse2?> payer,
+      bool isFreeTrial,
+      SdkOptional<int?> periodStart,
+      SdkOptional<int?> periodEnd,
+      String prorationDate,
+      SdkOptional<int?> canceledAt,
+      SdkOptional<int?> pastDueAt,
+      SdkOptional<int?> endedAt,
+      int createdAt,
+      int updatedAt}) get copyWith => _copyWith;
+
+  CommerceSubscriptionItem2 _copyWith(
+          {Object? object = sdkOmittedValue,
+          Object? id = sdkOmittedValue,
+          Object? instanceId = sdkOmittedValue,
+          Object? status = sdkOmittedValue,
+          Object? credit = sdkOmittedValue,
+          Object? planId = sdkOmittedValue,
+          Object? priceId = sdkOmittedValue,
+          Object? plan = sdkOmittedValue,
+          Object? planPeriod = sdkOmittedValue,
+          Object? paymentSourceId = sdkOmittedValue,
+          Object? paymentSource = sdkOmittedValue,
+          Object? lifetimePaid = sdkOmittedValue,
+          Object? amount = sdkOmittedValue,
+          Object? nextInvoice = sdkOmittedValue,
+          Object? nextPayment = sdkOmittedValue,
+          Object? payerId = sdkOmittedValue,
+          Object? payer = sdkOmittedValue,
+          Object? isFreeTrial = sdkOmittedValue,
+          Object? periodStart = sdkOmittedValue,
+          Object? periodEnd = sdkOmittedValue,
+          Object? prorationDate = sdkOmittedValue,
+          Object? canceledAt = sdkOmittedValue,
+          Object? pastDueAt = sdkOmittedValue,
+          Object? endedAt = sdkOmittedValue,
+          Object? createdAt = sdkOmittedValue,
+          Object? updatedAt = sdkOmittedValue}) =>
+      CommerceSubscriptionItem2(
+        object: identical(object, sdkOmittedValue)
+            ? this.object
+            : object as CommerceSubscriptionItem2Object,
+        id: identical(id, sdkOmittedValue) ? this.id : id as String,
+        instanceId: identical(instanceId, sdkOmittedValue)
+            ? this.instanceId
+            : instanceId as String,
+        status: identical(status, sdkOmittedValue)
+            ? this.status
+            : status as CommerceSubscriptionItem2Status,
+        credit: identical(credit, sdkOmittedValue)
+            ? this.credit
+            : credit as SdkOptional<CommerceSubscriptionCreditResponse?>,
+        planId:
+            identical(planId, sdkOmittedValue) ? this.planId : planId as String,
+        priceId: identical(priceId, sdkOmittedValue)
+            ? this.priceId
+            : priceId as SdkOptional<String>,
+        plan: identical(plan, sdkOmittedValue)
+            ? this.plan
+            : plan as CommercePlan2?,
+        planPeriod: identical(planPeriod, sdkOmittedValue)
+            ? this.planPeriod
+            : planPeriod as CommerceSubscriptionItem2PlanPeriod,
+        paymentSourceId: identical(paymentSourceId, sdkOmittedValue)
+            ? this.paymentSourceId
+            : paymentSourceId as String,
+        paymentSource: identical(paymentSource, sdkOmittedValue)
+            ? this.paymentSource
+            : paymentSource as SdkOptional<CommercePaymentSourceResponse?>,
+        lifetimePaid: identical(lifetimePaid, sdkOmittedValue)
+            ? this.lifetimePaid
+            : lifetimePaid as SdkOptional<CommerceMoneyResponse?>,
         amount: identical(amount, sdkOmittedValue)
             ? this.amount
             : amount as SdkOptional<CommerceMoneyResponse?>,
-        cycleRemainingPercent: identical(cycleRemainingPercent, sdkOmittedValue)
-            ? this.cycleRemainingPercent
-            : cycleRemainingPercent as SdkOptional<double>,
+        nextInvoice: identical(nextInvoice, sdkOmittedValue)
+            ? this.nextInvoice
+            : nextInvoice
+                as SdkOptional<CommerceSubscriptionItemNextPaymentResponse?>,
+        nextPayment: identical(nextPayment, sdkOmittedValue)
+            ? this.nextPayment
+            : nextPayment
+                as SdkOptional<CommerceSubscriptionItemNextPaymentResponse?>,
+        payerId: identical(payerId, sdkOmittedValue)
+            ? this.payerId
+            : payerId as String,
+        payer: identical(payer, sdkOmittedValue)
+            ? this.payer
+            : payer as SdkOptional<CommercePayerResponse2?>,
+        isFreeTrial: identical(isFreeTrial, sdkOmittedValue)
+            ? this.isFreeTrial
+            : isFreeTrial as bool,
+        periodStart: identical(periodStart, sdkOmittedValue)
+            ? this.periodStart
+            : periodStart as SdkOptional<int?>,
+        periodEnd: identical(periodEnd, sdkOmittedValue)
+            ? this.periodEnd
+            : periodEnd as SdkOptional<int?>,
+        prorationDate: identical(prorationDate, sdkOmittedValue)
+            ? this.prorationDate
+            : prorationDate as String,
+        canceledAt: identical(canceledAt, sdkOmittedValue)
+            ? this.canceledAt
+            : canceledAt as SdkOptional<int?>,
+        pastDueAt: identical(pastDueAt, sdkOmittedValue)
+            ? this.pastDueAt
+            : pastDueAt as SdkOptional<int?>,
+        endedAt: identical(endedAt, sdkOmittedValue)
+            ? this.endedAt
+            : endedAt as SdkOptional<int?>,
+        createdAt: identical(createdAt, sdkOmittedValue)
+            ? this.createdAt
+            : createdAt as int,
+        updatedAt: identical(updatedAt, sdkOmittedValue)
+            ? this.updatedAt
+            : updatedAt as int,
       );
 
-  factory CommerceSubscriptionItem2Credit.fromJson(Map<String, dynamic> json) =>
-      CommerceSubscriptionItem2Credit(
+  factory CommerceSubscriptionItem2.fromJson(Map<String, dynamic> json) =>
+      CommerceSubscriptionItem2(
+        object: (json['object'] != null
+            ? CommerceSubscriptionItem2Object.fromJson(json['object'] as String)
+            : null)!,
+        id: (json['id'] as String?)!,
+        instanceId: (json['instance_id'] as String?)!,
+        status: (json['status'] != null
+            ? CommerceSubscriptionItem2Status.fromJson(json['status'] as String)
+            : null)!,
+        credit: json.containsKey('credit')
+            ? SdkPresent(json['credit'] != null
+                ? CommerceSubscriptionCreditResponse.fromJson(
+                    json['credit'] as Map<String, dynamic>)
+                : null)
+            : const SdkOmitted(),
+        planId: (json['plan_id'] as String?)!,
+        priceId: json['price_id'] != null
+            ? SdkPresent((json['price_id'] as String?)!)
+            : const SdkOmitted(),
+        plan: json.containsKey('plan')
+            ? json['plan'] != null
+                ? CommercePlan2.fromJson(json['plan'] as Map<String, dynamic>)
+                : null
+            : throw ArgumentError.value(
+                null, 'plan', 'Required property is missing'),
+        planPeriod: (json['plan_period'] != null
+            ? CommerceSubscriptionItem2PlanPeriod.fromJson(
+                json['plan_period'] as String)
+            : null)!,
+        paymentSourceId: (json['payment_source_id'] as String?)!,
+        paymentSource: json.containsKey('payment_source')
+            ? SdkPresent(json['payment_source'] != null
+                ? CommercePaymentSourceResponse.fromJson(
+                    json['payment_source'] as Map<String, dynamic>)
+                : null)
+            : const SdkOmitted(),
+        lifetimePaid: json.containsKey('lifetime_paid')
+            ? SdkPresent(json['lifetime_paid'] != null
+                ? CommerceMoneyResponse.fromJson(
+                    json['lifetime_paid'] as Map<String, dynamic>)
+                : null)
+            : const SdkOmitted(),
         amount: json.containsKey('amount')
             ? SdkPresent(json['amount'] != null
                 ? CommerceMoneyResponse.fromJson(
                     json['amount'] as Map<String, dynamic>)
                 : null)
             : const SdkOmitted(),
-        cycleRemainingPercent: json['cycle_remaining_percent'] != null
-            ? SdkPresent(
-                ((json['cycle_remaining_percent'] as num?)?.toDouble())!)
+        nextInvoice: json.containsKey('next_invoice')
+            ? SdkPresent(json['next_invoice'] != null
+                ? CommerceSubscriptionItemNextPaymentResponse.fromJson(
+                    json['next_invoice'] as Map<String, dynamic>)
+                : null)
             : const SdkOmitted(),
+        nextPayment: json.containsKey('next_payment')
+            ? SdkPresent(json['next_payment'] != null
+                ? CommerceSubscriptionItemNextPaymentResponse.fromJson(
+                    json['next_payment'] as Map<String, dynamic>)
+                : null)
+            : const SdkOmitted(),
+        payerId: (json['payer_id'] as String?)!,
+        payer: json.containsKey('payer')
+            ? SdkPresent(json['payer'] != null
+                ? CommercePayerResponse2.fromJson(
+                    json['payer'] as Map<String, dynamic>)
+                : null)
+            : const SdkOmitted(),
+        isFreeTrial: (json['is_free_trial'] as bool?)!,
+        periodStart: json.containsKey('period_start')
+            ? SdkPresent((json['period_start'] as num?)?.toInt())
+            : const SdkOmitted(),
+        periodEnd: json.containsKey('period_end')
+            ? SdkPresent((json['period_end'] as num?)?.toInt())
+            : const SdkOmitted(),
+        prorationDate: (json['proration_date'] as String?)!,
+        canceledAt: json.containsKey('canceled_at')
+            ? SdkPresent((json['canceled_at'] as num?)?.toInt())
+            : const SdkOmitted(),
+        pastDueAt: json.containsKey('past_due_at')
+            ? SdkPresent((json['past_due_at'] as num?)?.toInt())
+            : const SdkOmitted(),
+        endedAt: json.containsKey('ended_at')
+            ? SdkPresent((json['ended_at'] as num?)?.toInt())
+            : const SdkOmitted(),
+        createdAt: ((json['created_at'] as num?)?.toInt())!,
+        updatedAt: ((json['updated_at'] as num?)?.toInt())!,
       );
 
   Map<String, dynamic> toJson() => {
+        'object': object.toJson(),
+        'id': id,
+        'instance_id': instanceId,
+        'status': status.toJson(),
+        ...switch (credit) {
+          SdkPresent<CommerceSubscriptionCreditResponse?>(value: final value) =>
+            {
+              'credit': value?.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        'plan_id': planId,
+        ...switch (priceId) {
+          SdkPresent<String>(value: final value) => {
+              'price_id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        'plan': plan?.toJson(),
+        'plan_period': planPeriod.toJson(),
+        'payment_source_id': paymentSourceId,
+        ...switch (paymentSource) {
+          SdkPresent<CommercePaymentSourceResponse?>(value: final value) => {
+              'payment_source': value?.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (lifetimePaid) {
+          SdkPresent<CommerceMoneyResponse?>(value: final value) => {
+              'lifetime_paid': value?.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
         ...switch (amount) {
           SdkPresent<CommerceMoneyResponse?>(value: final value) => {
               'amount': value?.toJson(),
             },
           _ => const <String, dynamic>{},
         },
-        ...switch (cycleRemainingPercent) {
-          SdkPresent<double>(value: final value) => {
-              'cycle_remaining_percent': value,
+        ...switch (nextInvoice) {
+          SdkPresent<CommerceSubscriptionItemNextPaymentResponse?>(
+            value: final value
+          ) =>
+            {
+              'next_invoice': value?.toJson(),
             },
           _ => const <String, dynamic>{},
         },
+        ...switch (nextPayment) {
+          SdkPresent<CommerceSubscriptionItemNextPaymentResponse?>(
+            value: final value
+          ) =>
+            {
+              'next_payment': value?.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        'payer_id': payerId,
+        ...switch (payer) {
+          SdkPresent<CommercePayerResponse2?>(value: final value) => {
+              'payer': value?.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        'is_free_trial': isFreeTrial,
+        ...switch (periodStart) {
+          SdkPresent<int?>(value: final value) => {
+              'period_start': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (periodEnd) {
+          SdkPresent<int?>(value: final value) => {
+              'period_end': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        'proration_date': prorationDate,
+        ...switch (canceledAt) {
+          SdkPresent<int?>(value: final value) => {
+              'canceled_at': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (pastDueAt) {
+          SdkPresent<int?>(value: final value) => {
+              'past_due_at': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (endedAt) {
+          SdkPresent<int?>(value: final value) => {
+              'ended_at': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        'created_at': createdAt,
+        'updated_at': updatedAt,
       };
 }

@@ -199,6 +199,26 @@ sealed class EnterpriseAccountVerification {
   static const String constructionSurface = 'named';
   const EnterpriseAccountVerification();
   factory EnterpriseAccountVerification.fromJson(Object? json) {
+    if (json is Map<String, dynamic>) {
+      try {
+        final value = VerificationTicket.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return EnterpriseAccountVerificationVerificationTicket(value);
+        }
+      } catch (_) {}
+      try {
+        final value = VerificationSaml.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return EnterpriseAccountVerificationVerificationSaml(value);
+        }
+      } catch (_) {}
+      try {
+        final value = VerificationOauth.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return EnterpriseAccountVerificationVerificationOauth(value);
+        }
+      } catch (_) {}
+    }
     try {
       return EnterpriseAccountVerificationVerificationTicket(
           VerificationTicket.fromJson(json as Map<String, dynamic>));
@@ -573,6 +593,22 @@ sealed class ExternalAccountWithVerificationVerification {
   static const String constructionSurface = 'named';
   const ExternalAccountWithVerificationVerification();
   factory ExternalAccountWithVerificationVerification.fromJson(Object? json) {
+    if (json is Map<String, dynamic>) {
+      try {
+        final value = VerificationOauth.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ExternalAccountWithVerificationVerificationVerificationOauth(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = VerificationGoogleOneTap.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return ExternalAccountWithVerificationVerificationVerificationGoogleOneTap(
+              value);
+        }
+      } catch (_) {}
+    }
     try {
       return ExternalAccountWithVerificationVerificationVerificationOauth(
           VerificationOauth.fromJson(json as Map<String, dynamic>));
@@ -591,13 +627,4 @@ sealed class ExternalAccountWithVerificationVerification {
         "No variant matched for ExternalAccountWithVerificationVerification");
   }
   Object? toJson();
-}
-
-final class ExternalAccountWithVerificationVerificationVerificationOauth
-    extends ExternalAccountWithVerificationVerification {
-  final VerificationOauth value;
-  const ExternalAccountWithVerificationVerificationVerificationOauth(
-      this.value);
-  @override
-  Object? toJson() => value.toJson();
 }

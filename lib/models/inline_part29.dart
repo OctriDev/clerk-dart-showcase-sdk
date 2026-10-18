@@ -7,237 +7,99 @@ part of 'inline.dart';
 class UpdateInstanceOAuthApplicationSettingsRequestBody {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Whether dynamic OAuth client registration is enabled for the instance (RFC 7591).
   final SdkOptional<bool?> dynamicOauthClientRegistration;
-
   /// Administrator-selected scope ceiling for dynamically registered and automatically admitted CIMD clients. Null preserves registered client limits; defaults must be a subset. Fresh user consent is required for expansion.
   final SdkOptional<List<String>?> dynamicClientAllowedScopes;
-
   /// Default scopes assigned when a dynamically registered or first-contact CIMD client omits `scope`. Accepts built-in keys and current custom catalog keys. `advertised` does not affect eligibility. Duplicate keys, unknown keys, and `offline_access` are rejected. An empty array or null resets to Clerk-provided defaults.
   final SdkOptional<List<String>?> defaultScopes;
-
   /// Whether OAuth JWT access tokens are enabled for the instance (disabled indicates opaque access tokens).
   final SdkOptional<bool?> oauthJwtAccessTokens;
-
   /// Whether OAuth access tokens can include an aud claim derived from the RFC 8707 resource parameter.
   final SdkOptional<bool?> audClaimEnabled;
-
   /// Whether refresh grants without a resource can adopt the requested resource when audience claims are enabled.
   final SdkOptional<bool?> audClaimRefreshBackfillEnabled;
-
   /// Whether all new OAuth authorization-code requests must use PKCE with the S256 challenge method.
   final SdkOptional<bool?> pkceRequired;
-
   /// Whether the instance advertises support for Client ID Metadata Documents in its OAuth authorization server metadata.
   final SdkOptional<bool?> clientIdMetadataDocumentsAdvertised;
-
   /// When true, new unknown CIMD clients are rejected. Previously auto-connected and pre-registered clients remain admitted; deleting a client makes it unknown again.
-  final SdkOptional<bool?>
-      clientIdMetadataDocumentsOnlyAllowPreRegisteredClients;
-
+  final SdkOptional<bool?> clientIdMetadataDocumentsOnlyAllowPreRegisteredClients;
   /// When true, recorded implicitly allowed CIMD clients are rejected on future client lookups. Explicitly allowed clients remain accepted. This does not revoke previously issued access tokens.
-  final SdkOptional<bool?>
-      clientIdMetadataDocumentsBlockImplicitlyAllowedClients;
+  final SdkOptional<bool?> clientIdMetadataDocumentsBlockImplicitlyAllowedClients;
 
-  const UpdateInstanceOAuthApplicationSettingsRequestBody(
-      {this.dynamicOauthClientRegistration = const SdkOmitted(),
-      this.dynamicClientAllowedScopes = const SdkOmitted(),
-      this.defaultScopes = const SdkOmitted(),
-      this.oauthJwtAccessTokens = const SdkOmitted(),
-      this.audClaimEnabled = const SdkOmitted(),
-      this.audClaimRefreshBackfillEnabled = const SdkOmitted(),
-      this.pkceRequired = const SdkOmitted(),
-      this.clientIdMetadataDocumentsAdvertised = const SdkOmitted(),
-      this.clientIdMetadataDocumentsOnlyAllowPreRegisteredClients =
-          const SdkOmitted(),
-      this.clientIdMetadataDocumentsBlockImplicitlyAllowedClients =
-          const SdkOmitted()});
+  const UpdateInstanceOAuthApplicationSettingsRequestBody({this.dynamicOauthClientRegistration = const SdkOmitted(), this.dynamicClientAllowedScopes = const SdkOmitted(), this.defaultScopes = const SdkOmitted(), this.oauthJwtAccessTokens = const SdkOmitted(), this.audClaimEnabled = const SdkOmitted(), this.audClaimRefreshBackfillEnabled = const SdkOmitted(), this.pkceRequired = const SdkOmitted(), this.clientIdMetadataDocumentsAdvertised = const SdkOmitted(), this.clientIdMetadataDocumentsOnlyAllowPreRegisteredClients = const SdkOmitted(), this.clientIdMetadataDocumentsBlockImplicitlyAllowedClients = const SdkOmitted()});
 
-  UpdateInstanceOAuthApplicationSettingsRequestBody Function(
-      {SdkOptional<bool?> dynamicOauthClientRegistration,
-      SdkOptional<List<String>?> dynamicClientAllowedScopes,
-      SdkOptional<List<String>?> defaultScopes,
-      SdkOptional<bool?> oauthJwtAccessTokens,
-      SdkOptional<bool?> audClaimEnabled,
-      SdkOptional<bool?> audClaimRefreshBackfillEnabled,
-      SdkOptional<bool?> pkceRequired,
-      SdkOptional<bool?> clientIdMetadataDocumentsAdvertised,
-      SdkOptional<bool?> clientIdMetadataDocumentsOnlyAllowPreRegisteredClients,
-      SdkOptional<bool?>
-          clientIdMetadataDocumentsBlockImplicitlyAllowedClients}) get copyWith =>
-      _copyWith;
+  UpdateInstanceOAuthApplicationSettingsRequestBody Function({SdkOptional<bool?> dynamicOauthClientRegistration, SdkOptional<List<String>?> dynamicClientAllowedScopes, SdkOptional<List<String>?> defaultScopes, SdkOptional<bool?> oauthJwtAccessTokens, SdkOptional<bool?> audClaimEnabled, SdkOptional<bool?> audClaimRefreshBackfillEnabled, SdkOptional<bool?> pkceRequired, SdkOptional<bool?> clientIdMetadataDocumentsAdvertised, SdkOptional<bool?> clientIdMetadataDocumentsOnlyAllowPreRegisteredClients, SdkOptional<bool?> clientIdMetadataDocumentsBlockImplicitlyAllowedClients}) get copyWith => _copyWith;
 
-  UpdateInstanceOAuthApplicationSettingsRequestBody _copyWith(
-          {Object? dynamicOauthClientRegistration = sdkOmittedValue,
-          Object? dynamicClientAllowedScopes = sdkOmittedValue,
-          Object? defaultScopes = sdkOmittedValue,
-          Object? oauthJwtAccessTokens = sdkOmittedValue,
-          Object? audClaimEnabled = sdkOmittedValue,
-          Object? audClaimRefreshBackfillEnabled = sdkOmittedValue,
-          Object? pkceRequired = sdkOmittedValue,
-          Object? clientIdMetadataDocumentsAdvertised = sdkOmittedValue,
-          Object? clientIdMetadataDocumentsOnlyAllowPreRegisteredClients =
-              sdkOmittedValue,
-          Object? clientIdMetadataDocumentsBlockImplicitlyAllowedClients =
-              sdkOmittedValue}) =>
-      UpdateInstanceOAuthApplicationSettingsRequestBody(
-        dynamicOauthClientRegistration:
-            identical(dynamicOauthClientRegistration, sdkOmittedValue)
-                ? this.dynamicOauthClientRegistration
-                : dynamicOauthClientRegistration as SdkOptional<bool?>,
-        dynamicClientAllowedScopes:
-            identical(dynamicClientAllowedScopes, sdkOmittedValue)
-                ? this.dynamicClientAllowedScopes
-                : dynamicClientAllowedScopes as SdkOptional<List<String>?>,
-        defaultScopes: identical(defaultScopes, sdkOmittedValue)
-            ? this.defaultScopes
-            : defaultScopes as SdkOptional<List<String>?>,
-        oauthJwtAccessTokens: identical(oauthJwtAccessTokens, sdkOmittedValue)
-            ? this.oauthJwtAccessTokens
-            : oauthJwtAccessTokens as SdkOptional<bool?>,
-        audClaimEnabled: identical(audClaimEnabled, sdkOmittedValue)
-            ? this.audClaimEnabled
-            : audClaimEnabled as SdkOptional<bool?>,
-        audClaimRefreshBackfillEnabled:
-            identical(audClaimRefreshBackfillEnabled, sdkOmittedValue)
-                ? this.audClaimRefreshBackfillEnabled
-                : audClaimRefreshBackfillEnabled as SdkOptional<bool?>,
-        pkceRequired: identical(pkceRequired, sdkOmittedValue)
-            ? this.pkceRequired
-            : pkceRequired as SdkOptional<bool?>,
-        clientIdMetadataDocumentsAdvertised:
-            identical(clientIdMetadataDocumentsAdvertised, sdkOmittedValue)
-                ? this.clientIdMetadataDocumentsAdvertised
-                : clientIdMetadataDocumentsAdvertised as SdkOptional<bool?>,
-        clientIdMetadataDocumentsOnlyAllowPreRegisteredClients: identical(
-                clientIdMetadataDocumentsOnlyAllowPreRegisteredClients,
-                sdkOmittedValue)
-            ? this.clientIdMetadataDocumentsOnlyAllowPreRegisteredClients
-            : clientIdMetadataDocumentsOnlyAllowPreRegisteredClients
-                as SdkOptional<bool?>,
-        clientIdMetadataDocumentsBlockImplicitlyAllowedClients: identical(
-                clientIdMetadataDocumentsBlockImplicitlyAllowedClients,
-                sdkOmittedValue)
-            ? this.clientIdMetadataDocumentsBlockImplicitlyAllowedClients
-            : clientIdMetadataDocumentsBlockImplicitlyAllowedClients
-                as SdkOptional<bool?>,
-      );
+  UpdateInstanceOAuthApplicationSettingsRequestBody _copyWith({Object? dynamicOauthClientRegistration = sdkOmittedValue, Object? dynamicClientAllowedScopes = sdkOmittedValue, Object? defaultScopes = sdkOmittedValue, Object? oauthJwtAccessTokens = sdkOmittedValue, Object? audClaimEnabled = sdkOmittedValue, Object? audClaimRefreshBackfillEnabled = sdkOmittedValue, Object? pkceRequired = sdkOmittedValue, Object? clientIdMetadataDocumentsAdvertised = sdkOmittedValue, Object? clientIdMetadataDocumentsOnlyAllowPreRegisteredClients = sdkOmittedValue, Object? clientIdMetadataDocumentsBlockImplicitlyAllowedClients = sdkOmittedValue}) => UpdateInstanceOAuthApplicationSettingsRequestBody(
+    dynamicOauthClientRegistration: identical(dynamicOauthClientRegistration, sdkOmittedValue) ? this.dynamicOauthClientRegistration : dynamicOauthClientRegistration as SdkOptional<bool?>,
+    dynamicClientAllowedScopes: identical(dynamicClientAllowedScopes, sdkOmittedValue) ? this.dynamicClientAllowedScopes : dynamicClientAllowedScopes as SdkOptional<List<String>?>,
+    defaultScopes: identical(defaultScopes, sdkOmittedValue) ? this.defaultScopes : defaultScopes as SdkOptional<List<String>?>,
+    oauthJwtAccessTokens: identical(oauthJwtAccessTokens, sdkOmittedValue) ? this.oauthJwtAccessTokens : oauthJwtAccessTokens as SdkOptional<bool?>,
+    audClaimEnabled: identical(audClaimEnabled, sdkOmittedValue) ? this.audClaimEnabled : audClaimEnabled as SdkOptional<bool?>,
+    audClaimRefreshBackfillEnabled: identical(audClaimRefreshBackfillEnabled, sdkOmittedValue) ? this.audClaimRefreshBackfillEnabled : audClaimRefreshBackfillEnabled as SdkOptional<bool?>,
+    pkceRequired: identical(pkceRequired, sdkOmittedValue) ? this.pkceRequired : pkceRequired as SdkOptional<bool?>,
+    clientIdMetadataDocumentsAdvertised: identical(clientIdMetadataDocumentsAdvertised, sdkOmittedValue) ? this.clientIdMetadataDocumentsAdvertised : clientIdMetadataDocumentsAdvertised as SdkOptional<bool?>,
+    clientIdMetadataDocumentsOnlyAllowPreRegisteredClients: identical(clientIdMetadataDocumentsOnlyAllowPreRegisteredClients, sdkOmittedValue) ? this.clientIdMetadataDocumentsOnlyAllowPreRegisteredClients : clientIdMetadataDocumentsOnlyAllowPreRegisteredClients as SdkOptional<bool?>,
+    clientIdMetadataDocumentsBlockImplicitlyAllowedClients: identical(clientIdMetadataDocumentsBlockImplicitlyAllowedClients, sdkOmittedValue) ? this.clientIdMetadataDocumentsBlockImplicitlyAllowedClients : clientIdMetadataDocumentsBlockImplicitlyAllowedClients as SdkOptional<bool?>,
+  );
 
-  factory UpdateInstanceOAuthApplicationSettingsRequestBody.fromJson(
-          Map<String, dynamic> json) =>
-      UpdateInstanceOAuthApplicationSettingsRequestBody(
-        dynamicOauthClientRegistration:
-            json.containsKey('dynamic_oauth_client_registration')
-                ? SdkPresent(json['dynamic_oauth_client_registration'] as bool?)
-                : const SdkOmitted(),
-        dynamicClientAllowedScopes:
-            json.containsKey('dynamic_client_allowed_scopes')
-                ? SdkPresent((json['dynamic_client_allowed_scopes'] as List?)
-                    ?.map((e) => e as String)
-                    .toList())
-                : const SdkOmitted(),
-        defaultScopes: json.containsKey('default_scopes')
-            ? SdkPresent((json['default_scopes'] as List?)
-                ?.map((e) => e as String)
-                .toList())
-            : const SdkOmitted(),
-        oauthJwtAccessTokens: json.containsKey('oauth_jwt_access_tokens')
-            ? SdkPresent(json['oauth_jwt_access_tokens'] as bool?)
-            : const SdkOmitted(),
-        audClaimEnabled: json.containsKey('aud_claim_enabled')
-            ? SdkPresent(json['aud_claim_enabled'] as bool?)
-            : const SdkOmitted(),
-        audClaimRefreshBackfillEnabled: json
-                .containsKey('aud_claim_refresh_backfill_enabled')
-            ? SdkPresent(json['aud_claim_refresh_backfill_enabled'] as bool?)
-            : const SdkOmitted(),
-        pkceRequired: json.containsKey('pkce_required')
-            ? SdkPresent(json['pkce_required'] as bool?)
-            : const SdkOmitted(),
-        clientIdMetadataDocumentsAdvertised:
-            json.containsKey('client_id_metadata_documents_advertised')
-                ? SdkPresent(
-                    json['client_id_metadata_documents_advertised'] as bool?)
-                : const SdkOmitted(),
-        clientIdMetadataDocumentsOnlyAllowPreRegisteredClients: json.containsKey(
-                'client_id_metadata_documents_only_allow_pre_registered_clients')
-            ? SdkPresent(json[
-                    'client_id_metadata_documents_only_allow_pre_registered_clients']
-                as bool?)
-            : const SdkOmitted(),
-        clientIdMetadataDocumentsBlockImplicitlyAllowedClients: json.containsKey(
-                'client_id_metadata_documents_block_implicitly_allowed_clients')
-            ? SdkPresent(json[
-                    'client_id_metadata_documents_block_implicitly_allowed_clients']
-                as bool?)
-            : const SdkOmitted(),
-      );
+  factory UpdateInstanceOAuthApplicationSettingsRequestBody.fromJson(Map<String, dynamic> json) => UpdateInstanceOAuthApplicationSettingsRequestBody(
+    dynamicOauthClientRegistration: json.containsKey('dynamic_oauth_client_registration') ? SdkPresent(json['dynamic_oauth_client_registration'] as bool?) : const SdkOmitted(),
+    dynamicClientAllowedScopes: json.containsKey('dynamic_client_allowed_scopes') ? SdkPresent((json['dynamic_client_allowed_scopes'] as List?)?.map((e) => e as String).toList()) : const SdkOmitted(),
+    defaultScopes: json.containsKey('default_scopes') ? SdkPresent((json['default_scopes'] as List?)?.map((e) => e as String).toList()) : const SdkOmitted(),
+    oauthJwtAccessTokens: json.containsKey('oauth_jwt_access_tokens') ? SdkPresent(json['oauth_jwt_access_tokens'] as bool?) : const SdkOmitted(),
+    audClaimEnabled: json.containsKey('aud_claim_enabled') ? SdkPresent(json['aud_claim_enabled'] as bool?) : const SdkOmitted(),
+    audClaimRefreshBackfillEnabled: json.containsKey('aud_claim_refresh_backfill_enabled') ? SdkPresent(json['aud_claim_refresh_backfill_enabled'] as bool?) : const SdkOmitted(),
+    pkceRequired: json.containsKey('pkce_required') ? SdkPresent(json['pkce_required'] as bool?) : const SdkOmitted(),
+    clientIdMetadataDocumentsAdvertised: json.containsKey('client_id_metadata_documents_advertised') ? SdkPresent(json['client_id_metadata_documents_advertised'] as bool?) : const SdkOmitted(),
+    clientIdMetadataDocumentsOnlyAllowPreRegisteredClients: json.containsKey('client_id_metadata_documents_only_allow_pre_registered_clients') ? SdkPresent(json['client_id_metadata_documents_only_allow_pre_registered_clients'] as bool?) : const SdkOmitted(),
+    clientIdMetadataDocumentsBlockImplicitlyAllowedClients: json.containsKey('client_id_metadata_documents_block_implicitly_allowed_clients') ? SdkPresent(json['client_id_metadata_documents_block_implicitly_allowed_clients'] as bool?) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (dynamicOauthClientRegistration) {
-          SdkPresent<bool?>(value: final value) => {
-              'dynamic_oauth_client_registration': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (dynamicClientAllowedScopes) {
-          SdkPresent<List<String>?>(value: final value) => {
-              'dynamic_client_allowed_scopes': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (defaultScopes) {
-          SdkPresent<List<String>?>(value: final value) => {
-              'default_scopes': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (oauthJwtAccessTokens) {
-          SdkPresent<bool?>(value: final value) => {
-              'oauth_jwt_access_tokens': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (audClaimEnabled) {
-          SdkPresent<bool?>(value: final value) => {
-              'aud_claim_enabled': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (audClaimRefreshBackfillEnabled) {
-          SdkPresent<bool?>(value: final value) => {
-              'aud_claim_refresh_backfill_enabled': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (pkceRequired) {
-          SdkPresent<bool?>(value: final value) => {
-              'pkce_required': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (clientIdMetadataDocumentsAdvertised) {
-          SdkPresent<bool?>(value: final value) => {
-              'client_id_metadata_documents_advertised': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (clientIdMetadataDocumentsOnlyAllowPreRegisteredClients) {
-          SdkPresent<bool?>(value: final value) => {
-              'client_id_metadata_documents_only_allow_pre_registered_clients':
-                  value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (clientIdMetadataDocumentsBlockImplicitlyAllowedClients) {
-          SdkPresent<bool?>(value: final value) => {
-              'client_id_metadata_documents_block_implicitly_allowed_clients':
-                  value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (dynamicOauthClientRegistration) {
+      SdkPresent<bool?>(value: final value) => {'dynamic_oauth_client_registration': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (dynamicClientAllowedScopes) {
+      SdkPresent<List<String>?>(value: final value) => {'dynamic_client_allowed_scopes': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (defaultScopes) {
+      SdkPresent<List<String>?>(value: final value) => {'default_scopes': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (oauthJwtAccessTokens) {
+      SdkPresent<bool?>(value: final value) => {'oauth_jwt_access_tokens': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (audClaimEnabled) {
+      SdkPresent<bool?>(value: final value) => {'aud_claim_enabled': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (audClaimRefreshBackfillEnabled) {
+      SdkPresent<bool?>(value: final value) => {'aud_claim_refresh_backfill_enabled': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (pkceRequired) {
+      SdkPresent<bool?>(value: final value) => {'pkce_required': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (clientIdMetadataDocumentsAdvertised) {
+      SdkPresent<bool?>(value: final value) => {'client_id_metadata_documents_advertised': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (clientIdMetadataDocumentsOnlyAllowPreRegisteredClients) {
+      SdkPresent<bool?>(value: final value) => {'client_id_metadata_documents_only_allow_pre_registered_clients': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (clientIdMetadataDocumentsBlockImplicitlyAllowedClients) {
+      SdkPresent<bool?>(value: final value) => {'client_id_metadata_documents_block_implicitly_allowed_clients': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 class UpdateInstanceOrganizationSettingsRequestBody {
@@ -248,284 +110,139 @@ class UpdateInstanceOrganizationSettingsRequestBody {
   final SdkOptional<bool?> adminDeleteEnabled;
   final SdkOptional<bool?> domainsEnabled;
   final SdkOptional<bool?> slugDisabled;
-
   /// Specify which enrollment modes to enable for your Organization Domains. Supported modes are 'automatic_invitation' & 'automatic_suggestion'.
   final SdkOptional<List<String>> domainsEnrollmentModes;
-
   /// Specify what the default organization role is for an organization creator.
   final SdkOptional<String?> creatorRoleId;
-
   /// Specify what the default organization role is for the organization domains.
   final SdkOptional<String?> domainsDefaultRoleId;
 
-  const UpdateInstanceOrganizationSettingsRequestBody(
-      {this.enabled = const SdkOmitted(),
-      this.maxAllowedMemberships = const SdkOmitted(),
-      this.adminDeleteEnabled = const SdkOmitted(),
-      this.domainsEnabled = const SdkOmitted(),
-      this.slugDisabled = const SdkOmitted(),
-      this.domainsEnrollmentModes = const SdkOmitted(),
-      this.creatorRoleId = const SdkOmitted(),
-      this.domainsDefaultRoleId = const SdkOmitted()});
+  const UpdateInstanceOrganizationSettingsRequestBody({this.enabled = const SdkOmitted(), this.maxAllowedMemberships = const SdkOmitted(), this.adminDeleteEnabled = const SdkOmitted(), this.domainsEnabled = const SdkOmitted(), this.slugDisabled = const SdkOmitted(), this.domainsEnrollmentModes = const SdkOmitted(), this.creatorRoleId = const SdkOmitted(), this.domainsDefaultRoleId = const SdkOmitted()});
 
-  UpdateInstanceOrganizationSettingsRequestBody Function(
-      {SdkOptional<bool?> enabled,
-      SdkOptional<int?> maxAllowedMemberships,
-      SdkOptional<bool?> adminDeleteEnabled,
-      SdkOptional<bool?> domainsEnabled,
-      SdkOptional<bool?> slugDisabled,
-      SdkOptional<List<String>> domainsEnrollmentModes,
-      SdkOptional<String?> creatorRoleId,
-      SdkOptional<String?> domainsDefaultRoleId}) get copyWith => _copyWith;
+  UpdateInstanceOrganizationSettingsRequestBody Function({SdkOptional<bool?> enabled, SdkOptional<int?> maxAllowedMemberships, SdkOptional<bool?> adminDeleteEnabled, SdkOptional<bool?> domainsEnabled, SdkOptional<bool?> slugDisabled, SdkOptional<List<String>> domainsEnrollmentModes, SdkOptional<String?> creatorRoleId, SdkOptional<String?> domainsDefaultRoleId}) get copyWith => _copyWith;
 
-  UpdateInstanceOrganizationSettingsRequestBody _copyWith(
-          {Object? enabled = sdkOmittedValue,
-          Object? maxAllowedMemberships = sdkOmittedValue,
-          Object? adminDeleteEnabled = sdkOmittedValue,
-          Object? domainsEnabled = sdkOmittedValue,
-          Object? slugDisabled = sdkOmittedValue,
-          Object? domainsEnrollmentModes = sdkOmittedValue,
-          Object? creatorRoleId = sdkOmittedValue,
-          Object? domainsDefaultRoleId = sdkOmittedValue}) =>
-      UpdateInstanceOrganizationSettingsRequestBody(
-        enabled: identical(enabled, sdkOmittedValue)
-            ? this.enabled
-            : enabled as SdkOptional<bool?>,
-        maxAllowedMemberships: identical(maxAllowedMemberships, sdkOmittedValue)
-            ? this.maxAllowedMemberships
-            : maxAllowedMemberships as SdkOptional<int?>,
-        adminDeleteEnabled: identical(adminDeleteEnabled, sdkOmittedValue)
-            ? this.adminDeleteEnabled
-            : adminDeleteEnabled as SdkOptional<bool?>,
-        domainsEnabled: identical(domainsEnabled, sdkOmittedValue)
-            ? this.domainsEnabled
-            : domainsEnabled as SdkOptional<bool?>,
-        slugDisabled: identical(slugDisabled, sdkOmittedValue)
-            ? this.slugDisabled
-            : slugDisabled as SdkOptional<bool?>,
-        domainsEnrollmentModes:
-            identical(domainsEnrollmentModes, sdkOmittedValue)
-                ? this.domainsEnrollmentModes
-                : domainsEnrollmentModes as SdkOptional<List<String>>,
-        creatorRoleId: identical(creatorRoleId, sdkOmittedValue)
-            ? this.creatorRoleId
-            : creatorRoleId as SdkOptional<String?>,
-        domainsDefaultRoleId: identical(domainsDefaultRoleId, sdkOmittedValue)
-            ? this.domainsDefaultRoleId
-            : domainsDefaultRoleId as SdkOptional<String?>,
-      );
+  UpdateInstanceOrganizationSettingsRequestBody _copyWith({Object? enabled = sdkOmittedValue, Object? maxAllowedMemberships = sdkOmittedValue, Object? adminDeleteEnabled = sdkOmittedValue, Object? domainsEnabled = sdkOmittedValue, Object? slugDisabled = sdkOmittedValue, Object? domainsEnrollmentModes = sdkOmittedValue, Object? creatorRoleId = sdkOmittedValue, Object? domainsDefaultRoleId = sdkOmittedValue}) => UpdateInstanceOrganizationSettingsRequestBody(
+    enabled: identical(enabled, sdkOmittedValue) ? this.enabled : enabled as SdkOptional<bool?>,
+    maxAllowedMemberships: identical(maxAllowedMemberships, sdkOmittedValue) ? this.maxAllowedMemberships : maxAllowedMemberships as SdkOptional<int?>,
+    adminDeleteEnabled: identical(adminDeleteEnabled, sdkOmittedValue) ? this.adminDeleteEnabled : adminDeleteEnabled as SdkOptional<bool?>,
+    domainsEnabled: identical(domainsEnabled, sdkOmittedValue) ? this.domainsEnabled : domainsEnabled as SdkOptional<bool?>,
+    slugDisabled: identical(slugDisabled, sdkOmittedValue) ? this.slugDisabled : slugDisabled as SdkOptional<bool?>,
+    domainsEnrollmentModes: identical(domainsEnrollmentModes, sdkOmittedValue) ? this.domainsEnrollmentModes : domainsEnrollmentModes as SdkOptional<List<String>>,
+    creatorRoleId: identical(creatorRoleId, sdkOmittedValue) ? this.creatorRoleId : creatorRoleId as SdkOptional<String?>,
+    domainsDefaultRoleId: identical(domainsDefaultRoleId, sdkOmittedValue) ? this.domainsDefaultRoleId : domainsDefaultRoleId as SdkOptional<String?>,
+  );
 
-  factory UpdateInstanceOrganizationSettingsRequestBody.fromJson(
-          Map<String, dynamic> json) =>
-      UpdateInstanceOrganizationSettingsRequestBody(
-        enabled: json.containsKey('enabled')
-            ? SdkPresent(json['enabled'] as bool?)
-            : const SdkOmitted(),
-        maxAllowedMemberships: json.containsKey('max_allowed_memberships')
-            ? SdkPresent((json['max_allowed_memberships'] as num?)?.toInt())
-            : const SdkOmitted(),
-        adminDeleteEnabled: json.containsKey('admin_delete_enabled')
-            ? SdkPresent(json['admin_delete_enabled'] as bool?)
-            : const SdkOmitted(),
-        domainsEnabled: json.containsKey('domains_enabled')
-            ? SdkPresent(json['domains_enabled'] as bool?)
-            : const SdkOmitted(),
-        slugDisabled: json.containsKey('slug_disabled')
-            ? SdkPresent(json['slug_disabled'] as bool?)
-            : const SdkOmitted(),
-        domainsEnrollmentModes: json['domains_enrollment_modes'] != null
-            ? SdkPresent(((json['domains_enrollment_modes'] as List?)
-                ?.map((e) => e as String)
-                .toList())!)
-            : const SdkOmitted(),
-        creatorRoleId: json.containsKey('creator_role_id')
-            ? SdkPresent(json['creator_role_id'] as String?)
-            : const SdkOmitted(),
-        domainsDefaultRoleId: json.containsKey('domains_default_role_id')
-            ? SdkPresent(json['domains_default_role_id'] as String?)
-            : const SdkOmitted(),
-      );
+  factory UpdateInstanceOrganizationSettingsRequestBody.fromJson(Map<String, dynamic> json) => UpdateInstanceOrganizationSettingsRequestBody(
+    enabled: json.containsKey('enabled') ? SdkPresent(json['enabled'] as bool?) : const SdkOmitted(),
+    maxAllowedMemberships: json.containsKey('max_allowed_memberships') ? SdkPresent((json['max_allowed_memberships'] as num?)?.toInt()) : const SdkOmitted(),
+    adminDeleteEnabled: json.containsKey('admin_delete_enabled') ? SdkPresent(json['admin_delete_enabled'] as bool?) : const SdkOmitted(),
+    domainsEnabled: json.containsKey('domains_enabled') ? SdkPresent(json['domains_enabled'] as bool?) : const SdkOmitted(),
+    slugDisabled: json.containsKey('slug_disabled') ? SdkPresent(json['slug_disabled'] as bool?) : const SdkOmitted(),
+    domainsEnrollmentModes: json['domains_enrollment_modes'] != null ? SdkPresent(((json['domains_enrollment_modes'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
+    creatorRoleId: json.containsKey('creator_role_id') ? SdkPresent(json['creator_role_id'] as String?) : const SdkOmitted(),
+    domainsDefaultRoleId: json.containsKey('domains_default_role_id') ? SdkPresent(json['domains_default_role_id'] as String?) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (enabled) {
-          SdkPresent<bool?>(value: final value) => {
-              'enabled': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (maxAllowedMemberships) {
-          SdkPresent<int?>(value: final value) => {
-              'max_allowed_memberships': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (adminDeleteEnabled) {
-          SdkPresent<bool?>(value: final value) => {
-              'admin_delete_enabled': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (domainsEnabled) {
-          SdkPresent<bool?>(value: final value) => {
-              'domains_enabled': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (slugDisabled) {
-          SdkPresent<bool?>(value: final value) => {
-              'slug_disabled': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (domainsEnrollmentModes) {
-          SdkPresent<List<String>>(value: final value) => {
-              'domains_enrollment_modes': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (creatorRoleId) {
-          SdkPresent<String?>(value: final value) => {
-              'creator_role_id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (domainsDefaultRoleId) {
-          SdkPresent<String?>(value: final value) => {
-              'domains_default_role_id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (enabled) {
+      SdkPresent<bool?>(value: final value) => {'enabled': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (maxAllowedMemberships) {
+      SdkPresent<int?>(value: final value) => {'max_allowed_memberships': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (adminDeleteEnabled) {
+      SdkPresent<bool?>(value: final value) => {'admin_delete_enabled': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (domainsEnabled) {
+      SdkPresent<bool?>(value: final value) => {'domains_enabled': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (slugDisabled) {
+      SdkPresent<bool?>(value: final value) => {'slug_disabled': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (domainsEnrollmentModes) {
+      SdkPresent<List<String>>(value: final value) => {'domains_enrollment_modes': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (creatorRoleId) {
+      SdkPresent<String?>(value: final value) => {'creator_role_id': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (domainsDefaultRoleId) {
+      SdkPresent<String?>(value: final value) => {'domains_default_role_id': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 class CreateJWTTemplateRequestBody {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// JWT template name
   final String name;
-
   /// JWT template claims in JSON format
   final Map<String, dynamic> claims;
-
   /// JWT lifetime
   final SdkOptional<int?> lifetime;
-
   /// JWT allowed clock skew
   final SdkOptional<int?> allowedClockSkew;
-
   /// Whether a custom signing key/algorithm is also provided for this template
   final SdkOptional<bool> customSigningKey;
-
   /// The custom signing algorithm to use when minting JWTs. Required if `custom_signing_key` is `true`.
   final SdkOptional<String?> signingAlgorithm;
-
   /// The custom signing private key to use when minting JWTs. Required if `custom_signing_key` is `true`.
   final SdkOptional<String?> signingKey;
 
-  const CreateJWTTemplateRequestBody(
-      {required this.name,
-      required this.claims,
-      this.lifetime = const SdkOmitted(),
-      this.allowedClockSkew = const SdkOmitted(),
-      this.customSigningKey = const SdkOmitted(),
-      this.signingAlgorithm = const SdkOmitted(),
-      this.signingKey = const SdkOmitted()});
+  const CreateJWTTemplateRequestBody({required this.name, required this.claims, this.lifetime = const SdkOmitted(), this.allowedClockSkew = const SdkOmitted(), this.customSigningKey = const SdkOmitted(), this.signingAlgorithm = const SdkOmitted(), this.signingKey = const SdkOmitted()});
 
-  CreateJWTTemplateRequestBody Function(
-      {String name,
-      Map<String, dynamic> claims,
-      SdkOptional<int?> lifetime,
-      SdkOptional<int?> allowedClockSkew,
-      SdkOptional<bool> customSigningKey,
-      SdkOptional<String?> signingAlgorithm,
-      SdkOptional<String?> signingKey}) get copyWith => _copyWith;
+  CreateJWTTemplateRequestBody Function({String name, Map<String, dynamic> claims, SdkOptional<int?> lifetime, SdkOptional<int?> allowedClockSkew, SdkOptional<bool> customSigningKey, SdkOptional<String?> signingAlgorithm, SdkOptional<String?> signingKey}) get copyWith => _copyWith;
 
-  CreateJWTTemplateRequestBody _copyWith(
-          {Object? name = sdkOmittedValue,
-          Object? claims = sdkOmittedValue,
-          Object? lifetime = sdkOmittedValue,
-          Object? allowedClockSkew = sdkOmittedValue,
-          Object? customSigningKey = sdkOmittedValue,
-          Object? signingAlgorithm = sdkOmittedValue,
-          Object? signingKey = sdkOmittedValue}) =>
-      CreateJWTTemplateRequestBody(
-        name: identical(name, sdkOmittedValue) ? this.name : name as String,
-        claims: identical(claims, sdkOmittedValue)
-            ? this.claims
-            : claims as Map<String, dynamic>,
-        lifetime: identical(lifetime, sdkOmittedValue)
-            ? this.lifetime
-            : lifetime as SdkOptional<int?>,
-        allowedClockSkew: identical(allowedClockSkew, sdkOmittedValue)
-            ? this.allowedClockSkew
-            : allowedClockSkew as SdkOptional<int?>,
-        customSigningKey: identical(customSigningKey, sdkOmittedValue)
-            ? this.customSigningKey
-            : customSigningKey as SdkOptional<bool>,
-        signingAlgorithm: identical(signingAlgorithm, sdkOmittedValue)
-            ? this.signingAlgorithm
-            : signingAlgorithm as SdkOptional<String?>,
-        signingKey: identical(signingKey, sdkOmittedValue)
-            ? this.signingKey
-            : signingKey as SdkOptional<String?>,
-      );
+  CreateJWTTemplateRequestBody _copyWith({Object? name = sdkOmittedValue, Object? claims = sdkOmittedValue, Object? lifetime = sdkOmittedValue, Object? allowedClockSkew = sdkOmittedValue, Object? customSigningKey = sdkOmittedValue, Object? signingAlgorithm = sdkOmittedValue, Object? signingKey = sdkOmittedValue}) => CreateJWTTemplateRequestBody(
+    name: identical(name, sdkOmittedValue) ? this.name : name as String,
+    claims: identical(claims, sdkOmittedValue) ? this.claims : claims as Map<String, dynamic>,
+    lifetime: identical(lifetime, sdkOmittedValue) ? this.lifetime : lifetime as SdkOptional<int?>,
+    allowedClockSkew: identical(allowedClockSkew, sdkOmittedValue) ? this.allowedClockSkew : allowedClockSkew as SdkOptional<int?>,
+    customSigningKey: identical(customSigningKey, sdkOmittedValue) ? this.customSigningKey : customSigningKey as SdkOptional<bool>,
+    signingAlgorithm: identical(signingAlgorithm, sdkOmittedValue) ? this.signingAlgorithm : signingAlgorithm as SdkOptional<String?>,
+    signingKey: identical(signingKey, sdkOmittedValue) ? this.signingKey : signingKey as SdkOptional<String?>,
+  );
 
-  factory CreateJWTTemplateRequestBody.fromJson(Map<String, dynamic> json) =>
-      CreateJWTTemplateRequestBody(
-        name: (json['name'] as String?)!,
-        claims: (json['claims'] == null
-            ? null
-            : json['claims'] as Map<String, dynamic>)!,
-        lifetime: json.containsKey('lifetime')
-            ? SdkPresent((json['lifetime'] as num?)?.toInt())
-            : const SdkOmitted(),
-        allowedClockSkew: json.containsKey('allowed_clock_skew')
-            ? SdkPresent((json['allowed_clock_skew'] as num?)?.toInt())
-            : const SdkOmitted(),
-        customSigningKey: json['custom_signing_key'] != null
-            ? SdkPresent((json['custom_signing_key'] as bool?)!)
-            : const SdkOmitted(),
-        signingAlgorithm: json.containsKey('signing_algorithm')
-            ? SdkPresent(json['signing_algorithm'] as String?)
-            : const SdkOmitted(),
-        signingKey: json.containsKey('signing_key')
-            ? SdkPresent(json['signing_key'] as String?)
-            : const SdkOmitted(),
-      );
+  factory CreateJWTTemplateRequestBody.fromJson(Map<String, dynamic> json) => CreateJWTTemplateRequestBody(
+    name: (json['name'] as String?)!,
+    claims: (json['claims'] == null ? null : json['claims'] as Map<String, dynamic>)!,
+    lifetime: json.containsKey('lifetime') ? SdkPresent((json['lifetime'] as num?)?.toInt()) : const SdkOmitted(),
+    allowedClockSkew: json.containsKey('allowed_clock_skew') ? SdkPresent((json['allowed_clock_skew'] as num?)?.toInt()) : const SdkOmitted(),
+    customSigningKey: json['custom_signing_key'] != null ? SdkPresent((json['custom_signing_key'] as bool?)!) : const SdkOmitted(),
+    signingAlgorithm: json.containsKey('signing_algorithm') ? SdkPresent(json['signing_algorithm'] as String?) : const SdkOmitted(),
+    signingKey: json.containsKey('signing_key') ? SdkPresent(json['signing_key'] as String?) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        'name': name,
-        'claims': claims,
-        ...switch (lifetime) {
-          SdkPresent<int?>(value: final value) => {
-              'lifetime': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (allowedClockSkew) {
-          SdkPresent<int?>(value: final value) => {
-              'allowed_clock_skew': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (customSigningKey) {
-          SdkPresent<bool>(value: final value) => {
-              'custom_signing_key': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (signingAlgorithm) {
-          SdkPresent<String?>(value: final value) => {
-              'signing_algorithm': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (signingKey) {
-          SdkPresent<String?>(value: final value) => {
-              'signing_key': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    'name': name,
+    'claims': claims,
+    ...switch (lifetime) {
+      SdkPresent<int?>(value: final value) => {'lifetime': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (allowedClockSkew) {
+      SdkPresent<int?>(value: final value) => {'allowed_clock_skew': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (customSigningKey) {
+      SdkPresent<bool>(value: final value) => {'custom_signing_key': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (signingAlgorithm) {
+      SdkPresent<String?>(value: final value) => {'signing_algorithm': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (signingKey) {
+      SdkPresent<String?>(value: final value) => {'signing_key': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

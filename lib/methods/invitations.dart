@@ -35,8 +35,7 @@ Future<Invitation> createInvitation(ClientConfig config,
     SdkOptional<bool?> notify = const SdkOmitted(),
     SdkOptional<bool?> ignoreExisting = const SdkOmitted(),
     SdkOptional<int?> expiresInDays = const SdkOmitted(),
-    SdkOptional<CreateInvitationRequestBodyTemplateSlug> templateSlug =
-        const SdkOmitted(),
+    SdkOptional<CreateInvitationRequestBodyTemplateSlug> templateSlug = const SdkOmitted(),
     RequestOptions? requestOptions}) async {
   if (expiresInDays is SdkPresent<int?>) {
     final expiresInDaysValue = expiresInDays.value;
@@ -58,17 +57,12 @@ Future<Invitation> createInvitation(ClientConfig config,
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'createInvitation',
-          fromJsonRaw: (value) =>
-              Invitation.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => Invitation.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '400': (value) =>
-                ClerkErrors.fromJson(value as Map<String, dynamic>),
-            '422': (value) =>
-                ClerkErrors.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'400': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '422': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Returns all non-revoked invitations for your application, sorted by creation date
 ///
@@ -105,34 +99,26 @@ Future<List<Invitation>> listInvitations(ClientConfig config,
   return (await sdkRequest<List<Invitation>>('GET', '/invitations',
           config: config,
           query: {
-            'status': SdkQueryValue(SdkUtils.unwrapOptional(status),
-                style: 'form', explode: true),
-            'query': SdkQueryValue(SdkUtils.unwrapOptional(query),
-                style: 'form', explode: true),
-            'order_by': SdkQueryValue(SdkUtils.unwrapOptional(orderBy),
-                style: 'form', explode: true),
-            'paginated': SdkQueryValue(SdkUtils.unwrapOptional(paginated),
-                style: 'form', explode: true),
-            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit),
-                style: 'form', explode: true),
-            'offset': SdkQueryValue(SdkUtils.unwrapOptional(offset),
-                style: 'form', explode: true)
+            'status': SdkQueryValue(SdkUtils.unwrapOptional(status), style: 'form', explode: true),
+            'query': SdkQueryValue(SdkUtils.unwrapOptional(query), style: 'form', explode: true),
+            'order_by': SdkQueryValue(SdkUtils.unwrapOptional(orderBy), style: 'form', explode: true),
+            'paginated': SdkQueryValue(SdkUtils.unwrapOptional(paginated), style: 'form', explode: true),
+            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit), style: 'form', explode: true),
+            'offset': SdkQueryValue(SdkUtils.unwrapOptional(offset), style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'listInvitations',
-          fromJsonRaw: (value) => (value as List)
-              .map((item) => Invitation.fromJson(item as Map<String, dynamic>))
-              .toList(),
+          fromJsonRaw: (value) => (value as List).map((item) => Invitation.fromJson(item as Map<String, dynamic>)).toList(),
           options: requestOptions))
       .data;
 }
+
 
 /// Creates multiple invitations for the supplied email addresses. Include an `email_address` in each item; set `ignore_existing` to allow an existing invitation, but you cannot invite an address associated with an existing user. Send at most 10 invitations per request, and use `notify` to control whether invitation emails are sent.
 ///
 /// Use this API operation to create multiple invitations for the provided email addresses. You can choose to send the invitations as emails by setting the `notify` parameter to `true`. There cannot be an existing invitation for any of the email addresses you provide unless you set `ignore_existing` to `true` for specific email addresses. Please note that there must be no existing user for any of the email addresses you provide, and this rule cannot be bypassed. This endpoint is limited to a maximum of 10 invitations per API call. If you need to send more invitations, please make multiple requests.
 Future<List<Invitation>> createBulkInvitations(ClientConfig config,
-    {SdkOptional<List<CreateBulkInvitationsRequestBodyItem>> body =
-        const SdkOmitted(),
+    {SdkOptional<List<CreateBulkInvitationsRequestBodyItem>> body = const SdkOmitted(),
     RequestOptions? requestOptions}) async {
   if (body is SdkPresent<List<CreateBulkInvitationsRequestBodyItem>>) {
     validateItems('body', body.value, min: 1, max: 10);
@@ -143,16 +129,12 @@ Future<List<Invitation>> createBulkInvitations(ClientConfig config,
           body: SdkUtils.unwrapOptional(body),
           decoder: SdkResponseDecoder.json,
           operationId: 'createBulkInvitations',
-          fromJsonRaw: (value) => (value as List)
-              .map((item) => Invitation.fromJson(item as Map<String, dynamic>))
-              .toList(),
+          fromJsonRaw: (value) => (value as List).map((item) => Invitation.fromJson(item as Map<String, dynamic>)).toList(),
           options: requestOptions,
-          errors: {
-        '400': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>),
-        '422': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'400': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '422': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Permanently deletes the given invitation and the copies of the invitation email Clerk stored for its recipient. Unlike revoking, deleting removes the invitation record itself, which helps honor a data erasure request from someone who was invited but never signed up. Other records that contain the same email address, such as users or organization invitations, are not affected. Invitations of any status can be deleted.
 ///
@@ -164,14 +146,12 @@ Future<DeletedObject> deleteInvitation(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'deleteInvitation',
-          fromJsonRaw: (value) =>
-              DeletedObject.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => DeletedObject.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-        '404': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'404': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Revokes the given invitation. Revoking an invitation will prevent the user from using the invitation link that was sent to them. However, it doesn't prevent the user from signing up if they follow the sign up flow. Only active (i.e. non-revoked) invitations can be revoked.
 ///
@@ -183,12 +163,8 @@ Future<InvitationRevoked> revokeInvitation(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'revokeInvitation',
-          fromJsonRaw: (value) =>
-              InvitationRevoked.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => InvitationRevoked.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-        '400': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>),
-        '404': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'400': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '404': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)}))
       .data;
 }

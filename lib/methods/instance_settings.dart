@@ -16,11 +16,11 @@ Future<Instance> getInstance(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'getInstance',
-          fromJsonRaw: (value) =>
-              Instance.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => Instance.fromJson(value as Map<String, dynamic>),
           options: requestOptions))
       .data;
 }
+
 
 /// Updates configurable settings for an instance, including browser origins, password breach checks, and sign-in preferences. Supply only the settings you want to change; `preferred_sign_in_strategy_when_password_required` accepts `password`, `otp`, or an empty string.
 ///
@@ -77,9 +77,7 @@ Future<void> updateInstance(ClientConfig config,
     SdkOptional<bool?> subdomainAllowlistEnabled = const SdkOmitted(),
     SdkOptional<bool?> cookielessDev = const SdkOmitted(),
     SdkOptional<bool?> urlBasedSessionSyncing = const SdkOmitted(),
-    SdkOptional<
-            UpdateInstanceRequestBodyPreferredSignInStrategyWhenPasswordRequired?>
-        preferredSignInStrategyWhenPasswordRequired = const SdkOmitted(),
+    SdkOptional<UpdateInstanceRequestBodyPreferredSignInStrategyWhenPasswordRequired?> preferredSignInStrategyWhenPasswordRequired = const SdkOmitted(),
     RequestOptions? requestOptions}) async {
   return (await sdkRequest<void>('PATCH', '/instance',
           config: config,
@@ -91,24 +89,18 @@ Future<void> updateInstance(ClientConfig config,
             'development_origin': SdkUtils.unwrapOptional(developmentOrigin),
             'allowed_origins': SdkUtils.unwrapOptional(allowedOrigins),
             'allowed_subdomains': SdkUtils.unwrapOptional(allowedSubdomains),
-            'subdomain_allowlist_enabled':
-                SdkUtils.unwrapOptional(subdomainAllowlistEnabled),
+            'subdomain_allowlist_enabled': SdkUtils.unwrapOptional(subdomainAllowlistEnabled),
             'cookieless_dev': SdkUtils.unwrapOptional(cookielessDev),
-            'url_based_session_syncing':
-                SdkUtils.unwrapOptional(urlBasedSessionSyncing),
-            'preferred_sign_in_strategy_when_password_required':
-                SdkUtils.unwrapOptional(
-                    preferredSignInStrategyWhenPasswordRequired)
+            'url_based_session_syncing': SdkUtils.unwrapOptional(urlBasedSessionSyncing),
+            'preferred_sign_in_strategy_when_password_required': SdkUtils.unwrapOptional(preferredSignInStrategyWhenPasswordRequired)
           },
           decoder: SdkResponseDecoder.empty,
           operationId: 'updateInstance',
           options: requestOptions,
-          errors: {
-            '422': (value) =>
-                ClerkErrors.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'422': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Updates the restriction settings that control allowlisting, blocklisting, and email address checks for an instance. Supply the boolean settings you want to change; the response contains the resulting restriction configuration.
 ///
@@ -126,26 +118,18 @@ Future<InstanceRestrictions> updateInstanceRestrictions(ClientConfig config,
           body: {
             'allowlist': SdkUtils.unwrapOptional(allowlist),
             'blocklist': SdkUtils.unwrapOptional(blocklist),
-            'allowlist_blocklist_disabled_on_sign_in':
-                SdkUtils.unwrapOptional(allowlistBlocklistDisabledOnSignIn),
-            'block_email_subaddresses':
-                SdkUtils.unwrapOptional(blockEmailSubaddresses),
-            'block_disposable_email_domains':
-                SdkUtils.unwrapOptional(blockDisposableEmailDomains)
+            'allowlist_blocklist_disabled_on_sign_in': SdkUtils.unwrapOptional(allowlistBlocklistDisabledOnSignIn),
+            'block_email_subaddresses': SdkUtils.unwrapOptional(blockEmailSubaddresses),
+            'block_disposable_email_domains': SdkUtils.unwrapOptional(blockDisposableEmailDomains)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'updateInstanceRestrictions',
-          fromJsonRaw: (value) =>
-              InstanceRestrictions.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => InstanceRestrictions.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '402': (value) =>
-                ClerkErrors.fromJson(value as Map<String, dynamic>),
-            '422': (value) =>
-                ClerkErrors.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'402': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '422': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Retrieves the Protect settings for the instance, including rule enforcement and prerequisite check status. Use `rules_enabled` to distinguish active enforcement from shadow evaluation, where rules are scored and recorded without blocking traffic.
 Future<InstanceProtect> getInstanceProtect(ClientConfig config,
@@ -154,11 +138,11 @@ Future<InstanceProtect> getInstanceProtect(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'getInstanceProtect',
-          fromJsonRaw: (value) =>
-              InstanceProtect.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => InstanceProtect.fromJson(value as Map<String, dynamic>),
           options: requestOptions))
       .data;
 }
+
 
 /// Updates whether Protect rules are enforced for the instance. Set `rules_enabled` to true to enforce rules or false to return to shadow evaluation, which continues scoring and recording rules without blocking traffic.
 ///
@@ -174,15 +158,12 @@ Future<InstanceProtect> updateInstanceProtect(ClientConfig config,
           body: {'rules_enabled': SdkUtils.unwrapOptional(rulesEnabled)},
           decoder: SdkResponseDecoder.json,
           operationId: 'updateInstanceProtect',
-          fromJsonRaw: (value) =>
-              InstanceProtect.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => InstanceProtect.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '422': (value) =>
-                ClerkErrors.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'422': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Retrieves the per-instance SMS communication settings, including the SMS country blocklist.
 Future<InstanceCommunication> getInstanceCommunication(ClientConfig config,
@@ -192,11 +173,11 @@ Future<InstanceCommunication> getInstanceCommunication(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'getInstanceCommunication',
-          fromJsonRaw: (value) =>
-              InstanceCommunication.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => InstanceCommunication.fromJson(value as Map<String, dynamic>),
           options: requestOptions))
       .data;
 }
+
 
 /// Replaces the SMS country blocklist for this instance. Pass the full set of ISO 3166-1 alpha-2 country codes that should be blocked; codes that aren't recognized as SMS-tier countries are silently dropped from the persisted list. Omitting `blocked_country_codes` is a no-op.
 ///
@@ -209,8 +190,7 @@ Future<InstanceCommunication> updateInstanceCommunication(ClientConfig config,
   if (blockedCountryCodes is SdkPresent<List<String>?>) {
     final blockedCountryCodesValue = blockedCountryCodes.value;
     if (blockedCountryCodesValue != null) {
-      validateItems('blocked_country_codes', blockedCountryCodesValue,
-          max: 250);
+      validateItems('blocked_country_codes', blockedCountryCodesValue, max: 250);
     }
   }
 
@@ -218,35 +198,30 @@ Future<InstanceCommunication> updateInstanceCommunication(ClientConfig config,
           'PATCH', '/instance/communication',
           config: config,
           body: {
-            'blocked_country_codes':
-                SdkUtils.unwrapOptional(blockedCountryCodes)
+            'blocked_country_codes': SdkUtils.unwrapOptional(blockedCountryCodes)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'updateInstanceCommunication',
-          fromJsonRaw: (value) =>
-              InstanceCommunication.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => InstanceCommunication.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '422': (value) =>
-                ClerkErrors.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'422': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
 
+
 /// Retrieves the settings for OAuth applications for the instance (dynamic client registration, JWT access tokens, etc.).
-Future<OAuthApplicationSettings> getInstanceOAuthApplicationSettings(
-    ClientConfig config,
+Future<OAuthApplicationSettings> getInstanceOAuthApplicationSettings(ClientConfig config,
     {RequestOptions? requestOptions}) async {
   return (await sdkRequest<OAuthApplicationSettings>(
           'GET', '/instance/oauth_application_settings',
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'getInstanceOAuthApplicationSettings',
-          fromJsonRaw: (value) =>
-              OAuthApplicationSettings.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => OAuthApplicationSettings.fromJson(value as Map<String, dynamic>),
           options: requestOptions))
       .data;
 }
+
 
 /// Updates the OAuth application settings for the instance.
 ///
@@ -280,76 +255,57 @@ Future<OAuthApplicationSettings> getInstanceOAuthApplicationSettings(
 ///   implicitly allowed CIMD clients are rejected on future client lookups.
 ///   Explicitly allowed clients remain accepted. This does not revoke previously
 ///   issued access tokens.
-Future<OAuthApplicationSettings> updateInstanceOAuthApplicationSettings(
-    ClientConfig config,
-    {SdkOptional<bool?> dynamicOauthClientRegistration = const SdkOmitted(),
-    SdkOptional<List<String>?> dynamicClientAllowedScopes = const SdkOmitted(),
-    SdkOptional<List<String>?> defaultScopes = const SdkOmitted(),
-    SdkOptional<bool?> oauthJwtAccessTokens = const SdkOmitted(),
-    SdkOptional<bool?> audClaimEnabled = const SdkOmitted(),
-    SdkOptional<bool?> audClaimRefreshBackfillEnabled = const SdkOmitted(),
-    SdkOptional<bool?> pkceRequired = const SdkOmitted(),
-    SdkOptional<bool?> clientIdMetadataDocumentsAdvertised = const SdkOmitted(),
-    SdkOptional<bool?> clientIdMetadataDocumentsOnlyAllowPreRegisteredClients =
-        const SdkOmitted(),
-    SdkOptional<bool?> clientIdMetadataDocumentsBlockImplicitlyAllowedClients =
-        const SdkOmitted(),
-    RequestOptions? requestOptions}) async {
+Future<OAuthApplicationSettings>
+    updateInstanceOAuthApplicationSettings(ClientConfig config,
+        {SdkOptional<bool?> dynamicOauthClientRegistration = const SdkOmitted(),
+        SdkOptional<List<String>?> dynamicClientAllowedScopes = const SdkOmitted(),
+        SdkOptional<List<String>?> defaultScopes = const SdkOmitted(),
+        SdkOptional<bool?> oauthJwtAccessTokens = const SdkOmitted(),
+        SdkOptional<bool?> audClaimEnabled = const SdkOmitted(),
+        SdkOptional<bool?> audClaimRefreshBackfillEnabled = const SdkOmitted(),
+        SdkOptional<bool?> pkceRequired = const SdkOmitted(),
+        SdkOptional<bool?> clientIdMetadataDocumentsAdvertised = const SdkOmitted(),
+        SdkOptional<bool?> clientIdMetadataDocumentsOnlyAllowPreRegisteredClients = const SdkOmitted(),
+        SdkOptional<bool?> clientIdMetadataDocumentsBlockImplicitlyAllowedClients = const SdkOmitted(),
+        RequestOptions? requestOptions}) async {
   return (await sdkRequest<OAuthApplicationSettings>(
           'PATCH', '/instance/oauth_application_settings',
           config: config,
           body: {
-            'dynamic_oauth_client_registration':
-                SdkUtils.unwrapOptional(dynamicOauthClientRegistration),
-            'dynamic_client_allowed_scopes':
-                SdkUtils.unwrapOptional(dynamicClientAllowedScopes),
+            'dynamic_oauth_client_registration': SdkUtils.unwrapOptional(dynamicOauthClientRegistration),
+            'dynamic_client_allowed_scopes': SdkUtils.unwrapOptional(dynamicClientAllowedScopes),
             'default_scopes': SdkUtils.unwrapOptional(defaultScopes),
-            'oauth_jwt_access_tokens':
-                SdkUtils.unwrapOptional(oauthJwtAccessTokens),
+            'oauth_jwt_access_tokens': SdkUtils.unwrapOptional(oauthJwtAccessTokens),
             'aud_claim_enabled': SdkUtils.unwrapOptional(audClaimEnabled),
-            'aud_claim_refresh_backfill_enabled':
-                SdkUtils.unwrapOptional(audClaimRefreshBackfillEnabled),
+            'aud_claim_refresh_backfill_enabled': SdkUtils.unwrapOptional(audClaimRefreshBackfillEnabled),
             'pkce_required': SdkUtils.unwrapOptional(pkceRequired),
-            'client_id_metadata_documents_advertised':
-                SdkUtils.unwrapOptional(clientIdMetadataDocumentsAdvertised),
-            'client_id_metadata_documents_only_allow_pre_registered_clients':
-                SdkUtils.unwrapOptional(
-                    clientIdMetadataDocumentsOnlyAllowPreRegisteredClients),
-            'client_id_metadata_documents_block_implicitly_allowed_clients':
-                SdkUtils.unwrapOptional(
-                    clientIdMetadataDocumentsBlockImplicitlyAllowedClients)
+            'client_id_metadata_documents_advertised': SdkUtils.unwrapOptional(clientIdMetadataDocumentsAdvertised),
+            'client_id_metadata_documents_only_allow_pre_registered_clients': SdkUtils.unwrapOptional(clientIdMetadataDocumentsOnlyAllowPreRegisteredClients),
+            'client_id_metadata_documents_block_implicitly_allowed_clients': SdkUtils.unwrapOptional(clientIdMetadataDocumentsBlockImplicitlyAllowedClients)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'updateInstanceOAuthApplicationSettings',
-          fromJsonRaw: (value) =>
-              OAuthApplicationSettings.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => OAuthApplicationSettings.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '422': (value) =>
-                ClerkErrors.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'422': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
 
+
 /// Retrieves the organization settings of the instance
-Future<OrganizationSettings> getInstanceOrganizationSettings(
-    ClientConfig config,
+Future<OrganizationSettings> getInstanceOrganizationSettings(ClientConfig config,
     {RequestOptions? requestOptions}) async {
   return (await sdkRequest<OrganizationSettings>(
           'GET', '/instance/organization_settings',
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'getInstanceOrganizationSettings',
-          fromJsonRaw: (value) =>
-              OrganizationSettings.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => OrganizationSettings.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-        '402': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>),
-        '404': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>),
-        '422': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'402': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '404': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '422': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Updates the organization settings for the instance. Use the available fields to configure organization creation, membership limits, deletion, and domain enrollment; `domains_enrollment_modes` supports automatic invitations and suggestions. The response returns the updated organization settings.
 ///
@@ -362,49 +318,34 @@ Future<OrganizationSettings> getInstanceOrganizationSettings(
 ///   organization creator.
 /// [domainsDefaultRoleId] Specify what the default organization role is for the
 ///   organization domains.
-Future<OrganizationSettings> updateInstanceOrganizationSettings(
-    ClientConfig config,
-    {SdkOptional<bool?> enabled = const SdkOmitted(),
-    SdkOptional<int?> maxAllowedMemberships = const SdkOmitted(),
-    SdkOptional<bool?> adminDeleteEnabled = const SdkOmitted(),
-    SdkOptional<bool?> domainsEnabled = const SdkOmitted(),
-    SdkOptional<bool?> slugDisabled = const SdkOmitted(),
-    SdkOptional<List<String>> domainsEnrollmentModes = const SdkOmitted(),
-    SdkOptional<String?> creatorRoleId = const SdkOmitted(),
-    SdkOptional<String?> domainsDefaultRoleId = const SdkOmitted(),
-    RequestOptions? requestOptions}) async {
+Future<OrganizationSettings>
+    updateInstanceOrganizationSettings(ClientConfig config,
+        {SdkOptional<bool?> enabled = const SdkOmitted(),
+        SdkOptional<int?> maxAllowedMemberships = const SdkOmitted(),
+        SdkOptional<bool?> adminDeleteEnabled = const SdkOmitted(),
+        SdkOptional<bool?> domainsEnabled = const SdkOmitted(),
+        SdkOptional<bool?> slugDisabled = const SdkOmitted(),
+        SdkOptional<List<String>> domainsEnrollmentModes = const SdkOmitted(),
+        SdkOptional<String?> creatorRoleId = const SdkOmitted(),
+        SdkOptional<String?> domainsDefaultRoleId = const SdkOmitted(),
+        RequestOptions? requestOptions}) async {
   return (await sdkRequest<OrganizationSettings>(
           'PATCH', '/instance/organization_settings',
           config: config,
           body: {
             'enabled': SdkUtils.unwrapOptional(enabled),
-            'max_allowed_memberships':
-                SdkUtils.unwrapOptional(maxAllowedMemberships),
+            'max_allowed_memberships': SdkUtils.unwrapOptional(maxAllowedMemberships),
             'admin_delete_enabled': SdkUtils.unwrapOptional(adminDeleteEnabled),
             'domains_enabled': SdkUtils.unwrapOptional(domainsEnabled),
             'slug_disabled': SdkUtils.unwrapOptional(slugDisabled),
-            'domains_enrollment_modes':
-                SdkUtils.unwrapOptional(domainsEnrollmentModes),
+            'domains_enrollment_modes': SdkUtils.unwrapOptional(domainsEnrollmentModes),
             'creator_role_id': SdkUtils.unwrapOptional(creatorRoleId),
-            'domains_default_role_id':
-                SdkUtils.unwrapOptional(domainsDefaultRoleId)
+            'domains_default_role_id': SdkUtils.unwrapOptional(domainsDefaultRoleId)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'updateInstanceOrganizationSettings',
-          fromJsonRaw: (value) =>
-              OrganizationSettings.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => OrganizationSettings.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '400': (value) =>
-                ClerkErrors.fromJson(value as Map<String, dynamic>),
-            '402': (value) =>
-                ClerkErrors.fromJson(value as Map<String, dynamic>),
-            '403': (value) =>
-                ClerkErrors.fromJson(value as Map<String, dynamic>),
-            '404': (value) =>
-                ClerkErrors.fromJson(value as Map<String, dynamic>),
-            '422': (value) =>
-                ClerkErrors.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'400': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '402': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '403': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '404': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '422': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)}))
       .data;
 }

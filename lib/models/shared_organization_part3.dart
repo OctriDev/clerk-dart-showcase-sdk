@@ -8,388 +8,191 @@ part of 'shared_organization.dart';
 class OrganizationMembership {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Required `string` value serialized in the `id` wire field.
   final String id;
-
   /// String representing the object's type. Objects of the same type share the same value.
   final OrganizationMembershipObject object;
-
   /// Required `string` value serialized in the `role` wire field.
   final String role;
-
   /// Optional `string` value serialized in the `role_name` wire field.
   final SdkOptional<String> roleName;
-
   /// Required array value serialized in the `permissions` wire field.
   final List<String> permissions;
-
   /// Metadata saved on the organization membership, accessible from both Frontend and Backend APIs
   final Map<String, Object?> publicMetadata;
-
   /// Metadata saved on the organization membership, accessible only from the Backend API
   final SdkOptional<Map<String, Object?>> privateMetadata;
-
   /// Required object value serialized in the `organization` wire field.
   final Organization organization;
-
   /// An organization membership with public user data populated
   final SdkOptional<OrganizationMembershipPublicUserData> publicUserData;
-
   /// Unix timestamp of creation.
   final int createdAt;
-
   /// Unix timestamp of last update.
   final int updatedAt;
 
-  const OrganizationMembership(
-      {required this.id,
-      required this.object,
-      required this.role,
-      this.roleName = const SdkOmitted(),
-      required this.permissions,
-      required this.publicMetadata,
-      this.privateMetadata = const SdkOmitted(),
-      required this.organization,
-      this.publicUserData = const SdkOmitted(),
-      required this.createdAt,
-      required this.updatedAt});
+  const OrganizationMembership({required this.id, required this.object, required this.role, this.roleName = const SdkOmitted(), required this.permissions, required this.publicMetadata, this.privateMetadata = const SdkOmitted(), required this.organization, this.publicUserData = const SdkOmitted(), required this.createdAt, required this.updatedAt});
 
-  OrganizationMembership Function(
-      {String id,
-      OrganizationMembershipObject object,
-      String role,
-      SdkOptional<String> roleName,
-      List<String> permissions,
-      Map<String, Object?> publicMetadata,
-      SdkOptional<Map<String, Object?>> privateMetadata,
-      Organization organization,
-      SdkOptional<OrganizationMembershipPublicUserData> publicUserData,
-      int createdAt,
-      int updatedAt}) get copyWith => _copyWith;
+  OrganizationMembership Function({String id, OrganizationMembershipObject object, String role, SdkOptional<String> roleName, List<String> permissions, Map<String, Object?> publicMetadata, SdkOptional<Map<String, Object?>> privateMetadata, Organization organization, SdkOptional<OrganizationMembershipPublicUserData> publicUserData, int createdAt, int updatedAt}) get copyWith => _copyWith;
 
-  OrganizationMembership _copyWith(
-          {Object? id = sdkOmittedValue,
-          Object? object = sdkOmittedValue,
-          Object? role = sdkOmittedValue,
-          Object? roleName = sdkOmittedValue,
-          Object? permissions = sdkOmittedValue,
-          Object? publicMetadata = sdkOmittedValue,
-          Object? privateMetadata = sdkOmittedValue,
-          Object? organization = sdkOmittedValue,
-          Object? publicUserData = sdkOmittedValue,
-          Object? createdAt = sdkOmittedValue,
-          Object? updatedAt = sdkOmittedValue}) =>
-      OrganizationMembership(
-        id: identical(id, sdkOmittedValue) ? this.id : id as String,
-        object: identical(object, sdkOmittedValue)
-            ? this.object
-            : object as OrganizationMembershipObject,
-        role: identical(role, sdkOmittedValue) ? this.role : role as String,
-        roleName: identical(roleName, sdkOmittedValue)
-            ? this.roleName
-            : roleName as SdkOptional<String>,
-        permissions: identical(permissions, sdkOmittedValue)
-            ? this.permissions
-            : permissions as List<String>,
-        publicMetadata: identical(publicMetadata, sdkOmittedValue)
-            ? this.publicMetadata
-            : publicMetadata as Map<String, Object?>,
-        privateMetadata: identical(privateMetadata, sdkOmittedValue)
-            ? this.privateMetadata
-            : privateMetadata as SdkOptional<Map<String, Object?>>,
-        organization: identical(organization, sdkOmittedValue)
-            ? this.organization
-            : organization as Organization,
-        publicUserData: identical(publicUserData, sdkOmittedValue)
-            ? this.publicUserData
-            : publicUserData
-                as SdkOptional<OrganizationMembershipPublicUserData>,
-        createdAt: identical(createdAt, sdkOmittedValue)
-            ? this.createdAt
-            : createdAt as int,
-        updatedAt: identical(updatedAt, sdkOmittedValue)
-            ? this.updatedAt
-            : updatedAt as int,
-      );
+  OrganizationMembership _copyWith({Object? id = sdkOmittedValue, Object? object = sdkOmittedValue, Object? role = sdkOmittedValue, Object? roleName = sdkOmittedValue, Object? permissions = sdkOmittedValue, Object? publicMetadata = sdkOmittedValue, Object? privateMetadata = sdkOmittedValue, Object? organization = sdkOmittedValue, Object? publicUserData = sdkOmittedValue, Object? createdAt = sdkOmittedValue, Object? updatedAt = sdkOmittedValue}) => OrganizationMembership(
+    id: identical(id, sdkOmittedValue) ? this.id : id as String,
+    object: identical(object, sdkOmittedValue) ? this.object : object as OrganizationMembershipObject,
+    role: identical(role, sdkOmittedValue) ? this.role : role as String,
+    roleName: identical(roleName, sdkOmittedValue) ? this.roleName : roleName as SdkOptional<String>,
+    permissions: identical(permissions, sdkOmittedValue) ? this.permissions : permissions as List<String>,
+    publicMetadata: identical(publicMetadata, sdkOmittedValue) ? this.publicMetadata : publicMetadata as Map<String, Object?>,
+    privateMetadata: identical(privateMetadata, sdkOmittedValue) ? this.privateMetadata : privateMetadata as SdkOptional<Map<String, Object?>>,
+    organization: identical(organization, sdkOmittedValue) ? this.organization : organization as Organization,
+    publicUserData: identical(publicUserData, sdkOmittedValue) ? this.publicUserData : publicUserData as SdkOptional<OrganizationMembershipPublicUserData>,
+    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as int,
+    updatedAt: identical(updatedAt, sdkOmittedValue) ? this.updatedAt : updatedAt as int,
+  );
 
-  factory OrganizationMembership.fromJson(Map<String, dynamic> json) =>
-      OrganizationMembership(
-        id: (json['id'] as String?)!,
-        object: (json['object'] != null
-            ? OrganizationMembershipObject.fromJson(json['object'] as String)
-            : null)!,
-        role: (json['role'] as String?)!,
-        roleName: json['role_name'] != null
-            ? SdkPresent((json['role_name'] as String?)!)
-            : const SdkOmitted(),
-        permissions:
-            ((json['permissions'] as List?)?.map((e) => e as String).toList())!,
-        publicMetadata: (json['public_metadata'] == null
-            ? null
-            : Map<String, dynamic>.from(json['public_metadata'] as Map)
-                .map((key, value) => MapEntry(key, value)))!,
-        privateMetadata: json['private_metadata'] != null
-            ? SdkPresent((json['private_metadata'] == null
-                ? null
-                : Map<String, dynamic>.from(json['private_metadata'] as Map)
-                    .map((key, value) => MapEntry(key, value)))!)
-            : const SdkOmitted(),
-        organization: (json['organization'] != null
-            ? Organization.fromJson(
-                json['organization'] as Map<String, dynamic>)
-            : null)!,
-        publicUserData: json['public_user_data'] != null
-            ? SdkPresent((json['public_user_data'] != null
-                ? OrganizationMembershipPublicUserData.fromJson(
-                    json['public_user_data'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-        createdAt: ((json['created_at'] as num?)?.toInt())!,
-        updatedAt: ((json['updated_at'] as num?)?.toInt())!,
-      );
+  factory OrganizationMembership.fromJson(Map<String, dynamic> json) => OrganizationMembership(
+    id: (json['id'] as String?)!,
+    object: (json['object'] != null ? OrganizationMembershipObject.fromJson(json['object'] as String) : null)!,
+    role: (json['role'] as String?)!,
+    roleName: json['role_name'] != null ? SdkPresent((json['role_name'] as String?)!) : const SdkOmitted(),
+    permissions: ((json['permissions'] as List?)?.map((e) => e as String).toList())!,
+    publicMetadata: (json['public_metadata'] == null ? null : Map<String, dynamic>.from(json['public_metadata'] as Map).map((key, value) => MapEntry(key, value)))!,
+    privateMetadata: json['private_metadata'] != null ? SdkPresent((json['private_metadata'] == null ? null : Map<String, dynamic>.from(json['private_metadata'] as Map).map((key, value) => MapEntry(key, value)))!) : const SdkOmitted(),
+    organization: (json['organization'] != null ? Organization.fromJson(json['organization'] as Map<String, dynamic>) : null)!,
+    publicUserData: json['public_user_data'] != null ? SdkPresent((json['public_user_data'] != null ? OrganizationMembershipPublicUserData.fromJson(json['public_user_data'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+    createdAt: ((json['created_at'] as num?)?.toInt())!,
+    updatedAt: ((json['updated_at'] as num?)?.toInt())!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'id': id,
-        'object': object.toJson(),
-        'role': role,
-        ...switch (roleName) {
-          SdkPresent<String>(value: final value) => {
-              'role_name': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        'permissions': permissions,
-        'public_metadata': publicMetadata,
-        ...switch (privateMetadata) {
-          SdkPresent<Map<String, Object?>>(value: final value) => {
-              'private_metadata': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        'organization': organization.toJson(),
-        ...switch (publicUserData) {
-          SdkPresent<OrganizationMembershipPublicUserData>(
-            value: final value
-          ) =>
-            {
-              'public_user_data': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        'created_at': createdAt,
-        'updated_at': updatedAt,
-      };
+    'id': id,
+    'object': object.toJson(),
+    'role': role,
+    ...switch (roleName) {
+      SdkPresent<String>(value: final value) => {'role_name': value,},
+      _ => const <String, dynamic>{},
+    },
+    'permissions': permissions,
+    'public_metadata': publicMetadata,
+    ...switch (privateMetadata) {
+      SdkPresent<Map<String, Object?>>(value: final value) => {'private_metadata': value,},
+      _ => const <String, dynamic>{},
+    },
+    'organization': organization.toJson(),
+    ...switch (publicUserData) {
+      SdkPresent<OrganizationMembershipPublicUserData>(value: final value) => {'public_user_data': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    'created_at': createdAt,
+    'updated_at': updatedAt,
+  };
 }
 
 /// An organization membership with public user data populated
 class OrganizationMembershipPublicUserData {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Required `string` value serialized in the `user_id` wire field.
   final String userId;
-
   /// Required `string` value serialized in the `first_name` wire field.
   final String? firstName;
-
   /// Required `string` value serialized in the `last_name` wire field.
   final String? lastName;
-
   /// Required `string` value serialized in the `profile_image_url` wire field.
   final String? profileImageUrl;
-
   /// Required `string` value serialized in the `image_url` wire field.
   final String imageUrl;
-
   /// Required `boolean` value serialized in the `has_image` wire field.
   final bool hasImage;
-
   /// Optional `string` value serialized in the `identifier` wire field.
   final SdkOptional<String?> identifier;
-
   /// Optional `string` value serialized in the `username` wire field.
   final SdkOptional<String?> username;
-
   /// Optional `boolean` value serialized in the `banned` wire field.
   final SdkOptional<bool> banned;
-
   /// Optional `boolean` value serialized in the `deprovisioned` wire field.
   final SdkOptional<bool> deprovisioned;
 
-  const OrganizationMembershipPublicUserData(
-      {required this.userId,
-      required this.firstName,
-      required this.lastName,
-      required this.profileImageUrl,
-      required this.imageUrl,
-      required this.hasImage,
-      this.identifier = const SdkOmitted(),
-      this.username = const SdkOmitted(),
-      this.banned = const SdkOmitted(),
-      this.deprovisioned = const SdkOmitted()});
+  const OrganizationMembershipPublicUserData({required this.userId, required this.firstName, required this.lastName, required this.profileImageUrl, required this.imageUrl, required this.hasImage, this.identifier = const SdkOmitted(), this.username = const SdkOmitted(), this.banned = const SdkOmitted(), this.deprovisioned = const SdkOmitted()});
 
-  OrganizationMembershipPublicUserData Function(
-      {String userId,
-      String? firstName,
-      String? lastName,
-      String? profileImageUrl,
-      String imageUrl,
-      bool hasImage,
-      SdkOptional<String?> identifier,
-      SdkOptional<String?> username,
-      SdkOptional<bool> banned,
-      SdkOptional<bool> deprovisioned}) get copyWith => _copyWith;
+  OrganizationMembershipPublicUserData Function({String userId, String? firstName, String? lastName, String? profileImageUrl, String imageUrl, bool hasImage, SdkOptional<String?> identifier, SdkOptional<String?> username, SdkOptional<bool> banned, SdkOptional<bool> deprovisioned}) get copyWith => _copyWith;
 
-  OrganizationMembershipPublicUserData _copyWith(
-          {Object? userId = sdkOmittedValue,
-          Object? firstName = sdkOmittedValue,
-          Object? lastName = sdkOmittedValue,
-          Object? profileImageUrl = sdkOmittedValue,
-          Object? imageUrl = sdkOmittedValue,
-          Object? hasImage = sdkOmittedValue,
-          Object? identifier = sdkOmittedValue,
-          Object? username = sdkOmittedValue,
-          Object? banned = sdkOmittedValue,
-          Object? deprovisioned = sdkOmittedValue}) =>
-      OrganizationMembershipPublicUserData(
-        userId:
-            identical(userId, sdkOmittedValue) ? this.userId : userId as String,
-        firstName: identical(firstName, sdkOmittedValue)
-            ? this.firstName
-            : firstName as String?,
-        lastName: identical(lastName, sdkOmittedValue)
-            ? this.lastName
-            : lastName as String?,
-        profileImageUrl: identical(profileImageUrl, sdkOmittedValue)
-            ? this.profileImageUrl
-            : profileImageUrl as String?,
-        imageUrl: identical(imageUrl, sdkOmittedValue)
-            ? this.imageUrl
-            : imageUrl as String,
-        hasImage: identical(hasImage, sdkOmittedValue)
-            ? this.hasImage
-            : hasImage as bool,
-        identifier: identical(identifier, sdkOmittedValue)
-            ? this.identifier
-            : identifier as SdkOptional<String?>,
-        username: identical(username, sdkOmittedValue)
-            ? this.username
-            : username as SdkOptional<String?>,
-        banned: identical(banned, sdkOmittedValue)
-            ? this.banned
-            : banned as SdkOptional<bool>,
-        deprovisioned: identical(deprovisioned, sdkOmittedValue)
-            ? this.deprovisioned
-            : deprovisioned as SdkOptional<bool>,
-      );
+  OrganizationMembershipPublicUserData _copyWith({Object? userId = sdkOmittedValue, Object? firstName = sdkOmittedValue, Object? lastName = sdkOmittedValue, Object? profileImageUrl = sdkOmittedValue, Object? imageUrl = sdkOmittedValue, Object? hasImage = sdkOmittedValue, Object? identifier = sdkOmittedValue, Object? username = sdkOmittedValue, Object? banned = sdkOmittedValue, Object? deprovisioned = sdkOmittedValue}) => OrganizationMembershipPublicUserData(
+    userId: identical(userId, sdkOmittedValue) ? this.userId : userId as String,
+    firstName: identical(firstName, sdkOmittedValue) ? this.firstName : firstName as String?,
+    lastName: identical(lastName, sdkOmittedValue) ? this.lastName : lastName as String?,
+    profileImageUrl: identical(profileImageUrl, sdkOmittedValue) ? this.profileImageUrl : profileImageUrl as String?,
+    imageUrl: identical(imageUrl, sdkOmittedValue) ? this.imageUrl : imageUrl as String,
+    hasImage: identical(hasImage, sdkOmittedValue) ? this.hasImage : hasImage as bool,
+    identifier: identical(identifier, sdkOmittedValue) ? this.identifier : identifier as SdkOptional<String?>,
+    username: identical(username, sdkOmittedValue) ? this.username : username as SdkOptional<String?>,
+    banned: identical(banned, sdkOmittedValue) ? this.banned : banned as SdkOptional<bool>,
+    deprovisioned: identical(deprovisioned, sdkOmittedValue) ? this.deprovisioned : deprovisioned as SdkOptional<bool>,
+  );
 
-  factory OrganizationMembershipPublicUserData.fromJson(
-          Map<String, dynamic> json) =>
-      OrganizationMembershipPublicUserData(
-        userId: (json['user_id'] as String?)!,
-        firstName: json.containsKey('first_name')
-            ? json['first_name'] as String?
-            : throw ArgumentError.value(
-                null, 'first_name', 'Required property is missing'),
-        lastName: json.containsKey('last_name')
-            ? json['last_name'] as String?
-            : throw ArgumentError.value(
-                null, 'last_name', 'Required property is missing'),
-        profileImageUrl: json.containsKey('profile_image_url')
-            ? json['profile_image_url'] as String?
-            : throw ArgumentError.value(
-                null, 'profile_image_url', 'Required property is missing'),
-        imageUrl: (json['image_url'] as String?)!,
-        hasImage: (json['has_image'] as bool?)!,
-        identifier: json.containsKey('identifier')
-            ? SdkPresent(json['identifier'] as String?)
-            : const SdkOmitted(),
-        username: json.containsKey('username')
-            ? SdkPresent(json['username'] as String?)
-            : const SdkOmitted(),
-        banned: json['banned'] != null
-            ? SdkPresent((json['banned'] as bool?)!)
-            : const SdkOmitted(),
-        deprovisioned: json['deprovisioned'] != null
-            ? SdkPresent((json['deprovisioned'] as bool?)!)
-            : const SdkOmitted(),
-      );
+  factory OrganizationMembershipPublicUserData.fromJson(Map<String, dynamic> json) => OrganizationMembershipPublicUserData(
+    userId: (json['user_id'] as String?)!,
+    firstName: json.containsKey('first_name') ? json['first_name'] as String? : throw ArgumentError.value(null, 'first_name', 'Required property is missing'),
+    lastName: json.containsKey('last_name') ? json['last_name'] as String? : throw ArgumentError.value(null, 'last_name', 'Required property is missing'),
+    profileImageUrl: json.containsKey('profile_image_url') ? json['profile_image_url'] as String? : throw ArgumentError.value(null, 'profile_image_url', 'Required property is missing'),
+    imageUrl: (json['image_url'] as String?)!,
+    hasImage: (json['has_image'] as bool?)!,
+    identifier: json.containsKey('identifier') ? SdkPresent(json['identifier'] as String?) : const SdkOmitted(),
+    username: json.containsKey('username') ? SdkPresent(json['username'] as String?) : const SdkOmitted(),
+    banned: json['banned'] != null ? SdkPresent((json['banned'] as bool?)!) : const SdkOmitted(),
+    deprovisioned: json['deprovisioned'] != null ? SdkPresent((json['deprovisioned'] as bool?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        'user_id': userId,
-        'first_name': firstName,
-        'last_name': lastName,
-        'profile_image_url': profileImageUrl,
-        'image_url': imageUrl,
-        'has_image': hasImage,
-        ...switch (identifier) {
-          SdkPresent<String?>(value: final value) => {
-              'identifier': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (username) {
-          SdkPresent<String?>(value: final value) => {
-              'username': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (banned) {
-          SdkPresent<bool>(value: final value) => {
-              'banned': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (deprovisioned) {
-          SdkPresent<bool>(value: final value) => {
-              'deprovisioned': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    'user_id': userId,
+    'first_name': firstName,
+    'last_name': lastName,
+    'profile_image_url': profileImageUrl,
+    'image_url': imageUrl,
+    'has_image': hasImage,
+    ...switch (identifier) {
+      SdkPresent<String?>(value: final value) => {'identifier': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (username) {
+      SdkPresent<String?>(value: final value) => {'username': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (banned) {
+      SdkPresent<bool>(value: final value) => {'banned': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (deprovisioned) {
+      SdkPresent<bool>(value: final value) => {'deprovisioned': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Typed representation of the `OrganizationMemberships` API schema.
 class OrganizationMemberships {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Required array value serialized in the `data` wire field.
   final List<OrganizationMembership> data;
-
   /// Total number of organization memberships
   final int totalCount;
 
   const OrganizationMemberships({required this.data, required this.totalCount});
 
-  OrganizationMemberships Function(
-      {List<OrganizationMembership> data,
-      int totalCount}) get copyWith => _copyWith;
+  OrganizationMemberships Function({List<OrganizationMembership> data, int totalCount}) get copyWith => _copyWith;
 
-  OrganizationMemberships _copyWith(
-          {Object? data = sdkOmittedValue,
-          Object? totalCount = sdkOmittedValue}) =>
-      OrganizationMemberships(
-        data: identical(data, sdkOmittedValue)
-            ? this.data
-            : data as List<OrganizationMembership>,
-        totalCount: identical(totalCount, sdkOmittedValue)
-            ? this.totalCount
-            : totalCount as int,
-      );
+  OrganizationMemberships _copyWith({Object? data = sdkOmittedValue, Object? totalCount = sdkOmittedValue}) => OrganizationMemberships(
+    data: identical(data, sdkOmittedValue) ? this.data : data as List<OrganizationMembership>,
+    totalCount: identical(totalCount, sdkOmittedValue) ? this.totalCount : totalCount as int,
+  );
 
-  factory OrganizationMemberships.fromJson(Map<String, dynamic> json) =>
-      OrganizationMemberships(
-        data: ((json['data'] as List?)
-            ?.map((e) =>
-                OrganizationMembership.fromJson(e as Map<String, dynamic>))
-            .toList())!,
-        totalCount: ((json['total_count'] as num?)?.toInt())!,
-      );
+  factory OrganizationMemberships.fromJson(Map<String, dynamic> json) => OrganizationMemberships(
+    data: ((json['data'] as List?)?.map((e) => OrganizationMembership.fromJson(e as Map<String, dynamic>)).toList())!,
+    totalCount: ((json['total_count'] as num?)?.toInt())!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'data': data.map((item) => item.toJson()).toList(),
-        'total_count': totalCount,
-      };
+    'data': data.map((item) => item.toJson()).toList(),
+    'total_count': totalCount,
+  };
 }

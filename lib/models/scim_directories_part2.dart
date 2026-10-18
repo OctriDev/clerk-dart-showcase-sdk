@@ -8,101 +8,63 @@ part of 'scim_directories.dart';
 class SCIMGroupRoleMappingDeleted {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// String representing the object's type.
   final SCIMGroupRoleMappingDeletedObject object;
-
   /// The ID of the deleted SCIM group role mapping.
   final String id;
-
   /// Whether the SCIM group role mapping was successfully deleted.
   final SCIMGroupRoleMappingDeletedDeleted deleted;
 
-  const SCIMGroupRoleMappingDeleted(
-      {required this.object, required this.id, required this.deleted});
+  const SCIMGroupRoleMappingDeleted({required this.object, required this.id, required this.deleted});
 
-  SCIMGroupRoleMappingDeleted Function(
-      {SCIMGroupRoleMappingDeletedObject object,
-      String id,
-      SCIMGroupRoleMappingDeletedDeleted deleted}) get copyWith => _copyWith;
+  SCIMGroupRoleMappingDeleted Function({SCIMGroupRoleMappingDeletedObject object, String id, SCIMGroupRoleMappingDeletedDeleted deleted}) get copyWith => _copyWith;
 
-  SCIMGroupRoleMappingDeleted _copyWith(
-          {Object? object = sdkOmittedValue,
-          Object? id = sdkOmittedValue,
-          Object? deleted = sdkOmittedValue}) =>
-      SCIMGroupRoleMappingDeleted(
-        object: identical(object, sdkOmittedValue)
-            ? this.object
-            : object as SCIMGroupRoleMappingDeletedObject,
-        id: identical(id, sdkOmittedValue) ? this.id : id as String,
-        deleted: identical(deleted, sdkOmittedValue)
-            ? this.deleted
-            : deleted as SCIMGroupRoleMappingDeletedDeleted,
-      );
+  SCIMGroupRoleMappingDeleted _copyWith({Object? object = sdkOmittedValue, Object? id = sdkOmittedValue, Object? deleted = sdkOmittedValue}) => SCIMGroupRoleMappingDeleted(
+    object: identical(object, sdkOmittedValue) ? this.object : object as SCIMGroupRoleMappingDeletedObject,
+    id: identical(id, sdkOmittedValue) ? this.id : id as String,
+    deleted: identical(deleted, sdkOmittedValue) ? this.deleted : deleted as SCIMGroupRoleMappingDeletedDeleted,
+  );
 
-  factory SCIMGroupRoleMappingDeleted.fromJson(Map<String, dynamic> json) =>
-      SCIMGroupRoleMappingDeleted(
-        object: (json['object'] != null
-            ? SCIMGroupRoleMappingDeletedObject.fromJson(
-                json['object'] as String)
-            : null)!,
-        id: (json['id'] as String?)!,
-        deleted: (json['deleted'] != null
-            ? SCIMGroupRoleMappingDeletedDeleted.fromJson(
-                json['deleted'] as bool)
-            : null)!,
-      );
+  factory SCIMGroupRoleMappingDeleted.fromJson(Map<String, dynamic> json) => SCIMGroupRoleMappingDeleted(
+    object: (json['object'] != null ? SCIMGroupRoleMappingDeletedObject.fromJson(json['object'] as String) : null)!,
+    id: (json['id'] as String?)!,
+    deleted: (json['deleted'] != null ? SCIMGroupRoleMappingDeletedDeleted.fromJson(json['deleted'] as bool) : null)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'object': object.toJson(),
-        'id': id,
-        'deleted': deleted.toJson(),
-      };
+    'object': object.toJson(),
+    'id': id,
+    'deleted': deleted.toJson(),
+  };
 }
 
 /// Typed representation of the `SCIMGroupRoleMappingList` API schema.
 class SCIMGroupRoleMappingList {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Required array value serialized in the `data` wire field.
   final List<SCIMGroupRoleMapping> data;
-
   /// Total number of SCIM group role mappings in the directory.
   final int totalCount;
 
-  const SCIMGroupRoleMappingList(
-      {required this.data, required this.totalCount});
+  const SCIMGroupRoleMappingList({required this.data, required this.totalCount});
 
-  SCIMGroupRoleMappingList Function(
-      {List<SCIMGroupRoleMapping> data,
-      int totalCount}) get copyWith => _copyWith;
+  SCIMGroupRoleMappingList Function({List<SCIMGroupRoleMapping> data, int totalCount}) get copyWith => _copyWith;
 
-  SCIMGroupRoleMappingList _copyWith(
-          {Object? data = sdkOmittedValue,
-          Object? totalCount = sdkOmittedValue}) =>
-      SCIMGroupRoleMappingList(
-        data: identical(data, sdkOmittedValue)
-            ? this.data
-            : data as List<SCIMGroupRoleMapping>,
-        totalCount: identical(totalCount, sdkOmittedValue)
-            ? this.totalCount
-            : totalCount as int,
-      );
+  SCIMGroupRoleMappingList _copyWith({Object? data = sdkOmittedValue, Object? totalCount = sdkOmittedValue}) => SCIMGroupRoleMappingList(
+    data: identical(data, sdkOmittedValue) ? this.data : data as List<SCIMGroupRoleMapping>,
+    totalCount: identical(totalCount, sdkOmittedValue) ? this.totalCount : totalCount as int,
+  );
 
-  factory SCIMGroupRoleMappingList.fromJson(Map<String, dynamic> json) =>
-      SCIMGroupRoleMappingList(
-        data: ((json['data'] as List?)
-            ?.map(
-                (e) => SCIMGroupRoleMapping.fromJson(e as Map<String, dynamic>))
-            .toList())!,
-        totalCount: ((json['total_count'] as num?)?.toInt())!,
-      );
+  factory SCIMGroupRoleMappingList.fromJson(Map<String, dynamic> json) => SCIMGroupRoleMappingList(
+    data: ((json['data'] as List?)?.map((e) => SCIMGroupRoleMapping.fromJson(e as Map<String, dynamic>)).toList())!,
+    totalCount: ((json['total_count'] as num?)?.toInt())!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'data': data.map((item) => item.toJson()).toList(),
-        'total_count': totalCount,
-      };
+    'data': data.map((item) => item.toJson()).toList(),
+    'total_count': totalCount,
+  };
 }
 
 // SCIMGroupRoleMappings = List<SCIMGroupRoleMapping>

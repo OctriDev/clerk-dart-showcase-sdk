@@ -32,31 +32,18 @@ Future<List<Client>> listClients(ClientConfig config,
   return (await sdkRequest<List<Client>>('GET', '/clients',
           config: config,
           query: {
-            'paginated': SdkQueryValue(SdkUtils.unwrapOptional(paginated),
-                style: 'form', explode: true),
-            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit),
-                style: 'form', explode: true),
-            'offset': SdkQueryValue(SdkUtils.unwrapOptional(offset),
-                style: 'form', explode: true)
+            'paginated': SdkQueryValue(SdkUtils.unwrapOptional(paginated), style: 'form', explode: true),
+            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit), style: 'form', explode: true),
+            'offset': SdkQueryValue(SdkUtils.unwrapOptional(offset), style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'listClients',
-          fromJsonRaw: (value) => (value as List)
-              .map((item) => Client.fromJson(item as Map<String, dynamic>))
-              .toList(),
+          fromJsonRaw: (value) => (value as List).map((item) => Client.fromJson(item as Map<String, dynamic>)).toList(),
           options: requestOptions,
-          errors: {
-            '400': (value) =>
-                ClerkErrors.fromJson(value as Map<String, dynamic>),
-            '401': (value) =>
-                ClerkErrors.fromJson(value as Map<String, dynamic>),
-            '410': (value) =>
-                ClerkErrors.fromJson(value as Map<String, dynamic>),
-            '422': (value) =>
-                ClerkErrors.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'400': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '401': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '410': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '422': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Verifies a client by validating the JWT supplied in the request body. Send the token for the active client to retrieve the associated client and session details.
 ///
@@ -70,19 +57,12 @@ Future<Client> verifyClient(ClientConfig config,
           body: {'token': token},
           decoder: SdkResponseDecoder.json,
           operationId: 'verifyClient',
-          fromJsonRaw: (value) =>
-              Client.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => Client.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '400': (value) =>
-                ClerkErrors.fromJson(value as Map<String, dynamic>),
-            '401': (value) =>
-                ClerkErrors.fromJson(value as Map<String, dynamic>),
-            '404': (value) =>
-                ClerkErrors.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'400': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '401': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '404': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Retrieves the details of a client and its associated session information. Use `client_id` to look up the client whose sessions and authentication state you need to inspect.
 ///
@@ -96,13 +76,8 @@ Future<Client> getClient(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'getClient',
-          fromJsonRaw: (value) =>
-              Client.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => Client.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-        '400': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>),
-        '401': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>),
-        '404': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'400': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '401': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '404': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)}))
       .data;
 }

@@ -8,39 +8,27 @@ part of 'billing.dart';
 class PriceTransitionRequest {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The current price ID of the subscription item.
   final String fromPriceId;
-
   /// The target price ID to transition to.
   final String toPriceId;
 
-  const PriceTransitionRequest(
-      {required this.fromPriceId, required this.toPriceId});
+  const PriceTransitionRequest({required this.fromPriceId, required this.toPriceId});
 
-  PriceTransitionRequest Function({String fromPriceId, String toPriceId})
-      get copyWith => _copyWith;
+  PriceTransitionRequest Function({String fromPriceId, String toPriceId}) get copyWith => _copyWith;
 
-  PriceTransitionRequest _copyWith(
-          {Object? fromPriceId = sdkOmittedValue,
-          Object? toPriceId = sdkOmittedValue}) =>
-      PriceTransitionRequest(
-        fromPriceId: identical(fromPriceId, sdkOmittedValue)
-            ? this.fromPriceId
-            : fromPriceId as String,
-        toPriceId: identical(toPriceId, sdkOmittedValue)
-            ? this.toPriceId
-            : toPriceId as String,
-      );
+  PriceTransitionRequest _copyWith({Object? fromPriceId = sdkOmittedValue, Object? toPriceId = sdkOmittedValue}) => PriceTransitionRequest(
+    fromPriceId: identical(fromPriceId, sdkOmittedValue) ? this.fromPriceId : fromPriceId as String,
+    toPriceId: identical(toPriceId, sdkOmittedValue) ? this.toPriceId : toPriceId as String,
+  );
 
-  factory PriceTransitionRequest.fromJson(Map<String, dynamic> json) =>
-      PriceTransitionRequest(
-        fromPriceId: (json['from_price_id'] as String?)!,
-        toPriceId: (json['to_price_id'] as String?)!,
-      );
+  factory PriceTransitionRequest.fromJson(Map<String, dynamic> json) => PriceTransitionRequest(
+    fromPriceId: (json['from_price_id'] as String?)!,
+    toPriceId: (json['to_price_id'] as String?)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'from_price_id': fromPriceId,
-        'to_price_id': toPriceId,
-      };
+    'from_price_id': fromPriceId,
+    'to_price_id': toPriceId,
+  };
 }

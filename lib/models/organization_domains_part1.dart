@@ -8,344 +8,163 @@ part of 'organization_domains.dart';
 class OrganizationDomain {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// String representing the object's type. Objects of the same type share the same value. Always `organization_domain`
   final OrganizationDomainObject object;
-
   /// Unique identifier for the organization domain
   final String id;
-
   /// Unique identifier for the organization
   final String organizationId;
-
   /// Name of the organization domain
   final String name;
-
   /// Mode of enrollment for the domain
   final OrganizationDomainEnrollmentMode enrollmentMode;
-
   /// Affiliation email address for the domain, if available.
   final String? affiliationEmailAddress;
-
   /// Verification details for the user-facing affiliation between the domain and the organization (e.g. affiliation_email_code).
   final OrganizationDomainVerification? affiliationVerification;
-
   /// Verification details for the underlying DNS domain ownership proof (TXT challenge or dashboard override). Null until ownership has been attempted.
   final OrganizationDomainVerification? ownershipVerification;
-
   /// Deprecated alias for `affiliation_verification`. Kept for backward compatibility on the current API version; will be removed in the next API version. Prefer `affiliation_verification`.
   final OrganizationDomainVerification? verification;
-
   /// Total number of pending invitations associated with this domain
   final int totalPendingInvitations;
-
   /// Total number of pending suggestions associated with this domain
   final int totalPendingSuggestions;
-
   /// Public organization data associated with this domain
-  final SdkOptional<OrganizationInvitationPublicOrganizationData?>
-      publicOrganizationData;
-
+  final SdkOptional<OrganizationInvitationPublicOrganizationData?> publicOrganizationData;
   /// Unix timestamp when the domain was created
   final int createdAt;
-
   /// Unix timestamp of the last update to the domain
   final int updatedAt;
 
-  const OrganizationDomain(
-      {required this.object,
-      required this.id,
-      required this.organizationId,
-      required this.name,
-      required this.enrollmentMode,
-      required this.affiliationEmailAddress,
-      required this.affiliationVerification,
-      required this.ownershipVerification,
-      required this.verification,
-      required this.totalPendingInvitations,
-      required this.totalPendingSuggestions,
-      this.publicOrganizationData = const SdkOmitted(),
-      required this.createdAt,
-      required this.updatedAt});
+  const OrganizationDomain({required this.object, required this.id, required this.organizationId, required this.name, required this.enrollmentMode, required this.affiliationEmailAddress, required this.affiliationVerification, required this.ownershipVerification, required this.verification, required this.totalPendingInvitations, required this.totalPendingSuggestions, this.publicOrganizationData = const SdkOmitted(), required this.createdAt, required this.updatedAt});
 
-  OrganizationDomain Function(
-      {OrganizationDomainObject object,
-      String id,
-      String organizationId,
-      String name,
-      OrganizationDomainEnrollmentMode enrollmentMode,
-      String? affiliationEmailAddress,
-      OrganizationDomainVerification? affiliationVerification,
-      OrganizationDomainVerification? ownershipVerification,
-      OrganizationDomainVerification? verification,
-      int totalPendingInvitations,
-      int totalPendingSuggestions,
-      SdkOptional<OrganizationInvitationPublicOrganizationData?>
-          publicOrganizationData,
-      int createdAt,
-      int updatedAt}) get copyWith => _copyWith;
+  OrganizationDomain Function({OrganizationDomainObject object, String id, String organizationId, String name, OrganizationDomainEnrollmentMode enrollmentMode, String? affiliationEmailAddress, OrganizationDomainVerification? affiliationVerification, OrganizationDomainVerification? ownershipVerification, OrganizationDomainVerification? verification, int totalPendingInvitations, int totalPendingSuggestions, SdkOptional<OrganizationInvitationPublicOrganizationData?> publicOrganizationData, int createdAt, int updatedAt}) get copyWith => _copyWith;
 
-  OrganizationDomain _copyWith(
-          {Object? object = sdkOmittedValue,
-          Object? id = sdkOmittedValue,
-          Object? organizationId = sdkOmittedValue,
-          Object? name = sdkOmittedValue,
-          Object? enrollmentMode = sdkOmittedValue,
-          Object? affiliationEmailAddress = sdkOmittedValue,
-          Object? affiliationVerification = sdkOmittedValue,
-          Object? ownershipVerification = sdkOmittedValue,
-          Object? verification = sdkOmittedValue,
-          Object? totalPendingInvitations = sdkOmittedValue,
-          Object? totalPendingSuggestions = sdkOmittedValue,
-          Object? publicOrganizationData = sdkOmittedValue,
-          Object? createdAt = sdkOmittedValue,
-          Object? updatedAt = sdkOmittedValue}) =>
-      OrganizationDomain(
-        object: identical(object, sdkOmittedValue)
-            ? this.object
-            : object as OrganizationDomainObject,
-        id: identical(id, sdkOmittedValue) ? this.id : id as String,
-        organizationId: identical(organizationId, sdkOmittedValue)
-            ? this.organizationId
-            : organizationId as String,
-        name: identical(name, sdkOmittedValue) ? this.name : name as String,
-        enrollmentMode: identical(enrollmentMode, sdkOmittedValue)
-            ? this.enrollmentMode
-            : enrollmentMode as OrganizationDomainEnrollmentMode,
-        affiliationEmailAddress:
-            identical(affiliationEmailAddress, sdkOmittedValue)
-                ? this.affiliationEmailAddress
-                : affiliationEmailAddress as String?,
-        affiliationVerification:
-            identical(affiliationVerification, sdkOmittedValue)
-                ? this.affiliationVerification
-                : affiliationVerification as OrganizationDomainVerification?,
-        ownershipVerification: identical(ownershipVerification, sdkOmittedValue)
-            ? this.ownershipVerification
-            : ownershipVerification as OrganizationDomainVerification?,
-        verification: identical(verification, sdkOmittedValue)
-            ? this.verification
-            : verification as OrganizationDomainVerification?,
-        totalPendingInvitations:
-            identical(totalPendingInvitations, sdkOmittedValue)
-                ? this.totalPendingInvitations
-                : totalPendingInvitations as int,
-        totalPendingSuggestions:
-            identical(totalPendingSuggestions, sdkOmittedValue)
-                ? this.totalPendingSuggestions
-                : totalPendingSuggestions as int,
-        publicOrganizationData: identical(
-                publicOrganizationData, sdkOmittedValue)
-            ? this.publicOrganizationData
-            : publicOrganizationData
-                as SdkOptional<OrganizationInvitationPublicOrganizationData?>,
-        createdAt: identical(createdAt, sdkOmittedValue)
-            ? this.createdAt
-            : createdAt as int,
-        updatedAt: identical(updatedAt, sdkOmittedValue)
-            ? this.updatedAt
-            : updatedAt as int,
-      );
+  OrganizationDomain _copyWith({Object? object = sdkOmittedValue, Object? id = sdkOmittedValue, Object? organizationId = sdkOmittedValue, Object? name = sdkOmittedValue, Object? enrollmentMode = sdkOmittedValue, Object? affiliationEmailAddress = sdkOmittedValue, Object? affiliationVerification = sdkOmittedValue, Object? ownershipVerification = sdkOmittedValue, Object? verification = sdkOmittedValue, Object? totalPendingInvitations = sdkOmittedValue, Object? totalPendingSuggestions = sdkOmittedValue, Object? publicOrganizationData = sdkOmittedValue, Object? createdAt = sdkOmittedValue, Object? updatedAt = sdkOmittedValue}) => OrganizationDomain(
+    object: identical(object, sdkOmittedValue) ? this.object : object as OrganizationDomainObject,
+    id: identical(id, sdkOmittedValue) ? this.id : id as String,
+    organizationId: identical(organizationId, sdkOmittedValue) ? this.organizationId : organizationId as String,
+    name: identical(name, sdkOmittedValue) ? this.name : name as String,
+    enrollmentMode: identical(enrollmentMode, sdkOmittedValue) ? this.enrollmentMode : enrollmentMode as OrganizationDomainEnrollmentMode,
+    affiliationEmailAddress: identical(affiliationEmailAddress, sdkOmittedValue) ? this.affiliationEmailAddress : affiliationEmailAddress as String?,
+    affiliationVerification: identical(affiliationVerification, sdkOmittedValue) ? this.affiliationVerification : affiliationVerification as OrganizationDomainVerification?,
+    ownershipVerification: identical(ownershipVerification, sdkOmittedValue) ? this.ownershipVerification : ownershipVerification as OrganizationDomainVerification?,
+    verification: identical(verification, sdkOmittedValue) ? this.verification : verification as OrganizationDomainVerification?,
+    totalPendingInvitations: identical(totalPendingInvitations, sdkOmittedValue) ? this.totalPendingInvitations : totalPendingInvitations as int,
+    totalPendingSuggestions: identical(totalPendingSuggestions, sdkOmittedValue) ? this.totalPendingSuggestions : totalPendingSuggestions as int,
+    publicOrganizationData: identical(publicOrganizationData, sdkOmittedValue) ? this.publicOrganizationData : publicOrganizationData as SdkOptional<OrganizationInvitationPublicOrganizationData?>,
+    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as int,
+    updatedAt: identical(updatedAt, sdkOmittedValue) ? this.updatedAt : updatedAt as int,
+  );
 
-  factory OrganizationDomain.fromJson(Map<String, dynamic> json) =>
-      OrganizationDomain(
-        object: (json['object'] != null
-            ? OrganizationDomainObject.fromJson(json['object'] as String)
-            : null)!,
-        id: (json['id'] as String?)!,
-        organizationId: (json['organization_id'] as String?)!,
-        name: (json['name'] as String?)!,
-        enrollmentMode: (json['enrollment_mode'] != null
-            ? OrganizationDomainEnrollmentMode.fromJson(
-                json['enrollment_mode'] as String)
-            : null)!,
-        affiliationEmailAddress: json.containsKey('affiliation_email_address')
-            ? json['affiliation_email_address'] as String?
-            : throw ArgumentError.value(null, 'affiliation_email_address',
-                'Required property is missing'),
-        affiliationVerification: json.containsKey('affiliation_verification')
-            ? json['affiliation_verification'] != null
-                ? OrganizationDomainVerification.fromJson(
-                    json['affiliation_verification'] as Map<String, dynamic>)
-                : null
-            : throw ArgumentError.value(null, 'affiliation_verification',
-                'Required property is missing'),
-        ownershipVerification: json.containsKey('ownership_verification')
-            ? json['ownership_verification'] != null
-                ? OrganizationDomainVerification.fromJson(
-                    json['ownership_verification'] as Map<String, dynamic>)
-                : null
-            : throw ArgumentError.value(
-                null, 'ownership_verification', 'Required property is missing'),
-        verification: json.containsKey('verification')
-            ? json['verification'] != null
-                ? OrganizationDomainVerification.fromJson(
-                    json['verification'] as Map<String, dynamic>)
-                : null
-            : throw ArgumentError.value(
-                null, 'verification', 'Required property is missing'),
-        totalPendingInvitations:
-            ((json['total_pending_invitations'] as num?)?.toInt())!,
-        totalPendingSuggestions:
-            ((json['total_pending_suggestions'] as num?)?.toInt())!,
-        publicOrganizationData: json.containsKey('public_organization_data')
-            ? SdkPresent(json['public_organization_data'] != null
-                ? OrganizationInvitationPublicOrganizationData.fromJson(
-                    json['public_organization_data'] as Map<String, dynamic>)
-                : null)
-            : const SdkOmitted(),
-        createdAt: ((json['created_at'] as num?)?.toInt())!,
-        updatedAt: ((json['updated_at'] as num?)?.toInt())!,
-      );
+  factory OrganizationDomain.fromJson(Map<String, dynamic> json) => OrganizationDomain(
+    object: (json['object'] != null ? OrganizationDomainObject.fromJson(json['object'] as String) : null)!,
+    id: (json['id'] as String?)!,
+    organizationId: (json['organization_id'] as String?)!,
+    name: (json['name'] as String?)!,
+    enrollmentMode: (json['enrollment_mode'] != null ? OrganizationDomainEnrollmentMode.fromJson(json['enrollment_mode'] as String) : null)!,
+    affiliationEmailAddress: json.containsKey('affiliation_email_address') ? json['affiliation_email_address'] as String? : throw ArgumentError.value(null, 'affiliation_email_address', 'Required property is missing'),
+    affiliationVerification: json.containsKey('affiliation_verification') ? json['affiliation_verification'] != null ? OrganizationDomainVerification.fromJson(json['affiliation_verification'] as Map<String, dynamic>) : null : throw ArgumentError.value(null, 'affiliation_verification', 'Required property is missing'),
+    ownershipVerification: json.containsKey('ownership_verification') ? json['ownership_verification'] != null ? OrganizationDomainVerification.fromJson(json['ownership_verification'] as Map<String, dynamic>) : null : throw ArgumentError.value(null, 'ownership_verification', 'Required property is missing'),
+    verification: json.containsKey('verification') ? json['verification'] != null ? OrganizationDomainVerification.fromJson(json['verification'] as Map<String, dynamic>) : null : throw ArgumentError.value(null, 'verification', 'Required property is missing'),
+    totalPendingInvitations: ((json['total_pending_invitations'] as num?)?.toInt())!,
+    totalPendingSuggestions: ((json['total_pending_suggestions'] as num?)?.toInt())!,
+    publicOrganizationData: json.containsKey('public_organization_data') ? SdkPresent(json['public_organization_data'] != null ? OrganizationInvitationPublicOrganizationData.fromJson(json['public_organization_data'] as Map<String, dynamic>) : null) : const SdkOmitted(),
+    createdAt: ((json['created_at'] as num?)?.toInt())!,
+    updatedAt: ((json['updated_at'] as num?)?.toInt())!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'object': object.toJson(),
-        'id': id,
-        'organization_id': organizationId,
-        'name': name,
-        'enrollment_mode': enrollmentMode.toJson(),
-        'affiliation_email_address': affiliationEmailAddress,
-        'affiliation_verification': affiliationVerification?.toJson(),
-        'ownership_verification': ownershipVerification?.toJson(),
-        'verification': verification?.toJson(),
-        'total_pending_invitations': totalPendingInvitations,
-        'total_pending_suggestions': totalPendingSuggestions,
-        ...switch (publicOrganizationData) {
-          SdkPresent<OrganizationInvitationPublicOrganizationData?>(
-            value: final value
-          ) =>
-            {
-              'public_organization_data': value?.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        'created_at': createdAt,
-        'updated_at': updatedAt,
-      };
+    'object': object.toJson(),
+    'id': id,
+    'organization_id': organizationId,
+    'name': name,
+    'enrollment_mode': enrollmentMode.toJson(),
+    'affiliation_email_address': affiliationEmailAddress,
+    'affiliation_verification': affiliationVerification?.toJson(),
+    'ownership_verification': ownershipVerification?.toJson(),
+    'verification': verification?.toJson(),
+    'total_pending_invitations': totalPendingInvitations,
+    'total_pending_suggestions': totalPendingSuggestions,
+    ...switch (publicOrganizationData) {
+      SdkPresent<OrganizationInvitationPublicOrganizationData?>(value: final value) => {'public_organization_data': value?.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    'created_at': createdAt,
+    'updated_at': updatedAt,
+  };
 }
 
 /// Typed representation of the `OrganizationDomains` API schema.
 class OrganizationDomains {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Required array value serialized in the `data` wire field.
   final List<OrganizationDomain> data;
-
   /// Total number of organization domains
   final int totalCount;
 
   const OrganizationDomains({required this.data, required this.totalCount});
 
-  OrganizationDomains Function({List<OrganizationDomain> data, int totalCount})
-      get copyWith => _copyWith;
+  OrganizationDomains Function({List<OrganizationDomain> data, int totalCount}) get copyWith => _copyWith;
 
-  OrganizationDomains _copyWith(
-          {Object? data = sdkOmittedValue,
-          Object? totalCount = sdkOmittedValue}) =>
-      OrganizationDomains(
-        data: identical(data, sdkOmittedValue)
-            ? this.data
-            : data as List<OrganizationDomain>,
-        totalCount: identical(totalCount, sdkOmittedValue)
-            ? this.totalCount
-            : totalCount as int,
-      );
+  OrganizationDomains _copyWith({Object? data = sdkOmittedValue, Object? totalCount = sdkOmittedValue}) => OrganizationDomains(
+    data: identical(data, sdkOmittedValue) ? this.data : data as List<OrganizationDomain>,
+    totalCount: identical(totalCount, sdkOmittedValue) ? this.totalCount : totalCount as int,
+  );
 
-  factory OrganizationDomains.fromJson(Map<String, dynamic> json) =>
-      OrganizationDomains(
-        data: ((json['data'] as List?)
-            ?.map((e) => OrganizationDomain.fromJson(e as Map<String, dynamic>))
-            .toList())!,
-        totalCount: ((json['total_count'] as num?)?.toInt())!,
-      );
+  factory OrganizationDomains.fromJson(Map<String, dynamic> json) => OrganizationDomains(
+    data: ((json['data'] as List?)?.map((e) => OrganizationDomain.fromJson(e as Map<String, dynamic>)).toList())!,
+    totalCount: ((json['total_count'] as num?)?.toInt())!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'data': data.map((item) => item.toJson()).toList(),
-        'total_count': totalCount,
-      };
+    'data': data.map((item) => item.toJson()).toList(),
+    'total_count': totalCount,
+  };
 }
 
 /// The verification object from an organization domain
 class OrganizationDomainVerification {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Status of the verification. It can be `unverified`, `verified`, `failed`, or `expired`.
   final String status;
-
   /// Name of the strategy used to verify the domain
   final String strategy;
-
   /// How many attempts have been made to verify the domain
   final int? attempts;
-
   /// Unix timestamp of when the verification will expire
   final int? expireAt;
-
   /// Unix timestamp of when ownership was verified. Only populated on `ownership_verification`; null on `affiliation_verification`.
   final int? verifiedAt;
 
-  const OrganizationDomainVerification(
-      {required this.status,
-      required this.strategy,
-      required this.attempts,
-      required this.expireAt,
-      required this.verifiedAt});
+  const OrganizationDomainVerification({required this.status, required this.strategy, required this.attempts, required this.expireAt, required this.verifiedAt});
 
-  OrganizationDomainVerification Function(
-      {String status,
-      String strategy,
-      int? attempts,
-      int? expireAt,
-      int? verifiedAt}) get copyWith => _copyWith;
+  OrganizationDomainVerification Function({String status, String strategy, int? attempts, int? expireAt, int? verifiedAt}) get copyWith => _copyWith;
 
-  OrganizationDomainVerification _copyWith(
-          {Object? status = sdkOmittedValue,
-          Object? strategy = sdkOmittedValue,
-          Object? attempts = sdkOmittedValue,
-          Object? expireAt = sdkOmittedValue,
-          Object? verifiedAt = sdkOmittedValue}) =>
-      OrganizationDomainVerification(
-        status:
-            identical(status, sdkOmittedValue) ? this.status : status as String,
-        strategy: identical(strategy, sdkOmittedValue)
-            ? this.strategy
-            : strategy as String,
-        attempts: identical(attempts, sdkOmittedValue)
-            ? this.attempts
-            : attempts as int?,
-        expireAt: identical(expireAt, sdkOmittedValue)
-            ? this.expireAt
-            : expireAt as int?,
-        verifiedAt: identical(verifiedAt, sdkOmittedValue)
-            ? this.verifiedAt
-            : verifiedAt as int?,
-      );
+  OrganizationDomainVerification _copyWith({Object? status = sdkOmittedValue, Object? strategy = sdkOmittedValue, Object? attempts = sdkOmittedValue, Object? expireAt = sdkOmittedValue, Object? verifiedAt = sdkOmittedValue}) => OrganizationDomainVerification(
+    status: identical(status, sdkOmittedValue) ? this.status : status as String,
+    strategy: identical(strategy, sdkOmittedValue) ? this.strategy : strategy as String,
+    attempts: identical(attempts, sdkOmittedValue) ? this.attempts : attempts as int?,
+    expireAt: identical(expireAt, sdkOmittedValue) ? this.expireAt : expireAt as int?,
+    verifiedAt: identical(verifiedAt, sdkOmittedValue) ? this.verifiedAt : verifiedAt as int?,
+  );
 
-  factory OrganizationDomainVerification.fromJson(Map<String, dynamic> json) =>
-      OrganizationDomainVerification(
-        status: (json['status'] as String?)!,
-        strategy: (json['strategy'] as String?)!,
-        attempts: json.containsKey('attempts')
-            ? (json['attempts'] as num?)?.toInt()
-            : throw ArgumentError.value(
-                null, 'attempts', 'Required property is missing'),
-        expireAt: json.containsKey('expire_at')
-            ? (json['expire_at'] as num?)?.toInt()
-            : throw ArgumentError.value(
-                null, 'expire_at', 'Required property is missing'),
-        verifiedAt: json.containsKey('verified_at')
-            ? (json['verified_at'] as num?)?.toInt()
-            : throw ArgumentError.value(
-                null, 'verified_at', 'Required property is missing'),
-      );
+  factory OrganizationDomainVerification.fromJson(Map<String, dynamic> json) => OrganizationDomainVerification(
+    status: (json['status'] as String?)!,
+    strategy: (json['strategy'] as String?)!,
+    attempts: json.containsKey('attempts') ? (json['attempts'] as num?)?.toInt() : throw ArgumentError.value(null, 'attempts', 'Required property is missing'),
+    expireAt: json.containsKey('expire_at') ? (json['expire_at'] as num?)?.toInt() : throw ArgumentError.value(null, 'expire_at', 'Required property is missing'),
+    verifiedAt: json.containsKey('verified_at') ? (json['verified_at'] as num?)?.toInt() : throw ArgumentError.value(null, 'verified_at', 'Required property is missing'),
+  );
 
   Map<String, dynamic> toJson() => {
-        'status': status,
-        'strategy': strategy,
-        'attempts': attempts,
-        'expire_at': expireAt,
-        'verified_at': verifiedAt,
-      };
+    'status': status,
+    'strategy': strategy,
+    'attempts': attempts,
+    'expire_at': expireAt,
+    'verified_at': verifiedAt,
+  };
 }

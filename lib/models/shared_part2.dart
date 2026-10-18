@@ -8,102 +8,59 @@ part of 'shared.dart';
 class Permission {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Required enumerated value serialized in the `object` wire field.
   final PermissionObject object;
-
   /// Required `string` value serialized in the `id` wire field.
   final String id;
-
   /// Required `string` value serialized in the `name` wire field.
   final String name;
-
   /// Required `string` value serialized in the `key` wire field.
   final String key;
-
   /// Required `string` value serialized in the `description` wire field.
   final String description;
-
   /// Required `string` value serialized in the `type` wire field.
   final String type_;
-
   /// Unix timestamp of creation.
   final int createdAt;
-
   /// Unix timestamp of last update.
   final int updatedAt;
 
-  const Permission(
-      {required this.object,
-      required this.id,
-      required this.name,
-      required this.key,
-      required this.description,
-      required this.type_,
-      required this.createdAt,
-      required this.updatedAt});
+  const Permission({required this.object, required this.id, required this.name, required this.key, required this.description, required this.type_, required this.createdAt, required this.updatedAt});
 
-  Permission Function(
-      {PermissionObject object,
-      String id,
-      String name,
-      String key,
-      String description,
-      String type_,
-      int createdAt,
-      int updatedAt}) get copyWith => _copyWith;
+  Permission Function({PermissionObject object, String id, String name, String key, String description, String type_, int createdAt, int updatedAt}) get copyWith => _copyWith;
 
-  Permission _copyWith(
-          {Object? object = sdkOmittedValue,
-          Object? id = sdkOmittedValue,
-          Object? name = sdkOmittedValue,
-          Object? key = sdkOmittedValue,
-          Object? description = sdkOmittedValue,
-          Object? type_ = sdkOmittedValue,
-          Object? createdAt = sdkOmittedValue,
-          Object? updatedAt = sdkOmittedValue}) =>
-      Permission(
-        object: identical(object, sdkOmittedValue)
-            ? this.object
-            : object as PermissionObject,
-        id: identical(id, sdkOmittedValue) ? this.id : id as String,
-        name: identical(name, sdkOmittedValue) ? this.name : name as String,
-        key: identical(key, sdkOmittedValue) ? this.key : key as String,
-        description: identical(description, sdkOmittedValue)
-            ? this.description
-            : description as String,
-        type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as String,
-        createdAt: identical(createdAt, sdkOmittedValue)
-            ? this.createdAt
-            : createdAt as int,
-        updatedAt: identical(updatedAt, sdkOmittedValue)
-            ? this.updatedAt
-            : updatedAt as int,
-      );
+  Permission _copyWith({Object? object = sdkOmittedValue, Object? id = sdkOmittedValue, Object? name = sdkOmittedValue, Object? key = sdkOmittedValue, Object? description = sdkOmittedValue, Object? type_ = sdkOmittedValue, Object? createdAt = sdkOmittedValue, Object? updatedAt = sdkOmittedValue}) => Permission(
+    object: identical(object, sdkOmittedValue) ? this.object : object as PermissionObject,
+    id: identical(id, sdkOmittedValue) ? this.id : id as String,
+    name: identical(name, sdkOmittedValue) ? this.name : name as String,
+    key: identical(key, sdkOmittedValue) ? this.key : key as String,
+    description: identical(description, sdkOmittedValue) ? this.description : description as String,
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as String,
+    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as int,
+    updatedAt: identical(updatedAt, sdkOmittedValue) ? this.updatedAt : updatedAt as int,
+  );
 
   factory Permission.fromJson(Map<String, dynamic> json) => Permission(
-        object: (json['object'] != null
-            ? PermissionObject.fromJson(json['object'] as String)
-            : null)!,
-        id: (json['id'] as String?)!,
-        name: (json['name'] as String?)!,
-        key: (json['key'] as String?)!,
-        description: (json['description'] as String?)!,
-        type_: (json['type'] as String?)!,
-        createdAt: ((json['created_at'] as num?)?.toInt())!,
-        updatedAt: ((json['updated_at'] as num?)?.toInt())!,
-      );
+    object: (json['object'] != null ? PermissionObject.fromJson(json['object'] as String) : null)!,
+    id: (json['id'] as String?)!,
+    name: (json['name'] as String?)!,
+    key: (json['key'] as String?)!,
+    description: (json['description'] as String?)!,
+    type_: (json['type'] as String?)!,
+    createdAt: ((json['created_at'] as num?)?.toInt())!,
+    updatedAt: ((json['updated_at'] as num?)?.toInt())!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'object': object.toJson(),
-        'id': id,
-        'name': name,
-        'key': key,
-        'description': description,
-        'type': type_,
-        'created_at': createdAt,
-        'updated_at': updatedAt,
-      };
+    'object': object.toJson(),
+    'id': id,
+    'name': name,
+    'key': key,
+    'description': description,
+    'type': type_,
+    'created_at': createdAt,
+    'updated_at': updatedAt,
+  };
 }
 
 /// Mappings from source role keys to destination role keys for role reassignment
@@ -114,14 +71,13 @@ class ReassignmentMappings {
 
   const ReassignmentMappings({this.value = const <String, String>{}});
 
-  factory ReassignmentMappings.fromJson(Map<String, dynamic> json) =>
-      ReassignmentMappings(
-        value: json.map((key, value) => MapEntry(key, value as String)),
-      );
+  factory ReassignmentMappings.fromJson(Map<String, dynamic> json) => ReassignmentMappings(
+    value: json.map((key, value) => MapEntry(key, value as String)),
+  );
 
   Map<String, dynamic> toJson() => value.map(
-        (key, value) => MapEntry(key, value),
-      );
+    (key, value) => MapEntry(key, value),
+  );
 
   String? operator [](String key) => value[key];
   Iterable<String> get keys => value.keys;
@@ -131,118 +87,62 @@ class ReassignmentMappings {
 class Role {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Required enumerated value serialized in the `object` wire field.
   final RoleObject object;
-
   /// Required `string` value serialized in the `id` wire field.
   final String id;
-
   /// Required `string` value serialized in the `name` wire field.
   final String name;
-
   /// Required `string` value serialized in the `key` wire field.
   final String key;
-
   /// Required `string` value serialized in the `description` wire field.
   final String? description;
-
   /// Whether this role is eligible to be an organization creator role
   final bool isCreatorEligible;
-
   /// Required array value serialized in the `permissions` wire field.
   final List<Permission> permissions;
-
   /// Unix timestamp of creation.
   final int createdAt;
-
   /// Unix timestamp of last update.
   final int updatedAt;
 
-  const Role(
-      {required this.object,
-      required this.id,
-      required this.name,
-      required this.key,
-      required this.description,
-      required this.isCreatorEligible,
-      required this.permissions,
-      required this.createdAt,
-      required this.updatedAt});
+  const Role({required this.object, required this.id, required this.name, required this.key, required this.description, required this.isCreatorEligible, required this.permissions, required this.createdAt, required this.updatedAt});
 
-  Role Function(
-      {RoleObject object,
-      String id,
-      String name,
-      String key,
-      String? description,
-      bool isCreatorEligible,
-      List<Permission> permissions,
-      int createdAt,
-      int updatedAt}) get copyWith => _copyWith;
+  Role Function({RoleObject object, String id, String name, String key, String? description, bool isCreatorEligible, List<Permission> permissions, int createdAt, int updatedAt}) get copyWith => _copyWith;
 
-  Role _copyWith(
-          {Object? object = sdkOmittedValue,
-          Object? id = sdkOmittedValue,
-          Object? name = sdkOmittedValue,
-          Object? key = sdkOmittedValue,
-          Object? description = sdkOmittedValue,
-          Object? isCreatorEligible = sdkOmittedValue,
-          Object? permissions = sdkOmittedValue,
-          Object? createdAt = sdkOmittedValue,
-          Object? updatedAt = sdkOmittedValue}) =>
-      Role(
-        object: identical(object, sdkOmittedValue)
-            ? this.object
-            : object as RoleObject,
-        id: identical(id, sdkOmittedValue) ? this.id : id as String,
-        name: identical(name, sdkOmittedValue) ? this.name : name as String,
-        key: identical(key, sdkOmittedValue) ? this.key : key as String,
-        description: identical(description, sdkOmittedValue)
-            ? this.description
-            : description as String?,
-        isCreatorEligible: identical(isCreatorEligible, sdkOmittedValue)
-            ? this.isCreatorEligible
-            : isCreatorEligible as bool,
-        permissions: identical(permissions, sdkOmittedValue)
-            ? this.permissions
-            : permissions as List<Permission>,
-        createdAt: identical(createdAt, sdkOmittedValue)
-            ? this.createdAt
-            : createdAt as int,
-        updatedAt: identical(updatedAt, sdkOmittedValue)
-            ? this.updatedAt
-            : updatedAt as int,
-      );
+  Role _copyWith({Object? object = sdkOmittedValue, Object? id = sdkOmittedValue, Object? name = sdkOmittedValue, Object? key = sdkOmittedValue, Object? description = sdkOmittedValue, Object? isCreatorEligible = sdkOmittedValue, Object? permissions = sdkOmittedValue, Object? createdAt = sdkOmittedValue, Object? updatedAt = sdkOmittedValue}) => Role(
+    object: identical(object, sdkOmittedValue) ? this.object : object as RoleObject,
+    id: identical(id, sdkOmittedValue) ? this.id : id as String,
+    name: identical(name, sdkOmittedValue) ? this.name : name as String,
+    key: identical(key, sdkOmittedValue) ? this.key : key as String,
+    description: identical(description, sdkOmittedValue) ? this.description : description as String?,
+    isCreatorEligible: identical(isCreatorEligible, sdkOmittedValue) ? this.isCreatorEligible : isCreatorEligible as bool,
+    permissions: identical(permissions, sdkOmittedValue) ? this.permissions : permissions as List<Permission>,
+    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as int,
+    updatedAt: identical(updatedAt, sdkOmittedValue) ? this.updatedAt : updatedAt as int,
+  );
 
   factory Role.fromJson(Map<String, dynamic> json) => Role(
-        object: (json['object'] != null
-            ? RoleObject.fromJson(json['object'] as String)
-            : null)!,
-        id: (json['id'] as String?)!,
-        name: (json['name'] as String?)!,
-        key: (json['key'] as String?)!,
-        description: json.containsKey('description')
-            ? json['description'] as String?
-            : throw ArgumentError.value(
-                null, 'description', 'Required property is missing'),
-        isCreatorEligible: (json['is_creator_eligible'] as bool?)!,
-        permissions: ((json['permissions'] as List?)
-            ?.map((e) => Permission.fromJson(e as Map<String, dynamic>))
-            .toList())!,
-        createdAt: ((json['created_at'] as num?)?.toInt())!,
-        updatedAt: ((json['updated_at'] as num?)?.toInt())!,
-      );
+    object: (json['object'] != null ? RoleObject.fromJson(json['object'] as String) : null)!,
+    id: (json['id'] as String?)!,
+    name: (json['name'] as String?)!,
+    key: (json['key'] as String?)!,
+    description: json.containsKey('description') ? json['description'] as String? : throw ArgumentError.value(null, 'description', 'Required property is missing'),
+    isCreatorEligible: (json['is_creator_eligible'] as bool?)!,
+    permissions: ((json['permissions'] as List?)?.map((e) => Permission.fromJson(e as Map<String, dynamic>)).toList())!,
+    createdAt: ((json['created_at'] as num?)?.toInt())!,
+    updatedAt: ((json['updated_at'] as num?)?.toInt())!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'object': object.toJson(),
-        'id': id,
-        'name': name,
-        'key': key,
-        'description': description,
-        'is_creator_eligible': isCreatorEligible,
-        'permissions': permissions.map((item) => item.toJson()).toList(),
-        'created_at': createdAt,
-        'updated_at': updatedAt,
-      };
+    'object': object.toJson(),
+    'id': id,
+    'name': name,
+    'key': key,
+    'description': description,
+    'is_creator_eligible': isCreatorEligible,
+    'permissions': permissions.map((item) => item.toJson()).toList(),
+    'created_at': createdAt,
+    'updated_at': updatedAt,
+  };
 }

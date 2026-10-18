@@ -13,412 +13,198 @@ class CreateSAMLConnectionRequestBodyAttributeMapping {
   final SdkOptional<String> firstName;
   final SdkOptional<String> lastName;
 
-  const CreateSAMLConnectionRequestBodyAttributeMapping(
-      {this.userId = const SdkOmitted(),
-      this.emailAddress = const SdkOmitted(),
-      this.firstName = const SdkOmitted(),
-      this.lastName = const SdkOmitted()});
+  const CreateSAMLConnectionRequestBodyAttributeMapping({this.userId = const SdkOmitted(), this.emailAddress = const SdkOmitted(), this.firstName = const SdkOmitted(), this.lastName = const SdkOmitted()});
 
-  CreateSAMLConnectionRequestBodyAttributeMapping Function(
-      {SdkOptional<String> userId,
-      SdkOptional<String> emailAddress,
-      SdkOptional<String> firstName,
-      SdkOptional<String> lastName}) get copyWith => _copyWith;
+  CreateSAMLConnectionRequestBodyAttributeMapping Function({SdkOptional<String> userId, SdkOptional<String> emailAddress, SdkOptional<String> firstName, SdkOptional<String> lastName}) get copyWith => _copyWith;
 
-  CreateSAMLConnectionRequestBodyAttributeMapping _copyWith(
-          {Object? userId = sdkOmittedValue,
-          Object? emailAddress = sdkOmittedValue,
-          Object? firstName = sdkOmittedValue,
-          Object? lastName = sdkOmittedValue}) =>
-      CreateSAMLConnectionRequestBodyAttributeMapping(
-        userId: identical(userId, sdkOmittedValue)
-            ? this.userId
-            : userId as SdkOptional<String>,
-        emailAddress: identical(emailAddress, sdkOmittedValue)
-            ? this.emailAddress
-            : emailAddress as SdkOptional<String>,
-        firstName: identical(firstName, sdkOmittedValue)
-            ? this.firstName
-            : firstName as SdkOptional<String>,
-        lastName: identical(lastName, sdkOmittedValue)
-            ? this.lastName
-            : lastName as SdkOptional<String>,
-      );
+  CreateSAMLConnectionRequestBodyAttributeMapping _copyWith({Object? userId = sdkOmittedValue, Object? emailAddress = sdkOmittedValue, Object? firstName = sdkOmittedValue, Object? lastName = sdkOmittedValue}) => CreateSAMLConnectionRequestBodyAttributeMapping(
+    userId: identical(userId, sdkOmittedValue) ? this.userId : userId as SdkOptional<String>,
+    emailAddress: identical(emailAddress, sdkOmittedValue) ? this.emailAddress : emailAddress as SdkOptional<String>,
+    firstName: identical(firstName, sdkOmittedValue) ? this.firstName : firstName as SdkOptional<String>,
+    lastName: identical(lastName, sdkOmittedValue) ? this.lastName : lastName as SdkOptional<String>,
+  );
 
-  factory CreateSAMLConnectionRequestBodyAttributeMapping.fromJson(
-          Map<String, dynamic> json) =>
-      CreateSAMLConnectionRequestBodyAttributeMapping(
-        userId: json['user_id'] != null
-            ? SdkPresent((json['user_id'] as String?)!)
-            : const SdkOmitted(),
-        emailAddress: json['email_address'] != null
-            ? SdkPresent((json['email_address'] as String?)!)
-            : const SdkOmitted(),
-        firstName: json['first_name'] != null
-            ? SdkPresent((json['first_name'] as String?)!)
-            : const SdkOmitted(),
-        lastName: json['last_name'] != null
-            ? SdkPresent((json['last_name'] as String?)!)
-            : const SdkOmitted(),
-      );
+  factory CreateSAMLConnectionRequestBodyAttributeMapping.fromJson(Map<String, dynamic> json) => CreateSAMLConnectionRequestBodyAttributeMapping(
+    userId: json['user_id'] != null ? SdkPresent((json['user_id'] as String?)!) : const SdkOmitted(),
+    emailAddress: json['email_address'] != null ? SdkPresent((json['email_address'] as String?)!) : const SdkOmitted(),
+    firstName: json['first_name'] != null ? SdkPresent((json['first_name'] as String?)!) : const SdkOmitted(),
+    lastName: json['last_name'] != null ? SdkPresent((json['last_name'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (userId) {
-          SdkPresent<String>(value: final value) => {
-              'user_id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (emailAddress) {
-          SdkPresent<String>(value: final value) => {
-              'email_address': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (firstName) {
-          SdkPresent<String>(value: final value) => {
-              'first_name': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (lastName) {
-          SdkPresent<String>(value: final value) => {
-              'last_name': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (userId) {
+      SdkPresent<String>(value: final value) => {'user_id': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (emailAddress) {
+      SdkPresent<String>(value: final value) => {'email_address': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (firstName) {
+      SdkPresent<String>(value: final value) => {'first_name': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (lastName) {
+      SdkPresent<String>(value: final value) => {'last_name': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Configuration for the login_hint sent to the IdP on SSO sign-in
 class CreateSAMLConnectionRequestBodyLoginHint {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Controls the login_hint sent to the IdP on SSO sign-in
   final CreateSAMLConnectionRequestBodyLoginHintMode mode;
-
   /// The user public_metadata key whose value is sent as the login_hint when mode is custom_attribute
   final SdkOptional<String> source;
 
-  const CreateSAMLConnectionRequestBodyLoginHint(
-      {required this.mode, this.source = const SdkOmitted()});
+  const CreateSAMLConnectionRequestBodyLoginHint({required this.mode, this.source = const SdkOmitted()});
 
-  CreateSAMLConnectionRequestBodyLoginHint Function(
-      {CreateSAMLConnectionRequestBodyLoginHintMode mode,
-      SdkOptional<String> source}) get copyWith => _copyWith;
+  CreateSAMLConnectionRequestBodyLoginHint Function({CreateSAMLConnectionRequestBodyLoginHintMode mode, SdkOptional<String> source}) get copyWith => _copyWith;
 
-  CreateSAMLConnectionRequestBodyLoginHint _copyWith(
-          {Object? mode = sdkOmittedValue, Object? source = sdkOmittedValue}) =>
-      CreateSAMLConnectionRequestBodyLoginHint(
-        mode: identical(mode, sdkOmittedValue)
-            ? this.mode
-            : mode as CreateSAMLConnectionRequestBodyLoginHintMode,
-        source: identical(source, sdkOmittedValue)
-            ? this.source
-            : source as SdkOptional<String>,
-      );
+  CreateSAMLConnectionRequestBodyLoginHint _copyWith({Object? mode = sdkOmittedValue, Object? source = sdkOmittedValue}) => CreateSAMLConnectionRequestBodyLoginHint(
+    mode: identical(mode, sdkOmittedValue) ? this.mode : mode as CreateSAMLConnectionRequestBodyLoginHintMode,
+    source: identical(source, sdkOmittedValue) ? this.source : source as SdkOptional<String>,
+  );
 
-  factory CreateSAMLConnectionRequestBodyLoginHint.fromJson(
-          Map<String, dynamic> json) =>
-      CreateSAMLConnectionRequestBodyLoginHint(
-        mode: (json['mode'] != null
-            ? CreateSAMLConnectionRequestBodyLoginHintMode.fromJson(
-                json['mode'] as String)
-            : null)!,
-        source: json['source'] != null
-            ? SdkPresent((json['source'] as String?)!)
-            : const SdkOmitted(),
-      );
+  factory CreateSAMLConnectionRequestBodyLoginHint.fromJson(Map<String, dynamic> json) => CreateSAMLConnectionRequestBodyLoginHint(
+    mode: (json['mode'] != null ? CreateSAMLConnectionRequestBodyLoginHintMode.fromJson(json['mode'] as String) : null)!,
+    source: json['source'] != null ? SdkPresent((json['source'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        'mode': mode.toJson(),
-        ...switch (source) {
-          SdkPresent<String>(value: final value) => {
-              'source': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    'mode': mode.toJson(),
+    ...switch (source) {
+      SdkPresent<String>(value: final value) => {'source': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 class CreateSAMLConnectionRequestBody {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The name to use as a label for this SAML Connection
   final String name;
-
   /// The domain of your organization. Sign in flows using an email with this domain, will use this SAML Connection.
   final SdkOptional<String> domain;
-
   /// The domains of your organization. Sign in flows using an email with one of these domains, will use this SAML Connection.
   final SdkOptional<List<String>> domains;
-
   /// The IdP provider of the connection.
   final CreateSAMLConnectionRequestBodyProvider provider;
-
   /// The Entity ID as provided by the IdP
   final SdkOptional<String?> idpEntityId;
-
   /// The Single-Sign On URL as provided by the IdP
   final SdkOptional<String?> idpSsoUrl;
-
   /// Deprecated, use idp_certificates. One X.509 certificate, PEM or bare base64, or several concatenated PEM certificates; replaces the connection's whole certificate set
   final SdkOptional<String?> idpCertificate;
-
   /// The IdP X.509 signing certificates the connection trusts, one per entry, in PEM or bare base64. Replaces the connection's whole certificate set and takes precedence over idp_certificate
   final SdkOptional<List<String>> idpCertificates;
-
   /// The URL which serves the IdP metadata. If present, it takes priority over the corresponding individual properties
   final SdkOptional<String?> idpMetadataUrl;
-
   /// The XML content of the IdP metadata file. If present, it takes priority over the corresponding individual properties
   final SdkOptional<String?> idpMetadata;
-
   /// The ID of the organization to which users of this SAML Connection will be added
   final SdkOptional<String?> organizationId;
-
   /// Define the attribute name mapping between Identity Provider and Clerk's user properties
-  final SdkOptional<CreateSAMLConnectionRequestBodyAttributeMapping?>
-      attributeMapping;
-
+  final SdkOptional<CreateSAMLConnectionRequestBodyAttributeMapping?> attributeMapping;
   /// Enable or deactivate ForceAuthn
   final SdkOptional<bool> forceAuthn;
-
   /// Configuration for the login_hint sent to the IdP on SSO sign-in
   final SdkOptional<CreateSAMLConnectionRequestBodyLoginHint?> loginHint;
 
-  const CreateSAMLConnectionRequestBody(
-      {required this.name,
-      this.domain = const SdkOmitted(),
-      this.domains = const SdkOmitted(),
-      required this.provider,
-      this.idpEntityId = const SdkOmitted(),
-      this.idpSsoUrl = const SdkOmitted(),
-      this.idpCertificate = const SdkOmitted(),
-      this.idpCertificates = const SdkOmitted(),
-      this.idpMetadataUrl = const SdkOmitted(),
-      this.idpMetadata = const SdkOmitted(),
-      this.organizationId = const SdkOmitted(),
-      this.attributeMapping = const SdkOmitted(),
-      this.forceAuthn = const SdkOmitted(),
-      this.loginHint = const SdkOmitted()});
+  const CreateSAMLConnectionRequestBody({required this.name, this.domain = const SdkOmitted(), this.domains = const SdkOmitted(), required this.provider, this.idpEntityId = const SdkOmitted(), this.idpSsoUrl = const SdkOmitted(), this.idpCertificate = const SdkOmitted(), this.idpCertificates = const SdkOmitted(), this.idpMetadataUrl = const SdkOmitted(), this.idpMetadata = const SdkOmitted(), this.organizationId = const SdkOmitted(), this.attributeMapping = const SdkOmitted(), this.forceAuthn = const SdkOmitted(), this.loginHint = const SdkOmitted()});
 
-  CreateSAMLConnectionRequestBody Function(
-          {String name,
-          SdkOptional<String> domain,
-          SdkOptional<List<String>> domains,
-          CreateSAMLConnectionRequestBodyProvider provider,
-          SdkOptional<String?> idpEntityId,
-          SdkOptional<String?> idpSsoUrl,
-          SdkOptional<String?> idpCertificate,
-          SdkOptional<List<String>> idpCertificates,
-          SdkOptional<String?> idpMetadataUrl,
-          SdkOptional<String?> idpMetadata,
-          SdkOptional<String?> organizationId,
-          SdkOptional<CreateSAMLConnectionRequestBodyAttributeMapping?>
-              attributeMapping,
-          SdkOptional<bool> forceAuthn,
-          SdkOptional<CreateSAMLConnectionRequestBodyLoginHint?> loginHint})
-      get copyWith => _copyWith;
+  CreateSAMLConnectionRequestBody Function({String name, SdkOptional<String> domain, SdkOptional<List<String>> domains, CreateSAMLConnectionRequestBodyProvider provider, SdkOptional<String?> idpEntityId, SdkOptional<String?> idpSsoUrl, SdkOptional<String?> idpCertificate, SdkOptional<List<String>> idpCertificates, SdkOptional<String?> idpMetadataUrl, SdkOptional<String?> idpMetadata, SdkOptional<String?> organizationId, SdkOptional<CreateSAMLConnectionRequestBodyAttributeMapping?> attributeMapping, SdkOptional<bool> forceAuthn, SdkOptional<CreateSAMLConnectionRequestBodyLoginHint?> loginHint}) get copyWith => _copyWith;
 
-  CreateSAMLConnectionRequestBody _copyWith(
-          {Object? name = sdkOmittedValue,
-          Object? domain = sdkOmittedValue,
-          Object? domains = sdkOmittedValue,
-          Object? provider = sdkOmittedValue,
-          Object? idpEntityId = sdkOmittedValue,
-          Object? idpSsoUrl = sdkOmittedValue,
-          Object? idpCertificate = sdkOmittedValue,
-          Object? idpCertificates = sdkOmittedValue,
-          Object? idpMetadataUrl = sdkOmittedValue,
-          Object? idpMetadata = sdkOmittedValue,
-          Object? organizationId = sdkOmittedValue,
-          Object? attributeMapping = sdkOmittedValue,
-          Object? forceAuthn = sdkOmittedValue,
-          Object? loginHint = sdkOmittedValue}) =>
-      CreateSAMLConnectionRequestBody(
-        name: identical(name, sdkOmittedValue) ? this.name : name as String,
-        domain: identical(domain, sdkOmittedValue)
-            ? this.domain
-            : domain as SdkOptional<String>,
-        domains: identical(domains, sdkOmittedValue)
-            ? this.domains
-            : domains as SdkOptional<List<String>>,
-        provider: identical(provider, sdkOmittedValue)
-            ? this.provider
-            : provider as CreateSAMLConnectionRequestBodyProvider,
-        idpEntityId: identical(idpEntityId, sdkOmittedValue)
-            ? this.idpEntityId
-            : idpEntityId as SdkOptional<String?>,
-        idpSsoUrl: identical(idpSsoUrl, sdkOmittedValue)
-            ? this.idpSsoUrl
-            : idpSsoUrl as SdkOptional<String?>,
-        idpCertificate: identical(idpCertificate, sdkOmittedValue)
-            ? this.idpCertificate
-            : idpCertificate as SdkOptional<String?>,
-        idpCertificates: identical(idpCertificates, sdkOmittedValue)
-            ? this.idpCertificates
-            : idpCertificates as SdkOptional<List<String>>,
-        idpMetadataUrl: identical(idpMetadataUrl, sdkOmittedValue)
-            ? this.idpMetadataUrl
-            : idpMetadataUrl as SdkOptional<String?>,
-        idpMetadata: identical(idpMetadata, sdkOmittedValue)
-            ? this.idpMetadata
-            : idpMetadata as SdkOptional<String?>,
-        organizationId: identical(organizationId, sdkOmittedValue)
-            ? this.organizationId
-            : organizationId as SdkOptional<String?>,
-        attributeMapping: identical(attributeMapping, sdkOmittedValue)
-            ? this.attributeMapping
-            : attributeMapping as SdkOptional<
-                CreateSAMLConnectionRequestBodyAttributeMapping?>,
-        forceAuthn: identical(forceAuthn, sdkOmittedValue)
-            ? this.forceAuthn
-            : forceAuthn as SdkOptional<bool>,
-        loginHint: identical(loginHint, sdkOmittedValue)
-            ? this.loginHint
-            : loginHint
-                as SdkOptional<CreateSAMLConnectionRequestBodyLoginHint?>,
-      );
+  CreateSAMLConnectionRequestBody _copyWith({Object? name = sdkOmittedValue, Object? domain = sdkOmittedValue, Object? domains = sdkOmittedValue, Object? provider = sdkOmittedValue, Object? idpEntityId = sdkOmittedValue, Object? idpSsoUrl = sdkOmittedValue, Object? idpCertificate = sdkOmittedValue, Object? idpCertificates = sdkOmittedValue, Object? idpMetadataUrl = sdkOmittedValue, Object? idpMetadata = sdkOmittedValue, Object? organizationId = sdkOmittedValue, Object? attributeMapping = sdkOmittedValue, Object? forceAuthn = sdkOmittedValue, Object? loginHint = sdkOmittedValue}) => CreateSAMLConnectionRequestBody(
+    name: identical(name, sdkOmittedValue) ? this.name : name as String,
+    domain: identical(domain, sdkOmittedValue) ? this.domain : domain as SdkOptional<String>,
+    domains: identical(domains, sdkOmittedValue) ? this.domains : domains as SdkOptional<List<String>>,
+    provider: identical(provider, sdkOmittedValue) ? this.provider : provider as CreateSAMLConnectionRequestBodyProvider,
+    idpEntityId: identical(idpEntityId, sdkOmittedValue) ? this.idpEntityId : idpEntityId as SdkOptional<String?>,
+    idpSsoUrl: identical(idpSsoUrl, sdkOmittedValue) ? this.idpSsoUrl : idpSsoUrl as SdkOptional<String?>,
+    idpCertificate: identical(idpCertificate, sdkOmittedValue) ? this.idpCertificate : idpCertificate as SdkOptional<String?>,
+    idpCertificates: identical(idpCertificates, sdkOmittedValue) ? this.idpCertificates : idpCertificates as SdkOptional<List<String>>,
+    idpMetadataUrl: identical(idpMetadataUrl, sdkOmittedValue) ? this.idpMetadataUrl : idpMetadataUrl as SdkOptional<String?>,
+    idpMetadata: identical(idpMetadata, sdkOmittedValue) ? this.idpMetadata : idpMetadata as SdkOptional<String?>,
+    organizationId: identical(organizationId, sdkOmittedValue) ? this.organizationId : organizationId as SdkOptional<String?>,
+    attributeMapping: identical(attributeMapping, sdkOmittedValue) ? this.attributeMapping : attributeMapping as SdkOptional<CreateSAMLConnectionRequestBodyAttributeMapping?>,
+    forceAuthn: identical(forceAuthn, sdkOmittedValue) ? this.forceAuthn : forceAuthn as SdkOptional<bool>,
+    loginHint: identical(loginHint, sdkOmittedValue) ? this.loginHint : loginHint as SdkOptional<CreateSAMLConnectionRequestBodyLoginHint?>,
+  );
 
-  factory CreateSAMLConnectionRequestBody.fromJson(Map<String, dynamic> json) =>
-      CreateSAMLConnectionRequestBody(
-        name: (json['name'] as String?)!,
-        domain: json['domain'] != null
-            ? SdkPresent((json['domain'] as String?)!)
-            : const SdkOmitted(),
-        domains: json['domains'] != null
-            ? SdkPresent(
-                ((json['domains'] as List?)?.map((e) => e as String).toList())!)
-            : const SdkOmitted(),
-        provider: (json['provider'] != null
-            ? CreateSAMLConnectionRequestBodyProvider.fromJson(
-                json['provider'] as String)
-            : null)!,
-        idpEntityId: json.containsKey('idp_entity_id')
-            ? SdkPresent(json['idp_entity_id'] as String?)
-            : const SdkOmitted(),
-        idpSsoUrl: json.containsKey('idp_sso_url')
-            ? SdkPresent(json['idp_sso_url'] as String?)
-            : const SdkOmitted(),
-        idpCertificate: json.containsKey('idp_certificate')
-            ? SdkPresent(json['idp_certificate'] as String?)
-            : const SdkOmitted(),
-        idpCertificates: json['idp_certificates'] != null
-            ? SdkPresent(((json['idp_certificates'] as List?)
-                ?.map((e) => e as String)
-                .toList())!)
-            : const SdkOmitted(),
-        idpMetadataUrl: json.containsKey('idp_metadata_url')
-            ? SdkPresent(json['idp_metadata_url'] as String?)
-            : const SdkOmitted(),
-        idpMetadata: json.containsKey('idp_metadata')
-            ? SdkPresent(json['idp_metadata'] as String?)
-            : const SdkOmitted(),
-        organizationId: json.containsKey('organization_id')
-            ? SdkPresent(json['organization_id'] as String?)
-            : const SdkOmitted(),
-        attributeMapping: json.containsKey('attribute_mapping')
-            ? SdkPresent(json['attribute_mapping'] != null
-                ? CreateSAMLConnectionRequestBodyAttributeMapping.fromJson(
-                    json['attribute_mapping'] as Map<String, dynamic>)
-                : null)
-            : const SdkOmitted(),
-        forceAuthn: json['force_authn'] != null
-            ? SdkPresent((json['force_authn'] as bool?)!)
-            : const SdkOmitted(),
-        loginHint: json.containsKey('login_hint')
-            ? SdkPresent(json['login_hint'] != null
-                ? CreateSAMLConnectionRequestBodyLoginHint.fromJson(
-                    json['login_hint'] as Map<String, dynamic>)
-                : null)
-            : const SdkOmitted(),
-      );
+  factory CreateSAMLConnectionRequestBody.fromJson(Map<String, dynamic> json) => CreateSAMLConnectionRequestBody(
+    name: (json['name'] as String?)!,
+    domain: json['domain'] != null ? SdkPresent((json['domain'] as String?)!) : const SdkOmitted(),
+    domains: json['domains'] != null ? SdkPresent(((json['domains'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
+    provider: (json['provider'] != null ? CreateSAMLConnectionRequestBodyProvider.fromJson(json['provider'] as String) : null)!,
+    idpEntityId: json.containsKey('idp_entity_id') ? SdkPresent(json['idp_entity_id'] as String?) : const SdkOmitted(),
+    idpSsoUrl: json.containsKey('idp_sso_url') ? SdkPresent(json['idp_sso_url'] as String?) : const SdkOmitted(),
+    idpCertificate: json.containsKey('idp_certificate') ? SdkPresent(json['idp_certificate'] as String?) : const SdkOmitted(),
+    idpCertificates: json['idp_certificates'] != null ? SdkPresent(((json['idp_certificates'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
+    idpMetadataUrl: json.containsKey('idp_metadata_url') ? SdkPresent(json['idp_metadata_url'] as String?) : const SdkOmitted(),
+    idpMetadata: json.containsKey('idp_metadata') ? SdkPresent(json['idp_metadata'] as String?) : const SdkOmitted(),
+    organizationId: json.containsKey('organization_id') ? SdkPresent(json['organization_id'] as String?) : const SdkOmitted(),
+    attributeMapping: json.containsKey('attribute_mapping') ? SdkPresent(json['attribute_mapping'] != null ? CreateSAMLConnectionRequestBodyAttributeMapping.fromJson(json['attribute_mapping'] as Map<String, dynamic>) : null) : const SdkOmitted(),
+    forceAuthn: json['force_authn'] != null ? SdkPresent((json['force_authn'] as bool?)!) : const SdkOmitted(),
+    loginHint: json.containsKey('login_hint') ? SdkPresent(json['login_hint'] != null ? CreateSAMLConnectionRequestBodyLoginHint.fromJson(json['login_hint'] as Map<String, dynamic>) : null) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        'name': name,
-        ...switch (domain) {
-          SdkPresent<String>(value: final value) => {
-              'domain': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (domains) {
-          SdkPresent<List<String>>(value: final value) => {
-              'domains': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        'provider': provider.toJson(),
-        ...switch (idpEntityId) {
-          SdkPresent<String?>(value: final value) => {
-              'idp_entity_id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (idpSsoUrl) {
-          SdkPresent<String?>(value: final value) => {
-              'idp_sso_url': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (idpCertificate) {
-          SdkPresent<String?>(value: final value) => {
-              'idp_certificate': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (idpCertificates) {
-          SdkPresent<List<String>>(value: final value) => {
-              'idp_certificates': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (idpMetadataUrl) {
-          SdkPresent<String?>(value: final value) => {
-              'idp_metadata_url': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (idpMetadata) {
-          SdkPresent<String?>(value: final value) => {
-              'idp_metadata': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (organizationId) {
-          SdkPresent<String?>(value: final value) => {
-              'organization_id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (attributeMapping) {
-          SdkPresent<CreateSAMLConnectionRequestBodyAttributeMapping?>(
-            value: final value
-          ) =>
-            {
-              'attribute_mapping': value?.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (forceAuthn) {
-          SdkPresent<bool>(value: final value) => {
-              'force_authn': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (loginHint) {
-          SdkPresent<CreateSAMLConnectionRequestBodyLoginHint?>(
-            value: final value
-          ) =>
-            {
-              'login_hint': value?.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    'name': name,
+    ...switch (domain) {
+      SdkPresent<String>(value: final value) => {'domain': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (domains) {
+      SdkPresent<List<String>>(value: final value) => {'domains': value,},
+      _ => const <String, dynamic>{},
+    },
+    'provider': provider.toJson(),
+    ...switch (idpEntityId) {
+      SdkPresent<String?>(value: final value) => {'idp_entity_id': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (idpSsoUrl) {
+      SdkPresent<String?>(value: final value) => {'idp_sso_url': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (idpCertificate) {
+      SdkPresent<String?>(value: final value) => {'idp_certificate': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (idpCertificates) {
+      SdkPresent<List<String>>(value: final value) => {'idp_certificates': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (idpMetadataUrl) {
+      SdkPresent<String?>(value: final value) => {'idp_metadata_url': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (idpMetadata) {
+      SdkPresent<String?>(value: final value) => {'idp_metadata': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (organizationId) {
+      SdkPresent<String?>(value: final value) => {'organization_id': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (attributeMapping) {
+      SdkPresent<CreateSAMLConnectionRequestBodyAttributeMapping?>(value: final value) => {'attribute_mapping': value?.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (forceAuthn) {
+      SdkPresent<bool>(value: final value) => {'force_authn': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (loginHint) {
+      SdkPresent<CreateSAMLConnectionRequestBodyLoginHint?>(value: final value) => {'login_hint': value?.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Define the attribute name mapping between Identity Provider and Clerk's user properties
@@ -430,131 +216,72 @@ class UpdateSAMLConnectionRequestBodyAttributeMapping {
   final SdkOptional<String> firstName;
   final SdkOptional<String> lastName;
 
-  const UpdateSAMLConnectionRequestBodyAttributeMapping(
-      {this.userId = const SdkOmitted(),
-      this.emailAddress = const SdkOmitted(),
-      this.firstName = const SdkOmitted(),
-      this.lastName = const SdkOmitted()});
+  const UpdateSAMLConnectionRequestBodyAttributeMapping({this.userId = const SdkOmitted(), this.emailAddress = const SdkOmitted(), this.firstName = const SdkOmitted(), this.lastName = const SdkOmitted()});
 
-  UpdateSAMLConnectionRequestBodyAttributeMapping Function(
-      {SdkOptional<String> userId,
-      SdkOptional<String> emailAddress,
-      SdkOptional<String> firstName,
-      SdkOptional<String> lastName}) get copyWith => _copyWith;
+  UpdateSAMLConnectionRequestBodyAttributeMapping Function({SdkOptional<String> userId, SdkOptional<String> emailAddress, SdkOptional<String> firstName, SdkOptional<String> lastName}) get copyWith => _copyWith;
 
-  UpdateSAMLConnectionRequestBodyAttributeMapping _copyWith(
-          {Object? userId = sdkOmittedValue,
-          Object? emailAddress = sdkOmittedValue,
-          Object? firstName = sdkOmittedValue,
-          Object? lastName = sdkOmittedValue}) =>
-      UpdateSAMLConnectionRequestBodyAttributeMapping(
-        userId: identical(userId, sdkOmittedValue)
-            ? this.userId
-            : userId as SdkOptional<String>,
-        emailAddress: identical(emailAddress, sdkOmittedValue)
-            ? this.emailAddress
-            : emailAddress as SdkOptional<String>,
-        firstName: identical(firstName, sdkOmittedValue)
-            ? this.firstName
-            : firstName as SdkOptional<String>,
-        lastName: identical(lastName, sdkOmittedValue)
-            ? this.lastName
-            : lastName as SdkOptional<String>,
-      );
+  UpdateSAMLConnectionRequestBodyAttributeMapping _copyWith({Object? userId = sdkOmittedValue, Object? emailAddress = sdkOmittedValue, Object? firstName = sdkOmittedValue, Object? lastName = sdkOmittedValue}) => UpdateSAMLConnectionRequestBodyAttributeMapping(
+    userId: identical(userId, sdkOmittedValue) ? this.userId : userId as SdkOptional<String>,
+    emailAddress: identical(emailAddress, sdkOmittedValue) ? this.emailAddress : emailAddress as SdkOptional<String>,
+    firstName: identical(firstName, sdkOmittedValue) ? this.firstName : firstName as SdkOptional<String>,
+    lastName: identical(lastName, sdkOmittedValue) ? this.lastName : lastName as SdkOptional<String>,
+  );
 
-  factory UpdateSAMLConnectionRequestBodyAttributeMapping.fromJson(
-          Map<String, dynamic> json) =>
-      UpdateSAMLConnectionRequestBodyAttributeMapping(
-        userId: json['user_id'] != null
-            ? SdkPresent((json['user_id'] as String?)!)
-            : const SdkOmitted(),
-        emailAddress: json['email_address'] != null
-            ? SdkPresent((json['email_address'] as String?)!)
-            : const SdkOmitted(),
-        firstName: json['first_name'] != null
-            ? SdkPresent((json['first_name'] as String?)!)
-            : const SdkOmitted(),
-        lastName: json['last_name'] != null
-            ? SdkPresent((json['last_name'] as String?)!)
-            : const SdkOmitted(),
-      );
+  factory UpdateSAMLConnectionRequestBodyAttributeMapping.fromJson(Map<String, dynamic> json) => UpdateSAMLConnectionRequestBodyAttributeMapping(
+    userId: json['user_id'] != null ? SdkPresent((json['user_id'] as String?)!) : const SdkOmitted(),
+    emailAddress: json['email_address'] != null ? SdkPresent((json['email_address'] as String?)!) : const SdkOmitted(),
+    firstName: json['first_name'] != null ? SdkPresent((json['first_name'] as String?)!) : const SdkOmitted(),
+    lastName: json['last_name'] != null ? SdkPresent((json['last_name'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (userId) {
-          SdkPresent<String>(value: final value) => {
-              'user_id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (emailAddress) {
-          SdkPresent<String>(value: final value) => {
-              'email_address': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (firstName) {
-          SdkPresent<String>(value: final value) => {
-              'first_name': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (lastName) {
-          SdkPresent<String>(value: final value) => {
-              'last_name': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (userId) {
+      SdkPresent<String>(value: final value) => {'user_id': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (emailAddress) {
+      SdkPresent<String>(value: final value) => {'email_address': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (firstName) {
+      SdkPresent<String>(value: final value) => {'first_name': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (lastName) {
+      SdkPresent<String>(value: final value) => {'last_name': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Configuration for the login_hint sent to the IdP on SSO sign-in
 class UpdateSAMLConnectionRequestBodyLoginHint {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Controls the login_hint sent to the IdP on SSO sign-in
   final UpdateSAMLConnectionRequestBodyLoginHintMode mode;
-
   /// The user public_metadata key whose value is sent as the login_hint when mode is custom_attribute
   final SdkOptional<String> source;
 
-  const UpdateSAMLConnectionRequestBodyLoginHint(
-      {required this.mode, this.source = const SdkOmitted()});
+  const UpdateSAMLConnectionRequestBodyLoginHint({required this.mode, this.source = const SdkOmitted()});
 
-  UpdateSAMLConnectionRequestBodyLoginHint Function(
-      {UpdateSAMLConnectionRequestBodyLoginHintMode mode,
-      SdkOptional<String> source}) get copyWith => _copyWith;
+  UpdateSAMLConnectionRequestBodyLoginHint Function({UpdateSAMLConnectionRequestBodyLoginHintMode mode, SdkOptional<String> source}) get copyWith => _copyWith;
 
-  UpdateSAMLConnectionRequestBodyLoginHint _copyWith(
-          {Object? mode = sdkOmittedValue, Object? source = sdkOmittedValue}) =>
-      UpdateSAMLConnectionRequestBodyLoginHint(
-        mode: identical(mode, sdkOmittedValue)
-            ? this.mode
-            : mode as UpdateSAMLConnectionRequestBodyLoginHintMode,
-        source: identical(source, sdkOmittedValue)
-            ? this.source
-            : source as SdkOptional<String>,
-      );
+  UpdateSAMLConnectionRequestBodyLoginHint _copyWith({Object? mode = sdkOmittedValue, Object? source = sdkOmittedValue}) => UpdateSAMLConnectionRequestBodyLoginHint(
+    mode: identical(mode, sdkOmittedValue) ? this.mode : mode as UpdateSAMLConnectionRequestBodyLoginHintMode,
+    source: identical(source, sdkOmittedValue) ? this.source : source as SdkOptional<String>,
+  );
 
-  factory UpdateSAMLConnectionRequestBodyLoginHint.fromJson(
-          Map<String, dynamic> json) =>
-      UpdateSAMLConnectionRequestBodyLoginHint(
-        mode: (json['mode'] != null
-            ? UpdateSAMLConnectionRequestBodyLoginHintMode.fromJson(
-                json['mode'] as String)
-            : null)!,
-        source: json['source'] != null
-            ? SdkPresent((json['source'] as String?)!)
-            : const SdkOmitted(),
-      );
+  factory UpdateSAMLConnectionRequestBodyLoginHint.fromJson(Map<String, dynamic> json) => UpdateSAMLConnectionRequestBodyLoginHint(
+    mode: (json['mode'] != null ? UpdateSAMLConnectionRequestBodyLoginHintMode.fromJson(json['mode'] as String) : null)!,
+    source: json['source'] != null ? SdkPresent((json['source'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        'mode': mode.toJson(),
-        ...switch (source) {
-          SdkPresent<String>(value: final value) => {
-              'source': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    'mode': mode.toJson(),
+    ...switch (source) {
+      SdkPresent<String>(value: final value) => {'source': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

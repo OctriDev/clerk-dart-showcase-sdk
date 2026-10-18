@@ -7,552 +7,289 @@ part of 'inline.dart';
 class UpdateOrganizationRequestBody {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The new name of the organization. May not contain URLs or HTML. Max length: 256
   final SdkOptional<String?> name;
-
   /// The new slug of the organization, which needs to be unique in the instance
   final SdkOptional<String?> slug;
-
   /// The maximum number of memberships allowed for this organization
   final SdkOptional<int?> maxAllowedMemberships;
-
   /// If true, an admin can delete this organization with the Frontend API.
   final SdkOptional<bool?> adminDeleteEnabled;
-
   /// Whether this organization can configure self-serve enterprise SSO.
   final SdkOptional<bool?> selfServeSsoEnabled;
-
   /// Whether this organization can configure self-serve Directory Sync (SCIM). Independent of `self_serve_sso_enabled`.
   final SdkOptional<bool?> selfServeDirectorySyncEnabled;
-
   /// A custom date/time denoting _when_ the organization was created, specified in RFC3339 format (e.g. `2012-10-20T07:15:20.902Z`).
   final SdkOptional<String?> createdAt;
-
   /// The key of the [role set](https://clerk.com/docs/guides/organizations/control-access/role-sets) to assign to this organization.
   final SdkOptional<String?> roleSetKey;
-
   /// Maps role keys in the organization's current role set to role keys in the new role set. Only applies when `role_set_key` changes the role set. Every role that a member holds and that the new role set does not include must be mapped, otherwise the request fails with a 422. Mapping a role that both role sets include moves its members to the destination role. Memberships are reassigned asynchronously after the response.
   final SdkOptional<Map<String, dynamic>?> reassignmentMappings;
 
-  const UpdateOrganizationRequestBody(
-      {this.name = const SdkOmitted(),
-      this.slug = const SdkOmitted(),
-      this.maxAllowedMemberships = const SdkOmitted(),
-      this.adminDeleteEnabled = const SdkOmitted(),
-      this.selfServeSsoEnabled = const SdkOmitted(),
-      this.selfServeDirectorySyncEnabled = const SdkOmitted(),
-      this.createdAt = const SdkOmitted(),
-      this.roleSetKey = const SdkOmitted(),
-      this.reassignmentMappings = const SdkOmitted()});
+  const UpdateOrganizationRequestBody({this.name = const SdkOmitted(), this.slug = const SdkOmitted(), this.maxAllowedMemberships = const SdkOmitted(), this.adminDeleteEnabled = const SdkOmitted(), this.selfServeSsoEnabled = const SdkOmitted(), this.selfServeDirectorySyncEnabled = const SdkOmitted(), this.createdAt = const SdkOmitted(), this.roleSetKey = const SdkOmitted(), this.reassignmentMappings = const SdkOmitted()});
 
-  UpdateOrganizationRequestBody Function(
-          {SdkOptional<String?> name,
-          SdkOptional<String?> slug,
-          SdkOptional<int?> maxAllowedMemberships,
-          SdkOptional<bool?> adminDeleteEnabled,
-          SdkOptional<bool?> selfServeSsoEnabled,
-          SdkOptional<bool?> selfServeDirectorySyncEnabled,
-          SdkOptional<String?> createdAt,
-          SdkOptional<String?> roleSetKey,
-          SdkOptional<Map<String, dynamic>?> reassignmentMappings})
-      get copyWith => _copyWith;
+  UpdateOrganizationRequestBody Function({SdkOptional<String?> name, SdkOptional<String?> slug, SdkOptional<int?> maxAllowedMemberships, SdkOptional<bool?> adminDeleteEnabled, SdkOptional<bool?> selfServeSsoEnabled, SdkOptional<bool?> selfServeDirectorySyncEnabled, SdkOptional<String?> createdAt, SdkOptional<String?> roleSetKey, SdkOptional<Map<String, dynamic>?> reassignmentMappings}) get copyWith => _copyWith;
 
-  UpdateOrganizationRequestBody _copyWith(
-          {Object? name = sdkOmittedValue,
-          Object? slug = sdkOmittedValue,
-          Object? maxAllowedMemberships = sdkOmittedValue,
-          Object? adminDeleteEnabled = sdkOmittedValue,
-          Object? selfServeSsoEnabled = sdkOmittedValue,
-          Object? selfServeDirectorySyncEnabled = sdkOmittedValue,
-          Object? createdAt = sdkOmittedValue,
-          Object? roleSetKey = sdkOmittedValue,
-          Object? reassignmentMappings = sdkOmittedValue}) =>
-      UpdateOrganizationRequestBody(
-        name: identical(name, sdkOmittedValue)
-            ? this.name
-            : name as SdkOptional<String?>,
-        slug: identical(slug, sdkOmittedValue)
-            ? this.slug
-            : slug as SdkOptional<String?>,
-        maxAllowedMemberships: identical(maxAllowedMemberships, sdkOmittedValue)
-            ? this.maxAllowedMemberships
-            : maxAllowedMemberships as SdkOptional<int?>,
-        adminDeleteEnabled: identical(adminDeleteEnabled, sdkOmittedValue)
-            ? this.adminDeleteEnabled
-            : adminDeleteEnabled as SdkOptional<bool?>,
-        selfServeSsoEnabled: identical(selfServeSsoEnabled, sdkOmittedValue)
-            ? this.selfServeSsoEnabled
-            : selfServeSsoEnabled as SdkOptional<bool?>,
-        selfServeDirectorySyncEnabled:
-            identical(selfServeDirectorySyncEnabled, sdkOmittedValue)
-                ? this.selfServeDirectorySyncEnabled
-                : selfServeDirectorySyncEnabled as SdkOptional<bool?>,
-        createdAt: identical(createdAt, sdkOmittedValue)
-            ? this.createdAt
-            : createdAt as SdkOptional<String?>,
-        roleSetKey: identical(roleSetKey, sdkOmittedValue)
-            ? this.roleSetKey
-            : roleSetKey as SdkOptional<String?>,
-        reassignmentMappings: identical(reassignmentMappings, sdkOmittedValue)
-            ? this.reassignmentMappings
-            : reassignmentMappings as SdkOptional<Map<String, dynamic>?>,
-      );
+  UpdateOrganizationRequestBody _copyWith({Object? name = sdkOmittedValue, Object? slug = sdkOmittedValue, Object? maxAllowedMemberships = sdkOmittedValue, Object? adminDeleteEnabled = sdkOmittedValue, Object? selfServeSsoEnabled = sdkOmittedValue, Object? selfServeDirectorySyncEnabled = sdkOmittedValue, Object? createdAt = sdkOmittedValue, Object? roleSetKey = sdkOmittedValue, Object? reassignmentMappings = sdkOmittedValue}) => UpdateOrganizationRequestBody(
+    name: identical(name, sdkOmittedValue) ? this.name : name as SdkOptional<String?>,
+    slug: identical(slug, sdkOmittedValue) ? this.slug : slug as SdkOptional<String?>,
+    maxAllowedMemberships: identical(maxAllowedMemberships, sdkOmittedValue) ? this.maxAllowedMemberships : maxAllowedMemberships as SdkOptional<int?>,
+    adminDeleteEnabled: identical(adminDeleteEnabled, sdkOmittedValue) ? this.adminDeleteEnabled : adminDeleteEnabled as SdkOptional<bool?>,
+    selfServeSsoEnabled: identical(selfServeSsoEnabled, sdkOmittedValue) ? this.selfServeSsoEnabled : selfServeSsoEnabled as SdkOptional<bool?>,
+    selfServeDirectorySyncEnabled: identical(selfServeDirectorySyncEnabled, sdkOmittedValue) ? this.selfServeDirectorySyncEnabled : selfServeDirectorySyncEnabled as SdkOptional<bool?>,
+    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as SdkOptional<String?>,
+    roleSetKey: identical(roleSetKey, sdkOmittedValue) ? this.roleSetKey : roleSetKey as SdkOptional<String?>,
+    reassignmentMappings: identical(reassignmentMappings, sdkOmittedValue) ? this.reassignmentMappings : reassignmentMappings as SdkOptional<Map<String, dynamic>?>,
+  );
 
-  factory UpdateOrganizationRequestBody.fromJson(Map<String, dynamic> json) =>
-      UpdateOrganizationRequestBody(
-        name: json.containsKey('name')
-            ? SdkPresent(json['name'] as String?)
-            : const SdkOmitted(),
-        slug: json.containsKey('slug')
-            ? SdkPresent(json['slug'] as String?)
-            : const SdkOmitted(),
-        maxAllowedMemberships: json.containsKey('max_allowed_memberships')
-            ? SdkPresent((json['max_allowed_memberships'] as num?)?.toInt())
-            : const SdkOmitted(),
-        adminDeleteEnabled: json.containsKey('admin_delete_enabled')
-            ? SdkPresent(json['admin_delete_enabled'] as bool?)
-            : const SdkOmitted(),
-        selfServeSsoEnabled: json.containsKey('self_serve_sso_enabled')
-            ? SdkPresent(json['self_serve_sso_enabled'] as bool?)
-            : const SdkOmitted(),
-        selfServeDirectorySyncEnabled:
-            json.containsKey('self_serve_directory_sync_enabled')
-                ? SdkPresent(json['self_serve_directory_sync_enabled'] as bool?)
-                : const SdkOmitted(),
-        createdAt: json.containsKey('created_at')
-            ? SdkPresent(json['created_at'] as String?)
-            : const SdkOmitted(),
-        roleSetKey: json.containsKey('role_set_key')
-            ? SdkPresent(json['role_set_key'] as String?)
-            : const SdkOmitted(),
-        reassignmentMappings: json.containsKey('reassignment_mappings')
-            ? SdkPresent(json['reassignment_mappings'] == null
-                ? null
-                : json['reassignment_mappings'] as Map<String, dynamic>)
-            : const SdkOmitted(),
-      );
+  factory UpdateOrganizationRequestBody.fromJson(Map<String, dynamic> json) => UpdateOrganizationRequestBody(
+    name: json.containsKey('name') ? SdkPresent(json['name'] as String?) : const SdkOmitted(),
+    slug: json.containsKey('slug') ? SdkPresent(json['slug'] as String?) : const SdkOmitted(),
+    maxAllowedMemberships: json.containsKey('max_allowed_memberships') ? SdkPresent((json['max_allowed_memberships'] as num?)?.toInt()) : const SdkOmitted(),
+    adminDeleteEnabled: json.containsKey('admin_delete_enabled') ? SdkPresent(json['admin_delete_enabled'] as bool?) : const SdkOmitted(),
+    selfServeSsoEnabled: json.containsKey('self_serve_sso_enabled') ? SdkPresent(json['self_serve_sso_enabled'] as bool?) : const SdkOmitted(),
+    selfServeDirectorySyncEnabled: json.containsKey('self_serve_directory_sync_enabled') ? SdkPresent(json['self_serve_directory_sync_enabled'] as bool?) : const SdkOmitted(),
+    createdAt: json.containsKey('created_at') ? SdkPresent(json['created_at'] as String?) : const SdkOmitted(),
+    roleSetKey: json.containsKey('role_set_key') ? SdkPresent(json['role_set_key'] as String?) : const SdkOmitted(),
+    reassignmentMappings: json.containsKey('reassignment_mappings') ? SdkPresent(json['reassignment_mappings'] == null ? null : json['reassignment_mappings'] as Map<String, dynamic>) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (name) {
-          SdkPresent<String?>(value: final value) => {
-              'name': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (slug) {
-          SdkPresent<String?>(value: final value) => {
-              'slug': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (maxAllowedMemberships) {
-          SdkPresent<int?>(value: final value) => {
-              'max_allowed_memberships': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (adminDeleteEnabled) {
-          SdkPresent<bool?>(value: final value) => {
-              'admin_delete_enabled': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (selfServeSsoEnabled) {
-          SdkPresent<bool?>(value: final value) => {
-              'self_serve_sso_enabled': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (selfServeDirectorySyncEnabled) {
-          SdkPresent<bool?>(value: final value) => {
-              'self_serve_directory_sync_enabled': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (createdAt) {
-          SdkPresent<String?>(value: final value) => {
-              'created_at': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (roleSetKey) {
-          SdkPresent<String?>(value: final value) => {
-              'role_set_key': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (reassignmentMappings) {
-          SdkPresent<Map<String, dynamic>?>(value: final value) => {
-              'reassignment_mappings': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (name) {
+      SdkPresent<String?>(value: final value) => {'name': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (slug) {
+      SdkPresent<String?>(value: final value) => {'slug': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (maxAllowedMemberships) {
+      SdkPresent<int?>(value: final value) => {'max_allowed_memberships': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (adminDeleteEnabled) {
+      SdkPresent<bool?>(value: final value) => {'admin_delete_enabled': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (selfServeSsoEnabled) {
+      SdkPresent<bool?>(value: final value) => {'self_serve_sso_enabled': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (selfServeDirectorySyncEnabled) {
+      SdkPresent<bool?>(value: final value) => {'self_serve_directory_sync_enabled': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (createdAt) {
+      SdkPresent<String?>(value: final value) => {'created_at': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (roleSetKey) {
+      SdkPresent<String?>(value: final value) => {'role_set_key': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (reassignmentMappings) {
+      SdkPresent<Map<String, dynamic>?>(value: final value) => {'reassignment_mappings': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 class MergeOrganizationMetadataRequestBody {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Metadata saved on the organization, that is visible to both your frontend and backend. The new object will be merged with the existing value.
   final SdkOptional<Map<String, Object?>> publicMetadata;
-
   /// Metadata saved on the organization that is only visible to your backend. The new object will be merged with the existing value.
   final SdkOptional<Map<String, Object?>> privateMetadata;
 
-  const MergeOrganizationMetadataRequestBody(
-      {this.publicMetadata = const SdkOmitted(),
-      this.privateMetadata = const SdkOmitted()});
+  const MergeOrganizationMetadataRequestBody({this.publicMetadata = const SdkOmitted(), this.privateMetadata = const SdkOmitted()});
 
-  MergeOrganizationMetadataRequestBody Function(
-          {SdkOptional<Map<String, Object?>> publicMetadata,
-          SdkOptional<Map<String, Object?>> privateMetadata})
-      get copyWith => _copyWith;
+  MergeOrganizationMetadataRequestBody Function({SdkOptional<Map<String, Object?>> publicMetadata, SdkOptional<Map<String, Object?>> privateMetadata}) get copyWith => _copyWith;
 
-  MergeOrganizationMetadataRequestBody _copyWith(
-          {Object? publicMetadata = sdkOmittedValue,
-          Object? privateMetadata = sdkOmittedValue}) =>
-      MergeOrganizationMetadataRequestBody(
-        publicMetadata: identical(publicMetadata, sdkOmittedValue)
-            ? this.publicMetadata
-            : publicMetadata as SdkOptional<Map<String, Object?>>,
-        privateMetadata: identical(privateMetadata, sdkOmittedValue)
-            ? this.privateMetadata
-            : privateMetadata as SdkOptional<Map<String, Object?>>,
-      );
+  MergeOrganizationMetadataRequestBody _copyWith({Object? publicMetadata = sdkOmittedValue, Object? privateMetadata = sdkOmittedValue}) => MergeOrganizationMetadataRequestBody(
+    publicMetadata: identical(publicMetadata, sdkOmittedValue) ? this.publicMetadata : publicMetadata as SdkOptional<Map<String, Object?>>,
+    privateMetadata: identical(privateMetadata, sdkOmittedValue) ? this.privateMetadata : privateMetadata as SdkOptional<Map<String, Object?>>,
+  );
 
-  factory MergeOrganizationMetadataRequestBody.fromJson(
-          Map<String, dynamic> json) =>
-      MergeOrganizationMetadataRequestBody(
-        publicMetadata: json['public_metadata'] != null
-            ? SdkPresent((json['public_metadata'] == null
-                ? null
-                : Map<String, dynamic>.from(json['public_metadata'] as Map)
-                    .map((key, value) => MapEntry(key, value)))!)
-            : const SdkOmitted(),
-        privateMetadata: json['private_metadata'] != null
-            ? SdkPresent((json['private_metadata'] == null
-                ? null
-                : Map<String, dynamic>.from(json['private_metadata'] as Map)
-                    .map((key, value) => MapEntry(key, value)))!)
-            : const SdkOmitted(),
-      );
+  factory MergeOrganizationMetadataRequestBody.fromJson(Map<String, dynamic> json) => MergeOrganizationMetadataRequestBody(
+    publicMetadata: json['public_metadata'] != null ? SdkPresent((json['public_metadata'] == null ? null : Map<String, dynamic>.from(json['public_metadata'] as Map).map((key, value) => MapEntry(key, value)))!) : const SdkOmitted(),
+    privateMetadata: json['private_metadata'] != null ? SdkPresent((json['private_metadata'] == null ? null : Map<String, dynamic>.from(json['private_metadata'] as Map).map((key, value) => MapEntry(key, value)))!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (publicMetadata) {
-          SdkPresent<Map<String, Object?>>(value: final value) => {
-              'public_metadata': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (privateMetadata) {
-          SdkPresent<Map<String, Object?>>(value: final value) => {
-              'private_metadata': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (publicMetadata) {
+      SdkPresent<Map<String, Object?>>(value: final value) => {'public_metadata': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (privateMetadata) {
+      SdkPresent<Map<String, Object?>>(value: final value) => {'private_metadata': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 class ReplaceOrganizationMetadataRequestBody {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Metadata saved on the organization, that is visible to both your frontend and backend. The existing value will be replaced entirely with the new object.
   final SdkOptional<Map<String, Object?>> publicMetadata;
-
   /// Metadata saved on the organization that is only visible to your backend. The existing value will be replaced entirely with the new object.
   final SdkOptional<Map<String, Object?>> privateMetadata;
 
-  const ReplaceOrganizationMetadataRequestBody(
-      {this.publicMetadata = const SdkOmitted(),
-      this.privateMetadata = const SdkOmitted()});
+  const ReplaceOrganizationMetadataRequestBody({this.publicMetadata = const SdkOmitted(), this.privateMetadata = const SdkOmitted()});
 
-  ReplaceOrganizationMetadataRequestBody Function(
-          {SdkOptional<Map<String, Object?>> publicMetadata,
-          SdkOptional<Map<String, Object?>> privateMetadata})
-      get copyWith => _copyWith;
+  ReplaceOrganizationMetadataRequestBody Function({SdkOptional<Map<String, Object?>> publicMetadata, SdkOptional<Map<String, Object?>> privateMetadata}) get copyWith => _copyWith;
 
-  ReplaceOrganizationMetadataRequestBody _copyWith(
-          {Object? publicMetadata = sdkOmittedValue,
-          Object? privateMetadata = sdkOmittedValue}) =>
-      ReplaceOrganizationMetadataRequestBody(
-        publicMetadata: identical(publicMetadata, sdkOmittedValue)
-            ? this.publicMetadata
-            : publicMetadata as SdkOptional<Map<String, Object?>>,
-        privateMetadata: identical(privateMetadata, sdkOmittedValue)
-            ? this.privateMetadata
-            : privateMetadata as SdkOptional<Map<String, Object?>>,
-      );
+  ReplaceOrganizationMetadataRequestBody _copyWith({Object? publicMetadata = sdkOmittedValue, Object? privateMetadata = sdkOmittedValue}) => ReplaceOrganizationMetadataRequestBody(
+    publicMetadata: identical(publicMetadata, sdkOmittedValue) ? this.publicMetadata : publicMetadata as SdkOptional<Map<String, Object?>>,
+    privateMetadata: identical(privateMetadata, sdkOmittedValue) ? this.privateMetadata : privateMetadata as SdkOptional<Map<String, Object?>>,
+  );
 
-  factory ReplaceOrganizationMetadataRequestBody.fromJson(
-          Map<String, dynamic> json) =>
-      ReplaceOrganizationMetadataRequestBody(
-        publicMetadata: json['public_metadata'] != null
-            ? SdkPresent((json['public_metadata'] == null
-                ? null
-                : Map<String, dynamic>.from(json['public_metadata'] as Map)
-                    .map((key, value) => MapEntry(key, value)))!)
-            : const SdkOmitted(),
-        privateMetadata: json['private_metadata'] != null
-            ? SdkPresent((json['private_metadata'] == null
-                ? null
-                : Map<String, dynamic>.from(json['private_metadata'] as Map)
-                    .map((key, value) => MapEntry(key, value)))!)
-            : const SdkOmitted(),
-      );
+  factory ReplaceOrganizationMetadataRequestBody.fromJson(Map<String, dynamic> json) => ReplaceOrganizationMetadataRequestBody(
+    publicMetadata: json['public_metadata'] != null ? SdkPresent((json['public_metadata'] == null ? null : Map<String, dynamic>.from(json['public_metadata'] as Map).map((key, value) => MapEntry(key, value)))!) : const SdkOmitted(),
+    privateMetadata: json['private_metadata'] != null ? SdkPresent((json['private_metadata'] == null ? null : Map<String, dynamic>.from(json['private_metadata'] as Map).map((key, value) => MapEntry(key, value)))!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (publicMetadata) {
-          SdkPresent<Map<String, Object?>>(value: final value) => {
-              'public_metadata': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (privateMetadata) {
-          SdkPresent<Map<String, Object?>>(value: final value) => {
-              'private_metadata': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (publicMetadata) {
+      SdkPresent<Map<String, Object?>>(value: final value) => {'public_metadata': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (privateMetadata) {
+      SdkPresent<Map<String, Object?>>(value: final value) => {'private_metadata': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 class UploadOrganizationLogoRequestBody {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The ID of the user that will be credited with the image upload.
   final SdkOptional<String> uploaderUserId;
   final List<int> file;
 
-  const UploadOrganizationLogoRequestBody(
-      {this.uploaderUserId = const SdkOmitted(), required this.file});
+  const UploadOrganizationLogoRequestBody({this.uploaderUserId = const SdkOmitted(), required this.file});
 
-  UploadOrganizationLogoRequestBody Function(
-      {SdkOptional<String> uploaderUserId,
-      List<int> file}) get copyWith => _copyWith;
+  UploadOrganizationLogoRequestBody Function({SdkOptional<String> uploaderUserId, List<int> file}) get copyWith => _copyWith;
 
-  UploadOrganizationLogoRequestBody _copyWith(
-          {Object? uploaderUserId = sdkOmittedValue,
-          Object? file = sdkOmittedValue}) =>
-      UploadOrganizationLogoRequestBody(
-        uploaderUserId: identical(uploaderUserId, sdkOmittedValue)
-            ? this.uploaderUserId
-            : uploaderUserId as SdkOptional<String>,
-        file: identical(file, sdkOmittedValue) ? this.file : file as List<int>,
-      );
+  UploadOrganizationLogoRequestBody _copyWith({Object? uploaderUserId = sdkOmittedValue, Object? file = sdkOmittedValue}) => UploadOrganizationLogoRequestBody(
+    uploaderUserId: identical(uploaderUserId, sdkOmittedValue) ? this.uploaderUserId : uploaderUserId as SdkOptional<String>,
+    file: identical(file, sdkOmittedValue) ? this.file : file as List<int>,
+  );
 
-  factory UploadOrganizationLogoRequestBody.fromJson(
-          Map<String, dynamic> json) =>
-      UploadOrganizationLogoRequestBody(
-        uploaderUserId: json['uploader_user_id'] != null
-            ? SdkPresent((json['uploader_user_id'] as String?)!)
-            : const SdkOmitted(),
-        file: (json['file'] != null
-            ? base64Decode(json['file'] as String)
-            : null)!,
-      );
+  factory UploadOrganizationLogoRequestBody.fromJson(Map<String, dynamic> json) => UploadOrganizationLogoRequestBody(
+    uploaderUserId: json['uploader_user_id'] != null ? SdkPresent((json['uploader_user_id'] as String?)!) : const SdkOmitted(),
+    file: (json['file'] != null ? base64Decode(json['file'] as String) : null)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (uploaderUserId) {
-          SdkPresent<String>(value: final value) => {
-              'uploader_user_id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        'file': base64Encode(file),
-      };
+    ...switch (uploaderUserId) {
+      SdkPresent<String>(value: final value) => {'uploader_user_id': value,},
+      _ => const <String, dynamic>{},
+    },
+    'file': base64Encode(file),
+  };
 }
 
 class CreateOrganizationRoleRequestBody {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The name of the new organization role
   final String name;
-
   /// A unique key for the organization role. Must start with 'org:' and contain only lowercase alphanumeric characters and underscores.
   final String key;
-
   /// Optional description for the role
   final SdkOptional<String?> description;
-
   /// Array of permission IDs to assign to the role
   final SdkOptional<List<String>?> permissions;
-
   /// Whether this role should be included in the initial role set
   final SdkOptional<bool?> includeInInitialRoleSet;
 
-  const CreateOrganizationRoleRequestBody(
-      {required this.name,
-      required this.key,
-      this.description = const SdkOmitted(),
-      this.permissions = const SdkOmitted(),
-      this.includeInInitialRoleSet = const SdkOmitted()});
+  const CreateOrganizationRoleRequestBody({required this.name, required this.key, this.description = const SdkOmitted(), this.permissions = const SdkOmitted(), this.includeInInitialRoleSet = const SdkOmitted()});
 
-  CreateOrganizationRoleRequestBody Function(
-      {String name,
-      String key,
-      SdkOptional<String?> description,
-      SdkOptional<List<String>?> permissions,
-      SdkOptional<bool?> includeInInitialRoleSet}) get copyWith => _copyWith;
+  CreateOrganizationRoleRequestBody Function({String name, String key, SdkOptional<String?> description, SdkOptional<List<String>?> permissions, SdkOptional<bool?> includeInInitialRoleSet}) get copyWith => _copyWith;
 
-  CreateOrganizationRoleRequestBody _copyWith(
-          {Object? name = sdkOmittedValue,
-          Object? key = sdkOmittedValue,
-          Object? description = sdkOmittedValue,
-          Object? permissions = sdkOmittedValue,
-          Object? includeInInitialRoleSet = sdkOmittedValue}) =>
-      CreateOrganizationRoleRequestBody(
-        name: identical(name, sdkOmittedValue) ? this.name : name as String,
-        key: identical(key, sdkOmittedValue) ? this.key : key as String,
-        description: identical(description, sdkOmittedValue)
-            ? this.description
-            : description as SdkOptional<String?>,
-        permissions: identical(permissions, sdkOmittedValue)
-            ? this.permissions
-            : permissions as SdkOptional<List<String>?>,
-        includeInInitialRoleSet:
-            identical(includeInInitialRoleSet, sdkOmittedValue)
-                ? this.includeInInitialRoleSet
-                : includeInInitialRoleSet as SdkOptional<bool?>,
-      );
+  CreateOrganizationRoleRequestBody _copyWith({Object? name = sdkOmittedValue, Object? key = sdkOmittedValue, Object? description = sdkOmittedValue, Object? permissions = sdkOmittedValue, Object? includeInInitialRoleSet = sdkOmittedValue}) => CreateOrganizationRoleRequestBody(
+    name: identical(name, sdkOmittedValue) ? this.name : name as String,
+    key: identical(key, sdkOmittedValue) ? this.key : key as String,
+    description: identical(description, sdkOmittedValue) ? this.description : description as SdkOptional<String?>,
+    permissions: identical(permissions, sdkOmittedValue) ? this.permissions : permissions as SdkOptional<List<String>?>,
+    includeInInitialRoleSet: identical(includeInInitialRoleSet, sdkOmittedValue) ? this.includeInInitialRoleSet : includeInInitialRoleSet as SdkOptional<bool?>,
+  );
 
-  factory CreateOrganizationRoleRequestBody.fromJson(
-          Map<String, dynamic> json) =>
-      CreateOrganizationRoleRequestBody(
-        name: (json['name'] as String?)!,
-        key: (json['key'] as String?)!,
-        description: json.containsKey('description')
-            ? SdkPresent(json['description'] as String?)
-            : const SdkOmitted(),
-        permissions: json.containsKey('permissions')
-            ? SdkPresent((json['permissions'] as List?)
-                ?.map((e) => e as String)
-                .toList())
-            : const SdkOmitted(),
-        includeInInitialRoleSet: json.containsKey('include_in_initial_role_set')
-            ? SdkPresent(json['include_in_initial_role_set'] as bool?)
-            : const SdkOmitted(),
-      );
+  factory CreateOrganizationRoleRequestBody.fromJson(Map<String, dynamic> json) => CreateOrganizationRoleRequestBody(
+    name: (json['name'] as String?)!,
+    key: (json['key'] as String?)!,
+    description: json.containsKey('description') ? SdkPresent(json['description'] as String?) : const SdkOmitted(),
+    permissions: json.containsKey('permissions') ? SdkPresent((json['permissions'] as List?)?.map((e) => e as String).toList()) : const SdkOmitted(),
+    includeInInitialRoleSet: json.containsKey('include_in_initial_role_set') ? SdkPresent(json['include_in_initial_role_set'] as bool?) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        'name': name,
-        'key': key,
-        ...switch (description) {
-          SdkPresent<String?>(value: final value) => {
-              'description': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (permissions) {
-          SdkPresent<List<String>?>(value: final value) => {
-              'permissions': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (includeInInitialRoleSet) {
-          SdkPresent<bool?>(value: final value) => {
-              'include_in_initial_role_set': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    'name': name,
+    'key': key,
+    ...switch (description) {
+      SdkPresent<String?>(value: final value) => {'description': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (permissions) {
+      SdkPresent<List<String>?>(value: final value) => {'permissions': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (includeInInitialRoleSet) {
+      SdkPresent<bool?>(value: final value) => {'include_in_initial_role_set': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 class UpdateOrganizationRoleRequestBody {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The new name for the organization role
   final SdkOptional<String?> name;
-
   /// A unique key for the organization role. Must start with 'org:' and contain only lowercase alphanumeric characters and underscores.
   final SdkOptional<String?> key;
-
   /// Optional description for the role
   final SdkOptional<String?> description;
-
   /// Array of permission IDs to assign to the role. If provided, this will replace the existing permissions.
   final SdkOptional<List<String>?> permissions;
 
-  const UpdateOrganizationRoleRequestBody(
-      {this.name = const SdkOmitted(),
-      this.key = const SdkOmitted(),
-      this.description = const SdkOmitted(),
-      this.permissions = const SdkOmitted()});
+  const UpdateOrganizationRoleRequestBody({this.name = const SdkOmitted(), this.key = const SdkOmitted(), this.description = const SdkOmitted(), this.permissions = const SdkOmitted()});
 
-  UpdateOrganizationRoleRequestBody Function(
-      {SdkOptional<String?> name,
-      SdkOptional<String?> key,
-      SdkOptional<String?> description,
-      SdkOptional<List<String>?> permissions}) get copyWith => _copyWith;
+  UpdateOrganizationRoleRequestBody Function({SdkOptional<String?> name, SdkOptional<String?> key, SdkOptional<String?> description, SdkOptional<List<String>?> permissions}) get copyWith => _copyWith;
 
-  UpdateOrganizationRoleRequestBody _copyWith(
-          {Object? name = sdkOmittedValue,
-          Object? key = sdkOmittedValue,
-          Object? description = sdkOmittedValue,
-          Object? permissions = sdkOmittedValue}) =>
-      UpdateOrganizationRoleRequestBody(
-        name: identical(name, sdkOmittedValue)
-            ? this.name
-            : name as SdkOptional<String?>,
-        key: identical(key, sdkOmittedValue)
-            ? this.key
-            : key as SdkOptional<String?>,
-        description: identical(description, sdkOmittedValue)
-            ? this.description
-            : description as SdkOptional<String?>,
-        permissions: identical(permissions, sdkOmittedValue)
-            ? this.permissions
-            : permissions as SdkOptional<List<String>?>,
-      );
+  UpdateOrganizationRoleRequestBody _copyWith({Object? name = sdkOmittedValue, Object? key = sdkOmittedValue, Object? description = sdkOmittedValue, Object? permissions = sdkOmittedValue}) => UpdateOrganizationRoleRequestBody(
+    name: identical(name, sdkOmittedValue) ? this.name : name as SdkOptional<String?>,
+    key: identical(key, sdkOmittedValue) ? this.key : key as SdkOptional<String?>,
+    description: identical(description, sdkOmittedValue) ? this.description : description as SdkOptional<String?>,
+    permissions: identical(permissions, sdkOmittedValue) ? this.permissions : permissions as SdkOptional<List<String>?>,
+  );
 
-  factory UpdateOrganizationRoleRequestBody.fromJson(
-          Map<String, dynamic> json) =>
-      UpdateOrganizationRoleRequestBody(
-        name: json.containsKey('name')
-            ? SdkPresent(json['name'] as String?)
-            : const SdkOmitted(),
-        key: json.containsKey('key')
-            ? SdkPresent(json['key'] as String?)
-            : const SdkOmitted(),
-        description: json.containsKey('description')
-            ? SdkPresent(json['description'] as String?)
-            : const SdkOmitted(),
-        permissions: json.containsKey('permissions')
-            ? SdkPresent((json['permissions'] as List?)
-                ?.map((e) => e as String)
-                .toList())
-            : const SdkOmitted(),
-      );
+  factory UpdateOrganizationRoleRequestBody.fromJson(Map<String, dynamic> json) => UpdateOrganizationRoleRequestBody(
+    name: json.containsKey('name') ? SdkPresent(json['name'] as String?) : const SdkOmitted(),
+    key: json.containsKey('key') ? SdkPresent(json['key'] as String?) : const SdkOmitted(),
+    description: json.containsKey('description') ? SdkPresent(json['description'] as String?) : const SdkOmitted(),
+    permissions: json.containsKey('permissions') ? SdkPresent((json['permissions'] as List?)?.map((e) => e as String).toList()) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (name) {
-          SdkPresent<String?>(value: final value) => {
-              'name': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (key) {
-          SdkPresent<String?>(value: final value) => {
-              'key': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (description) {
-          SdkPresent<String?>(value: final value) => {
-              'description': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (permissions) {
-          SdkPresent<List<String>?>(value: final value) => {
-              'permissions': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (name) {
+      SdkPresent<String?>(value: final value) => {'name': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (key) {
+      SdkPresent<String?>(value: final value) => {'key': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (description) {
+      SdkPresent<String?>(value: final value) => {'description': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (permissions) {
+      SdkPresent<List<String>?>(value: final value) => {'permissions': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

@@ -7,476 +7,265 @@ part of 'inline.dart';
 class UpdateJWTTemplateRequestBody {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// JWT template name
   final String name;
-
   /// JWT template claims in JSON format
   final Map<String, dynamic> claims;
-
   /// JWT lifetime
   final SdkOptional<int?> lifetime;
-
   /// JWT allowed clock skew
   final SdkOptional<int?> allowedClockSkew;
-
   /// Whether a custom signing key/algorithm is also provided for this template
   final SdkOptional<bool> customSigningKey;
-
   /// The custom signing algorithm to use when minting JWTs. Required if `custom_signing_key` is `true`.
   final SdkOptional<String?> signingAlgorithm;
-
   /// The custom signing private key to use when minting JWTs. Required if `custom_signing_key` is `true`.
   final SdkOptional<String?> signingKey;
 
-  const UpdateJWTTemplateRequestBody(
-      {required this.name,
-      required this.claims,
-      this.lifetime = const SdkOmitted(),
-      this.allowedClockSkew = const SdkOmitted(),
-      this.customSigningKey = const SdkOmitted(),
-      this.signingAlgorithm = const SdkOmitted(),
-      this.signingKey = const SdkOmitted()});
+  const UpdateJWTTemplateRequestBody({required this.name, required this.claims, this.lifetime = const SdkOmitted(), this.allowedClockSkew = const SdkOmitted(), this.customSigningKey = const SdkOmitted(), this.signingAlgorithm = const SdkOmitted(), this.signingKey = const SdkOmitted()});
 
-  UpdateJWTTemplateRequestBody Function(
-      {String name,
-      Map<String, dynamic> claims,
-      SdkOptional<int?> lifetime,
-      SdkOptional<int?> allowedClockSkew,
-      SdkOptional<bool> customSigningKey,
-      SdkOptional<String?> signingAlgorithm,
-      SdkOptional<String?> signingKey}) get copyWith => _copyWith;
+  UpdateJWTTemplateRequestBody Function({String name, Map<String, dynamic> claims, SdkOptional<int?> lifetime, SdkOptional<int?> allowedClockSkew, SdkOptional<bool> customSigningKey, SdkOptional<String?> signingAlgorithm, SdkOptional<String?> signingKey}) get copyWith => _copyWith;
 
-  UpdateJWTTemplateRequestBody _copyWith(
-          {Object? name = sdkOmittedValue,
-          Object? claims = sdkOmittedValue,
-          Object? lifetime = sdkOmittedValue,
-          Object? allowedClockSkew = sdkOmittedValue,
-          Object? customSigningKey = sdkOmittedValue,
-          Object? signingAlgorithm = sdkOmittedValue,
-          Object? signingKey = sdkOmittedValue}) =>
-      UpdateJWTTemplateRequestBody(
-        name: identical(name, sdkOmittedValue) ? this.name : name as String,
-        claims: identical(claims, sdkOmittedValue)
-            ? this.claims
-            : claims as Map<String, dynamic>,
-        lifetime: identical(lifetime, sdkOmittedValue)
-            ? this.lifetime
-            : lifetime as SdkOptional<int?>,
-        allowedClockSkew: identical(allowedClockSkew, sdkOmittedValue)
-            ? this.allowedClockSkew
-            : allowedClockSkew as SdkOptional<int?>,
-        customSigningKey: identical(customSigningKey, sdkOmittedValue)
-            ? this.customSigningKey
-            : customSigningKey as SdkOptional<bool>,
-        signingAlgorithm: identical(signingAlgorithm, sdkOmittedValue)
-            ? this.signingAlgorithm
-            : signingAlgorithm as SdkOptional<String?>,
-        signingKey: identical(signingKey, sdkOmittedValue)
-            ? this.signingKey
-            : signingKey as SdkOptional<String?>,
-      );
+  UpdateJWTTemplateRequestBody _copyWith({Object? name = sdkOmittedValue, Object? claims = sdkOmittedValue, Object? lifetime = sdkOmittedValue, Object? allowedClockSkew = sdkOmittedValue, Object? customSigningKey = sdkOmittedValue, Object? signingAlgorithm = sdkOmittedValue, Object? signingKey = sdkOmittedValue}) => UpdateJWTTemplateRequestBody(
+    name: identical(name, sdkOmittedValue) ? this.name : name as String,
+    claims: identical(claims, sdkOmittedValue) ? this.claims : claims as Map<String, dynamic>,
+    lifetime: identical(lifetime, sdkOmittedValue) ? this.lifetime : lifetime as SdkOptional<int?>,
+    allowedClockSkew: identical(allowedClockSkew, sdkOmittedValue) ? this.allowedClockSkew : allowedClockSkew as SdkOptional<int?>,
+    customSigningKey: identical(customSigningKey, sdkOmittedValue) ? this.customSigningKey : customSigningKey as SdkOptional<bool>,
+    signingAlgorithm: identical(signingAlgorithm, sdkOmittedValue) ? this.signingAlgorithm : signingAlgorithm as SdkOptional<String?>,
+    signingKey: identical(signingKey, sdkOmittedValue) ? this.signingKey : signingKey as SdkOptional<String?>,
+  );
 
-  factory UpdateJWTTemplateRequestBody.fromJson(Map<String, dynamic> json) =>
-      UpdateJWTTemplateRequestBody(
-        name: (json['name'] as String?)!,
-        claims: (json['claims'] == null
-            ? null
-            : json['claims'] as Map<String, dynamic>)!,
-        lifetime: json.containsKey('lifetime')
-            ? SdkPresent((json['lifetime'] as num?)?.toInt())
-            : const SdkOmitted(),
-        allowedClockSkew: json.containsKey('allowed_clock_skew')
-            ? SdkPresent((json['allowed_clock_skew'] as num?)?.toInt())
-            : const SdkOmitted(),
-        customSigningKey: json['custom_signing_key'] != null
-            ? SdkPresent((json['custom_signing_key'] as bool?)!)
-            : const SdkOmitted(),
-        signingAlgorithm: json.containsKey('signing_algorithm')
-            ? SdkPresent(json['signing_algorithm'] as String?)
-            : const SdkOmitted(),
-        signingKey: json.containsKey('signing_key')
-            ? SdkPresent(json['signing_key'] as String?)
-            : const SdkOmitted(),
-      );
+  factory UpdateJWTTemplateRequestBody.fromJson(Map<String, dynamic> json) => UpdateJWTTemplateRequestBody(
+    name: (json['name'] as String?)!,
+    claims: (json['claims'] == null ? null : json['claims'] as Map<String, dynamic>)!,
+    lifetime: json.containsKey('lifetime') ? SdkPresent((json['lifetime'] as num?)?.toInt()) : const SdkOmitted(),
+    allowedClockSkew: json.containsKey('allowed_clock_skew') ? SdkPresent((json['allowed_clock_skew'] as num?)?.toInt()) : const SdkOmitted(),
+    customSigningKey: json['custom_signing_key'] != null ? SdkPresent((json['custom_signing_key'] as bool?)!) : const SdkOmitted(),
+    signingAlgorithm: json.containsKey('signing_algorithm') ? SdkPresent(json['signing_algorithm'] as String?) : const SdkOmitted(),
+    signingKey: json.containsKey('signing_key') ? SdkPresent(json['signing_key'] as String?) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        'name': name,
-        'claims': claims,
-        ...switch (lifetime) {
-          SdkPresent<int?>(value: final value) => {
-              'lifetime': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (allowedClockSkew) {
-          SdkPresent<int?>(value: final value) => {
-              'allowed_clock_skew': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (customSigningKey) {
-          SdkPresent<bool>(value: final value) => {
-              'custom_signing_key': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (signingAlgorithm) {
-          SdkPresent<String?>(value: final value) => {
-              'signing_algorithm': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (signingKey) {
-          SdkPresent<String?>(value: final value) => {
-              'signing_key': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    'name': name,
+    'claims': claims,
+    ...switch (lifetime) {
+      SdkPresent<int?>(value: final value) => {'lifetime': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (allowedClockSkew) {
+      SdkPresent<int?>(value: final value) => {'allowed_clock_skew': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (customSigningKey) {
+      SdkPresent<bool>(value: final value) => {'custom_signing_key': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (signingAlgorithm) {
+      SdkPresent<String?>(value: final value) => {'signing_algorithm': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (signingKey) {
+      SdkPresent<String?>(value: final value) => {'signing_key': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 class CreateMachineRequestBody {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The name of the machine
   final String name;
-
   /// Array of machine IDs that this machine will have access to. Maximum of 150 scopes per machine.
   final SdkOptional<List<String>> scopedMachines;
-
   /// The default time-to-live (TTL) in seconds for tokens created by this machine. Must be at least 1 second.
   final SdkOptional<int> defaultTokenTtl;
 
-  const CreateMachineRequestBody(
-      {required this.name,
-      this.scopedMachines = const SdkOmitted(),
-      this.defaultTokenTtl = const SdkOmitted()});
+  const CreateMachineRequestBody({required this.name, this.scopedMachines = const SdkOmitted(), this.defaultTokenTtl = const SdkOmitted()});
 
-  CreateMachineRequestBody Function(
-      {String name,
-      SdkOptional<List<String>> scopedMachines,
-      SdkOptional<int> defaultTokenTtl}) get copyWith => _copyWith;
+  CreateMachineRequestBody Function({String name, SdkOptional<List<String>> scopedMachines, SdkOptional<int> defaultTokenTtl}) get copyWith => _copyWith;
 
-  CreateMachineRequestBody _copyWith(
-          {Object? name = sdkOmittedValue,
-          Object? scopedMachines = sdkOmittedValue,
-          Object? defaultTokenTtl = sdkOmittedValue}) =>
-      CreateMachineRequestBody(
-        name: identical(name, sdkOmittedValue) ? this.name : name as String,
-        scopedMachines: identical(scopedMachines, sdkOmittedValue)
-            ? this.scopedMachines
-            : scopedMachines as SdkOptional<List<String>>,
-        defaultTokenTtl: identical(defaultTokenTtl, sdkOmittedValue)
-            ? this.defaultTokenTtl
-            : defaultTokenTtl as SdkOptional<int>,
-      );
+  CreateMachineRequestBody _copyWith({Object? name = sdkOmittedValue, Object? scopedMachines = sdkOmittedValue, Object? defaultTokenTtl = sdkOmittedValue}) => CreateMachineRequestBody(
+    name: identical(name, sdkOmittedValue) ? this.name : name as String,
+    scopedMachines: identical(scopedMachines, sdkOmittedValue) ? this.scopedMachines : scopedMachines as SdkOptional<List<String>>,
+    defaultTokenTtl: identical(defaultTokenTtl, sdkOmittedValue) ? this.defaultTokenTtl : defaultTokenTtl as SdkOptional<int>,
+  );
 
-  factory CreateMachineRequestBody.fromJson(Map<String, dynamic> json) =>
-      CreateMachineRequestBody(
-        name: (json['name'] as String?)!,
-        scopedMachines: json['scoped_machines'] != null
-            ? SdkPresent(((json['scoped_machines'] as List?)
-                ?.map((e) => e as String)
-                .toList())!)
-            : const SdkOmitted(),
-        defaultTokenTtl: json['default_token_ttl'] != null
-            ? SdkPresent(((json['default_token_ttl'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-      );
+  factory CreateMachineRequestBody.fromJson(Map<String, dynamic> json) => CreateMachineRequestBody(
+    name: (json['name'] as String?)!,
+    scopedMachines: json['scoped_machines'] != null ? SdkPresent(((json['scoped_machines'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
+    defaultTokenTtl: json['default_token_ttl'] != null ? SdkPresent(((json['default_token_ttl'] as num?)?.toInt())!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        'name': name,
-        ...switch (scopedMachines) {
-          SdkPresent<List<String>>(value: final value) => {
-              'scoped_machines': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (defaultTokenTtl) {
-          SdkPresent<int>(value: final value) => {
-              'default_token_ttl': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    'name': name,
+    ...switch (scopedMachines) {
+      SdkPresent<List<String>>(value: final value) => {'scoped_machines': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (defaultTokenTtl) {
+      SdkPresent<int>(value: final value) => {'default_token_ttl': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 class UpdateMachineRequestBody {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The name of the machine
   final SdkOptional<String> name;
-
   /// The default time-to-live (TTL) in seconds for tokens created by this machine. Must be at least 1 second.
   final SdkOptional<int> defaultTokenTtl;
 
-  const UpdateMachineRequestBody(
-      {this.name = const SdkOmitted(),
-      this.defaultTokenTtl = const SdkOmitted()});
+  const UpdateMachineRequestBody({this.name = const SdkOmitted(), this.defaultTokenTtl = const SdkOmitted()});
 
-  UpdateMachineRequestBody Function(
-      {SdkOptional<String> name,
-      SdkOptional<int> defaultTokenTtl}) get copyWith => _copyWith;
+  UpdateMachineRequestBody Function({SdkOptional<String> name, SdkOptional<int> defaultTokenTtl}) get copyWith => _copyWith;
 
-  UpdateMachineRequestBody _copyWith(
-          {Object? name = sdkOmittedValue,
-          Object? defaultTokenTtl = sdkOmittedValue}) =>
-      UpdateMachineRequestBody(
-        name: identical(name, sdkOmittedValue)
-            ? this.name
-            : name as SdkOptional<String>,
-        defaultTokenTtl: identical(defaultTokenTtl, sdkOmittedValue)
-            ? this.defaultTokenTtl
-            : defaultTokenTtl as SdkOptional<int>,
-      );
+  UpdateMachineRequestBody _copyWith({Object? name = sdkOmittedValue, Object? defaultTokenTtl = sdkOmittedValue}) => UpdateMachineRequestBody(
+    name: identical(name, sdkOmittedValue) ? this.name : name as SdkOptional<String>,
+    defaultTokenTtl: identical(defaultTokenTtl, sdkOmittedValue) ? this.defaultTokenTtl : defaultTokenTtl as SdkOptional<int>,
+  );
 
-  factory UpdateMachineRequestBody.fromJson(Map<String, dynamic> json) =>
-      UpdateMachineRequestBody(
-        name: json['name'] != null
-            ? SdkPresent((json['name'] as String?)!)
-            : const SdkOmitted(),
-        defaultTokenTtl: json['default_token_ttl'] != null
-            ? SdkPresent(((json['default_token_ttl'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-      );
+  factory UpdateMachineRequestBody.fromJson(Map<String, dynamic> json) => UpdateMachineRequestBody(
+    name: json['name'] != null ? SdkPresent((json['name'] as String?)!) : const SdkOmitted(),
+    defaultTokenTtl: json['default_token_ttl'] != null ? SdkPresent(((json['default_token_ttl'] as num?)?.toInt())!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (name) {
-          SdkPresent<String>(value: final value) => {
-              'name': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (defaultTokenTtl) {
-          SdkPresent<int>(value: final value) => {
-              'default_token_ttl': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (name) {
+      SdkPresent<String>(value: final value) => {'name': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (defaultTokenTtl) {
+      SdkPresent<int>(value: final value) => {'default_token_ttl': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 class RotateMachineSecretKeyRequestBody {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The time in seconds that the previous secret key will remain valid after rotation. This ensures a graceful transition period for updating applications with the new secret key. Set to 0 to immediately expire the previous key. Maximum value is 8 hours (28800 seconds).
   final int previousTokenTtl;
 
   const RotateMachineSecretKeyRequestBody({required this.previousTokenTtl});
 
-  RotateMachineSecretKeyRequestBody Function({int previousTokenTtl})
-      get copyWith => _copyWith;
+  RotateMachineSecretKeyRequestBody Function({int previousTokenTtl}) get copyWith => _copyWith;
 
-  RotateMachineSecretKeyRequestBody _copyWith(
-          {Object? previousTokenTtl = sdkOmittedValue}) =>
-      RotateMachineSecretKeyRequestBody(
-        previousTokenTtl: identical(previousTokenTtl, sdkOmittedValue)
-            ? this.previousTokenTtl
-            : previousTokenTtl as int,
-      );
+  RotateMachineSecretKeyRequestBody _copyWith({Object? previousTokenTtl = sdkOmittedValue}) => RotateMachineSecretKeyRequestBody(
+    previousTokenTtl: identical(previousTokenTtl, sdkOmittedValue) ? this.previousTokenTtl : previousTokenTtl as int,
+  );
 
-  factory RotateMachineSecretKeyRequestBody.fromJson(
-          Map<String, dynamic> json) =>
-      RotateMachineSecretKeyRequestBody(
-        previousTokenTtl: ((json['previous_token_ttl'] as num?)?.toInt())!,
-      );
+  factory RotateMachineSecretKeyRequestBody.fromJson(Map<String, dynamic> json) => RotateMachineSecretKeyRequestBody(
+    previousTokenTtl: ((json['previous_token_ttl'] as num?)?.toInt())!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'previous_token_ttl': previousTokenTtl,
-      };
+    'previous_token_ttl': previousTokenTtl,
+  };
 }
 
 class CreateMachineScopeRequestBody {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The ID of the machine that will be scoped to the current machine
   final String toMachineId;
 
   const CreateMachineScopeRequestBody({required this.toMachineId});
 
-  CreateMachineScopeRequestBody Function({String toMachineId}) get copyWith =>
-      _copyWith;
+  CreateMachineScopeRequestBody Function({String toMachineId}) get copyWith => _copyWith;
 
-  CreateMachineScopeRequestBody _copyWith(
-          {Object? toMachineId = sdkOmittedValue}) =>
-      CreateMachineScopeRequestBody(
-        toMachineId: identical(toMachineId, sdkOmittedValue)
-            ? this.toMachineId
-            : toMachineId as String,
-      );
+  CreateMachineScopeRequestBody _copyWith({Object? toMachineId = sdkOmittedValue}) => CreateMachineScopeRequestBody(
+    toMachineId: identical(toMachineId, sdkOmittedValue) ? this.toMachineId : toMachineId as String,
+  );
 
-  factory CreateMachineScopeRequestBody.fromJson(Map<String, dynamic> json) =>
-      CreateMachineScopeRequestBody(
-        toMachineId: (json['to_machine_id'] as String?)!,
-      );
+  factory CreateMachineScopeRequestBody.fromJson(Map<String, dynamic> json) => CreateMachineScopeRequestBody(
+    toMachineId: (json['to_machine_id'] as String?)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'to_machine_id': toMachineId,
-      };
+    'to_machine_id': toMachineId,
+  };
 }
 
 class CreateOrganizationRequestBody {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The name of the new organization. May not contain URLs or HTML. Max length: 256
   final String name;
-
   /// The ID of the User who will become the administrator for the new organization
   final SdkOptional<String?> createdBy;
-
   /// Metadata saved on the organization, accessible only from the Backend API
   final SdkOptional<Map<String, Object?>?> privateMetadata;
-
   /// Metadata saved on the organization, read-only from the Frontend API and fully accessible (read/write) from the Backend API
   final SdkOptional<Map<String, Object?>?> publicMetadata;
-
   /// A slug for the new organization. Can contain only lowercase alphanumeric characters and the dash "-". Must be unique for the instance. This field should only be included when slugs are enabled in the organization settings, refer to our [documentation](https://clerk.com/docs/guides/organizations/overview#organization-slugs).
   final SdkOptional<String?> slug;
-
   /// The maximum number of memberships allowed for this organization
   final SdkOptional<int?> maxAllowedMemberships;
-
   /// A custom date/time denoting _when_ the organization was created, specified in RFC3339 format (e.g. `2012-10-20T07:15:20.902Z`).
   final SdkOptional<String?> createdAt;
-
   /// The key of the [role set](https://clerk.com/docs/guides/organizations/control-access/role-sets) to assign to this organization.
   final SdkOptional<String?> roleSetKey;
 
-  const CreateOrganizationRequestBody(
-      {required this.name,
-      this.createdBy = const SdkOmitted(),
-      this.privateMetadata = const SdkOmitted(),
-      this.publicMetadata = const SdkOmitted(),
-      this.slug = const SdkOmitted(),
-      this.maxAllowedMemberships = const SdkOmitted(),
-      this.createdAt = const SdkOmitted(),
-      this.roleSetKey = const SdkOmitted()});
+  const CreateOrganizationRequestBody({required this.name, this.createdBy = const SdkOmitted(), this.privateMetadata = const SdkOmitted(), this.publicMetadata = const SdkOmitted(), this.slug = const SdkOmitted(), this.maxAllowedMemberships = const SdkOmitted(), this.createdAt = const SdkOmitted(), this.roleSetKey = const SdkOmitted()});
 
-  CreateOrganizationRequestBody Function(
-      {String name,
-      SdkOptional<String?> createdBy,
-      SdkOptional<Map<String, Object?>?> privateMetadata,
-      SdkOptional<Map<String, Object?>?> publicMetadata,
-      SdkOptional<String?> slug,
-      SdkOptional<int?> maxAllowedMemberships,
-      SdkOptional<String?> createdAt,
-      SdkOptional<String?> roleSetKey}) get copyWith => _copyWith;
+  CreateOrganizationRequestBody Function({String name, SdkOptional<String?> createdBy, SdkOptional<Map<String, Object?>?> privateMetadata, SdkOptional<Map<String, Object?>?> publicMetadata, SdkOptional<String?> slug, SdkOptional<int?> maxAllowedMemberships, SdkOptional<String?> createdAt, SdkOptional<String?> roleSetKey}) get copyWith => _copyWith;
 
-  CreateOrganizationRequestBody _copyWith(
-          {Object? name = sdkOmittedValue,
-          Object? createdBy = sdkOmittedValue,
-          Object? privateMetadata = sdkOmittedValue,
-          Object? publicMetadata = sdkOmittedValue,
-          Object? slug = sdkOmittedValue,
-          Object? maxAllowedMemberships = sdkOmittedValue,
-          Object? createdAt = sdkOmittedValue,
-          Object? roleSetKey = sdkOmittedValue}) =>
-      CreateOrganizationRequestBody(
-        name: identical(name, sdkOmittedValue) ? this.name : name as String,
-        createdBy: identical(createdBy, sdkOmittedValue)
-            ? this.createdBy
-            : createdBy as SdkOptional<String?>,
-        privateMetadata: identical(privateMetadata, sdkOmittedValue)
-            ? this.privateMetadata
-            : privateMetadata as SdkOptional<Map<String, Object?>?>,
-        publicMetadata: identical(publicMetadata, sdkOmittedValue)
-            ? this.publicMetadata
-            : publicMetadata as SdkOptional<Map<String, Object?>?>,
-        slug: identical(slug, sdkOmittedValue)
-            ? this.slug
-            : slug as SdkOptional<String?>,
-        maxAllowedMemberships: identical(maxAllowedMemberships, sdkOmittedValue)
-            ? this.maxAllowedMemberships
-            : maxAllowedMemberships as SdkOptional<int?>,
-        createdAt: identical(createdAt, sdkOmittedValue)
-            ? this.createdAt
-            : createdAt as SdkOptional<String?>,
-        roleSetKey: identical(roleSetKey, sdkOmittedValue)
-            ? this.roleSetKey
-            : roleSetKey as SdkOptional<String?>,
-      );
+  CreateOrganizationRequestBody _copyWith({Object? name = sdkOmittedValue, Object? createdBy = sdkOmittedValue, Object? privateMetadata = sdkOmittedValue, Object? publicMetadata = sdkOmittedValue, Object? slug = sdkOmittedValue, Object? maxAllowedMemberships = sdkOmittedValue, Object? createdAt = sdkOmittedValue, Object? roleSetKey = sdkOmittedValue}) => CreateOrganizationRequestBody(
+    name: identical(name, sdkOmittedValue) ? this.name : name as String,
+    createdBy: identical(createdBy, sdkOmittedValue) ? this.createdBy : createdBy as SdkOptional<String?>,
+    privateMetadata: identical(privateMetadata, sdkOmittedValue) ? this.privateMetadata : privateMetadata as SdkOptional<Map<String, Object?>?>,
+    publicMetadata: identical(publicMetadata, sdkOmittedValue) ? this.publicMetadata : publicMetadata as SdkOptional<Map<String, Object?>?>,
+    slug: identical(slug, sdkOmittedValue) ? this.slug : slug as SdkOptional<String?>,
+    maxAllowedMemberships: identical(maxAllowedMemberships, sdkOmittedValue) ? this.maxAllowedMemberships : maxAllowedMemberships as SdkOptional<int?>,
+    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as SdkOptional<String?>,
+    roleSetKey: identical(roleSetKey, sdkOmittedValue) ? this.roleSetKey : roleSetKey as SdkOptional<String?>,
+  );
 
-  factory CreateOrganizationRequestBody.fromJson(Map<String, dynamic> json) =>
-      CreateOrganizationRequestBody(
-        name: (json['name'] as String?)!,
-        createdBy: json.containsKey('created_by')
-            ? SdkPresent(json['created_by'] as String?)
-            : const SdkOmitted(),
-        privateMetadata: json.containsKey('private_metadata')
-            ? SdkPresent(json['private_metadata'] == null
-                ? null
-                : Map<String, dynamic>.from(json['private_metadata'] as Map)
-                    .map((key, value) => MapEntry(key, value)))
-            : const SdkOmitted(),
-        publicMetadata: json.containsKey('public_metadata')
-            ? SdkPresent(json['public_metadata'] == null
-                ? null
-                : Map<String, dynamic>.from(json['public_metadata'] as Map)
-                    .map((key, value) => MapEntry(key, value)))
-            : const SdkOmitted(),
-        slug: json.containsKey('slug')
-            ? SdkPresent(json['slug'] as String?)
-            : const SdkOmitted(),
-        maxAllowedMemberships: json.containsKey('max_allowed_memberships')
-            ? SdkPresent((json['max_allowed_memberships'] as num?)?.toInt())
-            : const SdkOmitted(),
-        createdAt: json.containsKey('created_at')
-            ? SdkPresent(json['created_at'] as String?)
-            : const SdkOmitted(),
-        roleSetKey: json.containsKey('role_set_key')
-            ? SdkPresent(json['role_set_key'] as String?)
-            : const SdkOmitted(),
-      );
+  factory CreateOrganizationRequestBody.fromJson(Map<String, dynamic> json) => CreateOrganizationRequestBody(
+    name: (json['name'] as String?)!,
+    createdBy: json.containsKey('created_by') ? SdkPresent(json['created_by'] as String?) : const SdkOmitted(),
+    privateMetadata: json.containsKey('private_metadata') ? SdkPresent(json['private_metadata'] == null ? null : Map<String, dynamic>.from(json['private_metadata'] as Map).map((key, value) => MapEntry(key, value))) : const SdkOmitted(),
+    publicMetadata: json.containsKey('public_metadata') ? SdkPresent(json['public_metadata'] == null ? null : Map<String, dynamic>.from(json['public_metadata'] as Map).map((key, value) => MapEntry(key, value))) : const SdkOmitted(),
+    slug: json.containsKey('slug') ? SdkPresent(json['slug'] as String?) : const SdkOmitted(),
+    maxAllowedMemberships: json.containsKey('max_allowed_memberships') ? SdkPresent((json['max_allowed_memberships'] as num?)?.toInt()) : const SdkOmitted(),
+    createdAt: json.containsKey('created_at') ? SdkPresent(json['created_at'] as String?) : const SdkOmitted(),
+    roleSetKey: json.containsKey('role_set_key') ? SdkPresent(json['role_set_key'] as String?) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        'name': name,
-        ...switch (createdBy) {
-          SdkPresent<String?>(value: final value) => {
-              'created_by': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (privateMetadata) {
-          SdkPresent<Map<String, Object?>?>(value: final value) => {
-              'private_metadata': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (publicMetadata) {
-          SdkPresent<Map<String, Object?>?>(value: final value) => {
-              'public_metadata': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (slug) {
-          SdkPresent<String?>(value: final value) => {
-              'slug': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (maxAllowedMemberships) {
-          SdkPresent<int?>(value: final value) => {
-              'max_allowed_memberships': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (createdAt) {
-          SdkPresent<String?>(value: final value) => {
-              'created_at': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (roleSetKey) {
-          SdkPresent<String?>(value: final value) => {
-              'role_set_key': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    'name': name,
+    ...switch (createdBy) {
+      SdkPresent<String?>(value: final value) => {'created_by': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (privateMetadata) {
+      SdkPresent<Map<String, Object?>?>(value: final value) => {'private_metadata': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (publicMetadata) {
+      SdkPresent<Map<String, Object?>?>(value: final value) => {'public_metadata': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (slug) {
+      SdkPresent<String?>(value: final value) => {'slug': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (maxAllowedMemberships) {
+      SdkPresent<int?>(value: final value) => {'max_allowed_memberships': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (createdAt) {
+      SdkPresent<String?>(value: final value) => {'created_at': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (roleSetKey) {
+      SdkPresent<String?>(value: final value) => {'role_set_key': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

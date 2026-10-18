@@ -43,34 +43,20 @@ Future<SAMLConnections> listSamlConnections(ClientConfig config,
   return (await sdkRequest<SAMLConnections>('GET', '/saml_connections',
           config: config,
           query: {
-            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit),
-                style: 'form', explode: true),
-            'offset': SdkQueryValue(SdkUtils.unwrapOptional(offset),
-                style: 'form', explode: true),
-            'query': SdkQueryValue(SdkUtils.unwrapOptional(query),
-                style: 'form', explode: true),
-            'order_by': SdkQueryValue(SdkUtils.unwrapOptional(orderBy),
-                style: 'form', explode: true),
-            'organization_id': SdkQueryValue(
-                SdkUtils.unwrapOptional(organizationId),
-                style: 'form',
-                explode: true)
+            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit), style: 'form', explode: true),
+            'offset': SdkQueryValue(SdkUtils.unwrapOptional(offset), style: 'form', explode: true),
+            'query': SdkQueryValue(SdkUtils.unwrapOptional(query), style: 'form', explode: true),
+            'order_by': SdkQueryValue(SdkUtils.unwrapOptional(orderBy), style: 'form', explode: true),
+            'organization_id': SdkQueryValue(SdkUtils.unwrapOptional(organizationId), style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'listSamlConnections',
-          fromJsonRaw: (value) =>
-              SAMLConnections.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => SAMLConnections.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '402': (value) =>
-                ClerkErrors.fromJson(value as Map<String, dynamic>),
-            '403': (value) =>
-                ClerkErrors.fromJson(value as Map<String, dynamic>),
-            '422': (value) =>
-                ClerkErrors.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'402': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '403': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '422': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Create a new SAML Connection. Deprecated: Use the Enterprise Connections API instead. This endpoint will be removed in future versions.
 ///
@@ -112,11 +98,9 @@ Future<SAMLConnection> createSamlConnection(ClientConfig config,
     SdkOptional<String?> idpMetadataUrl = const SdkOmitted(),
     SdkOptional<String?> idpMetadata = const SdkOmitted(),
     SdkOptional<String?> organizationId = const SdkOmitted(),
-    SdkOptional<CreateSAMLConnectionRequestBodyAttributeMapping?>
-        attributeMapping = const SdkOmitted(),
+    SdkOptional<CreateSAMLConnectionRequestBodyAttributeMapping?> attributeMapping = const SdkOmitted(),
     SdkOptional<bool> forceAuthn = const SdkOmitted(),
-    SdkOptional<CreateSAMLConnectionRequestBodyLoginHint?> loginHint =
-        const SdkOmitted(),
+    SdkOptional<CreateSAMLConnectionRequestBodyLoginHint?> loginHint = const SdkOmitted(),
     RequestOptions? requestOptions}) async {
   if (idpCertificates is SdkPresent<List<String>>) {
     validateItems('idp_certificates', idpCertificates.value, min: 1, max: 5);
@@ -142,23 +126,12 @@ Future<SAMLConnection> createSamlConnection(ClientConfig config,
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'createSamlConnection',
-          fromJsonRaw: (value) =>
-              SAMLConnection.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => SAMLConnection.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '402': (value) =>
-                ClerkErrors.fromJson(value as Map<String, dynamic>),
-            '403': (value) =>
-                ClerkErrors.fromJson(value as Map<String, dynamic>),
-            '404': (value) =>
-                ClerkErrors.fromJson(value as Map<String, dynamic>),
-            '409': (value) =>
-                ClerkErrors.fromJson(value as Map<String, dynamic>),
-            '422': (value) =>
-                ClerkErrors.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'402': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '403': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '404': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '409': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '422': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Fetches the SAML Connection whose ID matches the provided `saml_connection_id` in the path. Deprecated: Use the Enterprise Connections API instead. This endpoint will be removed in future versions.
 ///
@@ -172,16 +145,12 @@ Future<SAMLConnection> getSamlConnection(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'getSamlConnection',
-          fromJsonRaw: (value) =>
-              SAMLConnection.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => SAMLConnection.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-        '402': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>),
-        '403': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>),
-        '404': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'402': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '403': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '404': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Updates the SAML Connection whose ID matches the provided `id` in the path. Deprecated: Use the Enterprise Connections API instead. This endpoint will be removed in future versions.
 ///
@@ -236,8 +205,7 @@ Future<SAMLConnection> updateSamlConnection(ClientConfig config,
     SdkOptional<String?> idpMetadataUrl = const SdkOmitted(),
     SdkOptional<String?> idpMetadata = const SdkOmitted(),
     SdkOptional<String?> organizationId = const SdkOmitted(),
-    SdkOptional<UpdateSAMLConnectionRequestBodyAttributeMapping?>
-        attributeMapping = const SdkOmitted(),
+    SdkOptional<UpdateSAMLConnectionRequestBodyAttributeMapping?> attributeMapping = const SdkOmitted(),
     SdkOptional<bool?> active = const SdkOmitted(),
     SdkOptional<bool?> syncUserAttributes = const SdkOmitted(),
     SdkOptional<bool?> allowSubdomains = const SdkOmitted(),
@@ -245,8 +213,7 @@ Future<SAMLConnection> updateSamlConnection(ClientConfig config,
     SdkOptional<bool?> disableAdditionalIdentifications = const SdkOmitted(),
     SdkOptional<bool?> allowOrganizationAccountLinking = const SdkOmitted(),
     SdkOptional<bool> forceAuthn = const SdkOmitted(),
-    SdkOptional<UpdateSAMLConnectionRequestBodyLoginHint?> loginHint =
-        const SdkOmitted(),
+    SdkOptional<UpdateSAMLConnectionRequestBodyLoginHint?> loginHint = const SdkOmitted(),
     SdkOptional<bool?> consentVerifiedDomainsDeletion = const SdkOmitted(),
     RequestOptions? requestOptions}) async {
   if (idpCertificates is SdkPresent<List<String>>) {
@@ -272,34 +239,20 @@ Future<SAMLConnection> updateSamlConnection(ClientConfig config,
             'sync_user_attributes': SdkUtils.unwrapOptional(syncUserAttributes),
             'allow_subdomains': SdkUtils.unwrapOptional(allowSubdomains),
             'allow_idp_initiated': SdkUtils.unwrapOptional(allowIdpInitiated),
-            'disable_additional_identifications':
-                SdkUtils.unwrapOptional(disableAdditionalIdentifications),
-            'allow_organization_account_linking':
-                SdkUtils.unwrapOptional(allowOrganizationAccountLinking),
+            'disable_additional_identifications': SdkUtils.unwrapOptional(disableAdditionalIdentifications),
+            'allow_organization_account_linking': SdkUtils.unwrapOptional(allowOrganizationAccountLinking),
             'force_authn': SdkUtils.unwrapOptional(forceAuthn),
             'login_hint': SdkUtils.unwrapOptional(loginHint),
-            'consent_verified_domains_deletion':
-                SdkUtils.unwrapOptional(consentVerifiedDomainsDeletion)
+            'consent_verified_domains_deletion': SdkUtils.unwrapOptional(consentVerifiedDomainsDeletion)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'updateSamlConnection',
-          fromJsonRaw: (value) =>
-              SAMLConnection.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => SAMLConnection.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '402': (value) =>
-                ClerkErrors.fromJson(value as Map<String, dynamic>),
-            '403': (value) =>
-                ClerkErrors.fromJson(value as Map<String, dynamic>),
-            '404': (value) =>
-                ClerkErrors.fromJson(value as Map<String, dynamic>),
-            '409': (value) =>
-                ClerkErrors.fromJson(value as Map<String, dynamic>),
-            '422': (value) =>
-                ClerkErrors.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'402': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '403': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '404': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '409': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '422': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Deletes the SAML Connection whose ID matches the provided `id` in the path. Deprecated: Use the Enterprise Connections API instead. This endpoint will be removed in future versions.
 ///
@@ -313,13 +266,8 @@ Future<DeletedObject> deleteSamlConnection(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'deleteSamlConnection',
-          fromJsonRaw: (value) =>
-              DeletedObject.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => DeletedObject.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-        '402': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>),
-        '403': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>),
-        '404': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'402': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '403': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '404': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)}))
       .data;
 }

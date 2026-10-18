@@ -12,83 +12,42 @@ class CreateAdminPortalLinkTokenRequestBody {
   final SdkOptional<List<String>> scopes;
   final SdkOptional<int> secondsUntilExpiration;
 
-  const CreateAdminPortalLinkTokenRequestBody(
-      {this.organizationId = const SdkOmitted(),
-      this.itContactId = const SdkOmitted(),
-      this.scopes = const SdkOmitted(),
-      this.secondsUntilExpiration = const SdkOmitted()});
+  const CreateAdminPortalLinkTokenRequestBody({this.organizationId = const SdkOmitted(), this.itContactId = const SdkOmitted(), this.scopes = const SdkOmitted(), this.secondsUntilExpiration = const SdkOmitted()});
 
-  CreateAdminPortalLinkTokenRequestBody Function(
-      {SdkOptional<String> organizationId,
-      SdkOptional<String> itContactId,
-      SdkOptional<List<String>> scopes,
-      SdkOptional<int> secondsUntilExpiration}) get copyWith => _copyWith;
+  CreateAdminPortalLinkTokenRequestBody Function({SdkOptional<String> organizationId, SdkOptional<String> itContactId, SdkOptional<List<String>> scopes, SdkOptional<int> secondsUntilExpiration}) get copyWith => _copyWith;
 
-  CreateAdminPortalLinkTokenRequestBody _copyWith(
-          {Object? organizationId = sdkOmittedValue,
-          Object? itContactId = sdkOmittedValue,
-          Object? scopes = sdkOmittedValue,
-          Object? secondsUntilExpiration = sdkOmittedValue}) =>
-      CreateAdminPortalLinkTokenRequestBody(
-        organizationId: identical(organizationId, sdkOmittedValue)
-            ? this.organizationId
-            : organizationId as SdkOptional<String>,
-        itContactId: identical(itContactId, sdkOmittedValue)
-            ? this.itContactId
-            : itContactId as SdkOptional<String>,
-        scopes: identical(scopes, sdkOmittedValue)
-            ? this.scopes
-            : scopes as SdkOptional<List<String>>,
-        secondsUntilExpiration:
-            identical(secondsUntilExpiration, sdkOmittedValue)
-                ? this.secondsUntilExpiration
-                : secondsUntilExpiration as SdkOptional<int>,
-      );
+  CreateAdminPortalLinkTokenRequestBody _copyWith({Object? organizationId = sdkOmittedValue, Object? itContactId = sdkOmittedValue, Object? scopes = sdkOmittedValue, Object? secondsUntilExpiration = sdkOmittedValue}) => CreateAdminPortalLinkTokenRequestBody(
+    organizationId: identical(organizationId, sdkOmittedValue) ? this.organizationId : organizationId as SdkOptional<String>,
+    itContactId: identical(itContactId, sdkOmittedValue) ? this.itContactId : itContactId as SdkOptional<String>,
+    scopes: identical(scopes, sdkOmittedValue) ? this.scopes : scopes as SdkOptional<List<String>>,
+    secondsUntilExpiration: identical(secondsUntilExpiration, sdkOmittedValue) ? this.secondsUntilExpiration : secondsUntilExpiration as SdkOptional<int>,
+  );
 
-  factory CreateAdminPortalLinkTokenRequestBody.fromJson(
-          Map<String, dynamic> json) =>
-      CreateAdminPortalLinkTokenRequestBody(
-        organizationId: json['organization_id'] != null
-            ? SdkPresent((json['organization_id'] as String?)!)
-            : const SdkOmitted(),
-        itContactId: json['it_contact_id'] != null
-            ? SdkPresent((json['it_contact_id'] as String?)!)
-            : const SdkOmitted(),
-        scopes: json['scopes'] != null
-            ? SdkPresent(
-                ((json['scopes'] as List?)?.map((e) => e as String).toList())!)
-            : const SdkOmitted(),
-        secondsUntilExpiration: json['seconds_until_expiration'] != null
-            ? SdkPresent(((json['seconds_until_expiration'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-      );
+  factory CreateAdminPortalLinkTokenRequestBody.fromJson(Map<String, dynamic> json) => CreateAdminPortalLinkTokenRequestBody(
+    organizationId: json['organization_id'] != null ? SdkPresent((json['organization_id'] as String?)!) : const SdkOmitted(),
+    itContactId: json['it_contact_id'] != null ? SdkPresent((json['it_contact_id'] as String?)!) : const SdkOmitted(),
+    scopes: json['scopes'] != null ? SdkPresent(((json['scopes'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
+    secondsUntilExpiration: json['seconds_until_expiration'] != null ? SdkPresent(((json['seconds_until_expiration'] as num?)?.toInt())!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (organizationId) {
-          SdkPresent<String>(value: final value) => {
-              'organization_id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (itContactId) {
-          SdkPresent<String>(value: final value) => {
-              'it_contact_id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (scopes) {
-          SdkPresent<List<String>>(value: final value) => {
-              'scopes': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (secondsUntilExpiration) {
-          SdkPresent<int>(value: final value) => {
-              'seconds_until_expiration': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (organizationId) {
+      SdkPresent<String>(value: final value) => {'organization_id': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (itContactId) {
+      SdkPresent<String>(value: final value) => {'it_contact_id': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (scopes) {
+      SdkPresent<List<String>>(value: final value) => {'scopes': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (secondsUntilExpiration) {
+      SdkPresent<int>(value: final value) => {'seconds_until_expiration': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 class CreateAdminPortalLinkTokenResponse {
@@ -96,176 +55,81 @@ class CreateAdminPortalLinkTokenResponse {
   static const String constructionSurface = 'named';
   final CreateAdminPortalLinkTokenResponseObject object;
   final String id;
-
   /// The origin-level admin_portal_link this token was issued for.
   final String adminPortalLinkId;
   final String instanceId;
-
   /// Optional. Present only when the link is scoped to an existing org.
   final String? organizationId;
-
   /// Optional opaque reference to the IT contact associated with this link.
   final String? itContactId;
-
   /// Caller-provided scopes for this token.
   final List<String>? scopes;
-
   /// The single-use admin portal link token. Returned only on creation. URL-borne; treat as a secret.
   final String token;
   final bool revoked;
   final String? revocationReason;
   final bool expired;
-
   /// The timestamp for when the token will expire, in milliseconds.
   final double? expiration;
-
   /// The timestamp for when the token was created, in milliseconds.
   final double createdAt;
-
   /// The timestamp for when the token was last updated, in milliseconds.
   final double updatedAt;
 
-  const CreateAdminPortalLinkTokenResponse(
-      {required this.object,
-      required this.id,
-      required this.adminPortalLinkId,
-      required this.instanceId,
-      required this.organizationId,
-      required this.itContactId,
-      required this.scopes,
-      required this.token,
-      required this.revoked,
-      required this.revocationReason,
-      required this.expired,
-      required this.expiration,
-      required this.createdAt,
-      required this.updatedAt});
+  const CreateAdminPortalLinkTokenResponse({required this.object, required this.id, required this.adminPortalLinkId, required this.instanceId, required this.organizationId, required this.itContactId, required this.scopes, required this.token, required this.revoked, required this.revocationReason, required this.expired, required this.expiration, required this.createdAt, required this.updatedAt});
 
-  CreateAdminPortalLinkTokenResponse Function(
-      {CreateAdminPortalLinkTokenResponseObject object,
-      String id,
-      String adminPortalLinkId,
-      String instanceId,
-      String? organizationId,
-      String? itContactId,
-      List<String>? scopes,
-      String token,
-      bool revoked,
-      String? revocationReason,
-      bool expired,
-      double? expiration,
-      double createdAt,
-      double updatedAt}) get copyWith => _copyWith;
+  CreateAdminPortalLinkTokenResponse Function({CreateAdminPortalLinkTokenResponseObject object, String id, String adminPortalLinkId, String instanceId, String? organizationId, String? itContactId, List<String>? scopes, String token, bool revoked, String? revocationReason, bool expired, double? expiration, double createdAt, double updatedAt}) get copyWith => _copyWith;
 
-  CreateAdminPortalLinkTokenResponse _copyWith(
-          {Object? object = sdkOmittedValue,
-          Object? id = sdkOmittedValue,
-          Object? adminPortalLinkId = sdkOmittedValue,
-          Object? instanceId = sdkOmittedValue,
-          Object? organizationId = sdkOmittedValue,
-          Object? itContactId = sdkOmittedValue,
-          Object? scopes = sdkOmittedValue,
-          Object? token = sdkOmittedValue,
-          Object? revoked = sdkOmittedValue,
-          Object? revocationReason = sdkOmittedValue,
-          Object? expired = sdkOmittedValue,
-          Object? expiration = sdkOmittedValue,
-          Object? createdAt = sdkOmittedValue,
-          Object? updatedAt = sdkOmittedValue}) =>
-      CreateAdminPortalLinkTokenResponse(
-        object: identical(object, sdkOmittedValue)
-            ? this.object
-            : object as CreateAdminPortalLinkTokenResponseObject,
-        id: identical(id, sdkOmittedValue) ? this.id : id as String,
-        adminPortalLinkId: identical(adminPortalLinkId, sdkOmittedValue)
-            ? this.adminPortalLinkId
-            : adminPortalLinkId as String,
-        instanceId: identical(instanceId, sdkOmittedValue)
-            ? this.instanceId
-            : instanceId as String,
-        organizationId: identical(organizationId, sdkOmittedValue)
-            ? this.organizationId
-            : organizationId as String?,
-        itContactId: identical(itContactId, sdkOmittedValue)
-            ? this.itContactId
-            : itContactId as String?,
-        scopes: identical(scopes, sdkOmittedValue)
-            ? this.scopes
-            : scopes as List<String>?,
-        token: identical(token, sdkOmittedValue) ? this.token : token as String,
-        revoked: identical(revoked, sdkOmittedValue)
-            ? this.revoked
-            : revoked as bool,
-        revocationReason: identical(revocationReason, sdkOmittedValue)
-            ? this.revocationReason
-            : revocationReason as String?,
-        expired: identical(expired, sdkOmittedValue)
-            ? this.expired
-            : expired as bool,
-        expiration: identical(expiration, sdkOmittedValue)
-            ? this.expiration
-            : expiration as double?,
-        createdAt: identical(createdAt, sdkOmittedValue)
-            ? this.createdAt
-            : createdAt as double,
-        updatedAt: identical(updatedAt, sdkOmittedValue)
-            ? this.updatedAt
-            : updatedAt as double,
-      );
+  CreateAdminPortalLinkTokenResponse _copyWith({Object? object = sdkOmittedValue, Object? id = sdkOmittedValue, Object? adminPortalLinkId = sdkOmittedValue, Object? instanceId = sdkOmittedValue, Object? organizationId = sdkOmittedValue, Object? itContactId = sdkOmittedValue, Object? scopes = sdkOmittedValue, Object? token = sdkOmittedValue, Object? revoked = sdkOmittedValue, Object? revocationReason = sdkOmittedValue, Object? expired = sdkOmittedValue, Object? expiration = sdkOmittedValue, Object? createdAt = sdkOmittedValue, Object? updatedAt = sdkOmittedValue}) => CreateAdminPortalLinkTokenResponse(
+    object: identical(object, sdkOmittedValue) ? this.object : object as CreateAdminPortalLinkTokenResponseObject,
+    id: identical(id, sdkOmittedValue) ? this.id : id as String,
+    adminPortalLinkId: identical(adminPortalLinkId, sdkOmittedValue) ? this.adminPortalLinkId : adminPortalLinkId as String,
+    instanceId: identical(instanceId, sdkOmittedValue) ? this.instanceId : instanceId as String,
+    organizationId: identical(organizationId, sdkOmittedValue) ? this.organizationId : organizationId as String?,
+    itContactId: identical(itContactId, sdkOmittedValue) ? this.itContactId : itContactId as String?,
+    scopes: identical(scopes, sdkOmittedValue) ? this.scopes : scopes as List<String>?,
+    token: identical(token, sdkOmittedValue) ? this.token : token as String,
+    revoked: identical(revoked, sdkOmittedValue) ? this.revoked : revoked as bool,
+    revocationReason: identical(revocationReason, sdkOmittedValue) ? this.revocationReason : revocationReason as String?,
+    expired: identical(expired, sdkOmittedValue) ? this.expired : expired as bool,
+    expiration: identical(expiration, sdkOmittedValue) ? this.expiration : expiration as double?,
+    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as double,
+    updatedAt: identical(updatedAt, sdkOmittedValue) ? this.updatedAt : updatedAt as double,
+  );
 
-  factory CreateAdminPortalLinkTokenResponse.fromJson(
-          Map<String, dynamic> json) =>
-      CreateAdminPortalLinkTokenResponse(
-        object: (json['object'] != null
-            ? CreateAdminPortalLinkTokenResponseObject.fromJson(
-                json['object'] as String)
-            : null)!,
-        id: (json['id'] as String?)!,
-        adminPortalLinkId: (json['admin_portal_link_id'] as String?)!,
-        instanceId: (json['instance_id'] as String?)!,
-        organizationId: json.containsKey('organization_id')
-            ? json['organization_id'] as String?
-            : throw ArgumentError.value(
-                null, 'organization_id', 'Required property is missing'),
-        itContactId: json.containsKey('it_contact_id')
-            ? json['it_contact_id'] as String?
-            : throw ArgumentError.value(
-                null, 'it_contact_id', 'Required property is missing'),
-        scopes: json.containsKey('scopes')
-            ? (json['scopes'] as List?)?.map((e) => e as String).toList()
-            : throw ArgumentError.value(
-                null, 'scopes', 'Required property is missing'),
-        token: (json['token'] as String?)!,
-        revoked: (json['revoked'] as bool?)!,
-        revocationReason: json.containsKey('revocation_reason')
-            ? json['revocation_reason'] as String?
-            : throw ArgumentError.value(
-                null, 'revocation_reason', 'Required property is missing'),
-        expired: (json['expired'] as bool?)!,
-        expiration: json.containsKey('expiration')
-            ? (json['expiration'] as num?)?.toDouble()
-            : throw ArgumentError.value(
-                null, 'expiration', 'Required property is missing'),
-        createdAt: ((json['created_at'] as num?)?.toDouble())!,
-        updatedAt: ((json['updated_at'] as num?)?.toDouble())!,
-      );
+  factory CreateAdminPortalLinkTokenResponse.fromJson(Map<String, dynamic> json) => CreateAdminPortalLinkTokenResponse(
+    object: (json['object'] != null ? CreateAdminPortalLinkTokenResponseObject.fromJson(json['object'] as String) : null)!,
+    id: (json['id'] as String?)!,
+    adminPortalLinkId: (json['admin_portal_link_id'] as String?)!,
+    instanceId: (json['instance_id'] as String?)!,
+    organizationId: json.containsKey('organization_id') ? json['organization_id'] as String? : throw ArgumentError.value(null, 'organization_id', 'Required property is missing'),
+    itContactId: json.containsKey('it_contact_id') ? json['it_contact_id'] as String? : throw ArgumentError.value(null, 'it_contact_id', 'Required property is missing'),
+    scopes: json.containsKey('scopes') ? (json['scopes'] as List?)?.map((e) => e as String).toList() : throw ArgumentError.value(null, 'scopes', 'Required property is missing'),
+    token: (json['token'] as String?)!,
+    revoked: (json['revoked'] as bool?)!,
+    revocationReason: json.containsKey('revocation_reason') ? json['revocation_reason'] as String? : throw ArgumentError.value(null, 'revocation_reason', 'Required property is missing'),
+    expired: (json['expired'] as bool?)!,
+    expiration: json.containsKey('expiration') ? (json['expiration'] as num?)?.toDouble() : throw ArgumentError.value(null, 'expiration', 'Required property is missing'),
+    createdAt: ((json['created_at'] as num?)?.toDouble())!,
+    updatedAt: ((json['updated_at'] as num?)?.toDouble())!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'object': object.toJson(),
-        'id': id,
-        'admin_portal_link_id': adminPortalLinkId,
-        'instance_id': instanceId,
-        'organization_id': organizationId,
-        'it_contact_id': itContactId,
-        'scopes': scopes,
-        'token': token,
-        'revoked': revoked,
-        'revocation_reason': revocationReason,
-        'expired': expired,
-        'expiration': expiration,
-        'created_at': createdAt,
-        'updated_at': updatedAt,
-      };
+    'object': object.toJson(),
+    'id': id,
+    'admin_portal_link_id': adminPortalLinkId,
+    'instance_id': instanceId,
+    'organization_id': organizationId,
+    'it_contact_id': itContactId,
+    'scopes': scopes,
+    'token': token,
+    'revoked': revoked,
+    'revocation_reason': revocationReason,
+    'expired': expired,
+    'expiration': expiration,
+    'created_at': createdAt,
+    'updated_at': updatedAt,
+  };
 }
 
 class RevokeAdminPortalLinkTokenRequestBody {
@@ -273,36 +137,24 @@ class RevokeAdminPortalLinkTokenRequestBody {
   static const String constructionSurface = 'named';
   final SdkOptional<String?> revocationReason;
 
-  const RevokeAdminPortalLinkTokenRequestBody(
-      {this.revocationReason = const SdkOmitted()});
+  const RevokeAdminPortalLinkTokenRequestBody({this.revocationReason = const SdkOmitted()});
 
-  RevokeAdminPortalLinkTokenRequestBody Function(
-      {SdkOptional<String?> revocationReason}) get copyWith => _copyWith;
+  RevokeAdminPortalLinkTokenRequestBody Function({SdkOptional<String?> revocationReason}) get copyWith => _copyWith;
 
-  RevokeAdminPortalLinkTokenRequestBody _copyWith(
-          {Object? revocationReason = sdkOmittedValue}) =>
-      RevokeAdminPortalLinkTokenRequestBody(
-        revocationReason: identical(revocationReason, sdkOmittedValue)
-            ? this.revocationReason
-            : revocationReason as SdkOptional<String?>,
-      );
+  RevokeAdminPortalLinkTokenRequestBody _copyWith({Object? revocationReason = sdkOmittedValue}) => RevokeAdminPortalLinkTokenRequestBody(
+    revocationReason: identical(revocationReason, sdkOmittedValue) ? this.revocationReason : revocationReason as SdkOptional<String?>,
+  );
 
-  factory RevokeAdminPortalLinkTokenRequestBody.fromJson(
-          Map<String, dynamic> json) =>
-      RevokeAdminPortalLinkTokenRequestBody(
-        revocationReason: json.containsKey('revocation_reason')
-            ? SdkPresent(json['revocation_reason'] as String?)
-            : const SdkOmitted(),
-      );
+  factory RevokeAdminPortalLinkTokenRequestBody.fromJson(Map<String, dynamic> json) => RevokeAdminPortalLinkTokenRequestBody(
+    revocationReason: json.containsKey('revocation_reason') ? SdkPresent(json['revocation_reason'] as String?) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (revocationReason) {
-          SdkPresent<String?>(value: final value) => {
-              'revocation_reason': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (revocationReason) {
+      SdkPresent<String?>(value: final value) => {'revocation_reason': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 class RevokeAdminPortalLinkTokenResponse {
@@ -310,165 +162,74 @@ class RevokeAdminPortalLinkTokenResponse {
   static const String constructionSurface = 'named';
   final RevokeAdminPortalLinkTokenResponseObject object;
   final String id;
-
   /// The origin-level admin_portal_link this token was issued for.
   final String adminPortalLinkId;
   final String instanceId;
-
   /// Optional. Present only when the link is scoped to an existing org.
   final String? organizationId;
-
   /// Optional opaque reference to the IT contact associated with this link.
   final String? itContactId;
-
   /// Caller-provided scopes for this token.
   final List<String>? scopes;
   final bool revoked;
   final String? revocationReason;
   final bool expired;
-
   /// The timestamp for when the token will expire, in milliseconds.
   final double? expiration;
-
   /// The timestamp for when the token was created, in milliseconds.
   final double createdAt;
-
   /// The timestamp for when the token was last updated, in milliseconds.
   final double updatedAt;
 
-  const RevokeAdminPortalLinkTokenResponse(
-      {required this.object,
-      required this.id,
-      required this.adminPortalLinkId,
-      required this.instanceId,
-      required this.organizationId,
-      required this.itContactId,
-      required this.scopes,
-      required this.revoked,
-      required this.revocationReason,
-      required this.expired,
-      required this.expiration,
-      required this.createdAt,
-      required this.updatedAt});
+  const RevokeAdminPortalLinkTokenResponse({required this.object, required this.id, required this.adminPortalLinkId, required this.instanceId, required this.organizationId, required this.itContactId, required this.scopes, required this.revoked, required this.revocationReason, required this.expired, required this.expiration, required this.createdAt, required this.updatedAt});
 
-  RevokeAdminPortalLinkTokenResponse Function(
-      {RevokeAdminPortalLinkTokenResponseObject object,
-      String id,
-      String adminPortalLinkId,
-      String instanceId,
-      String? organizationId,
-      String? itContactId,
-      List<String>? scopes,
-      bool revoked,
-      String? revocationReason,
-      bool expired,
-      double? expiration,
-      double createdAt,
-      double updatedAt}) get copyWith => _copyWith;
+  RevokeAdminPortalLinkTokenResponse Function({RevokeAdminPortalLinkTokenResponseObject object, String id, String adminPortalLinkId, String instanceId, String? organizationId, String? itContactId, List<String>? scopes, bool revoked, String? revocationReason, bool expired, double? expiration, double createdAt, double updatedAt}) get copyWith => _copyWith;
 
-  RevokeAdminPortalLinkTokenResponse _copyWith(
-          {Object? object = sdkOmittedValue,
-          Object? id = sdkOmittedValue,
-          Object? adminPortalLinkId = sdkOmittedValue,
-          Object? instanceId = sdkOmittedValue,
-          Object? organizationId = sdkOmittedValue,
-          Object? itContactId = sdkOmittedValue,
-          Object? scopes = sdkOmittedValue,
-          Object? revoked = sdkOmittedValue,
-          Object? revocationReason = sdkOmittedValue,
-          Object? expired = sdkOmittedValue,
-          Object? expiration = sdkOmittedValue,
-          Object? createdAt = sdkOmittedValue,
-          Object? updatedAt = sdkOmittedValue}) =>
-      RevokeAdminPortalLinkTokenResponse(
-        object: identical(object, sdkOmittedValue)
-            ? this.object
-            : object as RevokeAdminPortalLinkTokenResponseObject,
-        id: identical(id, sdkOmittedValue) ? this.id : id as String,
-        adminPortalLinkId: identical(adminPortalLinkId, sdkOmittedValue)
-            ? this.adminPortalLinkId
-            : adminPortalLinkId as String,
-        instanceId: identical(instanceId, sdkOmittedValue)
-            ? this.instanceId
-            : instanceId as String,
-        organizationId: identical(organizationId, sdkOmittedValue)
-            ? this.organizationId
-            : organizationId as String?,
-        itContactId: identical(itContactId, sdkOmittedValue)
-            ? this.itContactId
-            : itContactId as String?,
-        scopes: identical(scopes, sdkOmittedValue)
-            ? this.scopes
-            : scopes as List<String>?,
-        revoked: identical(revoked, sdkOmittedValue)
-            ? this.revoked
-            : revoked as bool,
-        revocationReason: identical(revocationReason, sdkOmittedValue)
-            ? this.revocationReason
-            : revocationReason as String?,
-        expired: identical(expired, sdkOmittedValue)
-            ? this.expired
-            : expired as bool,
-        expiration: identical(expiration, sdkOmittedValue)
-            ? this.expiration
-            : expiration as double?,
-        createdAt: identical(createdAt, sdkOmittedValue)
-            ? this.createdAt
-            : createdAt as double,
-        updatedAt: identical(updatedAt, sdkOmittedValue)
-            ? this.updatedAt
-            : updatedAt as double,
-      );
+  RevokeAdminPortalLinkTokenResponse _copyWith({Object? object = sdkOmittedValue, Object? id = sdkOmittedValue, Object? adminPortalLinkId = sdkOmittedValue, Object? instanceId = sdkOmittedValue, Object? organizationId = sdkOmittedValue, Object? itContactId = sdkOmittedValue, Object? scopes = sdkOmittedValue, Object? revoked = sdkOmittedValue, Object? revocationReason = sdkOmittedValue, Object? expired = sdkOmittedValue, Object? expiration = sdkOmittedValue, Object? createdAt = sdkOmittedValue, Object? updatedAt = sdkOmittedValue}) => RevokeAdminPortalLinkTokenResponse(
+    object: identical(object, sdkOmittedValue) ? this.object : object as RevokeAdminPortalLinkTokenResponseObject,
+    id: identical(id, sdkOmittedValue) ? this.id : id as String,
+    adminPortalLinkId: identical(adminPortalLinkId, sdkOmittedValue) ? this.adminPortalLinkId : adminPortalLinkId as String,
+    instanceId: identical(instanceId, sdkOmittedValue) ? this.instanceId : instanceId as String,
+    organizationId: identical(organizationId, sdkOmittedValue) ? this.organizationId : organizationId as String?,
+    itContactId: identical(itContactId, sdkOmittedValue) ? this.itContactId : itContactId as String?,
+    scopes: identical(scopes, sdkOmittedValue) ? this.scopes : scopes as List<String>?,
+    revoked: identical(revoked, sdkOmittedValue) ? this.revoked : revoked as bool,
+    revocationReason: identical(revocationReason, sdkOmittedValue) ? this.revocationReason : revocationReason as String?,
+    expired: identical(expired, sdkOmittedValue) ? this.expired : expired as bool,
+    expiration: identical(expiration, sdkOmittedValue) ? this.expiration : expiration as double?,
+    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as double,
+    updatedAt: identical(updatedAt, sdkOmittedValue) ? this.updatedAt : updatedAt as double,
+  );
 
-  factory RevokeAdminPortalLinkTokenResponse.fromJson(
-          Map<String, dynamic> json) =>
-      RevokeAdminPortalLinkTokenResponse(
-        object: (json['object'] != null
-            ? RevokeAdminPortalLinkTokenResponseObject.fromJson(
-                json['object'] as String)
-            : null)!,
-        id: (json['id'] as String?)!,
-        adminPortalLinkId: (json['admin_portal_link_id'] as String?)!,
-        instanceId: (json['instance_id'] as String?)!,
-        organizationId: json.containsKey('organization_id')
-            ? json['organization_id'] as String?
-            : throw ArgumentError.value(
-                null, 'organization_id', 'Required property is missing'),
-        itContactId: json.containsKey('it_contact_id')
-            ? json['it_contact_id'] as String?
-            : throw ArgumentError.value(
-                null, 'it_contact_id', 'Required property is missing'),
-        scopes: json.containsKey('scopes')
-            ? (json['scopes'] as List?)?.map((e) => e as String).toList()
-            : throw ArgumentError.value(
-                null, 'scopes', 'Required property is missing'),
-        revoked: (json['revoked'] as bool?)!,
-        revocationReason: json.containsKey('revocation_reason')
-            ? json['revocation_reason'] as String?
-            : throw ArgumentError.value(
-                null, 'revocation_reason', 'Required property is missing'),
-        expired: (json['expired'] as bool?)!,
-        expiration: json.containsKey('expiration')
-            ? (json['expiration'] as num?)?.toDouble()
-            : throw ArgumentError.value(
-                null, 'expiration', 'Required property is missing'),
-        createdAt: ((json['created_at'] as num?)?.toDouble())!,
-        updatedAt: ((json['updated_at'] as num?)?.toDouble())!,
-      );
+  factory RevokeAdminPortalLinkTokenResponse.fromJson(Map<String, dynamic> json) => RevokeAdminPortalLinkTokenResponse(
+    object: (json['object'] != null ? RevokeAdminPortalLinkTokenResponseObject.fromJson(json['object'] as String) : null)!,
+    id: (json['id'] as String?)!,
+    adminPortalLinkId: (json['admin_portal_link_id'] as String?)!,
+    instanceId: (json['instance_id'] as String?)!,
+    organizationId: json.containsKey('organization_id') ? json['organization_id'] as String? : throw ArgumentError.value(null, 'organization_id', 'Required property is missing'),
+    itContactId: json.containsKey('it_contact_id') ? json['it_contact_id'] as String? : throw ArgumentError.value(null, 'it_contact_id', 'Required property is missing'),
+    scopes: json.containsKey('scopes') ? (json['scopes'] as List?)?.map((e) => e as String).toList() : throw ArgumentError.value(null, 'scopes', 'Required property is missing'),
+    revoked: (json['revoked'] as bool?)!,
+    revocationReason: json.containsKey('revocation_reason') ? json['revocation_reason'] as String? : throw ArgumentError.value(null, 'revocation_reason', 'Required property is missing'),
+    expired: (json['expired'] as bool?)!,
+    expiration: json.containsKey('expiration') ? (json['expiration'] as num?)?.toDouble() : throw ArgumentError.value(null, 'expiration', 'Required property is missing'),
+    createdAt: ((json['created_at'] as num?)?.toDouble())!,
+    updatedAt: ((json['updated_at'] as num?)?.toDouble())!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'object': object.toJson(),
-        'id': id,
-        'admin_portal_link_id': adminPortalLinkId,
-        'instance_id': instanceId,
-        'organization_id': organizationId,
-        'it_contact_id': itContactId,
-        'scopes': scopes,
-        'revoked': revoked,
-        'revocation_reason': revocationReason,
-        'expired': expired,
-        'expiration': expiration,
-        'created_at': createdAt,
-        'updated_at': updatedAt,
-      };
+    'object': object.toJson(),
+    'id': id,
+    'admin_portal_link_id': adminPortalLinkId,
+    'instance_id': instanceId,
+    'organization_id': organizationId,
+    'it_contact_id': itContactId,
+    'scopes': scopes,
+    'revoked': revoked,
+    'revocation_reason': revocationReason,
+    'expired': expired,
+    'expiration': expiration,
+    'created_at': createdAt,
+    'updated_at': updatedAt,
+  };
 }

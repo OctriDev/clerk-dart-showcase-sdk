@@ -35,24 +35,19 @@ Future<WaitlistEntries> listWaitlistEntries(ClientConfig config,
   return (await sdkRequest<WaitlistEntries>('GET', '/waitlist_entries',
           config: config,
           query: {
-            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit),
-                style: 'form', explode: true),
-            'offset': SdkQueryValue(SdkUtils.unwrapOptional(offset),
-                style: 'form', explode: true),
-            'query': SdkQueryValue(SdkUtils.unwrapOptional(query),
-                style: 'form', explode: true),
-            'status': SdkQueryValue(SdkUtils.unwrapOptional(status),
-                style: 'form', explode: true),
-            'order_by': SdkQueryValue(SdkUtils.unwrapOptional(orderBy),
-                style: 'form', explode: true)
+            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit), style: 'form', explode: true),
+            'offset': SdkQueryValue(SdkUtils.unwrapOptional(offset), style: 'form', explode: true),
+            'query': SdkQueryValue(SdkUtils.unwrapOptional(query), style: 'form', explode: true),
+            'status': SdkQueryValue(SdkUtils.unwrapOptional(status), style: 'form', explode: true),
+            'order_by': SdkQueryValue(SdkUtils.unwrapOptional(orderBy), style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'listWaitlistEntries',
-          fromJsonRaw: (value) =>
-              WaitlistEntries.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => WaitlistEntries.fromJson(value as Map<String, dynamic>),
           options: requestOptions))
       .data;
 }
+
 
 /// Creates a new waitlist entry for the given email address. If the email address is already on the waitlist, no new entry will be created and the existing waitlist entry will be returned.
 ///
@@ -71,24 +66,18 @@ Future<WaitlistEntry> createWaitlistEntry(ClientConfig config,
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'createWaitlistEntry',
-          fromJsonRaw: (value) =>
-              WaitlistEntry.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => WaitlistEntry.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '400': (value) =>
-                ClerkErrors.fromJson(value as Map<String, dynamic>),
-            '422': (value) =>
-                ClerkErrors.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'400': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '422': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Creates multiple waitlist entries from email addresses in a single request. Each entry requires `email_address`; `notify` defaults to true when omitted. You can submit 1 to 50 entries per request, but duplicate email addresses within the request are not allowed, and existing waitlist entries are returned without creating new entries.
 ///
 /// Creates multiple waitlist entries for the provided email addresses. You can choose whether to send confirmation emails by setting the `notify` parameter to `true` or `false` for each entry. If the `notify` parameter is omitted, it defaults to `true`. If an email address is already on the waitlist, no new entry will be created and the existing waitlist entry will be returned. Duplicate email addresses within the same request are not allowed. This endpoint is limited to a maximum of 50 entries per API call. If you need to add more entries, please make multiple requests.
 Future<List<WaitlistEntry>> createBulkWaitlistEntries(ClientConfig config,
-    {SdkOptional<List<CreateBulkWaitlistEntriesRequestBodyItem>> body =
-        const SdkOmitted(),
+    {SdkOptional<List<CreateBulkWaitlistEntriesRequestBodyItem>> body = const SdkOmitted(),
     RequestOptions? requestOptions}) async {
   if (body is SdkPresent<List<CreateBulkWaitlistEntriesRequestBodyItem>>) {
     validateItems('body', body.value, min: 1, max: 50);
@@ -100,17 +89,12 @@ Future<List<WaitlistEntry>> createBulkWaitlistEntries(ClientConfig config,
           body: SdkUtils.unwrapOptional(body),
           decoder: SdkResponseDecoder.json,
           operationId: 'createBulkWaitlistEntries',
-          fromJsonRaw: (value) => (value as List)
-              .map((item) =>
-                  WaitlistEntry.fromJson(item as Map<String, dynamic>))
-              .toList(),
+          fromJsonRaw: (value) => (value as List).map((item) => WaitlistEntry.fromJson(item as Map<String, dynamic>)).toList(),
           options: requestOptions,
-          errors: {
-        '400': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>),
-        '422': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'400': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '422': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Deletes a pending waitlist entry. Use the `waitlist_entry_id` path parameter to identify the entry to delete. Entries locked while a batch action is processing are unavailable for other actions.
 ///
@@ -124,17 +108,12 @@ Future<DeletedObject> deleteWaitlistEntry(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'deleteWaitlistEntry',
-          fromJsonRaw: (value) =>
-              DeletedObject.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => DeletedObject.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-        '400': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>),
-        '404': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>),
-        '409': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>),
-        '422': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'400': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '404': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '409': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '422': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Send an invite to the email address in a waitlist entry.
 ///
@@ -152,21 +131,12 @@ Future<WaitlistEntry> inviteWaitlistEntry(ClientConfig config,
           body: {'ignore_existing': SdkUtils.unwrapOptional(ignoreExisting)},
           decoder: SdkResponseDecoder.json,
           operationId: 'inviteWaitlistEntry',
-          fromJsonRaw: (value) =>
-              WaitlistEntry.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => WaitlistEntry.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '400': (value) =>
-                ClerkErrors.fromJson(value as Map<String, dynamic>),
-            '404': (value) =>
-                ClerkErrors.fromJson(value as Map<String, dynamic>),
-            '409': (value) =>
-                ClerkErrors.fromJson(value as Map<String, dynamic>),
-            '422': (value) =>
-                ClerkErrors.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'400': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '404': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '409': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '422': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Rejects a waitlist entry and returns the resulting entry. Use the `waitlist_entry_id` path parameter to identify the entry to reject. Entries locked while a batch action is processing are unavailable for other actions.
 ///
@@ -180,14 +150,8 @@ Future<WaitlistEntry> rejectWaitlistEntry(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'rejectWaitlistEntry',
-          fromJsonRaw: (value) =>
-              WaitlistEntry.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => WaitlistEntry.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-        '400': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>),
-        '404': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>),
-        '409': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>),
-        '422': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'400': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '404': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '409': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '422': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)}))
       .data;
 }

@@ -28,69 +28,6 @@ class ApplyCommerceDiscountRequest {
   };
 }
 
-/// Totals breakdown for this payment attempt.
-class BillingPaymentAttemptTotals {
-  /// This model is constructed from named fields in one call.
-  static const String constructionSurface = 'named';
-  /// Required object value serialized in the `subtotal` wire field.
-  final CommerceMoneyResponse subtotal;
-  /// Required object value serialized in the `base_fee` wire field.
-  final CommerceMoneyResponse baseFee;
-  /// Required object value serialized in the `tax_total` wire field.
-  final CommerceMoneyResponse taxTotal;
-  /// Required object value serialized in the `grand_total` wire field.
-  final CommerceMoneyResponse grandTotal;
-  /// Optional array value serialized in the `per_unit_totals` wire field.
-  final SdkOptional<List<CommercePerUnitTotal2>> perUnitTotals;
-  /// Optional API value serialized in the `credits` wire field.
-  final SdkOptional<CommerceCreditsResponse?> credits;
-  /// Information about the discounts applied to the payment
-  final SdkOptional<BillingDiscountsResponse?> discounts;
-
-  const BillingPaymentAttemptTotals({required this.subtotal, required this.baseFee, required this.taxTotal, required this.grandTotal, this.perUnitTotals = const SdkOmitted(), this.credits = const SdkOmitted(), this.discounts = const SdkOmitted()});
-
-  BillingPaymentAttemptTotals Function({CommerceMoneyResponse subtotal, CommerceMoneyResponse baseFee, CommerceMoneyResponse taxTotal, CommerceMoneyResponse grandTotal, SdkOptional<List<CommercePerUnitTotal2>> perUnitTotals, SdkOptional<CommerceCreditsResponse?> credits, SdkOptional<BillingDiscountsResponse?> discounts}) get copyWith => _copyWith;
-
-  BillingPaymentAttemptTotals _copyWith({Object? subtotal = sdkOmittedValue, Object? baseFee = sdkOmittedValue, Object? taxTotal = sdkOmittedValue, Object? grandTotal = sdkOmittedValue, Object? perUnitTotals = sdkOmittedValue, Object? credits = sdkOmittedValue, Object? discounts = sdkOmittedValue}) => BillingPaymentAttemptTotals(
-    subtotal: identical(subtotal, sdkOmittedValue) ? this.subtotal : subtotal as CommerceMoneyResponse,
-    baseFee: identical(baseFee, sdkOmittedValue) ? this.baseFee : baseFee as CommerceMoneyResponse,
-    taxTotal: identical(taxTotal, sdkOmittedValue) ? this.taxTotal : taxTotal as CommerceMoneyResponse,
-    grandTotal: identical(grandTotal, sdkOmittedValue) ? this.grandTotal : grandTotal as CommerceMoneyResponse,
-    perUnitTotals: identical(perUnitTotals, sdkOmittedValue) ? this.perUnitTotals : perUnitTotals as SdkOptional<List<CommercePerUnitTotal2>>,
-    credits: identical(credits, sdkOmittedValue) ? this.credits : credits as SdkOptional<CommerceCreditsResponse?>,
-    discounts: identical(discounts, sdkOmittedValue) ? this.discounts : discounts as SdkOptional<BillingDiscountsResponse?>,
-  );
-
-  factory BillingPaymentAttemptTotals.fromJson(Map<String, dynamic> json) => BillingPaymentAttemptTotals(
-    subtotal: (json['subtotal'] != null ? CommerceMoneyResponse.fromJson(json['subtotal'] as Map<String, dynamic>) : null)!,
-    baseFee: (json['base_fee'] != null ? CommerceMoneyResponse.fromJson(json['base_fee'] as Map<String, dynamic>) : null)!,
-    taxTotal: (json['tax_total'] != null ? CommerceMoneyResponse.fromJson(json['tax_total'] as Map<String, dynamic>) : null)!,
-    grandTotal: (json['grand_total'] != null ? CommerceMoneyResponse.fromJson(json['grand_total'] as Map<String, dynamic>) : null)!,
-    perUnitTotals: json['per_unit_totals'] != null ? SdkPresent(((json['per_unit_totals'] as List?)?.map((e) => CommercePerUnitTotal2.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-    credits: json.containsKey('credits') ? SdkPresent(json['credits'] != null ? CommerceCreditsResponse.fromJson(json['credits'] as Map<String, dynamic>) : null) : const SdkOmitted(),
-    discounts: json.containsKey('discounts') ? SdkPresent(json['discounts'] != null ? BillingDiscountsResponse.fromJson(json['discounts'] as Map<String, dynamic>) : null) : const SdkOmitted(),
-  );
-
-  Map<String, dynamic> toJson() => {
-    'subtotal': subtotal.toJson(),
-    'base_fee': baseFee.toJson(),
-    'tax_total': taxTotal.toJson(),
-    'grand_total': grandTotal.toJson(),
-    ...switch (perUnitTotals) {
-      SdkPresent<List<CommercePerUnitTotal2>>(value: final value) => {'per_unit_totals': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (credits) {
-      SdkPresent<CommerceCreditsResponse?>(value: final value) => {'credits': value?.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (discounts) {
-      SdkPresent<BillingDiscountsResponse?>(value: final value) => {'discounts': value?.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
-}
-
 /// Typed representation of the `BillingPaymentAttempt` API schema.
 class BillingPaymentAttempt {
   /// This model is constructed from named fields in one call.
@@ -234,41 +171,133 @@ class BillingPaymentAttempt {
   };
 }
 
-/// Required API value serialized in the `fee` wire field.
-class BillingPriceResponseFee {
+/// Typed representation of the `BillingPriceResponse` API schema.
+class BillingPriceResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-  /// The amount in cents.
-  final int amount;
-  /// The formatted amount as a string (e.g., "$49.99").
-  final String amountFormatted;
+  /// String representing the object's type. Objects of the same type share the same value.
+  final BillingPriceResponseObject object;
+  /// Unique identifier for the price.
+  final String id;
+  /// Unique identifier for the associated plan.
+  final String planId;
+  /// Unique identifier for the instance.
+  final String instanceId;
   /// The currency code (e.g., "USD").
   final String currency;
   /// The currency symbol (e.g., "$").
   final String currencySymbol;
+  /// The amount in cents for the price.
+  final int amount;
+  /// The monthly amount in cents when billed annually.
+  final int annualMonthlyAmount;
+  /// Required object value serialized in the `fee` wire field.
+  final CommerceMoneyResponse? fee;
+  /// Required object value serialized in the `annual_monthly_fee` wire field.
+  final CommerceMoneyResponse? annualMonthlyFee;
+  /// The description of the price.
+  final SdkOptional<String?> description;
+  /// Whether this price is the default price for its plan.
+  final bool isDefault;
+  /// Unix timestamp (milliseconds) of creation.
+  final int createdAt;
+  /// Which billing periods this price supports.
+  final BillingPriceResponseSupportedBillingPeriods supportedBillingPeriods;
 
-  const BillingPriceResponseFee({required this.amount, required this.amountFormatted, required this.currency, required this.currencySymbol});
+  const BillingPriceResponse({required this.object, required this.id, required this.planId, required this.instanceId, required this.currency, required this.currencySymbol, required this.amount, required this.annualMonthlyAmount, required this.fee, required this.annualMonthlyFee, this.description = const SdkOmitted(), required this.isDefault, required this.createdAt, required this.supportedBillingPeriods});
 
-  BillingPriceResponseFee Function({int amount, String amountFormatted, String currency, String currencySymbol}) get copyWith => _copyWith;
+  BillingPriceResponse Function({BillingPriceResponseObject object, String id, String planId, String instanceId, String currency, String currencySymbol, int amount, int annualMonthlyAmount, CommerceMoneyResponse? fee, CommerceMoneyResponse? annualMonthlyFee, SdkOptional<String?> description, bool isDefault, int createdAt, BillingPriceResponseSupportedBillingPeriods supportedBillingPeriods}) get copyWith => _copyWith;
 
-  BillingPriceResponseFee _copyWith({Object? amount = sdkOmittedValue, Object? amountFormatted = sdkOmittedValue, Object? currency = sdkOmittedValue, Object? currencySymbol = sdkOmittedValue}) => BillingPriceResponseFee(
-    amount: identical(amount, sdkOmittedValue) ? this.amount : amount as int,
-    amountFormatted: identical(amountFormatted, sdkOmittedValue) ? this.amountFormatted : amountFormatted as String,
+  BillingPriceResponse _copyWith({Object? object = sdkOmittedValue, Object? id = sdkOmittedValue, Object? planId = sdkOmittedValue, Object? instanceId = sdkOmittedValue, Object? currency = sdkOmittedValue, Object? currencySymbol = sdkOmittedValue, Object? amount = sdkOmittedValue, Object? annualMonthlyAmount = sdkOmittedValue, Object? fee = sdkOmittedValue, Object? annualMonthlyFee = sdkOmittedValue, Object? description = sdkOmittedValue, Object? isDefault = sdkOmittedValue, Object? createdAt = sdkOmittedValue, Object? supportedBillingPeriods = sdkOmittedValue}) => BillingPriceResponse(
+    object: identical(object, sdkOmittedValue) ? this.object : object as BillingPriceResponseObject,
+    id: identical(id, sdkOmittedValue) ? this.id : id as String,
+    planId: identical(planId, sdkOmittedValue) ? this.planId : planId as String,
+    instanceId: identical(instanceId, sdkOmittedValue) ? this.instanceId : instanceId as String,
     currency: identical(currency, sdkOmittedValue) ? this.currency : currency as String,
     currencySymbol: identical(currencySymbol, sdkOmittedValue) ? this.currencySymbol : currencySymbol as String,
+    amount: identical(amount, sdkOmittedValue) ? this.amount : amount as int,
+    annualMonthlyAmount: identical(annualMonthlyAmount, sdkOmittedValue) ? this.annualMonthlyAmount : annualMonthlyAmount as int,
+    fee: identical(fee, sdkOmittedValue) ? this.fee : fee as CommerceMoneyResponse?,
+    annualMonthlyFee: identical(annualMonthlyFee, sdkOmittedValue) ? this.annualMonthlyFee : annualMonthlyFee as CommerceMoneyResponse?,
+    description: identical(description, sdkOmittedValue) ? this.description : description as SdkOptional<String?>,
+    isDefault: identical(isDefault, sdkOmittedValue) ? this.isDefault : isDefault as bool,
+    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as int,
+    supportedBillingPeriods: identical(supportedBillingPeriods, sdkOmittedValue) ? this.supportedBillingPeriods : supportedBillingPeriods as BillingPriceResponseSupportedBillingPeriods,
   );
 
-  factory BillingPriceResponseFee.fromJson(Map<String, dynamic> json) => BillingPriceResponseFee(
-    amount: ((json['amount'] as num?)?.toInt())!,
-    amountFormatted: (json['amount_formatted'] as String?)!,
+  factory BillingPriceResponse.fromJson(Map<String, dynamic> json) => BillingPriceResponse(
+    object: (json['object'] != null ? BillingPriceResponseObject.fromJson(json['object'] as String) : null)!,
+    id: (json['id'] as String?)!,
+    planId: (json['plan_id'] as String?)!,
+    instanceId: (json['instance_id'] as String?)!,
     currency: (json['currency'] as String?)!,
     currencySymbol: (json['currency_symbol'] as String?)!,
+    amount: ((json['amount'] as num?)?.toInt())!,
+    annualMonthlyAmount: ((json['annual_monthly_amount'] as num?)?.toInt())!,
+    fee: json.containsKey('fee') ? json['fee'] != null ? CommerceMoneyResponse.fromJson(json['fee'] as Map<String, dynamic>) : null : throw ArgumentError.value(null, 'fee', 'Required property is missing'),
+    annualMonthlyFee: json.containsKey('annual_monthly_fee') ? json['annual_monthly_fee'] != null ? CommerceMoneyResponse.fromJson(json['annual_monthly_fee'] as Map<String, dynamic>) : null : throw ArgumentError.value(null, 'annual_monthly_fee', 'Required property is missing'),
+    description: json.containsKey('description') ? SdkPresent(json['description'] as String?) : const SdkOmitted(),
+    isDefault: (json['is_default'] as bool?)!,
+    createdAt: ((json['created_at'] as num?)?.toInt())!,
+    supportedBillingPeriods: (json['supported_billing_periods'] != null ? BillingPriceResponseSupportedBillingPeriods.fromJson(json['supported_billing_periods'] as String) : null)!,
   );
 
   Map<String, dynamic> toJson() => {
-    'amount': amount,
-    'amount_formatted': amountFormatted,
+    'object': object.toJson(),
+    'id': id,
+    'plan_id': planId,
+    'instance_id': instanceId,
     'currency': currency,
     'currency_symbol': currencySymbol,
+    'amount': amount,
+    'annual_monthly_amount': annualMonthlyAmount,
+    'fee': fee?.toJson(),
+    'annual_monthly_fee': annualMonthlyFee?.toJson(),
+    ...switch (description) {
+      SdkPresent<String?>(value: final value) => {'description': value,},
+      _ => const <String, dynamic>{},
+    },
+    'is_default': isDefault,
+    'created_at': createdAt,
+    'supported_billing_periods': supportedBillingPeriods.toJson(),
+  };
+}
+
+/// Totals for the statement.
+class BillingStatementTotals {
+  /// This model is constructed from named fields in one call.
+  static const String constructionSurface = 'named';
+  /// The grand total amount for the statement.
+  final CommerceMoneyResponse grandTotal;
+  /// The subtotal amount for the statement (base fee + unit price totals).
+  final CommerceMoneyResponse subtotal;
+  /// The base plan fee before unit pricing.
+  final CommerceMoneyResponse baseFee;
+  /// The tax total amount for the statement.
+  final CommerceMoneyResponse taxTotal;
+
+  const BillingStatementTotals({required this.grandTotal, required this.subtotal, required this.baseFee, required this.taxTotal});
+
+  BillingStatementTotals Function({CommerceMoneyResponse grandTotal, CommerceMoneyResponse subtotal, CommerceMoneyResponse baseFee, CommerceMoneyResponse taxTotal}) get copyWith => _copyWith;
+
+  BillingStatementTotals _copyWith({Object? grandTotal = sdkOmittedValue, Object? subtotal = sdkOmittedValue, Object? baseFee = sdkOmittedValue, Object? taxTotal = sdkOmittedValue}) => BillingStatementTotals(
+    grandTotal: identical(grandTotal, sdkOmittedValue) ? this.grandTotal : grandTotal as CommerceMoneyResponse,
+    subtotal: identical(subtotal, sdkOmittedValue) ? this.subtotal : subtotal as CommerceMoneyResponse,
+    baseFee: identical(baseFee, sdkOmittedValue) ? this.baseFee : baseFee as CommerceMoneyResponse,
+    taxTotal: identical(taxTotal, sdkOmittedValue) ? this.taxTotal : taxTotal as CommerceMoneyResponse,
+  );
+
+  factory BillingStatementTotals.fromJson(Map<String, dynamic> json) => BillingStatementTotals(
+    grandTotal: (json['grand_total'] != null ? CommerceMoneyResponse.fromJson(json['grand_total'] as Map<String, dynamic>) : null)!,
+    subtotal: (json['subtotal'] != null ? CommerceMoneyResponse.fromJson(json['subtotal'] as Map<String, dynamic>) : null)!,
+    baseFee: (json['base_fee'] != null ? CommerceMoneyResponse.fromJson(json['base_fee'] as Map<String, dynamic>) : null)!,
+    taxTotal: (json['tax_total'] != null ? CommerceMoneyResponse.fromJson(json['tax_total'] as Map<String, dynamic>) : null)!,
+  );
+
+  Map<String, dynamic> toJson() => {
+    'grand_total': grandTotal.toJson(),
+    'subtotal': subtotal.toJson(),
+    'base_fee': baseFee.toJson(),
+    'tax_total': taxTotal.toJson(),
   };
 }

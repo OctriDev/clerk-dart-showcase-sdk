@@ -90,6 +90,15 @@ sealed class JWKSKeysItem {
   static const String constructionSurface = 'named';
   const JWKSKeysItem();
   factory JWKSKeysItem.fromJson(Object? json) {
+    if (json is Map<String, dynamic>) {
+      try { final value = JWKSEd25519PublicKey.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return JWKSKeysItemJWKSEd25519PublicKey(value); } } catch (_) {}
+      try { final value = JWKSEcdsaPublicKey.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return JWKSKeysItemJWKSEcdsaPublicKey(value); } } catch (_) {}
+      try { final value = JWKSRsaPublicKey.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return JWKSKeysItemJWKSRsaPublicKey(value); } } catch (_) {}
+      try { final value = JWKSEd25519PrivateKey.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return JWKSKeysItemJWKSEd25519PrivateKey(value); } } catch (_) {}
+      try { final value = JWKSEcdsaPrivateKey.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return JWKSKeysItemJWKSEcdsaPrivateKey(value); } } catch (_) {}
+      try { final value = JWKSRsaPrivateKey.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return JWKSKeysItemJWKSRsaPrivateKey(value); } } catch (_) {}
+      try { final value = JWKSSymmetricKey.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return JWKSKeysItemJWKSSymmetricKey(value); } } catch (_) {}
+    }
     try { return JWKSKeysItemJWKSEd25519PublicKey(JWKSEd25519PublicKey.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     try { return JWKSKeysItemJWKSEcdsaPublicKey(JWKSEcdsaPublicKey.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     try { return JWKSKeysItemJWKSRsaPublicKey(JWKSRsaPublicKey.fromJson(json as Map<String, dynamic>)); } catch (_) {}

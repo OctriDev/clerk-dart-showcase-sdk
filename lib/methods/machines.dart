@@ -21,7 +21,7 @@ import '../types.dart';
 ///   example, to return machines in descending order by `created_at`, use
 ///   `-created_at`. If you don't use `+` or `-`, then `+` is implied. Defaults to
 ///   `-created_at`.
-Future<SchemaSchema11ae8042> listMachines(ClientConfig config,
+Future<MachineList> listMachines(ClientConfig config,
     {SdkOptional<int> limit = const SdkOmitted(),
     SdkOptional<int> offset = const SdkOmitted(),
     SdkOptional<String> query = const SdkOmitted(),
@@ -34,7 +34,7 @@ Future<SchemaSchema11ae8042> listMachines(ClientConfig config,
     validateRange('offset', offset.value, min: 0);
   }
 
-  return (await sdkRequest<SchemaSchema11ae8042>('GET', '/machines',
+  return (await sdkRequest<MachineList>('GET', '/machines',
           config: config,
           query: {
             'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit), style: 'form', explode: true),
@@ -44,7 +44,7 @@ Future<SchemaSchema11ae8042> listMachines(ClientConfig config,
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'listMachines',
-          fromJsonRaw: (value) => SchemaSchema11ae8042.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => MachineList.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
           errors: {'400': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '401': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '403': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '422': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)}))
       .data;
@@ -60,7 +60,7 @@ Future<SchemaSchema11ae8042> listMachines(ClientConfig config,
 ///   Maximum of 150 scopes per machine.
 /// [defaultTokenTtl] The default time-to-live (TTL) in seconds for tokens
 ///   created by this machine. Must be at least 1 second.
-Future<SchemaSchema6ad3d7e4> createMachine(ClientConfig config,
+Future<MachineCreated> createMachine(ClientConfig config,
     {required String name,
     SdkOptional<List<String>> scopedMachines = const SdkOmitted(),
     SdkOptional<int> defaultTokenTtl = const SdkOmitted(),
@@ -73,7 +73,7 @@ Future<SchemaSchema6ad3d7e4> createMachine(ClientConfig config,
     validateRange('default_token_ttl', defaultTokenTtl.value, min: 1, max: 315360000);
   }
 
-  return (await sdkRequest<SchemaSchema6ad3d7e4>('POST', '/machines',
+  return (await sdkRequest<MachineCreated>('POST', '/machines',
           config: config,
           body: {
             'name': name,
@@ -82,7 +82,7 @@ Future<SchemaSchema6ad3d7e4> createMachine(ClientConfig config,
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'createMachine',
-          fromJsonRaw: (value) => SchemaSchema6ad3d7e4.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => MachineCreated.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
           errors: {'400': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '401': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '403': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '422': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)}))
       .data;
@@ -147,14 +147,14 @@ Future<Machine> updateMachine(ClientConfig config,
 /// Deletes a machine.
 ///
 /// [machineId] The ID of the machine to delete
-Future<SchemaSchema7a4a2eaa> deleteMachine(ClientConfig config,
+Future<MachineDeleted> deleteMachine(ClientConfig config,
     {required String machineId, RequestOptions? requestOptions}) async {
-  return (await sdkRequest<SchemaSchema7a4a2eaa>(
+  return (await sdkRequest<MachineDeleted>(
           'DELETE', '/machines/${Uri.encodeComponent(machineId.toString())}',
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'deleteMachine',
-          fromJsonRaw: (value) => SchemaSchema7a4a2eaa.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => MachineDeleted.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
           errors: {'400': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '401': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '403': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '404': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '422': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)}))
       .data;
@@ -166,14 +166,14 @@ Future<SchemaSchema7a4a2eaa> deleteMachine(ClientConfig config,
 /// Returns the secret key for a machine.
 ///
 /// [machineId] The ID of the machine to retrieve the secret key for
-Future<SchemaSchema23990ad7> getMachineSecretKey(ClientConfig config,
+Future<MachineSecretKey> getMachineSecretKey(ClientConfig config,
     {required String machineId, RequestOptions? requestOptions}) async {
-  return (await sdkRequest<SchemaSchema23990ad7>('GET',
+  return (await sdkRequest<MachineSecretKey>('GET',
           '/machines/${Uri.encodeComponent(machineId.toString())}/secret_key',
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'getMachineSecretKey',
-          fromJsonRaw: (value) => SchemaSchema23990ad7.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => MachineSecretKey.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
           errors: {'400': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '401': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '403': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '404': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)}))
       .data;
@@ -187,19 +187,19 @@ Future<SchemaSchema23990ad7> getMachineSecretKey(ClientConfig config,
 ///   remain valid after rotation. This ensures a graceful transition period for
 ///   updating applications with the new secret key. Set to 0 to immediately
 ///   expire the previous key. Maximum value is 8 hours (28800 seconds).
-Future<SchemaSchema23990ad7> rotateMachineSecretKey(ClientConfig config,
+Future<MachineSecretKey> rotateMachineSecretKey(ClientConfig config,
     {required String machineId,
     required int previousTokenTtl,
     RequestOptions? requestOptions}) async {
   validateRange('previous_token_ttl', previousTokenTtl, min: 0, max: 28800);
 
-  return (await sdkRequest<SchemaSchema23990ad7>('POST',
+  return (await sdkRequest<MachineSecretKey>('POST',
           '/machines/${Uri.encodeComponent(machineId.toString())}/secret_key/rotate',
           config: config,
           body: {'previous_token_ttl': previousTokenTtl},
           decoder: SdkResponseDecoder.json,
           operationId: 'rotateMachineSecretKey',
-          fromJsonRaw: (value) => SchemaSchema23990ad7.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => MachineSecretKey.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
           errors: {'400': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '401': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '403': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '404': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '422': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)}))
       .data;
@@ -232,16 +232,16 @@ Future<MachineScope> createMachineScope(ClientConfig config,
 ///
 /// [machineId] The ID of the machine that has access to another machine
 /// [otherMachineId] The ID of the machine that is being accessed
-Future<SchemaSchema5f07b6af> deleteMachineScope(ClientConfig config,
+Future<MachineScopeDeleted> deleteMachineScope(ClientConfig config,
     {required String machineId,
     required String otherMachineId,
     RequestOptions? requestOptions}) async {
-  return (await sdkRequest<SchemaSchema5f07b6af>('DELETE',
+  return (await sdkRequest<MachineScopeDeleted>('DELETE',
           '/machines/${Uri.encodeComponent(machineId.toString())}/scopes/${Uri.encodeComponent(otherMachineId.toString())}',
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'deleteMachineScope',
-          fromJsonRaw: (value) => SchemaSchema5f07b6af.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => MachineScopeDeleted.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
           errors: {'400': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '401': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '403': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '404': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '422': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)}))
       .data;

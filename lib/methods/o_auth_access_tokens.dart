@@ -4,17 +4,19 @@
 import '../sdk_config.dart';
 import '../sdk_client.dart';
 import '../sdk_utils.dart';
+import '../types.dart';
 
 /// Verifies an OAuth access token and returns its token details or active status. Supply the token in `access_token`; the legacy `secret` field is deprecated. Use this endpoint to check whether an access token is active and retrieve its associated client, subject, and scopes when available.
 ///
 /// [accessToken] The access token to verify.
 /// [secret] The access token to verify. This is deprecated, use `access_token`
 ///   instead.
-Future<dynamic> verifyOAuthAccessToken(ClientConfig config,
-    {SdkOptional<String> accessToken = const SdkOmitted(),
-    SdkOptional<String> secret = const SdkOmitted(),
-    RequestOptions? requestOptions}) async {
-  return (await sdkRequest<dynamic>(
+Future<VerifyOAuthAccessTokenResponse>
+    verifyOAuthAccessToken(ClientConfig config,
+        {SdkOptional<String> accessToken = const SdkOmitted(),
+        SdkOptional<String> secret = const SdkOmitted(),
+        RequestOptions? requestOptions}) async {
+  return (await sdkRequest<VerifyOAuthAccessTokenResponse>(
           'POST', '/oauth_applications/access_tokens/verify',
           config: config,
           body: {
@@ -23,7 +25,7 @@ Future<dynamic> verifyOAuthAccessToken(ClientConfig config,
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'verifyOAuthAccessToken',
-          fromJsonRaw: (value) => value,
+          fromJsonRaw: (value) => VerifyOAuthAccessTokenResponse.fromJson(value),
           options: requestOptions))
       .data;
 }

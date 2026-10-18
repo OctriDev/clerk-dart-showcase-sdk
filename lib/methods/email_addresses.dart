@@ -119,14 +119,14 @@ Future<EmailAddress> updateEmailAddress(ClientConfig config,
 ///
 /// [emailAddressId] The ID of the email address to send the verification code
 ///   to
-Future<SchemaSchema3e93ce8e> prepareEmailAddressVerification(ClientConfig config,
+Future<VerificationResponse> prepareEmailAddressVerification(ClientConfig config,
     {required String emailAddressId, RequestOptions? requestOptions}) async {
-  return (await sdkRequest<SchemaSchema3e93ce8e>('POST',
+  return (await sdkRequest<VerificationResponse>('POST',
           '/email_addresses/${Uri.encodeComponent(emailAddressId.toString())}/prepare_verification',
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'prepareEmailAddressVerification',
-          fromJsonRaw: (value) => SchemaSchema3e93ce8e.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => VerificationResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
           errors: {'400': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '401': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '403': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '404': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '429': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '500': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)}))
       .data;
@@ -139,19 +139,19 @@ Future<SchemaSchema3e93ce8e> prepareEmailAddressVerification(ClientConfig config
 /// [verificationId] The ID of the verification to check, such as one returned
 ///   by prepare_verification
 /// [code] The verification code that was sent to the email address
-Future<SchemaSchema3e93ce8e>
+Future<VerificationResponse>
     attemptEmailAddressVerification(ClientConfig config,
         {required String emailAddressId,
         required String verificationId,
         required String code,
         RequestOptions? requestOptions}) async {
-  return (await sdkRequest<SchemaSchema3e93ce8e>('POST',
+  return (await sdkRequest<VerificationResponse>('POST',
           '/email_addresses/${Uri.encodeComponent(emailAddressId.toString())}/attempt_verification',
           config: config,
           body: {'verification_id': verificationId, 'code': code},
           decoder: SdkResponseDecoder.json,
           operationId: 'attemptEmailAddressVerification',
-          fromJsonRaw: (value) => SchemaSchema3e93ce8e.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => VerificationResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
           errors: {'400': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '401': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '403': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '404': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '500': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)}))
       .data;

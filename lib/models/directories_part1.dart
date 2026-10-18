@@ -248,4 +248,36 @@ class DirectoryGroupRoleMapping {
   };
 }
 
-// DirectoryGroupRoleMappings = List<DirectoryGroupRoleMapping>
+/// Typed representation of the `DirectoryGroupRoleMappingDeleted` API schema.
+class DirectoryGroupRoleMappingDeleted {
+  /// This model is constructed from named fields in one call.
+  static const String constructionSurface = 'named';
+  /// String representing the object's type.
+  final DirectoryGroupRoleMappingDeletedObject object;
+  /// The ID of the deleted directory group role mapping.
+  final String id;
+  /// Whether the directory group role mapping was successfully deleted.
+  final DirectoryGroupRoleMappingDeletedDeleted deleted;
+
+  const DirectoryGroupRoleMappingDeleted({required this.object, required this.id, required this.deleted});
+
+  DirectoryGroupRoleMappingDeleted Function({DirectoryGroupRoleMappingDeletedObject object, String id, DirectoryGroupRoleMappingDeletedDeleted deleted}) get copyWith => _copyWith;
+
+  DirectoryGroupRoleMappingDeleted _copyWith({Object? object = sdkOmittedValue, Object? id = sdkOmittedValue, Object? deleted = sdkOmittedValue}) => DirectoryGroupRoleMappingDeleted(
+    object: identical(object, sdkOmittedValue) ? this.object : object as DirectoryGroupRoleMappingDeletedObject,
+    id: identical(id, sdkOmittedValue) ? this.id : id as String,
+    deleted: identical(deleted, sdkOmittedValue) ? this.deleted : deleted as DirectoryGroupRoleMappingDeletedDeleted,
+  );
+
+  factory DirectoryGroupRoleMappingDeleted.fromJson(Map<String, dynamic> json) => DirectoryGroupRoleMappingDeleted(
+    object: (json['object'] != null ? DirectoryGroupRoleMappingDeletedObject.fromJson(json['object'] as String) : null)!,
+    id: (json['id'] as String?)!,
+    deleted: (json['deleted'] != null ? DirectoryGroupRoleMappingDeletedDeleted.fromJson(json['deleted'] as bool) : null)!,
+  );
+
+  Map<String, dynamic> toJson() => {
+    'object': object.toJson(),
+    'id': id,
+    'deleted': deleted.toJson(),
+  };
+}

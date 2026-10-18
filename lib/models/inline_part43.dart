@@ -4,256 +4,232 @@
 part of 'inline.dart';
 
 // Inline operation models (part 43)
-class CreateSCIMGroupRoleMappingRequestBody {
+class CreateAdminPortalLinkTokenRequestBody {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-  /// The SCIM group ID from the identity provider.
-  final String scimGroupId;
-  /// The ID of the organization role to assign to members of the SCIM group.
-  final String roleId;
-  /// The precedence for this mapping. Lower values take priority when a user belongs to multiple mapped groups. If omitted, the mapping is appended with the next-highest precedence.
-  final SdkOptional<int> precedence;
+  final SdkOptional<String> organizationId;
+  final SdkOptional<String> itContactId;
+  final SdkOptional<List<String>> scopes;
+  final SdkOptional<int> secondsUntilExpiration;
 
-  const CreateSCIMGroupRoleMappingRequestBody({required this.scimGroupId, required this.roleId, this.precedence = const SdkOmitted()});
+  const CreateAdminPortalLinkTokenRequestBody({this.organizationId = const SdkOmitted(), this.itContactId = const SdkOmitted(), this.scopes = const SdkOmitted(), this.secondsUntilExpiration = const SdkOmitted()});
 
-  CreateSCIMGroupRoleMappingRequestBody Function({String scimGroupId, String roleId, SdkOptional<int> precedence}) get copyWith => _copyWith;
+  CreateAdminPortalLinkTokenRequestBody Function({SdkOptional<String> organizationId, SdkOptional<String> itContactId, SdkOptional<List<String>> scopes, SdkOptional<int> secondsUntilExpiration}) get copyWith => _copyWith;
 
-  CreateSCIMGroupRoleMappingRequestBody _copyWith({Object? scimGroupId = sdkOmittedValue, Object? roleId = sdkOmittedValue, Object? precedence = sdkOmittedValue}) => CreateSCIMGroupRoleMappingRequestBody(
-    scimGroupId: identical(scimGroupId, sdkOmittedValue) ? this.scimGroupId : scimGroupId as String,
-    roleId: identical(roleId, sdkOmittedValue) ? this.roleId : roleId as String,
-    precedence: identical(precedence, sdkOmittedValue) ? this.precedence : precedence as SdkOptional<int>,
+  CreateAdminPortalLinkTokenRequestBody _copyWith({Object? organizationId = sdkOmittedValue, Object? itContactId = sdkOmittedValue, Object? scopes = sdkOmittedValue, Object? secondsUntilExpiration = sdkOmittedValue}) => CreateAdminPortalLinkTokenRequestBody(
+    organizationId: identical(organizationId, sdkOmittedValue) ? this.organizationId : organizationId as SdkOptional<String>,
+    itContactId: identical(itContactId, sdkOmittedValue) ? this.itContactId : itContactId as SdkOptional<String>,
+    scopes: identical(scopes, sdkOmittedValue) ? this.scopes : scopes as SdkOptional<List<String>>,
+    secondsUntilExpiration: identical(secondsUntilExpiration, sdkOmittedValue) ? this.secondsUntilExpiration : secondsUntilExpiration as SdkOptional<int>,
   );
 
-  factory CreateSCIMGroupRoleMappingRequestBody.fromJson(Map<String, dynamic> json) => CreateSCIMGroupRoleMappingRequestBody(
-    scimGroupId: (json['scim_group_id'] as String?)!,
-    roleId: (json['role_id'] as String?)!,
-    precedence: json['precedence'] != null ? SdkPresent(((json['precedence'] as num?)?.toInt())!) : const SdkOmitted(),
+  factory CreateAdminPortalLinkTokenRequestBody.fromJson(Map<String, dynamic> json) => CreateAdminPortalLinkTokenRequestBody(
+    organizationId: json['organization_id'] != null ? SdkPresent((json['organization_id'] as String?)!) : const SdkOmitted(),
+    itContactId: json['it_contact_id'] != null ? SdkPresent((json['it_contact_id'] as String?)!) : const SdkOmitted(),
+    scopes: json['scopes'] != null ? SdkPresent(((json['scopes'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
+    secondsUntilExpiration: json['seconds_until_expiration'] != null ? SdkPresent(((json['seconds_until_expiration'] as num?)?.toInt())!) : const SdkOmitted(),
   );
 
   Map<String, dynamic> toJson() => {
-    'scim_group_id': scimGroupId,
-    'role_id': roleId,
-    ...switch (precedence) {
-      SdkPresent<int>(value: final value) => {'precedence': value,},
+    ...switch (organizationId) {
+      SdkPresent<String>(value: final value) => {'organization_id': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (itContactId) {
+      SdkPresent<String>(value: final value) => {'it_contact_id': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (scopes) {
+      SdkPresent<List<String>>(value: final value) => {'scopes': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (secondsUntilExpiration) {
+      SdkPresent<int>(value: final value) => {'seconds_until_expiration': value,},
       _ => const <String, dynamic>{},
     },
   };
 }
 
-class ReplaceSCIMGroupRoleMappingsRequestBodyMappingsItem {
+class CreateAdminPortalLinkTokenResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-  /// The SCIM group ID from the identity provider.
-  final String scimGroupId;
-  /// The ID of the organization role to assign to members of the SCIM group.
-  final String roleId;
-
-  const ReplaceSCIMGroupRoleMappingsRequestBodyMappingsItem({required this.scimGroupId, required this.roleId});
-
-  ReplaceSCIMGroupRoleMappingsRequestBodyMappingsItem Function({String scimGroupId, String roleId}) get copyWith => _copyWith;
-
-  ReplaceSCIMGroupRoleMappingsRequestBodyMappingsItem _copyWith({Object? scimGroupId = sdkOmittedValue, Object? roleId = sdkOmittedValue}) => ReplaceSCIMGroupRoleMappingsRequestBodyMappingsItem(
-    scimGroupId: identical(scimGroupId, sdkOmittedValue) ? this.scimGroupId : scimGroupId as String,
-    roleId: identical(roleId, sdkOmittedValue) ? this.roleId : roleId as String,
-  );
-
-  factory ReplaceSCIMGroupRoleMappingsRequestBodyMappingsItem.fromJson(Map<String, dynamic> json) => ReplaceSCIMGroupRoleMappingsRequestBodyMappingsItem(
-    scimGroupId: (json['scim_group_id'] as String?)!,
-    roleId: (json['role_id'] as String?)!,
-  );
-
-  Map<String, dynamic> toJson() => {
-    'scim_group_id': scimGroupId,
-    'role_id': roleId,
-  };
-}
-
-class ReplaceSCIMGroupRoleMappingsRequestBody {
-  /// This model is constructed from named fields in one call.
-  static const String constructionSurface = 'named';
-  /// The desired set of mappings. Array order sets precedence (1-indexed). An empty array clears all mappings.
-  final List<ReplaceSCIMGroupRoleMappingsRequestBodyMappingsItem> mappings;
-
-  const ReplaceSCIMGroupRoleMappingsRequestBody({required this.mappings});
-
-  ReplaceSCIMGroupRoleMappingsRequestBody Function({List<ReplaceSCIMGroupRoleMappingsRequestBodyMappingsItem> mappings}) get copyWith => _copyWith;
-
-  ReplaceSCIMGroupRoleMappingsRequestBody _copyWith({Object? mappings = sdkOmittedValue}) => ReplaceSCIMGroupRoleMappingsRequestBody(
-    mappings: identical(mappings, sdkOmittedValue) ? this.mappings : mappings as List<ReplaceSCIMGroupRoleMappingsRequestBodyMappingsItem>,
-  );
-
-  factory ReplaceSCIMGroupRoleMappingsRequestBody.fromJson(Map<String, dynamic> json) => ReplaceSCIMGroupRoleMappingsRequestBody(
-    mappings: ((json['mappings'] as List?)?.map((e) => ReplaceSCIMGroupRoleMappingsRequestBodyMappingsItem.fromJson(e as Map<String, dynamic>)).toList())!,
-  );
-
-  Map<String, dynamic> toJson() => {
-    'mappings': mappings.map((item) => item.toJson()).toList(),
-  };
-}
-
-class SchemaSchemab78302a9 {
-  /// This model is constructed from named fields in one call.
-  static const String constructionSurface = 'named';
-  /// String representing the object's type.
-  final SchemaSchemaObject3d55986b object;
-  /// The ID of the deleted SCIM group role mapping.
+  final CreateAdminPortalLinkTokenResponseObject object;
   final String id;
-  /// Whether the SCIM group role mapping was successfully deleted.
-  final SchemaSchemaDeleted85fe41d0 deleted;
+  /// The origin-level admin_portal_link this token was issued for.
+  final String adminPortalLinkId;
+  final String instanceId;
+  /// Optional. Present only when the link is scoped to an existing org.
+  final String? organizationId;
+  /// Optional opaque reference to the IT contact associated with this link.
+  final String? itContactId;
+  /// Caller-provided scopes for this token.
+  final List<String>? scopes;
+  /// The single-use admin portal link token. Returned only on creation. URL-borne; treat as a secret.
+  final String token;
+  final bool revoked;
+  final String? revocationReason;
+  final bool expired;
+  /// The timestamp for when the token will expire, in milliseconds.
+  final double? expiration;
+  /// The timestamp for when the token was created, in milliseconds.
+  final double createdAt;
+  /// The timestamp for when the token was last updated, in milliseconds.
+  final double updatedAt;
 
-  const SchemaSchemab78302a9({required this.object, required this.id, required this.deleted});
+  const CreateAdminPortalLinkTokenResponse({required this.object, required this.id, required this.adminPortalLinkId, required this.instanceId, required this.organizationId, required this.itContactId, required this.scopes, required this.token, required this.revoked, required this.revocationReason, required this.expired, required this.expiration, required this.createdAt, required this.updatedAt});
 
-  SchemaSchemab78302a9 Function({SchemaSchemaObject3d55986b object, String id, SchemaSchemaDeleted85fe41d0 deleted}) get copyWith => _copyWith;
+  CreateAdminPortalLinkTokenResponse Function({CreateAdminPortalLinkTokenResponseObject object, String id, String adminPortalLinkId, String instanceId, String? organizationId, String? itContactId, List<String>? scopes, String token, bool revoked, String? revocationReason, bool expired, double? expiration, double createdAt, double updatedAt}) get copyWith => _copyWith;
 
-  SchemaSchemab78302a9 _copyWith({Object? object = sdkOmittedValue, Object? id = sdkOmittedValue, Object? deleted = sdkOmittedValue}) => SchemaSchemab78302a9(
-    object: identical(object, sdkOmittedValue) ? this.object : object as SchemaSchemaObject3d55986b,
+  CreateAdminPortalLinkTokenResponse _copyWith({Object? object = sdkOmittedValue, Object? id = sdkOmittedValue, Object? adminPortalLinkId = sdkOmittedValue, Object? instanceId = sdkOmittedValue, Object? organizationId = sdkOmittedValue, Object? itContactId = sdkOmittedValue, Object? scopes = sdkOmittedValue, Object? token = sdkOmittedValue, Object? revoked = sdkOmittedValue, Object? revocationReason = sdkOmittedValue, Object? expired = sdkOmittedValue, Object? expiration = sdkOmittedValue, Object? createdAt = sdkOmittedValue, Object? updatedAt = sdkOmittedValue}) => CreateAdminPortalLinkTokenResponse(
+    object: identical(object, sdkOmittedValue) ? this.object : object as CreateAdminPortalLinkTokenResponseObject,
     id: identical(id, sdkOmittedValue) ? this.id : id as String,
-    deleted: identical(deleted, sdkOmittedValue) ? this.deleted : deleted as SchemaSchemaDeleted85fe41d0,
+    adminPortalLinkId: identical(adminPortalLinkId, sdkOmittedValue) ? this.adminPortalLinkId : adminPortalLinkId as String,
+    instanceId: identical(instanceId, sdkOmittedValue) ? this.instanceId : instanceId as String,
+    organizationId: identical(organizationId, sdkOmittedValue) ? this.organizationId : organizationId as String?,
+    itContactId: identical(itContactId, sdkOmittedValue) ? this.itContactId : itContactId as String?,
+    scopes: identical(scopes, sdkOmittedValue) ? this.scopes : scopes as List<String>?,
+    token: identical(token, sdkOmittedValue) ? this.token : token as String,
+    revoked: identical(revoked, sdkOmittedValue) ? this.revoked : revoked as bool,
+    revocationReason: identical(revocationReason, sdkOmittedValue) ? this.revocationReason : revocationReason as String?,
+    expired: identical(expired, sdkOmittedValue) ? this.expired : expired as bool,
+    expiration: identical(expiration, sdkOmittedValue) ? this.expiration : expiration as double?,
+    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as double,
+    updatedAt: identical(updatedAt, sdkOmittedValue) ? this.updatedAt : updatedAt as double,
   );
 
-  factory SchemaSchemab78302a9.fromJson(Map<String, dynamic> json) => SchemaSchemab78302a9(
-    object: (json['object'] != null ? SchemaSchemaObject3d55986b.fromJson(json['object'] as String) : null)!,
+  factory CreateAdminPortalLinkTokenResponse.fromJson(Map<String, dynamic> json) => CreateAdminPortalLinkTokenResponse(
+    object: (json['object'] != null ? CreateAdminPortalLinkTokenResponseObject.fromJson(json['object'] as String) : null)!,
     id: (json['id'] as String?)!,
-    deleted: (json['deleted'] != null ? SchemaSchemaDeleted85fe41d0.fromJson(json['deleted'] as bool) : null)!,
+    adminPortalLinkId: (json['admin_portal_link_id'] as String?)!,
+    instanceId: (json['instance_id'] as String?)!,
+    organizationId: json.containsKey('organization_id') ? json['organization_id'] as String? : throw ArgumentError.value(null, 'organization_id', 'Required property is missing'),
+    itContactId: json.containsKey('it_contact_id') ? json['it_contact_id'] as String? : throw ArgumentError.value(null, 'it_contact_id', 'Required property is missing'),
+    scopes: json.containsKey('scopes') ? (json['scopes'] as List?)?.map((e) => e as String).toList() : throw ArgumentError.value(null, 'scopes', 'Required property is missing'),
+    token: (json['token'] as String?)!,
+    revoked: (json['revoked'] as bool?)!,
+    revocationReason: json.containsKey('revocation_reason') ? json['revocation_reason'] as String? : throw ArgumentError.value(null, 'revocation_reason', 'Required property is missing'),
+    expired: (json['expired'] as bool?)!,
+    expiration: json.containsKey('expiration') ? (json['expiration'] as num?)?.toDouble() : throw ArgumentError.value(null, 'expiration', 'Required property is missing'),
+    createdAt: ((json['created_at'] as num?)?.toDouble())!,
+    updatedAt: ((json['updated_at'] as num?)?.toDouble())!,
   );
 
   Map<String, dynamic> toJson() => {
     'object': object.toJson(),
     'id': id,
-    'deleted': deleted.toJson(),
+    'admin_portal_link_id': adminPortalLinkId,
+    'instance_id': instanceId,
+    'organization_id': organizationId,
+    'it_contact_id': itContactId,
+    'scopes': scopes,
+    'token': token,
+    'revoked': revoked,
+    'revocation_reason': revocationReason,
+    'expired': expired,
+    'expiration': expiration,
+    'created_at': createdAt,
+    'updated_at': updatedAt,
   };
 }
 
-class SchemaSchemadb46323d {
+class RevokeAdminPortalLinkTokenRequestBody {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-  final List<Directory> data;
-  /// Total number of directories.
-  final int totalCount;
+  final SdkOptional<String?> revocationReason;
 
-  const SchemaSchemadb46323d({required this.data, required this.totalCount});
+  const RevokeAdminPortalLinkTokenRequestBody({this.revocationReason = const SdkOmitted()});
 
-  SchemaSchemadb46323d Function({List<Directory> data, int totalCount}) get copyWith => _copyWith;
+  RevokeAdminPortalLinkTokenRequestBody Function({SdkOptional<String?> revocationReason}) get copyWith => _copyWith;
 
-  SchemaSchemadb46323d _copyWith({Object? data = sdkOmittedValue, Object? totalCount = sdkOmittedValue}) => SchemaSchemadb46323d(
-    data: identical(data, sdkOmittedValue) ? this.data : data as List<Directory>,
-    totalCount: identical(totalCount, sdkOmittedValue) ? this.totalCount : totalCount as int,
+  RevokeAdminPortalLinkTokenRequestBody _copyWith({Object? revocationReason = sdkOmittedValue}) => RevokeAdminPortalLinkTokenRequestBody(
+    revocationReason: identical(revocationReason, sdkOmittedValue) ? this.revocationReason : revocationReason as SdkOptional<String?>,
   );
 
-  factory SchemaSchemadb46323d.fromJson(Map<String, dynamic> json) => SchemaSchemadb46323d(
-    data: ((json['data'] as List?)?.map((e) => Directory.fromJson(e as Map<String, dynamic>)).toList())!,
-    totalCount: ((json['total_count'] as num?)?.toInt())!,
+  factory RevokeAdminPortalLinkTokenRequestBody.fromJson(Map<String, dynamic> json) => RevokeAdminPortalLinkTokenRequestBody(
+    revocationReason: json.containsKey('revocation_reason') ? SdkPresent(json['revocation_reason'] as String?) : const SdkOmitted(),
   );
 
   Map<String, dynamic> toJson() => {
-    'data': data.map((item) => item.toJson()).toList(),
-    'total_count': totalCount,
-  };
-}
-
-class CreateDirectoryRequestBodyGroupRoleMappingsItem {
-  /// This model is constructed from named fields in one call.
-  static const String constructionSurface = 'named';
-  /// The group ID from the identity provider. Exactly one of `directory_group_id` or `scim_group_id` is required.
-  final SdkOptional<String> directoryGroupId;
-  /// The legacy name for `directory_group_id`. Send either one, or both with the same value; sending both with different values is rejected.
-  final SdkOptional<String> scimGroupId;
-  /// Optional display name for the group.
-  final SdkOptional<String> directoryGroupDisplayName;
-  /// The legacy name for `directory_group_display_name`. Send either one, or both with the same value; sending both with different values is rejected.
-  final SdkOptional<String> scimGroupDisplayName;
-  /// The organization role ID to assign to members of the group.
-  final String roleId;
-  /// The precedence for this mapping. If omitted, precedence is assigned by array order.
-  final SdkOptional<int> precedence;
-
-  const CreateDirectoryRequestBodyGroupRoleMappingsItem({this.directoryGroupId = const SdkOmitted(), this.scimGroupId = const SdkOmitted(), this.directoryGroupDisplayName = const SdkOmitted(), this.scimGroupDisplayName = const SdkOmitted(), required this.roleId, this.precedence = const SdkOmitted()});
-
-  CreateDirectoryRequestBodyGroupRoleMappingsItem Function({SdkOptional<String> directoryGroupId, SdkOptional<String> scimGroupId, SdkOptional<String> directoryGroupDisplayName, SdkOptional<String> scimGroupDisplayName, String roleId, SdkOptional<int> precedence}) get copyWith => _copyWith;
-
-  CreateDirectoryRequestBodyGroupRoleMappingsItem _copyWith({Object? directoryGroupId = sdkOmittedValue, Object? scimGroupId = sdkOmittedValue, Object? directoryGroupDisplayName = sdkOmittedValue, Object? scimGroupDisplayName = sdkOmittedValue, Object? roleId = sdkOmittedValue, Object? precedence = sdkOmittedValue}) => CreateDirectoryRequestBodyGroupRoleMappingsItem(
-    directoryGroupId: identical(directoryGroupId, sdkOmittedValue) ? this.directoryGroupId : directoryGroupId as SdkOptional<String>,
-    scimGroupId: identical(scimGroupId, sdkOmittedValue) ? this.scimGroupId : scimGroupId as SdkOptional<String>,
-    directoryGroupDisplayName: identical(directoryGroupDisplayName, sdkOmittedValue) ? this.directoryGroupDisplayName : directoryGroupDisplayName as SdkOptional<String>,
-    scimGroupDisplayName: identical(scimGroupDisplayName, sdkOmittedValue) ? this.scimGroupDisplayName : scimGroupDisplayName as SdkOptional<String>,
-    roleId: identical(roleId, sdkOmittedValue) ? this.roleId : roleId as String,
-    precedence: identical(precedence, sdkOmittedValue) ? this.precedence : precedence as SdkOptional<int>,
-  );
-
-  factory CreateDirectoryRequestBodyGroupRoleMappingsItem.fromJson(Map<String, dynamic> json) => CreateDirectoryRequestBodyGroupRoleMappingsItem(
-    directoryGroupId: json['directory_group_id'] != null ? SdkPresent((json['directory_group_id'] as String?)!) : const SdkOmitted(),
-    scimGroupId: json['scim_group_id'] != null ? SdkPresent((json['scim_group_id'] as String?)!) : const SdkOmitted(),
-    directoryGroupDisplayName: json['directory_group_display_name'] != null ? SdkPresent((json['directory_group_display_name'] as String?)!) : const SdkOmitted(),
-    scimGroupDisplayName: json['scim_group_display_name'] != null ? SdkPresent((json['scim_group_display_name'] as String?)!) : const SdkOmitted(),
-    roleId: (json['role_id'] as String?)!,
-    precedence: json['precedence'] != null ? SdkPresent(((json['precedence'] as num?)?.toInt())!) : const SdkOmitted(),
-  );
-
-  Map<String, dynamic> toJson() => {
-    ...switch (directoryGroupId) {
-      SdkPresent<String>(value: final value) => {'directory_group_id': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (scimGroupId) {
-      SdkPresent<String>(value: final value) => {'scim_group_id': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (directoryGroupDisplayName) {
-      SdkPresent<String>(value: final value) => {'directory_group_display_name': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (scimGroupDisplayName) {
-      SdkPresent<String>(value: final value) => {'scim_group_display_name': value,},
-      _ => const <String, dynamic>{},
-    },
-    'role_id': roleId,
-    ...switch (precedence) {
-      SdkPresent<int>(value: final value) => {'precedence': value,},
+    ...switch (revocationReason) {
+      SdkPresent<String?>(value: final value) => {'revocation_reason': value,},
       _ => const <String, dynamic>{},
     },
   };
 }
 
-class CreateDirectoryRequestBody {
+class RevokeAdminPortalLinkTokenResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-  /// The ID of the enterprise connection to associate with this directory.
-  final String enterpriseConnectionId;
-  /// A human-friendly name for the directory.
-  final SdkOptional<String> name;
-  /// The identity provider for this directory.
-  final String provider;
-  /// Optional directory group to organization role mappings to create with the directory.
-  final SdkOptional<List<CreateDirectoryRequestBodyGroupRoleMappingsItem>> groupRoleMappings;
+  final RevokeAdminPortalLinkTokenResponseObject object;
+  final String id;
+  /// The origin-level admin_portal_link this token was issued for.
+  final String adminPortalLinkId;
+  final String instanceId;
+  /// Optional. Present only when the link is scoped to an existing org.
+  final String? organizationId;
+  /// Optional opaque reference to the IT contact associated with this link.
+  final String? itContactId;
+  /// Caller-provided scopes for this token.
+  final List<String>? scopes;
+  final bool revoked;
+  final String? revocationReason;
+  final bool expired;
+  /// The timestamp for when the token will expire, in milliseconds.
+  final double? expiration;
+  /// The timestamp for when the token was created, in milliseconds.
+  final double createdAt;
+  /// The timestamp for when the token was last updated, in milliseconds.
+  final double updatedAt;
 
-  const CreateDirectoryRequestBody({required this.enterpriseConnectionId, this.name = const SdkOmitted(), required this.provider, this.groupRoleMappings = const SdkOmitted()});
+  const RevokeAdminPortalLinkTokenResponse({required this.object, required this.id, required this.adminPortalLinkId, required this.instanceId, required this.organizationId, required this.itContactId, required this.scopes, required this.revoked, required this.revocationReason, required this.expired, required this.expiration, required this.createdAt, required this.updatedAt});
 
-  CreateDirectoryRequestBody Function({String enterpriseConnectionId, SdkOptional<String> name, String provider, SdkOptional<List<CreateDirectoryRequestBodyGroupRoleMappingsItem>> groupRoleMappings}) get copyWith => _copyWith;
+  RevokeAdminPortalLinkTokenResponse Function({RevokeAdminPortalLinkTokenResponseObject object, String id, String adminPortalLinkId, String instanceId, String? organizationId, String? itContactId, List<String>? scopes, bool revoked, String? revocationReason, bool expired, double? expiration, double createdAt, double updatedAt}) get copyWith => _copyWith;
 
-  CreateDirectoryRequestBody _copyWith({Object? enterpriseConnectionId = sdkOmittedValue, Object? name = sdkOmittedValue, Object? provider = sdkOmittedValue, Object? groupRoleMappings = sdkOmittedValue}) => CreateDirectoryRequestBody(
-    enterpriseConnectionId: identical(enterpriseConnectionId, sdkOmittedValue) ? this.enterpriseConnectionId : enterpriseConnectionId as String,
-    name: identical(name, sdkOmittedValue) ? this.name : name as SdkOptional<String>,
-    provider: identical(provider, sdkOmittedValue) ? this.provider : provider as String,
-    groupRoleMappings: identical(groupRoleMappings, sdkOmittedValue) ? this.groupRoleMappings : groupRoleMappings as SdkOptional<List<CreateDirectoryRequestBodyGroupRoleMappingsItem>>,
+  RevokeAdminPortalLinkTokenResponse _copyWith({Object? object = sdkOmittedValue, Object? id = sdkOmittedValue, Object? adminPortalLinkId = sdkOmittedValue, Object? instanceId = sdkOmittedValue, Object? organizationId = sdkOmittedValue, Object? itContactId = sdkOmittedValue, Object? scopes = sdkOmittedValue, Object? revoked = sdkOmittedValue, Object? revocationReason = sdkOmittedValue, Object? expired = sdkOmittedValue, Object? expiration = sdkOmittedValue, Object? createdAt = sdkOmittedValue, Object? updatedAt = sdkOmittedValue}) => RevokeAdminPortalLinkTokenResponse(
+    object: identical(object, sdkOmittedValue) ? this.object : object as RevokeAdminPortalLinkTokenResponseObject,
+    id: identical(id, sdkOmittedValue) ? this.id : id as String,
+    adminPortalLinkId: identical(adminPortalLinkId, sdkOmittedValue) ? this.adminPortalLinkId : adminPortalLinkId as String,
+    instanceId: identical(instanceId, sdkOmittedValue) ? this.instanceId : instanceId as String,
+    organizationId: identical(organizationId, sdkOmittedValue) ? this.organizationId : organizationId as String?,
+    itContactId: identical(itContactId, sdkOmittedValue) ? this.itContactId : itContactId as String?,
+    scopes: identical(scopes, sdkOmittedValue) ? this.scopes : scopes as List<String>?,
+    revoked: identical(revoked, sdkOmittedValue) ? this.revoked : revoked as bool,
+    revocationReason: identical(revocationReason, sdkOmittedValue) ? this.revocationReason : revocationReason as String?,
+    expired: identical(expired, sdkOmittedValue) ? this.expired : expired as bool,
+    expiration: identical(expiration, sdkOmittedValue) ? this.expiration : expiration as double?,
+    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as double,
+    updatedAt: identical(updatedAt, sdkOmittedValue) ? this.updatedAt : updatedAt as double,
   );
 
-  factory CreateDirectoryRequestBody.fromJson(Map<String, dynamic> json) => CreateDirectoryRequestBody(
-    enterpriseConnectionId: (json['enterprise_connection_id'] as String?)!,
-    name: json['name'] != null ? SdkPresent((json['name'] as String?)!) : const SdkOmitted(),
-    provider: (json['provider'] as String?)!,
-    groupRoleMappings: json['group_role_mappings'] != null ? SdkPresent(((json['group_role_mappings'] as List?)?.map((e) => CreateDirectoryRequestBodyGroupRoleMappingsItem.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+  factory RevokeAdminPortalLinkTokenResponse.fromJson(Map<String, dynamic> json) => RevokeAdminPortalLinkTokenResponse(
+    object: (json['object'] != null ? RevokeAdminPortalLinkTokenResponseObject.fromJson(json['object'] as String) : null)!,
+    id: (json['id'] as String?)!,
+    adminPortalLinkId: (json['admin_portal_link_id'] as String?)!,
+    instanceId: (json['instance_id'] as String?)!,
+    organizationId: json.containsKey('organization_id') ? json['organization_id'] as String? : throw ArgumentError.value(null, 'organization_id', 'Required property is missing'),
+    itContactId: json.containsKey('it_contact_id') ? json['it_contact_id'] as String? : throw ArgumentError.value(null, 'it_contact_id', 'Required property is missing'),
+    scopes: json.containsKey('scopes') ? (json['scopes'] as List?)?.map((e) => e as String).toList() : throw ArgumentError.value(null, 'scopes', 'Required property is missing'),
+    revoked: (json['revoked'] as bool?)!,
+    revocationReason: json.containsKey('revocation_reason') ? json['revocation_reason'] as String? : throw ArgumentError.value(null, 'revocation_reason', 'Required property is missing'),
+    expired: (json['expired'] as bool?)!,
+    expiration: json.containsKey('expiration') ? (json['expiration'] as num?)?.toDouble() : throw ArgumentError.value(null, 'expiration', 'Required property is missing'),
+    createdAt: ((json['created_at'] as num?)?.toDouble())!,
+    updatedAt: ((json['updated_at'] as num?)?.toDouble())!,
   );
 
   Map<String, dynamic> toJson() => {
-    'enterprise_connection_id': enterpriseConnectionId,
-    ...switch (name) {
-      SdkPresent<String>(value: final value) => {'name': value,},
-      _ => const <String, dynamic>{},
-    },
-    'provider': provider,
-    ...switch (groupRoleMappings) {
-      SdkPresent<List<CreateDirectoryRequestBodyGroupRoleMappingsItem>>(value: final value) => {'group_role_mappings': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
+    'object': object.toJson(),
+    'id': id,
+    'admin_portal_link_id': adminPortalLinkId,
+    'instance_id': instanceId,
+    'organization_id': organizationId,
+    'it_contact_id': itContactId,
+    'scopes': scopes,
+    'revoked': revoked,
+    'revocation_reason': revocationReason,
+    'expired': expired,
+    'expiration': expiration,
+    'created_at': createdAt,
+    'updated_at': updatedAt,
   };
 }

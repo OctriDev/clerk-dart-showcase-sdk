@@ -4,204 +4,6 @@
 part of 'billing.dart';
 
 // billing domain models (part 3)
-/// Fixed amount off when the effect is fixed_amount.
-class CommerceDiscountRedemptionResponseAmountOff {
-  /// This model is constructed from named fields in one call.
-  static const String constructionSurface = 'named';
-  /// The amount in cents.
-  final int amount;
-  /// The formatted amount as a string (e.g., "$49.99").
-  final String amountFormatted;
-  /// The currency code (e.g., "USD").
-  final String currency;
-  /// The currency symbol (e.g., "$").
-  final String currencySymbol;
-
-  const CommerceDiscountRedemptionResponseAmountOff({required this.amount, required this.amountFormatted, required this.currency, required this.currencySymbol});
-
-  CommerceDiscountRedemptionResponseAmountOff Function({int amount, String amountFormatted, String currency, String currencySymbol}) get copyWith => _copyWith;
-
-  CommerceDiscountRedemptionResponseAmountOff _copyWith({Object? amount = sdkOmittedValue, Object? amountFormatted = sdkOmittedValue, Object? currency = sdkOmittedValue, Object? currencySymbol = sdkOmittedValue}) => CommerceDiscountRedemptionResponseAmountOff(
-    amount: identical(amount, sdkOmittedValue) ? this.amount : amount as int,
-    amountFormatted: identical(amountFormatted, sdkOmittedValue) ? this.amountFormatted : amountFormatted as String,
-    currency: identical(currency, sdkOmittedValue) ? this.currency : currency as String,
-    currencySymbol: identical(currencySymbol, sdkOmittedValue) ? this.currencySymbol : currencySymbol as String,
-  );
-
-  factory CommerceDiscountRedemptionResponseAmountOff.fromJson(Map<String, dynamic> json) => CommerceDiscountRedemptionResponseAmountOff(
-    amount: ((json['amount'] as num?)?.toInt())!,
-    amountFormatted: (json['amount_formatted'] as String?)!,
-    currency: (json['currency'] as String?)!,
-    currencySymbol: (json['currency_symbol'] as String?)!,
-  );
-
-  Map<String, dynamic> toJson() => {
-    'amount': amount,
-    'amount_formatted': amountFormatted,
-    'currency': currency,
-    'currency_symbol': currencySymbol,
-  };
-}
-
-/// How much this discount takes off the subscription item's next renewal charge. Present for either effect when next-payment data is available.
-class CommerceDiscountRedemptionResponseAmount {
-  /// This model is constructed from named fields in one call.
-  static const String constructionSurface = 'named';
-  /// The amount in cents.
-  final int amount;
-  /// The formatted amount as a string (e.g., "$49.99").
-  final String amountFormatted;
-  /// The currency code (e.g., "USD").
-  final String currency;
-  /// The currency symbol (e.g., "$").
-  final String currencySymbol;
-
-  const CommerceDiscountRedemptionResponseAmount({required this.amount, required this.amountFormatted, required this.currency, required this.currencySymbol});
-
-  CommerceDiscountRedemptionResponseAmount Function({int amount, String amountFormatted, String currency, String currencySymbol}) get copyWith => _copyWith;
-
-  CommerceDiscountRedemptionResponseAmount _copyWith({Object? amount = sdkOmittedValue, Object? amountFormatted = sdkOmittedValue, Object? currency = sdkOmittedValue, Object? currencySymbol = sdkOmittedValue}) => CommerceDiscountRedemptionResponseAmount(
-    amount: identical(amount, sdkOmittedValue) ? this.amount : amount as int,
-    amountFormatted: identical(amountFormatted, sdkOmittedValue) ? this.amountFormatted : amountFormatted as String,
-    currency: identical(currency, sdkOmittedValue) ? this.currency : currency as String,
-    currencySymbol: identical(currencySymbol, sdkOmittedValue) ? this.currencySymbol : currencySymbol as String,
-  );
-
-  factory CommerceDiscountRedemptionResponseAmount.fromJson(Map<String, dynamic> json) => CommerceDiscountRedemptionResponseAmount(
-    amount: ((json['amount'] as num?)?.toInt())!,
-    amountFormatted: (json['amount_formatted'] as String?)!,
-    currency: (json['currency'] as String?)!,
-    currencySymbol: (json['currency_symbol'] as String?)!,
-  );
-
-  Map<String, dynamic> toJson() => {
-    'amount': amount,
-    'amount_formatted': amountFormatted,
-    'currency': currency,
-    'currency_symbol': currencySymbol,
-  };
-}
-
-/// Typed representation of the `CommerceDiscountRedemptionResponse` API schema.
-class CommerceDiscountRedemptionResponse {
-  /// This model is constructed from named fields in one call.
-  static const String constructionSurface = 'named';
-  /// String representing the object's type. Objects of the same type share the same value.
-  final CommerceDiscountRedemptionResponseObject object;
-  /// Unique identifier for the discount redemption.
-  final String id;
-  /// Unique identifier for the subscription item the discount was applied to.
-  final String subscriptionItemId;
-  /// Unique identifier for the discount that was applied.
-  final String discountId;
-  /// The display name of the discount.
-  final SdkOptional<String> name;
-  /// How the discount was applied to the subscription item.
-  final CommerceDiscountRedemptionResponseSource source;
-  /// The promo code used to redeem the discount, when applicable.
-  final SdkOptional<String> promoCode;
-  /// The snapshotted discount effect.
-  final SdkOptional<CommerceDiscountRedemptionResponseEffect> effect;
-  /// Percent off when the effect is percentage.
-  final SdkOptional<double?> percentOff;
-  /// Fixed amount off when the effect is fixed_amount.
-  final SdkOptional<CommerceMoneyResponse?> amountOff;
-  /// How much this discount takes off the subscription item's next renewal charge. Present for either effect when next-payment data is available.
-  final SdkOptional<CommerceMoneyResponse?> amount;
-  /// Remaining billing cycles the discount applies to. Null means the discount lasts forever.
-  final int? cyclesRemaining;
-  /// Number of billing cycles the discount has already been applied to.
-  final int cyclesApplied;
-  /// Current status of the discount redemption.
-  final SdkOptional<CommerceDiscountRedemptionResponseStatus> status;
-  /// Unix timestamp (in milliseconds) when the discount was redeemed.
-  final int redeemedAt;
-  /// Identifier of the actor that redeemed the discount, when available.
-  final String? redeemedBy;
-
-  const CommerceDiscountRedemptionResponse({required this.object, required this.id, required this.subscriptionItemId, required this.discountId, this.name = const SdkOmitted(), required this.source, this.promoCode = const SdkOmitted(), this.effect = const SdkOmitted(), this.percentOff = const SdkOmitted(), this.amountOff = const SdkOmitted(), this.amount = const SdkOmitted(), required this.cyclesRemaining, required this.cyclesApplied, this.status = const SdkOmitted(), required this.redeemedAt, required this.redeemedBy});
-
-  CommerceDiscountRedemptionResponse Function({CommerceDiscountRedemptionResponseObject object, String id, String subscriptionItemId, String discountId, SdkOptional<String> name, CommerceDiscountRedemptionResponseSource source, SdkOptional<String> promoCode, SdkOptional<CommerceDiscountRedemptionResponseEffect> effect, SdkOptional<double?> percentOff, SdkOptional<CommerceMoneyResponse?> amountOff, SdkOptional<CommerceMoneyResponse?> amount, int? cyclesRemaining, int cyclesApplied, SdkOptional<CommerceDiscountRedemptionResponseStatus> status, int redeemedAt, String? redeemedBy}) get copyWith => _copyWith;
-
-  CommerceDiscountRedemptionResponse _copyWith({Object? object = sdkOmittedValue, Object? id = sdkOmittedValue, Object? subscriptionItemId = sdkOmittedValue, Object? discountId = sdkOmittedValue, Object? name = sdkOmittedValue, Object? source = sdkOmittedValue, Object? promoCode = sdkOmittedValue, Object? effect = sdkOmittedValue, Object? percentOff = sdkOmittedValue, Object? amountOff = sdkOmittedValue, Object? amount = sdkOmittedValue, Object? cyclesRemaining = sdkOmittedValue, Object? cyclesApplied = sdkOmittedValue, Object? status = sdkOmittedValue, Object? redeemedAt = sdkOmittedValue, Object? redeemedBy = sdkOmittedValue}) => CommerceDiscountRedemptionResponse(
-    object: identical(object, sdkOmittedValue) ? this.object : object as CommerceDiscountRedemptionResponseObject,
-    id: identical(id, sdkOmittedValue) ? this.id : id as String,
-    subscriptionItemId: identical(subscriptionItemId, sdkOmittedValue) ? this.subscriptionItemId : subscriptionItemId as String,
-    discountId: identical(discountId, sdkOmittedValue) ? this.discountId : discountId as String,
-    name: identical(name, sdkOmittedValue) ? this.name : name as SdkOptional<String>,
-    source: identical(source, sdkOmittedValue) ? this.source : source as CommerceDiscountRedemptionResponseSource,
-    promoCode: identical(promoCode, sdkOmittedValue) ? this.promoCode : promoCode as SdkOptional<String>,
-    effect: identical(effect, sdkOmittedValue) ? this.effect : effect as SdkOptional<CommerceDiscountRedemptionResponseEffect>,
-    percentOff: identical(percentOff, sdkOmittedValue) ? this.percentOff : percentOff as SdkOptional<double?>,
-    amountOff: identical(amountOff, sdkOmittedValue) ? this.amountOff : amountOff as SdkOptional<CommerceMoneyResponse?>,
-    amount: identical(amount, sdkOmittedValue) ? this.amount : amount as SdkOptional<CommerceMoneyResponse?>,
-    cyclesRemaining: identical(cyclesRemaining, sdkOmittedValue) ? this.cyclesRemaining : cyclesRemaining as int?,
-    cyclesApplied: identical(cyclesApplied, sdkOmittedValue) ? this.cyclesApplied : cyclesApplied as int,
-    status: identical(status, sdkOmittedValue) ? this.status : status as SdkOptional<CommerceDiscountRedemptionResponseStatus>,
-    redeemedAt: identical(redeemedAt, sdkOmittedValue) ? this.redeemedAt : redeemedAt as int,
-    redeemedBy: identical(redeemedBy, sdkOmittedValue) ? this.redeemedBy : redeemedBy as String?,
-  );
-
-  factory CommerceDiscountRedemptionResponse.fromJson(Map<String, dynamic> json) => CommerceDiscountRedemptionResponse(
-    object: (json['object'] != null ? CommerceDiscountRedemptionResponseObject.fromJson(json['object'] as String) : null)!,
-    id: (json['id'] as String?)!,
-    subscriptionItemId: (json['subscription_item_id'] as String?)!,
-    discountId: (json['discount_id'] as String?)!,
-    name: json['name'] != null ? SdkPresent((json['name'] as String?)!) : const SdkOmitted(),
-    source: (json['source'] != null ? CommerceDiscountRedemptionResponseSource.fromJson(json['source'] as String) : null)!,
-    promoCode: json['promo_code'] != null ? SdkPresent((json['promo_code'] as String?)!) : const SdkOmitted(),
-    effect: json['effect'] != null ? SdkPresent((json['effect'] != null ? CommerceDiscountRedemptionResponseEffect.fromJson(json['effect'] as String) : null)!) : const SdkOmitted(),
-    percentOff: json.containsKey('percent_off') ? SdkPresent((json['percent_off'] as num?)?.toDouble()) : const SdkOmitted(),
-    amountOff: json.containsKey('amount_off') ? SdkPresent(json['amount_off'] != null ? CommerceMoneyResponse.fromJson(json['amount_off'] as Map<String, dynamic>) : null) : const SdkOmitted(),
-    amount: json.containsKey('amount') ? SdkPresent(json['amount'] != null ? CommerceMoneyResponse.fromJson(json['amount'] as Map<String, dynamic>) : null) : const SdkOmitted(),
-    cyclesRemaining: json.containsKey('cycles_remaining') ? (json['cycles_remaining'] as num?)?.toInt() : throw ArgumentError.value(null, 'cycles_remaining', 'Required property is missing'),
-    cyclesApplied: ((json['cycles_applied'] as num?)?.toInt())!,
-    status: json['status'] != null ? SdkPresent((json['status'] != null ? CommerceDiscountRedemptionResponseStatus.fromJson(json['status'] as String) : null)!) : const SdkOmitted(),
-    redeemedAt: ((json['redeemed_at'] as num?)?.toInt())!,
-    redeemedBy: json.containsKey('redeemed_by') ? json['redeemed_by'] as String? : throw ArgumentError.value(null, 'redeemed_by', 'Required property is missing'),
-  );
-
-  Map<String, dynamic> toJson() => {
-    'object': object.toJson(),
-    'id': id,
-    'subscription_item_id': subscriptionItemId,
-    'discount_id': discountId,
-    ...switch (name) {
-      SdkPresent<String>(value: final value) => {'name': value,},
-      _ => const <String, dynamic>{},
-    },
-    'source': source.toJson(),
-    ...switch (promoCode) {
-      SdkPresent<String>(value: final value) => {'promo_code': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (effect) {
-      SdkPresent<CommerceDiscountRedemptionResponseEffect>(value: final value) => {'effect': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (percentOff) {
-      SdkPresent<double?>(value: final value) => {'percent_off': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (amountOff) {
-      SdkPresent<CommerceMoneyResponse?>(value: final value) => {'amount_off': value?.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (amount) {
-      SdkPresent<CommerceMoneyResponse?>(value: final value) => {'amount': value?.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    'cycles_remaining': cyclesRemaining,
-    'cycles_applied': cyclesApplied,
-    ...switch (status) {
-      SdkPresent<CommerceDiscountRedemptionResponseStatus>(value: final value) => {'status': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    'redeemed_at': redeemedAt,
-    'redeemed_by': redeemedBy,
-  };
-}
-
 /// Typed representation of the `CommercePayerResponse2` API schema.
 class CommercePayerResponse2 {
   /// This model is constructed from named fields in one call.
@@ -295,5 +97,124 @@ class CommercePayerResponse2 {
     },
     'created_at': createdAt,
     'updated_at': updatedAt,
+  };
+}
+
+/// Typed representation of the `CommercePaymentSourceResponse` API schema.
+class CommercePaymentSourceResponse {
+  /// This model is constructed from named fields in one call.
+  static const String constructionSurface = 'named';
+  /// String representing the object's type. Objects of the same type share the same value.
+  final CommercePaymentSourceResponseObject object;
+  /// Unique identifier for the payment source.
+  final String id;
+  /// Unique identifier for the payer.
+  final String payerId;
+  /// The payment method type.
+  final CommercePaymentSourceResponsePaymentMethod paymentMethod;
+  /// Whether this is the default payment source for the payer.
+  final SdkOptional<bool?> isDefault;
+  /// The payment gateway.
+  final String gateway;
+  /// External ID in the payment gateway.
+  final String gatewayExternalId;
+  /// External account ID in the payment gateway.
+  final SdkOptional<String?> gatewayExternalAccountId;
+  /// Last 4 digits of the card (for card payment sources).
+  final String last4;
+  /// Status of the payment source.
+  final CommercePaymentSourceResponseStatus status;
+  /// Type of wallet (if applicable).
+  final String walletType;
+  /// Type of card (if applicable).
+  final String cardType;
+  /// Card expiration year (for card payment sources).
+  final SdkOptional<int> expiryYear;
+  /// Card expiration month (for card payment sources).
+  final SdkOptional<int> expiryMonth;
+  /// Unix timestamp (in milliseconds) when the payment source was created.
+  final int createdAt;
+  /// Unix timestamp (in milliseconds) when the payment source was last updated.
+  final int updatedAt;
+  /// Whether this payment source can be removed.
+  final SdkOptional<bool?> isRemovable;
+
+  const CommercePaymentSourceResponse({required this.object, required this.id, required this.payerId, required this.paymentMethod, this.isDefault = const SdkOmitted(), required this.gateway, required this.gatewayExternalId, this.gatewayExternalAccountId = const SdkOmitted(), required this.last4, required this.status, required this.walletType, required this.cardType, this.expiryYear = const SdkOmitted(), this.expiryMonth = const SdkOmitted(), required this.createdAt, required this.updatedAt, this.isRemovable = const SdkOmitted()});
+
+  CommercePaymentSourceResponse Function({CommercePaymentSourceResponseObject object, String id, String payerId, CommercePaymentSourceResponsePaymentMethod paymentMethod, SdkOptional<bool?> isDefault, String gateway, String gatewayExternalId, SdkOptional<String?> gatewayExternalAccountId, String last4, CommercePaymentSourceResponseStatus status, String walletType, String cardType, SdkOptional<int> expiryYear, SdkOptional<int> expiryMonth, int createdAt, int updatedAt, SdkOptional<bool?> isRemovable}) get copyWith => _copyWith;
+
+  CommercePaymentSourceResponse _copyWith({Object? object = sdkOmittedValue, Object? id = sdkOmittedValue, Object? payerId = sdkOmittedValue, Object? paymentMethod = sdkOmittedValue, Object? isDefault = sdkOmittedValue, Object? gateway = sdkOmittedValue, Object? gatewayExternalId = sdkOmittedValue, Object? gatewayExternalAccountId = sdkOmittedValue, Object? last4 = sdkOmittedValue, Object? status = sdkOmittedValue, Object? walletType = sdkOmittedValue, Object? cardType = sdkOmittedValue, Object? expiryYear = sdkOmittedValue, Object? expiryMonth = sdkOmittedValue, Object? createdAt = sdkOmittedValue, Object? updatedAt = sdkOmittedValue, Object? isRemovable = sdkOmittedValue}) => CommercePaymentSourceResponse(
+    object: identical(object, sdkOmittedValue) ? this.object : object as CommercePaymentSourceResponseObject,
+    id: identical(id, sdkOmittedValue) ? this.id : id as String,
+    payerId: identical(payerId, sdkOmittedValue) ? this.payerId : payerId as String,
+    paymentMethod: identical(paymentMethod, sdkOmittedValue) ? this.paymentMethod : paymentMethod as CommercePaymentSourceResponsePaymentMethod,
+    isDefault: identical(isDefault, sdkOmittedValue) ? this.isDefault : isDefault as SdkOptional<bool?>,
+    gateway: identical(gateway, sdkOmittedValue) ? this.gateway : gateway as String,
+    gatewayExternalId: identical(gatewayExternalId, sdkOmittedValue) ? this.gatewayExternalId : gatewayExternalId as String,
+    gatewayExternalAccountId: identical(gatewayExternalAccountId, sdkOmittedValue) ? this.gatewayExternalAccountId : gatewayExternalAccountId as SdkOptional<String?>,
+    last4: identical(last4, sdkOmittedValue) ? this.last4 : last4 as String,
+    status: identical(status, sdkOmittedValue) ? this.status : status as CommercePaymentSourceResponseStatus,
+    walletType: identical(walletType, sdkOmittedValue) ? this.walletType : walletType as String,
+    cardType: identical(cardType, sdkOmittedValue) ? this.cardType : cardType as String,
+    expiryYear: identical(expiryYear, sdkOmittedValue) ? this.expiryYear : expiryYear as SdkOptional<int>,
+    expiryMonth: identical(expiryMonth, sdkOmittedValue) ? this.expiryMonth : expiryMonth as SdkOptional<int>,
+    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as int,
+    updatedAt: identical(updatedAt, sdkOmittedValue) ? this.updatedAt : updatedAt as int,
+    isRemovable: identical(isRemovable, sdkOmittedValue) ? this.isRemovable : isRemovable as SdkOptional<bool?>,
+  );
+
+  factory CommercePaymentSourceResponse.fromJson(Map<String, dynamic> json) => CommercePaymentSourceResponse(
+    object: (json['object'] != null ? CommercePaymentSourceResponseObject.fromJson(json['object'] as String) : null)!,
+    id: (json['id'] as String?)!,
+    payerId: (json['payer_id'] as String?)!,
+    paymentMethod: (json['payment_method'] != null ? CommercePaymentSourceResponsePaymentMethod.fromJson(json['payment_method'] as String) : null)!,
+    isDefault: json.containsKey('is_default') ? SdkPresent(json['is_default'] as bool?) : const SdkOmitted(),
+    gateway: (json['gateway'] as String?)!,
+    gatewayExternalId: (json['gateway_external_id'] as String?)!,
+    gatewayExternalAccountId: json.containsKey('gateway_external_account_id') ? SdkPresent(json['gateway_external_account_id'] as String?) : const SdkOmitted(),
+    last4: (json['last4'] as String?)!,
+    status: (json['status'] != null ? CommercePaymentSourceResponseStatus.fromJson(json['status'] as String) : null)!,
+    walletType: (json['wallet_type'] as String?)!,
+    cardType: (json['card_type'] as String?)!,
+    expiryYear: json['expiry_year'] != null ? SdkPresent(((json['expiry_year'] as num?)?.toInt())!) : const SdkOmitted(),
+    expiryMonth: json['expiry_month'] != null ? SdkPresent(((json['expiry_month'] as num?)?.toInt())!) : const SdkOmitted(),
+    createdAt: ((json['created_at'] as num?)?.toInt())!,
+    updatedAt: ((json['updated_at'] as num?)?.toInt())!,
+    isRemovable: json.containsKey('is_removable') ? SdkPresent(json['is_removable'] as bool?) : const SdkOmitted(),
+  );
+
+  Map<String, dynamic> toJson() => {
+    'object': object.toJson(),
+    'id': id,
+    'payer_id': payerId,
+    'payment_method': paymentMethod.toJson(),
+    ...switch (isDefault) {
+      SdkPresent<bool?>(value: final value) => {'is_default': value,},
+      _ => const <String, dynamic>{},
+    },
+    'gateway': gateway,
+    'gateway_external_id': gatewayExternalId,
+    ...switch (gatewayExternalAccountId) {
+      SdkPresent<String?>(value: final value) => {'gateway_external_account_id': value,},
+      _ => const <String, dynamic>{},
+    },
+    'last4': last4,
+    'status': status.toJson(),
+    'wallet_type': walletType,
+    'card_type': cardType,
+    ...switch (expiryYear) {
+      SdkPresent<int>(value: final value) => {'expiry_year': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (expiryMonth) {
+      SdkPresent<int>(value: final value) => {'expiry_month': value,},
+      _ => const <String, dynamic>{},
+    },
+    'created_at': createdAt,
+    'updated_at': updatedAt,
+    ...switch (isRemovable) {
+      SdkPresent<bool?>(value: final value) => {'is_removable': value,},
+      _ => const <String, dynamic>{},
+    },
   };
 }

@@ -4,6 +4,7 @@
 part of 'machines.dart';
 
 // machines domain models
+/// Required object value serialized in the `data[]` wire field.
 class MachineVariant1 {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
@@ -89,6 +90,159 @@ class Machine {
   };
 }
 
+class MachineCreatedVariant1 {
+  /// This model is constructed from named fields in one call.
+  static const String constructionSurface = 'named';
+  /// The secret key for the machine, only returned upon creation.
+  final String secretKey;
+
+  const MachineCreatedVariant1({required this.secretKey});
+
+  MachineCreatedVariant1 Function({String secretKey}) get copyWith => _copyWith;
+
+  MachineCreatedVariant1 _copyWith({Object? secretKey = sdkOmittedValue}) => MachineCreatedVariant1(
+    secretKey: identical(secretKey, sdkOmittedValue) ? this.secretKey : secretKey as String,
+  );
+
+  factory MachineCreatedVariant1.fromJson(Map<String, dynamic> json) => MachineCreatedVariant1(
+    secretKey: (json['secret_key'] as String?)!,
+  );
+
+  Map<String, dynamic> toJson() => {
+    'secret_key': secretKey,
+  };
+}
+
+/// Typed representation of the `MachineCreated` API schema.
+class MachineCreated {
+  /// This model is constructed from named fields in one call.
+  static const String constructionSurface = 'named';
+  /// Required enumerated value serialized in the `object` wire field.
+  final MachineWithoutScopedMachinesObject object;
+  /// Unique identifier for the machine.
+  final String id;
+  /// The name of the machine.
+  final String name;
+  /// The ID of the instance this machine belongs to.
+  final String instanceId;
+  /// Unix timestamp of creation.
+  final int createdAt;
+  /// Unix timestamp of last update.
+  final int updatedAt;
+  /// The default time-to-live (TTL) in seconds for tokens created by this machine.
+  final SdkOptional<int> defaultTokenTtl;
+  /// Array of machines this machine has access to.
+  final List<MachineWithoutScopedMachines> scopedMachines;
+  /// The secret key for the machine, only returned upon creation.
+  final String secretKey;
+
+  const MachineCreated({required this.object, required this.id, required this.name, required this.instanceId, required this.createdAt, required this.updatedAt, this.defaultTokenTtl = const SdkOmitted(), required this.scopedMachines, required this.secretKey});
+
+  MachineCreated Function({MachineWithoutScopedMachinesObject object, String id, String name, String instanceId, int createdAt, int updatedAt, SdkOptional<int> defaultTokenTtl, List<MachineWithoutScopedMachines> scopedMachines, String secretKey}) get copyWith => _copyWith;
+
+  MachineCreated _copyWith({Object? object = sdkOmittedValue, Object? id = sdkOmittedValue, Object? name = sdkOmittedValue, Object? instanceId = sdkOmittedValue, Object? createdAt = sdkOmittedValue, Object? updatedAt = sdkOmittedValue, Object? defaultTokenTtl = sdkOmittedValue, Object? scopedMachines = sdkOmittedValue, Object? secretKey = sdkOmittedValue}) => MachineCreated(
+    object: identical(object, sdkOmittedValue) ? this.object : object as MachineWithoutScopedMachinesObject,
+    id: identical(id, sdkOmittedValue) ? this.id : id as String,
+    name: identical(name, sdkOmittedValue) ? this.name : name as String,
+    instanceId: identical(instanceId, sdkOmittedValue) ? this.instanceId : instanceId as String,
+    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as int,
+    updatedAt: identical(updatedAt, sdkOmittedValue) ? this.updatedAt : updatedAt as int,
+    defaultTokenTtl: identical(defaultTokenTtl, sdkOmittedValue) ? this.defaultTokenTtl : defaultTokenTtl as SdkOptional<int>,
+    scopedMachines: identical(scopedMachines, sdkOmittedValue) ? this.scopedMachines : scopedMachines as List<MachineWithoutScopedMachines>,
+    secretKey: identical(secretKey, sdkOmittedValue) ? this.secretKey : secretKey as String,
+  );
+
+  factory MachineCreated.fromJson(Map<String, dynamic> json) => MachineCreated(
+    object: (json['object'] != null ? MachineWithoutScopedMachinesObject.fromJson(json['object'] as String) : null)!,
+    id: (json['id'] as String?)!,
+    name: (json['name'] as String?)!,
+    instanceId: (json['instance_id'] as String?)!,
+    createdAt: ((json['created_at'] as num?)?.toInt())!,
+    updatedAt: ((json['updated_at'] as num?)?.toInt())!,
+    defaultTokenTtl: json['default_token_ttl'] != null ? SdkPresent(((json['default_token_ttl'] as num?)?.toInt())!) : const SdkOmitted(),
+    scopedMachines: ((json['scoped_machines'] as List?)?.map((e) => MachineWithoutScopedMachines.fromJson(e as Map<String, dynamic>)).toList())!,
+    secretKey: (json['secret_key'] as String?)!,
+  );
+
+  Map<String, dynamic> toJson() => {
+    'object': object.toJson(),
+    'id': id,
+    'name': name,
+    'instance_id': instanceId,
+    'created_at': createdAt,
+    'updated_at': updatedAt,
+    ...switch (defaultTokenTtl) {
+      SdkPresent<int>(value: final value) => {'default_token_ttl': value,},
+      _ => const <String, dynamic>{},
+    },
+    'scoped_machines': scopedMachines.map((item) => item.toJson()).toList(),
+    'secret_key': secretKey,
+  };
+}
+
+/// Typed representation of the `MachineDeleted` API schema.
+class MachineDeleted {
+  /// This model is constructed from named fields in one call.
+  static const String constructionSurface = 'named';
+  /// String representing the object's type.
+  final MachineDeletedObject object;
+  /// The ID of the deleted machine
+  final String id;
+  /// Whether the machine was successfully deleted
+  final MachineDeletedDeleted deleted;
+
+  const MachineDeleted({required this.object, required this.id, required this.deleted});
+
+  MachineDeleted Function({MachineDeletedObject object, String id, MachineDeletedDeleted deleted}) get copyWith => _copyWith;
+
+  MachineDeleted _copyWith({Object? object = sdkOmittedValue, Object? id = sdkOmittedValue, Object? deleted = sdkOmittedValue}) => MachineDeleted(
+    object: identical(object, sdkOmittedValue) ? this.object : object as MachineDeletedObject,
+    id: identical(id, sdkOmittedValue) ? this.id : id as String,
+    deleted: identical(deleted, sdkOmittedValue) ? this.deleted : deleted as MachineDeletedDeleted,
+  );
+
+  factory MachineDeleted.fromJson(Map<String, dynamic> json) => MachineDeleted(
+    object: (json['object'] != null ? MachineDeletedObject.fromJson(json['object'] as String) : null)!,
+    id: (json['id'] as String?)!,
+    deleted: (json['deleted'] != null ? MachineDeletedDeleted.fromJson(json['deleted'] as bool) : null)!,
+  );
+
+  Map<String, dynamic> toJson() => {
+    'object': object.toJson(),
+    'id': id,
+    'deleted': deleted.toJson(),
+  };
+}
+
+/// Typed representation of the `MachineList` API schema.
+class MachineList {
+  /// This model is constructed from named fields in one call.
+  static const String constructionSurface = 'named';
+  /// Required array value serialized in the `data` wire field.
+  final List<Machine> data;
+  /// Total number of machines
+  final int totalCount;
+
+  const MachineList({required this.data, required this.totalCount});
+
+  MachineList Function({List<Machine> data, int totalCount}) get copyWith => _copyWith;
+
+  MachineList _copyWith({Object? data = sdkOmittedValue, Object? totalCount = sdkOmittedValue}) => MachineList(
+    data: identical(data, sdkOmittedValue) ? this.data : data as List<Machine>,
+    totalCount: identical(totalCount, sdkOmittedValue) ? this.totalCount : totalCount as int,
+  );
+
+  factory MachineList.fromJson(Map<String, dynamic> json) => MachineList(
+    data: ((json['data'] as List?)?.map((e) => Machine.fromJson(e as Map<String, dynamic>)).toList())!,
+    totalCount: ((json['total_count'] as num?)?.toInt())!,
+  );
+
+  Map<String, dynamic> toJson() => {
+    'data': data.map((item) => item.toJson()).toList(),
+    'total_count': totalCount,
+  };
+}
+
 /// Typed representation of the `MachineScope` API schema.
 class MachineScope {
   /// This model is constructed from named fields in one call.
@@ -125,62 +279,5 @@ class MachineScope {
     'from_machine_id': fromMachineId,
     'to_machine_id': toMachineId,
     'created_at': createdAt,
-  };
-}
-
-/// Typed representation of the `MachineWithoutScopedMachines` API schema.
-class MachineWithoutScopedMachines {
-  /// This model is constructed from named fields in one call.
-  static const String constructionSurface = 'named';
-  /// Required enumerated value serialized in the `object` wire field.
-  final MachineWithoutScopedMachinesObject object;
-  /// Unique identifier for the machine.
-  final String id;
-  /// The name of the machine.
-  final String name;
-  /// The ID of the instance this machine belongs to.
-  final String instanceId;
-  /// Unix timestamp of creation.
-  final int createdAt;
-  /// Unix timestamp of last update.
-  final int updatedAt;
-  /// The default time-to-live (TTL) in seconds for tokens created by this machine.
-  final SdkOptional<int> defaultTokenTtl;
-
-  const MachineWithoutScopedMachines({required this.object, required this.id, required this.name, required this.instanceId, required this.createdAt, required this.updatedAt, this.defaultTokenTtl = const SdkOmitted()});
-
-  MachineWithoutScopedMachines Function({MachineWithoutScopedMachinesObject object, String id, String name, String instanceId, int createdAt, int updatedAt, SdkOptional<int> defaultTokenTtl}) get copyWith => _copyWith;
-
-  MachineWithoutScopedMachines _copyWith({Object? object = sdkOmittedValue, Object? id = sdkOmittedValue, Object? name = sdkOmittedValue, Object? instanceId = sdkOmittedValue, Object? createdAt = sdkOmittedValue, Object? updatedAt = sdkOmittedValue, Object? defaultTokenTtl = sdkOmittedValue}) => MachineWithoutScopedMachines(
-    object: identical(object, sdkOmittedValue) ? this.object : object as MachineWithoutScopedMachinesObject,
-    id: identical(id, sdkOmittedValue) ? this.id : id as String,
-    name: identical(name, sdkOmittedValue) ? this.name : name as String,
-    instanceId: identical(instanceId, sdkOmittedValue) ? this.instanceId : instanceId as String,
-    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as int,
-    updatedAt: identical(updatedAt, sdkOmittedValue) ? this.updatedAt : updatedAt as int,
-    defaultTokenTtl: identical(defaultTokenTtl, sdkOmittedValue) ? this.defaultTokenTtl : defaultTokenTtl as SdkOptional<int>,
-  );
-
-  factory MachineWithoutScopedMachines.fromJson(Map<String, dynamic> json) => MachineWithoutScopedMachines(
-    object: (json['object'] != null ? MachineWithoutScopedMachinesObject.fromJson(json['object'] as String) : null)!,
-    id: (json['id'] as String?)!,
-    name: (json['name'] as String?)!,
-    instanceId: (json['instance_id'] as String?)!,
-    createdAt: ((json['created_at'] as num?)?.toInt())!,
-    updatedAt: ((json['updated_at'] as num?)?.toInt())!,
-    defaultTokenTtl: json['default_token_ttl'] != null ? SdkPresent(((json['default_token_ttl'] as num?)?.toInt())!) : const SdkOmitted(),
-  );
-
-  Map<String, dynamic> toJson() => {
-    'object': object.toJson(),
-    'id': id,
-    'name': name,
-    'instance_id': instanceId,
-    'created_at': createdAt,
-    'updated_at': updatedAt,
-    ...switch (defaultTokenTtl) {
-      SdkPresent<int>(value: final value) => {'default_token_ttl': value,},
-      _ => const <String, dynamic>{},
-    },
   };
 }

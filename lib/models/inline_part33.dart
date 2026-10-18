@@ -4,186 +4,6 @@
 part of 'inline.dart';
 
 // Inline operation models (part 33)
-class CreateOrganizationDomainRequestBody {
-  /// This model is constructed from named fields in one call.
-  static const String constructionSurface = 'named';
-  /// The name of the new domain
-  final SdkOptional<String> name;
-  /// The enrollment_mode for the new domain. This can be `automatic_invitation`, `automatic_suggestion`, `manual_invitation` or `enterprise_sso`
-  final SdkOptional<String> enrollmentMode;
-  /// The status of domain's verification. Defaults to true
-  final SdkOptional<bool?> verified;
-
-  const CreateOrganizationDomainRequestBody({this.name = const SdkOmitted(), this.enrollmentMode = const SdkOmitted(), this.verified = const SdkOmitted()});
-
-  CreateOrganizationDomainRequestBody Function({SdkOptional<String> name, SdkOptional<String> enrollmentMode, SdkOptional<bool?> verified}) get copyWith => _copyWith;
-
-  CreateOrganizationDomainRequestBody _copyWith({Object? name = sdkOmittedValue, Object? enrollmentMode = sdkOmittedValue, Object? verified = sdkOmittedValue}) => CreateOrganizationDomainRequestBody(
-    name: identical(name, sdkOmittedValue) ? this.name : name as SdkOptional<String>,
-    enrollmentMode: identical(enrollmentMode, sdkOmittedValue) ? this.enrollmentMode : enrollmentMode as SdkOptional<String>,
-    verified: identical(verified, sdkOmittedValue) ? this.verified : verified as SdkOptional<bool?>,
-  );
-
-  factory CreateOrganizationDomainRequestBody.fromJson(Map<String, dynamic> json) => CreateOrganizationDomainRequestBody(
-    name: json['name'] != null ? SdkPresent((json['name'] as String?)!) : const SdkOmitted(),
-    enrollmentMode: json['enrollment_mode'] != null ? SdkPresent((json['enrollment_mode'] as String?)!) : const SdkOmitted(),
-    verified: json.containsKey('verified') ? SdkPresent(json['verified'] as bool?) : const SdkOmitted(),
-  );
-
-  Map<String, dynamic> toJson() => {
-    ...switch (name) {
-      SdkPresent<String>(value: final value) => {'name': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (enrollmentMode) {
-      SdkPresent<String>(value: final value) => {'enrollment_mode': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (verified) {
-      SdkPresent<bool?>(value: final value) => {'verified': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
-}
-
-class UpdateOrganizationDomainRequestBody {
-  /// This model is constructed from named fields in one call.
-  static const String constructionSurface = 'named';
-  /// The enrollment_mode for the new domain. This can be `automatic_invitation`, `automatic_suggestion`, `manual_invitation` or `enterprise_sso`
-  final SdkOptional<String?> enrollmentMode;
-  /// The status of the domain's verification
-  final SdkOptional<bool?> verified;
-
-  const UpdateOrganizationDomainRequestBody({this.enrollmentMode = const SdkOmitted(), this.verified = const SdkOmitted()});
-
-  UpdateOrganizationDomainRequestBody Function({SdkOptional<String?> enrollmentMode, SdkOptional<bool?> verified}) get copyWith => _copyWith;
-
-  UpdateOrganizationDomainRequestBody _copyWith({Object? enrollmentMode = sdkOmittedValue, Object? verified = sdkOmittedValue}) => UpdateOrganizationDomainRequestBody(
-    enrollmentMode: identical(enrollmentMode, sdkOmittedValue) ? this.enrollmentMode : enrollmentMode as SdkOptional<String?>,
-    verified: identical(verified, sdkOmittedValue) ? this.verified : verified as SdkOptional<bool?>,
-  );
-
-  factory UpdateOrganizationDomainRequestBody.fromJson(Map<String, dynamic> json) => UpdateOrganizationDomainRequestBody(
-    enrollmentMode: json.containsKey('enrollment_mode') ? SdkPresent(json['enrollment_mode'] as String?) : const SdkOmitted(),
-    verified: json.containsKey('verified') ? SdkPresent(json['verified'] as bool?) : const SdkOmitted(),
-  );
-
-  Map<String, dynamic> toJson() => {
-    ...switch (enrollmentMode) {
-      SdkPresent<String?>(value: final value) => {'enrollment_mode': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (verified) {
-      SdkPresent<bool?>(value: final value) => {'verified': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
-}
-
-class VerifyDomainProxyRequestBody {
-  /// This model is constructed from named fields in one call.
-  static const String constructionSurface = 'named';
-  /// The ID of the domain that will be updated.
-  final SdkOptional<String> domainId;
-  /// The full URL of the proxy which will forward requests to the Clerk Frontend API for this domain. e.g. https://example.com/__clerk
-  final SdkOptional<String> proxyUrl;
-
-  const VerifyDomainProxyRequestBody({this.domainId = const SdkOmitted(), this.proxyUrl = const SdkOmitted()});
-
-  VerifyDomainProxyRequestBody Function({SdkOptional<String> domainId, SdkOptional<String> proxyUrl}) get copyWith => _copyWith;
-
-  VerifyDomainProxyRequestBody _copyWith({Object? domainId = sdkOmittedValue, Object? proxyUrl = sdkOmittedValue}) => VerifyDomainProxyRequestBody(
-    domainId: identical(domainId, sdkOmittedValue) ? this.domainId : domainId as SdkOptional<String>,
-    proxyUrl: identical(proxyUrl, sdkOmittedValue) ? this.proxyUrl : proxyUrl as SdkOptional<String>,
-  );
-
-  factory VerifyDomainProxyRequestBody.fromJson(Map<String, dynamic> json) => VerifyDomainProxyRequestBody(
-    domainId: json['domain_id'] != null ? SdkPresent((json['domain_id'] as String?)!) : const SdkOmitted(),
-    proxyUrl: json['proxy_url'] != null ? SdkPresent((json['proxy_url'] as String?)!) : const SdkOmitted(),
-  );
-
-  Map<String, dynamic> toJson() => {
-    ...switch (domainId) {
-      SdkPresent<String>(value: final value) => {'domain_id': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (proxyUrl) {
-      SdkPresent<String>(value: final value) => {'proxy_url': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
-}
-
-class CreateRedirectURLRequestBody {
-  /// This model is constructed from named fields in one call.
-  static const String constructionSurface = 'named';
-  /// The full URL value prefixed with `https://` or a custom scheme e.g. `"https://my-app.com/oauth-callback"` or `"my-app://oauth-callback"`
-  final String url;
-
-  const CreateRedirectURLRequestBody({required this.url});
-
-  CreateRedirectURLRequestBody Function({String url}) get copyWith => _copyWith;
-
-  CreateRedirectURLRequestBody _copyWith({Object? url = sdkOmittedValue}) => CreateRedirectURLRequestBody(
-    url: identical(url, sdkOmittedValue) ? this.url : url as String,
-  );
-
-  factory CreateRedirectURLRequestBody.fromJson(Map<String, dynamic> json) => CreateRedirectURLRequestBody(
-    url: (json['url'] as String?)!,
-  );
-
-  Map<String, dynamic> toJson() => {
-    'url': url,
-  };
-}
-
-class CreateSignInTokenRequestBody {
-  /// This model is constructed from named fields in one call.
-  static const String constructionSurface = 'named';
-  /// The ID of the user that can use the newly created sign in token
-  final String userId;
-  /// The ID of the organization to activate when the user signs in. Organizations must be enabled for the instance, and the user must be a member of the organization.
-  final SdkOptional<String?> orgId;
-  /// Optional parameter to specify the life duration of the sign in token in seconds. By default, the duration is 30 days, or 10 minutes when `second_factor_verification` is set.
-  final SdkOptional<int?> expiresInSeconds;
-  /// Optional parameter that lets a user with a second factor enabled complete the sign in without being prompted for it. When omitted, redeeming the token completes only the first factor, and the user must still complete their second factor. `fresh`: the second factor is treated as verified at sign in. The session token's `fva` claim reports a second factor age of 0. `stale`: the second factor is treated as unverified. The session token's `fva` claim reports the maximum second factor age of 99999, so any reverification that requires a second factor prompts the user to complete one. Has no effect for users without a second factor enabled. A token created with this parameter signs in a user with a second factor enabled without prompting for it, so `expires_in_seconds` defaults to 10 minutes. We recommend keeping it short.
-  final SdkOptional<CreateSignInTokenRequestBodySecondFactorVerification?> secondFactorVerification;
-
-  const CreateSignInTokenRequestBody({required this.userId, this.orgId = const SdkOmitted(), this.expiresInSeconds = const SdkOmitted(), this.secondFactorVerification = const SdkOmitted()});
-
-  CreateSignInTokenRequestBody Function({String userId, SdkOptional<String?> orgId, SdkOptional<int?> expiresInSeconds, SdkOptional<CreateSignInTokenRequestBodySecondFactorVerification?> secondFactorVerification}) get copyWith => _copyWith;
-
-  CreateSignInTokenRequestBody _copyWith({Object? userId = sdkOmittedValue, Object? orgId = sdkOmittedValue, Object? expiresInSeconds = sdkOmittedValue, Object? secondFactorVerification = sdkOmittedValue}) => CreateSignInTokenRequestBody(
-    userId: identical(userId, sdkOmittedValue) ? this.userId : userId as String,
-    orgId: identical(orgId, sdkOmittedValue) ? this.orgId : orgId as SdkOptional<String?>,
-    expiresInSeconds: identical(expiresInSeconds, sdkOmittedValue) ? this.expiresInSeconds : expiresInSeconds as SdkOptional<int?>,
-    secondFactorVerification: identical(secondFactorVerification, sdkOmittedValue) ? this.secondFactorVerification : secondFactorVerification as SdkOptional<CreateSignInTokenRequestBodySecondFactorVerification?>,
-  );
-
-  factory CreateSignInTokenRequestBody.fromJson(Map<String, dynamic> json) => CreateSignInTokenRequestBody(
-    userId: (json['user_id'] as String?)!,
-    orgId: json.containsKey('org_id') ? SdkPresent(json['org_id'] as String?) : const SdkOmitted(),
-    expiresInSeconds: json.containsKey('expires_in_seconds') ? SdkPresent((json['expires_in_seconds'] as num?)?.toInt()) : const SdkOmitted(),
-    secondFactorVerification: json.containsKey('second_factor_verification') ? SdkPresent(json['second_factor_verification'] != null ? CreateSignInTokenRequestBodySecondFactorVerification.fromJson(json['second_factor_verification'] as String) : null) : const SdkOmitted(),
-  );
-
-  Map<String, dynamic> toJson() => {
-    'user_id': userId,
-    ...switch (orgId) {
-      SdkPresent<String?>(value: final value) => {'org_id': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (expiresInSeconds) {
-      SdkPresent<int?>(value: final value) => {'expires_in_seconds': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (secondFactorVerification) {
-      SdkPresent<CreateSignInTokenRequestBodySecondFactorVerification?>(value: final value) => {'second_factor_verification': value?.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
-}
-
 class UpdateSignUpRequestBody {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
@@ -215,5 +35,267 @@ class UpdateSignUpRequestBody {
       SdkPresent<bool?>(value: final value) => {'custom_action': value,},
       _ => const <String, dynamic>{},
     },
+  };
+}
+
+class CreateOAuthApplicationRequestBody {
+  /// This model is constructed from named fields in one call.
+  static const String constructionSurface = 'named';
+  /// The name of the new OAuth application. Max length: 256
+  final String name;
+  /// An array of redirect URIs of the new OAuth application
+  final SdkOptional<List<String>?> redirectUris;
+  /// The callback URL of the new OAuth application
+  final SdkOptional<String?> callbackUrl;
+  /// Define the application's built-in and custom scope ceiling. Provide scope keys as a space-delimited string. Custom keys must exist in the instance OAuth scope catalog.
+  final SdkOptional<String?> scopes;
+  /// True to enable a consent screen to display in the authentication flow.
+  final SdkOptional<bool?> consentScreenEnabled;
+  /// True to require the Proof Key of Code Exchange (PKCE) flow.
+  final SdkOptional<bool?> pkceRequired;
+  /// An absolute resource URI for a confidential application (RFC 8707 section 2). Registers a resource with no accepted scopes, or adopts an unowned resource with confirmation. Every claimed URI remains permanently reserved to this app, including retirement and deletion, and counts toward the instance resource quota. Changing it stops new exchanges from the old audience immediately. Already-issued tokens retain their lifetime. Clearing requires exchange disabled in an earlier update.
+  final SdkOptional<String?> audienceUri;
+  /// Enable exchanges from the active audience. Requires an audience URI. Disabling preserves target configuration.
+  final SdkOptional<bool> tokenExchangeEnabled;
+  /// Confirm adoption of an existing unowned resource, preserving its accepted scopes and target references. Does not override another application's reservation.
+  final SdkOptional<bool> adoptAudienceResource;
+  /// True to enable the OAuth Device Authorization Grant for this application. Enabling requires the new OAuth IdP and a reachable device verification page.
+  final SdkOptional<bool?> deviceAuthorizationGrantEnabled;
+  /// If true, this client is public and you can use the Proof Key of Code Exchange (PKCE) flow.
+  final SdkOptional<bool?> public;
+
+  const CreateOAuthApplicationRequestBody({required this.name, this.redirectUris = const SdkOmitted(), this.callbackUrl = const SdkOmitted(), this.scopes = const SdkOmitted(), this.consentScreenEnabled = const SdkOmitted(), this.pkceRequired = const SdkOmitted(), this.audienceUri = const SdkOmitted(), this.tokenExchangeEnabled = const SdkOmitted(), this.adoptAudienceResource = const SdkOmitted(), this.deviceAuthorizationGrantEnabled = const SdkOmitted(), this.public = const SdkOmitted()});
+
+  CreateOAuthApplicationRequestBody Function({String name, SdkOptional<List<String>?> redirectUris, SdkOptional<String?> callbackUrl, SdkOptional<String?> scopes, SdkOptional<bool?> consentScreenEnabled, SdkOptional<bool?> pkceRequired, SdkOptional<String?> audienceUri, SdkOptional<bool> tokenExchangeEnabled, SdkOptional<bool> adoptAudienceResource, SdkOptional<bool?> deviceAuthorizationGrantEnabled, SdkOptional<bool?> public}) get copyWith => _copyWith;
+
+  CreateOAuthApplicationRequestBody _copyWith({Object? name = sdkOmittedValue, Object? redirectUris = sdkOmittedValue, Object? callbackUrl = sdkOmittedValue, Object? scopes = sdkOmittedValue, Object? consentScreenEnabled = sdkOmittedValue, Object? pkceRequired = sdkOmittedValue, Object? audienceUri = sdkOmittedValue, Object? tokenExchangeEnabled = sdkOmittedValue, Object? adoptAudienceResource = sdkOmittedValue, Object? deviceAuthorizationGrantEnabled = sdkOmittedValue, Object? public = sdkOmittedValue}) => CreateOAuthApplicationRequestBody(
+    name: identical(name, sdkOmittedValue) ? this.name : name as String,
+    redirectUris: identical(redirectUris, sdkOmittedValue) ? this.redirectUris : redirectUris as SdkOptional<List<String>?>,
+    callbackUrl: identical(callbackUrl, sdkOmittedValue) ? this.callbackUrl : callbackUrl as SdkOptional<String?>,
+    scopes: identical(scopes, sdkOmittedValue) ? this.scopes : scopes as SdkOptional<String?>,
+    consentScreenEnabled: identical(consentScreenEnabled, sdkOmittedValue) ? this.consentScreenEnabled : consentScreenEnabled as SdkOptional<bool?>,
+    pkceRequired: identical(pkceRequired, sdkOmittedValue) ? this.pkceRequired : pkceRequired as SdkOptional<bool?>,
+    audienceUri: identical(audienceUri, sdkOmittedValue) ? this.audienceUri : audienceUri as SdkOptional<String?>,
+    tokenExchangeEnabled: identical(tokenExchangeEnabled, sdkOmittedValue) ? this.tokenExchangeEnabled : tokenExchangeEnabled as SdkOptional<bool>,
+    adoptAudienceResource: identical(adoptAudienceResource, sdkOmittedValue) ? this.adoptAudienceResource : adoptAudienceResource as SdkOptional<bool>,
+    deviceAuthorizationGrantEnabled: identical(deviceAuthorizationGrantEnabled, sdkOmittedValue) ? this.deviceAuthorizationGrantEnabled : deviceAuthorizationGrantEnabled as SdkOptional<bool?>,
+    public: identical(public, sdkOmittedValue) ? this.public : public as SdkOptional<bool?>,
+  );
+
+  factory CreateOAuthApplicationRequestBody.fromJson(Map<String, dynamic> json) => CreateOAuthApplicationRequestBody(
+    name: (json['name'] as String?)!,
+    redirectUris: json.containsKey('redirect_uris') ? SdkPresent((json['redirect_uris'] as List?)?.map((e) => e as String).toList()) : const SdkOmitted(),
+    callbackUrl: json.containsKey('callback_url') ? SdkPresent(json['callback_url'] as String?) : const SdkOmitted(),
+    scopes: json.containsKey('scopes') ? SdkPresent(json['scopes'] as String?) : const SdkOmitted(),
+    consentScreenEnabled: json.containsKey('consent_screen_enabled') ? SdkPresent(json['consent_screen_enabled'] as bool?) : const SdkOmitted(),
+    pkceRequired: json.containsKey('pkce_required') ? SdkPresent(json['pkce_required'] as bool?) : const SdkOmitted(),
+    audienceUri: json.containsKey('audience_uri') ? SdkPresent(json['audience_uri'] as String?) : const SdkOmitted(),
+    tokenExchangeEnabled: json['token_exchange_enabled'] != null ? SdkPresent((json['token_exchange_enabled'] as bool?)!) : const SdkOmitted(),
+    adoptAudienceResource: json['adopt_audience_resource'] != null ? SdkPresent((json['adopt_audience_resource'] as bool?)!) : const SdkOmitted(),
+    deviceAuthorizationGrantEnabled: json.containsKey('device_authorization_grant_enabled') ? SdkPresent(json['device_authorization_grant_enabled'] as bool?) : const SdkOmitted(),
+    public: json.containsKey('public') ? SdkPresent(json['public'] as bool?) : const SdkOmitted(),
+  );
+
+  Map<String, dynamic> toJson() => {
+    'name': name,
+    ...switch (redirectUris) {
+      SdkPresent<List<String>?>(value: final value) => {'redirect_uris': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (callbackUrl) {
+      SdkPresent<String?>(value: final value) => {'callback_url': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (scopes) {
+      SdkPresent<String?>(value: final value) => {'scopes': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (consentScreenEnabled) {
+      SdkPresent<bool?>(value: final value) => {'consent_screen_enabled': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (pkceRequired) {
+      SdkPresent<bool?>(value: final value) => {'pkce_required': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (audienceUri) {
+      SdkPresent<String?>(value: final value) => {'audience_uri': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (tokenExchangeEnabled) {
+      SdkPresent<bool>(value: final value) => {'token_exchange_enabled': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (adoptAudienceResource) {
+      SdkPresent<bool>(value: final value) => {'adopt_audience_resource': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (deviceAuthorizationGrantEnabled) {
+      SdkPresent<bool?>(value: final value) => {'device_authorization_grant_enabled': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (public) {
+      SdkPresent<bool?>(value: final value) => {'public': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
+}
+
+class UpdateOAuthApplicationRequestBody {
+  /// This model is constructed from named fields in one call.
+  static const String constructionSurface = 'named';
+  /// The new name of the OAuth application. Max length: 256
+  final SdkOptional<String?> name;
+  /// An array of redirect URIs of the new OAuth application
+  final SdkOptional<List<String>?> redirectUris;
+  /// The new callback URL of the OAuth application
+  final SdkOptional<String?> callbackUrl;
+  /// Replace the application's complete built-in and custom scope ceiling. Provide scope keys as a space-delimited string. Custom keys must exist in the instance OAuth scope catalog. Required built-in scopes, such as `offline_access`, must be included in the replacement set, otherwise the request is rejected. Omit this field to leave all scope assignments unchanged.
+  final SdkOptional<String?> scopes;
+  /// True to enable a consent screen to display in the authentication flow. This cannot be disabled for dynamically registered OAuth Applications.
+  final SdkOptional<bool?> consentScreenEnabled;
+  /// True to require the Proof Key of Code Exchange (PKCE) flow.
+  final SdkOptional<bool?> pkceRequired;
+  /// An absolute resource URI for a confidential application (RFC 8707 section 2). Registers a resource with no accepted scopes, or adopts an unowned resource with confirmation. Every claimed URI remains permanently reserved to this app, including retirement and deletion, and counts toward the instance resource quota. Changing it stops new exchanges from the old audience immediately. Already-issued tokens retain their lifetime. Clearing requires exchange disabled in an earlier update.
+  final SdkOptional<String?> audienceUri;
+  /// Enable exchanges from the active audience. Requires an audience URI. Disabling preserves target configuration.
+  final SdkOptional<bool> tokenExchangeEnabled;
+  /// Confirm adoption of an existing unowned resource, preserving its accepted scopes and target references. Does not override another application's reservation.
+  final SdkOptional<bool> adoptAudienceResource;
+  /// True to enable the OAuth Device Authorization Grant for this application. Enabling requires the new OAuth IdP and a reachable device verification page. Omit this field to leave the setting unchanged.
+  final SdkOptional<bool?> deviceAuthorizationGrantEnabled;
+  /// If true, this client is public and you can use the Proof Key of Code Exchange (PKCE) flow.
+  final SdkOptional<bool?> public;
+
+  const UpdateOAuthApplicationRequestBody({this.name = const SdkOmitted(), this.redirectUris = const SdkOmitted(), this.callbackUrl = const SdkOmitted(), this.scopes = const SdkOmitted(), this.consentScreenEnabled = const SdkOmitted(), this.pkceRequired = const SdkOmitted(), this.audienceUri = const SdkOmitted(), this.tokenExchangeEnabled = const SdkOmitted(), this.adoptAudienceResource = const SdkOmitted(), this.deviceAuthorizationGrantEnabled = const SdkOmitted(), this.public = const SdkOmitted()});
+
+  UpdateOAuthApplicationRequestBody Function({SdkOptional<String?> name, SdkOptional<List<String>?> redirectUris, SdkOptional<String?> callbackUrl, SdkOptional<String?> scopes, SdkOptional<bool?> consentScreenEnabled, SdkOptional<bool?> pkceRequired, SdkOptional<String?> audienceUri, SdkOptional<bool> tokenExchangeEnabled, SdkOptional<bool> adoptAudienceResource, SdkOptional<bool?> deviceAuthorizationGrantEnabled, SdkOptional<bool?> public}) get copyWith => _copyWith;
+
+  UpdateOAuthApplicationRequestBody _copyWith({Object? name = sdkOmittedValue, Object? redirectUris = sdkOmittedValue, Object? callbackUrl = sdkOmittedValue, Object? scopes = sdkOmittedValue, Object? consentScreenEnabled = sdkOmittedValue, Object? pkceRequired = sdkOmittedValue, Object? audienceUri = sdkOmittedValue, Object? tokenExchangeEnabled = sdkOmittedValue, Object? adoptAudienceResource = sdkOmittedValue, Object? deviceAuthorizationGrantEnabled = sdkOmittedValue, Object? public = sdkOmittedValue}) => UpdateOAuthApplicationRequestBody(
+    name: identical(name, sdkOmittedValue) ? this.name : name as SdkOptional<String?>,
+    redirectUris: identical(redirectUris, sdkOmittedValue) ? this.redirectUris : redirectUris as SdkOptional<List<String>?>,
+    callbackUrl: identical(callbackUrl, sdkOmittedValue) ? this.callbackUrl : callbackUrl as SdkOptional<String?>,
+    scopes: identical(scopes, sdkOmittedValue) ? this.scopes : scopes as SdkOptional<String?>,
+    consentScreenEnabled: identical(consentScreenEnabled, sdkOmittedValue) ? this.consentScreenEnabled : consentScreenEnabled as SdkOptional<bool?>,
+    pkceRequired: identical(pkceRequired, sdkOmittedValue) ? this.pkceRequired : pkceRequired as SdkOptional<bool?>,
+    audienceUri: identical(audienceUri, sdkOmittedValue) ? this.audienceUri : audienceUri as SdkOptional<String?>,
+    tokenExchangeEnabled: identical(tokenExchangeEnabled, sdkOmittedValue) ? this.tokenExchangeEnabled : tokenExchangeEnabled as SdkOptional<bool>,
+    adoptAudienceResource: identical(adoptAudienceResource, sdkOmittedValue) ? this.adoptAudienceResource : adoptAudienceResource as SdkOptional<bool>,
+    deviceAuthorizationGrantEnabled: identical(deviceAuthorizationGrantEnabled, sdkOmittedValue) ? this.deviceAuthorizationGrantEnabled : deviceAuthorizationGrantEnabled as SdkOptional<bool?>,
+    public: identical(public, sdkOmittedValue) ? this.public : public as SdkOptional<bool?>,
+  );
+
+  factory UpdateOAuthApplicationRequestBody.fromJson(Map<String, dynamic> json) => UpdateOAuthApplicationRequestBody(
+    name: json.containsKey('name') ? SdkPresent(json['name'] as String?) : const SdkOmitted(),
+    redirectUris: json.containsKey('redirect_uris') ? SdkPresent((json['redirect_uris'] as List?)?.map((e) => e as String).toList()) : const SdkOmitted(),
+    callbackUrl: json.containsKey('callback_url') ? SdkPresent(json['callback_url'] as String?) : const SdkOmitted(),
+    scopes: json.containsKey('scopes') ? SdkPresent(json['scopes'] as String?) : const SdkOmitted(),
+    consentScreenEnabled: json.containsKey('consent_screen_enabled') ? SdkPresent(json['consent_screen_enabled'] as bool?) : const SdkOmitted(),
+    pkceRequired: json.containsKey('pkce_required') ? SdkPresent(json['pkce_required'] as bool?) : const SdkOmitted(),
+    audienceUri: json.containsKey('audience_uri') ? SdkPresent(json['audience_uri'] as String?) : const SdkOmitted(),
+    tokenExchangeEnabled: json['token_exchange_enabled'] != null ? SdkPresent((json['token_exchange_enabled'] as bool?)!) : const SdkOmitted(),
+    adoptAudienceResource: json['adopt_audience_resource'] != null ? SdkPresent((json['adopt_audience_resource'] as bool?)!) : const SdkOmitted(),
+    deviceAuthorizationGrantEnabled: json.containsKey('device_authorization_grant_enabled') ? SdkPresent(json['device_authorization_grant_enabled'] as bool?) : const SdkOmitted(),
+    public: json.containsKey('public') ? SdkPresent(json['public'] as bool?) : const SdkOmitted(),
+  );
+
+  Map<String, dynamic> toJson() => {
+    ...switch (name) {
+      SdkPresent<String?>(value: final value) => {'name': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (redirectUris) {
+      SdkPresent<List<String>?>(value: final value) => {'redirect_uris': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (callbackUrl) {
+      SdkPresent<String?>(value: final value) => {'callback_url': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (scopes) {
+      SdkPresent<String?>(value: final value) => {'scopes': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (consentScreenEnabled) {
+      SdkPresent<bool?>(value: final value) => {'consent_screen_enabled': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (pkceRequired) {
+      SdkPresent<bool?>(value: final value) => {'pkce_required': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (audienceUri) {
+      SdkPresent<String?>(value: final value) => {'audience_uri': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (tokenExchangeEnabled) {
+      SdkPresent<bool>(value: final value) => {'token_exchange_enabled': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (adoptAudienceResource) {
+      SdkPresent<bool>(value: final value) => {'adopt_audience_resource': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (deviceAuthorizationGrantEnabled) {
+      SdkPresent<bool?>(value: final value) => {'device_authorization_grant_enabled': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (public) {
+      SdkPresent<bool?>(value: final value) => {'public': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
+}
+
+class UploadOAuthApplicationLogoRequestBody {
+  /// This model is constructed from named fields in one call.
+  static const String constructionSurface = 'named';
+  /// The ID of the user that will be credited with the image upload.
+  final SdkOptional<String> uploaderUserId;
+  final List<int> file;
+
+  const UploadOAuthApplicationLogoRequestBody({this.uploaderUserId = const SdkOmitted(), required this.file});
+
+  UploadOAuthApplicationLogoRequestBody Function({SdkOptional<String> uploaderUserId, List<int> file}) get copyWith => _copyWith;
+
+  UploadOAuthApplicationLogoRequestBody _copyWith({Object? uploaderUserId = sdkOmittedValue, Object? file = sdkOmittedValue}) => UploadOAuthApplicationLogoRequestBody(
+    uploaderUserId: identical(uploaderUserId, sdkOmittedValue) ? this.uploaderUserId : uploaderUserId as SdkOptional<String>,
+    file: identical(file, sdkOmittedValue) ? this.file : file as List<int>,
+  );
+
+  factory UploadOAuthApplicationLogoRequestBody.fromJson(Map<String, dynamic> json) => UploadOAuthApplicationLogoRequestBody(
+    uploaderUserId: json['uploader_user_id'] != null ? SdkPresent((json['uploader_user_id'] as String?)!) : const SdkOmitted(),
+    file: (json['file'] != null ? base64Decode(json['file'] as String) : null)!,
+  );
+
+  Map<String, dynamic> toJson() => {
+    ...switch (uploaderUserId) {
+      SdkPresent<String>(value: final value) => {'uploader_user_id': value,},
+      _ => const <String, dynamic>{},
+    },
+    'file': base64Encode(file),
+  };
+}
+
+class RevokeOAuthApplicationTokenRequestBody {
+  /// This model is constructed from named fields in one call.
+  static const String constructionSurface = 'named';
+  /// The opaque OAuth access token or refresh token to revoke. All tokens associated with the same OAuth grant are also revoked.
+  final String token;
+
+  const RevokeOAuthApplicationTokenRequestBody({required this.token});
+
+  RevokeOAuthApplicationTokenRequestBody Function({String token}) get copyWith => _copyWith;
+
+  RevokeOAuthApplicationTokenRequestBody _copyWith({Object? token = sdkOmittedValue}) => RevokeOAuthApplicationTokenRequestBody(
+    token: identical(token, sdkOmittedValue) ? this.token : token as String,
+  );
+
+  factory RevokeOAuthApplicationTokenRequestBody.fromJson(Map<String, dynamic> json) => RevokeOAuthApplicationTokenRequestBody(
+    token: (json['token'] as String?)!,
+  );
+
+  Map<String, dynamic> toJson() => {
+    'token': token,
   };
 }

@@ -4,275 +4,278 @@
 part of 'inline.dart';
 
 // Inline operation models (part 44)
-class UpdateDirectoryRequestBody {
+class CreateApiKeyRequestBody {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-  /// A human-friendly name for the directory.
-  final SdkOptional<String> name;
-  /// Whether the directory is enabled.
-  final SdkOptional<bool> enabled;
-  /// The identity provider for this directory.
-  final SdkOptional<String> provider;
-  /// Attribute-to-directory-path entries to merge into the directory's attribute mapping. Set a key to `null` to remove it from the mapping.
-  final SdkOptional<Map<String, String>> attributeMapping;
-  /// Whether group-to-role mapping is enabled for this directory.
-  final SdkOptional<bool> groupRoleMappingEnabled;
-
-  const UpdateDirectoryRequestBody({this.name = const SdkOmitted(), this.enabled = const SdkOmitted(), this.provider = const SdkOmitted(), this.attributeMapping = const SdkOmitted(), this.groupRoleMappingEnabled = const SdkOmitted()});
-
-  UpdateDirectoryRequestBody Function({SdkOptional<String> name, SdkOptional<bool> enabled, SdkOptional<String> provider, SdkOptional<Map<String, String>> attributeMapping, SdkOptional<bool> groupRoleMappingEnabled}) get copyWith => _copyWith;
-
-  UpdateDirectoryRequestBody _copyWith({Object? name = sdkOmittedValue, Object? enabled = sdkOmittedValue, Object? provider = sdkOmittedValue, Object? attributeMapping = sdkOmittedValue, Object? groupRoleMappingEnabled = sdkOmittedValue}) => UpdateDirectoryRequestBody(
-    name: identical(name, sdkOmittedValue) ? this.name : name as SdkOptional<String>,
-    enabled: identical(enabled, sdkOmittedValue) ? this.enabled : enabled as SdkOptional<bool>,
-    provider: identical(provider, sdkOmittedValue) ? this.provider : provider as SdkOptional<String>,
-    attributeMapping: identical(attributeMapping, sdkOmittedValue) ? this.attributeMapping : attributeMapping as SdkOptional<Map<String, String>>,
-    groupRoleMappingEnabled: identical(groupRoleMappingEnabled, sdkOmittedValue) ? this.groupRoleMappingEnabled : groupRoleMappingEnabled as SdkOptional<bool>,
-  );
-
-  factory UpdateDirectoryRequestBody.fromJson(Map<String, dynamic> json) => UpdateDirectoryRequestBody(
-    name: json['name'] != null ? SdkPresent((json['name'] as String?)!) : const SdkOmitted(),
-    enabled: json['enabled'] != null ? SdkPresent((json['enabled'] as bool?)!) : const SdkOmitted(),
-    provider: json['provider'] != null ? SdkPresent((json['provider'] as String?)!) : const SdkOmitted(),
-    attributeMapping: json['attribute_mapping'] != null ? SdkPresent((json['attribute_mapping'] == null ? null : Map<String, dynamic>.from(json['attribute_mapping'] as Map).map((key, value) => MapEntry(key, value as String)))!) : const SdkOmitted(),
-    groupRoleMappingEnabled: json['group_role_mapping_enabled'] != null ? SdkPresent((json['group_role_mapping_enabled'] as bool?)!) : const SdkOmitted(),
-  );
-
-  Map<String, dynamic> toJson() => {
-    ...switch (name) {
-      SdkPresent<String>(value: final value) => {'name': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (enabled) {
-      SdkPresent<bool>(value: final value) => {'enabled': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (provider) {
-      SdkPresent<String>(value: final value) => {'provider': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (attributeMapping) {
-      SdkPresent<Map<String, String>>(value: final value) => {'attribute_mapping': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (groupRoleMappingEnabled) {
-      SdkPresent<bool>(value: final value) => {'group_role_mapping_enabled': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
-}
-
-class SchemaSchema1459c10b {
-  /// This model is constructed from named fields in one call.
-  static const String constructionSurface = 'named';
-  final List<DirectoryGroupRoleMapping> data;
-  /// Total number of directory group role mappings in the directory.
-  final int totalCount;
-
-  const SchemaSchema1459c10b({required this.data, required this.totalCount});
-
-  SchemaSchema1459c10b Function({List<DirectoryGroupRoleMapping> data, int totalCount}) get copyWith => _copyWith;
-
-  SchemaSchema1459c10b _copyWith({Object? data = sdkOmittedValue, Object? totalCount = sdkOmittedValue}) => SchemaSchema1459c10b(
-    data: identical(data, sdkOmittedValue) ? this.data : data as List<DirectoryGroupRoleMapping>,
-    totalCount: identical(totalCount, sdkOmittedValue) ? this.totalCount : totalCount as int,
-  );
-
-  factory SchemaSchema1459c10b.fromJson(Map<String, dynamic> json) => SchemaSchema1459c10b(
-    data: ((json['data'] as List?)?.map((e) => DirectoryGroupRoleMapping.fromJson(e as Map<String, dynamic>)).toList())!,
-    totalCount: ((json['total_count'] as num?)?.toInt())!,
-  );
-
-  Map<String, dynamic> toJson() => {
-    'data': data.map((item) => item.toJson()).toList(),
-    'total_count': totalCount,
-  };
-}
-
-class CreateDirectoryGroupRoleMappingRequestBody {
-  /// This model is constructed from named fields in one call.
-  static const String constructionSurface = 'named';
-  /// The group ID from the identity provider. Exactly one of `directory_group_id` or `scim_group_id` is required.
-  final SdkOptional<String> directoryGroupId;
-  /// The legacy name for `directory_group_id`. Send either one, or both with the same value; sending both with different values is rejected.
-  final SdkOptional<String> scimGroupId;
-  /// The ID of the organization role to assign to members of the group.
-  final String roleId;
-  /// The precedence for this mapping. Lower values take priority when a user belongs to multiple mapped groups. If omitted, the mapping is appended with the next-highest precedence.
-  final SdkOptional<int> precedence;
-
-  const CreateDirectoryGroupRoleMappingRequestBody({this.directoryGroupId = const SdkOmitted(), this.scimGroupId = const SdkOmitted(), required this.roleId, this.precedence = const SdkOmitted()});
-
-  CreateDirectoryGroupRoleMappingRequestBody Function({SdkOptional<String> directoryGroupId, SdkOptional<String> scimGroupId, String roleId, SdkOptional<int> precedence}) get copyWith => _copyWith;
-
-  CreateDirectoryGroupRoleMappingRequestBody _copyWith({Object? directoryGroupId = sdkOmittedValue, Object? scimGroupId = sdkOmittedValue, Object? roleId = sdkOmittedValue, Object? precedence = sdkOmittedValue}) => CreateDirectoryGroupRoleMappingRequestBody(
-    directoryGroupId: identical(directoryGroupId, sdkOmittedValue) ? this.directoryGroupId : directoryGroupId as SdkOptional<String>,
-    scimGroupId: identical(scimGroupId, sdkOmittedValue) ? this.scimGroupId : scimGroupId as SdkOptional<String>,
-    roleId: identical(roleId, sdkOmittedValue) ? this.roleId : roleId as String,
-    precedence: identical(precedence, sdkOmittedValue) ? this.precedence : precedence as SdkOptional<int>,
-  );
-
-  factory CreateDirectoryGroupRoleMappingRequestBody.fromJson(Map<String, dynamic> json) => CreateDirectoryGroupRoleMappingRequestBody(
-    directoryGroupId: json['directory_group_id'] != null ? SdkPresent((json['directory_group_id'] as String?)!) : const SdkOmitted(),
-    scimGroupId: json['scim_group_id'] != null ? SdkPresent((json['scim_group_id'] as String?)!) : const SdkOmitted(),
-    roleId: (json['role_id'] as String?)!,
-    precedence: json['precedence'] != null ? SdkPresent(((json['precedence'] as num?)?.toInt())!) : const SdkOmitted(),
-  );
-
-  Map<String, dynamic> toJson() => {
-    ...switch (directoryGroupId) {
-      SdkPresent<String>(value: final value) => {'directory_group_id': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (scimGroupId) {
-      SdkPresent<String>(value: final value) => {'scim_group_id': value,},
-      _ => const <String, dynamic>{},
-    },
-    'role_id': roleId,
-    ...switch (precedence) {
-      SdkPresent<int>(value: final value) => {'precedence': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
-}
-
-class ReplaceDirectoryGroupRoleMappingsRequestBodyMappingsItem {
-  /// This model is constructed from named fields in one call.
-  static const String constructionSurface = 'named';
-  /// The group ID from the identity provider. Exactly one of `directory_group_id` or `scim_group_id` is required.
-  final SdkOptional<String> directoryGroupId;
-  /// The legacy name for `directory_group_id`. Send either one, or both with the same value; sending both with different values is rejected.
-  final SdkOptional<String> scimGroupId;
-  /// The ID of the organization role to assign to members of the group.
-  final String roleId;
-
-  const ReplaceDirectoryGroupRoleMappingsRequestBodyMappingsItem({this.directoryGroupId = const SdkOmitted(), this.scimGroupId = const SdkOmitted(), required this.roleId});
-
-  ReplaceDirectoryGroupRoleMappingsRequestBodyMappingsItem Function({SdkOptional<String> directoryGroupId, SdkOptional<String> scimGroupId, String roleId}) get copyWith => _copyWith;
-
-  ReplaceDirectoryGroupRoleMappingsRequestBodyMappingsItem _copyWith({Object? directoryGroupId = sdkOmittedValue, Object? scimGroupId = sdkOmittedValue, Object? roleId = sdkOmittedValue}) => ReplaceDirectoryGroupRoleMappingsRequestBodyMappingsItem(
-    directoryGroupId: identical(directoryGroupId, sdkOmittedValue) ? this.directoryGroupId : directoryGroupId as SdkOptional<String>,
-    scimGroupId: identical(scimGroupId, sdkOmittedValue) ? this.scimGroupId : scimGroupId as SdkOptional<String>,
-    roleId: identical(roleId, sdkOmittedValue) ? this.roleId : roleId as String,
-  );
-
-  factory ReplaceDirectoryGroupRoleMappingsRequestBodyMappingsItem.fromJson(Map<String, dynamic> json) => ReplaceDirectoryGroupRoleMappingsRequestBodyMappingsItem(
-    directoryGroupId: json['directory_group_id'] != null ? SdkPresent((json['directory_group_id'] as String?)!) : const SdkOmitted(),
-    scimGroupId: json['scim_group_id'] != null ? SdkPresent((json['scim_group_id'] as String?)!) : const SdkOmitted(),
-    roleId: (json['role_id'] as String?)!,
-  );
-
-  Map<String, dynamic> toJson() => {
-    ...switch (directoryGroupId) {
-      SdkPresent<String>(value: final value) => {'directory_group_id': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (scimGroupId) {
-      SdkPresent<String>(value: final value) => {'scim_group_id': value,},
-      _ => const <String, dynamic>{},
-    },
-    'role_id': roleId,
-  };
-}
-
-class ReplaceDirectoryGroupRoleMappingsRequestBody {
-  /// This model is constructed from named fields in one call.
-  static const String constructionSurface = 'named';
-  /// The desired set of mappings. Array order sets precedence (1-indexed). An empty array clears all mappings.
-  final List<ReplaceDirectoryGroupRoleMappingsRequestBodyMappingsItem> mappings;
-
-  const ReplaceDirectoryGroupRoleMappingsRequestBody({required this.mappings});
-
-  ReplaceDirectoryGroupRoleMappingsRequestBody Function({List<ReplaceDirectoryGroupRoleMappingsRequestBodyMappingsItem> mappings}) get copyWith => _copyWith;
-
-  ReplaceDirectoryGroupRoleMappingsRequestBody _copyWith({Object? mappings = sdkOmittedValue}) => ReplaceDirectoryGroupRoleMappingsRequestBody(
-    mappings: identical(mappings, sdkOmittedValue) ? this.mappings : mappings as List<ReplaceDirectoryGroupRoleMappingsRequestBodyMappingsItem>,
-  );
-
-  factory ReplaceDirectoryGroupRoleMappingsRequestBody.fromJson(Map<String, dynamic> json) => ReplaceDirectoryGroupRoleMappingsRequestBody(
-    mappings: ((json['mappings'] as List?)?.map((e) => ReplaceDirectoryGroupRoleMappingsRequestBodyMappingsItem.fromJson(e as Map<String, dynamic>)).toList())!,
-  );
-
-  Map<String, dynamic> toJson() => {
-    'mappings': mappings.map((item) => item.toJson()).toList(),
-  };
-}
-
-class SchemaSchema0a4178a1 {
-  /// This model is constructed from named fields in one call.
-  static const String constructionSurface = 'named';
-  /// String representing the object's type.
-  final SchemaSchemaObject object;
-  /// The ID of the deleted directory group role mapping.
-  final String id;
-  /// Whether the directory group role mapping was successfully deleted.
-  final SchemaSchemaDeleted deleted;
-
-  const SchemaSchema0a4178a1({required this.object, required this.id, required this.deleted});
-
-  SchemaSchema0a4178a1 Function({SchemaSchemaObject object, String id, SchemaSchemaDeleted deleted}) get copyWith => _copyWith;
-
-  SchemaSchema0a4178a1 _copyWith({Object? object = sdkOmittedValue, Object? id = sdkOmittedValue, Object? deleted = sdkOmittedValue}) => SchemaSchema0a4178a1(
-    object: identical(object, sdkOmittedValue) ? this.object : object as SchemaSchemaObject,
-    id: identical(id, sdkOmittedValue) ? this.id : id as String,
-    deleted: identical(deleted, sdkOmittedValue) ? this.deleted : deleted as SchemaSchemaDeleted,
-  );
-
-  factory SchemaSchema0a4178a1.fromJson(Map<String, dynamic> json) => SchemaSchema0a4178a1(
-    object: (json['object'] != null ? SchemaSchemaObject.fromJson(json['object'] as String) : null)!,
-    id: (json['id'] as String?)!,
-    deleted: (json['deleted'] != null ? SchemaSchemaDeleted.fromJson(json['deleted'] as bool) : null)!,
-  );
-
-  Map<String, dynamic> toJson() => {
-    'object': object.toJson(),
-    'id': id,
-    'deleted': deleted.toJson(),
-  };
-}
-
-class CreateAdminPortalLinkTokenRequestBody {
-  /// This model is constructed from named fields in one call.
-  static const String constructionSurface = 'named';
-  final SdkOptional<String> organizationId;
-  final SdkOptional<String> itContactId;
+  final SdkOptional<String> type_;
+  final String name;
+  final SdkOptional<String?> description;
+  final String subject;
+  final SdkOptional<dynamic> claims;
   final SdkOptional<List<String>> scopes;
-  final SdkOptional<int> secondsUntilExpiration;
+  final SdkOptional<String?> createdBy;
+  final SdkOptional<double?> secondsUntilExpiration;
 
-  const CreateAdminPortalLinkTokenRequestBody({this.organizationId = const SdkOmitted(), this.itContactId = const SdkOmitted(), this.scopes = const SdkOmitted(), this.secondsUntilExpiration = const SdkOmitted()});
+  const CreateApiKeyRequestBody({this.type_ = const SdkOmitted(), required this.name, this.description = const SdkOmitted(), required this.subject, this.claims = const SdkOmitted(), this.scopes = const SdkOmitted(), this.createdBy = const SdkOmitted(), this.secondsUntilExpiration = const SdkOmitted()});
 
-  CreateAdminPortalLinkTokenRequestBody Function({SdkOptional<String> organizationId, SdkOptional<String> itContactId, SdkOptional<List<String>> scopes, SdkOptional<int> secondsUntilExpiration}) get copyWith => _copyWith;
+  CreateApiKeyRequestBody Function({SdkOptional<String> type_, String name, SdkOptional<String?> description, String subject, SdkOptional<dynamic> claims, SdkOptional<List<String>> scopes, SdkOptional<String?> createdBy, SdkOptional<double?> secondsUntilExpiration}) get copyWith => _copyWith;
 
-  CreateAdminPortalLinkTokenRequestBody _copyWith({Object? organizationId = sdkOmittedValue, Object? itContactId = sdkOmittedValue, Object? scopes = sdkOmittedValue, Object? secondsUntilExpiration = sdkOmittedValue}) => CreateAdminPortalLinkTokenRequestBody(
-    organizationId: identical(organizationId, sdkOmittedValue) ? this.organizationId : organizationId as SdkOptional<String>,
-    itContactId: identical(itContactId, sdkOmittedValue) ? this.itContactId : itContactId as SdkOptional<String>,
+  CreateApiKeyRequestBody _copyWith({Object? type_ = sdkOmittedValue, Object? name = sdkOmittedValue, Object? description = sdkOmittedValue, Object? subject = sdkOmittedValue, Object? claims = sdkOmittedValue, Object? scopes = sdkOmittedValue, Object? createdBy = sdkOmittedValue, Object? secondsUntilExpiration = sdkOmittedValue}) => CreateApiKeyRequestBody(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as SdkOptional<String>,
+    name: identical(name, sdkOmittedValue) ? this.name : name as String,
+    description: identical(description, sdkOmittedValue) ? this.description : description as SdkOptional<String?>,
+    subject: identical(subject, sdkOmittedValue) ? this.subject : subject as String,
+    claims: identical(claims, sdkOmittedValue) ? this.claims : claims as SdkOptional<dynamic>,
     scopes: identical(scopes, sdkOmittedValue) ? this.scopes : scopes as SdkOptional<List<String>>,
-    secondsUntilExpiration: identical(secondsUntilExpiration, sdkOmittedValue) ? this.secondsUntilExpiration : secondsUntilExpiration as SdkOptional<int>,
+    createdBy: identical(createdBy, sdkOmittedValue) ? this.createdBy : createdBy as SdkOptional<String?>,
+    secondsUntilExpiration: identical(secondsUntilExpiration, sdkOmittedValue) ? this.secondsUntilExpiration : secondsUntilExpiration as SdkOptional<double?>,
   );
 
-  factory CreateAdminPortalLinkTokenRequestBody.fromJson(Map<String, dynamic> json) => CreateAdminPortalLinkTokenRequestBody(
-    organizationId: json['organization_id'] != null ? SdkPresent((json['organization_id'] as String?)!) : const SdkOmitted(),
-    itContactId: json['it_contact_id'] != null ? SdkPresent((json['it_contact_id'] as String?)!) : const SdkOmitted(),
+  factory CreateApiKeyRequestBody.fromJson(Map<String, dynamic> json) => CreateApiKeyRequestBody(
+    type_: json['type'] != null ? SdkPresent((json['type'] as String?)!) : const SdkOmitted(),
+    name: (json['name'] as String?)!,
+    description: json.containsKey('description') ? SdkPresent(json['description'] as String?) : const SdkOmitted(),
+    subject: (json['subject'] as String?)!,
+    claims: json.containsKey('claims') ? SdkPresent(json['claims']) : const SdkOmitted(),
     scopes: json['scopes'] != null ? SdkPresent(((json['scopes'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
-    secondsUntilExpiration: json['seconds_until_expiration'] != null ? SdkPresent(((json['seconds_until_expiration'] as num?)?.toInt())!) : const SdkOmitted(),
+    createdBy: json.containsKey('created_by') ? SdkPresent(json['created_by'] as String?) : const SdkOmitted(),
+    secondsUntilExpiration: json.containsKey('seconds_until_expiration') ? SdkPresent((json['seconds_until_expiration'] as num?)?.toDouble()) : const SdkOmitted(),
   );
 
   Map<String, dynamic> toJson() => {
-    ...switch (organizationId) {
-      SdkPresent<String>(value: final value) => {'organization_id': value,},
+    ...switch (type_) {
+      SdkPresent<String>(value: final value) => {'type': value,},
       _ => const <String, dynamic>{},
     },
-    ...switch (itContactId) {
-      SdkPresent<String>(value: final value) => {'it_contact_id': value,},
+    'name': name,
+    ...switch (description) {
+      SdkPresent<String?>(value: final value) => {'description': value,},
+      _ => const <String, dynamic>{},
+    },
+    'subject': subject,
+    ...switch (claims) {
+      SdkPresent<dynamic>(value: final value) => {'claims': value,},
       _ => const <String, dynamic>{},
     },
     ...switch (scopes) {
       SdkPresent<List<String>>(value: final value) => {'scopes': value,},
       _ => const <String, dynamic>{},
     },
-    ...switch (secondsUntilExpiration) {
-      SdkPresent<int>(value: final value) => {'seconds_until_expiration': value,},
+    ...switch (createdBy) {
+      SdkPresent<String?>(value: final value) => {'created_by': value,},
       _ => const <String, dynamic>{},
     },
+    ...switch (secondsUntilExpiration) {
+      SdkPresent<double?>(value: final value) => {'seconds_until_expiration': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
+}
+
+class CreateApiKeyResponse {
+  /// This model is constructed from named fields in one call.
+  static const String constructionSurface = 'named';
+  final CreateApiKeyResponseObject object;
+  final String id;
+  final String type_;
+  final String subject;
+  final String name;
+  final SdkOptional<String?> description;
+  final dynamic claims;
+  final List<String> scopes;
+  final String secret;
+  final bool revoked;
+  final String? revocationReason;
+  final bool expired;
+  /// The timestamp for when the API key will expire, in milliseconds
+  final double? expiration;
+  final String? createdBy;
+  /// The timestamp for when the API key was last used, in milliseconds
+  final double? lastUsedAt;
+  /// The timestamp for when the API key was created, in milliseconds
+  final double createdAt;
+  /// The timestamp for when the API key was last updated, in milliseconds
+  final double updatedAt;
+
+  const CreateApiKeyResponse({required this.object, required this.id, required this.type_, required this.subject, required this.name, this.description = const SdkOmitted(), required this.claims, required this.scopes, required this.secret, required this.revoked, required this.revocationReason, required this.expired, required this.expiration, required this.createdBy, required this.lastUsedAt, required this.createdAt, required this.updatedAt});
+
+  CreateApiKeyResponse Function({CreateApiKeyResponseObject object, String id, String type_, String subject, String name, SdkOptional<String?> description, dynamic claims, List<String> scopes, String secret, bool revoked, String? revocationReason, bool expired, double? expiration, String? createdBy, double? lastUsedAt, double createdAt, double updatedAt}) get copyWith => _copyWith;
+
+  CreateApiKeyResponse _copyWith({Object? object = sdkOmittedValue, Object? id = sdkOmittedValue, Object? type_ = sdkOmittedValue, Object? subject = sdkOmittedValue, Object? name = sdkOmittedValue, Object? description = sdkOmittedValue, Object? claims = sdkOmittedValue, Object? scopes = sdkOmittedValue, Object? secret = sdkOmittedValue, Object? revoked = sdkOmittedValue, Object? revocationReason = sdkOmittedValue, Object? expired = sdkOmittedValue, Object? expiration = sdkOmittedValue, Object? createdBy = sdkOmittedValue, Object? lastUsedAt = sdkOmittedValue, Object? createdAt = sdkOmittedValue, Object? updatedAt = sdkOmittedValue}) => CreateApiKeyResponse(
+    object: identical(object, sdkOmittedValue) ? this.object : object as CreateApiKeyResponseObject,
+    id: identical(id, sdkOmittedValue) ? this.id : id as String,
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as String,
+    subject: identical(subject, sdkOmittedValue) ? this.subject : subject as String,
+    name: identical(name, sdkOmittedValue) ? this.name : name as String,
+    description: identical(description, sdkOmittedValue) ? this.description : description as SdkOptional<String?>,
+    claims: identical(claims, sdkOmittedValue) ? this.claims : claims as dynamic,
+    scopes: identical(scopes, sdkOmittedValue) ? this.scopes : scopes as List<String>,
+    secret: identical(secret, sdkOmittedValue) ? this.secret : secret as String,
+    revoked: identical(revoked, sdkOmittedValue) ? this.revoked : revoked as bool,
+    revocationReason: identical(revocationReason, sdkOmittedValue) ? this.revocationReason : revocationReason as String?,
+    expired: identical(expired, sdkOmittedValue) ? this.expired : expired as bool,
+    expiration: identical(expiration, sdkOmittedValue) ? this.expiration : expiration as double?,
+    createdBy: identical(createdBy, sdkOmittedValue) ? this.createdBy : createdBy as String?,
+    lastUsedAt: identical(lastUsedAt, sdkOmittedValue) ? this.lastUsedAt : lastUsedAt as double?,
+    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as double,
+    updatedAt: identical(updatedAt, sdkOmittedValue) ? this.updatedAt : updatedAt as double,
+  );
+
+  factory CreateApiKeyResponse.fromJson(Map<String, dynamic> json) => CreateApiKeyResponse(
+    object: (json['object'] != null ? CreateApiKeyResponseObject.fromJson(json['object'] as String) : null)!,
+    id: (json['id'] as String?)!,
+    type_: (json['type'] as String?)!,
+    subject: (json['subject'] as String?)!,
+    name: (json['name'] as String?)!,
+    description: json.containsKey('description') ? SdkPresent(json['description'] as String?) : const SdkOmitted(),
+    claims: json.containsKey('claims') ? json['claims'] : throw ArgumentError.value(null, 'claims', 'Required property is missing'),
+    scopes: ((json['scopes'] as List?)?.map((e) => e as String).toList())!,
+    secret: (json['secret'] as String?)!,
+    revoked: (json['revoked'] as bool?)!,
+    revocationReason: json.containsKey('revocation_reason') ? json['revocation_reason'] as String? : throw ArgumentError.value(null, 'revocation_reason', 'Required property is missing'),
+    expired: (json['expired'] as bool?)!,
+    expiration: json.containsKey('expiration') ? (json['expiration'] as num?)?.toDouble() : throw ArgumentError.value(null, 'expiration', 'Required property is missing'),
+    createdBy: json.containsKey('created_by') ? json['created_by'] as String? : throw ArgumentError.value(null, 'created_by', 'Required property is missing'),
+    lastUsedAt: json.containsKey('last_used_at') ? (json['last_used_at'] as num?)?.toDouble() : throw ArgumentError.value(null, 'last_used_at', 'Required property is missing'),
+    createdAt: ((json['created_at'] as num?)?.toDouble())!,
+    updatedAt: ((json['updated_at'] as num?)?.toDouble())!,
+  );
+
+  Map<String, dynamic> toJson() => {
+    'object': object.toJson(),
+    'id': id,
+    'type': type_,
+    'subject': subject,
+    'name': name,
+    ...switch (description) {
+      SdkPresent<String?>(value: final value) => {'description': value,},
+      _ => const <String, dynamic>{},
+    },
+    'claims': claims,
+    'scopes': scopes,
+    'secret': secret,
+    'revoked': revoked,
+    'revocation_reason': revocationReason,
+    'expired': expired,
+    'expiration': expiration,
+    'created_by': createdBy,
+    'last_used_at': lastUsedAt,
+    'created_at': createdAt,
+    'updated_at': updatedAt,
+  };
+}
+
+class ListApiKeysResponseDataItem {
+  /// This model is constructed from named fields in one call.
+  static const String constructionSurface = 'named';
+  final ListApiKeysResponseDataItemObject object;
+  final String id;
+  final String type_;
+  final String subject;
+  final String name;
+  final SdkOptional<String?> description;
+  final dynamic claims;
+  final List<String> scopes;
+  final bool revoked;
+  final String? revocationReason;
+  final bool expired;
+  /// The timestamp for when the API key will expire, in milliseconds
+  final double? expiration;
+  final String? createdBy;
+  /// The timestamp for when the API key was last used, in milliseconds
+  final double? lastUsedAt;
+  /// The timestamp for when the API key was created, in milliseconds
+  final double createdAt;
+  /// The timestamp for when the API key was last updated, in milliseconds
+  final double updatedAt;
+
+  const ListApiKeysResponseDataItem({required this.object, required this.id, required this.type_, required this.subject, required this.name, this.description = const SdkOmitted(), required this.claims, required this.scopes, required this.revoked, required this.revocationReason, required this.expired, required this.expiration, required this.createdBy, required this.lastUsedAt, required this.createdAt, required this.updatedAt});
+
+  ListApiKeysResponseDataItem Function({ListApiKeysResponseDataItemObject object, String id, String type_, String subject, String name, SdkOptional<String?> description, dynamic claims, List<String> scopes, bool revoked, String? revocationReason, bool expired, double? expiration, String? createdBy, double? lastUsedAt, double createdAt, double updatedAt}) get copyWith => _copyWith;
+
+  ListApiKeysResponseDataItem _copyWith({Object? object = sdkOmittedValue, Object? id = sdkOmittedValue, Object? type_ = sdkOmittedValue, Object? subject = sdkOmittedValue, Object? name = sdkOmittedValue, Object? description = sdkOmittedValue, Object? claims = sdkOmittedValue, Object? scopes = sdkOmittedValue, Object? revoked = sdkOmittedValue, Object? revocationReason = sdkOmittedValue, Object? expired = sdkOmittedValue, Object? expiration = sdkOmittedValue, Object? createdBy = sdkOmittedValue, Object? lastUsedAt = sdkOmittedValue, Object? createdAt = sdkOmittedValue, Object? updatedAt = sdkOmittedValue}) => ListApiKeysResponseDataItem(
+    object: identical(object, sdkOmittedValue) ? this.object : object as ListApiKeysResponseDataItemObject,
+    id: identical(id, sdkOmittedValue) ? this.id : id as String,
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as String,
+    subject: identical(subject, sdkOmittedValue) ? this.subject : subject as String,
+    name: identical(name, sdkOmittedValue) ? this.name : name as String,
+    description: identical(description, sdkOmittedValue) ? this.description : description as SdkOptional<String?>,
+    claims: identical(claims, sdkOmittedValue) ? this.claims : claims as dynamic,
+    scopes: identical(scopes, sdkOmittedValue) ? this.scopes : scopes as List<String>,
+    revoked: identical(revoked, sdkOmittedValue) ? this.revoked : revoked as bool,
+    revocationReason: identical(revocationReason, sdkOmittedValue) ? this.revocationReason : revocationReason as String?,
+    expired: identical(expired, sdkOmittedValue) ? this.expired : expired as bool,
+    expiration: identical(expiration, sdkOmittedValue) ? this.expiration : expiration as double?,
+    createdBy: identical(createdBy, sdkOmittedValue) ? this.createdBy : createdBy as String?,
+    lastUsedAt: identical(lastUsedAt, sdkOmittedValue) ? this.lastUsedAt : lastUsedAt as double?,
+    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as double,
+    updatedAt: identical(updatedAt, sdkOmittedValue) ? this.updatedAt : updatedAt as double,
+  );
+
+  factory ListApiKeysResponseDataItem.fromJson(Map<String, dynamic> json) => ListApiKeysResponseDataItem(
+    object: (json['object'] != null ? ListApiKeysResponseDataItemObject.fromJson(json['object'] as String) : null)!,
+    id: (json['id'] as String?)!,
+    type_: (json['type'] as String?)!,
+    subject: (json['subject'] as String?)!,
+    name: (json['name'] as String?)!,
+    description: json.containsKey('description') ? SdkPresent(json['description'] as String?) : const SdkOmitted(),
+    claims: json.containsKey('claims') ? json['claims'] : throw ArgumentError.value(null, 'claims', 'Required property is missing'),
+    scopes: ((json['scopes'] as List?)?.map((e) => e as String).toList())!,
+    revoked: (json['revoked'] as bool?)!,
+    revocationReason: json.containsKey('revocation_reason') ? json['revocation_reason'] as String? : throw ArgumentError.value(null, 'revocation_reason', 'Required property is missing'),
+    expired: (json['expired'] as bool?)!,
+    expiration: json.containsKey('expiration') ? (json['expiration'] as num?)?.toDouble() : throw ArgumentError.value(null, 'expiration', 'Required property is missing'),
+    createdBy: json.containsKey('created_by') ? json['created_by'] as String? : throw ArgumentError.value(null, 'created_by', 'Required property is missing'),
+    lastUsedAt: json.containsKey('last_used_at') ? (json['last_used_at'] as num?)?.toDouble() : throw ArgumentError.value(null, 'last_used_at', 'Required property is missing'),
+    createdAt: ((json['created_at'] as num?)?.toDouble())!,
+    updatedAt: ((json['updated_at'] as num?)?.toDouble())!,
+  );
+
+  Map<String, dynamic> toJson() => {
+    'object': object.toJson(),
+    'id': id,
+    'type': type_,
+    'subject': subject,
+    'name': name,
+    ...switch (description) {
+      SdkPresent<String?>(value: final value) => {'description': value,},
+      _ => const <String, dynamic>{},
+    },
+    'claims': claims,
+    'scopes': scopes,
+    'revoked': revoked,
+    'revocation_reason': revocationReason,
+    'expired': expired,
+    'expiration': expiration,
+    'created_by': createdBy,
+    'last_used_at': lastUsedAt,
+    'created_at': createdAt,
+    'updated_at': updatedAt,
+  };
+}
+
+class ListApiKeysResponse {
+  /// This model is constructed from named fields in one call.
+  static const String constructionSurface = 'named';
+  final List<ListApiKeysResponseDataItem> data;
+  final double totalCount;
+
+  const ListApiKeysResponse({required this.data, required this.totalCount});
+
+  ListApiKeysResponse Function({List<ListApiKeysResponseDataItem> data, double totalCount}) get copyWith => _copyWith;
+
+  ListApiKeysResponse _copyWith({Object? data = sdkOmittedValue, Object? totalCount = sdkOmittedValue}) => ListApiKeysResponse(
+    data: identical(data, sdkOmittedValue) ? this.data : data as List<ListApiKeysResponseDataItem>,
+    totalCount: identical(totalCount, sdkOmittedValue) ? this.totalCount : totalCount as double,
+  );
+
+  factory ListApiKeysResponse.fromJson(Map<String, dynamic> json) => ListApiKeysResponse(
+    data: ((json['data'] as List?)?.map((e) => ListApiKeysResponseDataItem.fromJson(e as Map<String, dynamic>)).toList())!,
+    totalCount: ((json['total_count'] as num?)?.toDouble())!,
+  );
+
+  Map<String, dynamic> toJson() => {
+    'data': data.map((item) => item.toJson()).toList(),
+    'total_count': totalCount,
   };
 }

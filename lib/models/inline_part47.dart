@@ -4,120 +4,58 @@
 part of 'inline.dart';
 
 // Inline operation models (part 47)
-class UpdateApiKeyRequestBody {
+class CreateM2MTokenResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+  final CreateM2MTokenResponseObject object;
+  final String id;
+  final String subject;
   final SdkOptional<dynamic> claims;
   final SdkOptional<List<String>> scopes;
-  final SdkOptional<String?> description;
-  final SdkOptional<String> subject;
-  final SdkOptional<double?> secondsUntilExpiration;
-
-  const UpdateApiKeyRequestBody({this.claims = const SdkOmitted(), this.scopes = const SdkOmitted(), this.description = const SdkOmitted(), this.subject = const SdkOmitted(), this.secondsUntilExpiration = const SdkOmitted()});
-
-  UpdateApiKeyRequestBody Function({SdkOptional<dynamic> claims, SdkOptional<List<String>> scopes, SdkOptional<String?> description, SdkOptional<String> subject, SdkOptional<double?> secondsUntilExpiration}) get copyWith => _copyWith;
-
-  UpdateApiKeyRequestBody _copyWith({Object? claims = sdkOmittedValue, Object? scopes = sdkOmittedValue, Object? description = sdkOmittedValue, Object? subject = sdkOmittedValue, Object? secondsUntilExpiration = sdkOmittedValue}) => UpdateApiKeyRequestBody(
-    claims: identical(claims, sdkOmittedValue) ? this.claims : claims as SdkOptional<dynamic>,
-    scopes: identical(scopes, sdkOmittedValue) ? this.scopes : scopes as SdkOptional<List<String>>,
-    description: identical(description, sdkOmittedValue) ? this.description : description as SdkOptional<String?>,
-    subject: identical(subject, sdkOmittedValue) ? this.subject : subject as SdkOptional<String>,
-    secondsUntilExpiration: identical(secondsUntilExpiration, sdkOmittedValue) ? this.secondsUntilExpiration : secondsUntilExpiration as SdkOptional<double?>,
-  );
-
-  factory UpdateApiKeyRequestBody.fromJson(Map<String, dynamic> json) => UpdateApiKeyRequestBody(
-    claims: json.containsKey('claims') ? SdkPresent(json['claims']) : const SdkOmitted(),
-    scopes: json['scopes'] != null ? SdkPresent(((json['scopes'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
-    description: json.containsKey('description') ? SdkPresent(json['description'] as String?) : const SdkOmitted(),
-    subject: json['subject'] != null ? SdkPresent((json['subject'] as String?)!) : const SdkOmitted(),
-    secondsUntilExpiration: json.containsKey('seconds_until_expiration') ? SdkPresent((json['seconds_until_expiration'] as num?)?.toDouble()) : const SdkOmitted(),
-  );
-
-  Map<String, dynamic> toJson() => {
-    ...switch (claims) {
-      SdkPresent<dynamic>(value: final value) => {'claims': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (scopes) {
-      SdkPresent<List<String>>(value: final value) => {'scopes': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (description) {
-      SdkPresent<String?>(value: final value) => {'description': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (subject) {
-      SdkPresent<String>(value: final value) => {'subject': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (secondsUntilExpiration) {
-      SdkPresent<double?>(value: final value) => {'seconds_until_expiration': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
-}
-
-class UpdateApiKeyResponse {
-  /// This model is constructed from named fields in one call.
-  static const String constructionSurface = 'named';
-  final UpdateApiKeyResponseObject object;
-  final String id;
-  final String type_;
-  final String subject;
-  final String name;
-  final SdkOptional<String?> description;
-  final dynamic claims;
-  final List<String> scopes;
+  final String token;
   final bool revoked;
   final String? revocationReason;
   final bool expired;
-  /// The timestamp for when the API key will expire, in milliseconds
+  /// The timestamp for when the token will expire, in milliseconds
   final double? expiration;
-  final String? createdBy;
-  /// The timestamp for when the API key was last used, in milliseconds
+  /// The timestamp for when the token was last used, in milliseconds
   final double? lastUsedAt;
-  /// The timestamp for when the API key was created, in milliseconds
+  /// The timestamp for when the token was created, in milliseconds
   final double createdAt;
-  /// The timestamp for when the API key was last updated, in milliseconds
+  /// The timestamp for when the token was last updated, in milliseconds
   final double updatedAt;
 
-  const UpdateApiKeyResponse({required this.object, required this.id, required this.type_, required this.subject, required this.name, this.description = const SdkOmitted(), required this.claims, required this.scopes, required this.revoked, required this.revocationReason, required this.expired, required this.expiration, required this.createdBy, required this.lastUsedAt, required this.createdAt, required this.updatedAt});
+  const CreateM2MTokenResponse({required this.object, required this.id, required this.subject, this.claims = const SdkOmitted(), this.scopes = const SdkOmitted(), required this.token, required this.revoked, required this.revocationReason, required this.expired, required this.expiration, required this.lastUsedAt, required this.createdAt, required this.updatedAt});
 
-  UpdateApiKeyResponse Function({UpdateApiKeyResponseObject object, String id, String type_, String subject, String name, SdkOptional<String?> description, dynamic claims, List<String> scopes, bool revoked, String? revocationReason, bool expired, double? expiration, String? createdBy, double? lastUsedAt, double createdAt, double updatedAt}) get copyWith => _copyWith;
+  CreateM2MTokenResponse Function({CreateM2MTokenResponseObject object, String id, String subject, SdkOptional<dynamic> claims, SdkOptional<List<String>> scopes, String token, bool revoked, String? revocationReason, bool expired, double? expiration, double? lastUsedAt, double createdAt, double updatedAt}) get copyWith => _copyWith;
 
-  UpdateApiKeyResponse _copyWith({Object? object = sdkOmittedValue, Object? id = sdkOmittedValue, Object? type_ = sdkOmittedValue, Object? subject = sdkOmittedValue, Object? name = sdkOmittedValue, Object? description = sdkOmittedValue, Object? claims = sdkOmittedValue, Object? scopes = sdkOmittedValue, Object? revoked = sdkOmittedValue, Object? revocationReason = sdkOmittedValue, Object? expired = sdkOmittedValue, Object? expiration = sdkOmittedValue, Object? createdBy = sdkOmittedValue, Object? lastUsedAt = sdkOmittedValue, Object? createdAt = sdkOmittedValue, Object? updatedAt = sdkOmittedValue}) => UpdateApiKeyResponse(
-    object: identical(object, sdkOmittedValue) ? this.object : object as UpdateApiKeyResponseObject,
+  CreateM2MTokenResponse _copyWith({Object? object = sdkOmittedValue, Object? id = sdkOmittedValue, Object? subject = sdkOmittedValue, Object? claims = sdkOmittedValue, Object? scopes = sdkOmittedValue, Object? token = sdkOmittedValue, Object? revoked = sdkOmittedValue, Object? revocationReason = sdkOmittedValue, Object? expired = sdkOmittedValue, Object? expiration = sdkOmittedValue, Object? lastUsedAt = sdkOmittedValue, Object? createdAt = sdkOmittedValue, Object? updatedAt = sdkOmittedValue}) => CreateM2MTokenResponse(
+    object: identical(object, sdkOmittedValue) ? this.object : object as CreateM2MTokenResponseObject,
     id: identical(id, sdkOmittedValue) ? this.id : id as String,
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as String,
     subject: identical(subject, sdkOmittedValue) ? this.subject : subject as String,
-    name: identical(name, sdkOmittedValue) ? this.name : name as String,
-    description: identical(description, sdkOmittedValue) ? this.description : description as SdkOptional<String?>,
-    claims: identical(claims, sdkOmittedValue) ? this.claims : claims as dynamic,
-    scopes: identical(scopes, sdkOmittedValue) ? this.scopes : scopes as List<String>,
+    claims: identical(claims, sdkOmittedValue) ? this.claims : claims as SdkOptional<dynamic>,
+    scopes: identical(scopes, sdkOmittedValue) ? this.scopes : scopes as SdkOptional<List<String>>,
+    token: identical(token, sdkOmittedValue) ? this.token : token as String,
     revoked: identical(revoked, sdkOmittedValue) ? this.revoked : revoked as bool,
     revocationReason: identical(revocationReason, sdkOmittedValue) ? this.revocationReason : revocationReason as String?,
     expired: identical(expired, sdkOmittedValue) ? this.expired : expired as bool,
     expiration: identical(expiration, sdkOmittedValue) ? this.expiration : expiration as double?,
-    createdBy: identical(createdBy, sdkOmittedValue) ? this.createdBy : createdBy as String?,
     lastUsedAt: identical(lastUsedAt, sdkOmittedValue) ? this.lastUsedAt : lastUsedAt as double?,
     createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as double,
     updatedAt: identical(updatedAt, sdkOmittedValue) ? this.updatedAt : updatedAt as double,
   );
 
-  factory UpdateApiKeyResponse.fromJson(Map<String, dynamic> json) => UpdateApiKeyResponse(
-    object: (json['object'] != null ? UpdateApiKeyResponseObject.fromJson(json['object'] as String) : null)!,
+  factory CreateM2MTokenResponse.fromJson(Map<String, dynamic> json) => CreateM2MTokenResponse(
+    object: (json['object'] != null ? CreateM2MTokenResponseObject.fromJson(json['object'] as String) : null)!,
     id: (json['id'] as String?)!,
-    type_: (json['type'] as String?)!,
     subject: (json['subject'] as String?)!,
-    name: (json['name'] as String?)!,
-    description: json.containsKey('description') ? SdkPresent(json['description'] as String?) : const SdkOmitted(),
-    claims: json.containsKey('claims') ? json['claims'] : throw ArgumentError.value(null, 'claims', 'Required property is missing'),
-    scopes: ((json['scopes'] as List?)?.map((e) => e as String).toList())!,
+    claims: json.containsKey('claims') ? SdkPresent(json['claims']) : const SdkOmitted(),
+    scopes: json['scopes'] != null ? SdkPresent(((json['scopes'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
+    token: (json['token'] as String?)!,
     revoked: (json['revoked'] as bool?)!,
     revocationReason: json.containsKey('revocation_reason') ? json['revocation_reason'] as String? : throw ArgumentError.value(null, 'revocation_reason', 'Required property is missing'),
     expired: (json['expired'] as bool?)!,
     expiration: json.containsKey('expiration') ? (json['expiration'] as num?)?.toDouble() : throw ArgumentError.value(null, 'expiration', 'Required property is missing'),
-    createdBy: json.containsKey('created_by') ? json['created_by'] as String? : throw ArgumentError.value(null, 'created_by', 'Required property is missing'),
     lastUsedAt: json.containsKey('last_used_at') ? (json['last_used_at'] as num?)?.toDouble() : throw ArgumentError.value(null, 'last_used_at', 'Required property is missing'),
     createdAt: ((json['created_at'] as num?)?.toDouble())!,
     updatedAt: ((json['updated_at'] as num?)?.toDouble())!,
@@ -126,92 +64,142 @@ class UpdateApiKeyResponse {
   Map<String, dynamic> toJson() => {
     'object': object.toJson(),
     'id': id,
-    'type': type_,
     'subject': subject,
-    'name': name,
-    ...switch (description) {
-      SdkPresent<String?>(value: final value) => {'description': value,},
+    ...switch (claims) {
+      SdkPresent<dynamic>(value: final value) => {'claims': value,},
       _ => const <String, dynamic>{},
     },
-    'claims': claims,
-    'scopes': scopes,
+    ...switch (scopes) {
+      SdkPresent<List<String>>(value: final value) => {'scopes': value,},
+      _ => const <String, dynamic>{},
+    },
+    'token': token,
     'revoked': revoked,
     'revocation_reason': revocationReason,
     'expired': expired,
     'expiration': expiration,
-    'created_by': createdBy,
     'last_used_at': lastUsedAt,
     'created_at': createdAt,
     'updated_at': updatedAt,
   };
 }
 
-class DeleteApiKeyResponse {
+class GetM2MTokensResponseM2mTokensItem {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+  final GetM2MTokensResponseM2mTokensItemObject object;
   final String id;
-  final DeleteApiKeyResponseObject object;
-  final DeleteApiKeyResponseDeleted deleted;
+  final String subject;
+  final SdkOptional<dynamic> claims;
+  final SdkOptional<List<String>> scopes;
+  final bool revoked;
+  final String? revocationReason;
+  final bool expired;
+  /// The timestamp for when the token will expire, in milliseconds
+  final double? expiration;
+  /// The timestamp for when the token was last used, in milliseconds
+  final double? lastUsedAt;
+  /// The timestamp for when the token was created, in milliseconds
+  final double createdAt;
+  /// The timestamp for when the token was last updated, in milliseconds
+  final double updatedAt;
 
-  const DeleteApiKeyResponse({required this.id, required this.object, required this.deleted});
+  const GetM2MTokensResponseM2mTokensItem({required this.object, required this.id, required this.subject, this.claims = const SdkOmitted(), this.scopes = const SdkOmitted(), required this.revoked, required this.revocationReason, required this.expired, required this.expiration, required this.lastUsedAt, required this.createdAt, required this.updatedAt});
 
-  DeleteApiKeyResponse Function({String id, DeleteApiKeyResponseObject object, DeleteApiKeyResponseDeleted deleted}) get copyWith => _copyWith;
+  GetM2MTokensResponseM2mTokensItem Function({GetM2MTokensResponseM2mTokensItemObject object, String id, String subject, SdkOptional<dynamic> claims, SdkOptional<List<String>> scopes, bool revoked, String? revocationReason, bool expired, double? expiration, double? lastUsedAt, double createdAt, double updatedAt}) get copyWith => _copyWith;
 
-  DeleteApiKeyResponse _copyWith({Object? id = sdkOmittedValue, Object? object = sdkOmittedValue, Object? deleted = sdkOmittedValue}) => DeleteApiKeyResponse(
+  GetM2MTokensResponseM2mTokensItem _copyWith({Object? object = sdkOmittedValue, Object? id = sdkOmittedValue, Object? subject = sdkOmittedValue, Object? claims = sdkOmittedValue, Object? scopes = sdkOmittedValue, Object? revoked = sdkOmittedValue, Object? revocationReason = sdkOmittedValue, Object? expired = sdkOmittedValue, Object? expiration = sdkOmittedValue, Object? lastUsedAt = sdkOmittedValue, Object? createdAt = sdkOmittedValue, Object? updatedAt = sdkOmittedValue}) => GetM2MTokensResponseM2mTokensItem(
+    object: identical(object, sdkOmittedValue) ? this.object : object as GetM2MTokensResponseM2mTokensItemObject,
     id: identical(id, sdkOmittedValue) ? this.id : id as String,
-    object: identical(object, sdkOmittedValue) ? this.object : object as DeleteApiKeyResponseObject,
-    deleted: identical(deleted, sdkOmittedValue) ? this.deleted : deleted as DeleteApiKeyResponseDeleted,
+    subject: identical(subject, sdkOmittedValue) ? this.subject : subject as String,
+    claims: identical(claims, sdkOmittedValue) ? this.claims : claims as SdkOptional<dynamic>,
+    scopes: identical(scopes, sdkOmittedValue) ? this.scopes : scopes as SdkOptional<List<String>>,
+    revoked: identical(revoked, sdkOmittedValue) ? this.revoked : revoked as bool,
+    revocationReason: identical(revocationReason, sdkOmittedValue) ? this.revocationReason : revocationReason as String?,
+    expired: identical(expired, sdkOmittedValue) ? this.expired : expired as bool,
+    expiration: identical(expiration, sdkOmittedValue) ? this.expiration : expiration as double?,
+    lastUsedAt: identical(lastUsedAt, sdkOmittedValue) ? this.lastUsedAt : lastUsedAt as double?,
+    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as double,
+    updatedAt: identical(updatedAt, sdkOmittedValue) ? this.updatedAt : updatedAt as double,
   );
 
-  factory DeleteApiKeyResponse.fromJson(Map<String, dynamic> json) => DeleteApiKeyResponse(
+  factory GetM2MTokensResponseM2mTokensItem.fromJson(Map<String, dynamic> json) => GetM2MTokensResponseM2mTokensItem(
+    object: (json['object'] != null ? GetM2MTokensResponseM2mTokensItemObject.fromJson(json['object'] as String) : null)!,
     id: (json['id'] as String?)!,
-    object: (json['object'] != null ? DeleteApiKeyResponseObject.fromJson(json['object'] as String) : null)!,
-    deleted: (json['deleted'] != null ? DeleteApiKeyResponseDeleted.fromJson(json['deleted'] as bool) : null)!,
+    subject: (json['subject'] as String?)!,
+    claims: json.containsKey('claims') ? SdkPresent(json['claims']) : const SdkOmitted(),
+    scopes: json['scopes'] != null ? SdkPresent(((json['scopes'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
+    revoked: (json['revoked'] as bool?)!,
+    revocationReason: json.containsKey('revocation_reason') ? json['revocation_reason'] as String? : throw ArgumentError.value(null, 'revocation_reason', 'Required property is missing'),
+    expired: (json['expired'] as bool?)!,
+    expiration: json.containsKey('expiration') ? (json['expiration'] as num?)?.toDouble() : throw ArgumentError.value(null, 'expiration', 'Required property is missing'),
+    lastUsedAt: json.containsKey('last_used_at') ? (json['last_used_at'] as num?)?.toDouble() : throw ArgumentError.value(null, 'last_used_at', 'Required property is missing'),
+    createdAt: ((json['created_at'] as num?)?.toDouble())!,
+    updatedAt: ((json['updated_at'] as num?)?.toDouble())!,
   );
 
   Map<String, dynamic> toJson() => {
-    'id': id,
     'object': object.toJson(),
-    'deleted': deleted.toJson(),
+    'id': id,
+    'subject': subject,
+    ...switch (claims) {
+      SdkPresent<dynamic>(value: final value) => {'claims': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (scopes) {
+      SdkPresent<List<String>>(value: final value) => {'scopes': value,},
+      _ => const <String, dynamic>{},
+    },
+    'revoked': revoked,
+    'revocation_reason': revocationReason,
+    'expired': expired,
+    'expiration': expiration,
+    'last_used_at': lastUsedAt,
+    'created_at': createdAt,
+    'updated_at': updatedAt,
   };
 }
 
-class GetApiKeySecretResponse {
+class GetM2MTokensResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-  final String secret;
+  final List<GetM2MTokensResponseM2mTokensItem> m2mTokens;
+  final double totalCount;
 
-  const GetApiKeySecretResponse({required this.secret});
+  const GetM2MTokensResponse({required this.m2mTokens, required this.totalCount});
 
-  GetApiKeySecretResponse Function({String secret}) get copyWith => _copyWith;
+  GetM2MTokensResponse Function({List<GetM2MTokensResponseM2mTokensItem> m2mTokens, double totalCount}) get copyWith => _copyWith;
 
-  GetApiKeySecretResponse _copyWith({Object? secret = sdkOmittedValue}) => GetApiKeySecretResponse(
-    secret: identical(secret, sdkOmittedValue) ? this.secret : secret as String,
+  GetM2MTokensResponse _copyWith({Object? m2mTokens = sdkOmittedValue, Object? totalCount = sdkOmittedValue}) => GetM2MTokensResponse(
+    m2mTokens: identical(m2mTokens, sdkOmittedValue) ? this.m2mTokens : m2mTokens as List<GetM2MTokensResponseM2mTokensItem>,
+    totalCount: identical(totalCount, sdkOmittedValue) ? this.totalCount : totalCount as double,
   );
 
-  factory GetApiKeySecretResponse.fromJson(Map<String, dynamic> json) => GetApiKeySecretResponse(
-    secret: (json['secret'] as String?)!,
+  factory GetM2MTokensResponse.fromJson(Map<String, dynamic> json) => GetM2MTokensResponse(
+    m2mTokens: ((json['m2m_tokens'] as List?)?.map((e) => GetM2MTokensResponseM2mTokensItem.fromJson(e as Map<String, dynamic>)).toList())!,
+    totalCount: ((json['total_count'] as num?)?.toDouble())!,
   );
 
   Map<String, dynamic> toJson() => {
-    'secret': secret,
+    'm2m_tokens': m2mTokens.map((item) => item.toJson()).toList(),
+    'total_count': totalCount,
   };
 }
 
-class RevokeApiKeyRequestBody {
+class RevokeM2MTokenRequestBody {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
   final SdkOptional<String?> revocationReason;
 
-  const RevokeApiKeyRequestBody({this.revocationReason = const SdkOmitted()});
+  const RevokeM2MTokenRequestBody({this.revocationReason = const SdkOmitted()});
 
-  RevokeApiKeyRequestBody Function({SdkOptional<String?> revocationReason}) get copyWith => _copyWith;
+  RevokeM2MTokenRequestBody Function({SdkOptional<String?> revocationReason}) get copyWith => _copyWith;
 
-  RevokeApiKeyRequestBody _copyWith({Object? revocationReason = sdkOmittedValue}) => RevokeApiKeyRequestBody(
+  RevokeM2MTokenRequestBody _copyWith({Object? revocationReason = sdkOmittedValue}) => RevokeM2MTokenRequestBody(
     revocationReason: identical(revocationReason, sdkOmittedValue) ? this.revocationReason : revocationReason as SdkOptional<String?>,
   );
 
-  factory RevokeApiKeyRequestBody.fromJson(Map<String, dynamic> json) => RevokeApiKeyRequestBody(
+  factory RevokeM2MTokenRequestBody.fromJson(Map<String, dynamic> json) => RevokeM2MTokenRequestBody(
     revocationReason: json.containsKey('revocation_reason') ? SdkPresent(json['revocation_reason'] as String?) : const SdkOmitted(),
   );
 
@@ -220,5 +208,81 @@ class RevokeApiKeyRequestBody {
       SdkPresent<String?>(value: final value) => {'revocation_reason': value,},
       _ => const <String, dynamic>{},
     },
+  };
+}
+
+class RevokeM2MTokenResponse {
+  /// This model is constructed from named fields in one call.
+  static const String constructionSurface = 'named';
+  final RevokeM2MTokenResponseObject object;
+  final String id;
+  final String subject;
+  final SdkOptional<dynamic> claims;
+  final SdkOptional<List<String>> scopes;
+  final bool revoked;
+  final String? revocationReason;
+  final bool expired;
+  /// The timestamp for when the token will expire, in milliseconds
+  final double? expiration;
+  /// The timestamp for when the token was last used, in milliseconds
+  final double? lastUsedAt;
+  /// The timestamp for when the token was created, in milliseconds
+  final double createdAt;
+  /// The timestamp for when the token was last updated, in milliseconds
+  final double updatedAt;
+
+  const RevokeM2MTokenResponse({required this.object, required this.id, required this.subject, this.claims = const SdkOmitted(), this.scopes = const SdkOmitted(), required this.revoked, required this.revocationReason, required this.expired, required this.expiration, required this.lastUsedAt, required this.createdAt, required this.updatedAt});
+
+  RevokeM2MTokenResponse Function({RevokeM2MTokenResponseObject object, String id, String subject, SdkOptional<dynamic> claims, SdkOptional<List<String>> scopes, bool revoked, String? revocationReason, bool expired, double? expiration, double? lastUsedAt, double createdAt, double updatedAt}) get copyWith => _copyWith;
+
+  RevokeM2MTokenResponse _copyWith({Object? object = sdkOmittedValue, Object? id = sdkOmittedValue, Object? subject = sdkOmittedValue, Object? claims = sdkOmittedValue, Object? scopes = sdkOmittedValue, Object? revoked = sdkOmittedValue, Object? revocationReason = sdkOmittedValue, Object? expired = sdkOmittedValue, Object? expiration = sdkOmittedValue, Object? lastUsedAt = sdkOmittedValue, Object? createdAt = sdkOmittedValue, Object? updatedAt = sdkOmittedValue}) => RevokeM2MTokenResponse(
+    object: identical(object, sdkOmittedValue) ? this.object : object as RevokeM2MTokenResponseObject,
+    id: identical(id, sdkOmittedValue) ? this.id : id as String,
+    subject: identical(subject, sdkOmittedValue) ? this.subject : subject as String,
+    claims: identical(claims, sdkOmittedValue) ? this.claims : claims as SdkOptional<dynamic>,
+    scopes: identical(scopes, sdkOmittedValue) ? this.scopes : scopes as SdkOptional<List<String>>,
+    revoked: identical(revoked, sdkOmittedValue) ? this.revoked : revoked as bool,
+    revocationReason: identical(revocationReason, sdkOmittedValue) ? this.revocationReason : revocationReason as String?,
+    expired: identical(expired, sdkOmittedValue) ? this.expired : expired as bool,
+    expiration: identical(expiration, sdkOmittedValue) ? this.expiration : expiration as double?,
+    lastUsedAt: identical(lastUsedAt, sdkOmittedValue) ? this.lastUsedAt : lastUsedAt as double?,
+    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as double,
+    updatedAt: identical(updatedAt, sdkOmittedValue) ? this.updatedAt : updatedAt as double,
+  );
+
+  factory RevokeM2MTokenResponse.fromJson(Map<String, dynamic> json) => RevokeM2MTokenResponse(
+    object: (json['object'] != null ? RevokeM2MTokenResponseObject.fromJson(json['object'] as String) : null)!,
+    id: (json['id'] as String?)!,
+    subject: (json['subject'] as String?)!,
+    claims: json.containsKey('claims') ? SdkPresent(json['claims']) : const SdkOmitted(),
+    scopes: json['scopes'] != null ? SdkPresent(((json['scopes'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
+    revoked: (json['revoked'] as bool?)!,
+    revocationReason: json.containsKey('revocation_reason') ? json['revocation_reason'] as String? : throw ArgumentError.value(null, 'revocation_reason', 'Required property is missing'),
+    expired: (json['expired'] as bool?)!,
+    expiration: json.containsKey('expiration') ? (json['expiration'] as num?)?.toDouble() : throw ArgumentError.value(null, 'expiration', 'Required property is missing'),
+    lastUsedAt: json.containsKey('last_used_at') ? (json['last_used_at'] as num?)?.toDouble() : throw ArgumentError.value(null, 'last_used_at', 'Required property is missing'),
+    createdAt: ((json['created_at'] as num?)?.toDouble())!,
+    updatedAt: ((json['updated_at'] as num?)?.toDouble())!,
+  );
+
+  Map<String, dynamic> toJson() => {
+    'object': object.toJson(),
+    'id': id,
+    'subject': subject,
+    ...switch (claims) {
+      SdkPresent<dynamic>(value: final value) => {'claims': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (scopes) {
+      SdkPresent<List<String>>(value: final value) => {'scopes': value,},
+      _ => const <String, dynamic>{},
+    },
+    'revoked': revoked,
+    'revocation_reason': revocationReason,
+    'expired': expired,
+    'expiration': expiration,
+    'last_used_at': lastUsedAt,
+    'created_at': createdAt,
+    'updated_at': updatedAt,
   };
 }

@@ -95,6 +95,10 @@ sealed class PhoneNumberVerification {
   static const String constructionSurface = 'named';
   const PhoneNumberVerification();
   factory PhoneNumberVerification.fromJson(Object? json) {
+    if (json is Map<String, dynamic>) {
+      try { final value = VerificationOtp.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return PhoneNumberVerificationVerificationOtp(value); } } catch (_) {}
+      try { final value = VerificationAdmin.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return PhoneNumberVerificationVerificationAdmin(value); } } catch (_) {}
+    }
     try { return PhoneNumberVerificationVerificationOtp(VerificationOtp.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     try { return PhoneNumberVerificationVerificationAdmin(VerificationAdmin.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     if (json is Map<String, dynamic> && json["object"] is String && !const {"verification_otp", "verification_admin"}.contains(json["object"])) { return UnknownPhoneNumberVerification(json); }

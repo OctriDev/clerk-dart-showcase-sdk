@@ -4,8 +4,96 @@
 part of 'role_sets.dart';
 
 // role_sets domain models
-/// The default role assigned to new organization members
-class RoleSetDefaultRole {
+/// A role set defines a collection of roles that can be assigned to organization members
+class RoleSet {
+  /// This model is constructed from named fields in one call.
+  static const String constructionSurface = 'named';
+  /// Required enumerated value serialized in the `object` wire field.
+  final RoleSetObject object;
+  /// The unique identifier of the role set
+  final String id;
+  /// The name of the role set
+  final String name;
+  /// A unique key for the role set (e.g., "role_set:default")
+  final String key;
+  /// Optional description of the role set
+  final String? description;
+  /// The list of roles in this role set
+  final List<RoleSetItem> roles;
+  /// The default role assigned to new organization members
+  final SdkOptional<RoleSetItem?> defaultRole;
+  /// The role assigned to the creator of an organization
+  final SdkOptional<RoleSetItem?> creatorRole;
+  /// The type of the role set ("initial" or "custom")
+  final RoleSetType type_;
+  /// Active migration information, only present when status is "enqueued" or "in_progress"
+  final SdkOptional<RoleSetMigration?> roleSetMigration;
+  /// Unix timestamp of role set creation
+  final int createdAt;
+  /// Unix timestamp of last role set update
+  final int updatedAt;
+
+  const RoleSet({required this.object, required this.id, required this.name, required this.key, required this.description, required this.roles, this.defaultRole = const SdkOmitted(), this.creatorRole = const SdkOmitted(), required this.type_, this.roleSetMigration = const SdkOmitted(), required this.createdAt, required this.updatedAt});
+
+  RoleSet Function({RoleSetObject object, String id, String name, String key, String? description, List<RoleSetItem> roles, SdkOptional<RoleSetItem?> defaultRole, SdkOptional<RoleSetItem?> creatorRole, RoleSetType type_, SdkOptional<RoleSetMigration?> roleSetMigration, int createdAt, int updatedAt}) get copyWith => _copyWith;
+
+  RoleSet _copyWith({Object? object = sdkOmittedValue, Object? id = sdkOmittedValue, Object? name = sdkOmittedValue, Object? key = sdkOmittedValue, Object? description = sdkOmittedValue, Object? roles = sdkOmittedValue, Object? defaultRole = sdkOmittedValue, Object? creatorRole = sdkOmittedValue, Object? type_ = sdkOmittedValue, Object? roleSetMigration = sdkOmittedValue, Object? createdAt = sdkOmittedValue, Object? updatedAt = sdkOmittedValue}) => RoleSet(
+    object: identical(object, sdkOmittedValue) ? this.object : object as RoleSetObject,
+    id: identical(id, sdkOmittedValue) ? this.id : id as String,
+    name: identical(name, sdkOmittedValue) ? this.name : name as String,
+    key: identical(key, sdkOmittedValue) ? this.key : key as String,
+    description: identical(description, sdkOmittedValue) ? this.description : description as String?,
+    roles: identical(roles, sdkOmittedValue) ? this.roles : roles as List<RoleSetItem>,
+    defaultRole: identical(defaultRole, sdkOmittedValue) ? this.defaultRole : defaultRole as SdkOptional<RoleSetItem?>,
+    creatorRole: identical(creatorRole, sdkOmittedValue) ? this.creatorRole : creatorRole as SdkOptional<RoleSetItem?>,
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as RoleSetType,
+    roleSetMigration: identical(roleSetMigration, sdkOmittedValue) ? this.roleSetMigration : roleSetMigration as SdkOptional<RoleSetMigration?>,
+    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as int,
+    updatedAt: identical(updatedAt, sdkOmittedValue) ? this.updatedAt : updatedAt as int,
+  );
+
+  factory RoleSet.fromJson(Map<String, dynamic> json) => RoleSet(
+    object: (json['object'] != null ? RoleSetObject.fromJson(json['object'] as String) : null)!,
+    id: (json['id'] as String?)!,
+    name: (json['name'] as String?)!,
+    key: (json['key'] as String?)!,
+    description: json.containsKey('description') ? json['description'] as String? : throw ArgumentError.value(null, 'description', 'Required property is missing'),
+    roles: ((json['roles'] as List?)?.map((e) => RoleSetItem.fromJson(e as Map<String, dynamic>)).toList())!,
+    defaultRole: json.containsKey('default_role') ? SdkPresent(json['default_role'] != null ? RoleSetItem.fromJson(json['default_role'] as Map<String, dynamic>) : null) : const SdkOmitted(),
+    creatorRole: json.containsKey('creator_role') ? SdkPresent(json['creator_role'] != null ? RoleSetItem.fromJson(json['creator_role'] as Map<String, dynamic>) : null) : const SdkOmitted(),
+    type_: (json['type'] != null ? RoleSetType.fromJson(json['type'] as String) : null)!,
+    roleSetMigration: json.containsKey('role_set_migration') ? SdkPresent(json['role_set_migration'] != null ? RoleSetMigration.fromJson(json['role_set_migration'] as Map<String, dynamic>) : null) : const SdkOmitted(),
+    createdAt: ((json['created_at'] as num?)?.toInt())!,
+    updatedAt: ((json['updated_at'] as num?)?.toInt())!,
+  );
+
+  Map<String, dynamic> toJson() => {
+    'object': object.toJson(),
+    'id': id,
+    'name': name,
+    'key': key,
+    'description': description,
+    'roles': roles.map((item) => item.toJson()).toList(),
+    ...switch (defaultRole) {
+      SdkPresent<RoleSetItem?>(value: final value) => {'default_role': value?.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (creatorRole) {
+      SdkPresent<RoleSetItem?>(value: final value) => {'creator_role': value?.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    'type': type_.toJson(),
+    ...switch (roleSetMigration) {
+      SdkPresent<RoleSetMigration?>(value: final value) => {'role_set_migration': value?.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    'created_at': createdAt,
+    'updated_at': updatedAt,
+  };
+}
+
+/// A role within a role set
+class RoleSetItem {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
   /// Required enumerated value serialized in the `object` wire field.
@@ -27,11 +115,11 @@ class RoleSetDefaultRole {
   /// Unix timestamp of last role update
   final int updatedAt;
 
-  const RoleSetDefaultRole({required this.object, required this.id, required this.name, required this.key, required this.description, this.membersCount = const SdkOmitted(), this.hasMembers = const SdkOmitted(), required this.createdAt, required this.updatedAt});
+  const RoleSetItem({required this.object, required this.id, required this.name, required this.key, required this.description, this.membersCount = const SdkOmitted(), this.hasMembers = const SdkOmitted(), required this.createdAt, required this.updatedAt});
 
-  RoleSetDefaultRole Function({RoleSetItemObject object, String id, String name, String key, String? description, SdkOptional<int?> membersCount, SdkOptional<bool?> hasMembers, int createdAt, int updatedAt}) get copyWith => _copyWith;
+  RoleSetItem Function({RoleSetItemObject object, String id, String name, String key, String? description, SdkOptional<int?> membersCount, SdkOptional<bool?> hasMembers, int createdAt, int updatedAt}) get copyWith => _copyWith;
 
-  RoleSetDefaultRole _copyWith({Object? object = sdkOmittedValue, Object? id = sdkOmittedValue, Object? name = sdkOmittedValue, Object? key = sdkOmittedValue, Object? description = sdkOmittedValue, Object? membersCount = sdkOmittedValue, Object? hasMembers = sdkOmittedValue, Object? createdAt = sdkOmittedValue, Object? updatedAt = sdkOmittedValue}) => RoleSetDefaultRole(
+  RoleSetItem _copyWith({Object? object = sdkOmittedValue, Object? id = sdkOmittedValue, Object? name = sdkOmittedValue, Object? key = sdkOmittedValue, Object? description = sdkOmittedValue, Object? membersCount = sdkOmittedValue, Object? hasMembers = sdkOmittedValue, Object? createdAt = sdkOmittedValue, Object? updatedAt = sdkOmittedValue}) => RoleSetItem(
     object: identical(object, sdkOmittedValue) ? this.object : object as RoleSetItemObject,
     id: identical(id, sdkOmittedValue) ? this.id : id as String,
     name: identical(name, sdkOmittedValue) ? this.name : name as String,
@@ -43,7 +131,7 @@ class RoleSetDefaultRole {
     updatedAt: identical(updatedAt, sdkOmittedValue) ? this.updatedAt : updatedAt as int,
   );
 
-  factory RoleSetDefaultRole.fromJson(Map<String, dynamic> json) => RoleSetDefaultRole(
+  factory RoleSetItem.fromJson(Map<String, dynamic> json) => RoleSetItem(
     object: (json['object'] != null ? RoleSetItemObject.fromJson(json['object'] as String) : null)!,
     id: (json['id'] as String?)!,
     name: (json['name'] as String?)!,
@@ -74,78 +162,8 @@ class RoleSetDefaultRole {
   };
 }
 
-/// The role assigned to the creator of an organization
-class RoleSetCreatorRole {
-  /// This model is constructed from named fields in one call.
-  static const String constructionSurface = 'named';
-  /// Required enumerated value serialized in the `object` wire field.
-  final RoleSetItemObject object;
-  /// The unique identifier of the role
-  final String id;
-  /// The name of the role
-  final String name;
-  /// The key of the role (e.g., "org:admin", "org:member")
-  final String key;
-  /// Optional description of the role
-  final String? description;
-  /// The number of members assigned to this role within the role set
-  final SdkOptional<int?> membersCount;
-  /// Whether this role has any members assigned within the role set
-  final SdkOptional<bool?> hasMembers;
-  /// Unix timestamp of role creation
-  final int createdAt;
-  /// Unix timestamp of last role update
-  final int updatedAt;
-
-  const RoleSetCreatorRole({required this.object, required this.id, required this.name, required this.key, required this.description, this.membersCount = const SdkOmitted(), this.hasMembers = const SdkOmitted(), required this.createdAt, required this.updatedAt});
-
-  RoleSetCreatorRole Function({RoleSetItemObject object, String id, String name, String key, String? description, SdkOptional<int?> membersCount, SdkOptional<bool?> hasMembers, int createdAt, int updatedAt}) get copyWith => _copyWith;
-
-  RoleSetCreatorRole _copyWith({Object? object = sdkOmittedValue, Object? id = sdkOmittedValue, Object? name = sdkOmittedValue, Object? key = sdkOmittedValue, Object? description = sdkOmittedValue, Object? membersCount = sdkOmittedValue, Object? hasMembers = sdkOmittedValue, Object? createdAt = sdkOmittedValue, Object? updatedAt = sdkOmittedValue}) => RoleSetCreatorRole(
-    object: identical(object, sdkOmittedValue) ? this.object : object as RoleSetItemObject,
-    id: identical(id, sdkOmittedValue) ? this.id : id as String,
-    name: identical(name, sdkOmittedValue) ? this.name : name as String,
-    key: identical(key, sdkOmittedValue) ? this.key : key as String,
-    description: identical(description, sdkOmittedValue) ? this.description : description as String?,
-    membersCount: identical(membersCount, sdkOmittedValue) ? this.membersCount : membersCount as SdkOptional<int?>,
-    hasMembers: identical(hasMembers, sdkOmittedValue) ? this.hasMembers : hasMembers as SdkOptional<bool?>,
-    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as int,
-    updatedAt: identical(updatedAt, sdkOmittedValue) ? this.updatedAt : updatedAt as int,
-  );
-
-  factory RoleSetCreatorRole.fromJson(Map<String, dynamic> json) => RoleSetCreatorRole(
-    object: (json['object'] != null ? RoleSetItemObject.fromJson(json['object'] as String) : null)!,
-    id: (json['id'] as String?)!,
-    name: (json['name'] as String?)!,
-    key: (json['key'] as String?)!,
-    description: json.containsKey('description') ? json['description'] as String? : throw ArgumentError.value(null, 'description', 'Required property is missing'),
-    membersCount: json.containsKey('members_count') ? SdkPresent((json['members_count'] as num?)?.toInt()) : const SdkOmitted(),
-    hasMembers: json.containsKey('has_members') ? SdkPresent(json['has_members'] as bool?) : const SdkOmitted(),
-    createdAt: ((json['created_at'] as num?)?.toInt())!,
-    updatedAt: ((json['updated_at'] as num?)?.toInt())!,
-  );
-
-  Map<String, dynamic> toJson() => {
-    'object': object.toJson(),
-    'id': id,
-    'name': name,
-    'key': key,
-    'description': description,
-    ...switch (membersCount) {
-      SdkPresent<int?>(value: final value) => {'members_count': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (hasMembers) {
-      SdkPresent<bool?>(value: final value) => {'has_members': value,},
-      _ => const <String, dynamic>{},
-    },
-    'created_at': createdAt,
-    'updated_at': updatedAt,
-  };
-}
-
-/// Active migration information, only present when status is "enqueued" or "in_progress"
-class RoleSetRoleSetMigration {
+/// Information about an ongoing role set migration
+class RoleSetMigration {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
   /// Required enumerated value serialized in the `object` wire field.
@@ -177,11 +195,11 @@ class RoleSetRoleSetMigration {
   /// Unix timestamp of last migration update
   final int updatedAt;
 
-  const RoleSetRoleSetMigration({required this.object, required this.id, this.organizationId = const SdkOmitted(), required this.instanceId, required this.sourceRoleSetId, this.destRoleSetId = const SdkOmitted(), required this.triggerType, required this.status, required this.migratedMembers, this.mappings = const SdkOmitted(), this.startedAt = const SdkOmitted(), this.completedAt = const SdkOmitted(), required this.createdAt, required this.updatedAt});
+  const RoleSetMigration({required this.object, required this.id, this.organizationId = const SdkOmitted(), required this.instanceId, required this.sourceRoleSetId, this.destRoleSetId = const SdkOmitted(), required this.triggerType, required this.status, required this.migratedMembers, this.mappings = const SdkOmitted(), this.startedAt = const SdkOmitted(), this.completedAt = const SdkOmitted(), required this.createdAt, required this.updatedAt});
 
-  RoleSetRoleSetMigration Function({RoleSetMigrationObject object, String id, SdkOptional<String?> organizationId, String instanceId, String sourceRoleSetId, SdkOptional<String?> destRoleSetId, String triggerType, String status, int migratedMembers, SdkOptional<Map<String, String>?> mappings, SdkOptional<int?> startedAt, SdkOptional<int?> completedAt, int createdAt, int updatedAt}) get copyWith => _copyWith;
+  RoleSetMigration Function({RoleSetMigrationObject object, String id, SdkOptional<String?> organizationId, String instanceId, String sourceRoleSetId, SdkOptional<String?> destRoleSetId, String triggerType, String status, int migratedMembers, SdkOptional<Map<String, String>?> mappings, SdkOptional<int?> startedAt, SdkOptional<int?> completedAt, int createdAt, int updatedAt}) get copyWith => _copyWith;
 
-  RoleSetRoleSetMigration _copyWith({Object? object = sdkOmittedValue, Object? id = sdkOmittedValue, Object? organizationId = sdkOmittedValue, Object? instanceId = sdkOmittedValue, Object? sourceRoleSetId = sdkOmittedValue, Object? destRoleSetId = sdkOmittedValue, Object? triggerType = sdkOmittedValue, Object? status = sdkOmittedValue, Object? migratedMembers = sdkOmittedValue, Object? mappings = sdkOmittedValue, Object? startedAt = sdkOmittedValue, Object? completedAt = sdkOmittedValue, Object? createdAt = sdkOmittedValue, Object? updatedAt = sdkOmittedValue}) => RoleSetRoleSetMigration(
+  RoleSetMigration _copyWith({Object? object = sdkOmittedValue, Object? id = sdkOmittedValue, Object? organizationId = sdkOmittedValue, Object? instanceId = sdkOmittedValue, Object? sourceRoleSetId = sdkOmittedValue, Object? destRoleSetId = sdkOmittedValue, Object? triggerType = sdkOmittedValue, Object? status = sdkOmittedValue, Object? migratedMembers = sdkOmittedValue, Object? mappings = sdkOmittedValue, Object? startedAt = sdkOmittedValue, Object? completedAt = sdkOmittedValue, Object? createdAt = sdkOmittedValue, Object? updatedAt = sdkOmittedValue}) => RoleSetMigration(
     object: identical(object, sdkOmittedValue) ? this.object : object as RoleSetMigrationObject,
     id: identical(id, sdkOmittedValue) ? this.id : id as String,
     organizationId: identical(organizationId, sdkOmittedValue) ? this.organizationId : organizationId as SdkOptional<String?>,
@@ -198,7 +216,7 @@ class RoleSetRoleSetMigration {
     updatedAt: identical(updatedAt, sdkOmittedValue) ? this.updatedAt : updatedAt as int,
   );
 
-  factory RoleSetRoleSetMigration.fromJson(Map<String, dynamic> json) => RoleSetRoleSetMigration(
+  factory RoleSetMigration.fromJson(Map<String, dynamic> json) => RoleSetMigration(
     object: (json['object'] != null ? RoleSetMigrationObject.fromJson(json['object'] as String) : null)!,
     id: (json['id'] as String?)!,
     organizationId: json.containsKey('organization_id') ? SdkPresent(json['organization_id'] as String?) : const SdkOmitted(),
@@ -245,5 +263,34 @@ class RoleSetRoleSetMigration {
     },
     'created_at': createdAt,
     'updated_at': updatedAt,
+  };
+}
+
+/// Typed representation of the `RoleSets` API schema.
+class RoleSets {
+  /// This model is constructed from named fields in one call.
+  static const String constructionSurface = 'named';
+  /// Required array value serialized in the `data` wire field.
+  final List<RoleSet> data;
+  /// Total number of role sets
+  final int totalCount;
+
+  const RoleSets({required this.data, required this.totalCount});
+
+  RoleSets Function({List<RoleSet> data, int totalCount}) get copyWith => _copyWith;
+
+  RoleSets _copyWith({Object? data = sdkOmittedValue, Object? totalCount = sdkOmittedValue}) => RoleSets(
+    data: identical(data, sdkOmittedValue) ? this.data : data as List<RoleSet>,
+    totalCount: identical(totalCount, sdkOmittedValue) ? this.totalCount : totalCount as int,
+  );
+
+  factory RoleSets.fromJson(Map<String, dynamic> json) => RoleSets(
+    data: ((json['data'] as List?)?.map((e) => RoleSet.fromJson(e as Map<String, dynamic>)).toList())!,
+    totalCount: ((json['total_count'] as num?)?.toInt())!,
+  );
+
+  Map<String, dynamic> toJson() => {
+    'data': data.map((item) => item.toJson()).toList(),
+    'total_count': totalCount,
   };
 }

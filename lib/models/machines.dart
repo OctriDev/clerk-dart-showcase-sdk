@@ -6,3 +6,4 @@ import '../sdk_utils.dart';
 import 'inline.dart';
 
 part 'machines_part1.dart';
+part 'machines_part2.dart';

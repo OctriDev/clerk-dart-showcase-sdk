@@ -4,6 +4,52 @@
 part of 'inline.dart';
 
 // Inline operation models (part 16)
+/// When password is required at the instance level, sets the preferred sign-in strategy surfaced to Clerk components. Has no effect when password is not required. Defaults to `password`. Set to an empty string to clear the override.
+final class UpdateInstanceRequestBodyPreferredSignInStrategyWhenPasswordRequired {
+
+  final String value;
+
+  const UpdateInstanceRequestBodyPreferredSignInStrategyWhenPasswordRequired._(this.value);
+
+  factory UpdateInstanceRequestBodyPreferredSignInStrategyWhenPasswordRequired.fromJson(String value) => UpdateInstanceRequestBodyPreferredSignInStrategyWhenPasswordRequired._(value);
+
+  static const password = UpdateInstanceRequestBodyPreferredSignInStrategyWhenPasswordRequired._('password');
+  static const otp = UpdateInstanceRequestBodyPreferredSignInStrategyWhenPasswordRequired._('otp');
+  static const unknown = UpdateInstanceRequestBodyPreferredSignInStrategyWhenPasswordRequired._('');
+
+  String toJson() => value;
+
+  @override String toString() => value.toString();
+
+  @override bool operator ==(Object other) => other is UpdateInstanceRequestBodyPreferredSignInStrategyWhenPasswordRequired && other.value == value;
+
+  @override int get hashCode => value.hashCode;
+
+}
+
+final class ListInvitationsStatus {
+
+  final String value;
+
+  const ListInvitationsStatus._(this.value);
+
+  factory ListInvitationsStatus.fromJson(String value) => ListInvitationsStatus._(value);
+
+  static const pending = ListInvitationsStatus._('pending');
+  static const accepted = ListInvitationsStatus._('accepted');
+  static const revoked = ListInvitationsStatus._('revoked');
+  static const expired = ListInvitationsStatus._('expired');
+
+  String toJson() => value;
+
+  @override String toString() => value.toString();
+
+  @override bool operator ==(Object other) => other is ListInvitationsStatus && other.value == value;
+
+  @override int get hashCode => value.hashCode;
+
+}
+
 /// The slug of the email template to use for the invitation email.
 final class CreateInvitationRequestBodyTemplateSlug {
 
@@ -144,47 +190,6 @@ final class VerifyM2MTokenResponseObject {
   @override String toString() => value.toString();
 
   @override bool operator ==(Object other) => other is VerifyM2MTokenResponseObject && other.value == value;
-
-  @override int get hashCode => value.hashCode;
-
-}
-
-final class VerifyOAuthAccessTokenResponseVariant0Object {
-
-  final String value;
-
-  const VerifyOAuthAccessTokenResponseVariant0Object._(this.value);
-
-  factory VerifyOAuthAccessTokenResponseVariant0Object.fromJson(String value) => VerifyOAuthAccessTokenResponseVariant0Object._(value);
-
-  static const clerkIdpOauthAccessToken = VerifyOAuthAccessTokenResponseVariant0Object._('clerk_idp_oauth_access_token');
-
-  String toJson() => value;
-
-  @override String toString() => value.toString();
-
-  @override bool operator ==(Object other) => other is VerifyOAuthAccessTokenResponseVariant0Object && other.value == value;
-
-  @override int get hashCode => value.hashCode;
-
-}
-
-/// Indicates that a JWT access token is not active (expired)
-final class VerifyOAuthAccessTokenResponseVariant1Active {
-
-  final bool value;
-
-  const VerifyOAuthAccessTokenResponseVariant1Active._(this.value);
-
-  factory VerifyOAuthAccessTokenResponseVariant1Active.fromJson(bool value) => VerifyOAuthAccessTokenResponseVariant1Active._(value);
-
-  static const false_ = VerifyOAuthAccessTokenResponseVariant1Active._(false);
-
-  bool toJson() => value;
-
-  @override String toString() => value.toString();
-
-  @override bool operator ==(Object other) => other is VerifyOAuthAccessTokenResponseVariant1Active && other.value == value;
 
   @override int get hashCode => value.hashCode;
 

@@ -4,6 +4,46 @@
 part of 'inline.dart';
 
 // Inline operation models (part 15)
+final class DeleteApiKeyResponseDeleted {
+
+  final bool value;
+
+  const DeleteApiKeyResponseDeleted._(this.value);
+
+  factory DeleteApiKeyResponseDeleted.fromJson(bool value) => DeleteApiKeyResponseDeleted._(value);
+
+  static const true_ = DeleteApiKeyResponseDeleted._(true);
+
+  bool toJson() => value;
+
+  @override String toString() => value.toString();
+
+  @override bool operator ==(Object other) => other is DeleteApiKeyResponseDeleted && other.value == value;
+
+  @override int get hashCode => value.hashCode;
+
+}
+
+final class DeleteApiKeyResponseObject {
+
+  final String value;
+
+  const DeleteApiKeyResponseObject._(this.value);
+
+  factory DeleteApiKeyResponseObject.fromJson(String value) => DeleteApiKeyResponseObject._(value);
+
+  static const apiKey = DeleteApiKeyResponseObject._('api_key');
+
+  String toJson() => value;
+
+  @override String toString() => value.toString();
+
+  @override bool operator ==(Object other) => other is DeleteApiKeyResponseObject && other.value == value;
+
+  @override int get hashCode => value.hashCode;
+
+}
+
 final class GetApiKeyResponseObject {
 
   final String value;
@@ -240,52 +280,6 @@ final class ListEnterpriseConnectionTestRunsStatusItem {
   @override String toString() => value.toString();
 
   @override bool operator ==(Object other) => other is ListEnterpriseConnectionTestRunsStatusItem && other.value == value;
-
-  @override int get hashCode => value.hashCode;
-
-}
-
-/// When password is required at the instance level, sets the preferred sign-in strategy surfaced to Clerk components. Has no effect when password is not required. Defaults to `password`. Set to an empty string to clear the override.
-final class UpdateInstanceRequestBodyPreferredSignInStrategyWhenPasswordRequired {
-
-  final String value;
-
-  const UpdateInstanceRequestBodyPreferredSignInStrategyWhenPasswordRequired._(this.value);
-
-  factory UpdateInstanceRequestBodyPreferredSignInStrategyWhenPasswordRequired.fromJson(String value) => UpdateInstanceRequestBodyPreferredSignInStrategyWhenPasswordRequired._(value);
-
-  static const password = UpdateInstanceRequestBodyPreferredSignInStrategyWhenPasswordRequired._('password');
-  static const otp = UpdateInstanceRequestBodyPreferredSignInStrategyWhenPasswordRequired._('otp');
-  static const unknown = UpdateInstanceRequestBodyPreferredSignInStrategyWhenPasswordRequired._('');
-
-  String toJson() => value;
-
-  @override String toString() => value.toString();
-
-  @override bool operator ==(Object other) => other is UpdateInstanceRequestBodyPreferredSignInStrategyWhenPasswordRequired && other.value == value;
-
-  @override int get hashCode => value.hashCode;
-
-}
-
-final class ListInvitationsStatus {
-
-  final String value;
-
-  const ListInvitationsStatus._(this.value);
-
-  factory ListInvitationsStatus.fromJson(String value) => ListInvitationsStatus._(value);
-
-  static const pending = ListInvitationsStatus._('pending');
-  static const accepted = ListInvitationsStatus._('accepted');
-  static const revoked = ListInvitationsStatus._('revoked');
-  static const expired = ListInvitationsStatus._('expired');
-
-  String toJson() => value;
-
-  @override String toString() => value.toString();
-
-  @override bool operator ==(Object other) => other is ListInvitationsStatus && other.value == value;
 
   @override int get hashCode => value.hashCode;
 

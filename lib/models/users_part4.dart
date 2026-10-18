@@ -103,6 +103,10 @@ sealed class SAMLAccountVerification {
   static const String constructionSurface = 'named';
   const SAMLAccountVerification();
   factory SAMLAccountVerification.fromJson(Object? json) {
+    if (json is Map<String, dynamic>) {
+      try { final value = VerificationSaml.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return SAMLAccountVerificationVerificationSaml(value); } } catch (_) {}
+      try { final value = VerificationTicket.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return SAMLAccountVerificationVerificationTicket(value); } } catch (_) {}
+    }
     try { return SAMLAccountVerificationVerificationSaml(VerificationSaml.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     try { return SAMLAccountVerificationVerificationTicket(VerificationTicket.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     if (json is Map<String, dynamic> && json["object"] is String && !const {"verification_saml", "verification_ticket"}.contains(json["object"])) { return UnknownSAMLAccountVerification(json); }

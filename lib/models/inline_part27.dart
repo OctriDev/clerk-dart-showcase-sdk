@@ -4,198 +4,6 @@
 part of 'inline.dart';
 
 // Inline operation models (part 27)
-class RevokeOrganizationInvitationRequestBody {
-  /// This model is constructed from named fields in one call.
-  static const String constructionSurface = 'named';
-  /// The ID of the user that revokes the invitation. Must be an administrator in the organization.
-  final SdkOptional<String?> requestingUserId;
-
-  const RevokeOrganizationInvitationRequestBody({this.requestingUserId = const SdkOmitted()});
-
-  RevokeOrganizationInvitationRequestBody Function({SdkOptional<String?> requestingUserId}) get copyWith => _copyWith;
-
-  RevokeOrganizationInvitationRequestBody _copyWith({Object? requestingUserId = sdkOmittedValue}) => RevokeOrganizationInvitationRequestBody(
-    requestingUserId: identical(requestingUserId, sdkOmittedValue) ? this.requestingUserId : requestingUserId as SdkOptional<String?>,
-  );
-
-  factory RevokeOrganizationInvitationRequestBody.fromJson(Map<String, dynamic> json) => RevokeOrganizationInvitationRequestBody(
-    requestingUserId: json.containsKey('requesting_user_id') ? SdkPresent(json['requesting_user_id'] as String?) : const SdkOmitted(),
-  );
-
-  Map<String, dynamic> toJson() => {
-    ...switch (requestingUserId) {
-      SdkPresent<String?>(value: final value) => {'requesting_user_id': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
-}
-
-class CreateAllowlistIdentifierRequestBody {
-  /// This model is constructed from named fields in one call.
-  static const String constructionSurface = 'named';
-  /// The identifier to be added in the allow-list. This can be an email address, a phone number, or a web3 wallet.
-  final String identifier;
-  /// This flag denotes whether the given identifier will receive an invitation to join the application. Note that this only works for email address and phone number identifiers.
-  final SdkOptional<bool> notify;
-
-  const CreateAllowlistIdentifierRequestBody({required this.identifier, this.notify = const SdkOmitted()});
-
-  CreateAllowlistIdentifierRequestBody Function({String identifier, SdkOptional<bool> notify}) get copyWith => _copyWith;
-
-  CreateAllowlistIdentifierRequestBody _copyWith({Object? identifier = sdkOmittedValue, Object? notify = sdkOmittedValue}) => CreateAllowlistIdentifierRequestBody(
-    identifier: identical(identifier, sdkOmittedValue) ? this.identifier : identifier as String,
-    notify: identical(notify, sdkOmittedValue) ? this.notify : notify as SdkOptional<bool>,
-  );
-
-  factory CreateAllowlistIdentifierRequestBody.fromJson(Map<String, dynamic> json) => CreateAllowlistIdentifierRequestBody(
-    identifier: (json['identifier'] as String?)!,
-    notify: json['notify'] != null ? SdkPresent((json['notify'] as bool?)!) : const SdkOmitted(),
-  );
-
-  Map<String, dynamic> toJson() => {
-    'identifier': identifier,
-    ...switch (notify) {
-      SdkPresent<bool>(value: final value) => {'notify': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
-}
-
-class CreateBlocklistIdentifierRequestBody {
-  /// This model is constructed from named fields in one call.
-  static const String constructionSurface = 'named';
-  /// The identifier to be added in the block-list. This can be an email address, a phone number, or a web3 wallet.
-  final String identifier;
-
-  const CreateBlocklistIdentifierRequestBody({required this.identifier});
-
-  CreateBlocklistIdentifierRequestBody Function({String identifier}) get copyWith => _copyWith;
-
-  CreateBlocklistIdentifierRequestBody _copyWith({Object? identifier = sdkOmittedValue}) => CreateBlocklistIdentifierRequestBody(
-    identifier: identical(identifier, sdkOmittedValue) ? this.identifier : identifier as String,
-  );
-
-  factory CreateBlocklistIdentifierRequestBody.fromJson(Map<String, dynamic> json) => CreateBlocklistIdentifierRequestBody(
-    identifier: (json['identifier'] as String?)!,
-  );
-
-  Map<String, dynamic> toJson() => {
-    'identifier': identifier,
-  };
-}
-
-class UpdateInstanceAuthConfigRequestBody {
-  /// This model is constructed from named fields in one call.
-  static const String constructionSurface = 'named';
-  /// Whether sign up is restricted to email addresses, phone numbers and usernames that are on the allowlist.
-  final SdkOptional<bool?> restrictedToAllowlist;
-  /// The local part of the email address from which authentication-related emails (e.g. OTP code, magic links) will be sent. Only alphanumeric values are allowed. Note that this value should contain only the local part of the address (e.g. `foo` for `foo@example.com`).
-  final SdkOptional<String?> fromEmailAddress;
-  /// Enable the Progressive Sign Up algorithm. This feature is deprecated, please contact support if you need assistance.
-  final SdkOptional<bool?> progressiveSignUp;
-  /// Toggles test mode for this instance, allowing the use of test email addresses and phone numbers. Defaults to true for development instances.
-  final SdkOptional<bool?> testMode;
-
-  const UpdateInstanceAuthConfigRequestBody({this.restrictedToAllowlist = const SdkOmitted(), this.fromEmailAddress = const SdkOmitted(), this.progressiveSignUp = const SdkOmitted(), this.testMode = const SdkOmitted()});
-
-  UpdateInstanceAuthConfigRequestBody Function({SdkOptional<bool?> restrictedToAllowlist, SdkOptional<String?> fromEmailAddress, SdkOptional<bool?> progressiveSignUp, SdkOptional<bool?> testMode}) get copyWith => _copyWith;
-
-  UpdateInstanceAuthConfigRequestBody _copyWith({Object? restrictedToAllowlist = sdkOmittedValue, Object? fromEmailAddress = sdkOmittedValue, Object? progressiveSignUp = sdkOmittedValue, Object? testMode = sdkOmittedValue}) => UpdateInstanceAuthConfigRequestBody(
-    restrictedToAllowlist: identical(restrictedToAllowlist, sdkOmittedValue) ? this.restrictedToAllowlist : restrictedToAllowlist as SdkOptional<bool?>,
-    fromEmailAddress: identical(fromEmailAddress, sdkOmittedValue) ? this.fromEmailAddress : fromEmailAddress as SdkOptional<String?>,
-    progressiveSignUp: identical(progressiveSignUp, sdkOmittedValue) ? this.progressiveSignUp : progressiveSignUp as SdkOptional<bool?>,
-    testMode: identical(testMode, sdkOmittedValue) ? this.testMode : testMode as SdkOptional<bool?>,
-  );
-
-  factory UpdateInstanceAuthConfigRequestBody.fromJson(Map<String, dynamic> json) => UpdateInstanceAuthConfigRequestBody(
-    restrictedToAllowlist: json.containsKey('restricted_to_allowlist') ? SdkPresent(json['restricted_to_allowlist'] as bool?) : const SdkOmitted(),
-    fromEmailAddress: json.containsKey('from_email_address') ? SdkPresent(json['from_email_address'] as String?) : const SdkOmitted(),
-    progressiveSignUp: json.containsKey('progressive_sign_up') ? SdkPresent(json['progressive_sign_up'] as bool?) : const SdkOmitted(),
-    testMode: json.containsKey('test_mode') ? SdkPresent(json['test_mode'] as bool?) : const SdkOmitted(),
-  );
-
-  Map<String, dynamic> toJson() => {
-    ...switch (restrictedToAllowlist) {
-      SdkPresent<bool?>(value: final value) => {'restricted_to_allowlist': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (fromEmailAddress) {
-      SdkPresent<String?>(value: final value) => {'from_email_address': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (progressiveSignUp) {
-      SdkPresent<bool?>(value: final value) => {'progressive_sign_up': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (testMode) {
-      SdkPresent<bool?>(value: final value) => {'test_mode': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
-}
-
-class SchemaSchema382061cc {
-  /// This model is constructed from named fields in one call.
-  static const String constructionSurface = 'named';
-  /// String representing the object's type. Objects of the same type share the same value.
-  final SdkOptional<SchemaSchemaObjecte5de16a2> object;
-  final SdkOptional<String> id;
-  final SdkOptional<bool> restrictedToAllowlist;
-  final SdkOptional<String> fromEmailAddress;
-  final SdkOptional<bool> progressiveSignUp;
-  /// Deprecated. This setting is retired and no longer affects email delivery; all email is sent through the instance's configured email sending domain. The field is preserved for API compatibility only and will be removed in a future version.
-  final SdkOptional<bool> enhancedEmailDeliverability;
-
-  const SchemaSchema382061cc({this.object = const SdkOmitted(), this.id = const SdkOmitted(), this.restrictedToAllowlist = const SdkOmitted(), this.fromEmailAddress = const SdkOmitted(), this.progressiveSignUp = const SdkOmitted(), this.enhancedEmailDeliverability = const SdkOmitted()});
-
-  SchemaSchema382061cc Function({SdkOptional<SchemaSchemaObjecte5de16a2> object, SdkOptional<String> id, SdkOptional<bool> restrictedToAllowlist, SdkOptional<String> fromEmailAddress, SdkOptional<bool> progressiveSignUp, SdkOptional<bool> enhancedEmailDeliverability}) get copyWith => _copyWith;
-
-  SchemaSchema382061cc _copyWith({Object? object = sdkOmittedValue, Object? id = sdkOmittedValue, Object? restrictedToAllowlist = sdkOmittedValue, Object? fromEmailAddress = sdkOmittedValue, Object? progressiveSignUp = sdkOmittedValue, Object? enhancedEmailDeliverability = sdkOmittedValue}) => SchemaSchema382061cc(
-    object: identical(object, sdkOmittedValue) ? this.object : object as SdkOptional<SchemaSchemaObjecte5de16a2>,
-    id: identical(id, sdkOmittedValue) ? this.id : id as SdkOptional<String>,
-    restrictedToAllowlist: identical(restrictedToAllowlist, sdkOmittedValue) ? this.restrictedToAllowlist : restrictedToAllowlist as SdkOptional<bool>,
-    fromEmailAddress: identical(fromEmailAddress, sdkOmittedValue) ? this.fromEmailAddress : fromEmailAddress as SdkOptional<String>,
-    progressiveSignUp: identical(progressiveSignUp, sdkOmittedValue) ? this.progressiveSignUp : progressiveSignUp as SdkOptional<bool>,
-    enhancedEmailDeliverability: identical(enhancedEmailDeliverability, sdkOmittedValue) ? this.enhancedEmailDeliverability : enhancedEmailDeliverability as SdkOptional<bool>,
-  );
-
-  factory SchemaSchema382061cc.fromJson(Map<String, dynamic> json) => SchemaSchema382061cc(
-    object: json['object'] != null ? SdkPresent((json['object'] != null ? SchemaSchemaObjecte5de16a2.fromJson(json['object'] as String) : null)!) : const SdkOmitted(),
-    id: json['id'] != null ? SdkPresent((json['id'] as String?)!) : const SdkOmitted(),
-    restrictedToAllowlist: json['restricted_to_allowlist'] != null ? SdkPresent((json['restricted_to_allowlist'] as bool?)!) : const SdkOmitted(),
-    fromEmailAddress: json['from_email_address'] != null ? SdkPresent((json['from_email_address'] as String?)!) : const SdkOmitted(),
-    progressiveSignUp: json['progressive_sign_up'] != null ? SdkPresent((json['progressive_sign_up'] as bool?)!) : const SdkOmitted(),
-    enhancedEmailDeliverability: json['enhanced_email_deliverability'] != null ? SdkPresent((json['enhanced_email_deliverability'] as bool?)!) : const SdkOmitted(),
-  );
-
-  Map<String, dynamic> toJson() => {
-    ...switch (object) {
-      SdkPresent<SchemaSchemaObjecte5de16a2>(value: final value) => {'object': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (id) {
-      SdkPresent<String>(value: final value) => {'id': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (restrictedToAllowlist) {
-      SdkPresent<bool>(value: final value) => {'restricted_to_allowlist': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (fromEmailAddress) {
-      SdkPresent<String>(value: final value) => {'from_email_address': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (progressiveSignUp) {
-      SdkPresent<bool>(value: final value) => {'progressive_sign_up': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (enhancedEmailDeliverability) {
-      SdkPresent<bool>(value: final value) => {'enhanced_email_deliverability': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
-}
-
 class UpdateProductionInstanceDomainRequestBody {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
@@ -289,5 +97,127 @@ class CreateActorTokenRequestBodyActor {
   Map<String, dynamic> toJson() => {
     ...additionalProperties,
     'sub': sub,
+  };
+}
+
+class CreateActorTokenRequestBody {
+  /// This model is constructed from named fields in one call.
+  static const String constructionSurface = 'named';
+  /// The ID of the user being impersonated.
+  final String userId;
+  /// The actor payload. It needs to include a sub property which should contain the ID of the actor. This whole payload will be also included in the JWT session token.
+  final CreateActorTokenRequestBodyActor actor;
+  /// Optional parameter to specify the life duration of the actor token in seconds. By default, the duration is 1 hour.
+  final SdkOptional<int> expiresInSeconds;
+  /// The maximum duration that the session which will be created by the generated actor token should last. By default, the duration of a session created via an actor token, lasts 30 minutes.
+  final SdkOptional<int> sessionMaxDurationInSeconds;
+
+  const CreateActorTokenRequestBody({required this.userId, required this.actor, this.expiresInSeconds = const SdkOmitted(), this.sessionMaxDurationInSeconds = const SdkOmitted()});
+
+  CreateActorTokenRequestBody Function({String userId, CreateActorTokenRequestBodyActor actor, SdkOptional<int> expiresInSeconds, SdkOptional<int> sessionMaxDurationInSeconds}) get copyWith => _copyWith;
+
+  CreateActorTokenRequestBody _copyWith({Object? userId = sdkOmittedValue, Object? actor = sdkOmittedValue, Object? expiresInSeconds = sdkOmittedValue, Object? sessionMaxDurationInSeconds = sdkOmittedValue}) => CreateActorTokenRequestBody(
+    userId: identical(userId, sdkOmittedValue) ? this.userId : userId as String,
+    actor: identical(actor, sdkOmittedValue) ? this.actor : actor as CreateActorTokenRequestBodyActor,
+    expiresInSeconds: identical(expiresInSeconds, sdkOmittedValue) ? this.expiresInSeconds : expiresInSeconds as SdkOptional<int>,
+    sessionMaxDurationInSeconds: identical(sessionMaxDurationInSeconds, sdkOmittedValue) ? this.sessionMaxDurationInSeconds : sessionMaxDurationInSeconds as SdkOptional<int>,
+  );
+
+  factory CreateActorTokenRequestBody.fromJson(Map<String, dynamic> json) => CreateActorTokenRequestBody(
+    userId: (json['user_id'] as String?)!,
+    actor: (json['actor'] != null ? CreateActorTokenRequestBodyActor.fromJson(json['actor'] as Map<String, dynamic>) : null)!,
+    expiresInSeconds: json['expires_in_seconds'] != null ? SdkPresent(((json['expires_in_seconds'] as num?)?.toInt())!) : const SdkOmitted(),
+    sessionMaxDurationInSeconds: json['session_max_duration_in_seconds'] != null ? SdkPresent(((json['session_max_duration_in_seconds'] as num?)?.toInt())!) : const SdkOmitted(),
+  );
+
+  Map<String, dynamic> toJson() => {
+    'user_id': userId,
+    'actor': actor.toJson(),
+    ...switch (expiresInSeconds) {
+      SdkPresent<int>(value: final value) => {'expires_in_seconds': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (sessionMaxDurationInSeconds) {
+      SdkPresent<int>(value: final value) => {'session_max_duration_in_seconds': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
+}
+
+class AddDomainRequestBody {
+  /// This model is constructed from named fields in one call.
+  static const String constructionSurface = 'named';
+  /// The new domain name. Can contain the port for development instances.
+  final String name;
+  /// Marks the new domain as satellite. Set to `false` only when migrating a production instance from an active provider domain to a custom domain.
+  final bool isSatellite;
+  /// The full URL of the proxy which will forward requests to the Clerk Frontend API for this domain. Applicable only to production instances.
+  final SdkOptional<String?> proxyUrl;
+
+  const AddDomainRequestBody({required this.name, required this.isSatellite, this.proxyUrl = const SdkOmitted()});
+
+  AddDomainRequestBody Function({String name, bool isSatellite, SdkOptional<String?> proxyUrl}) get copyWith => _copyWith;
+
+  AddDomainRequestBody _copyWith({Object? name = sdkOmittedValue, Object? isSatellite = sdkOmittedValue, Object? proxyUrl = sdkOmittedValue}) => AddDomainRequestBody(
+    name: identical(name, sdkOmittedValue) ? this.name : name as String,
+    isSatellite: identical(isSatellite, sdkOmittedValue) ? this.isSatellite : isSatellite as bool,
+    proxyUrl: identical(proxyUrl, sdkOmittedValue) ? this.proxyUrl : proxyUrl as SdkOptional<String?>,
+  );
+
+  factory AddDomainRequestBody.fromJson(Map<String, dynamic> json) => AddDomainRequestBody(
+    name: (json['name'] as String?)!,
+    isSatellite: (json['is_satellite'] as bool?)!,
+    proxyUrl: json.containsKey('proxy_url') ? SdkPresent(json['proxy_url'] as String?) : const SdkOmitted(),
+  );
+
+  Map<String, dynamic> toJson() => {
+    'name': name,
+    'is_satellite': isSatellite,
+    ...switch (proxyUrl) {
+      SdkPresent<String?>(value: final value) => {'proxy_url': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
+}
+
+class UpdateDomainRequestBody {
+  /// This model is constructed from named fields in one call.
+  static const String constructionSurface = 'named';
+  /// The new domain name. For development instances, can contain the port, i.e `myhostname:3000`. For production instances, must be a valid FQDN, i.e `mysite.com`. Cannot contain protocol scheme.
+  final SdkOptional<String?> name;
+  /// The full URL of the proxy that will forward requests to Clerk's Frontend API. Can only be updated for production instances.
+  final SdkOptional<String?> proxyUrl;
+  /// Whether this is a domain for a secondary app, meaning that any subdomain provided is significant and will be stored as part of the domain. This is useful for supporting multiple apps (one primary and multiple secondaries) on the same root domain (eTLD+1).
+  final SdkOptional<bool?> isSecondary;
+
+  const UpdateDomainRequestBody({this.name = const SdkOmitted(), this.proxyUrl = const SdkOmitted(), this.isSecondary = const SdkOmitted()});
+
+  UpdateDomainRequestBody Function({SdkOptional<String?> name, SdkOptional<String?> proxyUrl, SdkOptional<bool?> isSecondary}) get copyWith => _copyWith;
+
+  UpdateDomainRequestBody _copyWith({Object? name = sdkOmittedValue, Object? proxyUrl = sdkOmittedValue, Object? isSecondary = sdkOmittedValue}) => UpdateDomainRequestBody(
+    name: identical(name, sdkOmittedValue) ? this.name : name as SdkOptional<String?>,
+    proxyUrl: identical(proxyUrl, sdkOmittedValue) ? this.proxyUrl : proxyUrl as SdkOptional<String?>,
+    isSecondary: identical(isSecondary, sdkOmittedValue) ? this.isSecondary : isSecondary as SdkOptional<bool?>,
+  );
+
+  factory UpdateDomainRequestBody.fromJson(Map<String, dynamic> json) => UpdateDomainRequestBody(
+    name: json.containsKey('name') ? SdkPresent(json['name'] as String?) : const SdkOmitted(),
+    proxyUrl: json.containsKey('proxy_url') ? SdkPresent(json['proxy_url'] as String?) : const SdkOmitted(),
+    isSecondary: json.containsKey('is_secondary') ? SdkPresent(json['is_secondary'] as bool?) : const SdkOmitted(),
+  );
+
+  Map<String, dynamic> toJson() => {
+    ...switch (name) {
+      SdkPresent<String?>(value: final value) => {'name': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (proxyUrl) {
+      SdkPresent<String?>(value: final value) => {'proxy_url': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (isSecondary) {
+      SdkPresent<bool?>(value: final value) => {'is_secondary': value,},
+      _ => const <String, dynamic>{},
+    },
   };
 }

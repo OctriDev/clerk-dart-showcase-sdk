@@ -13,7 +13,7 @@ import '../types.dart';
 ///   paginating the results together with `offset`.
 /// [offset] Skip the first `offset` results when paginating. Needs to be an
 ///   integer greater or equal to zero. To be used in conjunction with `limit`.
-Future<SchemaSchemaa0ee7c0b> listScimDirectories(ClientConfig config,
+Future<SCIMDirectoryList> listScimDirectories(ClientConfig config,
     {SdkOptional<int> limit = const SdkOmitted(),
     SdkOptional<int> offset = const SdkOmitted(),
     RequestOptions? requestOptions}) async {
@@ -24,7 +24,7 @@ Future<SchemaSchemaa0ee7c0b> listScimDirectories(ClientConfig config,
     validateRange('offset', offset.value, min: 0);
   }
 
-  return (await sdkRequest<SchemaSchemaa0ee7c0b>('GET', '/scim_directories',
+  return (await sdkRequest<SCIMDirectoryList>('GET', '/scim_directories',
           config: config,
           query: {
             'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit), style: 'form', explode: true),
@@ -32,7 +32,7 @@ Future<SchemaSchemaa0ee7c0b> listScimDirectories(ClientConfig config,
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'listScimDirectories',
-          fromJsonRaw: (value) => SchemaSchemaa0ee7c0b.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => SCIMDirectoryList.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
           errors: {'401': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '403': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)}))
       .data;
@@ -168,14 +168,14 @@ Future<SCIMDirectory> rotateScimDirectoryApiKey(ClientConfig config,
 /// Returns the list of SCIM group to organization role mappings for a directory, ordered by precedence.
 ///
 /// [scimDirectoryId] The ID of the directory.
-Future<SchemaSchemac6c780d9> listScimGroupRoleMappings(ClientConfig config,
+Future<SCIMGroupRoleMappingList> listScimGroupRoleMappings(ClientConfig config,
     {required String scimDirectoryId, RequestOptions? requestOptions}) async {
-  return (await sdkRequest<SchemaSchemac6c780d9>('GET',
+  return (await sdkRequest<SCIMGroupRoleMappingList>('GET',
           '/scim_directories/${Uri.encodeComponent(scimDirectoryId.toString())}/group_role_mappings',
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'listScimGroupRoleMappings',
-          fromJsonRaw: (value) => SchemaSchemac6c780d9.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => SCIMGroupRoleMappingList.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
           errors: {'401': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '403': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '404': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)}))
       .data;
@@ -223,17 +223,18 @@ Future<SCIMGroupRoleMapping> createScimGroupRoleMapping(ClientConfig config,
 /// [scimDirectoryId] The ID of the directory.
 /// [mappings] The desired set of mappings. Array order sets precedence
 ///   (1-indexed). An empty array clears all mappings.
-Future<SchemaSchemac6c780d9> replaceScimGroupRoleMappings(ClientConfig config,
-    {required String scimDirectoryId,
-    required List<ReplaceSCIMGroupRoleMappingsRequestBodyMappingsItem> mappings,
-    RequestOptions? requestOptions}) async {
-  return (await sdkRequest<SchemaSchemac6c780d9>('PUT',
+Future<SCIMGroupRoleMappingList>
+    replaceScimGroupRoleMappings(ClientConfig config,
+        {required String scimDirectoryId,
+        required List<ReplaceSCIMGroupRoleMappingsRequestBodyMappingsItem> mappings,
+        RequestOptions? requestOptions}) async {
+  return (await sdkRequest<SCIMGroupRoleMappingList>('PUT',
           '/scim_directories/${Uri.encodeComponent(scimDirectoryId.toString())}/group_role_mappings',
           config: config,
           body: {'mappings': mappings},
           decoder: SdkResponseDecoder.json,
           operationId: 'replaceScimGroupRoleMappings',
-          fromJsonRaw: (value) => SchemaSchemac6c780d9.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => SCIMGroupRoleMappingList.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
           errors: {'400': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '401': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '403': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '404': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '422': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)}))
       .data;
@@ -244,16 +245,17 @@ Future<SchemaSchemac6c780d9> replaceScimGroupRoleMappings(ClientConfig config,
 ///
 /// [scimDirectoryId] The ID of the directory.
 /// [mappingId] The ID of the SCIM group role mapping to delete.
-Future<SchemaSchemab78302a9> deleteScimGroupRoleMapping(ClientConfig config,
-    {required String scimDirectoryId,
-    required String mappingId,
-    RequestOptions? requestOptions}) async {
-  return (await sdkRequest<SchemaSchemab78302a9>('DELETE',
+Future<SCIMGroupRoleMappingDeleted>
+    deleteScimGroupRoleMapping(ClientConfig config,
+        {required String scimDirectoryId,
+        required String mappingId,
+        RequestOptions? requestOptions}) async {
+  return (await sdkRequest<SCIMGroupRoleMappingDeleted>('DELETE',
           '/scim_directories/${Uri.encodeComponent(scimDirectoryId.toString())}/group_role_mappings/${Uri.encodeComponent(mappingId.toString())}',
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'deleteScimGroupRoleMapping',
-          fromJsonRaw: (value) => SchemaSchemab78302a9.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => SCIMGroupRoleMappingDeleted.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
           errors: {'400': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '401': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '403': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '404': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)}))
       .data;

@@ -4,45 +4,6 @@
 part of 'shared_billing.dart';
 
 // shared_billing domain models
-/// Proration details from passed subscription time
-class BillingDiscountsResponseProration {
-  /// This model is constructed from named fields in one call.
-  static const String constructionSurface = 'named';
-  /// Credit amount with formatting
-  final CommerceMoneyResponse amount;
-  /// Number of days that have passed in the billing cycle
-  final int cycleDaysPassed;
-  /// Total number of days in the billing cycle
-  final int cycleDaysTotal;
-  /// Percentage of the billing cycle that has passed
-  final double cyclePassedPercent;
-
-  const BillingDiscountsResponseProration({required this.amount, required this.cycleDaysPassed, required this.cycleDaysTotal, required this.cyclePassedPercent});
-
-  BillingDiscountsResponseProration Function({CommerceMoneyResponse amount, int cycleDaysPassed, int cycleDaysTotal, double cyclePassedPercent}) get copyWith => _copyWith;
-
-  BillingDiscountsResponseProration _copyWith({Object? amount = sdkOmittedValue, Object? cycleDaysPassed = sdkOmittedValue, Object? cycleDaysTotal = sdkOmittedValue, Object? cyclePassedPercent = sdkOmittedValue}) => BillingDiscountsResponseProration(
-    amount: identical(amount, sdkOmittedValue) ? this.amount : amount as CommerceMoneyResponse,
-    cycleDaysPassed: identical(cycleDaysPassed, sdkOmittedValue) ? this.cycleDaysPassed : cycleDaysPassed as int,
-    cycleDaysTotal: identical(cycleDaysTotal, sdkOmittedValue) ? this.cycleDaysTotal : cycleDaysTotal as int,
-    cyclePassedPercent: identical(cyclePassedPercent, sdkOmittedValue) ? this.cyclePassedPercent : cyclePassedPercent as double,
-  );
-
-  factory BillingDiscountsResponseProration.fromJson(Map<String, dynamic> json) => BillingDiscountsResponseProration(
-    amount: (json['amount'] != null ? CommerceMoneyResponse.fromJson(json['amount'] as Map<String, dynamic>) : null)!,
-    cycleDaysPassed: ((json['cycle_days_passed'] as num?)?.toInt())!,
-    cycleDaysTotal: ((json['cycle_days_total'] as num?)?.toInt())!,
-    cyclePassedPercent: ((json['cycle_passed_percent'] as num?)?.toDouble())!,
-  );
-
-  Map<String, dynamic> toJson() => {
-    'amount': amount.toJson(),
-    'cycle_days_passed': cycleDaysPassed,
-    'cycle_days_total': cycleDaysTotal,
-    'cycle_passed_percent': cyclePassedPercent,
-  };
-}
-
 /// Typed representation of the `BillingDiscountsResponse` API schema.
 class BillingDiscountsResponse {
   /// This model is constructed from named fields in one call.

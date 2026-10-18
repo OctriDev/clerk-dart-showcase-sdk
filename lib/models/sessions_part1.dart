@@ -107,6 +107,10 @@ sealed class SessionRefresh {
   static const String constructionSurface = 'named';
   const SessionRefresh();
   factory SessionRefresh.fromJson(Object? json) {
+    if (json is Map<String, dynamic>) {
+      try { final value = Token.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return SessionRefreshToken(value); } } catch (_) {}
+      try { final value = Cookies.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return SessionRefreshCookies(value); } } catch (_) {}
+    }
     try { return SessionRefreshToken(Token.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     try { return SessionRefreshCookies(Cookies.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     if (json is Map<String, dynamic> && json["object"] is String && !const {"token", "cookies"}.contains(json["object"])) { return UnknownSessionRefresh(json); }

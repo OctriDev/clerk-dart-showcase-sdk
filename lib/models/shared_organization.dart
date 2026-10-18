@@ -8,4 +8,3 @@ import 'inline.dart';
 part 'shared_organization_part1.dart';
 part 'shared_organization_part2.dart';
 part 'shared_organization_part3.dart';
-part 'shared_organization_part4.dart';

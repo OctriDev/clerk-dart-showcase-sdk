@@ -5,224 +5,6 @@ part of 'inline.dart';
 
 // Inline operation models (part 6)
 /// String representing the object's type. Objects of the same type share the same value.
-final class EmailAddressObject {
-
-  final String value;
-
-  const EmailAddressObject._(this.value);
-
-  factory EmailAddressObject.fromJson(String value) => EmailAddressObject._(value);
-
-  static const emailAddress = EmailAddressObject._('email_address');
-
-  String toJson() => value;
-
-  @override String toString() => value.toString();
-
-  @override bool operator ==(Object other) => other is EmailAddressObject && other.value == value;
-
-  @override int get hashCode => value.hashCode;
-
-}
-
-/// String representing the object's type. Objects of the same type share the same value.
-final class EnterpriseAccountObject {
-
-  final String value;
-
-  const EnterpriseAccountObject._(this.value);
-
-  factory EnterpriseAccountObject.fromJson(String value) => EnterpriseAccountObject._(value);
-
-  static const enterpriseAccount = EnterpriseAccountObject._('enterprise_account');
-
-  String toJson() => value;
-
-  @override String toString() => value.toString();
-
-  @override bool operator ==(Object other) => other is EnterpriseAccountObject && other.value == value;
-
-  @override int get hashCode => value.hashCode;
-
-}
-
-/// The authentication protocol used to sign in.
-final class EnterpriseAccountProtocol {
-
-  final String value;
-
-  const EnterpriseAccountProtocol._(this.value);
-
-  factory EnterpriseAccountProtocol.fromJson(String value) => EnterpriseAccountProtocol._(value);
-
-  static const oauth = EnterpriseAccountProtocol._('oauth');
-  static const saml = EnterpriseAccountProtocol._('saml');
-
-  String toJson() => value;
-
-  @override String toString() => value.toString();
-
-  @override bool operator ==(Object other) => other is EnterpriseAccountProtocol && other.value == value;
-
-  @override int get hashCode => value.hashCode;
-
-}
-
-/// Required enumerated value serialized in the `object` wire field.
-final class EnterpriseConnectionObject {
-
-  final String value;
-
-  const EnterpriseConnectionObject._(this.value);
-
-  factory EnterpriseConnectionObject.fromJson(String value) => EnterpriseConnectionObject._(value);
-
-  static const enterpriseConnection = EnterpriseConnectionObject._('enterprise_connection');
-
-  String toJson() => value;
-
-  @override String toString() => value.toString();
-
-  @override bool operator ==(Object other) => other is EnterpriseConnectionObject && other.value == value;
-
-  @override int get hashCode => value.hashCode;
-
-}
-
-/// Controls the login_hint sent to the IdP on SSO sign-in
-final class EnterpriseConnectionSamlConnectionLoginHintMode {
-
-  final String value;
-
-  const EnterpriseConnectionSamlConnectionLoginHintMode._(this.value);
-
-  factory EnterpriseConnectionSamlConnectionLoginHintMode.fromJson(String value) => EnterpriseConnectionSamlConnectionLoginHintMode._(value);
-
-  static const emailAddress = EnterpriseConnectionSamlConnectionLoginHintMode._('email_address');
-  static const customAttribute = EnterpriseConnectionSamlConnectionLoginHintMode._('custom_attribute');
-  static const off = EnterpriseConnectionSamlConnectionLoginHintMode._('off');
-
-  String toJson() => value;
-
-  @override String toString() => value.toString();
-
-  @override bool operator ==(Object other) => other is EnterpriseConnectionSamlConnectionLoginHintMode && other.value == value;
-
-  @override int get hashCode => value.hashCode;
-
-}
-
-/// The type of enterprise connection the test run was performed against
-final class EnterpriseConnectionTestRunConnectionType {
-
-  final String value;
-
-  const EnterpriseConnectionTestRunConnectionType._(this.value);
-
-  factory EnterpriseConnectionTestRunConnectionType.fromJson(String value) => EnterpriseConnectionTestRunConnectionType._(value);
-
-  static const saml = EnterpriseConnectionTestRunConnectionType._('saml');
-  static const oauth = EnterpriseConnectionTestRunConnectionType._('oauth');
-
-  String toJson() => value;
-
-  @override String toString() => value.toString();
-
-  @override bool operator ==(Object other) => other is EnterpriseConnectionTestRunConnectionType && other.value == value;
-
-  @override int get hashCode => value.hashCode;
-
-}
-
-/// The status of the test run
-final class EnterpriseConnectionTestRunStatus {
-
-  final String value;
-
-  const EnterpriseConnectionTestRunStatus._(this.value);
-
-  factory EnterpriseConnectionTestRunStatus.fromJson(String value) => EnterpriseConnectionTestRunStatus._(value);
-
-  static const pending = EnterpriseConnectionTestRunStatus._('pending');
-  static const success = EnterpriseConnectionTestRunStatus._('success');
-  static const failed = EnterpriseConnectionTestRunStatus._('failed');
-
-  String toJson() => value;
-
-  @override String toString() => value.toString();
-
-  @override bool operator ==(Object other) => other is EnterpriseConnectionTestRunStatus && other.value == value;
-
-  @override int get hashCode => value.hashCode;
-
-}
-
-/// String representing the object's type. Objects of the same type share the same value.
-final class ExternalAccountWithVerificationObject {
-
-  final String value;
-
-  const ExternalAccountWithVerificationObject._(this.value);
-
-  factory ExternalAccountWithVerificationObject.fromJson(String value) => ExternalAccountWithVerificationObject._(value);
-
-  static const externalAccount = ExternalAccountWithVerificationObject._('external_account');
-  static const facebookAccount = ExternalAccountWithVerificationObject._('facebook_account');
-  static const googleAccount = ExternalAccountWithVerificationObject._('google_account');
-
-  String toJson() => value;
-
-  @override String toString() => value.toString();
-
-  @override bool operator ==(Object other) => other is ExternalAccountWithVerificationObject && other.value == value;
-
-  @override int get hashCode => value.hashCode;
-
-}
-
-/// String representing the object's type. Objects of the same type share the same value.
-final class FeatureResponseObject {
-
-  final String value;
-
-  const FeatureResponseObject._(this.value);
-
-  factory FeatureResponseObject.fromJson(String value) => FeatureResponseObject._(value);
-
-  static const feature = FeatureResponseObject._('feature');
-
-  String toJson() => value;
-
-  @override String toString() => value.toString();
-
-  @override bool operator ==(Object other) => other is FeatureResponseObject && other.value == value;
-
-  @override int get hashCode => value.hashCode;
-
-}
-
-/// String representing the object's type. Objects of the same type share the same value.
-final class FeatureResponse2Object {
-
-  final String value;
-
-  const FeatureResponse2Object._(this.value);
-
-  factory FeatureResponse2Object.fromJson(String value) => FeatureResponse2Object._(value);
-
-  static const feature = FeatureResponse2Object._('feature');
-
-  String toJson() => value;
-
-  @override String toString() => value.toString();
-
-  @override bool operator ==(Object other) => other is FeatureResponse2Object && other.value == value;
-
-  @override int get hashCode => value.hashCode;
-
-}
-
-/// String representing the object's type. Objects of the same type share the same value.
 final class InstanceObject {
 
   final String value;
@@ -280,6 +62,217 @@ final class InstanceProtectObject {
   @override String toString() => value.toString();
 
   @override bool operator ==(Object other) => other is InstanceProtectObject && other.value == value;
+
+  @override int get hashCode => value.hashCode;
+
+}
+
+/// String representing the object's type. Objects of the same type share the same value.
+final class InstanceRestrictionsObject {
+
+  final String value;
+
+  const InstanceRestrictionsObject._(this.value);
+
+  factory InstanceRestrictionsObject.fromJson(String value) => InstanceRestrictionsObject._(value);
+
+  static const instanceRestrictions = InstanceRestrictionsObject._('instance_restrictions');
+
+  String toJson() => value;
+
+  @override String toString() => value.toString();
+
+  @override bool operator ==(Object other) => other is InstanceRestrictionsObject && other.value == value;
+
+  @override int get hashCode => value.hashCode;
+
+}
+
+/// String representing the object's type. Objects of the same type share the same value.
+final class InstanceSettingsObject {
+
+  final String value;
+
+  const InstanceSettingsObject._(this.value);
+
+  factory InstanceSettingsObject.fromJson(String value) => InstanceSettingsObject._(value);
+
+  static const instanceSettings = InstanceSettingsObject._('instance_settings');
+
+  String toJson() => value;
+
+  @override String toString() => value.toString();
+
+  @override bool operator ==(Object other) => other is InstanceSettingsObject && other.value == value;
+
+  @override int get hashCode => value.hashCode;
+
+}
+
+/// Required enumerated value serialized in the `object` wire field.
+final class InvitationObject {
+
+  final String value;
+
+  const InvitationObject._(this.value);
+
+  factory InvitationObject.fromJson(String value) => InvitationObject._(value);
+
+  static const invitation = InvitationObject._('invitation');
+
+  String toJson() => value;
+
+  @override String toString() => value.toString();
+
+  @override bool operator ==(Object other) => other is InvitationObject && other.value == value;
+
+  @override int get hashCode => value.hashCode;
+
+}
+
+/// Required enumerated value serialized in the `status` wire field.
+final class InvitationStatus {
+
+  final String value;
+
+  const InvitationStatus._(this.value);
+
+  factory InvitationStatus.fromJson(String value) => InvitationStatus._(value);
+
+  static const pending = InvitationStatus._('pending');
+  static const accepted = InvitationStatus._('accepted');
+  static const revoked = InvitationStatus._('revoked');
+  static const expired = InvitationStatus._('expired');
+
+  String toJson() => value;
+
+  @override String toString() => value.toString();
+
+  @override bool operator ==(Object other) => other is InvitationStatus && other.value == value;
+
+  @override int get hashCode => value.hashCode;
+
+}
+
+final class InvitationRevokedVariant1Revoked {
+
+  final bool value;
+
+  const InvitationRevokedVariant1Revoked._(this.value);
+
+  factory InvitationRevokedVariant1Revoked.fromJson(bool value) => InvitationRevokedVariant1Revoked._(value);
+
+  static const true_ = InvitationRevokedVariant1Revoked._(true);
+
+  bool toJson() => value;
+
+  @override String toString() => value.toString();
+
+  @override bool operator ==(Object other) => other is InvitationRevokedVariant1Revoked && other.value == value;
+
+  @override int get hashCode => value.hashCode;
+
+}
+
+final class InvitationRevokedVariant1Status {
+
+  final String value;
+
+  const InvitationRevokedVariant1Status._(this.value);
+
+  factory InvitationRevokedVariant1Status.fromJson(String value) => InvitationRevokedVariant1Status._(value);
+
+  static const revoked = InvitationRevokedVariant1Status._('revoked');
+
+  String toJson() => value;
+
+  @override String toString() => value.toString();
+
+  @override bool operator ==(Object other) => other is InvitationRevokedVariant1Status && other.value == value;
+
+  @override int get hashCode => value.hashCode;
+
+}
+
+/// Required enumerated value serialized in the `kty` wire field.
+final class JWKSEcdsaPrivateKeyKty {
+
+  final String value;
+
+  const JWKSEcdsaPrivateKeyKty._(this.value);
+
+  factory JWKSEcdsaPrivateKeyKty.fromJson(String value) => JWKSEcdsaPrivateKeyKty._(value);
+
+  static const ec = JWKSEcdsaPrivateKeyKty._('EC');
+
+  String toJson() => value;
+
+  @override String toString() => value.toString();
+
+  @override bool operator ==(Object other) => other is JWKSEcdsaPrivateKeyKty && other.value == value;
+
+  @override int get hashCode => value.hashCode;
+
+}
+
+/// Required enumerated value serialized in the `kty` wire field.
+final class JWKSEcdsaPublicKeyKty {
+
+  final String value;
+
+  const JWKSEcdsaPublicKeyKty._(this.value);
+
+  factory JWKSEcdsaPublicKeyKty.fromJson(String value) => JWKSEcdsaPublicKeyKty._(value);
+
+  static const ec = JWKSEcdsaPublicKeyKty._('EC');
+
+  String toJson() => value;
+
+  @override String toString() => value.toString();
+
+  @override bool operator ==(Object other) => other is JWKSEcdsaPublicKeyKty && other.value == value;
+
+  @override int get hashCode => value.hashCode;
+
+}
+
+/// Required enumerated value serialized in the `crv` wire field.
+final class JWKSEd25519PrivateKeyCrv {
+
+  final String value;
+
+  const JWKSEd25519PrivateKeyCrv._(this.value);
+
+  factory JWKSEd25519PrivateKeyCrv.fromJson(String value) => JWKSEd25519PrivateKeyCrv._(value);
+
+  static const ed25519 = JWKSEd25519PrivateKeyCrv._('Ed25519');
+
+  String toJson() => value;
+
+  @override String toString() => value.toString();
+
+  @override bool operator ==(Object other) => other is JWKSEd25519PrivateKeyCrv && other.value == value;
+
+  @override int get hashCode => value.hashCode;
+
+}
+
+/// Required enumerated value serialized in the `kty` wire field.
+final class JWKSEd25519PrivateKeyKty {
+
+  final String value;
+
+  const JWKSEd25519PrivateKeyKty._(this.value);
+
+  factory JWKSEd25519PrivateKeyKty.fromJson(String value) => JWKSEd25519PrivateKeyKty._(value);
+
+  static const okp = JWKSEd25519PrivateKeyKty._('OKP');
+
+  String toJson() => value;
+
+  @override String toString() => value.toString();
+
+  @override bool operator ==(Object other) => other is JWKSEd25519PrivateKeyKty && other.value == value;
 
   @override int get hashCode => value.hashCode;
 

@@ -21,13 +21,13 @@ import '../types.dart';
 /// [testMode] Toggles test mode for this instance, allowing the use of test
 ///   email addresses and phone numbers. Defaults to true for development
 ///   instances.
-Future<SchemaSchema382061cc> updateInstanceAuthConfig(ClientConfig config,
+Future<InstanceSettings> updateInstanceAuthConfig(ClientConfig config,
     {SdkOptional<bool?> restrictedToAllowlist = const SdkOmitted(),
     SdkOptional<String?> fromEmailAddress = const SdkOmitted(),
     SdkOptional<bool?> progressiveSignUp = const SdkOmitted(),
     SdkOptional<bool?> testMode = const SdkOmitted(),
     RequestOptions? requestOptions}) async {
-  return (await sdkRequest<SchemaSchema382061cc>(
+  return (await sdkRequest<InstanceSettings>(
           'PATCH', '/beta_features/instance_settings',
           config: config,
           body: {
@@ -38,7 +38,7 @@ Future<SchemaSchema382061cc> updateInstanceAuthConfig(ClientConfig config,
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'updateInstanceAuthConfig',
-          fromJsonRaw: (value) => SchemaSchema382061cc.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => InstanceSettings.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
           errors: {'402': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '422': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)}))
       .data;

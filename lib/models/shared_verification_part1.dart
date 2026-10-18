@@ -256,20 +256,3 @@ class VerificationOtp {
     },
   };
 }
-
-sealed class VerificationSamlError {
-  /// This model is constructed from named fields in one call.
-  static const String constructionSurface = 'named';
-  const VerificationSamlError();
-  factory VerificationSamlError.fromJson(Object? json) {
-    try { return VerificationSamlErrorClerkError(ClerkError.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    throw FormatException("No variant matched for VerificationSamlError");
-  }
-  Object? toJson();
-}
-
-final class VerificationSamlErrorClerkError extends VerificationSamlError {
-  final ClerkError value;
-  const VerificationSamlErrorClerkError(this.value);
-  @override Object? toJson() => value.toJson();
-}

@@ -4,156 +4,6 @@
 part of 'inline.dart';
 
 // Inline operation models (part 7)
-/// String representing the object's type. Objects of the same type share the same value.
-final class InstanceRestrictionsObject {
-
-  final String value;
-
-  const InstanceRestrictionsObject._(this.value);
-
-  factory InstanceRestrictionsObject.fromJson(String value) => InstanceRestrictionsObject._(value);
-
-  static const instanceRestrictions = InstanceRestrictionsObject._('instance_restrictions');
-
-  String toJson() => value;
-
-  @override String toString() => value.toString();
-
-  @override bool operator ==(Object other) => other is InstanceRestrictionsObject && other.value == value;
-
-  @override int get hashCode => value.hashCode;
-
-}
-
-/// Required enumerated value serialized in the `object` wire field.
-final class InvitationObject {
-
-  final String value;
-
-  const InvitationObject._(this.value);
-
-  factory InvitationObject.fromJson(String value) => InvitationObject._(value);
-
-  static const invitation = InvitationObject._('invitation');
-
-  String toJson() => value;
-
-  @override String toString() => value.toString();
-
-  @override bool operator ==(Object other) => other is InvitationObject && other.value == value;
-
-  @override int get hashCode => value.hashCode;
-
-}
-
-/// Required enumerated value serialized in the `status` wire field.
-final class InvitationStatus {
-
-  final String value;
-
-  const InvitationStatus._(this.value);
-
-  factory InvitationStatus.fromJson(String value) => InvitationStatus._(value);
-
-  static const pending = InvitationStatus._('pending');
-  static const accepted = InvitationStatus._('accepted');
-  static const revoked = InvitationStatus._('revoked');
-  static const expired = InvitationStatus._('expired');
-
-  String toJson() => value;
-
-  @override String toString() => value.toString();
-
-  @override bool operator ==(Object other) => other is InvitationStatus && other.value == value;
-
-  @override int get hashCode => value.hashCode;
-
-}
-
-/// Required enumerated value serialized in the `kty` wire field.
-final class JWKSEcdsaPrivateKeyKty {
-
-  final String value;
-
-  const JWKSEcdsaPrivateKeyKty._(this.value);
-
-  factory JWKSEcdsaPrivateKeyKty.fromJson(String value) => JWKSEcdsaPrivateKeyKty._(value);
-
-  static const ec = JWKSEcdsaPrivateKeyKty._('EC');
-
-  String toJson() => value;
-
-  @override String toString() => value.toString();
-
-  @override bool operator ==(Object other) => other is JWKSEcdsaPrivateKeyKty && other.value == value;
-
-  @override int get hashCode => value.hashCode;
-
-}
-
-/// Required enumerated value serialized in the `kty` wire field.
-final class JWKSEcdsaPublicKeyKty {
-
-  final String value;
-
-  const JWKSEcdsaPublicKeyKty._(this.value);
-
-  factory JWKSEcdsaPublicKeyKty.fromJson(String value) => JWKSEcdsaPublicKeyKty._(value);
-
-  static const ec = JWKSEcdsaPublicKeyKty._('EC');
-
-  String toJson() => value;
-
-  @override String toString() => value.toString();
-
-  @override bool operator ==(Object other) => other is JWKSEcdsaPublicKeyKty && other.value == value;
-
-  @override int get hashCode => value.hashCode;
-
-}
-
-/// Required enumerated value serialized in the `crv` wire field.
-final class JWKSEd25519PrivateKeyCrv {
-
-  final String value;
-
-  const JWKSEd25519PrivateKeyCrv._(this.value);
-
-  factory JWKSEd25519PrivateKeyCrv.fromJson(String value) => JWKSEd25519PrivateKeyCrv._(value);
-
-  static const ed25519 = JWKSEd25519PrivateKeyCrv._('Ed25519');
-
-  String toJson() => value;
-
-  @override String toString() => value.toString();
-
-  @override bool operator ==(Object other) => other is JWKSEd25519PrivateKeyCrv && other.value == value;
-
-  @override int get hashCode => value.hashCode;
-
-}
-
-/// Required enumerated value serialized in the `kty` wire field.
-final class JWKSEd25519PrivateKeyKty {
-
-  final String value;
-
-  const JWKSEd25519PrivateKeyKty._(this.value);
-
-  factory JWKSEd25519PrivateKeyKty.fromJson(String value) => JWKSEd25519PrivateKeyKty._(value);
-
-  static const okp = JWKSEd25519PrivateKeyKty._('OKP');
-
-  String toJson() => value;
-
-  @override String toString() => value.toString();
-
-  @override bool operator ==(Object other) => other is JWKSEd25519PrivateKeyKty && other.value == value;
-
-  @override int get hashCode => value.hashCode;
-
-}
-
 /// Required enumerated value serialized in the `crv` wire field.
 final class JWKSEd25519PublicKeyCrv {
 
@@ -275,6 +125,153 @@ final class JWTTemplateObject {
   @override String toString() => value.toString();
 
   @override bool operator ==(Object other) => other is JWTTemplateObject && other.value == value;
+
+  @override int get hashCode => value.hashCode;
+
+}
+
+/// Whether the machine was successfully deleted
+final class MachineDeletedDeleted {
+
+  final bool value;
+
+  const MachineDeletedDeleted._(this.value);
+
+  factory MachineDeletedDeleted.fromJson(bool value) => MachineDeletedDeleted._(value);
+
+  static const true_ = MachineDeletedDeleted._(true);
+
+  bool toJson() => value;
+
+  @override String toString() => value.toString();
+
+  @override bool operator ==(Object other) => other is MachineDeletedDeleted && other.value == value;
+
+  @override int get hashCode => value.hashCode;
+
+}
+
+/// String representing the object's type.
+final class MachineDeletedObject {
+
+  final String value;
+
+  const MachineDeletedObject._(this.value);
+
+  factory MachineDeletedObject.fromJson(String value) => MachineDeletedObject._(value);
+
+  static const machine = MachineDeletedObject._('machine');
+
+  String toJson() => value;
+
+  @override String toString() => value.toString();
+
+  @override bool operator ==(Object other) => other is MachineDeletedObject && other.value == value;
+
+  @override int get hashCode => value.hashCode;
+
+}
+
+/// Required enumerated value serialized in the `object` wire field.
+final class MachineScopeObject {
+
+  final String value;
+
+  const MachineScopeObject._(this.value);
+
+  factory MachineScopeObject.fromJson(String value) => MachineScopeObject._(value);
+
+  static const machineScope = MachineScopeObject._('machine_scope');
+
+  String toJson() => value;
+
+  @override String toString() => value.toString();
+
+  @override bool operator ==(Object other) => other is MachineScopeObject && other.value == value;
+
+  @override int get hashCode => value.hashCode;
+
+}
+
+/// Whether the machine scope was successfully deleted
+final class MachineScopeDeletedDeleted {
+
+  final bool value;
+
+  const MachineScopeDeletedDeleted._(this.value);
+
+  factory MachineScopeDeletedDeleted.fromJson(bool value) => MachineScopeDeletedDeleted._(value);
+
+  static const true_ = MachineScopeDeletedDeleted._(true);
+
+  bool toJson() => value;
+
+  @override String toString() => value.toString();
+
+  @override bool operator ==(Object other) => other is MachineScopeDeletedDeleted && other.value == value;
+
+  @override int get hashCode => value.hashCode;
+
+}
+
+/// String representing the object's type.
+final class MachineScopeDeletedObject {
+
+  final String value;
+
+  const MachineScopeDeletedObject._(this.value);
+
+  factory MachineScopeDeletedObject.fromJson(String value) => MachineScopeDeletedObject._(value);
+
+  static const machineScope = MachineScopeDeletedObject._('machine_scope');
+
+  String toJson() => value;
+
+  @override String toString() => value.toString();
+
+  @override bool operator ==(Object other) => other is MachineScopeDeletedObject && other.value == value;
+
+  @override int get hashCode => value.hashCode;
+
+}
+
+/// String representing the object's type.
+final class MachineSecretKeyObject {
+
+  final String value;
+
+  const MachineSecretKeyObject._(this.value);
+
+  factory MachineSecretKeyObject.fromJson(String value) => MachineSecretKeyObject._(value);
+
+  static const machineSecretKey = MachineSecretKeyObject._('machine_secret_key');
+
+  String toJson() => value;
+
+  @override String toString() => value.toString();
+
+  @override bool operator ==(Object other) => other is MachineSecretKeyObject && other.value == value;
+
+  @override int get hashCode => value.hashCode;
+
+}
+
+/// Required enumerated value serialized in the `object` wire field.
+final class MachineWithoutScopedMachinesObject {
+
+  final String value;
+
+  const MachineWithoutScopedMachinesObject._(this.value);
+
+  factory MachineWithoutScopedMachinesObject.fromJson(String value) => MachineWithoutScopedMachinesObject._(value);
+
+  static const machine = MachineWithoutScopedMachinesObject._('machine');
+
+  String toJson() => value;
+
+  @override String toString() => value.toString();
+
+  @override bool operator ==(Object other) => other is MachineWithoutScopedMachinesObject && other.value == value;
 
   @override int get hashCode => value.hashCode;
 

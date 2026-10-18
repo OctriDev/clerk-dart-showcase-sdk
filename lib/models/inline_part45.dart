@@ -4,239 +4,125 @@
 part of 'inline.dart';
 
 // Inline operation models (part 45)
-class CreateAdminPortalLinkTokenResponse {
+class GetApiKeyResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-  final CreateAdminPortalLinkTokenResponseObject object;
+  final GetApiKeyResponseObject object;
   final String id;
-  /// The origin-level admin_portal_link this token was issued for.
-  final String adminPortalLinkId;
-  final String instanceId;
-  /// Optional. Present only when the link is scoped to an existing org.
-  final String? organizationId;
-  /// Optional opaque reference to the IT contact associated with this link.
-  final String? itContactId;
-  /// Caller-provided scopes for this token.
-  final List<String>? scopes;
-  /// The single-use admin portal link token. Returned only on creation. URL-borne; treat as a secret.
-  final String token;
-  final bool revoked;
-  final String? revocationReason;
-  final bool expired;
-  /// The timestamp for when the token will expire, in milliseconds.
-  final double? expiration;
-  /// The timestamp for when the token was created, in milliseconds.
-  final double createdAt;
-  /// The timestamp for when the token was last updated, in milliseconds.
-  final double updatedAt;
-
-  const CreateAdminPortalLinkTokenResponse({required this.object, required this.id, required this.adminPortalLinkId, required this.instanceId, required this.organizationId, required this.itContactId, required this.scopes, required this.token, required this.revoked, required this.revocationReason, required this.expired, required this.expiration, required this.createdAt, required this.updatedAt});
-
-  CreateAdminPortalLinkTokenResponse Function({CreateAdminPortalLinkTokenResponseObject object, String id, String adminPortalLinkId, String instanceId, String? organizationId, String? itContactId, List<String>? scopes, String token, bool revoked, String? revocationReason, bool expired, double? expiration, double createdAt, double updatedAt}) get copyWith => _copyWith;
-
-  CreateAdminPortalLinkTokenResponse _copyWith({Object? object = sdkOmittedValue, Object? id = sdkOmittedValue, Object? adminPortalLinkId = sdkOmittedValue, Object? instanceId = sdkOmittedValue, Object? organizationId = sdkOmittedValue, Object? itContactId = sdkOmittedValue, Object? scopes = sdkOmittedValue, Object? token = sdkOmittedValue, Object? revoked = sdkOmittedValue, Object? revocationReason = sdkOmittedValue, Object? expired = sdkOmittedValue, Object? expiration = sdkOmittedValue, Object? createdAt = sdkOmittedValue, Object? updatedAt = sdkOmittedValue}) => CreateAdminPortalLinkTokenResponse(
-    object: identical(object, sdkOmittedValue) ? this.object : object as CreateAdminPortalLinkTokenResponseObject,
-    id: identical(id, sdkOmittedValue) ? this.id : id as String,
-    adminPortalLinkId: identical(adminPortalLinkId, sdkOmittedValue) ? this.adminPortalLinkId : adminPortalLinkId as String,
-    instanceId: identical(instanceId, sdkOmittedValue) ? this.instanceId : instanceId as String,
-    organizationId: identical(organizationId, sdkOmittedValue) ? this.organizationId : organizationId as String?,
-    itContactId: identical(itContactId, sdkOmittedValue) ? this.itContactId : itContactId as String?,
-    scopes: identical(scopes, sdkOmittedValue) ? this.scopes : scopes as List<String>?,
-    token: identical(token, sdkOmittedValue) ? this.token : token as String,
-    revoked: identical(revoked, sdkOmittedValue) ? this.revoked : revoked as bool,
-    revocationReason: identical(revocationReason, sdkOmittedValue) ? this.revocationReason : revocationReason as String?,
-    expired: identical(expired, sdkOmittedValue) ? this.expired : expired as bool,
-    expiration: identical(expiration, sdkOmittedValue) ? this.expiration : expiration as double?,
-    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as double,
-    updatedAt: identical(updatedAt, sdkOmittedValue) ? this.updatedAt : updatedAt as double,
-  );
-
-  factory CreateAdminPortalLinkTokenResponse.fromJson(Map<String, dynamic> json) => CreateAdminPortalLinkTokenResponse(
-    object: (json['object'] != null ? CreateAdminPortalLinkTokenResponseObject.fromJson(json['object'] as String) : null)!,
-    id: (json['id'] as String?)!,
-    adminPortalLinkId: (json['admin_portal_link_id'] as String?)!,
-    instanceId: (json['instance_id'] as String?)!,
-    organizationId: json.containsKey('organization_id') ? json['organization_id'] as String? : throw ArgumentError.value(null, 'organization_id', 'Required property is missing'),
-    itContactId: json.containsKey('it_contact_id') ? json['it_contact_id'] as String? : throw ArgumentError.value(null, 'it_contact_id', 'Required property is missing'),
-    scopes: json.containsKey('scopes') ? (json['scopes'] as List?)?.map((e) => e as String).toList() : throw ArgumentError.value(null, 'scopes', 'Required property is missing'),
-    token: (json['token'] as String?)!,
-    revoked: (json['revoked'] as bool?)!,
-    revocationReason: json.containsKey('revocation_reason') ? json['revocation_reason'] as String? : throw ArgumentError.value(null, 'revocation_reason', 'Required property is missing'),
-    expired: (json['expired'] as bool?)!,
-    expiration: json.containsKey('expiration') ? (json['expiration'] as num?)?.toDouble() : throw ArgumentError.value(null, 'expiration', 'Required property is missing'),
-    createdAt: ((json['created_at'] as num?)?.toDouble())!,
-    updatedAt: ((json['updated_at'] as num?)?.toDouble())!,
-  );
-
-  Map<String, dynamic> toJson() => {
-    'object': object.toJson(),
-    'id': id,
-    'admin_portal_link_id': adminPortalLinkId,
-    'instance_id': instanceId,
-    'organization_id': organizationId,
-    'it_contact_id': itContactId,
-    'scopes': scopes,
-    'token': token,
-    'revoked': revoked,
-    'revocation_reason': revocationReason,
-    'expired': expired,
-    'expiration': expiration,
-    'created_at': createdAt,
-    'updated_at': updatedAt,
-  };
-}
-
-class RevokeAdminPortalLinkTokenRequestBody {
-  /// This model is constructed from named fields in one call.
-  static const String constructionSurface = 'named';
-  final SdkOptional<String?> revocationReason;
-
-  const RevokeAdminPortalLinkTokenRequestBody({this.revocationReason = const SdkOmitted()});
-
-  RevokeAdminPortalLinkTokenRequestBody Function({SdkOptional<String?> revocationReason}) get copyWith => _copyWith;
-
-  RevokeAdminPortalLinkTokenRequestBody _copyWith({Object? revocationReason = sdkOmittedValue}) => RevokeAdminPortalLinkTokenRequestBody(
-    revocationReason: identical(revocationReason, sdkOmittedValue) ? this.revocationReason : revocationReason as SdkOptional<String?>,
-  );
-
-  factory RevokeAdminPortalLinkTokenRequestBody.fromJson(Map<String, dynamic> json) => RevokeAdminPortalLinkTokenRequestBody(
-    revocationReason: json.containsKey('revocation_reason') ? SdkPresent(json['revocation_reason'] as String?) : const SdkOmitted(),
-  );
-
-  Map<String, dynamic> toJson() => {
-    ...switch (revocationReason) {
-      SdkPresent<String?>(value: final value) => {'revocation_reason': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
-}
-
-class RevokeAdminPortalLinkTokenResponse {
-  /// This model is constructed from named fields in one call.
-  static const String constructionSurface = 'named';
-  final RevokeAdminPortalLinkTokenResponseObject object;
-  final String id;
-  /// The origin-level admin_portal_link this token was issued for.
-  final String adminPortalLinkId;
-  final String instanceId;
-  /// Optional. Present only when the link is scoped to an existing org.
-  final String? organizationId;
-  /// Optional opaque reference to the IT contact associated with this link.
-  final String? itContactId;
-  /// Caller-provided scopes for this token.
-  final List<String>? scopes;
-  final bool revoked;
-  final String? revocationReason;
-  final bool expired;
-  /// The timestamp for when the token will expire, in milliseconds.
-  final double? expiration;
-  /// The timestamp for when the token was created, in milliseconds.
-  final double createdAt;
-  /// The timestamp for when the token was last updated, in milliseconds.
-  final double updatedAt;
-
-  const RevokeAdminPortalLinkTokenResponse({required this.object, required this.id, required this.adminPortalLinkId, required this.instanceId, required this.organizationId, required this.itContactId, required this.scopes, required this.revoked, required this.revocationReason, required this.expired, required this.expiration, required this.createdAt, required this.updatedAt});
-
-  RevokeAdminPortalLinkTokenResponse Function({RevokeAdminPortalLinkTokenResponseObject object, String id, String adminPortalLinkId, String instanceId, String? organizationId, String? itContactId, List<String>? scopes, bool revoked, String? revocationReason, bool expired, double? expiration, double createdAt, double updatedAt}) get copyWith => _copyWith;
-
-  RevokeAdminPortalLinkTokenResponse _copyWith({Object? object = sdkOmittedValue, Object? id = sdkOmittedValue, Object? adminPortalLinkId = sdkOmittedValue, Object? instanceId = sdkOmittedValue, Object? organizationId = sdkOmittedValue, Object? itContactId = sdkOmittedValue, Object? scopes = sdkOmittedValue, Object? revoked = sdkOmittedValue, Object? revocationReason = sdkOmittedValue, Object? expired = sdkOmittedValue, Object? expiration = sdkOmittedValue, Object? createdAt = sdkOmittedValue, Object? updatedAt = sdkOmittedValue}) => RevokeAdminPortalLinkTokenResponse(
-    object: identical(object, sdkOmittedValue) ? this.object : object as RevokeAdminPortalLinkTokenResponseObject,
-    id: identical(id, sdkOmittedValue) ? this.id : id as String,
-    adminPortalLinkId: identical(adminPortalLinkId, sdkOmittedValue) ? this.adminPortalLinkId : adminPortalLinkId as String,
-    instanceId: identical(instanceId, sdkOmittedValue) ? this.instanceId : instanceId as String,
-    organizationId: identical(organizationId, sdkOmittedValue) ? this.organizationId : organizationId as String?,
-    itContactId: identical(itContactId, sdkOmittedValue) ? this.itContactId : itContactId as String?,
-    scopes: identical(scopes, sdkOmittedValue) ? this.scopes : scopes as List<String>?,
-    revoked: identical(revoked, sdkOmittedValue) ? this.revoked : revoked as bool,
-    revocationReason: identical(revocationReason, sdkOmittedValue) ? this.revocationReason : revocationReason as String?,
-    expired: identical(expired, sdkOmittedValue) ? this.expired : expired as bool,
-    expiration: identical(expiration, sdkOmittedValue) ? this.expiration : expiration as double?,
-    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as double,
-    updatedAt: identical(updatedAt, sdkOmittedValue) ? this.updatedAt : updatedAt as double,
-  );
-
-  factory RevokeAdminPortalLinkTokenResponse.fromJson(Map<String, dynamic> json) => RevokeAdminPortalLinkTokenResponse(
-    object: (json['object'] != null ? RevokeAdminPortalLinkTokenResponseObject.fromJson(json['object'] as String) : null)!,
-    id: (json['id'] as String?)!,
-    adminPortalLinkId: (json['admin_portal_link_id'] as String?)!,
-    instanceId: (json['instance_id'] as String?)!,
-    organizationId: json.containsKey('organization_id') ? json['organization_id'] as String? : throw ArgumentError.value(null, 'organization_id', 'Required property is missing'),
-    itContactId: json.containsKey('it_contact_id') ? json['it_contact_id'] as String? : throw ArgumentError.value(null, 'it_contact_id', 'Required property is missing'),
-    scopes: json.containsKey('scopes') ? (json['scopes'] as List?)?.map((e) => e as String).toList() : throw ArgumentError.value(null, 'scopes', 'Required property is missing'),
-    revoked: (json['revoked'] as bool?)!,
-    revocationReason: json.containsKey('revocation_reason') ? json['revocation_reason'] as String? : throw ArgumentError.value(null, 'revocation_reason', 'Required property is missing'),
-    expired: (json['expired'] as bool?)!,
-    expiration: json.containsKey('expiration') ? (json['expiration'] as num?)?.toDouble() : throw ArgumentError.value(null, 'expiration', 'Required property is missing'),
-    createdAt: ((json['created_at'] as num?)?.toDouble())!,
-    updatedAt: ((json['updated_at'] as num?)?.toDouble())!,
-  );
-
-  Map<String, dynamic> toJson() => {
-    'object': object.toJson(),
-    'id': id,
-    'admin_portal_link_id': adminPortalLinkId,
-    'instance_id': instanceId,
-    'organization_id': organizationId,
-    'it_contact_id': itContactId,
-    'scopes': scopes,
-    'revoked': revoked,
-    'revocation_reason': revocationReason,
-    'expired': expired,
-    'expiration': expiration,
-    'created_at': createdAt,
-    'updated_at': updatedAt,
-  };
-}
-
-class CreateApiKeyRequestBody {
-  /// This model is constructed from named fields in one call.
-  static const String constructionSurface = 'named';
-  final SdkOptional<String> type_;
+  final String type_;
+  final String subject;
   final String name;
   final SdkOptional<String?> description;
-  final String subject;
-  final SdkOptional<dynamic> claims;
-  final SdkOptional<List<String>> scopes;
-  final SdkOptional<String?> createdBy;
-  final SdkOptional<double?> secondsUntilExpiration;
+  final dynamic claims;
+  final List<String> scopes;
+  final bool revoked;
+  final String? revocationReason;
+  final bool expired;
+  /// The timestamp for when the API key will expire, in milliseconds
+  final double? expiration;
+  final String? createdBy;
+  /// The timestamp for when the API key was last used, in milliseconds
+  final double? lastUsedAt;
+  /// The timestamp for when the API key was created, in milliseconds
+  final double createdAt;
+  /// The timestamp for when the API key was last updated, in milliseconds
+  final double updatedAt;
 
-  const CreateApiKeyRequestBody({this.type_ = const SdkOmitted(), required this.name, this.description = const SdkOmitted(), required this.subject, this.claims = const SdkOmitted(), this.scopes = const SdkOmitted(), this.createdBy = const SdkOmitted(), this.secondsUntilExpiration = const SdkOmitted()});
+  const GetApiKeyResponse({required this.object, required this.id, required this.type_, required this.subject, required this.name, this.description = const SdkOmitted(), required this.claims, required this.scopes, required this.revoked, required this.revocationReason, required this.expired, required this.expiration, required this.createdBy, required this.lastUsedAt, required this.createdAt, required this.updatedAt});
 
-  CreateApiKeyRequestBody Function({SdkOptional<String> type_, String name, SdkOptional<String?> description, String subject, SdkOptional<dynamic> claims, SdkOptional<List<String>> scopes, SdkOptional<String?> createdBy, SdkOptional<double?> secondsUntilExpiration}) get copyWith => _copyWith;
+  GetApiKeyResponse Function({GetApiKeyResponseObject object, String id, String type_, String subject, String name, SdkOptional<String?> description, dynamic claims, List<String> scopes, bool revoked, String? revocationReason, bool expired, double? expiration, String? createdBy, double? lastUsedAt, double createdAt, double updatedAt}) get copyWith => _copyWith;
 
-  CreateApiKeyRequestBody _copyWith({Object? type_ = sdkOmittedValue, Object? name = sdkOmittedValue, Object? description = sdkOmittedValue, Object? subject = sdkOmittedValue, Object? claims = sdkOmittedValue, Object? scopes = sdkOmittedValue, Object? createdBy = sdkOmittedValue, Object? secondsUntilExpiration = sdkOmittedValue}) => CreateApiKeyRequestBody(
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as SdkOptional<String>,
+  GetApiKeyResponse _copyWith({Object? object = sdkOmittedValue, Object? id = sdkOmittedValue, Object? type_ = sdkOmittedValue, Object? subject = sdkOmittedValue, Object? name = sdkOmittedValue, Object? description = sdkOmittedValue, Object? claims = sdkOmittedValue, Object? scopes = sdkOmittedValue, Object? revoked = sdkOmittedValue, Object? revocationReason = sdkOmittedValue, Object? expired = sdkOmittedValue, Object? expiration = sdkOmittedValue, Object? createdBy = sdkOmittedValue, Object? lastUsedAt = sdkOmittedValue, Object? createdAt = sdkOmittedValue, Object? updatedAt = sdkOmittedValue}) => GetApiKeyResponse(
+    object: identical(object, sdkOmittedValue) ? this.object : object as GetApiKeyResponseObject,
+    id: identical(id, sdkOmittedValue) ? this.id : id as String,
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as String,
+    subject: identical(subject, sdkOmittedValue) ? this.subject : subject as String,
     name: identical(name, sdkOmittedValue) ? this.name : name as String,
     description: identical(description, sdkOmittedValue) ? this.description : description as SdkOptional<String?>,
-    subject: identical(subject, sdkOmittedValue) ? this.subject : subject as String,
-    claims: identical(claims, sdkOmittedValue) ? this.claims : claims as SdkOptional<dynamic>,
-    scopes: identical(scopes, sdkOmittedValue) ? this.scopes : scopes as SdkOptional<List<String>>,
-    createdBy: identical(createdBy, sdkOmittedValue) ? this.createdBy : createdBy as SdkOptional<String?>,
-    secondsUntilExpiration: identical(secondsUntilExpiration, sdkOmittedValue) ? this.secondsUntilExpiration : secondsUntilExpiration as SdkOptional<double?>,
+    claims: identical(claims, sdkOmittedValue) ? this.claims : claims as dynamic,
+    scopes: identical(scopes, sdkOmittedValue) ? this.scopes : scopes as List<String>,
+    revoked: identical(revoked, sdkOmittedValue) ? this.revoked : revoked as bool,
+    revocationReason: identical(revocationReason, sdkOmittedValue) ? this.revocationReason : revocationReason as String?,
+    expired: identical(expired, sdkOmittedValue) ? this.expired : expired as bool,
+    expiration: identical(expiration, sdkOmittedValue) ? this.expiration : expiration as double?,
+    createdBy: identical(createdBy, sdkOmittedValue) ? this.createdBy : createdBy as String?,
+    lastUsedAt: identical(lastUsedAt, sdkOmittedValue) ? this.lastUsedAt : lastUsedAt as double?,
+    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as double,
+    updatedAt: identical(updatedAt, sdkOmittedValue) ? this.updatedAt : updatedAt as double,
   );
 
-  factory CreateApiKeyRequestBody.fromJson(Map<String, dynamic> json) => CreateApiKeyRequestBody(
-    type_: json['type'] != null ? SdkPresent((json['type'] as String?)!) : const SdkOmitted(),
+  factory GetApiKeyResponse.fromJson(Map<String, dynamic> json) => GetApiKeyResponse(
+    object: (json['object'] != null ? GetApiKeyResponseObject.fromJson(json['object'] as String) : null)!,
+    id: (json['id'] as String?)!,
+    type_: (json['type'] as String?)!,
+    subject: (json['subject'] as String?)!,
     name: (json['name'] as String?)!,
     description: json.containsKey('description') ? SdkPresent(json['description'] as String?) : const SdkOmitted(),
-    subject: (json['subject'] as String?)!,
-    claims: json.containsKey('claims') ? SdkPresent(json['claims']) : const SdkOmitted(),
-    scopes: json['scopes'] != null ? SdkPresent(((json['scopes'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
-    createdBy: json.containsKey('created_by') ? SdkPresent(json['created_by'] as String?) : const SdkOmitted(),
-    secondsUntilExpiration: json.containsKey('seconds_until_expiration') ? SdkPresent((json['seconds_until_expiration'] as num?)?.toDouble()) : const SdkOmitted(),
+    claims: json.containsKey('claims') ? json['claims'] : throw ArgumentError.value(null, 'claims', 'Required property is missing'),
+    scopes: ((json['scopes'] as List?)?.map((e) => e as String).toList())!,
+    revoked: (json['revoked'] as bool?)!,
+    revocationReason: json.containsKey('revocation_reason') ? json['revocation_reason'] as String? : throw ArgumentError.value(null, 'revocation_reason', 'Required property is missing'),
+    expired: (json['expired'] as bool?)!,
+    expiration: json.containsKey('expiration') ? (json['expiration'] as num?)?.toDouble() : throw ArgumentError.value(null, 'expiration', 'Required property is missing'),
+    createdBy: json.containsKey('created_by') ? json['created_by'] as String? : throw ArgumentError.value(null, 'created_by', 'Required property is missing'),
+    lastUsedAt: json.containsKey('last_used_at') ? (json['last_used_at'] as num?)?.toDouble() : throw ArgumentError.value(null, 'last_used_at', 'Required property is missing'),
+    createdAt: ((json['created_at'] as num?)?.toDouble())!,
+    updatedAt: ((json['updated_at'] as num?)?.toDouble())!,
   );
 
   Map<String, dynamic> toJson() => {
-    ...switch (type_) {
-      SdkPresent<String>(value: final value) => {'type': value,},
-      _ => const <String, dynamic>{},
-    },
+    'object': object.toJson(),
+    'id': id,
+    'type': type_,
+    'subject': subject,
     'name': name,
     ...switch (description) {
       SdkPresent<String?>(value: final value) => {'description': value,},
       _ => const <String, dynamic>{},
     },
-    'subject': subject,
+    'claims': claims,
+    'scopes': scopes,
+    'revoked': revoked,
+    'revocation_reason': revocationReason,
+    'expired': expired,
+    'expiration': expiration,
+    'created_by': createdBy,
+    'last_used_at': lastUsedAt,
+    'created_at': createdAt,
+    'updated_at': updatedAt,
+  };
+}
+
+class UpdateApiKeyRequestBody {
+  /// This model is constructed from named fields in one call.
+  static const String constructionSurface = 'named';
+  final SdkOptional<dynamic> claims;
+  final SdkOptional<List<String>> scopes;
+  final SdkOptional<String?> description;
+  final SdkOptional<String> subject;
+  final SdkOptional<double?> secondsUntilExpiration;
+
+  const UpdateApiKeyRequestBody({this.claims = const SdkOmitted(), this.scopes = const SdkOmitted(), this.description = const SdkOmitted(), this.subject = const SdkOmitted(), this.secondsUntilExpiration = const SdkOmitted()});
+
+  UpdateApiKeyRequestBody Function({SdkOptional<dynamic> claims, SdkOptional<List<String>> scopes, SdkOptional<String?> description, SdkOptional<String> subject, SdkOptional<double?> secondsUntilExpiration}) get copyWith => _copyWith;
+
+  UpdateApiKeyRequestBody _copyWith({Object? claims = sdkOmittedValue, Object? scopes = sdkOmittedValue, Object? description = sdkOmittedValue, Object? subject = sdkOmittedValue, Object? secondsUntilExpiration = sdkOmittedValue}) => UpdateApiKeyRequestBody(
+    claims: identical(claims, sdkOmittedValue) ? this.claims : claims as SdkOptional<dynamic>,
+    scopes: identical(scopes, sdkOmittedValue) ? this.scopes : scopes as SdkOptional<List<String>>,
+    description: identical(description, sdkOmittedValue) ? this.description : description as SdkOptional<String?>,
+    subject: identical(subject, sdkOmittedValue) ? this.subject : subject as SdkOptional<String>,
+    secondsUntilExpiration: identical(secondsUntilExpiration, sdkOmittedValue) ? this.secondsUntilExpiration : secondsUntilExpiration as SdkOptional<double?>,
+  );
+
+  factory UpdateApiKeyRequestBody.fromJson(Map<String, dynamic> json) => UpdateApiKeyRequestBody(
+    claims: json.containsKey('claims') ? SdkPresent(json['claims']) : const SdkOmitted(),
+    scopes: json['scopes'] != null ? SdkPresent(((json['scopes'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
+    description: json.containsKey('description') ? SdkPresent(json['description'] as String?) : const SdkOmitted(),
+    subject: json['subject'] != null ? SdkPresent((json['subject'] as String?)!) : const SdkOmitted(),
+    secondsUntilExpiration: json.containsKey('seconds_until_expiration') ? SdkPresent((json['seconds_until_expiration'] as num?)?.toDouble()) : const SdkOmitted(),
+  );
+
+  Map<String, dynamic> toJson() => {
     ...switch (claims) {
       SdkPresent<dynamic>(value: final value) => {'claims': value,},
       _ => const <String, dynamic>{},
@@ -245,13 +131,158 @@ class CreateApiKeyRequestBody {
       SdkPresent<List<String>>(value: final value) => {'scopes': value,},
       _ => const <String, dynamic>{},
     },
-    ...switch (createdBy) {
-      SdkPresent<String?>(value: final value) => {'created_by': value,},
+    ...switch (description) {
+      SdkPresent<String?>(value: final value) => {'description': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (subject) {
+      SdkPresent<String>(value: final value) => {'subject': value,},
       _ => const <String, dynamic>{},
     },
     ...switch (secondsUntilExpiration) {
       SdkPresent<double?>(value: final value) => {'seconds_until_expiration': value,},
       _ => const <String, dynamic>{},
     },
+  };
+}
+
+class UpdateApiKeyResponse {
+  /// This model is constructed from named fields in one call.
+  static const String constructionSurface = 'named';
+  final UpdateApiKeyResponseObject object;
+  final String id;
+  final String type_;
+  final String subject;
+  final String name;
+  final SdkOptional<String?> description;
+  final dynamic claims;
+  final List<String> scopes;
+  final bool revoked;
+  final String? revocationReason;
+  final bool expired;
+  /// The timestamp for when the API key will expire, in milliseconds
+  final double? expiration;
+  final String? createdBy;
+  /// The timestamp for when the API key was last used, in milliseconds
+  final double? lastUsedAt;
+  /// The timestamp for when the API key was created, in milliseconds
+  final double createdAt;
+  /// The timestamp for when the API key was last updated, in milliseconds
+  final double updatedAt;
+
+  const UpdateApiKeyResponse({required this.object, required this.id, required this.type_, required this.subject, required this.name, this.description = const SdkOmitted(), required this.claims, required this.scopes, required this.revoked, required this.revocationReason, required this.expired, required this.expiration, required this.createdBy, required this.lastUsedAt, required this.createdAt, required this.updatedAt});
+
+  UpdateApiKeyResponse Function({UpdateApiKeyResponseObject object, String id, String type_, String subject, String name, SdkOptional<String?> description, dynamic claims, List<String> scopes, bool revoked, String? revocationReason, bool expired, double? expiration, String? createdBy, double? lastUsedAt, double createdAt, double updatedAt}) get copyWith => _copyWith;
+
+  UpdateApiKeyResponse _copyWith({Object? object = sdkOmittedValue, Object? id = sdkOmittedValue, Object? type_ = sdkOmittedValue, Object? subject = sdkOmittedValue, Object? name = sdkOmittedValue, Object? description = sdkOmittedValue, Object? claims = sdkOmittedValue, Object? scopes = sdkOmittedValue, Object? revoked = sdkOmittedValue, Object? revocationReason = sdkOmittedValue, Object? expired = sdkOmittedValue, Object? expiration = sdkOmittedValue, Object? createdBy = sdkOmittedValue, Object? lastUsedAt = sdkOmittedValue, Object? createdAt = sdkOmittedValue, Object? updatedAt = sdkOmittedValue}) => UpdateApiKeyResponse(
+    object: identical(object, sdkOmittedValue) ? this.object : object as UpdateApiKeyResponseObject,
+    id: identical(id, sdkOmittedValue) ? this.id : id as String,
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as String,
+    subject: identical(subject, sdkOmittedValue) ? this.subject : subject as String,
+    name: identical(name, sdkOmittedValue) ? this.name : name as String,
+    description: identical(description, sdkOmittedValue) ? this.description : description as SdkOptional<String?>,
+    claims: identical(claims, sdkOmittedValue) ? this.claims : claims as dynamic,
+    scopes: identical(scopes, sdkOmittedValue) ? this.scopes : scopes as List<String>,
+    revoked: identical(revoked, sdkOmittedValue) ? this.revoked : revoked as bool,
+    revocationReason: identical(revocationReason, sdkOmittedValue) ? this.revocationReason : revocationReason as String?,
+    expired: identical(expired, sdkOmittedValue) ? this.expired : expired as bool,
+    expiration: identical(expiration, sdkOmittedValue) ? this.expiration : expiration as double?,
+    createdBy: identical(createdBy, sdkOmittedValue) ? this.createdBy : createdBy as String?,
+    lastUsedAt: identical(lastUsedAt, sdkOmittedValue) ? this.lastUsedAt : lastUsedAt as double?,
+    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as double,
+    updatedAt: identical(updatedAt, sdkOmittedValue) ? this.updatedAt : updatedAt as double,
+  );
+
+  factory UpdateApiKeyResponse.fromJson(Map<String, dynamic> json) => UpdateApiKeyResponse(
+    object: (json['object'] != null ? UpdateApiKeyResponseObject.fromJson(json['object'] as String) : null)!,
+    id: (json['id'] as String?)!,
+    type_: (json['type'] as String?)!,
+    subject: (json['subject'] as String?)!,
+    name: (json['name'] as String?)!,
+    description: json.containsKey('description') ? SdkPresent(json['description'] as String?) : const SdkOmitted(),
+    claims: json.containsKey('claims') ? json['claims'] : throw ArgumentError.value(null, 'claims', 'Required property is missing'),
+    scopes: ((json['scopes'] as List?)?.map((e) => e as String).toList())!,
+    revoked: (json['revoked'] as bool?)!,
+    revocationReason: json.containsKey('revocation_reason') ? json['revocation_reason'] as String? : throw ArgumentError.value(null, 'revocation_reason', 'Required property is missing'),
+    expired: (json['expired'] as bool?)!,
+    expiration: json.containsKey('expiration') ? (json['expiration'] as num?)?.toDouble() : throw ArgumentError.value(null, 'expiration', 'Required property is missing'),
+    createdBy: json.containsKey('created_by') ? json['created_by'] as String? : throw ArgumentError.value(null, 'created_by', 'Required property is missing'),
+    lastUsedAt: json.containsKey('last_used_at') ? (json['last_used_at'] as num?)?.toDouble() : throw ArgumentError.value(null, 'last_used_at', 'Required property is missing'),
+    createdAt: ((json['created_at'] as num?)?.toDouble())!,
+    updatedAt: ((json['updated_at'] as num?)?.toDouble())!,
+  );
+
+  Map<String, dynamic> toJson() => {
+    'object': object.toJson(),
+    'id': id,
+    'type': type_,
+    'subject': subject,
+    'name': name,
+    ...switch (description) {
+      SdkPresent<String?>(value: final value) => {'description': value,},
+      _ => const <String, dynamic>{},
+    },
+    'claims': claims,
+    'scopes': scopes,
+    'revoked': revoked,
+    'revocation_reason': revocationReason,
+    'expired': expired,
+    'expiration': expiration,
+    'created_by': createdBy,
+    'last_used_at': lastUsedAt,
+    'created_at': createdAt,
+    'updated_at': updatedAt,
+  };
+}
+
+class DeleteApiKeyResponse {
+  /// This model is constructed from named fields in one call.
+  static const String constructionSurface = 'named';
+  final String id;
+  final DeleteApiKeyResponseObject object;
+  final DeleteApiKeyResponseDeleted deleted;
+
+  const DeleteApiKeyResponse({required this.id, required this.object, required this.deleted});
+
+  DeleteApiKeyResponse Function({String id, DeleteApiKeyResponseObject object, DeleteApiKeyResponseDeleted deleted}) get copyWith => _copyWith;
+
+  DeleteApiKeyResponse _copyWith({Object? id = sdkOmittedValue, Object? object = sdkOmittedValue, Object? deleted = sdkOmittedValue}) => DeleteApiKeyResponse(
+    id: identical(id, sdkOmittedValue) ? this.id : id as String,
+    object: identical(object, sdkOmittedValue) ? this.object : object as DeleteApiKeyResponseObject,
+    deleted: identical(deleted, sdkOmittedValue) ? this.deleted : deleted as DeleteApiKeyResponseDeleted,
+  );
+
+  factory DeleteApiKeyResponse.fromJson(Map<String, dynamic> json) => DeleteApiKeyResponse(
+    id: (json['id'] as String?)!,
+    object: (json['object'] != null ? DeleteApiKeyResponseObject.fromJson(json['object'] as String) : null)!,
+    deleted: (json['deleted'] != null ? DeleteApiKeyResponseDeleted.fromJson(json['deleted'] as bool) : null)!,
+  );
+
+  Map<String, dynamic> toJson() => {
+    'id': id,
+    'object': object.toJson(),
+    'deleted': deleted.toJson(),
+  };
+}
+
+class GetApiKeySecretResponse {
+  /// This model is constructed from named fields in one call.
+  static const String constructionSurface = 'named';
+  final String secret;
+
+  const GetApiKeySecretResponse({required this.secret});
+
+  GetApiKeySecretResponse Function({String secret}) get copyWith => _copyWith;
+
+  GetApiKeySecretResponse _copyWith({Object? secret = sdkOmittedValue}) => GetApiKeySecretResponse(
+    secret: identical(secret, sdkOmittedValue) ? this.secret : secret as String,
+  );
+
+  factory GetApiKeySecretResponse.fromJson(Map<String, dynamic> json) => GetApiKeySecretResponse(
+    secret: (json['secret'] as String?)!,
+  );
+
+  Map<String, dynamic> toJson() => {
+    'secret': secret,
   };
 }

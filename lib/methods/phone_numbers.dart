@@ -120,14 +120,14 @@ Future<PhoneNumber> updatePhoneNumber(ClientConfig config,
 /// Sends a one-time code to the given phone number so that a backend can verify the user controls it (for example, in a custom, backend-driven sign-in flow). The code is tracked on its own verification; confirm it with attempt_verification.
 ///
 /// [phoneNumberId] The ID of the phone number to send the verification code to
-Future<SchemaSchema3e93ce8e> preparePhoneNumberVerification(ClientConfig config,
+Future<VerificationResponse> preparePhoneNumberVerification(ClientConfig config,
     {required String phoneNumberId, RequestOptions? requestOptions}) async {
-  return (await sdkRequest<SchemaSchema3e93ce8e>('POST',
+  return (await sdkRequest<VerificationResponse>('POST',
           '/phone_numbers/${Uri.encodeComponent(phoneNumberId.toString())}/prepare_verification',
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'preparePhoneNumberVerification',
-          fromJsonRaw: (value) => SchemaSchema3e93ce8e.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => VerificationResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
           errors: {'400': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '401': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '403': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '404': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '429': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '500': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)}))
       .data;
@@ -140,18 +140,18 @@ Future<SchemaSchema3e93ce8e> preparePhoneNumberVerification(ClientConfig config,
 /// [verificationId] The ID of the verification to check, such as one returned
 ///   by prepare_verification
 /// [code] The verification code that was sent to the phone number
-Future<SchemaSchema3e93ce8e> attemptPhoneNumberVerification(ClientConfig config,
+Future<VerificationResponse> attemptPhoneNumberVerification(ClientConfig config,
     {required String phoneNumberId,
     required String verificationId,
     required String code,
     RequestOptions? requestOptions}) async {
-  return (await sdkRequest<SchemaSchema3e93ce8e>('POST',
+  return (await sdkRequest<VerificationResponse>('POST',
           '/phone_numbers/${Uri.encodeComponent(phoneNumberId.toString())}/attempt_verification',
           config: config,
           body: {'verification_id': verificationId, 'code': code},
           decoder: SdkResponseDecoder.json,
           operationId: 'attemptPhoneNumberVerification',
-          fromJsonRaw: (value) => SchemaSchema3e93ce8e.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => VerificationResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
           errors: {'400': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '401': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '403': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '404': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '422': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '429': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '500': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)}))
       .data;

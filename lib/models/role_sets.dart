@@ -6,4 +6,3 @@ import '../sdk_utils.dart';
 import 'inline.dart';
 
 part 'role_sets_part1.dart';
-part 'role_sets_part2.dart';

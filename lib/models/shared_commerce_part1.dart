@@ -4,45 +4,6 @@
 part of 'shared_commerce.dart';
 
 // shared_commerce domain models
-/// The current credit balance. Null when the payer has never had credits.
-class CommerceCreditBalanceResponseBalance {
-  /// This model is constructed from named fields in one call.
-  static const String constructionSurface = 'named';
-  /// The amount in cents.
-  final int amount;
-  /// The formatted amount as a string (e.g., "$49.99").
-  final String amountFormatted;
-  /// The currency code (e.g., "USD").
-  final String currency;
-  /// The currency symbol (e.g., "$").
-  final String currencySymbol;
-
-  const CommerceCreditBalanceResponseBalance({required this.amount, required this.amountFormatted, required this.currency, required this.currencySymbol});
-
-  CommerceCreditBalanceResponseBalance Function({int amount, String amountFormatted, String currency, String currencySymbol}) get copyWith => _copyWith;
-
-  CommerceCreditBalanceResponseBalance _copyWith({Object? amount = sdkOmittedValue, Object? amountFormatted = sdkOmittedValue, Object? currency = sdkOmittedValue, Object? currencySymbol = sdkOmittedValue}) => CommerceCreditBalanceResponseBalance(
-    amount: identical(amount, sdkOmittedValue) ? this.amount : amount as int,
-    amountFormatted: identical(amountFormatted, sdkOmittedValue) ? this.amountFormatted : amountFormatted as String,
-    currency: identical(currency, sdkOmittedValue) ? this.currency : currency as String,
-    currencySymbol: identical(currencySymbol, sdkOmittedValue) ? this.currencySymbol : currencySymbol as String,
-  );
-
-  factory CommerceCreditBalanceResponseBalance.fromJson(Map<String, dynamic> json) => CommerceCreditBalanceResponseBalance(
-    amount: ((json['amount'] as num?)?.toInt())!,
-    amountFormatted: (json['amount_formatted'] as String?)!,
-    currency: (json['currency'] as String?)!,
-    currencySymbol: (json['currency_symbol'] as String?)!,
-  );
-
-  Map<String, dynamic> toJson() => {
-    'amount': amount,
-    'amount_formatted': amountFormatted,
-    'currency': currency,
-    'currency_symbol': currencySymbol,
-  };
-}
-
 /// Typed representation of the `CommerceCreditBalanceResponse` API schema.
 class CommerceCreditBalanceResponse {
   /// This model is constructed from named fields in one call.
@@ -134,81 +95,13 @@ class CommerceCreditLedgerResponse {
   };
 }
 
-/// Required API value serialized in the `proration` wire field.
-class CommerceCreditsResponseProration {
-  /// This model is constructed from named fields in one call.
-  static const String constructionSurface = 'named';
-  /// Required object value serialized in the `amount` wire field.
-  final CommerceMoneyResponse amount;
-  /// Required `int64`-formatted value serialized in the `cycle_days_remaining` wire field.
-  final int cycleDaysRemaining;
-  /// Required `int64`-formatted value serialized in the `cycle_days_total` wire field.
-  final int cycleDaysTotal;
-  /// Required `double`-formatted value serialized in the `cycle_remaining_percent` wire field.
-  final double cycleRemainingPercent;
-
-  const CommerceCreditsResponseProration({required this.amount, required this.cycleDaysRemaining, required this.cycleDaysTotal, required this.cycleRemainingPercent});
-
-  CommerceCreditsResponseProration Function({CommerceMoneyResponse amount, int cycleDaysRemaining, int cycleDaysTotal, double cycleRemainingPercent}) get copyWith => _copyWith;
-
-  CommerceCreditsResponseProration _copyWith({Object? amount = sdkOmittedValue, Object? cycleDaysRemaining = sdkOmittedValue, Object? cycleDaysTotal = sdkOmittedValue, Object? cycleRemainingPercent = sdkOmittedValue}) => CommerceCreditsResponseProration(
-    amount: identical(amount, sdkOmittedValue) ? this.amount : amount as CommerceMoneyResponse,
-    cycleDaysRemaining: identical(cycleDaysRemaining, sdkOmittedValue) ? this.cycleDaysRemaining : cycleDaysRemaining as int,
-    cycleDaysTotal: identical(cycleDaysTotal, sdkOmittedValue) ? this.cycleDaysTotal : cycleDaysTotal as int,
-    cycleRemainingPercent: identical(cycleRemainingPercent, sdkOmittedValue) ? this.cycleRemainingPercent : cycleRemainingPercent as double,
-  );
-
-  factory CommerceCreditsResponseProration.fromJson(Map<String, dynamic> json) => CommerceCreditsResponseProration(
-    amount: (json['amount'] != null ? CommerceMoneyResponse.fromJson(json['amount'] as Map<String, dynamic>) : null)!,
-    cycleDaysRemaining: ((json['cycle_days_remaining'] as num?)?.toInt())!,
-    cycleDaysTotal: ((json['cycle_days_total'] as num?)?.toInt())!,
-    cycleRemainingPercent: ((json['cycle_remaining_percent'] as num?)?.toDouble())!,
-  );
-
-  Map<String, dynamic> toJson() => {
-    'amount': amount.toJson(),
-    'cycle_days_remaining': cycleDaysRemaining,
-    'cycle_days_total': cycleDaysTotal,
-    'cycle_remaining_percent': cycleRemainingPercent,
-  };
-}
-
-/// Required API value serialized in the `payer` wire field.
-class CommerceCreditsResponsePayer {
-  /// This model is constructed from named fields in one call.
-  static const String constructionSurface = 'named';
-  /// Required object value serialized in the `remaining_balance` wire field.
-  final CommerceMoneyResponse remainingBalance;
-  /// Required object value serialized in the `applied_amount` wire field.
-  final CommerceMoneyResponse appliedAmount;
-
-  const CommerceCreditsResponsePayer({required this.remainingBalance, required this.appliedAmount});
-
-  CommerceCreditsResponsePayer Function({CommerceMoneyResponse remainingBalance, CommerceMoneyResponse appliedAmount}) get copyWith => _copyWith;
-
-  CommerceCreditsResponsePayer _copyWith({Object? remainingBalance = sdkOmittedValue, Object? appliedAmount = sdkOmittedValue}) => CommerceCreditsResponsePayer(
-    remainingBalance: identical(remainingBalance, sdkOmittedValue) ? this.remainingBalance : remainingBalance as CommerceMoneyResponse,
-    appliedAmount: identical(appliedAmount, sdkOmittedValue) ? this.appliedAmount : appliedAmount as CommerceMoneyResponse,
-  );
-
-  factory CommerceCreditsResponsePayer.fromJson(Map<String, dynamic> json) => CommerceCreditsResponsePayer(
-    remainingBalance: (json['remaining_balance'] != null ? CommerceMoneyResponse.fromJson(json['remaining_balance'] as Map<String, dynamic>) : null)!,
-    appliedAmount: (json['applied_amount'] != null ? CommerceMoneyResponse.fromJson(json['applied_amount'] as Map<String, dynamic>) : null)!,
-  );
-
-  Map<String, dynamic> toJson() => {
-    'remaining_balance': remainingBalance.toJson(),
-    'applied_amount': appliedAmount.toJson(),
-  };
-}
-
 /// Typed representation of the `CommerceCreditsResponse` API schema.
 class CommerceCreditsResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-  /// Required API value serialized in the `proration` wire field.
+  /// Required object value serialized in the `proration` wire field.
   final CommerceProrationCreditDetailResponse? proration;
-  /// Required API value serialized in the `payer` wire field.
+  /// Required object value serialized in the `payer` wire field.
   final CommercePayerCreditResponse? payer;
   /// Required object value serialized in the `total` wire field.
   final CommerceMoneyResponse total;
@@ -236,41 +129,99 @@ class CommerceCreditsResponse {
   };
 }
 
-/// Required API value serialized in the `proration` wire field.
-class CommerceDiscountsResponseProration {
+/// Typed representation of the `CommerceDiscountsResponse` API schema.
+class CommerceDiscountsResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-  /// Required object value serialized in the `amount` wire field.
-  final CommerceMoneyResponse amount;
-  /// Required `int64`-formatted value serialized in the `cycle_days_passed` wire field.
-  final int cycleDaysPassed;
-  /// Required `int64`-formatted value serialized in the `cycle_days_total` wire field.
-  final int cycleDaysTotal;
-  /// Required `float`-formatted value serialized in the `cycle_passed_percent` wire field.
-  final double cyclePassedPercent;
+  /// Required object value serialized in the `proration` wire field.
+  final CommerceProrationDiscountResponse? proration;
+  /// Required object value serialized in the `total` wire field.
+  final CommerceMoneyResponse total;
 
-  const CommerceDiscountsResponseProration({required this.amount, required this.cycleDaysPassed, required this.cycleDaysTotal, required this.cyclePassedPercent});
+  const CommerceDiscountsResponse({required this.proration, required this.total});
 
-  CommerceDiscountsResponseProration Function({CommerceMoneyResponse amount, int cycleDaysPassed, int cycleDaysTotal, double cyclePassedPercent}) get copyWith => _copyWith;
+  CommerceDiscountsResponse Function({CommerceProrationDiscountResponse? proration, CommerceMoneyResponse total}) get copyWith => _copyWith;
 
-  CommerceDiscountsResponseProration _copyWith({Object? amount = sdkOmittedValue, Object? cycleDaysPassed = sdkOmittedValue, Object? cycleDaysTotal = sdkOmittedValue, Object? cyclePassedPercent = sdkOmittedValue}) => CommerceDiscountsResponseProration(
-    amount: identical(amount, sdkOmittedValue) ? this.amount : amount as CommerceMoneyResponse,
-    cycleDaysPassed: identical(cycleDaysPassed, sdkOmittedValue) ? this.cycleDaysPassed : cycleDaysPassed as int,
-    cycleDaysTotal: identical(cycleDaysTotal, sdkOmittedValue) ? this.cycleDaysTotal : cycleDaysTotal as int,
-    cyclePassedPercent: identical(cyclePassedPercent, sdkOmittedValue) ? this.cyclePassedPercent : cyclePassedPercent as double,
+  CommerceDiscountsResponse _copyWith({Object? proration = sdkOmittedValue, Object? total = sdkOmittedValue}) => CommerceDiscountsResponse(
+    proration: identical(proration, sdkOmittedValue) ? this.proration : proration as CommerceProrationDiscountResponse?,
+    total: identical(total, sdkOmittedValue) ? this.total : total as CommerceMoneyResponse,
   );
 
-  factory CommerceDiscountsResponseProration.fromJson(Map<String, dynamic> json) => CommerceDiscountsResponseProration(
-    amount: (json['amount'] != null ? CommerceMoneyResponse.fromJson(json['amount'] as Map<String, dynamic>) : null)!,
-    cycleDaysPassed: ((json['cycle_days_passed'] as num?)?.toInt())!,
-    cycleDaysTotal: ((json['cycle_days_total'] as num?)?.toInt())!,
-    cyclePassedPercent: ((json['cycle_passed_percent'] as num?)?.toDouble())!,
+  factory CommerceDiscountsResponse.fromJson(Map<String, dynamic> json) => CommerceDiscountsResponse(
+    proration: json.containsKey('proration') ? json['proration'] != null ? CommerceProrationDiscountResponse.fromJson(json['proration'] as Map<String, dynamic>) : null : throw ArgumentError.value(null, 'proration', 'Required property is missing'),
+    total: (json['total'] != null ? CommerceMoneyResponse.fromJson(json['total'] as Map<String, dynamic>) : null)!,
   );
 
   Map<String, dynamic> toJson() => {
-    'amount': amount.toJson(),
-    'cycle_days_passed': cycleDaysPassed,
-    'cycle_days_total': cycleDaysTotal,
-    'cycle_passed_percent': cyclePassedPercent,
+    'proration': proration?.toJson(),
+    'total': total.toJson(),
+  };
+}
+
+/// Typed representation of the `CommerceMoneyResponse` API schema.
+class CommerceMoneyResponse {
+  /// This model is constructed from named fields in one call.
+  static const String constructionSurface = 'named';
+  /// The amount in cents.
+  final int amount;
+  /// The formatted amount as a string (e.g., "$49.99").
+  final String amountFormatted;
+  /// The currency code (e.g., "USD").
+  final String currency;
+  /// The currency symbol (e.g., "$").
+  final String currencySymbol;
+
+  const CommerceMoneyResponse({required this.amount, required this.amountFormatted, required this.currency, required this.currencySymbol});
+
+  CommerceMoneyResponse Function({int amount, String amountFormatted, String currency, String currencySymbol}) get copyWith => _copyWith;
+
+  CommerceMoneyResponse _copyWith({Object? amount = sdkOmittedValue, Object? amountFormatted = sdkOmittedValue, Object? currency = sdkOmittedValue, Object? currencySymbol = sdkOmittedValue}) => CommerceMoneyResponse(
+    amount: identical(amount, sdkOmittedValue) ? this.amount : amount as int,
+    amountFormatted: identical(amountFormatted, sdkOmittedValue) ? this.amountFormatted : amountFormatted as String,
+    currency: identical(currency, sdkOmittedValue) ? this.currency : currency as String,
+    currencySymbol: identical(currencySymbol, sdkOmittedValue) ? this.currencySymbol : currencySymbol as String,
+  );
+
+  factory CommerceMoneyResponse.fromJson(Map<String, dynamic> json) => CommerceMoneyResponse(
+    amount: ((json['amount'] as num?)?.toInt())!,
+    amountFormatted: (json['amount_formatted'] as String?)!,
+    currency: (json['currency'] as String?)!,
+    currencySymbol: (json['currency_symbol'] as String?)!,
+  );
+
+  Map<String, dynamic> toJson() => {
+    'amount': amount,
+    'amount_formatted': amountFormatted,
+    'currency': currency,
+    'currency_symbol': currencySymbol,
+  };
+}
+
+/// Typed representation of the `CommercePayerCreditResponse` API schema.
+class CommercePayerCreditResponse {
+  /// This model is constructed from named fields in one call.
+  static const String constructionSurface = 'named';
+  /// Required object value serialized in the `remaining_balance` wire field.
+  final CommerceMoneyResponse remainingBalance;
+  /// Required object value serialized in the `applied_amount` wire field.
+  final CommerceMoneyResponse appliedAmount;
+
+  const CommercePayerCreditResponse({required this.remainingBalance, required this.appliedAmount});
+
+  CommercePayerCreditResponse Function({CommerceMoneyResponse remainingBalance, CommerceMoneyResponse appliedAmount}) get copyWith => _copyWith;
+
+  CommercePayerCreditResponse _copyWith({Object? remainingBalance = sdkOmittedValue, Object? appliedAmount = sdkOmittedValue}) => CommercePayerCreditResponse(
+    remainingBalance: identical(remainingBalance, sdkOmittedValue) ? this.remainingBalance : remainingBalance as CommerceMoneyResponse,
+    appliedAmount: identical(appliedAmount, sdkOmittedValue) ? this.appliedAmount : appliedAmount as CommerceMoneyResponse,
+  );
+
+  factory CommercePayerCreditResponse.fromJson(Map<String, dynamic> json) => CommercePayerCreditResponse(
+    remainingBalance: (json['remaining_balance'] != null ? CommerceMoneyResponse.fromJson(json['remaining_balance'] as Map<String, dynamic>) : null)!,
+    appliedAmount: (json['applied_amount'] != null ? CommerceMoneyResponse.fromJson(json['applied_amount'] as Map<String, dynamic>) : null)!,
+  );
+
+  Map<String, dynamic> toJson() => {
+    'remaining_balance': remainingBalance.toJson(),
+    'applied_amount': appliedAmount.toJson(),
   };
 }

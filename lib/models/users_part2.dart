@@ -104,6 +104,11 @@ sealed class EnterpriseAccountVerification {
   static const String constructionSurface = 'named';
   const EnterpriseAccountVerification();
   factory EnterpriseAccountVerification.fromJson(Object? json) {
+    if (json is Map<String, dynamic>) {
+      try { final value = VerificationTicket.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return EnterpriseAccountVerificationVerificationTicket(value); } } catch (_) {}
+      try { final value = VerificationSaml.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return EnterpriseAccountVerificationVerificationSaml(value); } } catch (_) {}
+      try { final value = VerificationOauth.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return EnterpriseAccountVerificationVerificationOauth(value); } } catch (_) {}
+    }
     try { return EnterpriseAccountVerificationVerificationTicket(VerificationTicket.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     try { return EnterpriseAccountVerificationVerificationSaml(VerificationSaml.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     try { return EnterpriseAccountVerificationVerificationOauth(VerificationOauth.fromJson(json as Map<String, dynamic>)); } catch (_) {}
@@ -279,16 +284,14 @@ sealed class ExternalAccountWithVerificationVerification {
   static const String constructionSurface = 'named';
   const ExternalAccountWithVerificationVerification();
   factory ExternalAccountWithVerificationVerification.fromJson(Object? json) {
+    if (json is Map<String, dynamic>) {
+      try { final value = VerificationOauth.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ExternalAccountWithVerificationVerificationVerificationOauth(value); } } catch (_) {}
+      try { final value = VerificationGoogleOneTap.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ExternalAccountWithVerificationVerificationVerificationGoogleOneTap(value); } } catch (_) {}
+    }
     try { return ExternalAccountWithVerificationVerificationVerificationOauth(VerificationOauth.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     try { return ExternalAccountWithVerificationVerificationVerificationGoogleOneTap(VerificationGoogleOneTap.fromJson(json as Map<String, dynamic>)); } catch (_) {}
     if (json is Map<String, dynamic> && json["object"] is String && !const {"verification_oauth", "verification_google_one_tap"}.contains(json["object"])) { return UnknownExternalAccountWithVerificationVerification(json); }
     throw FormatException("No variant matched for ExternalAccountWithVerificationVerification");
   }
   Object? toJson();
-}
-
-final class ExternalAccountWithVerificationVerificationVerificationOauth extends ExternalAccountWithVerificationVerification {
-  final VerificationOauth value;
-  const ExternalAccountWithVerificationVerificationVerificationOauth(this.value);
-  @override Object? toJson() => value.toJson();
 }

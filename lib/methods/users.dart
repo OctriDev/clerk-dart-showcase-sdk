@@ -1228,14 +1228,14 @@ Future<DeletedObject> deleteUsersPasskey(ClientConfig config,
 /// [userId] The ID of the user whose trusted devices are returned
 ///
 /// **Deprecated:** this operation is deprecated and may be removed in a future release.
-Future<SchemaSchema36c20f95> listUserTrustedDevices(ClientConfig config,
+Future<TrustedDeviceList> listUserTrustedDevices(ClientConfig config,
     {required String userId, RequestOptions? requestOptions}) async {
-  return (await sdkRequest<SchemaSchema36c20f95>('GET',
+  return (await sdkRequest<TrustedDeviceList>('GET',
           '/users/${Uri.encodeComponent(userId.toString())}/trusted_devices',
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'listUserTrustedDevices',
-          fromJsonRaw: (value) => SchemaSchema36c20f95.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => TrustedDeviceList.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
           errors: {'403': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '404': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '500': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)}))
       .data;
@@ -1267,14 +1267,14 @@ Future<TrustedDevice> revokeUserTrustedDevice(ClientConfig config,
 /// Returns the active biometric credentials enrolled by the user.
 ///
 /// [userId] The ID of the user whose biometric credentials are returned
-Future<SchemaSchema> listUserBiometricCredentials(ClientConfig config,
+Future<BiometricCredentialList> listUserBiometricCredentials(ClientConfig config,
     {required String userId, RequestOptions? requestOptions}) async {
-  return (await sdkRequest<SchemaSchema>('GET',
+  return (await sdkRequest<BiometricCredentialList>('GET',
           '/users/${Uri.encodeComponent(userId.toString())}/biometric_credentials',
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'listUserBiometricCredentials',
-          fromJsonRaw: (value) => SchemaSchema.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => BiometricCredentialList.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
           errors: {'403': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '404': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '500': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)}))
       .data;

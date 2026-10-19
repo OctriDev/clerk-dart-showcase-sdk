@@ -6,6 +6,7 @@ part of 'inline.dart';
 // Inline operation models (part 1)
 /// Required enumerated value serialized in the `object` wire field.
 final class ActorTokenObject {
+
   final String value;
 
   const ActorTokenObject._(this.value);
@@ -16,19 +17,17 @@ final class ActorTokenObject {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is ActorTokenObject && other.value == value;
+  @override bool operator ==(Object other) => other is ActorTokenObject && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// Required enumerated value serialized in the `status` wire field.
 final class ActorTokenStatus {
+
   final String value;
 
   const ActorTokenStatus._(this.value);
@@ -41,44 +40,39 @@ final class ActorTokenStatus {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is ActorTokenStatus && other.value == value;
+  @override bool operator ==(Object other) => other is ActorTokenStatus && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// Whether to increase or decrease the credit balance.
 final class AdjustCreditBalanceRequestAction {
+
   final String value;
 
   const AdjustCreditBalanceRequestAction._(this.value);
 
-  factory AdjustCreditBalanceRequestAction.fromJson(String value) =>
-      AdjustCreditBalanceRequestAction._(value);
+  factory AdjustCreditBalanceRequestAction.fromJson(String value) => AdjustCreditBalanceRequestAction._(value);
 
   static const increase = AdjustCreditBalanceRequestAction._('increase');
   static const decrease = AdjustCreditBalanceRequestAction._('decrease');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is AdjustCreditBalanceRequestAction && other.value == value;
+  @override bool operator ==(Object other) => other is AdjustCreditBalanceRequestAction && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// Required enumerated value serialized in the `object` wire field.
 final class AgentTaskObject {
+
   final String value;
 
   const AgentTaskObject._(this.value);
@@ -89,103 +83,87 @@ final class AgentTaskObject {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is AgentTaskObject && other.value == value;
+  @override bool operator ==(Object other) => other is AgentTaskObject && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// Optional enumerated value serialized in the `identifier_type` wire field.
 final class AllowlistIdentifierIdentifierType {
+
   final String value;
 
   const AllowlistIdentifierIdentifierType._(this.value);
 
-  factory AllowlistIdentifierIdentifierType.fromJson(String value) =>
-      AllowlistIdentifierIdentifierType._(value);
+  factory AllowlistIdentifierIdentifierType.fromJson(String value) => AllowlistIdentifierIdentifierType._(value);
 
-  static const emailAddress =
-      AllowlistIdentifierIdentifierType._('email_address');
-  static const phoneNumber =
-      AllowlistIdentifierIdentifierType._('phone_number');
+  static const emailAddress = AllowlistIdentifierIdentifierType._('email_address');
+  static const phoneNumber = AllowlistIdentifierIdentifierType._('phone_number');
   static const web3Wallet = AllowlistIdentifierIdentifierType._('web3_wallet');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is AllowlistIdentifierIdentifierType && other.value == value;
+  @override bool operator ==(Object other) => other is AllowlistIdentifierIdentifierType && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// String representing the object's type. Objects of the same type share the same value.
 final class AllowlistIdentifierObject {
+
   final String value;
 
   const AllowlistIdentifierObject._(this.value);
 
-  factory AllowlistIdentifierObject.fromJson(String value) =>
-      AllowlistIdentifierObject._(value);
+  factory AllowlistIdentifierObject.fromJson(String value) => AllowlistIdentifierObject._(value);
 
-  static const allowlistIdentifier =
-      AllowlistIdentifierObject._('allowlist_identifier');
+  static const allowlistIdentifier = AllowlistIdentifierObject._('allowlist_identifier');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is AllowlistIdentifierObject && other.value == value;
+  @override bool operator ==(Object other) => other is AllowlistIdentifierObject && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// String representing the object's type. Objects of the same type share the same value.
 final class BillingPaymentAttemptObject {
+
   final String value;
 
   const BillingPaymentAttemptObject._(this.value);
 
-  factory BillingPaymentAttemptObject.fromJson(String value) =>
-      BillingPaymentAttemptObject._(value);
+  factory BillingPaymentAttemptObject.fromJson(String value) => BillingPaymentAttemptObject._(value);
 
-  static const commercePayment =
-      BillingPaymentAttemptObject._('commerce_payment');
+  static const commercePayment = BillingPaymentAttemptObject._('commerce_payment');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is BillingPaymentAttemptObject && other.value == value;
+  @override bool operator ==(Object other) => other is BillingPaymentAttemptObject && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The current status of the payment attempt.
 final class BillingPaymentAttemptStatus {
+
   final String value;
 
   const BillingPaymentAttemptStatus._(this.value);
 
-  factory BillingPaymentAttemptStatus.fromJson(String value) =>
-      BillingPaymentAttemptStatus._(value);
+  factory BillingPaymentAttemptStatus.fromJson(String value) => BillingPaymentAttemptStatus._(value);
 
   static const pending = BillingPaymentAttemptStatus._('pending');
   static const paid = BillingPaymentAttemptStatus._('paid');
@@ -193,49 +171,43 @@ final class BillingPaymentAttemptStatus {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is BillingPaymentAttemptStatus && other.value == value;
+  @override bool operator ==(Object other) => other is BillingPaymentAttemptStatus && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// String representing the object's type. Objects of the same type share the same value.
 final class BillingPriceResponseObject {
+
   final String value;
 
   const BillingPriceResponseObject._(this.value);
 
-  factory BillingPriceResponseObject.fromJson(String value) =>
-      BillingPriceResponseObject._(value);
+  factory BillingPriceResponseObject.fromJson(String value) => BillingPriceResponseObject._(value);
 
   static const commercePrice = BillingPriceResponseObject._('commerce_price');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is BillingPriceResponseObject && other.value == value;
+  @override bool operator ==(Object other) => other is BillingPriceResponseObject && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// Which billing periods this price supports.
 final class BillingPriceResponseSupportedBillingPeriods {
+
   final String value;
 
   const BillingPriceResponseSupportedBillingPeriods._(this.value);
 
-  factory BillingPriceResponseSupportedBillingPeriods.fromJson(String value) =>
-      BillingPriceResponseSupportedBillingPeriods._(value);
+  factory BillingPriceResponseSupportedBillingPeriods.fromJson(String value) => BillingPriceResponseSupportedBillingPeriods._(value);
 
   static const month = BillingPriceResponseSupportedBillingPeriods._('month');
   static const annual = BillingPriceResponseSupportedBillingPeriods._('annual');
@@ -243,89 +215,74 @@ final class BillingPriceResponseSupportedBillingPeriods {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is BillingPriceResponseSupportedBillingPeriods &&
-      other.value == value;
+  @override bool operator ==(Object other) => other is BillingPriceResponseSupportedBillingPeriods && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// String representing the object's type. Objects of the same type share the same value.
 final class BillingStatementGroupsItemObject {
+
   final String value;
 
   const BillingStatementGroupsItemObject._(this.value);
 
-  factory BillingStatementGroupsItemObject.fromJson(String value) =>
-      BillingStatementGroupsItemObject._(value);
+  factory BillingStatementGroupsItemObject.fromJson(String value) => BillingStatementGroupsItemObject._(value);
 
-  static const commerceStatementGroup =
-      BillingStatementGroupsItemObject._('commerce_statement_group');
+  static const commerceStatementGroup = BillingStatementGroupsItemObject._('commerce_statement_group');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is BillingStatementGroupsItemObject && other.value == value;
+  @override bool operator ==(Object other) => other is BillingStatementGroupsItemObject && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// String representing the object's type. Objects of the same type share the same value.
 final class BillingStatementObject {
+
   final String value;
 
   const BillingStatementObject._(this.value);
 
-  factory BillingStatementObject.fromJson(String value) =>
-      BillingStatementObject._(value);
+  factory BillingStatementObject.fromJson(String value) => BillingStatementObject._(value);
 
-  static const commerceStatement =
-      BillingStatementObject._('commerce_statement');
+  static const commerceStatement = BillingStatementObject._('commerce_statement');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is BillingStatementObject && other.value == value;
+  @override bool operator ==(Object other) => other is BillingStatementObject && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The current status of the statement.
 final class BillingStatementStatus {
+
   final String value;
 
   const BillingStatementStatus._(this.value);
 
-  factory BillingStatementStatus.fromJson(String value) =>
-      BillingStatementStatus._(value);
+  factory BillingStatementStatus.fromJson(String value) => BillingStatementStatus._(value);
 
   static const open = BillingStatementStatus._('open');
   static const closed = BillingStatementStatus._('closed');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is BillingStatementStatus && other.value == value;
+  @override bool operator ==(Object other) => other is BillingStatementStatus && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }

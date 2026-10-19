@@ -10,528 +10,269 @@ part of 'scim_directories.dart';
 class SCIMDirectoryCustomAttributesItem {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Display name for the custom attribute
   final SdkOptional<String> name;
-
   /// Key used to store the attribute in the user's public/private/unsafe metadata
   final SdkOptional<String> key;
-
   /// Path to extract the attribute value from SSO claims (SAML assertions or OIDC claims)
   final SdkOptional<String> ssoPath;
-
   /// GJSON path to extract the attribute value from SCIM user resources
   final SdkOptional<String> scimPath;
-
   /// GJSON path to extract the attribute value from directory sync user resources. Same value as `scim_path`.
   final SdkOptional<String> directoryPath;
-
   /// When true, the attribute supports multiple values; values from the IdP are written to public_metadata as an array. Defaults to false.
   final SdkOptional<bool> multiValued;
 
-  const SCIMDirectoryCustomAttributesItem(
-      {this.name = const SdkOmitted(),
-      this.key = const SdkOmitted(),
-      this.ssoPath = const SdkOmitted(),
-      this.scimPath = const SdkOmitted(),
-      this.directoryPath = const SdkOmitted(),
-      this.multiValued = const SdkOmitted()});
+  const SCIMDirectoryCustomAttributesItem({this.name = const SdkOmitted(), this.key = const SdkOmitted(), this.ssoPath = const SdkOmitted(), this.scimPath = const SdkOmitted(), this.directoryPath = const SdkOmitted(), this.multiValued = const SdkOmitted()});
 
-  SCIMDirectoryCustomAttributesItem Function(
-      {SdkOptional<String> name,
-      SdkOptional<String> key,
-      SdkOptional<String> ssoPath,
-      SdkOptional<String> scimPath,
-      SdkOptional<String> directoryPath,
-      SdkOptional<bool> multiValued}) get copyWith => _copyWith;
+  SCIMDirectoryCustomAttributesItem Function({SdkOptional<String> name, SdkOptional<String> key, SdkOptional<String> ssoPath, SdkOptional<String> scimPath, SdkOptional<String> directoryPath, SdkOptional<bool> multiValued}) get copyWith => _copyWith;
 
-  SCIMDirectoryCustomAttributesItem _copyWith(
-          {Object? name = sdkOmittedValue,
-          Object? key = sdkOmittedValue,
-          Object? ssoPath = sdkOmittedValue,
-          Object? scimPath = sdkOmittedValue,
-          Object? directoryPath = sdkOmittedValue,
-          Object? multiValued = sdkOmittedValue}) =>
-      SCIMDirectoryCustomAttributesItem(
-        name: identical(name, sdkOmittedValue)
-            ? this.name
-            : name as SdkOptional<String>,
-        key: identical(key, sdkOmittedValue)
-            ? this.key
-            : key as SdkOptional<String>,
-        ssoPath: identical(ssoPath, sdkOmittedValue)
-            ? this.ssoPath
-            : ssoPath as SdkOptional<String>,
-        scimPath: identical(scimPath, sdkOmittedValue)
-            ? this.scimPath
-            : scimPath as SdkOptional<String>,
-        directoryPath: identical(directoryPath, sdkOmittedValue)
-            ? this.directoryPath
-            : directoryPath as SdkOptional<String>,
-        multiValued: identical(multiValued, sdkOmittedValue)
-            ? this.multiValued
-            : multiValued as SdkOptional<bool>,
-      );
+  SCIMDirectoryCustomAttributesItem _copyWith({Object? name = sdkOmittedValue, Object? key = sdkOmittedValue, Object? ssoPath = sdkOmittedValue, Object? scimPath = sdkOmittedValue, Object? directoryPath = sdkOmittedValue, Object? multiValued = sdkOmittedValue}) => SCIMDirectoryCustomAttributesItem(
+    name: identical(name, sdkOmittedValue) ? this.name : name as SdkOptional<String>,
+    key: identical(key, sdkOmittedValue) ? this.key : key as SdkOptional<String>,
+    ssoPath: identical(ssoPath, sdkOmittedValue) ? this.ssoPath : ssoPath as SdkOptional<String>,
+    scimPath: identical(scimPath, sdkOmittedValue) ? this.scimPath : scimPath as SdkOptional<String>,
+    directoryPath: identical(directoryPath, sdkOmittedValue) ? this.directoryPath : directoryPath as SdkOptional<String>,
+    multiValued: identical(multiValued, sdkOmittedValue) ? this.multiValued : multiValued as SdkOptional<bool>,
+  );
 
-  factory SCIMDirectoryCustomAttributesItem.fromJson(
-          Map<String, dynamic> json) =>
-      SCIMDirectoryCustomAttributesItem(
-        name: json['name'] != null
-            ? SdkPresent((json['name'] as String?)!)
-            : const SdkOmitted(),
-        key: json['key'] != null
-            ? SdkPresent((json['key'] as String?)!)
-            : const SdkOmitted(),
-        ssoPath: json['sso_path'] != null
-            ? SdkPresent((json['sso_path'] as String?)!)
-            : const SdkOmitted(),
-        scimPath: json['scim_path'] != null
-            ? SdkPresent((json['scim_path'] as String?)!)
-            : const SdkOmitted(),
-        directoryPath: json['directory_path'] != null
-            ? SdkPresent((json['directory_path'] as String?)!)
-            : const SdkOmitted(),
-        multiValued: json['multi_valued'] != null
-            ? SdkPresent((json['multi_valued'] as bool?)!)
-            : const SdkOmitted(),
-      );
+  factory SCIMDirectoryCustomAttributesItem.fromJson(Map<String, dynamic> json) => SCIMDirectoryCustomAttributesItem(
+    name: json['name'] != null ? SdkPresent((json['name'] as String?)!) : const SdkOmitted(),
+    key: json['key'] != null ? SdkPresent((json['key'] as String?)!) : const SdkOmitted(),
+    ssoPath: json['sso_path'] != null ? SdkPresent((json['sso_path'] as String?)!) : const SdkOmitted(),
+    scimPath: json['scim_path'] != null ? SdkPresent((json['scim_path'] as String?)!) : const SdkOmitted(),
+    directoryPath: json['directory_path'] != null ? SdkPresent((json['directory_path'] as String?)!) : const SdkOmitted(),
+    multiValued: json['multi_valued'] != null ? SdkPresent((json['multi_valued'] as bool?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (name) {
-          SdkPresent<String>(value: final value) => {
-              'name': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (key) {
-          SdkPresent<String>(value: final value) => {
-              'key': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (ssoPath) {
-          SdkPresent<String>(value: final value) => {
-              'sso_path': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (scimPath) {
-          SdkPresent<String>(value: final value) => {
-              'scim_path': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (directoryPath) {
-          SdkPresent<String>(value: final value) => {
-              'directory_path': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (multiValued) {
-          SdkPresent<bool>(value: final value) => {
-              'multi_valued': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (name) {
+      SdkPresent<String>(value: final value) => {'name': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (key) {
+      SdkPresent<String>(value: final value) => {'key': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (ssoPath) {
+      SdkPresent<String>(value: final value) => {'sso_path': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (scimPath) {
+      SdkPresent<String>(value: final value) => {'scim_path': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (directoryPath) {
+      SdkPresent<String>(value: final value) => {'directory_path': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (multiValued) {
+      SdkPresent<bool>(value: final value) => {'multi_valued': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// A directory configuration for provisioning users via SCIM protocol.
 class SCIMDirectory {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// String representing the object's type. Always "scim_directory".
   final SCIMDirectoryObject object;
-
   /// Unique identifier for the directory.
   final String id;
-
   /// A human-friendly name for the directory.
   final String name;
-
   /// The ID of the associated enterprise connection.
   final SdkOptional<String?> enterpriseConnectionId;
-
   /// The SCIM endpoint URL for this directory.
   final String endpointUrl;
-
   /// The identity provider for this directory.
   final String provider;
-
   /// Whether the directory is enabled.
   final bool enabled;
-
   /// Whether group-to-role mapping is enabled for this directory.
   final bool groupRoleMappingEnabled;
-
   /// Mapping of user attributes to the SCIM attribute paths they are extracted from.
   final Map<String, String> attributeMapping;
-
   /// Custom attributes to map from the IdP to the user's profile via SCIM provisioning. Requires the custom attributes feature to be enabled for the instance.
   final SdkOptional<List<SCIMDirectoryCustomAttributesItem>> customAttributes;
-
   /// The API key for authenticating SCIM requests. Only returned when the directory is created or the key is rotated.
   final SdkOptional<String?> apiKey;
-
   /// Unix timestamp when the directory was created.
   final int createdAt;
-
   /// Unix timestamp when the directory was last updated.
   final int updatedAt;
 
-  const SCIMDirectory(
-      {required this.object,
-      required this.id,
-      required this.name,
-      this.enterpriseConnectionId = const SdkOmitted(),
-      required this.endpointUrl,
-      required this.provider,
-      required this.enabled,
-      required this.groupRoleMappingEnabled,
-      required this.attributeMapping,
-      this.customAttributes = const SdkOmitted(),
-      this.apiKey = const SdkOmitted(),
-      required this.createdAt,
-      required this.updatedAt});
+  const SCIMDirectory({required this.object, required this.id, required this.name, this.enterpriseConnectionId = const SdkOmitted(), required this.endpointUrl, required this.provider, required this.enabled, required this.groupRoleMappingEnabled, required this.attributeMapping, this.customAttributes = const SdkOmitted(), this.apiKey = const SdkOmitted(), required this.createdAt, required this.updatedAt});
 
-  SCIMDirectory Function(
-      {SCIMDirectoryObject object,
-      String id,
-      String name,
-      SdkOptional<String?> enterpriseConnectionId,
-      String endpointUrl,
-      String provider,
-      bool enabled,
-      bool groupRoleMappingEnabled,
-      Map<String, String> attributeMapping,
-      SdkOptional<List<SCIMDirectoryCustomAttributesItem>> customAttributes,
-      SdkOptional<String?> apiKey,
-      int createdAt,
-      int updatedAt}) get copyWith => _copyWith;
+  SCIMDirectory Function({SCIMDirectoryObject object, String id, String name, SdkOptional<String?> enterpriseConnectionId, String endpointUrl, String provider, bool enabled, bool groupRoleMappingEnabled, Map<String, String> attributeMapping, SdkOptional<List<SCIMDirectoryCustomAttributesItem>> customAttributes, SdkOptional<String?> apiKey, int createdAt, int updatedAt}) get copyWith => _copyWith;
 
-  SCIMDirectory _copyWith(
-          {Object? object = sdkOmittedValue,
-          Object? id = sdkOmittedValue,
-          Object? name = sdkOmittedValue,
-          Object? enterpriseConnectionId = sdkOmittedValue,
-          Object? endpointUrl = sdkOmittedValue,
-          Object? provider = sdkOmittedValue,
-          Object? enabled = sdkOmittedValue,
-          Object? groupRoleMappingEnabled = sdkOmittedValue,
-          Object? attributeMapping = sdkOmittedValue,
-          Object? customAttributes = sdkOmittedValue,
-          Object? apiKey = sdkOmittedValue,
-          Object? createdAt = sdkOmittedValue,
-          Object? updatedAt = sdkOmittedValue}) =>
-      SCIMDirectory(
-        object: identical(object, sdkOmittedValue)
-            ? this.object
-            : object as SCIMDirectoryObject,
-        id: identical(id, sdkOmittedValue) ? this.id : id as String,
-        name: identical(name, sdkOmittedValue) ? this.name : name as String,
-        enterpriseConnectionId:
-            identical(enterpriseConnectionId, sdkOmittedValue)
-                ? this.enterpriseConnectionId
-                : enterpriseConnectionId as SdkOptional<String?>,
-        endpointUrl: identical(endpointUrl, sdkOmittedValue)
-            ? this.endpointUrl
-            : endpointUrl as String,
-        provider: identical(provider, sdkOmittedValue)
-            ? this.provider
-            : provider as String,
-        enabled: identical(enabled, sdkOmittedValue)
-            ? this.enabled
-            : enabled as bool,
-        groupRoleMappingEnabled:
-            identical(groupRoleMappingEnabled, sdkOmittedValue)
-                ? this.groupRoleMappingEnabled
-                : groupRoleMappingEnabled as bool,
-        attributeMapping: identical(attributeMapping, sdkOmittedValue)
-            ? this.attributeMapping
-            : attributeMapping as Map<String, String>,
-        customAttributes: identical(customAttributes, sdkOmittedValue)
-            ? this.customAttributes
-            : customAttributes
-                as SdkOptional<List<SCIMDirectoryCustomAttributesItem>>,
-        apiKey: identical(apiKey, sdkOmittedValue)
-            ? this.apiKey
-            : apiKey as SdkOptional<String?>,
-        createdAt: identical(createdAt, sdkOmittedValue)
-            ? this.createdAt
-            : createdAt as int,
-        updatedAt: identical(updatedAt, sdkOmittedValue)
-            ? this.updatedAt
-            : updatedAt as int,
-      );
+  SCIMDirectory _copyWith({Object? object = sdkOmittedValue, Object? id = sdkOmittedValue, Object? name = sdkOmittedValue, Object? enterpriseConnectionId = sdkOmittedValue, Object? endpointUrl = sdkOmittedValue, Object? provider = sdkOmittedValue, Object? enabled = sdkOmittedValue, Object? groupRoleMappingEnabled = sdkOmittedValue, Object? attributeMapping = sdkOmittedValue, Object? customAttributes = sdkOmittedValue, Object? apiKey = sdkOmittedValue, Object? createdAt = sdkOmittedValue, Object? updatedAt = sdkOmittedValue}) => SCIMDirectory(
+    object: identical(object, sdkOmittedValue) ? this.object : object as SCIMDirectoryObject,
+    id: identical(id, sdkOmittedValue) ? this.id : id as String,
+    name: identical(name, sdkOmittedValue) ? this.name : name as String,
+    enterpriseConnectionId: identical(enterpriseConnectionId, sdkOmittedValue) ? this.enterpriseConnectionId : enterpriseConnectionId as SdkOptional<String?>,
+    endpointUrl: identical(endpointUrl, sdkOmittedValue) ? this.endpointUrl : endpointUrl as String,
+    provider: identical(provider, sdkOmittedValue) ? this.provider : provider as String,
+    enabled: identical(enabled, sdkOmittedValue) ? this.enabled : enabled as bool,
+    groupRoleMappingEnabled: identical(groupRoleMappingEnabled, sdkOmittedValue) ? this.groupRoleMappingEnabled : groupRoleMappingEnabled as bool,
+    attributeMapping: identical(attributeMapping, sdkOmittedValue) ? this.attributeMapping : attributeMapping as Map<String, String>,
+    customAttributes: identical(customAttributes, sdkOmittedValue) ? this.customAttributes : customAttributes as SdkOptional<List<SCIMDirectoryCustomAttributesItem>>,
+    apiKey: identical(apiKey, sdkOmittedValue) ? this.apiKey : apiKey as SdkOptional<String?>,
+    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as int,
+    updatedAt: identical(updatedAt, sdkOmittedValue) ? this.updatedAt : updatedAt as int,
+  );
 
   factory SCIMDirectory.fromJson(Map<String, dynamic> json) => SCIMDirectory(
-        object: (json['object'] != null
-            ? SCIMDirectoryObject.fromJson(json['object'] as String)
-            : null)!,
-        id: (json['id'] as String?)!,
-        name: (json['name'] as String?)!,
-        enterpriseConnectionId: json.containsKey('enterprise_connection_id')
-            ? SdkPresent(json['enterprise_connection_id'] as String?)
-            : const SdkOmitted(),
-        endpointUrl: (json['endpoint_url'] as String?)!,
-        provider: (json['provider'] as String?)!,
-        enabled: (json['enabled'] as bool?)!,
-        groupRoleMappingEnabled: (json['group_role_mapping_enabled'] as bool?)!,
-        attributeMapping: (json['attribute_mapping'] == null
-            ? null
-            : Map<String, dynamic>.from(json['attribute_mapping'] as Map)
-                .map((key, value) => MapEntry(key, value as String)))!,
-        customAttributes: json['custom_attributes'] != null
-            ? SdkPresent(((json['custom_attributes'] as List?)
-                ?.map((e) => SCIMDirectoryCustomAttributesItem.fromJson(
-                    e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-        apiKey: json.containsKey('api_key')
-            ? SdkPresent(json['api_key'] as String?)
-            : const SdkOmitted(),
-        createdAt: ((json['created_at'] as num?)?.toInt())!,
-        updatedAt: ((json['updated_at'] as num?)?.toInt())!,
-      );
+    object: (json['object'] != null ? SCIMDirectoryObject.fromJson(json['object'] as String) : null)!,
+    id: (json['id'] as String?)!,
+    name: (json['name'] as String?)!,
+    enterpriseConnectionId: json.containsKey('enterprise_connection_id') ? SdkPresent(json['enterprise_connection_id'] as String?) : const SdkOmitted(),
+    endpointUrl: (json['endpoint_url'] as String?)!,
+    provider: (json['provider'] as String?)!,
+    enabled: (json['enabled'] as bool?)!,
+    groupRoleMappingEnabled: (json['group_role_mapping_enabled'] as bool?)!,
+    attributeMapping: (json['attribute_mapping'] == null ? null : Map<String, dynamic>.from(json['attribute_mapping'] as Map).map((key, value) => MapEntry(key, value as String)))!,
+    customAttributes: json['custom_attributes'] != null ? SdkPresent(((json['custom_attributes'] as List?)?.map((e) => SCIMDirectoryCustomAttributesItem.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+    apiKey: json.containsKey('api_key') ? SdkPresent(json['api_key'] as String?) : const SdkOmitted(),
+    createdAt: ((json['created_at'] as num?)?.toInt())!,
+    updatedAt: ((json['updated_at'] as num?)?.toInt())!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'object': object.toJson(),
-        'id': id,
-        'name': name,
-        ...switch (enterpriseConnectionId) {
-          SdkPresent<String?>(value: final value) => {
-              'enterprise_connection_id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        'endpoint_url': endpointUrl,
-        'provider': provider,
-        'enabled': enabled,
-        'group_role_mapping_enabled': groupRoleMappingEnabled,
-        'attribute_mapping': attributeMapping,
-        ...switch (customAttributes) {
-          SdkPresent<List<SCIMDirectoryCustomAttributesItem>>(
-            value: final value
-          ) =>
-            {
-              'custom_attributes': value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (apiKey) {
-          SdkPresent<String?>(value: final value) => {
-              'api_key': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        'created_at': createdAt,
-        'updated_at': updatedAt,
-      };
+    'object': object.toJson(),
+    'id': id,
+    'name': name,
+    ...switch (enterpriseConnectionId) {
+      SdkPresent<String?>(value: final value) => {'enterprise_connection_id': value,},
+      _ => const <String, dynamic>{},
+    },
+    'endpoint_url': endpointUrl,
+    'provider': provider,
+    'enabled': enabled,
+    'group_role_mapping_enabled': groupRoleMappingEnabled,
+    'attribute_mapping': attributeMapping,
+    ...switch (customAttributes) {
+      SdkPresent<List<SCIMDirectoryCustomAttributesItem>>(value: final value) => {'custom_attributes': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (apiKey) {
+      SdkPresent<String?>(value: final value) => {'api_key': value,},
+      _ => const <String, dynamic>{},
+    },
+    'created_at': createdAt,
+    'updated_at': updatedAt,
+  };
 }
 
 /// Typed representation of the `SCIMDirectoryList` API schema.
 class SCIMDirectoryList {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Required array value serialized in the `data` wire field.
   final List<SCIMDirectory> data;
-
   /// Total number of directories.
   final int totalCount;
 
   const SCIMDirectoryList({required this.data, required this.totalCount});
 
-  SCIMDirectoryList Function({List<SCIMDirectory> data, int totalCount})
-      get copyWith => _copyWith;
+  SCIMDirectoryList Function({List<SCIMDirectory> data, int totalCount}) get copyWith => _copyWith;
 
-  SCIMDirectoryList _copyWith(
-          {Object? data = sdkOmittedValue,
-          Object? totalCount = sdkOmittedValue}) =>
-      SCIMDirectoryList(
-        data: identical(data, sdkOmittedValue)
-            ? this.data
-            : data as List<SCIMDirectory>,
-        totalCount: identical(totalCount, sdkOmittedValue)
-            ? this.totalCount
-            : totalCount as int,
-      );
+  SCIMDirectoryList _copyWith({Object? data = sdkOmittedValue, Object? totalCount = sdkOmittedValue}) => SCIMDirectoryList(
+    data: identical(data, sdkOmittedValue) ? this.data : data as List<SCIMDirectory>,
+    totalCount: identical(totalCount, sdkOmittedValue) ? this.totalCount : totalCount as int,
+  );
 
-  factory SCIMDirectoryList.fromJson(Map<String, dynamic> json) =>
-      SCIMDirectoryList(
-        data: ((json['data'] as List?)
-            ?.map((e) => SCIMDirectory.fromJson(e as Map<String, dynamic>))
-            .toList())!,
-        totalCount: ((json['total_count'] as num?)?.toInt())!,
-      );
+  factory SCIMDirectoryList.fromJson(Map<String, dynamic> json) => SCIMDirectoryList(
+    data: ((json['data'] as List?)?.map((e) => SCIMDirectory.fromJson(e as Map<String, dynamic>)).toList())!,
+    totalCount: ((json['total_count'] as num?)?.toInt())!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'data': data.map((item) => item.toJson()).toList(),
-        'total_count': totalCount,
-      };
+    'data': data.map((item) => item.toJson()).toList(),
+    'total_count': totalCount,
+  };
 }
 
 /// A mapping from a SCIM group to an organization role. Members of the group are assigned the role; the lowest-precedence match wins when a user belongs to multiple mapped groups.
 class SCIMGroupRoleMapping {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// String representing the object's type. Always "scim_group_role_mapping".
   final SCIMGroupRoleMappingObject object;
-
   /// Unique identifier for the SCIM group role mapping.
   final String id;
-
   /// The ID of the directory this mapping belongs to.
   final String scimDirectoryId;
-
   /// The ID of the directory this mapping belongs to. Same value as `scim_directory_id`.
   final String directoryId;
-
   /// The SCIM group ID from the identity provider.
   final String scimGroupId;
-
   /// The group ID from the identity provider. Same value as `scim_group_id`.
   final String directoryGroupId;
-
   /// The display name of the SCIM group, as reported by the identity provider.
   final String scimGroupDisplayName;
-
   /// The display name of the group, as reported by the identity provider. Same value as `scim_group_display_name`.
   final String directoryGroupDisplayName;
-
   /// Optional object value serialized in the `role` wire field.
   final SdkOptional<Role> role;
-
   /// Mapping precedence, starting at 1. Lower values take priority when a user belongs to multiple mapped groups.
   final int precedence;
-
   /// Unix timestamp (milliseconds) of when the mapping was created.
   final int createdAt;
-
   /// Unix timestamp (milliseconds) of when the mapping was last updated.
   final int updatedAt;
 
-  const SCIMGroupRoleMapping(
-      {required this.object,
-      required this.id,
-      required this.scimDirectoryId,
-      required this.directoryId,
-      required this.scimGroupId,
-      required this.directoryGroupId,
-      required this.scimGroupDisplayName,
-      required this.directoryGroupDisplayName,
-      this.role = const SdkOmitted(),
-      required this.precedence,
-      required this.createdAt,
-      required this.updatedAt});
+  const SCIMGroupRoleMapping({required this.object, required this.id, required this.scimDirectoryId, required this.directoryId, required this.scimGroupId, required this.directoryGroupId, required this.scimGroupDisplayName, required this.directoryGroupDisplayName, this.role = const SdkOmitted(), required this.precedence, required this.createdAt, required this.updatedAt});
 
-  SCIMGroupRoleMapping Function(
-      {SCIMGroupRoleMappingObject object,
-      String id,
-      String scimDirectoryId,
-      String directoryId,
-      String scimGroupId,
-      String directoryGroupId,
-      String scimGroupDisplayName,
-      String directoryGroupDisplayName,
-      SdkOptional<Role> role,
-      int precedence,
-      int createdAt,
-      int updatedAt}) get copyWith => _copyWith;
+  SCIMGroupRoleMapping Function({SCIMGroupRoleMappingObject object, String id, String scimDirectoryId, String directoryId, String scimGroupId, String directoryGroupId, String scimGroupDisplayName, String directoryGroupDisplayName, SdkOptional<Role> role, int precedence, int createdAt, int updatedAt}) get copyWith => _copyWith;
 
-  SCIMGroupRoleMapping _copyWith(
-          {Object? object = sdkOmittedValue,
-          Object? id = sdkOmittedValue,
-          Object? scimDirectoryId = sdkOmittedValue,
-          Object? directoryId = sdkOmittedValue,
-          Object? scimGroupId = sdkOmittedValue,
-          Object? directoryGroupId = sdkOmittedValue,
-          Object? scimGroupDisplayName = sdkOmittedValue,
-          Object? directoryGroupDisplayName = sdkOmittedValue,
-          Object? role = sdkOmittedValue,
-          Object? precedence = sdkOmittedValue,
-          Object? createdAt = sdkOmittedValue,
-          Object? updatedAt = sdkOmittedValue}) =>
-      SCIMGroupRoleMapping(
-        object: identical(object, sdkOmittedValue)
-            ? this.object
-            : object as SCIMGroupRoleMappingObject,
-        id: identical(id, sdkOmittedValue) ? this.id : id as String,
-        scimDirectoryId: identical(scimDirectoryId, sdkOmittedValue)
-            ? this.scimDirectoryId
-            : scimDirectoryId as String,
-        directoryId: identical(directoryId, sdkOmittedValue)
-            ? this.directoryId
-            : directoryId as String,
-        scimGroupId: identical(scimGroupId, sdkOmittedValue)
-            ? this.scimGroupId
-            : scimGroupId as String,
-        directoryGroupId: identical(directoryGroupId, sdkOmittedValue)
-            ? this.directoryGroupId
-            : directoryGroupId as String,
-        scimGroupDisplayName: identical(scimGroupDisplayName, sdkOmittedValue)
-            ? this.scimGroupDisplayName
-            : scimGroupDisplayName as String,
-        directoryGroupDisplayName:
-            identical(directoryGroupDisplayName, sdkOmittedValue)
-                ? this.directoryGroupDisplayName
-                : directoryGroupDisplayName as String,
-        role: identical(role, sdkOmittedValue)
-            ? this.role
-            : role as SdkOptional<Role>,
-        precedence: identical(precedence, sdkOmittedValue)
-            ? this.precedence
-            : precedence as int,
-        createdAt: identical(createdAt, sdkOmittedValue)
-            ? this.createdAt
-            : createdAt as int,
-        updatedAt: identical(updatedAt, sdkOmittedValue)
-            ? this.updatedAt
-            : updatedAt as int,
-      );
+  SCIMGroupRoleMapping _copyWith({Object? object = sdkOmittedValue, Object? id = sdkOmittedValue, Object? scimDirectoryId = sdkOmittedValue, Object? directoryId = sdkOmittedValue, Object? scimGroupId = sdkOmittedValue, Object? directoryGroupId = sdkOmittedValue, Object? scimGroupDisplayName = sdkOmittedValue, Object? directoryGroupDisplayName = sdkOmittedValue, Object? role = sdkOmittedValue, Object? precedence = sdkOmittedValue, Object? createdAt = sdkOmittedValue, Object? updatedAt = sdkOmittedValue}) => SCIMGroupRoleMapping(
+    object: identical(object, sdkOmittedValue) ? this.object : object as SCIMGroupRoleMappingObject,
+    id: identical(id, sdkOmittedValue) ? this.id : id as String,
+    scimDirectoryId: identical(scimDirectoryId, sdkOmittedValue) ? this.scimDirectoryId : scimDirectoryId as String,
+    directoryId: identical(directoryId, sdkOmittedValue) ? this.directoryId : directoryId as String,
+    scimGroupId: identical(scimGroupId, sdkOmittedValue) ? this.scimGroupId : scimGroupId as String,
+    directoryGroupId: identical(directoryGroupId, sdkOmittedValue) ? this.directoryGroupId : directoryGroupId as String,
+    scimGroupDisplayName: identical(scimGroupDisplayName, sdkOmittedValue) ? this.scimGroupDisplayName : scimGroupDisplayName as String,
+    directoryGroupDisplayName: identical(directoryGroupDisplayName, sdkOmittedValue) ? this.directoryGroupDisplayName : directoryGroupDisplayName as String,
+    role: identical(role, sdkOmittedValue) ? this.role : role as SdkOptional<Role>,
+    precedence: identical(precedence, sdkOmittedValue) ? this.precedence : precedence as int,
+    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as int,
+    updatedAt: identical(updatedAt, sdkOmittedValue) ? this.updatedAt : updatedAt as int,
+  );
 
-  factory SCIMGroupRoleMapping.fromJson(Map<String, dynamic> json) =>
-      SCIMGroupRoleMapping(
-        object: (json['object'] != null
-            ? SCIMGroupRoleMappingObject.fromJson(json['object'] as String)
-            : null)!,
-        id: (json['id'] as String?)!,
-        scimDirectoryId: (json['scim_directory_id'] as String?)!,
-        directoryId: (json['directory_id'] as String?)!,
-        scimGroupId: (json['scim_group_id'] as String?)!,
-        directoryGroupId: (json['directory_group_id'] as String?)!,
-        scimGroupDisplayName: (json['scim_group_display_name'] as String?)!,
-        directoryGroupDisplayName:
-            (json['directory_group_display_name'] as String?)!,
-        role: json['role'] != null
-            ? SdkPresent((json['role'] != null
-                ? Role.fromJson(json['role'] as Map<String, dynamic>)
-                : null)!)
-            : const SdkOmitted(),
-        precedence: ((json['precedence'] as num?)?.toInt())!,
-        createdAt: ((json['created_at'] as num?)?.toInt())!,
-        updatedAt: ((json['updated_at'] as num?)?.toInt())!,
-      );
+  factory SCIMGroupRoleMapping.fromJson(Map<String, dynamic> json) => SCIMGroupRoleMapping(
+    object: (json['object'] != null ? SCIMGroupRoleMappingObject.fromJson(json['object'] as String) : null)!,
+    id: (json['id'] as String?)!,
+    scimDirectoryId: (json['scim_directory_id'] as String?)!,
+    directoryId: (json['directory_id'] as String?)!,
+    scimGroupId: (json['scim_group_id'] as String?)!,
+    directoryGroupId: (json['directory_group_id'] as String?)!,
+    scimGroupDisplayName: (json['scim_group_display_name'] as String?)!,
+    directoryGroupDisplayName: (json['directory_group_display_name'] as String?)!,
+    role: json['role'] != null ? SdkPresent((json['role'] != null ? Role.fromJson(json['role'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
+    precedence: ((json['precedence'] as num?)?.toInt())!,
+    createdAt: ((json['created_at'] as num?)?.toInt())!,
+    updatedAt: ((json['updated_at'] as num?)?.toInt())!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'object': object.toJson(),
-        'id': id,
-        'scim_directory_id': scimDirectoryId,
-        'directory_id': directoryId,
-        'scim_group_id': scimGroupId,
-        'directory_group_id': directoryGroupId,
-        'scim_group_display_name': scimGroupDisplayName,
-        'directory_group_display_name': directoryGroupDisplayName,
-        ...switch (role) {
-          SdkPresent<Role>(value: final value) => {
-              'role': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        'precedence': precedence,
-        'created_at': createdAt,
-        'updated_at': updatedAt,
-      };
+    'object': object.toJson(),
+    'id': id,
+    'scim_directory_id': scimDirectoryId,
+    'directory_id': directoryId,
+    'scim_group_id': scimGroupId,
+    'directory_group_id': directoryGroupId,
+    'scim_group_display_name': scimGroupDisplayName,
+    'directory_group_display_name': directoryGroupDisplayName,
+    ...switch (role) {
+      SdkPresent<Role>(value: final value) => {'role': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    'precedence': precedence,
+    'created_at': createdAt,
+    'updated_at': updatedAt,
+  };
 }

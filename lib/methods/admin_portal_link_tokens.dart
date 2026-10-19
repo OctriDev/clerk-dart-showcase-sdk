@@ -8,23 +8,21 @@ import '../sdk_validation.dart';
 import '../types.dart';
 
 /// Creates a single-use admin portal link token, optionally scoped to an organization and IT contact. Supply `organization_id`, `it_contact_id`, `scopes`, and `seconds_until_expiration` as needed; the expiration defaults to 3600 seconds. Treat the returned token as a secret because it is URL-borne.
-Future<CreateAdminPortalLinkTokenResponse> createAdminPortalLinkToken(
-    ClientConfig config,
-    {SdkOptional<String> organizationId = const SdkOmitted(),
-    SdkOptional<String> itContactId = const SdkOmitted(),
-    SdkOptional<List<String>> scopes = const SdkOmitted(),
-    SdkOptional<int> secondsUntilExpiration = const SdkOmitted(),
-    RequestOptions? requestOptions}) async {
+Future<CreateAdminPortalLinkTokenResponse>
+    createAdminPortalLinkToken(ClientConfig config,
+        {SdkOptional<String> organizationId = const SdkOmitted(),
+        SdkOptional<String> itContactId = const SdkOmitted(),
+        SdkOptional<List<String>> scopes = const SdkOmitted(),
+        SdkOptional<int> secondsUntilExpiration = const SdkOmitted(),
+        RequestOptions? requestOptions}) async {
   if (organizationId is SdkPresent<String>) {
-    sdkValidatePattern(
-        'organization_id', organizationId.value, '^org_\\w{27}\$');
+    sdkValidatePattern('organization_id', organizationId.value, '^org_\\w{27}\$');
   }
   if (itContactId is SdkPresent<String>) {
     validateLength('it_contact_id', itContactId.value, min: 1);
   }
   if (secondsUntilExpiration is SdkPresent<int>) {
-    validateRange('seconds_until_expiration', secondsUntilExpiration.value,
-        max: 86400, exclusiveMin: 0);
+    validateRange('seconds_until_expiration', secondsUntilExpiration.value, max: 86400, exclusiveMin: 0);
   }
 
   return (await sdkRequest<CreateAdminPortalLinkTokenResponse>(
@@ -34,25 +32,23 @@ Future<CreateAdminPortalLinkTokenResponse> createAdminPortalLinkToken(
             'organization_id': SdkUtils.unwrapOptional(organizationId),
             'it_contact_id': SdkUtils.unwrapOptional(itContactId),
             'scopes': SdkUtils.unwrapOptional(scopes),
-            'seconds_until_expiration':
-                SdkUtils.unwrapOptional(secondsUntilExpiration)
+            'seconds_until_expiration': SdkUtils.unwrapOptional(secondsUntilExpiration)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'createAdminPortalLinkToken',
-          fromJsonRaw: (value) => CreateAdminPortalLinkTokenResponse.fromJson(
-              value as Map<String, dynamic>),
+          fromJsonRaw: (value) => CreateAdminPortalLinkTokenResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions))
       .data;
 }
 
+
 /// Revokes an admin portal link token identified by its token ID. You can include `revocation_reason` to record why the token was revoked. The response contains the token's updated revocation state.
-Future<RevokeAdminPortalLinkTokenResponse> revokeAdminPortalLinkToken(
-    ClientConfig config,
-    {required String adminPortalLinkTokenId,
-    SdkOptional<String?> revocationReason = const SdkOmitted(),
-    RequestOptions? requestOptions}) async {
-  sdkValidatePattern('adminPortalLinkTokenID', adminPortalLinkTokenId,
-      '^aplt_[0-9A-Fa-f]{32}\$');
+Future<RevokeAdminPortalLinkTokenResponse>
+    revokeAdminPortalLinkToken(ClientConfig config,
+        {required String adminPortalLinkTokenId,
+        SdkOptional<String?> revocationReason = const SdkOmitted(),
+        RequestOptions? requestOptions}) async {
+  sdkValidatePattern('adminPortalLinkTokenID', adminPortalLinkTokenId, '^aplt_[0-9A-Fa-f]{32}\$');
 
   return (await sdkRequest<RevokeAdminPortalLinkTokenResponse>('POST',
           '/admin_portal_link_tokens/${Uri.encodeComponent(adminPortalLinkTokenId.toString())}/revoke',
@@ -62,8 +58,7 @@ Future<RevokeAdminPortalLinkTokenResponse> revokeAdminPortalLinkToken(
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'revokeAdminPortalLinkToken',
-          fromJsonRaw: (value) => RevokeAdminPortalLinkTokenResponse.fromJson(
-              value as Map<String, dynamic>),
+          fromJsonRaw: (value) => RevokeAdminPortalLinkTokenResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions))
       .data;
 }

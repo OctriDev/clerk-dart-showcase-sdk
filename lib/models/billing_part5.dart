@@ -8,219 +8,102 @@ part of 'billing.dart';
 class CommercePriceTransitionDetails {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Required object value serialized in the `previous_plan` wire field.
   final CommercePlan2 previousPlan;
-
   /// Required object value serialized in the `previous_price` wire field.
   final BillingPriceResponse previousPrice;
-
   /// Unix timestamp (milliseconds) when the new price takes effect.
   final int effectiveAt;
-
   /// When the new price takes effect.
   final CommercePriceTransitionDetailsEffectiveMode effectiveMode;
-
   /// Unix timestamp (milliseconds) for the next billing date.
   final SdkOptional<int?> nextBillingDate;
-
   /// Whether an immediate charge was made.
   final bool chargedImmediately;
-
   /// Amount charged immediately, if any.
   final SdkOptional<CommerceMoneyResponse?> immediateCharge;
-
   /// The status of the previous subscription item after transition.
-  final CommercePriceTransitionDetailsPreviousSubscriptionItemStatus
-      previousSubscriptionItemStatus;
-
+  final CommercePriceTransitionDetailsPreviousSubscriptionItemStatus previousSubscriptionItemStatus;
   /// The ID of the previous subscription item.
   final String previousSubscriptionItemId;
 
-  const CommercePriceTransitionDetails(
-      {required this.previousPlan,
-      required this.previousPrice,
-      required this.effectiveAt,
-      required this.effectiveMode,
-      this.nextBillingDate = const SdkOmitted(),
-      required this.chargedImmediately,
-      this.immediateCharge = const SdkOmitted(),
-      required this.previousSubscriptionItemStatus,
-      required this.previousSubscriptionItemId});
+  const CommercePriceTransitionDetails({required this.previousPlan, required this.previousPrice, required this.effectiveAt, required this.effectiveMode, this.nextBillingDate = const SdkOmitted(), required this.chargedImmediately, this.immediateCharge = const SdkOmitted(), required this.previousSubscriptionItemStatus, required this.previousSubscriptionItemId});
 
-  CommercePriceTransitionDetails Function(
-      {CommercePlan2 previousPlan,
-      BillingPriceResponse previousPrice,
-      int effectiveAt,
-      CommercePriceTransitionDetailsEffectiveMode effectiveMode,
-      SdkOptional<int?> nextBillingDate,
-      bool chargedImmediately,
-      SdkOptional<CommerceMoneyResponse?> immediateCharge,
-      CommercePriceTransitionDetailsPreviousSubscriptionItemStatus
-          previousSubscriptionItemStatus,
-      String previousSubscriptionItemId}) get copyWith => _copyWith;
+  CommercePriceTransitionDetails Function({CommercePlan2 previousPlan, BillingPriceResponse previousPrice, int effectiveAt, CommercePriceTransitionDetailsEffectiveMode effectiveMode, SdkOptional<int?> nextBillingDate, bool chargedImmediately, SdkOptional<CommerceMoneyResponse?> immediateCharge, CommercePriceTransitionDetailsPreviousSubscriptionItemStatus previousSubscriptionItemStatus, String previousSubscriptionItemId}) get copyWith => _copyWith;
 
-  CommercePriceTransitionDetails _copyWith(
-          {Object? previousPlan = sdkOmittedValue,
-          Object? previousPrice = sdkOmittedValue,
-          Object? effectiveAt = sdkOmittedValue,
-          Object? effectiveMode = sdkOmittedValue,
-          Object? nextBillingDate = sdkOmittedValue,
-          Object? chargedImmediately = sdkOmittedValue,
-          Object? immediateCharge = sdkOmittedValue,
-          Object? previousSubscriptionItemStatus = sdkOmittedValue,
-          Object? previousSubscriptionItemId = sdkOmittedValue}) =>
-      CommercePriceTransitionDetails(
-        previousPlan: identical(previousPlan, sdkOmittedValue)
-            ? this.previousPlan
-            : previousPlan as CommercePlan2,
-        previousPrice: identical(previousPrice, sdkOmittedValue)
-            ? this.previousPrice
-            : previousPrice as BillingPriceResponse,
-        effectiveAt: identical(effectiveAt, sdkOmittedValue)
-            ? this.effectiveAt
-            : effectiveAt as int,
-        effectiveMode: identical(effectiveMode, sdkOmittedValue)
-            ? this.effectiveMode
-            : effectiveMode as CommercePriceTransitionDetailsEffectiveMode,
-        nextBillingDate: identical(nextBillingDate, sdkOmittedValue)
-            ? this.nextBillingDate
-            : nextBillingDate as SdkOptional<int?>,
-        chargedImmediately: identical(chargedImmediately, sdkOmittedValue)
-            ? this.chargedImmediately
-            : chargedImmediately as bool,
-        immediateCharge: identical(immediateCharge, sdkOmittedValue)
-            ? this.immediateCharge
-            : immediateCharge as SdkOptional<CommerceMoneyResponse?>,
-        previousSubscriptionItemStatus: identical(
-                previousSubscriptionItemStatus, sdkOmittedValue)
-            ? this.previousSubscriptionItemStatus
-            : previousSubscriptionItemStatus
-                as CommercePriceTransitionDetailsPreviousSubscriptionItemStatus,
-        previousSubscriptionItemId:
-            identical(previousSubscriptionItemId, sdkOmittedValue)
-                ? this.previousSubscriptionItemId
-                : previousSubscriptionItemId as String,
-      );
+  CommercePriceTransitionDetails _copyWith({Object? previousPlan = sdkOmittedValue, Object? previousPrice = sdkOmittedValue, Object? effectiveAt = sdkOmittedValue, Object? effectiveMode = sdkOmittedValue, Object? nextBillingDate = sdkOmittedValue, Object? chargedImmediately = sdkOmittedValue, Object? immediateCharge = sdkOmittedValue, Object? previousSubscriptionItemStatus = sdkOmittedValue, Object? previousSubscriptionItemId = sdkOmittedValue}) => CommercePriceTransitionDetails(
+    previousPlan: identical(previousPlan, sdkOmittedValue) ? this.previousPlan : previousPlan as CommercePlan2,
+    previousPrice: identical(previousPrice, sdkOmittedValue) ? this.previousPrice : previousPrice as BillingPriceResponse,
+    effectiveAt: identical(effectiveAt, sdkOmittedValue) ? this.effectiveAt : effectiveAt as int,
+    effectiveMode: identical(effectiveMode, sdkOmittedValue) ? this.effectiveMode : effectiveMode as CommercePriceTransitionDetailsEffectiveMode,
+    nextBillingDate: identical(nextBillingDate, sdkOmittedValue) ? this.nextBillingDate : nextBillingDate as SdkOptional<int?>,
+    chargedImmediately: identical(chargedImmediately, sdkOmittedValue) ? this.chargedImmediately : chargedImmediately as bool,
+    immediateCharge: identical(immediateCharge, sdkOmittedValue) ? this.immediateCharge : immediateCharge as SdkOptional<CommerceMoneyResponse?>,
+    previousSubscriptionItemStatus: identical(previousSubscriptionItemStatus, sdkOmittedValue) ? this.previousSubscriptionItemStatus : previousSubscriptionItemStatus as CommercePriceTransitionDetailsPreviousSubscriptionItemStatus,
+    previousSubscriptionItemId: identical(previousSubscriptionItemId, sdkOmittedValue) ? this.previousSubscriptionItemId : previousSubscriptionItemId as String,
+  );
 
-  factory CommercePriceTransitionDetails.fromJson(Map<String, dynamic> json) =>
-      CommercePriceTransitionDetails(
-        previousPlan: (json['previous_plan'] != null
-            ? CommercePlan2.fromJson(
-                json['previous_plan'] as Map<String, dynamic>)
-            : null)!,
-        previousPrice: (json['previous_price'] != null
-            ? BillingPriceResponse.fromJson(
-                json['previous_price'] as Map<String, dynamic>)
-            : null)!,
-        effectiveAt: ((json['effective_at'] as num?)?.toInt())!,
-        effectiveMode: (json['effective_mode'] != null
-            ? CommercePriceTransitionDetailsEffectiveMode.fromJson(
-                json['effective_mode'] as String)
-            : null)!,
-        nextBillingDate: json.containsKey('next_billing_date')
-            ? SdkPresent((json['next_billing_date'] as num?)?.toInt())
-            : const SdkOmitted(),
-        chargedImmediately: (json['charged_immediately'] as bool?)!,
-        immediateCharge: json.containsKey('immediate_charge')
-            ? SdkPresent(json['immediate_charge'] != null
-                ? CommerceMoneyResponse.fromJson(
-                    json['immediate_charge'] as Map<String, dynamic>)
-                : null)
-            : const SdkOmitted(),
-        previousSubscriptionItemStatus:
-            (json['previous_subscription_item_status'] != null
-                ? CommercePriceTransitionDetailsPreviousSubscriptionItemStatus
-                    .fromJson(
-                        json['previous_subscription_item_status'] as String)
-                : null)!,
-        previousSubscriptionItemId:
-            (json['previous_subscription_item_id'] as String?)!,
-      );
+  factory CommercePriceTransitionDetails.fromJson(Map<String, dynamic> json) => CommercePriceTransitionDetails(
+    previousPlan: (json['previous_plan'] != null ? CommercePlan2.fromJson(json['previous_plan'] as Map<String, dynamic>) : null)!,
+    previousPrice: (json['previous_price'] != null ? BillingPriceResponse.fromJson(json['previous_price'] as Map<String, dynamic>) : null)!,
+    effectiveAt: ((json['effective_at'] as num?)?.toInt())!,
+    effectiveMode: (json['effective_mode'] != null ? CommercePriceTransitionDetailsEffectiveMode.fromJson(json['effective_mode'] as String) : null)!,
+    nextBillingDate: json.containsKey('next_billing_date') ? SdkPresent((json['next_billing_date'] as num?)?.toInt()) : const SdkOmitted(),
+    chargedImmediately: (json['charged_immediately'] as bool?)!,
+    immediateCharge: json.containsKey('immediate_charge') ? SdkPresent(json['immediate_charge'] != null ? CommerceMoneyResponse.fromJson(json['immediate_charge'] as Map<String, dynamic>) : null) : const SdkOmitted(),
+    previousSubscriptionItemStatus: (json['previous_subscription_item_status'] != null ? CommercePriceTransitionDetailsPreviousSubscriptionItemStatus.fromJson(json['previous_subscription_item_status'] as String) : null)!,
+    previousSubscriptionItemId: (json['previous_subscription_item_id'] as String?)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'previous_plan': previousPlan.toJson(),
-        'previous_price': previousPrice.toJson(),
-        'effective_at': effectiveAt,
-        'effective_mode': effectiveMode.toJson(),
-        ...switch (nextBillingDate) {
-          SdkPresent<int?>(value: final value) => {
-              'next_billing_date': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        'charged_immediately': chargedImmediately,
-        ...switch (immediateCharge) {
-          SdkPresent<CommerceMoneyResponse?>(value: final value) => {
-              'immediate_charge': value?.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        'previous_subscription_item_status':
-            previousSubscriptionItemStatus.toJson(),
-        'previous_subscription_item_id': previousSubscriptionItemId,
-      };
+    'previous_plan': previousPlan.toJson(),
+    'previous_price': previousPrice.toJson(),
+    'effective_at': effectiveAt,
+    'effective_mode': effectiveMode.toJson(),
+    ...switch (nextBillingDate) {
+      SdkPresent<int?>(value: final value) => {'next_billing_date': value,},
+      _ => const <String, dynamic>{},
+    },
+    'charged_immediately': chargedImmediately,
+    ...switch (immediateCharge) {
+      SdkPresent<CommerceMoneyResponse?>(value: final value) => {'immediate_charge': value?.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    'previous_subscription_item_status': previousSubscriptionItemStatus.toJson(),
+    'previous_subscription_item_id': previousSubscriptionItemId,
+  };
 }
 
 /// Typed representation of the `CommercePriceTransitionResponse` API schema.
 class CommercePriceTransitionResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// String representing the object's type. Objects of the same type share the same value.
   final CommercePriceTransitionResponseObject object;
-
   /// Required object value serialized in the `subscription_item` wire field.
   final CommerceSubscriptionItem2 subscriptionItem;
-
   /// Required object value serialized in the `transition` wire field.
   final CommercePriceTransitionDetails transition;
 
-  const CommercePriceTransitionResponse(
-      {required this.object,
-      required this.subscriptionItem,
-      required this.transition});
+  const CommercePriceTransitionResponse({required this.object, required this.subscriptionItem, required this.transition});
 
-  CommercePriceTransitionResponse Function(
-      {CommercePriceTransitionResponseObject object,
-      CommerceSubscriptionItem2 subscriptionItem,
-      CommercePriceTransitionDetails transition}) get copyWith => _copyWith;
+  CommercePriceTransitionResponse Function({CommercePriceTransitionResponseObject object, CommerceSubscriptionItem2 subscriptionItem, CommercePriceTransitionDetails transition}) get copyWith => _copyWith;
 
-  CommercePriceTransitionResponse _copyWith(
-          {Object? object = sdkOmittedValue,
-          Object? subscriptionItem = sdkOmittedValue,
-          Object? transition = sdkOmittedValue}) =>
-      CommercePriceTransitionResponse(
-        object: identical(object, sdkOmittedValue)
-            ? this.object
-            : object as CommercePriceTransitionResponseObject,
-        subscriptionItem: identical(subscriptionItem, sdkOmittedValue)
-            ? this.subscriptionItem
-            : subscriptionItem as CommerceSubscriptionItem2,
-        transition: identical(transition, sdkOmittedValue)
-            ? this.transition
-            : transition as CommercePriceTransitionDetails,
-      );
+  CommercePriceTransitionResponse _copyWith({Object? object = sdkOmittedValue, Object? subscriptionItem = sdkOmittedValue, Object? transition = sdkOmittedValue}) => CommercePriceTransitionResponse(
+    object: identical(object, sdkOmittedValue) ? this.object : object as CommercePriceTransitionResponseObject,
+    subscriptionItem: identical(subscriptionItem, sdkOmittedValue) ? this.subscriptionItem : subscriptionItem as CommerceSubscriptionItem2,
+    transition: identical(transition, sdkOmittedValue) ? this.transition : transition as CommercePriceTransitionDetails,
+  );
 
-  factory CommercePriceTransitionResponse.fromJson(Map<String, dynamic> json) =>
-      CommercePriceTransitionResponse(
-        object: (json['object'] != null
-            ? CommercePriceTransitionResponseObject.fromJson(
-                json['object'] as String)
-            : null)!,
-        subscriptionItem: (json['subscription_item'] != null
-            ? CommerceSubscriptionItem2.fromJson(
-                json['subscription_item'] as Map<String, dynamic>)
-            : null)!,
-        transition: (json['transition'] != null
-            ? CommercePriceTransitionDetails.fromJson(
-                json['transition'] as Map<String, dynamic>)
-            : null)!,
-      );
+  factory CommercePriceTransitionResponse.fromJson(Map<String, dynamic> json) => CommercePriceTransitionResponse(
+    object: (json['object'] != null ? CommercePriceTransitionResponseObject.fromJson(json['object'] as String) : null)!,
+    subscriptionItem: (json['subscription_item'] != null ? CommerceSubscriptionItem2.fromJson(json['subscription_item'] as Map<String, dynamic>) : null)!,
+    transition: (json['transition'] != null ? CommercePriceTransitionDetails.fromJson(json['transition'] as Map<String, dynamic>) : null)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'object': object.toJson(),
-        'subscription_item': subscriptionItem.toJson(),
-        'transition': transition.toJson(),
-      };
+    'object': object.toJson(),
+    'subscription_item': subscriptionItem.toJson(),
+    'transition': transition.toJson(),
+  };
 }

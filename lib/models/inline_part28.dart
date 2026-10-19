@@ -7,241 +7,104 @@ part of 'inline.dart';
 class UpdateInstanceRequestBody {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Toggles test mode for this instance, allowing the use of test email addresses and phone numbers. Defaults to true for development instances.
   final SdkOptional<bool?> testMode;
-
   /// Whether the instance should be using the HIBP service to check passwords for breaches
   final SdkOptional<bool?> hibp;
   final SdkOptional<String?> supportEmail;
   final SdkOptional<String?> clerkJsVersion;
   final SdkOptional<String?> developmentOrigin;
-
   /// For browser-like stacks such as browser extensions, Electron, or Capacitor.js (not officially supported), the instance allowed origins need to be updated with the request origin value. For Chrome extensions popup, background, or service worker pages, the origin is chrome-extension://extension_uuid. For Electron apps using `@clerk/electron`, the origins are the custom renderer scheme registered with `createClerkBridge()`, for example `my-app://renderer`, and, during development, the renderer's dev server origin, for example `http://localhost:5173`. For Capacitor, the origin is capacitor://localhost. Send an empty array to remove all allowed origins. A null value leaves the current list unchanged.
   final SdkOptional<List<String>?> allowedOrigins;
-
   /// Subdomains of the instance's own domains that may originate requests while `subdomain_allowlist_enabled` is true. Each entry is either an exact host (`app.example.com`) or a wildcard anchored on a host beneath one of the instance's domains (`*.preview.example.com`), which covers every host under that anchor but not the anchor itself. Entries are stored folded to lower case with any trailing dot removed, the form the origin check compares against, so entries differing only in those respects are one entry. Entries already stored are not validated again, so a list read back from the instance can always be written again unchanged. Send an empty array to remove all entries. A null value leaves the current list unchanged. Production instances only.
   final SdkOptional<List<String>?> allowedSubdomains;
-
   /// Whether requests from subdomains of the instance's own domains are restricted to `allowed_subdomains`. When false, every subdomain of the instance's domain is accepted. Production instances only.
   final SdkOptional<bool?> subdomainAllowlistEnabled;
-
   /// Whether the instance should operate in cookieless development mode (i.e. without third-party cookies). Deprecated: Please use `url_based_session_syncing` instead.
   final SdkOptional<bool?> cookielessDev;
-
   /// Whether the instance should use URL-based session syncing in development mode (i.e. without third-party cookies).
   final SdkOptional<bool?> urlBasedSessionSyncing;
-
   /// When password is required at the instance level, sets the preferred sign-in strategy surfaced to Clerk components. Has no effect when password is not required. Defaults to `password`. Set to an empty string to clear the override.
-  final SdkOptional<
-          UpdateInstanceRequestBodyPreferredSignInStrategyWhenPasswordRequired?>
-      preferredSignInStrategyWhenPasswordRequired;
+  final SdkOptional<UpdateInstanceRequestBodyPreferredSignInStrategyWhenPasswordRequired?> preferredSignInStrategyWhenPasswordRequired;
 
-  const UpdateInstanceRequestBody(
-      {this.testMode = const SdkOmitted(),
-      this.hibp = const SdkOmitted(),
-      this.supportEmail = const SdkOmitted(),
-      this.clerkJsVersion = const SdkOmitted(),
-      this.developmentOrigin = const SdkOmitted(),
-      this.allowedOrigins = const SdkOmitted(),
-      this.allowedSubdomains = const SdkOmitted(),
-      this.subdomainAllowlistEnabled = const SdkOmitted(),
-      this.cookielessDev = const SdkOmitted(),
-      this.urlBasedSessionSyncing = const SdkOmitted(),
-      this.preferredSignInStrategyWhenPasswordRequired = const SdkOmitted()});
+  const UpdateInstanceRequestBody({this.testMode = const SdkOmitted(), this.hibp = const SdkOmitted(), this.supportEmail = const SdkOmitted(), this.clerkJsVersion = const SdkOmitted(), this.developmentOrigin = const SdkOmitted(), this.allowedOrigins = const SdkOmitted(), this.allowedSubdomains = const SdkOmitted(), this.subdomainAllowlistEnabled = const SdkOmitted(), this.cookielessDev = const SdkOmitted(), this.urlBasedSessionSyncing = const SdkOmitted(), this.preferredSignInStrategyWhenPasswordRequired = const SdkOmitted()});
 
-  UpdateInstanceRequestBody Function(
-      {SdkOptional<bool?> testMode,
-      SdkOptional<bool?> hibp,
-      SdkOptional<String?> supportEmail,
-      SdkOptional<String?> clerkJsVersion,
-      SdkOptional<String?> developmentOrigin,
-      SdkOptional<List<String>?> allowedOrigins,
-      SdkOptional<List<String>?> allowedSubdomains,
-      SdkOptional<bool?> subdomainAllowlistEnabled,
-      SdkOptional<bool?> cookielessDev,
-      SdkOptional<bool?> urlBasedSessionSyncing,
-      SdkOptional<
-              UpdateInstanceRequestBodyPreferredSignInStrategyWhenPasswordRequired?>
-          preferredSignInStrategyWhenPasswordRequired}) get copyWith =>
-      _copyWith;
+  UpdateInstanceRequestBody Function({SdkOptional<bool?> testMode, SdkOptional<bool?> hibp, SdkOptional<String?> supportEmail, SdkOptional<String?> clerkJsVersion, SdkOptional<String?> developmentOrigin, SdkOptional<List<String>?> allowedOrigins, SdkOptional<List<String>?> allowedSubdomains, SdkOptional<bool?> subdomainAllowlistEnabled, SdkOptional<bool?> cookielessDev, SdkOptional<bool?> urlBasedSessionSyncing, SdkOptional<UpdateInstanceRequestBodyPreferredSignInStrategyWhenPasswordRequired?> preferredSignInStrategyWhenPasswordRequired}) get copyWith => _copyWith;
 
-  UpdateInstanceRequestBody _copyWith(
-          {Object? testMode = sdkOmittedValue,
-          Object? hibp = sdkOmittedValue,
-          Object? supportEmail = sdkOmittedValue,
-          Object? clerkJsVersion = sdkOmittedValue,
-          Object? developmentOrigin = sdkOmittedValue,
-          Object? allowedOrigins = sdkOmittedValue,
-          Object? allowedSubdomains = sdkOmittedValue,
-          Object? subdomainAllowlistEnabled = sdkOmittedValue,
-          Object? cookielessDev = sdkOmittedValue,
-          Object? urlBasedSessionSyncing = sdkOmittedValue,
-          Object? preferredSignInStrategyWhenPasswordRequired =
-              sdkOmittedValue}) =>
-      UpdateInstanceRequestBody(
-        testMode: identical(testMode, sdkOmittedValue)
-            ? this.testMode
-            : testMode as SdkOptional<bool?>,
-        hibp: identical(hibp, sdkOmittedValue)
-            ? this.hibp
-            : hibp as SdkOptional<bool?>,
-        supportEmail: identical(supportEmail, sdkOmittedValue)
-            ? this.supportEmail
-            : supportEmail as SdkOptional<String?>,
-        clerkJsVersion: identical(clerkJsVersion, sdkOmittedValue)
-            ? this.clerkJsVersion
-            : clerkJsVersion as SdkOptional<String?>,
-        developmentOrigin: identical(developmentOrigin, sdkOmittedValue)
-            ? this.developmentOrigin
-            : developmentOrigin as SdkOptional<String?>,
-        allowedOrigins: identical(allowedOrigins, sdkOmittedValue)
-            ? this.allowedOrigins
-            : allowedOrigins as SdkOptional<List<String>?>,
-        allowedSubdomains: identical(allowedSubdomains, sdkOmittedValue)
-            ? this.allowedSubdomains
-            : allowedSubdomains as SdkOptional<List<String>?>,
-        subdomainAllowlistEnabled:
-            identical(subdomainAllowlistEnabled, sdkOmittedValue)
-                ? this.subdomainAllowlistEnabled
-                : subdomainAllowlistEnabled as SdkOptional<bool?>,
-        cookielessDev: identical(cookielessDev, sdkOmittedValue)
-            ? this.cookielessDev
-            : cookielessDev as SdkOptional<bool?>,
-        urlBasedSessionSyncing:
-            identical(urlBasedSessionSyncing, sdkOmittedValue)
-                ? this.urlBasedSessionSyncing
-                : urlBasedSessionSyncing as SdkOptional<bool?>,
-        preferredSignInStrategyWhenPasswordRequired: identical(
-                preferredSignInStrategyWhenPasswordRequired, sdkOmittedValue)
-            ? this.preferredSignInStrategyWhenPasswordRequired
-            : preferredSignInStrategyWhenPasswordRequired as SdkOptional<
-                UpdateInstanceRequestBodyPreferredSignInStrategyWhenPasswordRequired?>,
-      );
+  UpdateInstanceRequestBody _copyWith({Object? testMode = sdkOmittedValue, Object? hibp = sdkOmittedValue, Object? supportEmail = sdkOmittedValue, Object? clerkJsVersion = sdkOmittedValue, Object? developmentOrigin = sdkOmittedValue, Object? allowedOrigins = sdkOmittedValue, Object? allowedSubdomains = sdkOmittedValue, Object? subdomainAllowlistEnabled = sdkOmittedValue, Object? cookielessDev = sdkOmittedValue, Object? urlBasedSessionSyncing = sdkOmittedValue, Object? preferredSignInStrategyWhenPasswordRequired = sdkOmittedValue}) => UpdateInstanceRequestBody(
+    testMode: identical(testMode, sdkOmittedValue) ? this.testMode : testMode as SdkOptional<bool?>,
+    hibp: identical(hibp, sdkOmittedValue) ? this.hibp : hibp as SdkOptional<bool?>,
+    supportEmail: identical(supportEmail, sdkOmittedValue) ? this.supportEmail : supportEmail as SdkOptional<String?>,
+    clerkJsVersion: identical(clerkJsVersion, sdkOmittedValue) ? this.clerkJsVersion : clerkJsVersion as SdkOptional<String?>,
+    developmentOrigin: identical(developmentOrigin, sdkOmittedValue) ? this.developmentOrigin : developmentOrigin as SdkOptional<String?>,
+    allowedOrigins: identical(allowedOrigins, sdkOmittedValue) ? this.allowedOrigins : allowedOrigins as SdkOptional<List<String>?>,
+    allowedSubdomains: identical(allowedSubdomains, sdkOmittedValue) ? this.allowedSubdomains : allowedSubdomains as SdkOptional<List<String>?>,
+    subdomainAllowlistEnabled: identical(subdomainAllowlistEnabled, sdkOmittedValue) ? this.subdomainAllowlistEnabled : subdomainAllowlistEnabled as SdkOptional<bool?>,
+    cookielessDev: identical(cookielessDev, sdkOmittedValue) ? this.cookielessDev : cookielessDev as SdkOptional<bool?>,
+    urlBasedSessionSyncing: identical(urlBasedSessionSyncing, sdkOmittedValue) ? this.urlBasedSessionSyncing : urlBasedSessionSyncing as SdkOptional<bool?>,
+    preferredSignInStrategyWhenPasswordRequired: identical(preferredSignInStrategyWhenPasswordRequired, sdkOmittedValue) ? this.preferredSignInStrategyWhenPasswordRequired : preferredSignInStrategyWhenPasswordRequired as SdkOptional<UpdateInstanceRequestBodyPreferredSignInStrategyWhenPasswordRequired?>,
+  );
 
-  factory UpdateInstanceRequestBody.fromJson(Map<String, dynamic> json) =>
-      UpdateInstanceRequestBody(
-        testMode: json.containsKey('test_mode')
-            ? SdkPresent(json['test_mode'] as bool?)
-            : const SdkOmitted(),
-        hibp: json.containsKey('hibp')
-            ? SdkPresent(json['hibp'] as bool?)
-            : const SdkOmitted(),
-        supportEmail: json.containsKey('support_email')
-            ? SdkPresent(json['support_email'] as String?)
-            : const SdkOmitted(),
-        clerkJsVersion: json.containsKey('clerk_js_version')
-            ? SdkPresent(json['clerk_js_version'] as String?)
-            : const SdkOmitted(),
-        developmentOrigin: json.containsKey('development_origin')
-            ? SdkPresent(json['development_origin'] as String?)
-            : const SdkOmitted(),
-        allowedOrigins: json.containsKey('allowed_origins')
-            ? SdkPresent((json['allowed_origins'] as List?)
-                ?.map((e) => e as String)
-                .toList())
-            : const SdkOmitted(),
-        allowedSubdomains: json.containsKey('allowed_subdomains')
-            ? SdkPresent((json['allowed_subdomains'] as List?)
-                ?.map((e) => e as String)
-                .toList())
-            : const SdkOmitted(),
-        subdomainAllowlistEnabled:
-            json.containsKey('subdomain_allowlist_enabled')
-                ? SdkPresent(json['subdomain_allowlist_enabled'] as bool?)
-                : const SdkOmitted(),
-        cookielessDev: json.containsKey('cookieless_dev')
-            ? SdkPresent(json['cookieless_dev'] as bool?)
-            : const SdkOmitted(),
-        urlBasedSessionSyncing: json.containsKey('url_based_session_syncing')
-            ? SdkPresent(json['url_based_session_syncing'] as bool?)
-            : const SdkOmitted(),
-        preferredSignInStrategyWhenPasswordRequired: json.containsKey(
-                'preferred_sign_in_strategy_when_password_required')
-            ? SdkPresent(json[
-                        'preferred_sign_in_strategy_when_password_required'] !=
-                    null
-                ? UpdateInstanceRequestBodyPreferredSignInStrategyWhenPasswordRequired
-                    .fromJson(json[
-                            'preferred_sign_in_strategy_when_password_required']
-                        as String)
-                : null)
-            : const SdkOmitted(),
-      );
+  factory UpdateInstanceRequestBody.fromJson(Map<String, dynamic> json) => UpdateInstanceRequestBody(
+    testMode: json.containsKey('test_mode') ? SdkPresent(json['test_mode'] as bool?) : const SdkOmitted(),
+    hibp: json.containsKey('hibp') ? SdkPresent(json['hibp'] as bool?) : const SdkOmitted(),
+    supportEmail: json.containsKey('support_email') ? SdkPresent(json['support_email'] as String?) : const SdkOmitted(),
+    clerkJsVersion: json.containsKey('clerk_js_version') ? SdkPresent(json['clerk_js_version'] as String?) : const SdkOmitted(),
+    developmentOrigin: json.containsKey('development_origin') ? SdkPresent(json['development_origin'] as String?) : const SdkOmitted(),
+    allowedOrigins: json.containsKey('allowed_origins') ? SdkPresent((json['allowed_origins'] as List?)?.map((e) => e as String).toList()) : const SdkOmitted(),
+    allowedSubdomains: json.containsKey('allowed_subdomains') ? SdkPresent((json['allowed_subdomains'] as List?)?.map((e) => e as String).toList()) : const SdkOmitted(),
+    subdomainAllowlistEnabled: json.containsKey('subdomain_allowlist_enabled') ? SdkPresent(json['subdomain_allowlist_enabled'] as bool?) : const SdkOmitted(),
+    cookielessDev: json.containsKey('cookieless_dev') ? SdkPresent(json['cookieless_dev'] as bool?) : const SdkOmitted(),
+    urlBasedSessionSyncing: json.containsKey('url_based_session_syncing') ? SdkPresent(json['url_based_session_syncing'] as bool?) : const SdkOmitted(),
+    preferredSignInStrategyWhenPasswordRequired: json.containsKey('preferred_sign_in_strategy_when_password_required') ? SdkPresent(json['preferred_sign_in_strategy_when_password_required'] != null ? UpdateInstanceRequestBodyPreferredSignInStrategyWhenPasswordRequired.fromJson(json['preferred_sign_in_strategy_when_password_required'] as String) : null) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (testMode) {
-          SdkPresent<bool?>(value: final value) => {
-              'test_mode': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (hibp) {
-          SdkPresent<bool?>(value: final value) => {
-              'hibp': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (supportEmail) {
-          SdkPresent<String?>(value: final value) => {
-              'support_email': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (clerkJsVersion) {
-          SdkPresent<String?>(value: final value) => {
-              'clerk_js_version': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (developmentOrigin) {
-          SdkPresent<String?>(value: final value) => {
-              'development_origin': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (allowedOrigins) {
-          SdkPresent<List<String>?>(value: final value) => {
-              'allowed_origins': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (allowedSubdomains) {
-          SdkPresent<List<String>?>(value: final value) => {
-              'allowed_subdomains': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (subdomainAllowlistEnabled) {
-          SdkPresent<bool?>(value: final value) => {
-              'subdomain_allowlist_enabled': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (cookielessDev) {
-          SdkPresent<bool?>(value: final value) => {
-              'cookieless_dev': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (urlBasedSessionSyncing) {
-          SdkPresent<bool?>(value: final value) => {
-              'url_based_session_syncing': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (preferredSignInStrategyWhenPasswordRequired) {
-          SdkPresent<
-                UpdateInstanceRequestBodyPreferredSignInStrategyWhenPasswordRequired?>(
-            value: final value
-          ) =>
-            {
-              'preferred_sign_in_strategy_when_password_required':
-                  value?.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (testMode) {
+      SdkPresent<bool?>(value: final value) => {'test_mode': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (hibp) {
+      SdkPresent<bool?>(value: final value) => {'hibp': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (supportEmail) {
+      SdkPresent<String?>(value: final value) => {'support_email': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (clerkJsVersion) {
+      SdkPresent<String?>(value: final value) => {'clerk_js_version': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (developmentOrigin) {
+      SdkPresent<String?>(value: final value) => {'development_origin': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (allowedOrigins) {
+      SdkPresent<List<String>?>(value: final value) => {'allowed_origins': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (allowedSubdomains) {
+      SdkPresent<List<String>?>(value: final value) => {'allowed_subdomains': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (subdomainAllowlistEnabled) {
+      SdkPresent<bool?>(value: final value) => {'subdomain_allowlist_enabled': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (cookielessDev) {
+      SdkPresent<bool?>(value: final value) => {'cookieless_dev': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (urlBasedSessionSyncing) {
+      SdkPresent<bool?>(value: final value) => {'url_based_session_syncing': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (preferredSignInStrategyWhenPasswordRequired) {
+      SdkPresent<UpdateInstanceRequestBodyPreferredSignInStrategyWhenPasswordRequired?>(value: final value) => {'preferred_sign_in_strategy_when_password_required': value?.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 class UpdateInstanceRestrictionsRequestBody {
@@ -253,182 +116,98 @@ class UpdateInstanceRestrictionsRequestBody {
   final SdkOptional<bool?> blockEmailSubaddresses;
   final SdkOptional<bool?> blockDisposableEmailDomains;
 
-  const UpdateInstanceRestrictionsRequestBody(
-      {this.allowlist = const SdkOmitted(),
-      this.blocklist = const SdkOmitted(),
-      this.allowlistBlocklistDisabledOnSignIn = const SdkOmitted(),
-      this.blockEmailSubaddresses = const SdkOmitted(),
-      this.blockDisposableEmailDomains = const SdkOmitted()});
+  const UpdateInstanceRestrictionsRequestBody({this.allowlist = const SdkOmitted(), this.blocklist = const SdkOmitted(), this.allowlistBlocklistDisabledOnSignIn = const SdkOmitted(), this.blockEmailSubaddresses = const SdkOmitted(), this.blockDisposableEmailDomains = const SdkOmitted()});
 
-  UpdateInstanceRestrictionsRequestBody Function(
-          {SdkOptional<bool?> allowlist,
-          SdkOptional<bool?> blocklist,
-          SdkOptional<bool?> allowlistBlocklistDisabledOnSignIn,
-          SdkOptional<bool?> blockEmailSubaddresses,
-          SdkOptional<bool?> blockDisposableEmailDomains})
-      get copyWith => _copyWith;
+  UpdateInstanceRestrictionsRequestBody Function({SdkOptional<bool?> allowlist, SdkOptional<bool?> blocklist, SdkOptional<bool?> allowlistBlocklistDisabledOnSignIn, SdkOptional<bool?> blockEmailSubaddresses, SdkOptional<bool?> blockDisposableEmailDomains}) get copyWith => _copyWith;
 
-  UpdateInstanceRestrictionsRequestBody _copyWith(
-          {Object? allowlist = sdkOmittedValue,
-          Object? blocklist = sdkOmittedValue,
-          Object? allowlistBlocklistDisabledOnSignIn = sdkOmittedValue,
-          Object? blockEmailSubaddresses = sdkOmittedValue,
-          Object? blockDisposableEmailDomains = sdkOmittedValue}) =>
-      UpdateInstanceRestrictionsRequestBody(
-        allowlist: identical(allowlist, sdkOmittedValue)
-            ? this.allowlist
-            : allowlist as SdkOptional<bool?>,
-        blocklist: identical(blocklist, sdkOmittedValue)
-            ? this.blocklist
-            : blocklist as SdkOptional<bool?>,
-        allowlistBlocklistDisabledOnSignIn:
-            identical(allowlistBlocklistDisabledOnSignIn, sdkOmittedValue)
-                ? this.allowlistBlocklistDisabledOnSignIn
-                : allowlistBlocklistDisabledOnSignIn as SdkOptional<bool?>,
-        blockEmailSubaddresses:
-            identical(blockEmailSubaddresses, sdkOmittedValue)
-                ? this.blockEmailSubaddresses
-                : blockEmailSubaddresses as SdkOptional<bool?>,
-        blockDisposableEmailDomains:
-            identical(blockDisposableEmailDomains, sdkOmittedValue)
-                ? this.blockDisposableEmailDomains
-                : blockDisposableEmailDomains as SdkOptional<bool?>,
-      );
+  UpdateInstanceRestrictionsRequestBody _copyWith({Object? allowlist = sdkOmittedValue, Object? blocklist = sdkOmittedValue, Object? allowlistBlocklistDisabledOnSignIn = sdkOmittedValue, Object? blockEmailSubaddresses = sdkOmittedValue, Object? blockDisposableEmailDomains = sdkOmittedValue}) => UpdateInstanceRestrictionsRequestBody(
+    allowlist: identical(allowlist, sdkOmittedValue) ? this.allowlist : allowlist as SdkOptional<bool?>,
+    blocklist: identical(blocklist, sdkOmittedValue) ? this.blocklist : blocklist as SdkOptional<bool?>,
+    allowlistBlocklistDisabledOnSignIn: identical(allowlistBlocklistDisabledOnSignIn, sdkOmittedValue) ? this.allowlistBlocklistDisabledOnSignIn : allowlistBlocklistDisabledOnSignIn as SdkOptional<bool?>,
+    blockEmailSubaddresses: identical(blockEmailSubaddresses, sdkOmittedValue) ? this.blockEmailSubaddresses : blockEmailSubaddresses as SdkOptional<bool?>,
+    blockDisposableEmailDomains: identical(blockDisposableEmailDomains, sdkOmittedValue) ? this.blockDisposableEmailDomains : blockDisposableEmailDomains as SdkOptional<bool?>,
+  );
 
-  factory UpdateInstanceRestrictionsRequestBody.fromJson(
-          Map<String, dynamic> json) =>
-      UpdateInstanceRestrictionsRequestBody(
-        allowlist: json.containsKey('allowlist')
-            ? SdkPresent(json['allowlist'] as bool?)
-            : const SdkOmitted(),
-        blocklist: json.containsKey('blocklist')
-            ? SdkPresent(json['blocklist'] as bool?)
-            : const SdkOmitted(),
-        allowlistBlocklistDisabledOnSignIn:
-            json.containsKey('allowlist_blocklist_disabled_on_sign_in')
-                ? SdkPresent(
-                    json['allowlist_blocklist_disabled_on_sign_in'] as bool?)
-                : const SdkOmitted(),
-        blockEmailSubaddresses: json.containsKey('block_email_subaddresses')
-            ? SdkPresent(json['block_email_subaddresses'] as bool?)
-            : const SdkOmitted(),
-        blockDisposableEmailDomains:
-            json.containsKey('block_disposable_email_domains')
-                ? SdkPresent(json['block_disposable_email_domains'] as bool?)
-                : const SdkOmitted(),
-      );
+  factory UpdateInstanceRestrictionsRequestBody.fromJson(Map<String, dynamic> json) => UpdateInstanceRestrictionsRequestBody(
+    allowlist: json.containsKey('allowlist') ? SdkPresent(json['allowlist'] as bool?) : const SdkOmitted(),
+    blocklist: json.containsKey('blocklist') ? SdkPresent(json['blocklist'] as bool?) : const SdkOmitted(),
+    allowlistBlocklistDisabledOnSignIn: json.containsKey('allowlist_blocklist_disabled_on_sign_in') ? SdkPresent(json['allowlist_blocklist_disabled_on_sign_in'] as bool?) : const SdkOmitted(),
+    blockEmailSubaddresses: json.containsKey('block_email_subaddresses') ? SdkPresent(json['block_email_subaddresses'] as bool?) : const SdkOmitted(),
+    blockDisposableEmailDomains: json.containsKey('block_disposable_email_domains') ? SdkPresent(json['block_disposable_email_domains'] as bool?) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (allowlist) {
-          SdkPresent<bool?>(value: final value) => {
-              'allowlist': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (blocklist) {
-          SdkPresent<bool?>(value: final value) => {
-              'blocklist': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (allowlistBlocklistDisabledOnSignIn) {
-          SdkPresent<bool?>(value: final value) => {
-              'allowlist_blocklist_disabled_on_sign_in': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (blockEmailSubaddresses) {
-          SdkPresent<bool?>(value: final value) => {
-              'block_email_subaddresses': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (blockDisposableEmailDomains) {
-          SdkPresent<bool?>(value: final value) => {
-              'block_disposable_email_domains': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (allowlist) {
+      SdkPresent<bool?>(value: final value) => {'allowlist': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (blocklist) {
+      SdkPresent<bool?>(value: final value) => {'blocklist': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (allowlistBlocklistDisabledOnSignIn) {
+      SdkPresent<bool?>(value: final value) => {'allowlist_blocklist_disabled_on_sign_in': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (blockEmailSubaddresses) {
+      SdkPresent<bool?>(value: final value) => {'block_email_subaddresses': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (blockDisposableEmailDomains) {
+      SdkPresent<bool?>(value: final value) => {'block_disposable_email_domains': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 class UpdateInstanceProtectRequestBody {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Set true to enforce Protect rules on this instance. Set false to stop enforcing and return the instance to its default posture, where traffic is still evaluated in shadow but nothing is blocked. This does not remove the instance from Protect.
   final SdkOptional<bool?> rulesEnabled;
 
-  const UpdateInstanceProtectRequestBody(
-      {this.rulesEnabled = const SdkOmitted()});
+  const UpdateInstanceProtectRequestBody({this.rulesEnabled = const SdkOmitted()});
 
-  UpdateInstanceProtectRequestBody Function({SdkOptional<bool?> rulesEnabled})
-      get copyWith => _copyWith;
+  UpdateInstanceProtectRequestBody Function({SdkOptional<bool?> rulesEnabled}) get copyWith => _copyWith;
 
-  UpdateInstanceProtectRequestBody _copyWith(
-          {Object? rulesEnabled = sdkOmittedValue}) =>
-      UpdateInstanceProtectRequestBody(
-        rulesEnabled: identical(rulesEnabled, sdkOmittedValue)
-            ? this.rulesEnabled
-            : rulesEnabled as SdkOptional<bool?>,
-      );
+  UpdateInstanceProtectRequestBody _copyWith({Object? rulesEnabled = sdkOmittedValue}) => UpdateInstanceProtectRequestBody(
+    rulesEnabled: identical(rulesEnabled, sdkOmittedValue) ? this.rulesEnabled : rulesEnabled as SdkOptional<bool?>,
+  );
 
-  factory UpdateInstanceProtectRequestBody.fromJson(
-          Map<String, dynamic> json) =>
-      UpdateInstanceProtectRequestBody(
-        rulesEnabled: json.containsKey('rules_enabled')
-            ? SdkPresent(json['rules_enabled'] as bool?)
-            : const SdkOmitted(),
-      );
+  factory UpdateInstanceProtectRequestBody.fromJson(Map<String, dynamic> json) => UpdateInstanceProtectRequestBody(
+    rulesEnabled: json.containsKey('rules_enabled') ? SdkPresent(json['rules_enabled'] as bool?) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (rulesEnabled) {
-          SdkPresent<bool?>(value: final value) => {
-              'rules_enabled': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (rulesEnabled) {
+      SdkPresent<bool?>(value: final value) => {'rules_enabled': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 class UpdateInstanceCommunicationRequestBody {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// ISO 3166-1 alpha-2 country codes to block for SMS delivery. Whole-list replacement. Codes must be uppercase, 2-letter, and unique within the array.
   final SdkOptional<List<String>?> blockedCountryCodes;
 
-  const UpdateInstanceCommunicationRequestBody(
-      {this.blockedCountryCodes = const SdkOmitted()});
+  const UpdateInstanceCommunicationRequestBody({this.blockedCountryCodes = const SdkOmitted()});
 
-  UpdateInstanceCommunicationRequestBody Function(
-          {SdkOptional<List<String>?> blockedCountryCodes})
-      get copyWith => _copyWith;
+  UpdateInstanceCommunicationRequestBody Function({SdkOptional<List<String>?> blockedCountryCodes}) get copyWith => _copyWith;
 
-  UpdateInstanceCommunicationRequestBody _copyWith(
-          {Object? blockedCountryCodes = sdkOmittedValue}) =>
-      UpdateInstanceCommunicationRequestBody(
-        blockedCountryCodes: identical(blockedCountryCodes, sdkOmittedValue)
-            ? this.blockedCountryCodes
-            : blockedCountryCodes as SdkOptional<List<String>?>,
-      );
+  UpdateInstanceCommunicationRequestBody _copyWith({Object? blockedCountryCodes = sdkOmittedValue}) => UpdateInstanceCommunicationRequestBody(
+    blockedCountryCodes: identical(blockedCountryCodes, sdkOmittedValue) ? this.blockedCountryCodes : blockedCountryCodes as SdkOptional<List<String>?>,
+  );
 
-  factory UpdateInstanceCommunicationRequestBody.fromJson(
-          Map<String, dynamic> json) =>
-      UpdateInstanceCommunicationRequestBody(
-        blockedCountryCodes: json.containsKey('blocked_country_codes')
-            ? SdkPresent((json['blocked_country_codes'] as List?)
-                ?.map((e) => e as String)
-                .toList())
-            : const SdkOmitted(),
-      );
+  factory UpdateInstanceCommunicationRequestBody.fromJson(Map<String, dynamic> json) => UpdateInstanceCommunicationRequestBody(
+    blockedCountryCodes: json.containsKey('blocked_country_codes') ? SdkPresent((json['blocked_country_codes'] as List?)?.map((e) => e as String).toList()) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (blockedCountryCodes) {
-          SdkPresent<List<String>?>(value: final value) => {
-              'blocked_country_codes': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (blockedCountryCodes) {
+      SdkPresent<List<String>?>(value: final value) => {'blocked_country_codes': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

@@ -8,41 +8,29 @@ part of 'organizations.dart';
 class Organizations {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Required array value serialized in the `data` wire field.
   final List<Organization> data;
-
   /// Total number of organizations
   final int totalCount;
 
   const Organizations({required this.data, required this.totalCount});
 
-  Organizations Function({List<Organization> data, int totalCount})
-      get copyWith => _copyWith;
+  Organizations Function({List<Organization> data, int totalCount}) get copyWith => _copyWith;
 
-  Organizations _copyWith(
-          {Object? data = sdkOmittedValue,
-          Object? totalCount = sdkOmittedValue}) =>
-      Organizations(
-        data: identical(data, sdkOmittedValue)
-            ? this.data
-            : data as List<Organization>,
-        totalCount: identical(totalCount, sdkOmittedValue)
-            ? this.totalCount
-            : totalCount as int,
-      );
+  Organizations _copyWith({Object? data = sdkOmittedValue, Object? totalCount = sdkOmittedValue}) => Organizations(
+    data: identical(data, sdkOmittedValue) ? this.data : data as List<Organization>,
+    totalCount: identical(totalCount, sdkOmittedValue) ? this.totalCount : totalCount as int,
+  );
 
   factory Organizations.fromJson(Map<String, dynamic> json) => Organizations(
-        data: ((json['data'] as List?)
-            ?.map((e) => Organization.fromJson(e as Map<String, dynamic>))
-            .toList())!,
-        totalCount: ((json['total_count'] as num?)?.toInt())!,
-      );
+    data: ((json['data'] as List?)?.map((e) => Organization.fromJson(e as Map<String, dynamic>)).toList())!,
+    totalCount: ((json['total_count'] as num?)?.toInt())!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'data': data.map((item) => item.toJson()).toList(),
-        'total_count': totalCount,
-      };
+    'data': data.map((item) => item.toJson()).toList(),
+    'total_count': totalCount,
+  };
 }
 
 class OrganizationWithLogoVariant1 {
@@ -52,49 +40,28 @@ class OrganizationWithLogoVariant1 {
   final String imageUrl;
   final bool hasImage;
 
-  const OrganizationWithLogoVariant1(
-      {this.logoUrl = const SdkOmitted(),
-      required this.imageUrl,
-      required this.hasImage});
+  const OrganizationWithLogoVariant1({this.logoUrl = const SdkOmitted(), required this.imageUrl, required this.hasImage});
 
-  OrganizationWithLogoVariant1 Function(
-      {SdkOptional<String> logoUrl,
-      String imageUrl,
-      bool hasImage}) get copyWith => _copyWith;
+  OrganizationWithLogoVariant1 Function({SdkOptional<String> logoUrl, String imageUrl, bool hasImage}) get copyWith => _copyWith;
 
-  OrganizationWithLogoVariant1 _copyWith(
-          {Object? logoUrl = sdkOmittedValue,
-          Object? imageUrl = sdkOmittedValue,
-          Object? hasImage = sdkOmittedValue}) =>
-      OrganizationWithLogoVariant1(
-        logoUrl: identical(logoUrl, sdkOmittedValue)
-            ? this.logoUrl
-            : logoUrl as SdkOptional<String>,
-        imageUrl: identical(imageUrl, sdkOmittedValue)
-            ? this.imageUrl
-            : imageUrl as String,
-        hasImage: identical(hasImage, sdkOmittedValue)
-            ? this.hasImage
-            : hasImage as bool,
-      );
+  OrganizationWithLogoVariant1 _copyWith({Object? logoUrl = sdkOmittedValue, Object? imageUrl = sdkOmittedValue, Object? hasImage = sdkOmittedValue}) => OrganizationWithLogoVariant1(
+    logoUrl: identical(logoUrl, sdkOmittedValue) ? this.logoUrl : logoUrl as SdkOptional<String>,
+    imageUrl: identical(imageUrl, sdkOmittedValue) ? this.imageUrl : imageUrl as String,
+    hasImage: identical(hasImage, sdkOmittedValue) ? this.hasImage : hasImage as bool,
+  );
 
-  factory OrganizationWithLogoVariant1.fromJson(Map<String, dynamic> json) =>
-      OrganizationWithLogoVariant1(
-        logoUrl: json['logo_url'] != null
-            ? SdkPresent((json['logo_url'] as String?)!)
-            : const SdkOmitted(),
-        imageUrl: (json['image_url'] as String?)!,
-        hasImage: (json['has_image'] as bool?)!,
-      );
+  factory OrganizationWithLogoVariant1.fromJson(Map<String, dynamic> json) => OrganizationWithLogoVariant1(
+    logoUrl: json['logo_url'] != null ? SdkPresent((json['logo_url'] as String?)!) : const SdkOmitted(),
+    imageUrl: (json['image_url'] as String?)!,
+    hasImage: (json['has_image'] as bool?)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (logoUrl) {
-          SdkPresent<String>(value: final value) => {
-              'logo_url': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        'image_url': imageUrl,
-        'has_image': hasImage,
-      };
+    ...switch (logoUrl) {
+      SdkPresent<String>(value: final value) => {'logo_url': value,},
+      _ => const <String, dynamic>{},
+    },
+    'image_url': imageUrl,
+    'has_image': hasImage,
+  };
 }

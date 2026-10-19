@@ -35,29 +35,18 @@ Future<List<Template>> getTemplateList(ClientConfig config,
           'GET', '/templates/${Uri.encodeComponent(templateType.toString())}',
           config: config,
           query: {
-            'paginated': SdkQueryValue(SdkUtils.unwrapOptional(paginated),
-                style: 'form', explode: true),
-            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit),
-                style: 'form', explode: true),
-            'offset': SdkQueryValue(SdkUtils.unwrapOptional(offset),
-                style: 'form', explode: true)
+            'paginated': SdkQueryValue(SdkUtils.unwrapOptional(paginated), style: 'form', explode: true),
+            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit), style: 'form', explode: true),
+            'offset': SdkQueryValue(SdkUtils.unwrapOptional(offset), style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'getTemplateList',
-          fromJsonRaw: (value) => (value as List)
-              .map((item) => Template.fromJson(item as Map<String, dynamic>))
-              .toList(),
+          fromJsonRaw: (value) => (value as List).map((item) => Template.fromJson(item as Map<String, dynamic>)).toList(),
           options: requestOptions,
-          errors: {
-            '400': (value) =>
-                ClerkErrors.fromJson(value as Map<String, dynamic>),
-            '401': (value) =>
-                ClerkErrors.fromJson(value as Map<String, dynamic>),
-            '422': (value) =>
-                ClerkErrors.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'400': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '401': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '422': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Retrieves the details of an email or SMS template by its slug. Use `template_type` to select the template category and `slug` to identify the template. This operation is deprecated.
 ///
@@ -76,16 +65,12 @@ Future<Template> getTemplate(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'getTemplate',
-          fromJsonRaw: (value) =>
-              Template.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => Template.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-        '400': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>),
-        '401': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>),
-        '404': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'400': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '401': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '404': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Updates the existing template of the given type and slug
 ///
@@ -130,29 +115,12 @@ Future<Template> upsertTemplate(ClientConfig config,
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'upsertTemplate',
-          fromJsonRaw: (value) =>
-              Template.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => Template.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '400': (value) =>
-                ClerkErrors.fromJson(value as Map<String, dynamic>),
-            '401': (value) =>
-                ClerkErrors.fromJson(value as Map<String, dynamic>),
-            '402': (value) =>
-                ClerkErrors.fromJson(value as Map<String, dynamic>),
-            '403': (value) =>
-                ClerkErrors.fromJson(value as Map<String, dynamic>),
-            '404': (value) =>
-                ClerkErrors.fromJson(value as Map<String, dynamic>),
-            '422': (value) =>
-                ClerkErrors.fromJson(value as Map<String, dynamic>),
-            '423': (value) =>
-                ClerkErrors.fromJson(value as Map<String, dynamic>),
-            '429': (value) =>
-                ClerkErrors.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'400': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '401': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '402': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '403': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '404': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '422': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '423': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '429': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Reverts an email or SMS template to its corresponding system default. Use `template_type` and `slug` to identify the template to restore.
 ///
@@ -171,17 +139,12 @@ Future<Template> revertTemplate(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'revertTemplate',
-          fromJsonRaw: (value) =>
-              Template.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => Template.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-        '400': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>),
-        '401': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>),
-        '402': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>),
-        '404': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'400': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '401': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '402': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '404': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Returns a preview of a template using the specified template type, slug, and optional body values. Use the body fields to preview changes; `subject`, `from_email_name`, and `reply_to_email_name` apply only to email templates.
 ///
@@ -220,18 +183,10 @@ Future<Map<String, dynamic>> previewTemplate(ClientConfig config,
           operationId: 'previewTemplate',
           fromJsonRaw: (value) => value as Map<String, dynamic>,
           options: requestOptions,
-          errors: {
-            '400': (value) =>
-                ClerkErrors.fromJson(value as Map<String, dynamic>),
-            '401': (value) =>
-                ClerkErrors.fromJson(value as Map<String, dynamic>),
-            '404': (value) =>
-                ClerkErrors.fromJson(value as Map<String, dynamic>),
-            '422': (value) =>
-                ClerkErrors.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'400': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '401': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '404': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '422': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Toggles the delivery by Clerk for a template of a given type and slug. If disabled, Clerk will not deliver the resulting email or SMS. The app developer will need to listen to the `email.created` or `sms.created` webhooks in order to handle delivery themselves.
 ///
@@ -254,20 +209,8 @@ Future<Template> toggleTemplateDelivery(ClientConfig config,
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'toggleTemplateDelivery',
-          fromJsonRaw: (value) =>
-              Template.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => Template.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '400': (value) =>
-                ClerkErrors.fromJson(value as Map<String, dynamic>),
-            '401': (value) =>
-                ClerkErrors.fromJson(value as Map<String, dynamic>),
-            '404': (value) =>
-                ClerkErrors.fromJson(value as Map<String, dynamic>),
-            '423': (value) =>
-                ClerkErrors.fromJson(value as Map<String, dynamic>),
-            '429': (value) =>
-                ClerkErrors.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'400': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '401': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '404': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '423': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '429': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)}))
       .data;
 }

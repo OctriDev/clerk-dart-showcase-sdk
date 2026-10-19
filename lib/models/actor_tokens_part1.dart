@@ -8,134 +8,68 @@ part of 'actor_tokens.dart';
 class ActorToken {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Required enumerated value serialized in the `object` wire field.
   final ActorTokenObject object;
-
   /// Required `string` value serialized in the `id` wire field.
   final String id;
-
   /// Required enumerated value serialized in the `status` wire field.
   final ActorTokenStatus status;
-
   /// Required `string` value serialized in the `user_id` wire field.
   final String userId;
-
   /// Required object value serialized in the `actor` wire field.
   final Map<String, dynamic> actor;
-
   /// Optional `string` value serialized in the `token` wire field.
   final SdkOptional<String> token;
-
   /// Optional `string` value serialized in the `url` wire field.
   final SdkOptional<String> url;
-
   /// Unix timestamp of creation.
   final int createdAt;
-
   /// Unix timestamp of last update.
   final int updatedAt;
 
-  const ActorToken(
-      {required this.object,
-      required this.id,
-      required this.status,
-      required this.userId,
-      required this.actor,
-      this.token = const SdkOmitted(),
-      this.url = const SdkOmitted(),
-      required this.createdAt,
-      required this.updatedAt});
+  const ActorToken({required this.object, required this.id, required this.status, required this.userId, required this.actor, this.token = const SdkOmitted(), this.url = const SdkOmitted(), required this.createdAt, required this.updatedAt});
 
-  ActorToken Function(
-      {ActorTokenObject object,
-      String id,
-      ActorTokenStatus status,
-      String userId,
-      Map<String, dynamic> actor,
-      SdkOptional<String> token,
-      SdkOptional<String> url,
-      int createdAt,
-      int updatedAt}) get copyWith => _copyWith;
+  ActorToken Function({ActorTokenObject object, String id, ActorTokenStatus status, String userId, Map<String, dynamic> actor, SdkOptional<String> token, SdkOptional<String> url, int createdAt, int updatedAt}) get copyWith => _copyWith;
 
-  ActorToken _copyWith(
-          {Object? object = sdkOmittedValue,
-          Object? id = sdkOmittedValue,
-          Object? status = sdkOmittedValue,
-          Object? userId = sdkOmittedValue,
-          Object? actor = sdkOmittedValue,
-          Object? token = sdkOmittedValue,
-          Object? url = sdkOmittedValue,
-          Object? createdAt = sdkOmittedValue,
-          Object? updatedAt = sdkOmittedValue}) =>
-      ActorToken(
-        object: identical(object, sdkOmittedValue)
-            ? this.object
-            : object as ActorTokenObject,
-        id: identical(id, sdkOmittedValue) ? this.id : id as String,
-        status: identical(status, sdkOmittedValue)
-            ? this.status
-            : status as ActorTokenStatus,
-        userId:
-            identical(userId, sdkOmittedValue) ? this.userId : userId as String,
-        actor: identical(actor, sdkOmittedValue)
-            ? this.actor
-            : actor as Map<String, dynamic>,
-        token: identical(token, sdkOmittedValue)
-            ? this.token
-            : token as SdkOptional<String>,
-        url: identical(url, sdkOmittedValue)
-            ? this.url
-            : url as SdkOptional<String>,
-        createdAt: identical(createdAt, sdkOmittedValue)
-            ? this.createdAt
-            : createdAt as int,
-        updatedAt: identical(updatedAt, sdkOmittedValue)
-            ? this.updatedAt
-            : updatedAt as int,
-      );
+  ActorToken _copyWith({Object? object = sdkOmittedValue, Object? id = sdkOmittedValue, Object? status = sdkOmittedValue, Object? userId = sdkOmittedValue, Object? actor = sdkOmittedValue, Object? token = sdkOmittedValue, Object? url = sdkOmittedValue, Object? createdAt = sdkOmittedValue, Object? updatedAt = sdkOmittedValue}) => ActorToken(
+    object: identical(object, sdkOmittedValue) ? this.object : object as ActorTokenObject,
+    id: identical(id, sdkOmittedValue) ? this.id : id as String,
+    status: identical(status, sdkOmittedValue) ? this.status : status as ActorTokenStatus,
+    userId: identical(userId, sdkOmittedValue) ? this.userId : userId as String,
+    actor: identical(actor, sdkOmittedValue) ? this.actor : actor as Map<String, dynamic>,
+    token: identical(token, sdkOmittedValue) ? this.token : token as SdkOptional<String>,
+    url: identical(url, sdkOmittedValue) ? this.url : url as SdkOptional<String>,
+    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as int,
+    updatedAt: identical(updatedAt, sdkOmittedValue) ? this.updatedAt : updatedAt as int,
+  );
 
   factory ActorToken.fromJson(Map<String, dynamic> json) => ActorToken(
-        object: (json['object'] != null
-            ? ActorTokenObject.fromJson(json['object'] as String)
-            : null)!,
-        id: (json['id'] as String?)!,
-        status: (json['status'] != null
-            ? ActorTokenStatus.fromJson(json['status'] as String)
-            : null)!,
-        userId: (json['user_id'] as String?)!,
-        actor: (json['actor'] == null
-            ? null
-            : json['actor'] as Map<String, dynamic>)!,
-        token: json['token'] != null
-            ? SdkPresent((json['token'] as String?)!)
-            : const SdkOmitted(),
-        url: json['url'] != null
-            ? SdkPresent((json['url'] as String?)!)
-            : const SdkOmitted(),
-        createdAt: ((json['created_at'] as num?)?.toInt())!,
-        updatedAt: ((json['updated_at'] as num?)?.toInt())!,
-      );
+    object: (json['object'] != null ? ActorTokenObject.fromJson(json['object'] as String) : null)!,
+    id: (json['id'] as String?)!,
+    status: (json['status'] != null ? ActorTokenStatus.fromJson(json['status'] as String) : null)!,
+    userId: (json['user_id'] as String?)!,
+    actor: (json['actor'] == null ? null : json['actor'] as Map<String, dynamic>)!,
+    token: json['token'] != null ? SdkPresent((json['token'] as String?)!) : const SdkOmitted(),
+    url: json['url'] != null ? SdkPresent((json['url'] as String?)!) : const SdkOmitted(),
+    createdAt: ((json['created_at'] as num?)?.toInt())!,
+    updatedAt: ((json['updated_at'] as num?)?.toInt())!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'object': object.toJson(),
-        'id': id,
-        'status': status.toJson(),
-        'user_id': userId,
-        'actor': actor,
-        ...switch (token) {
-          SdkPresent<String>(value: final value) => {
-              'token': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (url) {
-          SdkPresent<String>(value: final value) => {
-              'url': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        'created_at': createdAt,
-        'updated_at': updatedAt,
-      };
+    'object': object.toJson(),
+    'id': id,
+    'status': status.toJson(),
+    'user_id': userId,
+    'actor': actor,
+    ...switch (token) {
+      SdkPresent<String>(value: final value) => {'token': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (url) {
+      SdkPresent<String>(value: final value) => {'url': value,},
+      _ => const <String, dynamic>{},
+    },
+    'created_at': createdAt,
+    'updated_at': updatedAt,
+  };
 }

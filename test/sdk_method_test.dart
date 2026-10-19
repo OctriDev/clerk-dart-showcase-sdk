@@ -366,7 +366,7 @@ void main() {
         config,
         emailAddressId: (jsonDecode("\"email_address-1\"") as String),
         verificationId: (jsonDecode("\"verification-1\"") as String),
-        code: (jsonDecode("\"code\"") as String),
+        code: (jsonDecode("\"user@example.com\"") as String),
       );
       expect(
         mismatch(
@@ -386,7 +386,7 @@ void main() {
         config,
         emailAddressId: (jsonDecode("\"email_address-1\"") as String),
         verificationId: (jsonDecode("\"verification-1\"") as String),
-        code: (jsonDecode("\"code\"") as String),
+        code: (jsonDecode("\"user@example.com\"") as String),
       );
         fail('did not raise its declared error');
       } on SdkHttpError catch (caught) {
@@ -630,7 +630,7 @@ void main() {
     test("createAgentTask reaches the mock and decodes its response", () async {
       final actual = await sdk_methods_11.createAgentTask(
         config,
-        onBehalfOf: CreateAgentTaskRequestBodyOnBehalfOf.fromJson((jsonDecode("{\"user_id\":\"user-1\",\"identifier\":\"identifier\"}") as Map).cast<String, dynamic>()),
+        onBehalfOf: CreateAgentTaskRequestBodyOnBehalfOf.fromJson((jsonDecode("{\"user_id\":\"user-1\",\"identifier\":\"user@example.com\"}") as Map).cast<String, dynamic>()),
         permissions: CreateAgentTaskRequestBodyPermissions.fromJson(jsonDecode("\"*\"") as String),
         agentName: (jsonDecode("\"Example Name\"") as String),
         taskDescription: (jsonDecode("\"example text\"") as String),
@@ -653,7 +653,7 @@ void main() {
       try {
         await sdk_methods_11.createAgentTask(
         config,
-        onBehalfOf: CreateAgentTaskRequestBodyOnBehalfOf.fromJson((jsonDecode("{\"user_id\":\"user-1\",\"identifier\":\"identifier\"}") as Map).cast<String, dynamic>()),
+        onBehalfOf: CreateAgentTaskRequestBodyOnBehalfOf.fromJson((jsonDecode("{\"user_id\":\"user-1\",\"identifier\":\"user@example.com\"}") as Map).cast<String, dynamic>()),
         permissions: CreateAgentTaskRequestBodyPermissions.fromJson(jsonDecode("\"*\"") as String),
         agentName: (jsonDecode("\"Example Name\"") as String),
         taskDescription: (jsonDecode("\"example text\"") as String),
@@ -674,13 +674,13 @@ void main() {
     test("createAllowlistIdentifier reaches the mock and decodes its response", () async {
       final actual = await sdk_methods_12.createAllowlistIdentifier(
         config,
-        identifier: (jsonDecode("\"identifier\"") as String),
+        identifier: (jsonDecode("\"user@example.com\"") as String),
         notify: SdkPresent<bool>((jsonDecode("false") as bool)),
       );
       expect(
         mismatch(
           normal(actual),
-          SdkUtils.decodeJson("{\"object\":\"allowlist_identifier\",\"id\":\"id-1\",\"invitation_id\":\"invitation-1\",\"identifier\":\"identifier\",\"identifier_type\":\"email_address\",\"instance_id\":\"instance-1\",\"created_at\":1,\"updated_at\":1}"),
+          SdkUtils.decodeJson("{\"object\":\"allowlist_identifier\",\"id\":\"id-1\",\"invitation_id\":\"invitation-1\",\"identifier\":\"user@example.com\",\"identifier_type\":\"email_address\",\"instance_id\":\"instance-1\",\"created_at\":1,\"updated_at\":1}"),
         ),
         isNull,
       );
@@ -693,7 +693,7 @@ void main() {
       try {
         await sdk_methods_12.createAllowlistIdentifier(
         config,
-        identifier: (jsonDecode("\"identifier\"") as String),
+        identifier: (jsonDecode("\"user@example.com\"") as String),
         notify: SdkPresent<bool>((jsonDecode("false") as bool)),
       );
         fail('did not raise its declared error');
@@ -813,12 +813,12 @@ void main() {
     test("createBlocklistIdentifier reaches the mock and decodes its response", () async {
       final actual = await sdk_methods_12.createBlocklistIdentifier(
         config,
-        identifier: (jsonDecode("\"identifier\"") as String),
+        identifier: (jsonDecode("\"user@example.com\"") as String),
       );
       expect(
         mismatch(
           normal(actual),
-          SdkUtils.decodeJson("{\"object\":\"blocklist_identifier\",\"id\":\"id-1\",\"identifier\":\"identifier\",\"identifier_type\":\"email_address\",\"instance_id\":\"instance-1\",\"created_at\":1,\"updated_at\":1}"),
+          SdkUtils.decodeJson("{\"object\":\"blocklist_identifier\",\"id\":\"id-1\",\"identifier\":\"user@example.com\",\"identifier_type\":\"email_address\",\"instance_id\":\"instance-1\",\"created_at\":1,\"updated_at\":1}"),
         ),
         isNull,
       );
@@ -831,7 +831,7 @@ void main() {
       try {
         await sdk_methods_12.createBlocklistIdentifier(
         config,
-        identifier: (jsonDecode("\"identifier\"") as String),
+        identifier: (jsonDecode("\"user@example.com\"") as String),
       );
         fail('did not raise its declared error');
       } on SdkHttpError catch (caught) {
@@ -5063,7 +5063,7 @@ void main() {
       expect(
         mismatch(
           normal(actual),
-          SdkUtils.decodeJson("[{\"object\":\"allowlist_identifier\",\"id\":\"id-1\",\"invitation_id\":\"invitation-1\",\"identifier\":\"identifier\",\"identifier_type\":\"email_address\",\"instance_id\":\"instance-1\",\"created_at\":1,\"updated_at\":1}]"),
+          SdkUtils.decodeJson("[{\"object\":\"allowlist_identifier\",\"id\":\"id-1\",\"invitation_id\":\"invitation-1\",\"identifier\":\"user@example.com\",\"identifier_type\":\"email_address\",\"instance_id\":\"instance-1\",\"created_at\":1,\"updated_at\":1}]"),
         ),
         isNull,
       );
@@ -5117,7 +5117,7 @@ void main() {
       expect(
         mismatch(
           normal(actual),
-          SdkUtils.decodeJson("{\"data\":[{\"object\":\"blocklist_identifier\",\"id\":\"id-1\",\"identifier\":\"identifier\",\"identifier_type\":\"email_address\",\"instance_id\":\"instance-1\",\"created_at\":1,\"updated_at\":1}],\"total_count\":100}"),
+          SdkUtils.decodeJson("{\"data\":[{\"object\":\"blocklist_identifier\",\"id\":\"id-1\",\"identifier\":\"user@example.com\",\"identifier_type\":\"email_address\",\"instance_id\":\"instance-1\",\"created_at\":1,\"updated_at\":1}],\"total_count\":100}"),
         ),
         isNull,
       );

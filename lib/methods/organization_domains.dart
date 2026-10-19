@@ -32,12 +32,21 @@ Future<OrganizationDomain> createOrganizationDomain(ClientConfig config,
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'createOrganizationDomain',
-          fromJsonRaw: (value) => OrganizationDomain.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              OrganizationDomain.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '403': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '404': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '422': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '400': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>),
+            '403': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>),
+            '404': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>),
+            '422': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Lists domains associated with an organization. Filter the results by verification status or enrollment mode, and use `limit` and `offset` to control the result window. The response includes the matching domains and their total count.
 ///
@@ -72,19 +81,30 @@ Future<OrganizationDomains> listOrganizationDomains(ClientConfig config,
           '/organizations/${Uri.encodeComponent(organizationId.toString())}/domains',
           config: config,
           query: {
-            'verified': SdkQueryValue(SdkUtils.unwrapOptional(verified), style: 'form', explode: true),
-            'enrollment_mode': SdkQueryValue(SdkUtils.unwrapOptional(enrollmentMode), style: 'form', explode: true),
-            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit), style: 'form', explode: true),
-            'offset': SdkQueryValue(SdkUtils.unwrapOptional(offset), style: 'form', explode: true)
+            'verified': SdkQueryValue(SdkUtils.unwrapOptional(verified),
+                style: 'form', explode: true),
+            'enrollment_mode': SdkQueryValue(
+                SdkUtils.unwrapOptional(enrollmentMode),
+                style: 'form',
+                explode: true),
+            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit),
+                style: 'form', explode: true),
+            'offset': SdkQueryValue(SdkUtils.unwrapOptional(offset),
+                style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'listOrganizationDomains',
-          fromJsonRaw: (value) => OrganizationDomains.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              OrganizationDomains.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '422': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '401': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>),
+            '422': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Updates the properties of an existing organization domain.
 ///
@@ -109,12 +129,21 @@ Future<OrganizationDomain> updateOrganizationDomain(ClientConfig config,
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'updateOrganizationDomain',
-          fromJsonRaw: (value) => OrganizationDomain.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              OrganizationDomain.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '403': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '404': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '422': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '400': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>),
+            '403': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>),
+            '404': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>),
+            '422': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Deletes a domain from an organization. Use the `organization_id` and `domain_id` path parameters to identify the organization and domain to remove. A successful response indicates that the domain was deleted.
 ///
@@ -131,33 +160,42 @@ Future<DeletedObject> deleteOrganizationDomain(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'deleteOrganizationDomain',
-          fromJsonRaw: (value) => DeletedObject.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              DeletedObject.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '401': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '403': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '404': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '400': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>),
+        '401': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>),
+        '403': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>),
+        '404': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// Flips the organization domain's ownership state to verified via the manual override path, bypassing the self-serve TXT DNS challenge. The domain row records strategy=`manual_override` and an `organization_domain.ownership_verified` audit event is emitted with the same strategy. Idempotent: re-calling on an already-verified domain returns the current ownership state without re-emitting the audit event.
 ///
 /// [organizationId] The ID of the organization to which the domain belongs
 /// [domainId] The ID of the domain
-Future<OrganizationDomain>
-    verifyOrganizationDomainOwnership(ClientConfig config,
-        {required String organizationId,
-        required String domainId,
-        RequestOptions? requestOptions}) async {
+Future<OrganizationDomain> verifyOrganizationDomainOwnership(
+    ClientConfig config,
+    {required String organizationId,
+    required String domainId,
+    RequestOptions? requestOptions}) async {
   return (await sdkRequest<OrganizationDomain>('POST',
           '/organizations/${Uri.encodeComponent(organizationId.toString())}/domains/${Uri.encodeComponent(domainId.toString())}/verify_ownership',
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'verifyOrganizationDomainOwnership',
-          fromJsonRaw: (value) => OrganizationDomain.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              OrganizationDomain.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '403': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '404': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '401': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>),
+        '403': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>),
+        '404': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// Retrieves a list of all organization domains within the current instance. This endpoint can be used to list all domains across all organizations or filter domains by organization, verification status, enrollment mode, or search query. The response includes pagination information and details about each domain including its verification status, enrollment mode, and associated counts.
 ///
@@ -186,8 +224,10 @@ Future<OrganizationDomain>
 ///   paginating the results together with `offset`.
 Future<OrganizationDomains> listAllOrganizationDomains(ClientConfig config,
     {SdkOptional<String> organizationId = const SdkOmitted(),
-    SdkOptional<ListAllOrganizationDomainsVerified> verified = const SdkOmitted(),
-    SdkOptional<List<ListAllOrganizationDomainsEnrollmentModeItem>> enrollmentMode = const SdkOmitted(),
+    SdkOptional<ListAllOrganizationDomainsVerified> verified =
+        const SdkOmitted(),
+    SdkOptional<List<ListAllOrganizationDomainsEnrollmentModeItem>>
+        enrollmentMode = const SdkOmitted(),
     SdkOptional<String> query = const SdkOmitted(),
     SdkOptional<List<String>> domains = const SdkOmitted(),
     SdkOptional<String> orderBy = const SdkOmitted(),
@@ -204,19 +244,39 @@ Future<OrganizationDomains> listAllOrganizationDomains(ClientConfig config,
   return (await sdkRequest<OrganizationDomains>('GET', '/organization_domains',
           config: config,
           query: {
-            'organization_id': SdkQueryValue(SdkUtils.unwrapOptional(organizationId), style: 'form', explode: true),
-            'verified': SdkQueryValue(SdkUtils.unwrapOptional(verified), style: 'form', explode: true),
-            'enrollment_mode': SdkQueryValue(SdkUtils.unwrapOptional(enrollmentMode), style: 'form', explode: false),
-            'query': SdkQueryValue(SdkUtils.unwrapOptional(query), style: 'form', explode: true),
-            'domains': SdkQueryValue(SdkUtils.unwrapOptional(domains), style: 'form', explode: true),
-            'order_by': SdkQueryValue(SdkUtils.unwrapOptional(orderBy), style: 'form', explode: true),
-            'offset': SdkQueryValue(SdkUtils.unwrapOptional(offset), style: 'form', explode: true),
-            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit), style: 'form', explode: true)
+            'organization_id': SdkQueryValue(
+                SdkUtils.unwrapOptional(organizationId),
+                style: 'form',
+                explode: true),
+            'verified': SdkQueryValue(SdkUtils.unwrapOptional(verified),
+                style: 'form', explode: true),
+            'enrollment_mode': SdkQueryValue(
+                SdkUtils.unwrapOptional(enrollmentMode),
+                style: 'form',
+                explode: false),
+            'query': SdkQueryValue(SdkUtils.unwrapOptional(query),
+                style: 'form', explode: true),
+            'domains': SdkQueryValue(SdkUtils.unwrapOptional(domains),
+                style: 'form', explode: true),
+            'order_by': SdkQueryValue(SdkUtils.unwrapOptional(orderBy),
+                style: 'form', explode: true),
+            'offset': SdkQueryValue(SdkUtils.unwrapOptional(offset),
+                style: 'form', explode: true),
+            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit),
+                style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'listAllOrganizationDomains',
-          fromJsonRaw: (value) => OrganizationDomains.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              OrganizationDomains.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '403': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '422': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '401': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>),
+            '403': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>),
+            '422': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }

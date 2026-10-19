@@ -31,19 +31,25 @@ Future<InstanceSettings> updateInstanceAuthConfig(ClientConfig config,
           'PATCH', '/beta_features/instance_settings',
           config: config,
           body: {
-            'restricted_to_allowlist': SdkUtils.unwrapOptional(restrictedToAllowlist),
+            'restricted_to_allowlist':
+                SdkUtils.unwrapOptional(restrictedToAllowlist),
             'from_email_address': SdkUtils.unwrapOptional(fromEmailAddress),
             'progressive_sign_up': SdkUtils.unwrapOptional(progressiveSignUp),
             'test_mode': SdkUtils.unwrapOptional(testMode)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'updateInstanceAuthConfig',
-          fromJsonRaw: (value) => InstanceSettings.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              InstanceSettings.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'402': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '422': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '402': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>),
+            '422': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Change the domain of a production instance. Changing the domain requires updating the [DNS records](https://clerk.com/docs/deployments/overview#dns-records) accordingly, deploying new [SSL certificates](https://clerk.com/docs/deployments/overview#deploy-certificates), updating your Social Connection's redirect URLs and setting the new keys in your code. WARNING: Changing your domain will invalidate all current user sessions (i.e. users will be logged out). Also, while your application is being deployed, a small downtime is expected to occur. Returns 403 `domain_managed_by_integration` for applications in a Vercel-managed workspace; change the domain from the Vercel integration instead.
 ///
@@ -65,10 +71,16 @@ Future<void> updateProductionInstanceDomain(ClientConfig config,
           decoder: SdkResponseDecoder.empty,
           operationId: 'updateProductionInstanceDomain',
           options: requestOptions,
-          errors: {'400': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '403': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '422': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '400': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>),
+            '403': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>),
+            '422': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Change the domain of a production instance. Changing the domain requires updating the [DNS records](https://clerk.com/docs/deployments/overview#dns-records) accordingly, deploying new [SSL certificates](https://clerk.com/docs/deployments/overview#deploy-certificates), updating your Social Connection's redirect URLs and setting the new keys in your code. WARNING: Changing your domain will invalidate all current user sessions (i.e. users will be logged out). Also, while your application is being deployed, a small downtime is expected to occur. Returns 403 `domain_managed_by_integration` for applications in a Vercel-managed workspace; change the domain from the Vercel integration instead.
 ///
@@ -91,6 +103,13 @@ Future<void> changeProductionInstanceDomain(ClientConfig config,
           decoder: SdkResponseDecoder.empty,
           operationId: 'changeProductionInstanceDomain',
           options: requestOptions,
-          errors: {'400': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '403': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '422': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '400': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>),
+            '403': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>),
+            '422': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }

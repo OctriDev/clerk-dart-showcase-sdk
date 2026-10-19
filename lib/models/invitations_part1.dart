@@ -10,104 +10,210 @@ class InvitationRevokedVariant1 {
   final SdkOptional<InvitationRevokedVariant1Revoked> revoked;
   final SdkOptional<InvitationRevokedVariant1Status> status;
 
-  const InvitationRevokedVariant1({this.revoked = const SdkOmitted(), this.status = const SdkOmitted()});
+  const InvitationRevokedVariant1(
+      {this.revoked = const SdkOmitted(), this.status = const SdkOmitted()});
 
-  InvitationRevokedVariant1 Function({SdkOptional<InvitationRevokedVariant1Revoked> revoked, SdkOptional<InvitationRevokedVariant1Status> status}) get copyWith => _copyWith;
+  InvitationRevokedVariant1 Function(
+          {SdkOptional<InvitationRevokedVariant1Revoked> revoked,
+          SdkOptional<InvitationRevokedVariant1Status> status})
+      get copyWith => _copyWith;
 
-  InvitationRevokedVariant1 _copyWith({Object? revoked = sdkOmittedValue, Object? status = sdkOmittedValue}) => InvitationRevokedVariant1(
-    revoked: identical(revoked, sdkOmittedValue) ? this.revoked : revoked as SdkOptional<InvitationRevokedVariant1Revoked>,
-    status: identical(status, sdkOmittedValue) ? this.status : status as SdkOptional<InvitationRevokedVariant1Status>,
-  );
+  InvitationRevokedVariant1 _copyWith(
+          {Object? revoked = sdkOmittedValue,
+          Object? status = sdkOmittedValue}) =>
+      InvitationRevokedVariant1(
+        revoked: identical(revoked, sdkOmittedValue)
+            ? this.revoked
+            : revoked as SdkOptional<InvitationRevokedVariant1Revoked>,
+        status: identical(status, sdkOmittedValue)
+            ? this.status
+            : status as SdkOptional<InvitationRevokedVariant1Status>,
+      );
 
-  factory InvitationRevokedVariant1.fromJson(Map<String, dynamic> json) => InvitationRevokedVariant1(
-    revoked: json['revoked'] != null ? SdkPresent((json['revoked'] != null ? InvitationRevokedVariant1Revoked.fromJson(json['revoked'] as bool) : null)!) : const SdkOmitted(),
-    status: json['status'] != null ? SdkPresent((json['status'] != null ? InvitationRevokedVariant1Status.fromJson(json['status'] as String) : null)!) : const SdkOmitted(),
-  );
+  factory InvitationRevokedVariant1.fromJson(Map<String, dynamic> json) =>
+      InvitationRevokedVariant1(
+        revoked: json['revoked'] != null
+            ? SdkPresent((json['revoked'] != null
+                ? InvitationRevokedVariant1Revoked.fromJson(
+                    json['revoked'] as bool)
+                : null)!)
+            : const SdkOmitted(),
+        status: json['status'] != null
+            ? SdkPresent((json['status'] != null
+                ? InvitationRevokedVariant1Status.fromJson(
+                    json['status'] as String)
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (revoked) {
-      SdkPresent<InvitationRevokedVariant1Revoked>(value: final value) => {'revoked': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (status) {
-      SdkPresent<InvitationRevokedVariant1Status>(value: final value) => {'status': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (revoked) {
+          SdkPresent<InvitationRevokedVariant1Revoked>(value: final value) => {
+              'revoked': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (status) {
+          SdkPresent<InvitationRevokedVariant1Status>(value: final value) => {
+              'status': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Typed representation of the `InvitationRevoked` API schema.
 class InvitationRevoked {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Required enumerated value serialized in the `object` wire field.
   final InvitationObject object;
+
   /// Required `string` value serialized in the `id` wire field.
   final String id;
+
   /// Required `email`-formatted value serialized in the `email_address` wire field.
   final String emailAddress;
+
   /// Required object value serialized in the `public_metadata` wire field.
   final Map<String, Object?> publicMetadata;
   final SdkOptional<InvitationRevokedVariant1Revoked> revoked;
   final InvitationRevokedVariant1Status status;
+
   /// Optional `string` value serialized in the `url` wire field.
   final SdkOptional<String> url;
+
   /// Unix timestamp of expiration.
   final SdkOptional<int?> expiresAt;
+
   /// Unix timestamp of creation.
   final int createdAt;
+
   /// Unix timestamp of last update.
   final int updatedAt;
 
-  const InvitationRevoked({required this.object, required this.id, required this.emailAddress, required this.publicMetadata, this.revoked = const SdkOmitted(), required this.status, this.url = const SdkOmitted(), this.expiresAt = const SdkOmitted(), required this.createdAt, required this.updatedAt});
+  const InvitationRevoked(
+      {required this.object,
+      required this.id,
+      required this.emailAddress,
+      required this.publicMetadata,
+      this.revoked = const SdkOmitted(),
+      required this.status,
+      this.url = const SdkOmitted(),
+      this.expiresAt = const SdkOmitted(),
+      required this.createdAt,
+      required this.updatedAt});
 
-  InvitationRevoked Function({InvitationObject object, String id, String emailAddress, Map<String, Object?> publicMetadata, SdkOptional<InvitationRevokedVariant1Revoked> revoked, InvitationRevokedVariant1Status status, SdkOptional<String> url, SdkOptional<int?> expiresAt, int createdAt, int updatedAt}) get copyWith => _copyWith;
+  InvitationRevoked Function(
+      {InvitationObject object,
+      String id,
+      String emailAddress,
+      Map<String, Object?> publicMetadata,
+      SdkOptional<InvitationRevokedVariant1Revoked> revoked,
+      InvitationRevokedVariant1Status status,
+      SdkOptional<String> url,
+      SdkOptional<int?> expiresAt,
+      int createdAt,
+      int updatedAt}) get copyWith => _copyWith;
 
-  InvitationRevoked _copyWith({Object? object = sdkOmittedValue, Object? id = sdkOmittedValue, Object? emailAddress = sdkOmittedValue, Object? publicMetadata = sdkOmittedValue, Object? revoked = sdkOmittedValue, Object? status = sdkOmittedValue, Object? url = sdkOmittedValue, Object? expiresAt = sdkOmittedValue, Object? createdAt = sdkOmittedValue, Object? updatedAt = sdkOmittedValue}) => InvitationRevoked(
-    object: identical(object, sdkOmittedValue) ? this.object : object as InvitationObject,
-    id: identical(id, sdkOmittedValue) ? this.id : id as String,
-    emailAddress: identical(emailAddress, sdkOmittedValue) ? this.emailAddress : emailAddress as String,
-    publicMetadata: identical(publicMetadata, sdkOmittedValue) ? this.publicMetadata : publicMetadata as Map<String, Object?>,
-    revoked: identical(revoked, sdkOmittedValue) ? this.revoked : revoked as SdkOptional<InvitationRevokedVariant1Revoked>,
-    status: identical(status, sdkOmittedValue) ? this.status : status as InvitationRevokedVariant1Status,
-    url: identical(url, sdkOmittedValue) ? this.url : url as SdkOptional<String>,
-    expiresAt: identical(expiresAt, sdkOmittedValue) ? this.expiresAt : expiresAt as SdkOptional<int?>,
-    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as int,
-    updatedAt: identical(updatedAt, sdkOmittedValue) ? this.updatedAt : updatedAt as int,
-  );
+  InvitationRevoked _copyWith(
+          {Object? object = sdkOmittedValue,
+          Object? id = sdkOmittedValue,
+          Object? emailAddress = sdkOmittedValue,
+          Object? publicMetadata = sdkOmittedValue,
+          Object? revoked = sdkOmittedValue,
+          Object? status = sdkOmittedValue,
+          Object? url = sdkOmittedValue,
+          Object? expiresAt = sdkOmittedValue,
+          Object? createdAt = sdkOmittedValue,
+          Object? updatedAt = sdkOmittedValue}) =>
+      InvitationRevoked(
+        object: identical(object, sdkOmittedValue)
+            ? this.object
+            : object as InvitationObject,
+        id: identical(id, sdkOmittedValue) ? this.id : id as String,
+        emailAddress: identical(emailAddress, sdkOmittedValue)
+            ? this.emailAddress
+            : emailAddress as String,
+        publicMetadata: identical(publicMetadata, sdkOmittedValue)
+            ? this.publicMetadata
+            : publicMetadata as Map<String, Object?>,
+        revoked: identical(revoked, sdkOmittedValue)
+            ? this.revoked
+            : revoked as SdkOptional<InvitationRevokedVariant1Revoked>,
+        status: identical(status, sdkOmittedValue)
+            ? this.status
+            : status as InvitationRevokedVariant1Status,
+        url: identical(url, sdkOmittedValue)
+            ? this.url
+            : url as SdkOptional<String>,
+        expiresAt: identical(expiresAt, sdkOmittedValue)
+            ? this.expiresAt
+            : expiresAt as SdkOptional<int?>,
+        createdAt: identical(createdAt, sdkOmittedValue)
+            ? this.createdAt
+            : createdAt as int,
+        updatedAt: identical(updatedAt, sdkOmittedValue)
+            ? this.updatedAt
+            : updatedAt as int,
+      );
 
-  factory InvitationRevoked.fromJson(Map<String, dynamic> json) => InvitationRevoked(
-    object: (json['object'] != null ? InvitationObject.fromJson(json['object'] as String) : null)!,
-    id: (json['id'] as String?)!,
-    emailAddress: (json['email_address'] as String?)!,
-    publicMetadata: (json['public_metadata'] == null ? null : Map<String, dynamic>.from(json['public_metadata'] as Map).map((key, value) => MapEntry(key, value)))!,
-    revoked: json['revoked'] != null ? SdkPresent((json['revoked'] != null ? InvitationRevokedVariant1Revoked.fromJson(json['revoked'] as bool) : null)!) : const SdkOmitted(),
-    status: (json['status'] != null ? InvitationRevokedVariant1Status.fromJson(json['status'] as String) : null)!,
-    url: json['url'] != null ? SdkPresent((json['url'] as String?)!) : const SdkOmitted(),
-    expiresAt: json.containsKey('expires_at') ? SdkPresent((json['expires_at'] as num?)?.toInt()) : const SdkOmitted(),
-    createdAt: ((json['created_at'] as num?)?.toInt())!,
-    updatedAt: ((json['updated_at'] as num?)?.toInt())!,
-  );
+  factory InvitationRevoked.fromJson(Map<String, dynamic> json) =>
+      InvitationRevoked(
+        object: (json['object'] != null
+            ? InvitationObject.fromJson(json['object'] as String)
+            : null)!,
+        id: (json['id'] as String?)!,
+        emailAddress: (json['email_address'] as String?)!,
+        publicMetadata: (json['public_metadata'] == null
+            ? null
+            : Map<String, dynamic>.from(json['public_metadata'] as Map)
+                .map((key, value) => MapEntry(key, value)))!,
+        revoked: json['revoked'] != null
+            ? SdkPresent((json['revoked'] != null
+                ? InvitationRevokedVariant1Revoked.fromJson(
+                    json['revoked'] as bool)
+                : null)!)
+            : const SdkOmitted(),
+        status: (json['status'] != null
+            ? InvitationRevokedVariant1Status.fromJson(json['status'] as String)
+            : null)!,
+        url: json['url'] != null
+            ? SdkPresent((json['url'] as String?)!)
+            : const SdkOmitted(),
+        expiresAt: json.containsKey('expires_at')
+            ? SdkPresent((json['expires_at'] as num?)?.toInt())
+            : const SdkOmitted(),
+        createdAt: ((json['created_at'] as num?)?.toInt())!,
+        updatedAt: ((json['updated_at'] as num?)?.toInt())!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'object': object.toJson(),
-    'id': id,
-    'email_address': emailAddress,
-    'public_metadata': publicMetadata,
-    ...switch (revoked) {
-      SdkPresent<InvitationRevokedVariant1Revoked>(value: final value) => {'revoked': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    'status': status.toJson(),
-    ...switch (url) {
-      SdkPresent<String>(value: final value) => {'url': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (expiresAt) {
-      SdkPresent<int?>(value: final value) => {'expires_at': value,},
-      _ => const <String, dynamic>{},
-    },
-    'created_at': createdAt,
-    'updated_at': updatedAt,
-  };
+        'object': object.toJson(),
+        'id': id,
+        'email_address': emailAddress,
+        'public_metadata': publicMetadata,
+        ...switch (revoked) {
+          SdkPresent<InvitationRevokedVariant1Revoked>(value: final value) => {
+              'revoked': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        'status': status.toJson(),
+        ...switch (url) {
+          SdkPresent<String>(value: final value) => {
+              'url': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (expiresAt) {
+          SdkPresent<int?>(value: final value) => {
+              'expires_at': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        'created_at': createdAt,
+        'updated_at': updatedAt,
+      };
 }

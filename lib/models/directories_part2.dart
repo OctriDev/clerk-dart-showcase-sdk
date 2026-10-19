@@ -8,29 +8,45 @@ part of 'directories.dart';
 class DirectoryGroupRoleMappingList {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Required array value serialized in the `data` wire field.
   final List<DirectoryGroupRoleMapping> data;
+
   /// Total number of directory group role mappings in the directory.
   final int totalCount;
 
-  const DirectoryGroupRoleMappingList({required this.data, required this.totalCount});
+  const DirectoryGroupRoleMappingList(
+      {required this.data, required this.totalCount});
 
-  DirectoryGroupRoleMappingList Function({List<DirectoryGroupRoleMapping> data, int totalCount}) get copyWith => _copyWith;
+  DirectoryGroupRoleMappingList Function(
+      {List<DirectoryGroupRoleMapping> data,
+      int totalCount}) get copyWith => _copyWith;
 
-  DirectoryGroupRoleMappingList _copyWith({Object? data = sdkOmittedValue, Object? totalCount = sdkOmittedValue}) => DirectoryGroupRoleMappingList(
-    data: identical(data, sdkOmittedValue) ? this.data : data as List<DirectoryGroupRoleMapping>,
-    totalCount: identical(totalCount, sdkOmittedValue) ? this.totalCount : totalCount as int,
-  );
+  DirectoryGroupRoleMappingList _copyWith(
+          {Object? data = sdkOmittedValue,
+          Object? totalCount = sdkOmittedValue}) =>
+      DirectoryGroupRoleMappingList(
+        data: identical(data, sdkOmittedValue)
+            ? this.data
+            : data as List<DirectoryGroupRoleMapping>,
+        totalCount: identical(totalCount, sdkOmittedValue)
+            ? this.totalCount
+            : totalCount as int,
+      );
 
-  factory DirectoryGroupRoleMappingList.fromJson(Map<String, dynamic> json) => DirectoryGroupRoleMappingList(
-    data: ((json['data'] as List?)?.map((e) => DirectoryGroupRoleMapping.fromJson(e as Map<String, dynamic>)).toList())!,
-    totalCount: ((json['total_count'] as num?)?.toInt())!,
-  );
+  factory DirectoryGroupRoleMappingList.fromJson(Map<String, dynamic> json) =>
+      DirectoryGroupRoleMappingList(
+        data: ((json['data'] as List?)
+            ?.map((e) =>
+                DirectoryGroupRoleMapping.fromJson(e as Map<String, dynamic>))
+            .toList())!,
+        totalCount: ((json['total_count'] as num?)?.toInt())!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'data': data.map((item) => item.toJson()).toList(),
-    'total_count': totalCount,
-  };
+        'data': data.map((item) => item.toJson()).toList(),
+        'total_count': totalCount,
+      };
 }
 
 // DirectoryGroupRoleMappings = List<DirectoryGroupRoleMapping>
@@ -39,27 +55,39 @@ class DirectoryGroupRoleMappingList {
 class DirectoryList {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Required array value serialized in the `data` wire field.
   final List<Directory> data;
+
   /// Total number of directories.
   final int totalCount;
 
   const DirectoryList({required this.data, required this.totalCount});
 
-  DirectoryList Function({List<Directory> data, int totalCount}) get copyWith => _copyWith;
+  DirectoryList Function({List<Directory> data, int totalCount}) get copyWith =>
+      _copyWith;
 
-  DirectoryList _copyWith({Object? data = sdkOmittedValue, Object? totalCount = sdkOmittedValue}) => DirectoryList(
-    data: identical(data, sdkOmittedValue) ? this.data : data as List<Directory>,
-    totalCount: identical(totalCount, sdkOmittedValue) ? this.totalCount : totalCount as int,
-  );
+  DirectoryList _copyWith(
+          {Object? data = sdkOmittedValue,
+          Object? totalCount = sdkOmittedValue}) =>
+      DirectoryList(
+        data: identical(data, sdkOmittedValue)
+            ? this.data
+            : data as List<Directory>,
+        totalCount: identical(totalCount, sdkOmittedValue)
+            ? this.totalCount
+            : totalCount as int,
+      );
 
   factory DirectoryList.fromJson(Map<String, dynamic> json) => DirectoryList(
-    data: ((json['data'] as List?)?.map((e) => Directory.fromJson(e as Map<String, dynamic>)).toList())!,
-    totalCount: ((json['total_count'] as num?)?.toInt())!,
-  );
+        data: ((json['data'] as List?)
+            ?.map((e) => Directory.fromJson(e as Map<String, dynamic>))
+            .toList())!,
+        totalCount: ((json['total_count'] as num?)?.toInt())!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'data': data.map((item) => item.toJson()).toList(),
-    'total_count': totalCount,
-  };
+        'data': data.map((item) => item.toJson()).toList(),
+        'total_count': totalCount,
+      };
 }

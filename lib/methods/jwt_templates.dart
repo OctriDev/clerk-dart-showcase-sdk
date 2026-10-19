@@ -30,17 +30,21 @@ Future<List<JWTTemplate>> listJwtTemplates(ClientConfig config,
   return (await sdkRequest<List<JWTTemplate>>('GET', '/jwt_templates',
           config: config,
           query: {
-            'paginated': SdkQueryValue(SdkUtils.unwrapOptional(paginated), style: 'form', explode: true),
-            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit), style: 'form', explode: true),
-            'offset': SdkQueryValue(SdkUtils.unwrapOptional(offset), style: 'form', explode: true)
+            'paginated': SdkQueryValue(SdkUtils.unwrapOptional(paginated),
+                style: 'form', explode: true),
+            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit),
+                style: 'form', explode: true),
+            'offset': SdkQueryValue(SdkUtils.unwrapOptional(offset),
+                style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'listJwtTemplates',
-          fromJsonRaw: (value) => (value as List).map((item) => JWTTemplate.fromJson(item as Map<String, dynamic>)).toList(),
+          fromJsonRaw: (value) => (value as List)
+              .map((item) => JWTTemplate.fromJson(item as Map<String, dynamic>))
+              .toList(),
           options: requestOptions))
       .data;
 }
-
 
 /// Creates a JWT template with the supplied name and claims. Include `name` and `claims`; set `lifetime` and `allowed_clock_skew` within their permitted ranges, and provide a signing algorithm and key when `custom_signing_key` is true. The response returns the created template.
 ///
@@ -74,7 +78,8 @@ Future<JWTTemplate> createJwtTemplate(ClientConfig config,
   if (allowedClockSkew is SdkPresent<int?>) {
     final allowedClockSkewValue = allowedClockSkew.value;
     if (allowedClockSkewValue != null) {
-      validateRange('allowed_clock_skew', allowedClockSkewValue, min: 0, max: 300);
+      validateRange('allowed_clock_skew', allowedClockSkewValue,
+          min: 0, max: 300);
     }
   }
 
@@ -91,12 +96,19 @@ Future<JWTTemplate> createJwtTemplate(ClientConfig config,
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'createJwtTemplate',
-          fromJsonRaw: (value) => JWTTemplate.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              JWTTemplate.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '402': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '422': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '400': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>),
+            '402': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>),
+            '422': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Retrieves the details of a JWT template by its identifier. Use `template_id` to select the template whose claims, lifetime, and signing configuration you need.
 ///
@@ -110,12 +122,14 @@ Future<JWTTemplate> getJwtTemplate(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'getJwtTemplate',
-          fromJsonRaw: (value) => JWTTemplate.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              JWTTemplate.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'404': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '404': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// Updates an existing JWT template's configuration. Include `name` and `claims`; `lifetime` and `allowed_clock_skew` must fall within their permitted ranges, and custom signing details are required when `custom_signing_key` is true. The response returns the updated template.
 ///
@@ -151,7 +165,8 @@ Future<JWTTemplate> updateJwtTemplate(ClientConfig config,
   if (allowedClockSkew is SdkPresent<int?>) {
     final allowedClockSkewValue = allowedClockSkew.value;
     if (allowedClockSkewValue != null) {
-      validateRange('allowed_clock_skew', allowedClockSkewValue, min: 0, max: 300);
+      validateRange('allowed_clock_skew', allowedClockSkewValue,
+          min: 0, max: 300);
     }
   }
 
@@ -169,12 +184,19 @@ Future<JWTTemplate> updateJwtTemplate(ClientConfig config,
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'updateJwtTemplate',
-          fromJsonRaw: (value) => JWTTemplate.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              JWTTemplate.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '402': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '422': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '400': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>),
+            '402': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>),
+            '422': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Deletes a JWT template by its identifier. Use `template_id` to select the template to remove. The response indicates whether the template was deleted.
 ///
@@ -186,8 +208,12 @@ Future<DeletedObject> deleteJwtTemplate(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'deleteJwtTemplate',
-          fromJsonRaw: (value) => DeletedObject.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              DeletedObject.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'403': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '404': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '403': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>),
+        '404': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }

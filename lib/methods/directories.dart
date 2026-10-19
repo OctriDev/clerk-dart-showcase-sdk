@@ -27,17 +27,24 @@ Future<DirectoryList> listDirectories(ClientConfig config,
   return (await sdkRequest<DirectoryList>('GET', '/directories',
           config: config,
           query: {
-            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit), style: 'form', explode: true),
-            'offset': SdkQueryValue(SdkUtils.unwrapOptional(offset), style: 'form', explode: true)
+            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit),
+                style: 'form', explode: true),
+            'offset': SdkQueryValue(SdkUtils.unwrapOptional(offset),
+                style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'listDirectories',
-          fromJsonRaw: (value) => DirectoryList.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              DirectoryList.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '403': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '401': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>),
+            '403': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Creates a directory for provisioning users from an identity provider and associates it with an enterprise connection. Supply `enterprise_connection_id` and `provider`; optionally include a name and group-to-role mappings to create with the directory. The response includes the directory configuration and its API key.
 ///
@@ -53,7 +60,8 @@ Future<Directory> createDirectory(ClientConfig config,
     {required String enterpriseConnectionId,
     required String provider,
     SdkOptional<String> name = const SdkOmitted(),
-    SdkOptional<List<CreateDirectoryRequestBodyGroupRoleMappingsItem>> groupRoleMappings = const SdkOmitted(),
+    SdkOptional<List<CreateDirectoryRequestBodyGroupRoleMappingsItem>>
+        groupRoleMappings = const SdkOmitted(),
     RequestOptions? requestOptions}) async {
   return (await sdkRequest<Directory>('POST', '/directories',
           config: config,
@@ -65,12 +73,21 @@ Future<Directory> createDirectory(ClientConfig config,
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'createDirectory',
-          fromJsonRaw: (value) => Directory.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              Directory.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '401': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '403': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '422': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '400': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>),
+            '401': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>),
+            '403': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>),
+            '422': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Retrieves the configuration for a directory used to provision users from an identity provider. Use `directory_id` to identify the directory whose details you need.
 ///
@@ -84,12 +101,16 @@ Future<Directory> getDirectory(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'getDirectory',
-          fromJsonRaw: (value) => Directory.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              Directory.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '403': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '404': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '401': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>),
+        '403': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>),
+        '404': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// Updates configurable properties of a directory used to provision users from an identity provider. Supply only the fields you want to change; `attribute_mapping` entries are merged into the existing mapping, and a key set to `null` is removed.
 ///
@@ -120,16 +141,28 @@ Future<Directory> updateDirectory(ClientConfig config,
             'enabled': SdkUtils.unwrapOptional(enabled),
             'provider': SdkUtils.unwrapOptional(provider),
             'attribute_mapping': SdkUtils.unwrapOptional(attributeMapping),
-            'group_role_mapping_enabled': SdkUtils.unwrapOptional(groupRoleMappingEnabled)
+            'group_role_mapping_enabled':
+                SdkUtils.unwrapOptional(groupRoleMappingEnabled)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'updateDirectory',
-          fromJsonRaw: (value) => Directory.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              Directory.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '401': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '403': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '404': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '422': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '400': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>),
+            '401': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>),
+            '403': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>),
+            '404': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>),
+            '422': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Deletes a directory and stops provisioning for it. Provisioning requests authenticated with the directory's API key are rejected afterwards.
 ///
@@ -141,12 +174,16 @@ Future<DeletedObject> deleteDirectory(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'deleteDirectory',
-          fromJsonRaw: (value) => DeletedObject.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              DeletedObject.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '403': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '404': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '401': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>),
+        '403': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>),
+        '404': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// Generates a new API key for the directory and returns it in the `api_key` field. This is the only way to obtain the key after creation, so make sure to update it in your identity provider. The previous key remains valid for a short grace period before it expires.
 ///
@@ -158,29 +195,40 @@ Future<Directory> rotateDirectoryApiKey(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'rotateDirectoryApiKey',
-          fromJsonRaw: (value) => Directory.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              Directory.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '403': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '404': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '422': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '401': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>),
+        '403': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>),
+        '404': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>),
+        '422': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// Returns the list of directory group to organization role mappings for a directory, ordered by precedence.
 ///
 /// [directoryId] The ID of the directory.
-Future<DirectoryGroupRoleMappingList> listDirectoryGroupRoleMappings(ClientConfig config,
-    {required String directoryId, RequestOptions? requestOptions}) async {
+Future<DirectoryGroupRoleMappingList> listDirectoryGroupRoleMappings(
+    ClientConfig config,
+    {required String directoryId,
+    RequestOptions? requestOptions}) async {
   return (await sdkRequest<DirectoryGroupRoleMappingList>('GET',
           '/directories/${Uri.encodeComponent(directoryId.toString())}/group_role_mappings',
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'listDirectoryGroupRoleMappings',
-          fromJsonRaw: (value) => DirectoryGroupRoleMappingList.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => DirectoryGroupRoleMappingList.fromJson(
+              value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '403': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '404': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '401': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>),
+        '403': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>),
+        '404': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// Creates a new directory group to organization role mapping for a directory. Mappings can be created while group role mapping is disabled on the directory, but they only take effect once it is enabled.
 ///
@@ -193,14 +241,14 @@ Future<DirectoryGroupRoleMappingList> listDirectoryGroupRoleMappings(ClientConfi
 /// [precedence] The precedence for this mapping. Lower values take priority
 ///   when a user belongs to multiple mapped groups. If omitted, the mapping is
 ///   appended with the next-highest precedence.
-Future<DirectoryGroupRoleMapping>
-    createDirectoryGroupRoleMapping(ClientConfig config,
-        {required String directoryId,
-        required String roleId,
-        SdkOptional<String> directoryGroupId = const SdkOmitted(),
-        SdkOptional<String> scimGroupId = const SdkOmitted(),
-        SdkOptional<int> precedence = const SdkOmitted(),
-        RequestOptions? requestOptions}) async {
+Future<DirectoryGroupRoleMapping> createDirectoryGroupRoleMapping(
+    ClientConfig config,
+    {required String directoryId,
+    required String roleId,
+    SdkOptional<String> directoryGroupId = const SdkOmitted(),
+    SdkOptional<String> scimGroupId = const SdkOmitted(),
+    SdkOptional<int> precedence = const SdkOmitted(),
+    RequestOptions? requestOptions}) async {
   if (precedence is SdkPresent<int>) {
     validateRange('precedence', precedence.value, min: 1);
   }
@@ -216,52 +264,81 @@ Future<DirectoryGroupRoleMapping>
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'createDirectoryGroupRoleMapping',
-          fromJsonRaw: (value) => DirectoryGroupRoleMapping.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              DirectoryGroupRoleMapping.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '401': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '403': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '404': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '422': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '400': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>),
+            '401': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>),
+            '403': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>),
+            '404': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>),
+            '422': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Replaces the entire set of directory group role mappings for a directory. The position of each item in the `mappings` array determines its precedence (the first item gets precedence 1). Passing an empty array removes all mappings. Mappings can be replaced while group role mapping is disabled on the directory, but they only take effect once it is enabled.
 ///
 /// [directoryId] The ID of the directory.
 /// [mappings] The desired set of mappings. Array order sets precedence
 ///   (1-indexed). An empty array clears all mappings.
-Future<DirectoryGroupRoleMappingList>
-    replaceDirectoryGroupRoleMappings(ClientConfig config,
-        {required String directoryId,
-        required List<ReplaceDirectoryGroupRoleMappingsRequestBodyMappingsItem> mappings,
-        RequestOptions? requestOptions}) async {
+Future<DirectoryGroupRoleMappingList> replaceDirectoryGroupRoleMappings(
+    ClientConfig config,
+    {required String directoryId,
+    required List<ReplaceDirectoryGroupRoleMappingsRequestBodyMappingsItem>
+        mappings,
+    RequestOptions? requestOptions}) async {
   return (await sdkRequest<DirectoryGroupRoleMappingList>('PUT',
           '/directories/${Uri.encodeComponent(directoryId.toString())}/group_role_mappings',
           config: config,
           body: {'mappings': mappings},
           decoder: SdkResponseDecoder.json,
           operationId: 'replaceDirectoryGroupRoleMappings',
-          fromJsonRaw: (value) => DirectoryGroupRoleMappingList.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => DirectoryGroupRoleMappingList.fromJson(
+              value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '401': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '403': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '404': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '422': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '400': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>),
+            '401': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>),
+            '403': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>),
+            '404': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>),
+            '422': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Deletes a single directory group role mapping. Mappings can be deleted while group role mapping is disabled on the directory, but the change only takes effect once it is enabled.
 ///
 /// [directoryId] The ID of the directory.
 /// [mappingId] The ID of the directory group role mapping to delete.
-Future<DirectoryGroupRoleMappingDeleted>
-    deleteDirectoryGroupRoleMapping(ClientConfig config,
-        {required String directoryId,
-        required String mappingId,
-        RequestOptions? requestOptions}) async {
+Future<DirectoryGroupRoleMappingDeleted> deleteDirectoryGroupRoleMapping(
+    ClientConfig config,
+    {required String directoryId,
+    required String mappingId,
+    RequestOptions? requestOptions}) async {
   return (await sdkRequest<DirectoryGroupRoleMappingDeleted>('DELETE',
           '/directories/${Uri.encodeComponent(directoryId.toString())}/group_role_mappings/${Uri.encodeComponent(mappingId.toString())}',
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'deleteDirectoryGroupRoleMapping',
-          fromJsonRaw: (value) => DirectoryGroupRoleMappingDeleted.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => DirectoryGroupRoleMappingDeleted.fromJson(
+              value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '401': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '403': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '404': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '400': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>),
+        '401': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>),
+        '403': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>),
+        '404': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }

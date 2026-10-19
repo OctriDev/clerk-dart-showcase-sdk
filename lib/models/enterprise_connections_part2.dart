@@ -8,153 +8,347 @@ part of 'enterprise_connections.dart';
 class EnterpriseConnectionSamlConnection {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// SAML connection ID
   final SdkOptional<String> id;
+
   /// SAML connection display name
   final SdkOptional<String> name;
+
   /// IdP entity ID (optional, when connection details are loaded)
   final SdkOptional<String?> idpEntityId;
+
   /// IdP SSO URL (optional, when connection details are loaded)
   final SdkOptional<String?> idpSsoUrl;
+
   /// Primary IdP X.509 signing certificate (optional, when connection details are loaded)
   final SdkOptional<String?> idpCertificate;
+
   /// Unix timestamp (milliseconds) of the primary certificate's X.509 NotBefore
   final SdkOptional<int?> idpCertificateIssuedAt;
+
   /// Unix timestamp (milliseconds) of the primary certificate's X.509 NotAfter
   final SdkOptional<int?> idpCertificateExpiresAt;
+
   /// Every IdP signing certificate the connection trusts, primary first. A SAML response verifies against any of them.
-  final SdkOptional<List<EnterpriseConnectionSamlConnectionIdpCertificatesItem>> idpCertificates;
+  final SdkOptional<List<EnterpriseConnectionSamlConnectionIdpCertificatesItem>>
+      idpCertificates;
+
   /// IdP metadata URL (optional, when connection details are loaded)
   final SdkOptional<String?> idpMetadataUrl;
+
   /// Assertion Consumer Service URL
   final SdkOptional<String?> acsUrl;
+
   /// Service Provider entity ID
   final SdkOptional<String?> spEntityId;
+
   /// Service Provider metadata URL
   final SdkOptional<String?> spMetadataUrl;
+
   /// Whether the SAML connection is active
   final SdkOptional<bool> active;
+
   /// Whether IdP-initiated SSO is allowed
   final SdkOptional<bool> allowIdpInitiated;
+
   /// Whether subdomains are allowed for domain matching
   final SdkOptional<bool> allowSubdomains;
+
   /// Whether to force re-authentication
   final SdkOptional<bool> forceAuthn;
+
   /// Configuration for the login_hint sent to the IdP on SSO sign-in
   final SdkOptional<EnterpriseConnectionSamlConnectionLoginHint> loginHint;
 
-  const EnterpriseConnectionSamlConnection({this.id = const SdkOmitted(), this.name = const SdkOmitted(), this.idpEntityId = const SdkOmitted(), this.idpSsoUrl = const SdkOmitted(), this.idpCertificate = const SdkOmitted(), this.idpCertificateIssuedAt = const SdkOmitted(), this.idpCertificateExpiresAt = const SdkOmitted(), this.idpCertificates = const SdkOmitted(), this.idpMetadataUrl = const SdkOmitted(), this.acsUrl = const SdkOmitted(), this.spEntityId = const SdkOmitted(), this.spMetadataUrl = const SdkOmitted(), this.active = const SdkOmitted(), this.allowIdpInitiated = const SdkOmitted(), this.allowSubdomains = const SdkOmitted(), this.forceAuthn = const SdkOmitted(), this.loginHint = const SdkOmitted()});
+  const EnterpriseConnectionSamlConnection(
+      {this.id = const SdkOmitted(),
+      this.name = const SdkOmitted(),
+      this.idpEntityId = const SdkOmitted(),
+      this.idpSsoUrl = const SdkOmitted(),
+      this.idpCertificate = const SdkOmitted(),
+      this.idpCertificateIssuedAt = const SdkOmitted(),
+      this.idpCertificateExpiresAt = const SdkOmitted(),
+      this.idpCertificates = const SdkOmitted(),
+      this.idpMetadataUrl = const SdkOmitted(),
+      this.acsUrl = const SdkOmitted(),
+      this.spEntityId = const SdkOmitted(),
+      this.spMetadataUrl = const SdkOmitted(),
+      this.active = const SdkOmitted(),
+      this.allowIdpInitiated = const SdkOmitted(),
+      this.allowSubdomains = const SdkOmitted(),
+      this.forceAuthn = const SdkOmitted(),
+      this.loginHint = const SdkOmitted()});
 
-  EnterpriseConnectionSamlConnection Function({SdkOptional<String> id, SdkOptional<String> name, SdkOptional<String?> idpEntityId, SdkOptional<String?> idpSsoUrl, SdkOptional<String?> idpCertificate, SdkOptional<int?> idpCertificateIssuedAt, SdkOptional<int?> idpCertificateExpiresAt, SdkOptional<List<EnterpriseConnectionSamlConnectionIdpCertificatesItem>> idpCertificates, SdkOptional<String?> idpMetadataUrl, SdkOptional<String?> acsUrl, SdkOptional<String?> spEntityId, SdkOptional<String?> spMetadataUrl, SdkOptional<bool> active, SdkOptional<bool> allowIdpInitiated, SdkOptional<bool> allowSubdomains, SdkOptional<bool> forceAuthn, SdkOptional<EnterpriseConnectionSamlConnectionLoginHint> loginHint}) get copyWith => _copyWith;
+  EnterpriseConnectionSamlConnection Function(
+      {SdkOptional<String> id,
+      SdkOptional<String> name,
+      SdkOptional<String?> idpEntityId,
+      SdkOptional<String?> idpSsoUrl,
+      SdkOptional<String?> idpCertificate,
+      SdkOptional<int?> idpCertificateIssuedAt,
+      SdkOptional<int?> idpCertificateExpiresAt,
+      SdkOptional<List<EnterpriseConnectionSamlConnectionIdpCertificatesItem>>
+          idpCertificates,
+      SdkOptional<String?> idpMetadataUrl,
+      SdkOptional<String?> acsUrl,
+      SdkOptional<String?> spEntityId,
+      SdkOptional<String?> spMetadataUrl,
+      SdkOptional<bool> active,
+      SdkOptional<bool> allowIdpInitiated,
+      SdkOptional<bool> allowSubdomains,
+      SdkOptional<bool> forceAuthn,
+      SdkOptional<EnterpriseConnectionSamlConnectionLoginHint>
+          loginHint}) get copyWith => _copyWith;
 
-  EnterpriseConnectionSamlConnection _copyWith({Object? id = sdkOmittedValue, Object? name = sdkOmittedValue, Object? idpEntityId = sdkOmittedValue, Object? idpSsoUrl = sdkOmittedValue, Object? idpCertificate = sdkOmittedValue, Object? idpCertificateIssuedAt = sdkOmittedValue, Object? idpCertificateExpiresAt = sdkOmittedValue, Object? idpCertificates = sdkOmittedValue, Object? idpMetadataUrl = sdkOmittedValue, Object? acsUrl = sdkOmittedValue, Object? spEntityId = sdkOmittedValue, Object? spMetadataUrl = sdkOmittedValue, Object? active = sdkOmittedValue, Object? allowIdpInitiated = sdkOmittedValue, Object? allowSubdomains = sdkOmittedValue, Object? forceAuthn = sdkOmittedValue, Object? loginHint = sdkOmittedValue}) => EnterpriseConnectionSamlConnection(
-    id: identical(id, sdkOmittedValue) ? this.id : id as SdkOptional<String>,
-    name: identical(name, sdkOmittedValue) ? this.name : name as SdkOptional<String>,
-    idpEntityId: identical(idpEntityId, sdkOmittedValue) ? this.idpEntityId : idpEntityId as SdkOptional<String?>,
-    idpSsoUrl: identical(idpSsoUrl, sdkOmittedValue) ? this.idpSsoUrl : idpSsoUrl as SdkOptional<String?>,
-    idpCertificate: identical(idpCertificate, sdkOmittedValue) ? this.idpCertificate : idpCertificate as SdkOptional<String?>,
-    idpCertificateIssuedAt: identical(idpCertificateIssuedAt, sdkOmittedValue) ? this.idpCertificateIssuedAt : idpCertificateIssuedAt as SdkOptional<int?>,
-    idpCertificateExpiresAt: identical(idpCertificateExpiresAt, sdkOmittedValue) ? this.idpCertificateExpiresAt : idpCertificateExpiresAt as SdkOptional<int?>,
-    idpCertificates: identical(idpCertificates, sdkOmittedValue) ? this.idpCertificates : idpCertificates as SdkOptional<List<EnterpriseConnectionSamlConnectionIdpCertificatesItem>>,
-    idpMetadataUrl: identical(idpMetadataUrl, sdkOmittedValue) ? this.idpMetadataUrl : idpMetadataUrl as SdkOptional<String?>,
-    acsUrl: identical(acsUrl, sdkOmittedValue) ? this.acsUrl : acsUrl as SdkOptional<String?>,
-    spEntityId: identical(spEntityId, sdkOmittedValue) ? this.spEntityId : spEntityId as SdkOptional<String?>,
-    spMetadataUrl: identical(spMetadataUrl, sdkOmittedValue) ? this.spMetadataUrl : spMetadataUrl as SdkOptional<String?>,
-    active: identical(active, sdkOmittedValue) ? this.active : active as SdkOptional<bool>,
-    allowIdpInitiated: identical(allowIdpInitiated, sdkOmittedValue) ? this.allowIdpInitiated : allowIdpInitiated as SdkOptional<bool>,
-    allowSubdomains: identical(allowSubdomains, sdkOmittedValue) ? this.allowSubdomains : allowSubdomains as SdkOptional<bool>,
-    forceAuthn: identical(forceAuthn, sdkOmittedValue) ? this.forceAuthn : forceAuthn as SdkOptional<bool>,
-    loginHint: identical(loginHint, sdkOmittedValue) ? this.loginHint : loginHint as SdkOptional<EnterpriseConnectionSamlConnectionLoginHint>,
-  );
+  EnterpriseConnectionSamlConnection _copyWith(
+          {Object? id = sdkOmittedValue,
+          Object? name = sdkOmittedValue,
+          Object? idpEntityId = sdkOmittedValue,
+          Object? idpSsoUrl = sdkOmittedValue,
+          Object? idpCertificate = sdkOmittedValue,
+          Object? idpCertificateIssuedAt = sdkOmittedValue,
+          Object? idpCertificateExpiresAt = sdkOmittedValue,
+          Object? idpCertificates = sdkOmittedValue,
+          Object? idpMetadataUrl = sdkOmittedValue,
+          Object? acsUrl = sdkOmittedValue,
+          Object? spEntityId = sdkOmittedValue,
+          Object? spMetadataUrl = sdkOmittedValue,
+          Object? active = sdkOmittedValue,
+          Object? allowIdpInitiated = sdkOmittedValue,
+          Object? allowSubdomains = sdkOmittedValue,
+          Object? forceAuthn = sdkOmittedValue,
+          Object? loginHint = sdkOmittedValue}) =>
+      EnterpriseConnectionSamlConnection(
+        id: identical(id, sdkOmittedValue)
+            ? this.id
+            : id as SdkOptional<String>,
+        name: identical(name, sdkOmittedValue)
+            ? this.name
+            : name as SdkOptional<String>,
+        idpEntityId: identical(idpEntityId, sdkOmittedValue)
+            ? this.idpEntityId
+            : idpEntityId as SdkOptional<String?>,
+        idpSsoUrl: identical(idpSsoUrl, sdkOmittedValue)
+            ? this.idpSsoUrl
+            : idpSsoUrl as SdkOptional<String?>,
+        idpCertificate: identical(idpCertificate, sdkOmittedValue)
+            ? this.idpCertificate
+            : idpCertificate as SdkOptional<String?>,
+        idpCertificateIssuedAt:
+            identical(idpCertificateIssuedAt, sdkOmittedValue)
+                ? this.idpCertificateIssuedAt
+                : idpCertificateIssuedAt as SdkOptional<int?>,
+        idpCertificateExpiresAt:
+            identical(idpCertificateExpiresAt, sdkOmittedValue)
+                ? this.idpCertificateExpiresAt
+                : idpCertificateExpiresAt as SdkOptional<int?>,
+        idpCertificates: identical(idpCertificates, sdkOmittedValue)
+            ? this.idpCertificates
+            : idpCertificates as SdkOptional<
+                List<EnterpriseConnectionSamlConnectionIdpCertificatesItem>>,
+        idpMetadataUrl: identical(idpMetadataUrl, sdkOmittedValue)
+            ? this.idpMetadataUrl
+            : idpMetadataUrl as SdkOptional<String?>,
+        acsUrl: identical(acsUrl, sdkOmittedValue)
+            ? this.acsUrl
+            : acsUrl as SdkOptional<String?>,
+        spEntityId: identical(spEntityId, sdkOmittedValue)
+            ? this.spEntityId
+            : spEntityId as SdkOptional<String?>,
+        spMetadataUrl: identical(spMetadataUrl, sdkOmittedValue)
+            ? this.spMetadataUrl
+            : spMetadataUrl as SdkOptional<String?>,
+        active: identical(active, sdkOmittedValue)
+            ? this.active
+            : active as SdkOptional<bool>,
+        allowIdpInitiated: identical(allowIdpInitiated, sdkOmittedValue)
+            ? this.allowIdpInitiated
+            : allowIdpInitiated as SdkOptional<bool>,
+        allowSubdomains: identical(allowSubdomains, sdkOmittedValue)
+            ? this.allowSubdomains
+            : allowSubdomains as SdkOptional<bool>,
+        forceAuthn: identical(forceAuthn, sdkOmittedValue)
+            ? this.forceAuthn
+            : forceAuthn as SdkOptional<bool>,
+        loginHint: identical(loginHint, sdkOmittedValue)
+            ? this.loginHint
+            : loginHint
+                as SdkOptional<EnterpriseConnectionSamlConnectionLoginHint>,
+      );
 
-  factory EnterpriseConnectionSamlConnection.fromJson(Map<String, dynamic> json) => EnterpriseConnectionSamlConnection(
-    id: json['id'] != null ? SdkPresent((json['id'] as String?)!) : const SdkOmitted(),
-    name: json['name'] != null ? SdkPresent((json['name'] as String?)!) : const SdkOmitted(),
-    idpEntityId: json.containsKey('idp_entity_id') ? SdkPresent(json['idp_entity_id'] as String?) : const SdkOmitted(),
-    idpSsoUrl: json.containsKey('idp_sso_url') ? SdkPresent(json['idp_sso_url'] as String?) : const SdkOmitted(),
-    idpCertificate: json.containsKey('idp_certificate') ? SdkPresent(json['idp_certificate'] as String?) : const SdkOmitted(),
-    idpCertificateIssuedAt: json.containsKey('idp_certificate_issued_at') ? SdkPresent((json['idp_certificate_issued_at'] as num?)?.toInt()) : const SdkOmitted(),
-    idpCertificateExpiresAt: json.containsKey('idp_certificate_expires_at') ? SdkPresent((json['idp_certificate_expires_at'] as num?)?.toInt()) : const SdkOmitted(),
-    idpCertificates: json['idp_certificates'] != null ? SdkPresent(((json['idp_certificates'] as List?)?.map((e) => EnterpriseConnectionSamlConnectionIdpCertificatesItem.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-    idpMetadataUrl: json.containsKey('idp_metadata_url') ? SdkPresent(json['idp_metadata_url'] as String?) : const SdkOmitted(),
-    acsUrl: json.containsKey('acs_url') ? SdkPresent(json['acs_url'] as String?) : const SdkOmitted(),
-    spEntityId: json.containsKey('sp_entity_id') ? SdkPresent(json['sp_entity_id'] as String?) : const SdkOmitted(),
-    spMetadataUrl: json.containsKey('sp_metadata_url') ? SdkPresent(json['sp_metadata_url'] as String?) : const SdkOmitted(),
-    active: json['active'] != null ? SdkPresent((json['active'] as bool?)!) : const SdkOmitted(),
-    allowIdpInitiated: json['allow_idp_initiated'] != null ? SdkPresent((json['allow_idp_initiated'] as bool?)!) : const SdkOmitted(),
-    allowSubdomains: json['allow_subdomains'] != null ? SdkPresent((json['allow_subdomains'] as bool?)!) : const SdkOmitted(),
-    forceAuthn: json['force_authn'] != null ? SdkPresent((json['force_authn'] as bool?)!) : const SdkOmitted(),
-    loginHint: json['login_hint'] != null ? SdkPresent((json['login_hint'] != null ? EnterpriseConnectionSamlConnectionLoginHint.fromJson(json['login_hint'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-  );
+  factory EnterpriseConnectionSamlConnection.fromJson(
+          Map<String, dynamic> json) =>
+      EnterpriseConnectionSamlConnection(
+        id: json['id'] != null
+            ? SdkPresent((json['id'] as String?)!)
+            : const SdkOmitted(),
+        name: json['name'] != null
+            ? SdkPresent((json['name'] as String?)!)
+            : const SdkOmitted(),
+        idpEntityId: json.containsKey('idp_entity_id')
+            ? SdkPresent(json['idp_entity_id'] as String?)
+            : const SdkOmitted(),
+        idpSsoUrl: json.containsKey('idp_sso_url')
+            ? SdkPresent(json['idp_sso_url'] as String?)
+            : const SdkOmitted(),
+        idpCertificate: json.containsKey('idp_certificate')
+            ? SdkPresent(json['idp_certificate'] as String?)
+            : const SdkOmitted(),
+        idpCertificateIssuedAt: json.containsKey('idp_certificate_issued_at')
+            ? SdkPresent((json['idp_certificate_issued_at'] as num?)?.toInt())
+            : const SdkOmitted(),
+        idpCertificateExpiresAt: json.containsKey('idp_certificate_expires_at')
+            ? SdkPresent((json['idp_certificate_expires_at'] as num?)?.toInt())
+            : const SdkOmitted(),
+        idpCertificates: json['idp_certificates'] != null
+            ? SdkPresent(((json['idp_certificates'] as List?)
+                ?.map((e) =>
+                    EnterpriseConnectionSamlConnectionIdpCertificatesItem
+                        .fromJson(e as Map<String, dynamic>))
+                .toList())!)
+            : const SdkOmitted(),
+        idpMetadataUrl: json.containsKey('idp_metadata_url')
+            ? SdkPresent(json['idp_metadata_url'] as String?)
+            : const SdkOmitted(),
+        acsUrl: json.containsKey('acs_url')
+            ? SdkPresent(json['acs_url'] as String?)
+            : const SdkOmitted(),
+        spEntityId: json.containsKey('sp_entity_id')
+            ? SdkPresent(json['sp_entity_id'] as String?)
+            : const SdkOmitted(),
+        spMetadataUrl: json.containsKey('sp_metadata_url')
+            ? SdkPresent(json['sp_metadata_url'] as String?)
+            : const SdkOmitted(),
+        active: json['active'] != null
+            ? SdkPresent((json['active'] as bool?)!)
+            : const SdkOmitted(),
+        allowIdpInitiated: json['allow_idp_initiated'] != null
+            ? SdkPresent((json['allow_idp_initiated'] as bool?)!)
+            : const SdkOmitted(),
+        allowSubdomains: json['allow_subdomains'] != null
+            ? SdkPresent((json['allow_subdomains'] as bool?)!)
+            : const SdkOmitted(),
+        forceAuthn: json['force_authn'] != null
+            ? SdkPresent((json['force_authn'] as bool?)!)
+            : const SdkOmitted(),
+        loginHint: json['login_hint'] != null
+            ? SdkPresent((json['login_hint'] != null
+                ? EnterpriseConnectionSamlConnectionLoginHint.fromJson(
+                    json['login_hint'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (id) {
-      SdkPresent<String>(value: final value) => {'id': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (name) {
-      SdkPresent<String>(value: final value) => {'name': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (idpEntityId) {
-      SdkPresent<String?>(value: final value) => {'idp_entity_id': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (idpSsoUrl) {
-      SdkPresent<String?>(value: final value) => {'idp_sso_url': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (idpCertificate) {
-      SdkPresent<String?>(value: final value) => {'idp_certificate': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (idpCertificateIssuedAt) {
-      SdkPresent<int?>(value: final value) => {'idp_certificate_issued_at': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (idpCertificateExpiresAt) {
-      SdkPresent<int?>(value: final value) => {'idp_certificate_expires_at': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (idpCertificates) {
-      SdkPresent<List<EnterpriseConnectionSamlConnectionIdpCertificatesItem>>(value: final value) => {'idp_certificates': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (idpMetadataUrl) {
-      SdkPresent<String?>(value: final value) => {'idp_metadata_url': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (acsUrl) {
-      SdkPresent<String?>(value: final value) => {'acs_url': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (spEntityId) {
-      SdkPresent<String?>(value: final value) => {'sp_entity_id': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (spMetadataUrl) {
-      SdkPresent<String?>(value: final value) => {'sp_metadata_url': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (active) {
-      SdkPresent<bool>(value: final value) => {'active': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (allowIdpInitiated) {
-      SdkPresent<bool>(value: final value) => {'allow_idp_initiated': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (allowSubdomains) {
-      SdkPresent<bool>(value: final value) => {'allow_subdomains': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (forceAuthn) {
-      SdkPresent<bool>(value: final value) => {'force_authn': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (loginHint) {
-      SdkPresent<EnterpriseConnectionSamlConnectionLoginHint>(value: final value) => {'login_hint': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (id) {
+          SdkPresent<String>(value: final value) => {
+              'id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (name) {
+          SdkPresent<String>(value: final value) => {
+              'name': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (idpEntityId) {
+          SdkPresent<String?>(value: final value) => {
+              'idp_entity_id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (idpSsoUrl) {
+          SdkPresent<String?>(value: final value) => {
+              'idp_sso_url': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (idpCertificate) {
+          SdkPresent<String?>(value: final value) => {
+              'idp_certificate': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (idpCertificateIssuedAt) {
+          SdkPresent<int?>(value: final value) => {
+              'idp_certificate_issued_at': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (idpCertificateExpiresAt) {
+          SdkPresent<int?>(value: final value) => {
+              'idp_certificate_expires_at': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (idpCertificates) {
+          SdkPresent<
+                List<EnterpriseConnectionSamlConnectionIdpCertificatesItem>>(
+            value: final value
+          ) =>
+            {
+              'idp_certificates': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (idpMetadataUrl) {
+          SdkPresent<String?>(value: final value) => {
+              'idp_metadata_url': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (acsUrl) {
+          SdkPresent<String?>(value: final value) => {
+              'acs_url': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (spEntityId) {
+          SdkPresent<String?>(value: final value) => {
+              'sp_entity_id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (spMetadataUrl) {
+          SdkPresent<String?>(value: final value) => {
+              'sp_metadata_url': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (active) {
+          SdkPresent<bool>(value: final value) => {
+              'active': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (allowIdpInitiated) {
+          SdkPresent<bool>(value: final value) => {
+              'allow_idp_initiated': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (allowSubdomains) {
+          SdkPresent<bool>(value: final value) => {
+              'allow_subdomains': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (forceAuthn) {
+          SdkPresent<bool>(value: final value) => {
+              'force_authn': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (loginHint) {
+          SdkPresent<EnterpriseConnectionSamlConnectionLoginHint>(
+            value: final value
+          ) =>
+            {
+              'login_hint': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

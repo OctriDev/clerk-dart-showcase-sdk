@@ -8,57 +8,109 @@ part of 'proxy_checks.dart';
 class ProxyCheck {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Required enumerated value serialized in the `object` wire field.
   final ProxyCheckObject object;
+
   /// Required `string` value serialized in the `id` wire field.
   final String id;
+
   /// Required `string` value serialized in the `domain_id` wire field.
   final String domainId;
+
   /// Unix timestamp of last run.
   final int? lastRunAt;
+
   /// Required `string` value serialized in the `proxy_url` wire field.
   final String proxyUrl;
+
   /// Required `boolean` value serialized in the `successful` wire field.
   final bool successful;
+
   /// Unix timestamp of creation.
   final int createdAt;
+
   /// Unix timestamp of last update.
   final int updatedAt;
 
-  const ProxyCheck({required this.object, required this.id, required this.domainId, required this.lastRunAt, required this.proxyUrl, required this.successful, required this.createdAt, required this.updatedAt});
+  const ProxyCheck(
+      {required this.object,
+      required this.id,
+      required this.domainId,
+      required this.lastRunAt,
+      required this.proxyUrl,
+      required this.successful,
+      required this.createdAt,
+      required this.updatedAt});
 
-  ProxyCheck Function({ProxyCheckObject object, String id, String domainId, int? lastRunAt, String proxyUrl, bool successful, int createdAt, int updatedAt}) get copyWith => _copyWith;
+  ProxyCheck Function(
+      {ProxyCheckObject object,
+      String id,
+      String domainId,
+      int? lastRunAt,
+      String proxyUrl,
+      bool successful,
+      int createdAt,
+      int updatedAt}) get copyWith => _copyWith;
 
-  ProxyCheck _copyWith({Object? object = sdkOmittedValue, Object? id = sdkOmittedValue, Object? domainId = sdkOmittedValue, Object? lastRunAt = sdkOmittedValue, Object? proxyUrl = sdkOmittedValue, Object? successful = sdkOmittedValue, Object? createdAt = sdkOmittedValue, Object? updatedAt = sdkOmittedValue}) => ProxyCheck(
-    object: identical(object, sdkOmittedValue) ? this.object : object as ProxyCheckObject,
-    id: identical(id, sdkOmittedValue) ? this.id : id as String,
-    domainId: identical(domainId, sdkOmittedValue) ? this.domainId : domainId as String,
-    lastRunAt: identical(lastRunAt, sdkOmittedValue) ? this.lastRunAt : lastRunAt as int?,
-    proxyUrl: identical(proxyUrl, sdkOmittedValue) ? this.proxyUrl : proxyUrl as String,
-    successful: identical(successful, sdkOmittedValue) ? this.successful : successful as bool,
-    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as int,
-    updatedAt: identical(updatedAt, sdkOmittedValue) ? this.updatedAt : updatedAt as int,
-  );
+  ProxyCheck _copyWith(
+          {Object? object = sdkOmittedValue,
+          Object? id = sdkOmittedValue,
+          Object? domainId = sdkOmittedValue,
+          Object? lastRunAt = sdkOmittedValue,
+          Object? proxyUrl = sdkOmittedValue,
+          Object? successful = sdkOmittedValue,
+          Object? createdAt = sdkOmittedValue,
+          Object? updatedAt = sdkOmittedValue}) =>
+      ProxyCheck(
+        object: identical(object, sdkOmittedValue)
+            ? this.object
+            : object as ProxyCheckObject,
+        id: identical(id, sdkOmittedValue) ? this.id : id as String,
+        domainId: identical(domainId, sdkOmittedValue)
+            ? this.domainId
+            : domainId as String,
+        lastRunAt: identical(lastRunAt, sdkOmittedValue)
+            ? this.lastRunAt
+            : lastRunAt as int?,
+        proxyUrl: identical(proxyUrl, sdkOmittedValue)
+            ? this.proxyUrl
+            : proxyUrl as String,
+        successful: identical(successful, sdkOmittedValue)
+            ? this.successful
+            : successful as bool,
+        createdAt: identical(createdAt, sdkOmittedValue)
+            ? this.createdAt
+            : createdAt as int,
+        updatedAt: identical(updatedAt, sdkOmittedValue)
+            ? this.updatedAt
+            : updatedAt as int,
+      );
 
   factory ProxyCheck.fromJson(Map<String, dynamic> json) => ProxyCheck(
-    object: (json['object'] != null ? ProxyCheckObject.fromJson(json['object'] as String) : null)!,
-    id: (json['id'] as String?)!,
-    domainId: (json['domain_id'] as String?)!,
-    lastRunAt: json.containsKey('last_run_at') ? (json['last_run_at'] as num?)?.toInt() : throw ArgumentError.value(null, 'last_run_at', 'Required property is missing'),
-    proxyUrl: (json['proxy_url'] as String?)!,
-    successful: (json['successful'] as bool?)!,
-    createdAt: ((json['created_at'] as num?)?.toInt())!,
-    updatedAt: ((json['updated_at'] as num?)?.toInt())!,
-  );
+        object: (json['object'] != null
+            ? ProxyCheckObject.fromJson(json['object'] as String)
+            : null)!,
+        id: (json['id'] as String?)!,
+        domainId: (json['domain_id'] as String?)!,
+        lastRunAt: json.containsKey('last_run_at')
+            ? (json['last_run_at'] as num?)?.toInt()
+            : throw ArgumentError.value(
+                null, 'last_run_at', 'Required property is missing'),
+        proxyUrl: (json['proxy_url'] as String?)!,
+        successful: (json['successful'] as bool?)!,
+        createdAt: ((json['created_at'] as num?)?.toInt())!,
+        updatedAt: ((json['updated_at'] as num?)?.toInt())!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'object': object.toJson(),
-    'id': id,
-    'domain_id': domainId,
-    'last_run_at': lastRunAt,
-    'proxy_url': proxyUrl,
-    'successful': successful,
-    'created_at': createdAt,
-    'updated_at': updatedAt,
-  };
+        'object': object.toJson(),
+        'id': id,
+        'domain_id': domainId,
+        'last_run_at': lastRunAt,
+        'proxy_url': proxyUrl,
+        'successful': successful,
+        'created_at': createdAt,
+        'updated_at': updatedAt,
+      };
 }

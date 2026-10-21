@@ -6,131 +6,114 @@ part of 'inline.dart';
 // Inline operation models
 /// Controls the login_hint sent to the IdP on SSO sign-in
 final class SAMLConnectionLoginHintMode {
+
   final String value;
 
   const SAMLConnectionLoginHintMode._(this.value);
 
-  factory SAMLConnectionLoginHintMode.fromJson(String value) =>
-      SAMLConnectionLoginHintMode._(value);
+  factory SAMLConnectionLoginHintMode.fromJson(String value) => SAMLConnectionLoginHintMode._(value);
 
   static const emailAddress = SAMLConnectionLoginHintMode._('email_address');
-  static const customAttribute =
-      SAMLConnectionLoginHintMode._('custom_attribute');
+  static const customAttribute = SAMLConnectionLoginHintMode._('custom_attribute');
   static const off = SAMLConnectionLoginHintMode._('off');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is SAMLConnectionLoginHintMode && other.value == value;
+  @override bool operator ==(Object other) => other is SAMLConnectionLoginHintMode && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// String representing the object's type. Always "scim_directory".
 final class SCIMDirectoryObject {
+
   final String value;
 
   const SCIMDirectoryObject._(this.value);
 
-  factory SCIMDirectoryObject.fromJson(String value) =>
-      SCIMDirectoryObject._(value);
+  factory SCIMDirectoryObject.fromJson(String value) => SCIMDirectoryObject._(value);
 
   static const scimDirectory = SCIMDirectoryObject._('scim_directory');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is SCIMDirectoryObject && other.value == value;
+  @override bool operator ==(Object other) => other is SCIMDirectoryObject && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// String representing the object's type. Always "scim_group_role_mapping".
 final class SCIMGroupRoleMappingObject {
+
   final String value;
 
   const SCIMGroupRoleMappingObject._(this.value);
 
-  factory SCIMGroupRoleMappingObject.fromJson(String value) =>
-      SCIMGroupRoleMappingObject._(value);
+  factory SCIMGroupRoleMappingObject.fromJson(String value) => SCIMGroupRoleMappingObject._(value);
 
-  static const scimGroupRoleMapping =
-      SCIMGroupRoleMappingObject._('scim_group_role_mapping');
+  static const scimGroupRoleMapping = SCIMGroupRoleMappingObject._('scim_group_role_mapping');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is SCIMGroupRoleMappingObject && other.value == value;
+  @override bool operator ==(Object other) => other is SCIMGroupRoleMappingObject && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// Whether the SCIM group role mapping was successfully deleted.
 final class SCIMGroupRoleMappingDeletedDeleted {
+
   final bool value;
 
   const SCIMGroupRoleMappingDeletedDeleted._(this.value);
 
-  factory SCIMGroupRoleMappingDeletedDeleted.fromJson(bool value) =>
-      SCIMGroupRoleMappingDeletedDeleted._(value);
+  factory SCIMGroupRoleMappingDeletedDeleted.fromJson(bool value) => SCIMGroupRoleMappingDeletedDeleted._(value);
 
   static const true_ = SCIMGroupRoleMappingDeletedDeleted._(true);
 
   bool toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is SCIMGroupRoleMappingDeletedDeleted && other.value == value;
+  @override bool operator ==(Object other) => other is SCIMGroupRoleMappingDeletedDeleted && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// String representing the object's type.
 final class SCIMGroupRoleMappingDeletedObject {
+
   final String value;
 
   const SCIMGroupRoleMappingDeletedObject._(this.value);
 
-  factory SCIMGroupRoleMappingDeletedObject.fromJson(String value) =>
-      SCIMGroupRoleMappingDeletedObject._(value);
+  factory SCIMGroupRoleMappingDeletedObject.fromJson(String value) => SCIMGroupRoleMappingDeletedObject._(value);
 
-  static const scimGroupRoleMapping =
-      SCIMGroupRoleMappingDeletedObject._('scim_group_role_mapping');
+  static const scimGroupRoleMapping = SCIMGroupRoleMappingDeletedObject._('scim_group_role_mapping');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is SCIMGroupRoleMappingDeletedObject && other.value == value;
+  @override bool operator ==(Object other) => other is SCIMGroupRoleMappingDeletedObject && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// String representing the object's type. Objects of the same type share the same value.
 final class SessionObject {
+
   final String value;
 
   const SessionObject._(this.value);
@@ -141,19 +124,17 @@ final class SessionObject {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is SessionObject && other.value == value;
+  @override bool operator ==(Object other) => other is SessionObject && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// Required enumerated value serialized in the `status` wire field.
 final class SessionStatus {
+
   final String value;
 
   const SessionStatus._(this.value);
@@ -171,49 +152,43 @@ final class SessionStatus {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is SessionStatus && other.value == value;
+  @override bool operator ==(Object other) => other is SessionStatus && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// Required enumerated value serialized in the `object` wire field.
 final class SignInTokenObject {
+
   final String value;
 
   const SignInTokenObject._(this.value);
 
-  factory SignInTokenObject.fromJson(String value) =>
-      SignInTokenObject._(value);
+  factory SignInTokenObject.fromJson(String value) => SignInTokenObject._(value);
 
   static const signInToken = SignInTokenObject._('sign_in_token');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is SignInTokenObject && other.value == value;
+  @override bool operator ==(Object other) => other is SignInTokenObject && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// Required enumerated value serialized in the `status` wire field.
 final class SignInTokenStatus {
+
   final String value;
 
   const SignInTokenStatus._(this.value);
 
-  factory SignInTokenStatus.fromJson(String value) =>
-      SignInTokenStatus._(value);
+  factory SignInTokenStatus.fromJson(String value) => SignInTokenStatus._(value);
 
   static const pending = SignInTokenStatus._('pending');
   static const accepted = SignInTokenStatus._('accepted');
@@ -221,19 +196,17 @@ final class SignInTokenStatus {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is SignInTokenStatus && other.value == value;
+  @override bool operator ==(Object other) => other is SignInTokenStatus && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// Required enumerated value serialized in the `object` wire field.
 final class SignUpObject {
+
   final String value;
 
   const SignUpObject._(this.value);
@@ -244,19 +217,17 @@ final class SignUpObject {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is SignUpObject && other.value == value;
+  @override bool operator ==(Object other) => other is SignUpObject && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// Required enumerated value serialized in the `status` wire field.
 final class SignUpStatus {
+
   final String value;
 
   const SignUpStatus._(this.value);
@@ -269,25 +240,22 @@ final class SignUpStatus {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is SignUpStatus && other.value == value;
+  @override bool operator ==(Object other) => other is SignUpStatus && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// Optional enumerated value serialized in the `next_action` wire field.
 final class SignUpVerificationNextAction {
+
   final String value;
 
   const SignUpVerificationNextAction._(this.value);
 
-  factory SignUpVerificationNextAction.fromJson(String value) =>
-      SignUpVerificationNextAction._(value);
+  factory SignUpVerificationNextAction.fromJson(String value) => SignUpVerificationNextAction._(value);
 
   static const needsPrepare = SignUpVerificationNextAction._('needs_prepare');
   static const needsAttempt = SignUpVerificationNextAction._('needs_attempt');
@@ -295,38 +263,31 @@ final class SignUpVerificationNextAction {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is SignUpVerificationNextAction && other.value == value;
+  @override bool operator ==(Object other) => other is SignUpVerificationNextAction && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// Required enumerated value serialized in the `object` wire field.
 final class SSOBypassAllowlistUserObject {
+
   final String value;
 
   const SSOBypassAllowlistUserObject._(this.value);
 
-  factory SSOBypassAllowlistUserObject.fromJson(String value) =>
-      SSOBypassAllowlistUserObject._(value);
+  factory SSOBypassAllowlistUserObject.fromJson(String value) => SSOBypassAllowlistUserObject._(value);
 
-  static const ssoBypassAllowlistUser =
-      SSOBypassAllowlistUserObject._('sso_bypass_allowlist_user');
+  static const ssoBypassAllowlistUser = SSOBypassAllowlistUserObject._('sso_bypass_allowlist_user');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is SSOBypassAllowlistUserObject && other.value == value;
+  @override bool operator ==(Object other) => other is SSOBypassAllowlistUserObject && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }

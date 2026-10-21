@@ -8,40 +8,27 @@ part of 'users.dart';
 class TrustedDeviceList {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Required array value serialized in the `data` wire field.
   final List<TrustedDevice> data;
-
   /// Total number of trusted devices
   final int totalCount;
 
   const TrustedDeviceList({required this.data, required this.totalCount});
 
-  TrustedDeviceList Function({List<TrustedDevice> data, int totalCount})
-      get copyWith => _copyWith;
+  TrustedDeviceList Function({List<TrustedDevice> data, int totalCount}) get copyWith => _copyWith;
 
-  TrustedDeviceList _copyWith(
-          {Object? data = sdkOmittedValue,
-          Object? totalCount = sdkOmittedValue}) =>
-      TrustedDeviceList(
-        data: identical(data, sdkOmittedValue)
-            ? this.data
-            : data as List<TrustedDevice>,
-        totalCount: identical(totalCount, sdkOmittedValue)
-            ? this.totalCount
-            : totalCount as int,
-      );
+  TrustedDeviceList _copyWith({Object? data = sdkOmittedValue, Object? totalCount = sdkOmittedValue}) => TrustedDeviceList(
+    data: identical(data, sdkOmittedValue) ? this.data : data as List<TrustedDevice>,
+    totalCount: identical(totalCount, sdkOmittedValue) ? this.totalCount : totalCount as int,
+  );
 
-  factory TrustedDeviceList.fromJson(Map<String, dynamic> json) =>
-      TrustedDeviceList(
-        data: ((json['data'] as List?)
-            ?.map((e) => TrustedDevice.fromJson(e as Map<String, dynamic>))
-            .toList())!,
-        totalCount: ((json['total_count'] as num?)?.toInt())!,
-      );
+  factory TrustedDeviceList.fromJson(Map<String, dynamic> json) => TrustedDeviceList(
+    data: ((json['data'] as List?)?.map((e) => TrustedDevice.fromJson(e as Map<String, dynamic>)).toList())!,
+    totalCount: ((json['total_count'] as num?)?.toInt())!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'data': data.map((item) => item.toJson()).toList(),
-        'total_count': totalCount,
-      };
+    'data': data.map((item) => item.toJson()).toList(),
+    'total_count': totalCount,
+  };
 }

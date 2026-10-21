@@ -8,49 +8,27 @@ part of 'shared_commerce.dart';
 class CommerceDiscountsResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Required object value serialized in the `proration` wire field.
   final CommerceProrationDiscountResponse? proration;
-
   /// Required object value serialized in the `total` wire field.
   final CommerceMoneyResponse total;
 
-  const CommerceDiscountsResponse(
-      {required this.proration, required this.total});
+  const CommerceDiscountsResponse({required this.proration, required this.total});
 
-  CommerceDiscountsResponse Function(
-      {CommerceProrationDiscountResponse? proration,
-      CommerceMoneyResponse total}) get copyWith => _copyWith;
+  CommerceDiscountsResponse Function({CommerceProrationDiscountResponse? proration, CommerceMoneyResponse total}) get copyWith => _copyWith;
 
-  CommerceDiscountsResponse _copyWith(
-          {Object? proration = sdkOmittedValue,
-          Object? total = sdkOmittedValue}) =>
-      CommerceDiscountsResponse(
-        proration: identical(proration, sdkOmittedValue)
-            ? this.proration
-            : proration as CommerceProrationDiscountResponse?,
-        total: identical(total, sdkOmittedValue)
-            ? this.total
-            : total as CommerceMoneyResponse,
-      );
+  CommerceDiscountsResponse _copyWith({Object? proration = sdkOmittedValue, Object? total = sdkOmittedValue}) => CommerceDiscountsResponse(
+    proration: identical(proration, sdkOmittedValue) ? this.proration : proration as CommerceProrationDiscountResponse?,
+    total: identical(total, sdkOmittedValue) ? this.total : total as CommerceMoneyResponse,
+  );
 
-  factory CommerceDiscountsResponse.fromJson(Map<String, dynamic> json) =>
-      CommerceDiscountsResponse(
-        proration: json.containsKey('proration')
-            ? json['proration'] != null
-                ? CommerceProrationDiscountResponse.fromJson(
-                    json['proration'] as Map<String, dynamic>)
-                : null
-            : throw ArgumentError.value(
-                null, 'proration', 'Required property is missing'),
-        total: (json['total'] != null
-            ? CommerceMoneyResponse.fromJson(
-                json['total'] as Map<String, dynamic>)
-            : null)!,
-      );
+  factory CommerceDiscountsResponse.fromJson(Map<String, dynamic> json) => CommerceDiscountsResponse(
+    proration: json.containsKey('proration') ? json['proration'] != null ? CommerceProrationDiscountResponse.fromJson(json['proration'] as Map<String, dynamic>) : null : throw ArgumentError.value(null, 'proration', 'Required property is missing'),
+    total: (json['total'] != null ? CommerceMoneyResponse.fromJson(json['total'] as Map<String, dynamic>) : null)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'proration': proration?.toJson(),
-        'total': total.toJson(),
-      };
+    'proration': proration?.toJson(),
+    'total': total.toJson(),
+  };
 }

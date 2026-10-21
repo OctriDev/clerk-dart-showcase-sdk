@@ -9,265 +9,127 @@ sealed class EnterpriseAccountEnterpriseConnection {
   static const String constructionSurface = 'named';
   const EnterpriseAccountEnterpriseConnection();
   factory EnterpriseAccountEnterpriseConnection.fromJson(Object? json) {
-    try {
-      return EnterpriseAccountEnterpriseConnectionEnterpriseAccountConnection(
-          EnterpriseAccountConnection.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    throw FormatException(
-        "No variant matched for EnterpriseAccountEnterpriseConnection");
+    try { return EnterpriseAccountEnterpriseConnectionEnterpriseAccountConnection(EnterpriseAccountConnection.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    throw FormatException("No variant matched for EnterpriseAccountEnterpriseConnection");
   }
   Object? toJson();
 }
 
-final class EnterpriseAccountEnterpriseConnectionEnterpriseAccountConnection
-    extends EnterpriseAccountEnterpriseConnection {
+final class EnterpriseAccountEnterpriseConnectionEnterpriseAccountConnection extends EnterpriseAccountEnterpriseConnection {
   final EnterpriseAccountConnection value;
-  const EnterpriseAccountEnterpriseConnectionEnterpriseAccountConnection(
-      this.value);
-  @override
-  Object? toJson() => value.toJson();
+  const EnterpriseAccountEnterpriseConnectionEnterpriseAccountConnection(this.value);
+  @override Object? toJson() => value.toJson();
 }
 
 /// Typed representation of the `EnterpriseAccount` API schema.
 class EnterpriseAccount {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Required `string` value serialized in the `id` wire field.
   final String id;
-
   /// String representing the object's type. Objects of the same type share the same value.
   final EnterpriseAccountObject object;
-
   /// The authentication protocol used to sign in.
   final SdkOptional<EnterpriseAccountProtocol> protocol;
-
   /// Required `string` value serialized in the `provider` wire field.
   final String provider;
-
   /// Required `boolean` value serialized in the `active` wire field.
   final bool active;
-
   /// Required `string` value serialized in the `email_address` wire field.
   final String emailAddress;
-
   /// Optional `string` value serialized in the `first_name` wire field.
   final SdkOptional<String?> firstName;
-
   /// Optional `string` value serialized in the `last_name` wire field.
   final SdkOptional<String?> lastName;
-
   /// The unique ID of the user in the external provider's system
   final SdkOptional<String?> providerUserId;
-
   /// Optional `string` value serialized in the `enterprise_connection_id` wire field.
   final SdkOptional<String?> enterpriseConnectionId;
-
   /// Optional object value serialized in the `public_metadata` wire field.
   final SdkOptional<Map<String, Object?>> publicMetadata;
-
   /// Required object value serialized in the `verification` wire field.
   final EnterpriseAccountVerification? verification;
-
   /// Optional object value serialized in the `enterprise_connection` wire field.
   final SdkOptional<EnterpriseAccountConnection?> enterpriseConnection;
-
   /// Unix timestamp of last authentication.
   final SdkOptional<int?> lastAuthenticatedAt;
 
-  const EnterpriseAccount(
-      {required this.id,
-      required this.object,
-      this.protocol = const SdkOmitted(),
-      required this.provider,
-      required this.active,
-      required this.emailAddress,
-      this.firstName = const SdkOmitted(),
-      this.lastName = const SdkOmitted(),
-      this.providerUserId = const SdkOmitted(),
-      this.enterpriseConnectionId = const SdkOmitted(),
-      this.publicMetadata = const SdkOmitted(),
-      required this.verification,
-      this.enterpriseConnection = const SdkOmitted(),
-      this.lastAuthenticatedAt = const SdkOmitted()});
+  const EnterpriseAccount({required this.id, required this.object, this.protocol = const SdkOmitted(), required this.provider, required this.active, required this.emailAddress, this.firstName = const SdkOmitted(), this.lastName = const SdkOmitted(), this.providerUserId = const SdkOmitted(), this.enterpriseConnectionId = const SdkOmitted(), this.publicMetadata = const SdkOmitted(), required this.verification, this.enterpriseConnection = const SdkOmitted(), this.lastAuthenticatedAt = const SdkOmitted()});
 
-  EnterpriseAccount Function(
-      {String id,
-      EnterpriseAccountObject object,
-      SdkOptional<EnterpriseAccountProtocol> protocol,
-      String provider,
-      bool active,
-      String emailAddress,
-      SdkOptional<String?> firstName,
-      SdkOptional<String?> lastName,
-      SdkOptional<String?> providerUserId,
-      SdkOptional<String?> enterpriseConnectionId,
-      SdkOptional<Map<String, Object?>> publicMetadata,
-      EnterpriseAccountVerification? verification,
-      SdkOptional<EnterpriseAccountConnection?> enterpriseConnection,
-      SdkOptional<int?> lastAuthenticatedAt}) get copyWith => _copyWith;
+  EnterpriseAccount Function({String id, EnterpriseAccountObject object, SdkOptional<EnterpriseAccountProtocol> protocol, String provider, bool active, String emailAddress, SdkOptional<String?> firstName, SdkOptional<String?> lastName, SdkOptional<String?> providerUserId, SdkOptional<String?> enterpriseConnectionId, SdkOptional<Map<String, Object?>> publicMetadata, EnterpriseAccountVerification? verification, SdkOptional<EnterpriseAccountConnection?> enterpriseConnection, SdkOptional<int?> lastAuthenticatedAt}) get copyWith => _copyWith;
 
-  EnterpriseAccount _copyWith(
-          {Object? id = sdkOmittedValue,
-          Object? object = sdkOmittedValue,
-          Object? protocol = sdkOmittedValue,
-          Object? provider = sdkOmittedValue,
-          Object? active = sdkOmittedValue,
-          Object? emailAddress = sdkOmittedValue,
-          Object? firstName = sdkOmittedValue,
-          Object? lastName = sdkOmittedValue,
-          Object? providerUserId = sdkOmittedValue,
-          Object? enterpriseConnectionId = sdkOmittedValue,
-          Object? publicMetadata = sdkOmittedValue,
-          Object? verification = sdkOmittedValue,
-          Object? enterpriseConnection = sdkOmittedValue,
-          Object? lastAuthenticatedAt = sdkOmittedValue}) =>
-      EnterpriseAccount(
-        id: identical(id, sdkOmittedValue) ? this.id : id as String,
-        object: identical(object, sdkOmittedValue)
-            ? this.object
-            : object as EnterpriseAccountObject,
-        protocol: identical(protocol, sdkOmittedValue)
-            ? this.protocol
-            : protocol as SdkOptional<EnterpriseAccountProtocol>,
-        provider: identical(provider, sdkOmittedValue)
-            ? this.provider
-            : provider as String,
-        active:
-            identical(active, sdkOmittedValue) ? this.active : active as bool,
-        emailAddress: identical(emailAddress, sdkOmittedValue)
-            ? this.emailAddress
-            : emailAddress as String,
-        firstName: identical(firstName, sdkOmittedValue)
-            ? this.firstName
-            : firstName as SdkOptional<String?>,
-        lastName: identical(lastName, sdkOmittedValue)
-            ? this.lastName
-            : lastName as SdkOptional<String?>,
-        providerUserId: identical(providerUserId, sdkOmittedValue)
-            ? this.providerUserId
-            : providerUserId as SdkOptional<String?>,
-        enterpriseConnectionId:
-            identical(enterpriseConnectionId, sdkOmittedValue)
-                ? this.enterpriseConnectionId
-                : enterpriseConnectionId as SdkOptional<String?>,
-        publicMetadata: identical(publicMetadata, sdkOmittedValue)
-            ? this.publicMetadata
-            : publicMetadata as SdkOptional<Map<String, Object?>>,
-        verification: identical(verification, sdkOmittedValue)
-            ? this.verification
-            : verification as EnterpriseAccountVerification?,
-        enterpriseConnection: identical(enterpriseConnection, sdkOmittedValue)
-            ? this.enterpriseConnection
-            : enterpriseConnection as SdkOptional<EnterpriseAccountConnection?>,
-        lastAuthenticatedAt: identical(lastAuthenticatedAt, sdkOmittedValue)
-            ? this.lastAuthenticatedAt
-            : lastAuthenticatedAt as SdkOptional<int?>,
-      );
+  EnterpriseAccount _copyWith({Object? id = sdkOmittedValue, Object? object = sdkOmittedValue, Object? protocol = sdkOmittedValue, Object? provider = sdkOmittedValue, Object? active = sdkOmittedValue, Object? emailAddress = sdkOmittedValue, Object? firstName = sdkOmittedValue, Object? lastName = sdkOmittedValue, Object? providerUserId = sdkOmittedValue, Object? enterpriseConnectionId = sdkOmittedValue, Object? publicMetadata = sdkOmittedValue, Object? verification = sdkOmittedValue, Object? enterpriseConnection = sdkOmittedValue, Object? lastAuthenticatedAt = sdkOmittedValue}) => EnterpriseAccount(
+    id: identical(id, sdkOmittedValue) ? this.id : id as String,
+    object: identical(object, sdkOmittedValue) ? this.object : object as EnterpriseAccountObject,
+    protocol: identical(protocol, sdkOmittedValue) ? this.protocol : protocol as SdkOptional<EnterpriseAccountProtocol>,
+    provider: identical(provider, sdkOmittedValue) ? this.provider : provider as String,
+    active: identical(active, sdkOmittedValue) ? this.active : active as bool,
+    emailAddress: identical(emailAddress, sdkOmittedValue) ? this.emailAddress : emailAddress as String,
+    firstName: identical(firstName, sdkOmittedValue) ? this.firstName : firstName as SdkOptional<String?>,
+    lastName: identical(lastName, sdkOmittedValue) ? this.lastName : lastName as SdkOptional<String?>,
+    providerUserId: identical(providerUserId, sdkOmittedValue) ? this.providerUserId : providerUserId as SdkOptional<String?>,
+    enterpriseConnectionId: identical(enterpriseConnectionId, sdkOmittedValue) ? this.enterpriseConnectionId : enterpriseConnectionId as SdkOptional<String?>,
+    publicMetadata: identical(publicMetadata, sdkOmittedValue) ? this.publicMetadata : publicMetadata as SdkOptional<Map<String, Object?>>,
+    verification: identical(verification, sdkOmittedValue) ? this.verification : verification as EnterpriseAccountVerification?,
+    enterpriseConnection: identical(enterpriseConnection, sdkOmittedValue) ? this.enterpriseConnection : enterpriseConnection as SdkOptional<EnterpriseAccountConnection?>,
+    lastAuthenticatedAt: identical(lastAuthenticatedAt, sdkOmittedValue) ? this.lastAuthenticatedAt : lastAuthenticatedAt as SdkOptional<int?>,
+  );
 
-  factory EnterpriseAccount.fromJson(Map<String, dynamic> json) =>
-      EnterpriseAccount(
-        id: (json['id'] as String?)!,
-        object: (json['object'] != null
-            ? EnterpriseAccountObject.fromJson(json['object'] as String)
-            : null)!,
-        protocol: json['protocol'] != null
-            ? SdkPresent((json['protocol'] != null
-                ? EnterpriseAccountProtocol.fromJson(json['protocol'] as String)
-                : null)!)
-            : const SdkOmitted(),
-        provider: (json['provider'] as String?)!,
-        active: (json['active'] as bool?)!,
-        emailAddress: (json['email_address'] as String?)!,
-        firstName: json.containsKey('first_name')
-            ? SdkPresent(json['first_name'] as String?)
-            : const SdkOmitted(),
-        lastName: json.containsKey('last_name')
-            ? SdkPresent(json['last_name'] as String?)
-            : const SdkOmitted(),
-        providerUserId: json.containsKey('provider_user_id')
-            ? SdkPresent(json['provider_user_id'] as String?)
-            : const SdkOmitted(),
-        enterpriseConnectionId: json.containsKey('enterprise_connection_id')
-            ? SdkPresent(json['enterprise_connection_id'] as String?)
-            : const SdkOmitted(),
-        publicMetadata: json['public_metadata'] != null
-            ? SdkPresent((json['public_metadata'] == null
-                ? null
-                : Map<String, dynamic>.from(json['public_metadata'] as Map)
-                    .map((key, value) => MapEntry(key, value)))!)
-            : const SdkOmitted(),
-        verification: json.containsKey('verification')
-            ? json['verification'] != null
-                ? EnterpriseAccountVerification.fromJson(json['verification'])
-                : null
-            : throw ArgumentError.value(
-                null, 'verification', 'Required property is missing'),
-        enterpriseConnection: json.containsKey('enterprise_connection')
-            ? SdkPresent(json['enterprise_connection'] != null
-                ? EnterpriseAccountConnection.fromJson(
-                    json['enterprise_connection'] as Map<String, dynamic>)
-                : null)
-            : const SdkOmitted(),
-        lastAuthenticatedAt: json.containsKey('last_authenticated_at')
-            ? SdkPresent((json['last_authenticated_at'] as num?)?.toInt())
-            : const SdkOmitted(),
-      );
+  factory EnterpriseAccount.fromJson(Map<String, dynamic> json) => EnterpriseAccount(
+    id: (json['id'] as String?)!,
+    object: (json['object'] != null ? EnterpriseAccountObject.fromJson(json['object'] as String) : null)!,
+    protocol: json['protocol'] != null ? SdkPresent((json['protocol'] != null ? EnterpriseAccountProtocol.fromJson(json['protocol'] as String) : null)!) : const SdkOmitted(),
+    provider: (json['provider'] as String?)!,
+    active: (json['active'] as bool?)!,
+    emailAddress: (json['email_address'] as String?)!,
+    firstName: json.containsKey('first_name') ? SdkPresent(json['first_name'] as String?) : const SdkOmitted(),
+    lastName: json.containsKey('last_name') ? SdkPresent(json['last_name'] as String?) : const SdkOmitted(),
+    providerUserId: json.containsKey('provider_user_id') ? SdkPresent(json['provider_user_id'] as String?) : const SdkOmitted(),
+    enterpriseConnectionId: json.containsKey('enterprise_connection_id') ? SdkPresent(json['enterprise_connection_id'] as String?) : const SdkOmitted(),
+    publicMetadata: json['public_metadata'] != null ? SdkPresent((json['public_metadata'] == null ? null : Map<String, dynamic>.from(json['public_metadata'] as Map).map((key, value) => MapEntry(key, value)))!) : const SdkOmitted(),
+    verification: json.containsKey('verification') ? json['verification'] != null ? EnterpriseAccountVerification.fromJson(json['verification']) : null : throw ArgumentError.value(null, 'verification', 'Required property is missing'),
+    enterpriseConnection: json.containsKey('enterprise_connection') ? SdkPresent(json['enterprise_connection'] != null ? EnterpriseAccountConnection.fromJson(json['enterprise_connection'] as Map<String, dynamic>) : null) : const SdkOmitted(),
+    lastAuthenticatedAt: json.containsKey('last_authenticated_at') ? SdkPresent((json['last_authenticated_at'] as num?)?.toInt()) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        'id': id,
-        'object': object.toJson(),
-        ...switch (protocol) {
-          SdkPresent<EnterpriseAccountProtocol>(value: final value) => {
-              'protocol': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        'provider': provider,
-        'active': active,
-        'email_address': emailAddress,
-        ...switch (firstName) {
-          SdkPresent<String?>(value: final value) => {
-              'first_name': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (lastName) {
-          SdkPresent<String?>(value: final value) => {
-              'last_name': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (providerUserId) {
-          SdkPresent<String?>(value: final value) => {
-              'provider_user_id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (enterpriseConnectionId) {
-          SdkPresent<String?>(value: final value) => {
-              'enterprise_connection_id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (publicMetadata) {
-          SdkPresent<Map<String, Object?>>(value: final value) => {
-              'public_metadata': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        'verification': verification?.toJson(),
-        ...switch (enterpriseConnection) {
-          SdkPresent<EnterpriseAccountConnection?>(value: final value) => {
-              'enterprise_connection': value?.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (lastAuthenticatedAt) {
-          SdkPresent<int?>(value: final value) => {
-              'last_authenticated_at': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    'id': id,
+    'object': object.toJson(),
+    ...switch (protocol) {
+      SdkPresent<EnterpriseAccountProtocol>(value: final value) => {'protocol': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    'provider': provider,
+    'active': active,
+    'email_address': emailAddress,
+    ...switch (firstName) {
+      SdkPresent<String?>(value: final value) => {'first_name': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (lastName) {
+      SdkPresent<String?>(value: final value) => {'last_name': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (providerUserId) {
+      SdkPresent<String?>(value: final value) => {'provider_user_id': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (enterpriseConnectionId) {
+      SdkPresent<String?>(value: final value) => {'enterprise_connection_id': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (publicMetadata) {
+      SdkPresent<Map<String, Object?>>(value: final value) => {'public_metadata': value,},
+      _ => const <String, dynamic>{},
+    },
+    'verification': verification?.toJson(),
+    ...switch (enterpriseConnection) {
+      SdkPresent<EnterpriseAccountConnection?>(value: final value) => {'enterprise_connection': value?.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (lastAuthenticatedAt) {
+      SdkPresent<int?>(value: final value) => {'last_authenticated_at': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

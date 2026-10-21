@@ -23,14 +23,8 @@ Future<ProxyCheck> verifyDomainProxy(ClientConfig config,
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'verifyDomainProxy',
-          fromJsonRaw: (value) =>
-              ProxyCheck.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => ProxyCheck.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '400': (value) =>
-                ClerkErrors.fromJson(value as Map<String, dynamic>),
-            '422': (value) =>
-                ClerkErrors.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'400': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '422': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)}))
       .data;
 }

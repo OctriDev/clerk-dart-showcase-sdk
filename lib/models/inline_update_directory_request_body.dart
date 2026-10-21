@@ -7,304 +7,168 @@ part of 'inline.dart';
 class UpdateDirectoryRequestBody {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// A human-friendly name for the directory.
   final SdkOptional<String> name;
-
   /// Whether the directory is enabled.
   final SdkOptional<bool> enabled;
-
   /// The identity provider for this directory.
   final SdkOptional<String> provider;
-
   /// Attribute-to-directory-path entries to merge into the directory's attribute mapping. Set a key to `null` to remove it from the mapping.
   final SdkOptional<Map<String, String>> attributeMapping;
-
   /// Whether group-to-role mapping is enabled for this directory.
   final SdkOptional<bool> groupRoleMappingEnabled;
 
-  const UpdateDirectoryRequestBody(
-      {this.name = const SdkOmitted(),
-      this.enabled = const SdkOmitted(),
-      this.provider = const SdkOmitted(),
-      this.attributeMapping = const SdkOmitted(),
-      this.groupRoleMappingEnabled = const SdkOmitted()});
+  const UpdateDirectoryRequestBody({this.name = const SdkOmitted(), this.enabled = const SdkOmitted(), this.provider = const SdkOmitted(), this.attributeMapping = const SdkOmitted(), this.groupRoleMappingEnabled = const SdkOmitted()});
 
-  UpdateDirectoryRequestBody Function(
-      {SdkOptional<String> name,
-      SdkOptional<bool> enabled,
-      SdkOptional<String> provider,
-      SdkOptional<Map<String, String>> attributeMapping,
-      SdkOptional<bool> groupRoleMappingEnabled}) get copyWith => _copyWith;
+  UpdateDirectoryRequestBody Function({SdkOptional<String> name, SdkOptional<bool> enabled, SdkOptional<String> provider, SdkOptional<Map<String, String>> attributeMapping, SdkOptional<bool> groupRoleMappingEnabled}) get copyWith => _copyWith;
 
-  UpdateDirectoryRequestBody _copyWith(
-          {Object? name = sdkOmittedValue,
-          Object? enabled = sdkOmittedValue,
-          Object? provider = sdkOmittedValue,
-          Object? attributeMapping = sdkOmittedValue,
-          Object? groupRoleMappingEnabled = sdkOmittedValue}) =>
-      UpdateDirectoryRequestBody(
-        name: identical(name, sdkOmittedValue)
-            ? this.name
-            : name as SdkOptional<String>,
-        enabled: identical(enabled, sdkOmittedValue)
-            ? this.enabled
-            : enabled as SdkOptional<bool>,
-        provider: identical(provider, sdkOmittedValue)
-            ? this.provider
-            : provider as SdkOptional<String>,
-        attributeMapping: identical(attributeMapping, sdkOmittedValue)
-            ? this.attributeMapping
-            : attributeMapping as SdkOptional<Map<String, String>>,
-        groupRoleMappingEnabled:
-            identical(groupRoleMappingEnabled, sdkOmittedValue)
-                ? this.groupRoleMappingEnabled
-                : groupRoleMappingEnabled as SdkOptional<bool>,
-      );
+  UpdateDirectoryRequestBody _copyWith({Object? name = sdkOmittedValue, Object? enabled = sdkOmittedValue, Object? provider = sdkOmittedValue, Object? attributeMapping = sdkOmittedValue, Object? groupRoleMappingEnabled = sdkOmittedValue}) => UpdateDirectoryRequestBody(
+    name: identical(name, sdkOmittedValue) ? this.name : name as SdkOptional<String>,
+    enabled: identical(enabled, sdkOmittedValue) ? this.enabled : enabled as SdkOptional<bool>,
+    provider: identical(provider, sdkOmittedValue) ? this.provider : provider as SdkOptional<String>,
+    attributeMapping: identical(attributeMapping, sdkOmittedValue) ? this.attributeMapping : attributeMapping as SdkOptional<Map<String, String>>,
+    groupRoleMappingEnabled: identical(groupRoleMappingEnabled, sdkOmittedValue) ? this.groupRoleMappingEnabled : groupRoleMappingEnabled as SdkOptional<bool>,
+  );
 
-  factory UpdateDirectoryRequestBody.fromJson(Map<String, dynamic> json) =>
-      UpdateDirectoryRequestBody(
-        name: json['name'] != null
-            ? SdkPresent((json['name'] as String?)!)
-            : const SdkOmitted(),
-        enabled: json['enabled'] != null
-            ? SdkPresent((json['enabled'] as bool?)!)
-            : const SdkOmitted(),
-        provider: json['provider'] != null
-            ? SdkPresent((json['provider'] as String?)!)
-            : const SdkOmitted(),
-        attributeMapping: json['attribute_mapping'] != null
-            ? SdkPresent((json['attribute_mapping'] == null
-                ? null
-                : Map<String, dynamic>.from(json['attribute_mapping'] as Map)
-                    .map((key, value) => MapEntry(key, value as String)))!)
-            : const SdkOmitted(),
-        groupRoleMappingEnabled: json['group_role_mapping_enabled'] != null
-            ? SdkPresent((json['group_role_mapping_enabled'] as bool?)!)
-            : const SdkOmitted(),
-      );
+  factory UpdateDirectoryRequestBody.fromJson(Map<String, dynamic> json) => UpdateDirectoryRequestBody(
+    name: json['name'] != null ? SdkPresent((json['name'] as String?)!) : const SdkOmitted(),
+    enabled: json['enabled'] != null ? SdkPresent((json['enabled'] as bool?)!) : const SdkOmitted(),
+    provider: json['provider'] != null ? SdkPresent((json['provider'] as String?)!) : const SdkOmitted(),
+    attributeMapping: json['attribute_mapping'] != null ? SdkPresent((json['attribute_mapping'] == null ? null : Map<String, dynamic>.from(json['attribute_mapping'] as Map).map((key, value) => MapEntry(key, value as String)))!) : const SdkOmitted(),
+    groupRoleMappingEnabled: json['group_role_mapping_enabled'] != null ? SdkPresent((json['group_role_mapping_enabled'] as bool?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (name) {
-          SdkPresent<String>(value: final value) => {
-              'name': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (enabled) {
-          SdkPresent<bool>(value: final value) => {
-              'enabled': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (provider) {
-          SdkPresent<String>(value: final value) => {
-              'provider': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (attributeMapping) {
-          SdkPresent<Map<String, String>>(value: final value) => {
-              'attribute_mapping': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (groupRoleMappingEnabled) {
-          SdkPresent<bool>(value: final value) => {
-              'group_role_mapping_enabled': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (name) {
+      SdkPresent<String>(value: final value) => {'name': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (enabled) {
+      SdkPresent<bool>(value: final value) => {'enabled': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (provider) {
+      SdkPresent<String>(value: final value) => {'provider': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (attributeMapping) {
+      SdkPresent<Map<String, String>>(value: final value) => {'attribute_mapping': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (groupRoleMappingEnabled) {
+      SdkPresent<bool>(value: final value) => {'group_role_mapping_enabled': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 class CreateDirectoryGroupRoleMappingRequestBody {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The group ID from the identity provider. Exactly one of `directory_group_id` or `scim_group_id` is required.
   final SdkOptional<String> directoryGroupId;
-
   /// The legacy name for `directory_group_id`. Send either one, or both with the same value; sending both with different values is rejected.
   final SdkOptional<String> scimGroupId;
-
   /// The ID of the organization role to assign to members of the group.
   final String roleId;
-
   /// The precedence for this mapping. Lower values take priority when a user belongs to multiple mapped groups. If omitted, the mapping is appended with the next-highest precedence.
   final SdkOptional<int> precedence;
 
-  const CreateDirectoryGroupRoleMappingRequestBody(
-      {this.directoryGroupId = const SdkOmitted(),
-      this.scimGroupId = const SdkOmitted(),
-      required this.roleId,
-      this.precedence = const SdkOmitted()});
+  const CreateDirectoryGroupRoleMappingRequestBody({this.directoryGroupId = const SdkOmitted(), this.scimGroupId = const SdkOmitted(), required this.roleId, this.precedence = const SdkOmitted()});
 
-  CreateDirectoryGroupRoleMappingRequestBody Function(
-      {SdkOptional<String> directoryGroupId,
-      SdkOptional<String> scimGroupId,
-      String roleId,
-      SdkOptional<int> precedence}) get copyWith => _copyWith;
+  CreateDirectoryGroupRoleMappingRequestBody Function({SdkOptional<String> directoryGroupId, SdkOptional<String> scimGroupId, String roleId, SdkOptional<int> precedence}) get copyWith => _copyWith;
 
-  CreateDirectoryGroupRoleMappingRequestBody _copyWith(
-          {Object? directoryGroupId = sdkOmittedValue,
-          Object? scimGroupId = sdkOmittedValue,
-          Object? roleId = sdkOmittedValue,
-          Object? precedence = sdkOmittedValue}) =>
-      CreateDirectoryGroupRoleMappingRequestBody(
-        directoryGroupId: identical(directoryGroupId, sdkOmittedValue)
-            ? this.directoryGroupId
-            : directoryGroupId as SdkOptional<String>,
-        scimGroupId: identical(scimGroupId, sdkOmittedValue)
-            ? this.scimGroupId
-            : scimGroupId as SdkOptional<String>,
-        roleId:
-            identical(roleId, sdkOmittedValue) ? this.roleId : roleId as String,
-        precedence: identical(precedence, sdkOmittedValue)
-            ? this.precedence
-            : precedence as SdkOptional<int>,
-      );
+  CreateDirectoryGroupRoleMappingRequestBody _copyWith({Object? directoryGroupId = sdkOmittedValue, Object? scimGroupId = sdkOmittedValue, Object? roleId = sdkOmittedValue, Object? precedence = sdkOmittedValue}) => CreateDirectoryGroupRoleMappingRequestBody(
+    directoryGroupId: identical(directoryGroupId, sdkOmittedValue) ? this.directoryGroupId : directoryGroupId as SdkOptional<String>,
+    scimGroupId: identical(scimGroupId, sdkOmittedValue) ? this.scimGroupId : scimGroupId as SdkOptional<String>,
+    roleId: identical(roleId, sdkOmittedValue) ? this.roleId : roleId as String,
+    precedence: identical(precedence, sdkOmittedValue) ? this.precedence : precedence as SdkOptional<int>,
+  );
 
-  factory CreateDirectoryGroupRoleMappingRequestBody.fromJson(
-          Map<String, dynamic> json) =>
-      CreateDirectoryGroupRoleMappingRequestBody(
-        directoryGroupId: json['directory_group_id'] != null
-            ? SdkPresent((json['directory_group_id'] as String?)!)
-            : const SdkOmitted(),
-        scimGroupId: json['scim_group_id'] != null
-            ? SdkPresent((json['scim_group_id'] as String?)!)
-            : const SdkOmitted(),
-        roleId: (json['role_id'] as String?)!,
-        precedence: json['precedence'] != null
-            ? SdkPresent(((json['precedence'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-      );
+  factory CreateDirectoryGroupRoleMappingRequestBody.fromJson(Map<String, dynamic> json) => CreateDirectoryGroupRoleMappingRequestBody(
+    directoryGroupId: json['directory_group_id'] != null ? SdkPresent((json['directory_group_id'] as String?)!) : const SdkOmitted(),
+    scimGroupId: json['scim_group_id'] != null ? SdkPresent((json['scim_group_id'] as String?)!) : const SdkOmitted(),
+    roleId: (json['role_id'] as String?)!,
+    precedence: json['precedence'] != null ? SdkPresent(((json['precedence'] as num?)?.toInt())!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (directoryGroupId) {
-          SdkPresent<String>(value: final value) => {
-              'directory_group_id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (scimGroupId) {
-          SdkPresent<String>(value: final value) => {
-              'scim_group_id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        'role_id': roleId,
-        ...switch (precedence) {
-          SdkPresent<int>(value: final value) => {
-              'precedence': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (directoryGroupId) {
+      SdkPresent<String>(value: final value) => {'directory_group_id': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (scimGroupId) {
+      SdkPresent<String>(value: final value) => {'scim_group_id': value,},
+      _ => const <String, dynamic>{},
+    },
+    'role_id': roleId,
+    ...switch (precedence) {
+      SdkPresent<int>(value: final value) => {'precedence': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 class ReplaceDirectoryGroupRoleMappingsRequestBodyMappingsItem {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The group ID from the identity provider. Exactly one of `directory_group_id` or `scim_group_id` is required.
   final SdkOptional<String> directoryGroupId;
-
   /// The legacy name for `directory_group_id`. Send either one, or both with the same value; sending both with different values is rejected.
   final SdkOptional<String> scimGroupId;
-
   /// The ID of the organization role to assign to members of the group.
   final String roleId;
 
-  const ReplaceDirectoryGroupRoleMappingsRequestBodyMappingsItem(
-      {this.directoryGroupId = const SdkOmitted(),
-      this.scimGroupId = const SdkOmitted(),
-      required this.roleId});
+  const ReplaceDirectoryGroupRoleMappingsRequestBodyMappingsItem({this.directoryGroupId = const SdkOmitted(), this.scimGroupId = const SdkOmitted(), required this.roleId});
 
-  ReplaceDirectoryGroupRoleMappingsRequestBodyMappingsItem Function(
-      {SdkOptional<String> directoryGroupId,
-      SdkOptional<String> scimGroupId,
-      String roleId}) get copyWith => _copyWith;
+  ReplaceDirectoryGroupRoleMappingsRequestBodyMappingsItem Function({SdkOptional<String> directoryGroupId, SdkOptional<String> scimGroupId, String roleId}) get copyWith => _copyWith;
 
-  ReplaceDirectoryGroupRoleMappingsRequestBodyMappingsItem _copyWith(
-          {Object? directoryGroupId = sdkOmittedValue,
-          Object? scimGroupId = sdkOmittedValue,
-          Object? roleId = sdkOmittedValue}) =>
-      ReplaceDirectoryGroupRoleMappingsRequestBodyMappingsItem(
-        directoryGroupId: identical(directoryGroupId, sdkOmittedValue)
-            ? this.directoryGroupId
-            : directoryGroupId as SdkOptional<String>,
-        scimGroupId: identical(scimGroupId, sdkOmittedValue)
-            ? this.scimGroupId
-            : scimGroupId as SdkOptional<String>,
-        roleId:
-            identical(roleId, sdkOmittedValue) ? this.roleId : roleId as String,
-      );
+  ReplaceDirectoryGroupRoleMappingsRequestBodyMappingsItem _copyWith({Object? directoryGroupId = sdkOmittedValue, Object? scimGroupId = sdkOmittedValue, Object? roleId = sdkOmittedValue}) => ReplaceDirectoryGroupRoleMappingsRequestBodyMappingsItem(
+    directoryGroupId: identical(directoryGroupId, sdkOmittedValue) ? this.directoryGroupId : directoryGroupId as SdkOptional<String>,
+    scimGroupId: identical(scimGroupId, sdkOmittedValue) ? this.scimGroupId : scimGroupId as SdkOptional<String>,
+    roleId: identical(roleId, sdkOmittedValue) ? this.roleId : roleId as String,
+  );
 
-  factory ReplaceDirectoryGroupRoleMappingsRequestBodyMappingsItem.fromJson(
-          Map<String, dynamic> json) =>
-      ReplaceDirectoryGroupRoleMappingsRequestBodyMappingsItem(
-        directoryGroupId: json['directory_group_id'] != null
-            ? SdkPresent((json['directory_group_id'] as String?)!)
-            : const SdkOmitted(),
-        scimGroupId: json['scim_group_id'] != null
-            ? SdkPresent((json['scim_group_id'] as String?)!)
-            : const SdkOmitted(),
-        roleId: (json['role_id'] as String?)!,
-      );
+  factory ReplaceDirectoryGroupRoleMappingsRequestBodyMappingsItem.fromJson(Map<String, dynamic> json) => ReplaceDirectoryGroupRoleMappingsRequestBodyMappingsItem(
+    directoryGroupId: json['directory_group_id'] != null ? SdkPresent((json['directory_group_id'] as String?)!) : const SdkOmitted(),
+    scimGroupId: json['scim_group_id'] != null ? SdkPresent((json['scim_group_id'] as String?)!) : const SdkOmitted(),
+    roleId: (json['role_id'] as String?)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (directoryGroupId) {
-          SdkPresent<String>(value: final value) => {
-              'directory_group_id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (scimGroupId) {
-          SdkPresent<String>(value: final value) => {
-              'scim_group_id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        'role_id': roleId,
-      };
+    ...switch (directoryGroupId) {
+      SdkPresent<String>(value: final value) => {'directory_group_id': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (scimGroupId) {
+      SdkPresent<String>(value: final value) => {'scim_group_id': value,},
+      _ => const <String, dynamic>{},
+    },
+    'role_id': roleId,
+  };
 }
 
 class ReplaceDirectoryGroupRoleMappingsRequestBody {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The desired set of mappings. Array order sets precedence (1-indexed). An empty array clears all mappings.
   final List<ReplaceDirectoryGroupRoleMappingsRequestBodyMappingsItem> mappings;
 
   const ReplaceDirectoryGroupRoleMappingsRequestBody({required this.mappings});
 
-  ReplaceDirectoryGroupRoleMappingsRequestBody Function(
-      {List<ReplaceDirectoryGroupRoleMappingsRequestBodyMappingsItem>
-          mappings}) get copyWith => _copyWith;
+  ReplaceDirectoryGroupRoleMappingsRequestBody Function({List<ReplaceDirectoryGroupRoleMappingsRequestBodyMappingsItem> mappings}) get copyWith => _copyWith;
 
-  ReplaceDirectoryGroupRoleMappingsRequestBody _copyWith(
-          {Object? mappings = sdkOmittedValue}) =>
-      ReplaceDirectoryGroupRoleMappingsRequestBody(
-        mappings: identical(mappings, sdkOmittedValue)
-            ? this.mappings
-            : mappings as List<
-                ReplaceDirectoryGroupRoleMappingsRequestBodyMappingsItem>,
-      );
+  ReplaceDirectoryGroupRoleMappingsRequestBody _copyWith({Object? mappings = sdkOmittedValue}) => ReplaceDirectoryGroupRoleMappingsRequestBody(
+    mappings: identical(mappings, sdkOmittedValue) ? this.mappings : mappings as List<ReplaceDirectoryGroupRoleMappingsRequestBodyMappingsItem>,
+  );
 
-  factory ReplaceDirectoryGroupRoleMappingsRequestBody.fromJson(
-          Map<String, dynamic> json) =>
-      ReplaceDirectoryGroupRoleMappingsRequestBody(
-        mappings: ((json['mappings'] as List?)
-            ?.map((e) =>
-                ReplaceDirectoryGroupRoleMappingsRequestBodyMappingsItem
-                    .fromJson(e as Map<String, dynamic>))
-            .toList())!,
-      );
+  factory ReplaceDirectoryGroupRoleMappingsRequestBody.fromJson(Map<String, dynamic> json) => ReplaceDirectoryGroupRoleMappingsRequestBody(
+    mappings: ((json['mappings'] as List?)?.map((e) => ReplaceDirectoryGroupRoleMappingsRequestBodyMappingsItem.fromJson(e as Map<String, dynamic>)).toList())!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'mappings': mappings.map((item) => item.toJson()).toList(),
-      };
+    'mappings': mappings.map((item) => item.toJson()).toList(),
+  };
 }
 
 class CreateAdminPortalLinkTokenRequestBody {
@@ -315,83 +179,42 @@ class CreateAdminPortalLinkTokenRequestBody {
   final SdkOptional<List<String>> scopes;
   final SdkOptional<int> secondsUntilExpiration;
 
-  const CreateAdminPortalLinkTokenRequestBody(
-      {this.organizationId = const SdkOmitted(),
-      this.itContactId = const SdkOmitted(),
-      this.scopes = const SdkOmitted(),
-      this.secondsUntilExpiration = const SdkOmitted()});
+  const CreateAdminPortalLinkTokenRequestBody({this.organizationId = const SdkOmitted(), this.itContactId = const SdkOmitted(), this.scopes = const SdkOmitted(), this.secondsUntilExpiration = const SdkOmitted()});
 
-  CreateAdminPortalLinkTokenRequestBody Function(
-      {SdkOptional<String> organizationId,
-      SdkOptional<String> itContactId,
-      SdkOptional<List<String>> scopes,
-      SdkOptional<int> secondsUntilExpiration}) get copyWith => _copyWith;
+  CreateAdminPortalLinkTokenRequestBody Function({SdkOptional<String> organizationId, SdkOptional<String> itContactId, SdkOptional<List<String>> scopes, SdkOptional<int> secondsUntilExpiration}) get copyWith => _copyWith;
 
-  CreateAdminPortalLinkTokenRequestBody _copyWith(
-          {Object? organizationId = sdkOmittedValue,
-          Object? itContactId = sdkOmittedValue,
-          Object? scopes = sdkOmittedValue,
-          Object? secondsUntilExpiration = sdkOmittedValue}) =>
-      CreateAdminPortalLinkTokenRequestBody(
-        organizationId: identical(organizationId, sdkOmittedValue)
-            ? this.organizationId
-            : organizationId as SdkOptional<String>,
-        itContactId: identical(itContactId, sdkOmittedValue)
-            ? this.itContactId
-            : itContactId as SdkOptional<String>,
-        scopes: identical(scopes, sdkOmittedValue)
-            ? this.scopes
-            : scopes as SdkOptional<List<String>>,
-        secondsUntilExpiration:
-            identical(secondsUntilExpiration, sdkOmittedValue)
-                ? this.secondsUntilExpiration
-                : secondsUntilExpiration as SdkOptional<int>,
-      );
+  CreateAdminPortalLinkTokenRequestBody _copyWith({Object? organizationId = sdkOmittedValue, Object? itContactId = sdkOmittedValue, Object? scopes = sdkOmittedValue, Object? secondsUntilExpiration = sdkOmittedValue}) => CreateAdminPortalLinkTokenRequestBody(
+    organizationId: identical(organizationId, sdkOmittedValue) ? this.organizationId : organizationId as SdkOptional<String>,
+    itContactId: identical(itContactId, sdkOmittedValue) ? this.itContactId : itContactId as SdkOptional<String>,
+    scopes: identical(scopes, sdkOmittedValue) ? this.scopes : scopes as SdkOptional<List<String>>,
+    secondsUntilExpiration: identical(secondsUntilExpiration, sdkOmittedValue) ? this.secondsUntilExpiration : secondsUntilExpiration as SdkOptional<int>,
+  );
 
-  factory CreateAdminPortalLinkTokenRequestBody.fromJson(
-          Map<String, dynamic> json) =>
-      CreateAdminPortalLinkTokenRequestBody(
-        organizationId: json['organization_id'] != null
-            ? SdkPresent((json['organization_id'] as String?)!)
-            : const SdkOmitted(),
-        itContactId: json['it_contact_id'] != null
-            ? SdkPresent((json['it_contact_id'] as String?)!)
-            : const SdkOmitted(),
-        scopes: json['scopes'] != null
-            ? SdkPresent(
-                ((json['scopes'] as List?)?.map((e) => e as String).toList())!)
-            : const SdkOmitted(),
-        secondsUntilExpiration: json['seconds_until_expiration'] != null
-            ? SdkPresent(((json['seconds_until_expiration'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-      );
+  factory CreateAdminPortalLinkTokenRequestBody.fromJson(Map<String, dynamic> json) => CreateAdminPortalLinkTokenRequestBody(
+    organizationId: json['organization_id'] != null ? SdkPresent((json['organization_id'] as String?)!) : const SdkOmitted(),
+    itContactId: json['it_contact_id'] != null ? SdkPresent((json['it_contact_id'] as String?)!) : const SdkOmitted(),
+    scopes: json['scopes'] != null ? SdkPresent(((json['scopes'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
+    secondsUntilExpiration: json['seconds_until_expiration'] != null ? SdkPresent(((json['seconds_until_expiration'] as num?)?.toInt())!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (organizationId) {
-          SdkPresent<String>(value: final value) => {
-              'organization_id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (itContactId) {
-          SdkPresent<String>(value: final value) => {
-              'it_contact_id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (scopes) {
-          SdkPresent<List<String>>(value: final value) => {
-              'scopes': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (secondsUntilExpiration) {
-          SdkPresent<int>(value: final value) => {
-              'seconds_until_expiration': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (organizationId) {
+      SdkPresent<String>(value: final value) => {'organization_id': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (itContactId) {
+      SdkPresent<String>(value: final value) => {'it_contact_id': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (scopes) {
+      SdkPresent<List<String>>(value: final value) => {'scopes': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (secondsUntilExpiration) {
+      SdkPresent<int>(value: final value) => {'seconds_until_expiration': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 class CreateAdminPortalLinkTokenResponse {
@@ -399,174 +222,79 @@ class CreateAdminPortalLinkTokenResponse {
   static const String constructionSurface = 'named';
   final CreateAdminPortalLinkTokenResponseObject object;
   final String id;
-
   /// The origin-level admin_portal_link this token was issued for.
   final String adminPortalLinkId;
   final String instanceId;
-
   /// Optional. Present only when the link is scoped to an existing org.
   final String? organizationId;
-
   /// Optional opaque reference to the IT contact associated with this link.
   final String? itContactId;
-
   /// Caller-provided scopes for this token.
   final List<String>? scopes;
-
   /// The single-use admin portal link token. Returned only on creation. URL-borne; treat as a secret.
   final String token;
   final bool revoked;
   final String? revocationReason;
   final bool expired;
-
   /// The timestamp for when the token will expire, in milliseconds.
   final double? expiration;
-
   /// The timestamp for when the token was created, in milliseconds.
   final double createdAt;
-
   /// The timestamp for when the token was last updated, in milliseconds.
   final double updatedAt;
 
-  const CreateAdminPortalLinkTokenResponse(
-      {required this.object,
-      required this.id,
-      required this.adminPortalLinkId,
-      required this.instanceId,
-      required this.organizationId,
-      required this.itContactId,
-      required this.scopes,
-      required this.token,
-      required this.revoked,
-      required this.revocationReason,
-      required this.expired,
-      required this.expiration,
-      required this.createdAt,
-      required this.updatedAt});
+  const CreateAdminPortalLinkTokenResponse({required this.object, required this.id, required this.adminPortalLinkId, required this.instanceId, required this.organizationId, required this.itContactId, required this.scopes, required this.token, required this.revoked, required this.revocationReason, required this.expired, required this.expiration, required this.createdAt, required this.updatedAt});
 
-  CreateAdminPortalLinkTokenResponse Function(
-      {CreateAdminPortalLinkTokenResponseObject object,
-      String id,
-      String adminPortalLinkId,
-      String instanceId,
-      String? organizationId,
-      String? itContactId,
-      List<String>? scopes,
-      String token,
-      bool revoked,
-      String? revocationReason,
-      bool expired,
-      double? expiration,
-      double createdAt,
-      double updatedAt}) get copyWith => _copyWith;
+  CreateAdminPortalLinkTokenResponse Function({CreateAdminPortalLinkTokenResponseObject object, String id, String adminPortalLinkId, String instanceId, String? organizationId, String? itContactId, List<String>? scopes, String token, bool revoked, String? revocationReason, bool expired, double? expiration, double createdAt, double updatedAt}) get copyWith => _copyWith;
 
-  CreateAdminPortalLinkTokenResponse _copyWith(
-          {Object? object = sdkOmittedValue,
-          Object? id = sdkOmittedValue,
-          Object? adminPortalLinkId = sdkOmittedValue,
-          Object? instanceId = sdkOmittedValue,
-          Object? organizationId = sdkOmittedValue,
-          Object? itContactId = sdkOmittedValue,
-          Object? scopes = sdkOmittedValue,
-          Object? token = sdkOmittedValue,
-          Object? revoked = sdkOmittedValue,
-          Object? revocationReason = sdkOmittedValue,
-          Object? expired = sdkOmittedValue,
-          Object? expiration = sdkOmittedValue,
-          Object? createdAt = sdkOmittedValue,
-          Object? updatedAt = sdkOmittedValue}) =>
-      CreateAdminPortalLinkTokenResponse(
-        object: identical(object, sdkOmittedValue)
-            ? this.object
-            : object as CreateAdminPortalLinkTokenResponseObject,
-        id: identical(id, sdkOmittedValue) ? this.id : id as String,
-        adminPortalLinkId: identical(adminPortalLinkId, sdkOmittedValue)
-            ? this.adminPortalLinkId
-            : adminPortalLinkId as String,
-        instanceId: identical(instanceId, sdkOmittedValue)
-            ? this.instanceId
-            : instanceId as String,
-        organizationId: identical(organizationId, sdkOmittedValue)
-            ? this.organizationId
-            : organizationId as String?,
-        itContactId: identical(itContactId, sdkOmittedValue)
-            ? this.itContactId
-            : itContactId as String?,
-        scopes: identical(scopes, sdkOmittedValue)
-            ? this.scopes
-            : scopes as List<String>?,
-        token: identical(token, sdkOmittedValue) ? this.token : token as String,
-        revoked: identical(revoked, sdkOmittedValue)
-            ? this.revoked
-            : revoked as bool,
-        revocationReason: identical(revocationReason, sdkOmittedValue)
-            ? this.revocationReason
-            : revocationReason as String?,
-        expired: identical(expired, sdkOmittedValue)
-            ? this.expired
-            : expired as bool,
-        expiration: identical(expiration, sdkOmittedValue)
-            ? this.expiration
-            : expiration as double?,
-        createdAt: identical(createdAt, sdkOmittedValue)
-            ? this.createdAt
-            : createdAt as double,
-        updatedAt: identical(updatedAt, sdkOmittedValue)
-            ? this.updatedAt
-            : updatedAt as double,
-      );
+  CreateAdminPortalLinkTokenResponse _copyWith({Object? object = sdkOmittedValue, Object? id = sdkOmittedValue, Object? adminPortalLinkId = sdkOmittedValue, Object? instanceId = sdkOmittedValue, Object? organizationId = sdkOmittedValue, Object? itContactId = sdkOmittedValue, Object? scopes = sdkOmittedValue, Object? token = sdkOmittedValue, Object? revoked = sdkOmittedValue, Object? revocationReason = sdkOmittedValue, Object? expired = sdkOmittedValue, Object? expiration = sdkOmittedValue, Object? createdAt = sdkOmittedValue, Object? updatedAt = sdkOmittedValue}) => CreateAdminPortalLinkTokenResponse(
+    object: identical(object, sdkOmittedValue) ? this.object : object as CreateAdminPortalLinkTokenResponseObject,
+    id: identical(id, sdkOmittedValue) ? this.id : id as String,
+    adminPortalLinkId: identical(adminPortalLinkId, sdkOmittedValue) ? this.adminPortalLinkId : adminPortalLinkId as String,
+    instanceId: identical(instanceId, sdkOmittedValue) ? this.instanceId : instanceId as String,
+    organizationId: identical(organizationId, sdkOmittedValue) ? this.organizationId : organizationId as String?,
+    itContactId: identical(itContactId, sdkOmittedValue) ? this.itContactId : itContactId as String?,
+    scopes: identical(scopes, sdkOmittedValue) ? this.scopes : scopes as List<String>?,
+    token: identical(token, sdkOmittedValue) ? this.token : token as String,
+    revoked: identical(revoked, sdkOmittedValue) ? this.revoked : revoked as bool,
+    revocationReason: identical(revocationReason, sdkOmittedValue) ? this.revocationReason : revocationReason as String?,
+    expired: identical(expired, sdkOmittedValue) ? this.expired : expired as bool,
+    expiration: identical(expiration, sdkOmittedValue) ? this.expiration : expiration as double?,
+    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as double,
+    updatedAt: identical(updatedAt, sdkOmittedValue) ? this.updatedAt : updatedAt as double,
+  );
 
-  factory CreateAdminPortalLinkTokenResponse.fromJson(
-          Map<String, dynamic> json) =>
-      CreateAdminPortalLinkTokenResponse(
-        object: (json['object'] != null
-            ? CreateAdminPortalLinkTokenResponseObject.fromJson(
-                json['object'] as String)
-            : null)!,
-        id: (json['id'] as String?)!,
-        adminPortalLinkId: (json['admin_portal_link_id'] as String?)!,
-        instanceId: (json['instance_id'] as String?)!,
-        organizationId: json.containsKey('organization_id')
-            ? json['organization_id'] as String?
-            : throw ArgumentError.value(
-                null, 'organization_id', 'Required property is missing'),
-        itContactId: json.containsKey('it_contact_id')
-            ? json['it_contact_id'] as String?
-            : throw ArgumentError.value(
-                null, 'it_contact_id', 'Required property is missing'),
-        scopes: json.containsKey('scopes')
-            ? (json['scopes'] as List?)?.map((e) => e as String).toList()
-            : throw ArgumentError.value(
-                null, 'scopes', 'Required property is missing'),
-        token: (json['token'] as String?)!,
-        revoked: (json['revoked'] as bool?)!,
-        revocationReason: json.containsKey('revocation_reason')
-            ? json['revocation_reason'] as String?
-            : throw ArgumentError.value(
-                null, 'revocation_reason', 'Required property is missing'),
-        expired: (json['expired'] as bool?)!,
-        expiration: json.containsKey('expiration')
-            ? (json['expiration'] as num?)?.toDouble()
-            : throw ArgumentError.value(
-                null, 'expiration', 'Required property is missing'),
-        createdAt: ((json['created_at'] as num?)?.toDouble())!,
-        updatedAt: ((json['updated_at'] as num?)?.toDouble())!,
-      );
+  factory CreateAdminPortalLinkTokenResponse.fromJson(Map<String, dynamic> json) => CreateAdminPortalLinkTokenResponse(
+    object: (json['object'] != null ? CreateAdminPortalLinkTokenResponseObject.fromJson(json['object'] as String) : null)!,
+    id: (json['id'] as String?)!,
+    adminPortalLinkId: (json['admin_portal_link_id'] as String?)!,
+    instanceId: (json['instance_id'] as String?)!,
+    organizationId: json.containsKey('organization_id') ? json['organization_id'] as String? : throw ArgumentError.value(null, 'organization_id', 'Required property is missing'),
+    itContactId: json.containsKey('it_contact_id') ? json['it_contact_id'] as String? : throw ArgumentError.value(null, 'it_contact_id', 'Required property is missing'),
+    scopes: json.containsKey('scopes') ? (json['scopes'] as List?)?.map((e) => e as String).toList() : throw ArgumentError.value(null, 'scopes', 'Required property is missing'),
+    token: (json['token'] as String?)!,
+    revoked: (json['revoked'] as bool?)!,
+    revocationReason: json.containsKey('revocation_reason') ? json['revocation_reason'] as String? : throw ArgumentError.value(null, 'revocation_reason', 'Required property is missing'),
+    expired: (json['expired'] as bool?)!,
+    expiration: json.containsKey('expiration') ? (json['expiration'] as num?)?.toDouble() : throw ArgumentError.value(null, 'expiration', 'Required property is missing'),
+    createdAt: ((json['created_at'] as num?)?.toDouble())!,
+    updatedAt: ((json['updated_at'] as num?)?.toDouble())!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'object': object.toJson(),
-        'id': id,
-        'admin_portal_link_id': adminPortalLinkId,
-        'instance_id': instanceId,
-        'organization_id': organizationId,
-        'it_contact_id': itContactId,
-        'scopes': scopes,
-        'token': token,
-        'revoked': revoked,
-        'revocation_reason': revocationReason,
-        'expired': expired,
-        'expiration': expiration,
-        'created_at': createdAt,
-        'updated_at': updatedAt,
-      };
+    'object': object.toJson(),
+    'id': id,
+    'admin_portal_link_id': adminPortalLinkId,
+    'instance_id': instanceId,
+    'organization_id': organizationId,
+    'it_contact_id': itContactId,
+    'scopes': scopes,
+    'token': token,
+    'revoked': revoked,
+    'revocation_reason': revocationReason,
+    'expired': expired,
+    'expiration': expiration,
+    'created_at': createdAt,
+    'updated_at': updatedAt,
+  };
 }

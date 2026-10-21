@@ -8,49 +8,32 @@ part of 'testing_tokens.dart';
 class TestingToken {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Required enumerated value serialized in the `object` wire field.
   final TestingTokenObject object;
-
   /// The actual token. This value is meant to be passed in the `__clerk_testing_token` query parameter with requests to the Frontend API.
   final String token;
-
   /// Unix timestamp of the token's expiration time.
   final int expiresAt;
 
-  const TestingToken(
-      {required this.object, required this.token, required this.expiresAt});
+  const TestingToken({required this.object, required this.token, required this.expiresAt});
 
-  TestingToken Function(
-      {TestingTokenObject object,
-      String token,
-      int expiresAt}) get copyWith => _copyWith;
+  TestingToken Function({TestingTokenObject object, String token, int expiresAt}) get copyWith => _copyWith;
 
-  TestingToken _copyWith(
-          {Object? object = sdkOmittedValue,
-          Object? token = sdkOmittedValue,
-          Object? expiresAt = sdkOmittedValue}) =>
-      TestingToken(
-        object: identical(object, sdkOmittedValue)
-            ? this.object
-            : object as TestingTokenObject,
-        token: identical(token, sdkOmittedValue) ? this.token : token as String,
-        expiresAt: identical(expiresAt, sdkOmittedValue)
-            ? this.expiresAt
-            : expiresAt as int,
-      );
+  TestingToken _copyWith({Object? object = sdkOmittedValue, Object? token = sdkOmittedValue, Object? expiresAt = sdkOmittedValue}) => TestingToken(
+    object: identical(object, sdkOmittedValue) ? this.object : object as TestingTokenObject,
+    token: identical(token, sdkOmittedValue) ? this.token : token as String,
+    expiresAt: identical(expiresAt, sdkOmittedValue) ? this.expiresAt : expiresAt as int,
+  );
 
   factory TestingToken.fromJson(Map<String, dynamic> json) => TestingToken(
-        object: (json['object'] != null
-            ? TestingTokenObject.fromJson(json['object'] as String)
-            : null)!,
-        token: (json['token'] as String?)!,
-        expiresAt: ((json['expires_at'] as num?)?.toInt())!,
-      );
+    object: (json['object'] != null ? TestingTokenObject.fromJson(json['object'] as String) : null)!,
+    token: (json['token'] as String?)!,
+    expiresAt: ((json['expires_at'] as num?)?.toInt())!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'object': object.toJson(),
-        'token': token,
-        'expires_at': expiresAt,
-      };
+    'object': object.toJson(),
+    'token': token,
+    'expires_at': expiresAt,
+  };
 }

@@ -8,60 +8,33 @@ part of 'shared_commerce.dart';
 class CommerceSubscriptionCreditResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Credit amount.
   final SdkOptional<CommerceMoneyResponse?> amount;
-
   /// Percentage of the billing cycle remaining.
   final SdkOptional<double> cycleRemainingPercent;
 
-  const CommerceSubscriptionCreditResponse(
-      {this.amount = const SdkOmitted(),
-      this.cycleRemainingPercent = const SdkOmitted()});
+  const CommerceSubscriptionCreditResponse({this.amount = const SdkOmitted(), this.cycleRemainingPercent = const SdkOmitted()});
 
-  CommerceSubscriptionCreditResponse Function(
-      {SdkOptional<CommerceMoneyResponse?> amount,
-      SdkOptional<double> cycleRemainingPercent}) get copyWith => _copyWith;
+  CommerceSubscriptionCreditResponse Function({SdkOptional<CommerceMoneyResponse?> amount, SdkOptional<double> cycleRemainingPercent}) get copyWith => _copyWith;
 
-  CommerceSubscriptionCreditResponse _copyWith(
-          {Object? amount = sdkOmittedValue,
-          Object? cycleRemainingPercent = sdkOmittedValue}) =>
-      CommerceSubscriptionCreditResponse(
-        amount: identical(amount, sdkOmittedValue)
-            ? this.amount
-            : amount as SdkOptional<CommerceMoneyResponse?>,
-        cycleRemainingPercent: identical(cycleRemainingPercent, sdkOmittedValue)
-            ? this.cycleRemainingPercent
-            : cycleRemainingPercent as SdkOptional<double>,
-      );
+  CommerceSubscriptionCreditResponse _copyWith({Object? amount = sdkOmittedValue, Object? cycleRemainingPercent = sdkOmittedValue}) => CommerceSubscriptionCreditResponse(
+    amount: identical(amount, sdkOmittedValue) ? this.amount : amount as SdkOptional<CommerceMoneyResponse?>,
+    cycleRemainingPercent: identical(cycleRemainingPercent, sdkOmittedValue) ? this.cycleRemainingPercent : cycleRemainingPercent as SdkOptional<double>,
+  );
 
-  factory CommerceSubscriptionCreditResponse.fromJson(
-          Map<String, dynamic> json) =>
-      CommerceSubscriptionCreditResponse(
-        amount: json.containsKey('amount')
-            ? SdkPresent(json['amount'] != null
-                ? CommerceMoneyResponse.fromJson(
-                    json['amount'] as Map<String, dynamic>)
-                : null)
-            : const SdkOmitted(),
-        cycleRemainingPercent: json['cycle_remaining_percent'] != null
-            ? SdkPresent(
-                ((json['cycle_remaining_percent'] as num?)?.toDouble())!)
-            : const SdkOmitted(),
-      );
+  factory CommerceSubscriptionCreditResponse.fromJson(Map<String, dynamic> json) => CommerceSubscriptionCreditResponse(
+    amount: json.containsKey('amount') ? SdkPresent(json['amount'] != null ? CommerceMoneyResponse.fromJson(json['amount'] as Map<String, dynamic>) : null) : const SdkOmitted(),
+    cycleRemainingPercent: json['cycle_remaining_percent'] != null ? SdkPresent(((json['cycle_remaining_percent'] as num?)?.toDouble())!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (amount) {
-          SdkPresent<CommerceMoneyResponse?>(value: final value) => {
-              'amount': value?.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (cycleRemainingPercent) {
-          SdkPresent<double>(value: final value) => {
-              'cycle_remaining_percent': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (amount) {
+      SdkPresent<CommerceMoneyResponse?>(value: final value) => {'amount': value?.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (cycleRemainingPercent) {
+      SdkPresent<double>(value: final value) => {'cycle_remaining_percent': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

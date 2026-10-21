@@ -8,526 +8,280 @@ part of 'enterprise_connections.dart';
 class EnterpriseConnectionTestRunParsedUserInfo {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Optional `string` value serialized in the `email_address` wire field.
   final SdkOptional<String> emailAddress;
-
   /// Optional `string` value serialized in the `first_name` wire field.
   final SdkOptional<String> firstName;
-
   /// Optional `string` value serialized in the `last_name` wire field.
   final SdkOptional<String> lastName;
-
   /// Optional `string` value serialized in the `user_id` wire field.
   final SdkOptional<String> userId;
 
-  const EnterpriseConnectionTestRunParsedUserInfo(
-      {this.emailAddress = const SdkOmitted(),
-      this.firstName = const SdkOmitted(),
-      this.lastName = const SdkOmitted(),
-      this.userId = const SdkOmitted()});
+  const EnterpriseConnectionTestRunParsedUserInfo({this.emailAddress = const SdkOmitted(), this.firstName = const SdkOmitted(), this.lastName = const SdkOmitted(), this.userId = const SdkOmitted()});
 
-  EnterpriseConnectionTestRunParsedUserInfo Function(
-      {SdkOptional<String> emailAddress,
-      SdkOptional<String> firstName,
-      SdkOptional<String> lastName,
-      SdkOptional<String> userId}) get copyWith => _copyWith;
+  EnterpriseConnectionTestRunParsedUserInfo Function({SdkOptional<String> emailAddress, SdkOptional<String> firstName, SdkOptional<String> lastName, SdkOptional<String> userId}) get copyWith => _copyWith;
 
-  EnterpriseConnectionTestRunParsedUserInfo _copyWith(
-          {Object? emailAddress = sdkOmittedValue,
-          Object? firstName = sdkOmittedValue,
-          Object? lastName = sdkOmittedValue,
-          Object? userId = sdkOmittedValue}) =>
-      EnterpriseConnectionTestRunParsedUserInfo(
-        emailAddress: identical(emailAddress, sdkOmittedValue)
-            ? this.emailAddress
-            : emailAddress as SdkOptional<String>,
-        firstName: identical(firstName, sdkOmittedValue)
-            ? this.firstName
-            : firstName as SdkOptional<String>,
-        lastName: identical(lastName, sdkOmittedValue)
-            ? this.lastName
-            : lastName as SdkOptional<String>,
-        userId: identical(userId, sdkOmittedValue)
-            ? this.userId
-            : userId as SdkOptional<String>,
-      );
+  EnterpriseConnectionTestRunParsedUserInfo _copyWith({Object? emailAddress = sdkOmittedValue, Object? firstName = sdkOmittedValue, Object? lastName = sdkOmittedValue, Object? userId = sdkOmittedValue}) => EnterpriseConnectionTestRunParsedUserInfo(
+    emailAddress: identical(emailAddress, sdkOmittedValue) ? this.emailAddress : emailAddress as SdkOptional<String>,
+    firstName: identical(firstName, sdkOmittedValue) ? this.firstName : firstName as SdkOptional<String>,
+    lastName: identical(lastName, sdkOmittedValue) ? this.lastName : lastName as SdkOptional<String>,
+    userId: identical(userId, sdkOmittedValue) ? this.userId : userId as SdkOptional<String>,
+  );
 
-  factory EnterpriseConnectionTestRunParsedUserInfo.fromJson(
-          Map<String, dynamic> json) =>
-      EnterpriseConnectionTestRunParsedUserInfo(
-        emailAddress: json['email_address'] != null
-            ? SdkPresent((json['email_address'] as String?)!)
-            : const SdkOmitted(),
-        firstName: json['first_name'] != null
-            ? SdkPresent((json['first_name'] as String?)!)
-            : const SdkOmitted(),
-        lastName: json['last_name'] != null
-            ? SdkPresent((json['last_name'] as String?)!)
-            : const SdkOmitted(),
-        userId: json['user_id'] != null
-            ? SdkPresent((json['user_id'] as String?)!)
-            : const SdkOmitted(),
-      );
+  factory EnterpriseConnectionTestRunParsedUserInfo.fromJson(Map<String, dynamic> json) => EnterpriseConnectionTestRunParsedUserInfo(
+    emailAddress: json['email_address'] != null ? SdkPresent((json['email_address'] as String?)!) : const SdkOmitted(),
+    firstName: json['first_name'] != null ? SdkPresent((json['first_name'] as String?)!) : const SdkOmitted(),
+    lastName: json['last_name'] != null ? SdkPresent((json['last_name'] as String?)!) : const SdkOmitted(),
+    userId: json['user_id'] != null ? SdkPresent((json['user_id'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (emailAddress) {
-          SdkPresent<String>(value: final value) => {
-              'email_address': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (firstName) {
-          SdkPresent<String>(value: final value) => {
-              'first_name': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (lastName) {
-          SdkPresent<String>(value: final value) => {
-              'last_name': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (userId) {
-          SdkPresent<String>(value: final value) => {
-              'user_id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (emailAddress) {
+      SdkPresent<String>(value: final value) => {'email_address': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (firstName) {
+      SdkPresent<String>(value: final value) => {'first_name': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (lastName) {
+      SdkPresent<String>(value: final value) => {'last_name': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (userId) {
+      SdkPresent<String>(value: final value) => {'user_id': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// SAML-specific metadata, present for SAML connections
 class EnterpriseConnectionTestRunSaml {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Optional `string` value serialized in the `saml_request` wire field.
   final SdkOptional<String> samlRequest;
-
   /// Optional `string` value serialized in the `saml_response` wire field.
   final SdkOptional<String> samlResponse;
-
   /// Optional `string` value serialized in the `relay_state` wire field.
   final SdkOptional<String> relayState;
 
-  const EnterpriseConnectionTestRunSaml(
-      {this.samlRequest = const SdkOmitted(),
-      this.samlResponse = const SdkOmitted(),
-      this.relayState = const SdkOmitted()});
+  const EnterpriseConnectionTestRunSaml({this.samlRequest = const SdkOmitted(), this.samlResponse = const SdkOmitted(), this.relayState = const SdkOmitted()});
 
-  EnterpriseConnectionTestRunSaml Function(
-      {SdkOptional<String> samlRequest,
-      SdkOptional<String> samlResponse,
-      SdkOptional<String> relayState}) get copyWith => _copyWith;
+  EnterpriseConnectionTestRunSaml Function({SdkOptional<String> samlRequest, SdkOptional<String> samlResponse, SdkOptional<String> relayState}) get copyWith => _copyWith;
 
-  EnterpriseConnectionTestRunSaml _copyWith(
-          {Object? samlRequest = sdkOmittedValue,
-          Object? samlResponse = sdkOmittedValue,
-          Object? relayState = sdkOmittedValue}) =>
-      EnterpriseConnectionTestRunSaml(
-        samlRequest: identical(samlRequest, sdkOmittedValue)
-            ? this.samlRequest
-            : samlRequest as SdkOptional<String>,
-        samlResponse: identical(samlResponse, sdkOmittedValue)
-            ? this.samlResponse
-            : samlResponse as SdkOptional<String>,
-        relayState: identical(relayState, sdkOmittedValue)
-            ? this.relayState
-            : relayState as SdkOptional<String>,
-      );
+  EnterpriseConnectionTestRunSaml _copyWith({Object? samlRequest = sdkOmittedValue, Object? samlResponse = sdkOmittedValue, Object? relayState = sdkOmittedValue}) => EnterpriseConnectionTestRunSaml(
+    samlRequest: identical(samlRequest, sdkOmittedValue) ? this.samlRequest : samlRequest as SdkOptional<String>,
+    samlResponse: identical(samlResponse, sdkOmittedValue) ? this.samlResponse : samlResponse as SdkOptional<String>,
+    relayState: identical(relayState, sdkOmittedValue) ? this.relayState : relayState as SdkOptional<String>,
+  );
 
-  factory EnterpriseConnectionTestRunSaml.fromJson(Map<String, dynamic> json) =>
-      EnterpriseConnectionTestRunSaml(
-        samlRequest: json['saml_request'] != null
-            ? SdkPresent((json['saml_request'] as String?)!)
-            : const SdkOmitted(),
-        samlResponse: json['saml_response'] != null
-            ? SdkPresent((json['saml_response'] as String?)!)
-            : const SdkOmitted(),
-        relayState: json['relay_state'] != null
-            ? SdkPresent((json['relay_state'] as String?)!)
-            : const SdkOmitted(),
-      );
+  factory EnterpriseConnectionTestRunSaml.fromJson(Map<String, dynamic> json) => EnterpriseConnectionTestRunSaml(
+    samlRequest: json['saml_request'] != null ? SdkPresent((json['saml_request'] as String?)!) : const SdkOmitted(),
+    samlResponse: json['saml_response'] != null ? SdkPresent((json['saml_response'] as String?)!) : const SdkOmitted(),
+    relayState: json['relay_state'] != null ? SdkPresent((json['relay_state'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (samlRequest) {
-          SdkPresent<String>(value: final value) => {
-              'saml_request': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (samlResponse) {
-          SdkPresent<String>(value: final value) => {
-              'saml_response': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (relayState) {
-          SdkPresent<String>(value: final value) => {
-              'relay_state': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (samlRequest) {
+      SdkPresent<String>(value: final value) => {'saml_request': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (samlResponse) {
+      SdkPresent<String>(value: final value) => {'saml_response': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (relayState) {
+      SdkPresent<String>(value: final value) => {'relay_state': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// OAuth-specific metadata, present for OIDC connections
 class EnterpriseConnectionTestRunOauth {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Optional `string` value serialized in the `id_token` wire field.
   final SdkOptional<String> idToken;
-
   /// Optional `string` value serialized in the `access_token` wire field.
   final SdkOptional<String> accessToken;
-
   /// Optional `string` value serialized in the `user_info` wire field.
   final SdkOptional<String> userInfo;
 
-  const EnterpriseConnectionTestRunOauth(
-      {this.idToken = const SdkOmitted(),
-      this.accessToken = const SdkOmitted(),
-      this.userInfo = const SdkOmitted()});
+  const EnterpriseConnectionTestRunOauth({this.idToken = const SdkOmitted(), this.accessToken = const SdkOmitted(), this.userInfo = const SdkOmitted()});
 
-  EnterpriseConnectionTestRunOauth Function(
-      {SdkOptional<String> idToken,
-      SdkOptional<String> accessToken,
-      SdkOptional<String> userInfo}) get copyWith => _copyWith;
+  EnterpriseConnectionTestRunOauth Function({SdkOptional<String> idToken, SdkOptional<String> accessToken, SdkOptional<String> userInfo}) get copyWith => _copyWith;
 
-  EnterpriseConnectionTestRunOauth _copyWith(
-          {Object? idToken = sdkOmittedValue,
-          Object? accessToken = sdkOmittedValue,
-          Object? userInfo = sdkOmittedValue}) =>
-      EnterpriseConnectionTestRunOauth(
-        idToken: identical(idToken, sdkOmittedValue)
-            ? this.idToken
-            : idToken as SdkOptional<String>,
-        accessToken: identical(accessToken, sdkOmittedValue)
-            ? this.accessToken
-            : accessToken as SdkOptional<String>,
-        userInfo: identical(userInfo, sdkOmittedValue)
-            ? this.userInfo
-            : userInfo as SdkOptional<String>,
-      );
+  EnterpriseConnectionTestRunOauth _copyWith({Object? idToken = sdkOmittedValue, Object? accessToken = sdkOmittedValue, Object? userInfo = sdkOmittedValue}) => EnterpriseConnectionTestRunOauth(
+    idToken: identical(idToken, sdkOmittedValue) ? this.idToken : idToken as SdkOptional<String>,
+    accessToken: identical(accessToken, sdkOmittedValue) ? this.accessToken : accessToken as SdkOptional<String>,
+    userInfo: identical(userInfo, sdkOmittedValue) ? this.userInfo : userInfo as SdkOptional<String>,
+  );
 
-  factory EnterpriseConnectionTestRunOauth.fromJson(
-          Map<String, dynamic> json) =>
-      EnterpriseConnectionTestRunOauth(
-        idToken: json['id_token'] != null
-            ? SdkPresent((json['id_token'] as String?)!)
-            : const SdkOmitted(),
-        accessToken: json['access_token'] != null
-            ? SdkPresent((json['access_token'] as String?)!)
-            : const SdkOmitted(),
-        userInfo: json['user_info'] != null
-            ? SdkPresent((json['user_info'] as String?)!)
-            : const SdkOmitted(),
-      );
+  factory EnterpriseConnectionTestRunOauth.fromJson(Map<String, dynamic> json) => EnterpriseConnectionTestRunOauth(
+    idToken: json['id_token'] != null ? SdkPresent((json['id_token'] as String?)!) : const SdkOmitted(),
+    accessToken: json['access_token'] != null ? SdkPresent((json['access_token'] as String?)!) : const SdkOmitted(),
+    userInfo: json['user_info'] != null ? SdkPresent((json['user_info'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (idToken) {
-          SdkPresent<String>(value: final value) => {
-              'id_token': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (accessToken) {
-          SdkPresent<String>(value: final value) => {
-              'access_token': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (userInfo) {
-          SdkPresent<String>(value: final value) => {
-              'user_info': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (idToken) {
+      SdkPresent<String>(value: final value) => {'id_token': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (accessToken) {
+      SdkPresent<String>(value: final value) => {'access_token': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (userInfo) {
+      SdkPresent<String>(value: final value) => {'user_info': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 /// Required object value serialized in the `logs[]` wire field.
 class EnterpriseConnectionTestRunLogsItem {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Required `string` value serialized in the `level` wire field.
   final String level;
-
   /// Optional `string` value serialized in the `code` wire field.
   final SdkOptional<String> code;
-
   /// Optional `string` value serialized in the `short_message` wire field.
   final SdkOptional<String> shortMessage;
-
   /// Required `string` value serialized in the `message` wire field.
   final String message;
 
-  const EnterpriseConnectionTestRunLogsItem(
-      {required this.level,
-      this.code = const SdkOmitted(),
-      this.shortMessage = const SdkOmitted(),
-      required this.message});
+  const EnterpriseConnectionTestRunLogsItem({required this.level, this.code = const SdkOmitted(), this.shortMessage = const SdkOmitted(), required this.message});
 
-  EnterpriseConnectionTestRunLogsItem Function(
-      {String level,
-      SdkOptional<String> code,
-      SdkOptional<String> shortMessage,
-      String message}) get copyWith => _copyWith;
+  EnterpriseConnectionTestRunLogsItem Function({String level, SdkOptional<String> code, SdkOptional<String> shortMessage, String message}) get copyWith => _copyWith;
 
-  EnterpriseConnectionTestRunLogsItem _copyWith(
-          {Object? level = sdkOmittedValue,
-          Object? code = sdkOmittedValue,
-          Object? shortMessage = sdkOmittedValue,
-          Object? message = sdkOmittedValue}) =>
-      EnterpriseConnectionTestRunLogsItem(
-        level: identical(level, sdkOmittedValue) ? this.level : level as String,
-        code: identical(code, sdkOmittedValue)
-            ? this.code
-            : code as SdkOptional<String>,
-        shortMessage: identical(shortMessage, sdkOmittedValue)
-            ? this.shortMessage
-            : shortMessage as SdkOptional<String>,
-        message: identical(message, sdkOmittedValue)
-            ? this.message
-            : message as String,
-      );
+  EnterpriseConnectionTestRunLogsItem _copyWith({Object? level = sdkOmittedValue, Object? code = sdkOmittedValue, Object? shortMessage = sdkOmittedValue, Object? message = sdkOmittedValue}) => EnterpriseConnectionTestRunLogsItem(
+    level: identical(level, sdkOmittedValue) ? this.level : level as String,
+    code: identical(code, sdkOmittedValue) ? this.code : code as SdkOptional<String>,
+    shortMessage: identical(shortMessage, sdkOmittedValue) ? this.shortMessage : shortMessage as SdkOptional<String>,
+    message: identical(message, sdkOmittedValue) ? this.message : message as String,
+  );
 
-  factory EnterpriseConnectionTestRunLogsItem.fromJson(
-          Map<String, dynamic> json) =>
-      EnterpriseConnectionTestRunLogsItem(
-        level: (json['level'] as String?)!,
-        code: json['code'] != null
-            ? SdkPresent((json['code'] as String?)!)
-            : const SdkOmitted(),
-        shortMessage: json['short_message'] != null
-            ? SdkPresent((json['short_message'] as String?)!)
-            : const SdkOmitted(),
-        message: (json['message'] as String?)!,
-      );
+  factory EnterpriseConnectionTestRunLogsItem.fromJson(Map<String, dynamic> json) => EnterpriseConnectionTestRunLogsItem(
+    level: (json['level'] as String?)!,
+    code: json['code'] != null ? SdkPresent((json['code'] as String?)!) : const SdkOmitted(),
+    shortMessage: json['short_message'] != null ? SdkPresent((json['short_message'] as String?)!) : const SdkOmitted(),
+    message: (json['message'] as String?)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'level': level,
-        ...switch (code) {
-          SdkPresent<String>(value: final value) => {
-              'code': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (shortMessage) {
-          SdkPresent<String>(value: final value) => {
-              'short_message': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        'message': message,
-      };
+    'level': level,
+    ...switch (code) {
+      SdkPresent<String>(value: final value) => {'code': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (shortMessage) {
+      SdkPresent<String>(value: final value) => {'short_message': value,},
+      _ => const <String, dynamic>{},
+    },
+    'message': message,
+  };
 }
 
 /// Typed representation of the `EnterpriseConnectionTestRun` API schema.
 class EnterpriseConnectionTestRun {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The test run ID
   final String id;
-
   /// The status of the test run
   final EnterpriseConnectionTestRunStatus status;
-
   /// The type of enterprise connection the test run was performed against
   final EnterpriseConnectionTestRunConnectionType connectionType;
-
   /// The user information parsed from the IdP response
   final SdkOptional<EnterpriseConnectionTestRunParsedUserInfo?> parsedUserInfo;
-
   /// Log entries captured during the test run
   final SdkOptional<List<EnterpriseConnectionTestRunLogsItem>> logs;
-
   /// SAML-specific metadata, present for SAML connections
   final SdkOptional<EnterpriseConnectionTestRunSaml?> saml;
-
   /// OAuth-specific metadata, present for OIDC connections
   final SdkOptional<EnterpriseConnectionTestRunOauth?> oauth;
-
   /// Unix timestamp in milliseconds when the test run was created
   final int createdAt;
 
-  const EnterpriseConnectionTestRun(
-      {required this.id,
-      required this.status,
-      required this.connectionType,
-      this.parsedUserInfo = const SdkOmitted(),
-      this.logs = const SdkOmitted(),
-      this.saml = const SdkOmitted(),
-      this.oauth = const SdkOmitted(),
-      required this.createdAt});
+  const EnterpriseConnectionTestRun({required this.id, required this.status, required this.connectionType, this.parsedUserInfo = const SdkOmitted(), this.logs = const SdkOmitted(), this.saml = const SdkOmitted(), this.oauth = const SdkOmitted(), required this.createdAt});
 
-  EnterpriseConnectionTestRun Function(
-      {String id,
-      EnterpriseConnectionTestRunStatus status,
-      EnterpriseConnectionTestRunConnectionType connectionType,
-      SdkOptional<EnterpriseConnectionTestRunParsedUserInfo?> parsedUserInfo,
-      SdkOptional<List<EnterpriseConnectionTestRunLogsItem>> logs,
-      SdkOptional<EnterpriseConnectionTestRunSaml?> saml,
-      SdkOptional<EnterpriseConnectionTestRunOauth?> oauth,
-      int createdAt}) get copyWith => _copyWith;
+  EnterpriseConnectionTestRun Function({String id, EnterpriseConnectionTestRunStatus status, EnterpriseConnectionTestRunConnectionType connectionType, SdkOptional<EnterpriseConnectionTestRunParsedUserInfo?> parsedUserInfo, SdkOptional<List<EnterpriseConnectionTestRunLogsItem>> logs, SdkOptional<EnterpriseConnectionTestRunSaml?> saml, SdkOptional<EnterpriseConnectionTestRunOauth?> oauth, int createdAt}) get copyWith => _copyWith;
 
-  EnterpriseConnectionTestRun _copyWith(
-          {Object? id = sdkOmittedValue,
-          Object? status = sdkOmittedValue,
-          Object? connectionType = sdkOmittedValue,
-          Object? parsedUserInfo = sdkOmittedValue,
-          Object? logs = sdkOmittedValue,
-          Object? saml = sdkOmittedValue,
-          Object? oauth = sdkOmittedValue,
-          Object? createdAt = sdkOmittedValue}) =>
-      EnterpriseConnectionTestRun(
-        id: identical(id, sdkOmittedValue) ? this.id : id as String,
-        status: identical(status, sdkOmittedValue)
-            ? this.status
-            : status as EnterpriseConnectionTestRunStatus,
-        connectionType: identical(connectionType, sdkOmittedValue)
-            ? this.connectionType
-            : connectionType as EnterpriseConnectionTestRunConnectionType,
-        parsedUserInfo: identical(parsedUserInfo, sdkOmittedValue)
-            ? this.parsedUserInfo
-            : parsedUserInfo
-                as SdkOptional<EnterpriseConnectionTestRunParsedUserInfo?>,
-        logs: identical(logs, sdkOmittedValue)
-            ? this.logs
-            : logs as SdkOptional<List<EnterpriseConnectionTestRunLogsItem>>,
-        saml: identical(saml, sdkOmittedValue)
-            ? this.saml
-            : saml as SdkOptional<EnterpriseConnectionTestRunSaml?>,
-        oauth: identical(oauth, sdkOmittedValue)
-            ? this.oauth
-            : oauth as SdkOptional<EnterpriseConnectionTestRunOauth?>,
-        createdAt: identical(createdAt, sdkOmittedValue)
-            ? this.createdAt
-            : createdAt as int,
-      );
+  EnterpriseConnectionTestRun _copyWith({Object? id = sdkOmittedValue, Object? status = sdkOmittedValue, Object? connectionType = sdkOmittedValue, Object? parsedUserInfo = sdkOmittedValue, Object? logs = sdkOmittedValue, Object? saml = sdkOmittedValue, Object? oauth = sdkOmittedValue, Object? createdAt = sdkOmittedValue}) => EnterpriseConnectionTestRun(
+    id: identical(id, sdkOmittedValue) ? this.id : id as String,
+    status: identical(status, sdkOmittedValue) ? this.status : status as EnterpriseConnectionTestRunStatus,
+    connectionType: identical(connectionType, sdkOmittedValue) ? this.connectionType : connectionType as EnterpriseConnectionTestRunConnectionType,
+    parsedUserInfo: identical(parsedUserInfo, sdkOmittedValue) ? this.parsedUserInfo : parsedUserInfo as SdkOptional<EnterpriseConnectionTestRunParsedUserInfo?>,
+    logs: identical(logs, sdkOmittedValue) ? this.logs : logs as SdkOptional<List<EnterpriseConnectionTestRunLogsItem>>,
+    saml: identical(saml, sdkOmittedValue) ? this.saml : saml as SdkOptional<EnterpriseConnectionTestRunSaml?>,
+    oauth: identical(oauth, sdkOmittedValue) ? this.oauth : oauth as SdkOptional<EnterpriseConnectionTestRunOauth?>,
+    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as int,
+  );
 
-  factory EnterpriseConnectionTestRun.fromJson(Map<String, dynamic> json) =>
-      EnterpriseConnectionTestRun(
-        id: (json['id'] as String?)!,
-        status: (json['status'] != null
-            ? EnterpriseConnectionTestRunStatus.fromJson(
-                json['status'] as String)
-            : null)!,
-        connectionType: (json['connection_type'] != null
-            ? EnterpriseConnectionTestRunConnectionType.fromJson(
-                json['connection_type'] as String)
-            : null)!,
-        parsedUserInfo: json.containsKey('parsed_user_info')
-            ? SdkPresent(json['parsed_user_info'] != null
-                ? EnterpriseConnectionTestRunParsedUserInfo.fromJson(
-                    json['parsed_user_info'] as Map<String, dynamic>)
-                : null)
-            : const SdkOmitted(),
-        logs: json['logs'] != null
-            ? SdkPresent(((json['logs'] as List?)
-                ?.map((e) => EnterpriseConnectionTestRunLogsItem.fromJson(
-                    e as Map<String, dynamic>))
-                .toList())!)
-            : const SdkOmitted(),
-        saml: json.containsKey('saml')
-            ? SdkPresent(json['saml'] != null
-                ? EnterpriseConnectionTestRunSaml.fromJson(
-                    json['saml'] as Map<String, dynamic>)
-                : null)
-            : const SdkOmitted(),
-        oauth: json.containsKey('oauth')
-            ? SdkPresent(json['oauth'] != null
-                ? EnterpriseConnectionTestRunOauth.fromJson(
-                    json['oauth'] as Map<String, dynamic>)
-                : null)
-            : const SdkOmitted(),
-        createdAt: ((json['created_at'] as num?)?.toInt())!,
-      );
+  factory EnterpriseConnectionTestRun.fromJson(Map<String, dynamic> json) => EnterpriseConnectionTestRun(
+    id: (json['id'] as String?)!,
+    status: (json['status'] != null ? EnterpriseConnectionTestRunStatus.fromJson(json['status'] as String) : null)!,
+    connectionType: (json['connection_type'] != null ? EnterpriseConnectionTestRunConnectionType.fromJson(json['connection_type'] as String) : null)!,
+    parsedUserInfo: json.containsKey('parsed_user_info') ? SdkPresent(json['parsed_user_info'] != null ? EnterpriseConnectionTestRunParsedUserInfo.fromJson(json['parsed_user_info'] as Map<String, dynamic>) : null) : const SdkOmitted(),
+    logs: json['logs'] != null ? SdkPresent(((json['logs'] as List?)?.map((e) => EnterpriseConnectionTestRunLogsItem.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
+    saml: json.containsKey('saml') ? SdkPresent(json['saml'] != null ? EnterpriseConnectionTestRunSaml.fromJson(json['saml'] as Map<String, dynamic>) : null) : const SdkOmitted(),
+    oauth: json.containsKey('oauth') ? SdkPresent(json['oauth'] != null ? EnterpriseConnectionTestRunOauth.fromJson(json['oauth'] as Map<String, dynamic>) : null) : const SdkOmitted(),
+    createdAt: ((json['created_at'] as num?)?.toInt())!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'id': id,
-        'status': status.toJson(),
-        'connection_type': connectionType.toJson(),
-        ...switch (parsedUserInfo) {
-          SdkPresent<EnterpriseConnectionTestRunParsedUserInfo?>(
-            value: final value
-          ) =>
-            {
-              'parsed_user_info': value?.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (logs) {
-          SdkPresent<List<EnterpriseConnectionTestRunLogsItem>>(
-            value: final value
-          ) =>
-            {
-              'logs': value.map((item) => item.toJson()).toList(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (saml) {
-          SdkPresent<EnterpriseConnectionTestRunSaml?>(value: final value) => {
-              'saml': value?.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (oauth) {
-          SdkPresent<EnterpriseConnectionTestRunOauth?>(value: final value) => {
-              'oauth': value?.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        'created_at': createdAt,
-      };
+    'id': id,
+    'status': status.toJson(),
+    'connection_type': connectionType.toJson(),
+    ...switch (parsedUserInfo) {
+      SdkPresent<EnterpriseConnectionTestRunParsedUserInfo?>(value: final value) => {'parsed_user_info': value?.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (logs) {
+      SdkPresent<List<EnterpriseConnectionTestRunLogsItem>>(value: final value) => {'logs': value.map((item) => item.toJson()).toList(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (saml) {
+      SdkPresent<EnterpriseConnectionTestRunSaml?>(value: final value) => {'saml': value?.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (oauth) {
+      SdkPresent<EnterpriseConnectionTestRunOauth?>(value: final value) => {'oauth': value?.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    'created_at': createdAt,
+  };
 }
 
 /// Typed representation of the `EnterpriseConnectionTestRuns` API schema.
 class EnterpriseConnectionTestRuns {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Required array value serialized in the `data` wire field.
   final List<EnterpriseConnectionTestRun> data;
-
   /// Total number of test runs
   final int totalCount;
 
-  const EnterpriseConnectionTestRuns(
-      {required this.data, required this.totalCount});
+  const EnterpriseConnectionTestRuns({required this.data, required this.totalCount});
 
-  EnterpriseConnectionTestRuns Function(
-      {List<EnterpriseConnectionTestRun> data,
-      int totalCount}) get copyWith => _copyWith;
+  EnterpriseConnectionTestRuns Function({List<EnterpriseConnectionTestRun> data, int totalCount}) get copyWith => _copyWith;
 
-  EnterpriseConnectionTestRuns _copyWith(
-          {Object? data = sdkOmittedValue,
-          Object? totalCount = sdkOmittedValue}) =>
-      EnterpriseConnectionTestRuns(
-        data: identical(data, sdkOmittedValue)
-            ? this.data
-            : data as List<EnterpriseConnectionTestRun>,
-        totalCount: identical(totalCount, sdkOmittedValue)
-            ? this.totalCount
-            : totalCount as int,
-      );
+  EnterpriseConnectionTestRuns _copyWith({Object? data = sdkOmittedValue, Object? totalCount = sdkOmittedValue}) => EnterpriseConnectionTestRuns(
+    data: identical(data, sdkOmittedValue) ? this.data : data as List<EnterpriseConnectionTestRun>,
+    totalCount: identical(totalCount, sdkOmittedValue) ? this.totalCount : totalCount as int,
+  );
 
-  factory EnterpriseConnectionTestRuns.fromJson(Map<String, dynamic> json) =>
-      EnterpriseConnectionTestRuns(
-        data: ((json['data'] as List?)
-            ?.map((e) =>
-                EnterpriseConnectionTestRun.fromJson(e as Map<String, dynamic>))
-            .toList())!,
-        totalCount: ((json['total_count'] as num?)?.toInt())!,
-      );
+  factory EnterpriseConnectionTestRuns.fromJson(Map<String, dynamic> json) => EnterpriseConnectionTestRuns(
+    data: ((json['data'] as List?)?.map((e) => EnterpriseConnectionTestRun.fromJson(e as Map<String, dynamic>)).toList())!,
+    totalCount: ((json['total_count'] as num?)?.toInt())!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'data': data.map((item) => item.toJson()).toList(),
-        'total_count': totalCount,
-      };
+    'data': data.map((item) => item.toJson()).toList(),
+    'total_count': totalCount,
+  };
 }

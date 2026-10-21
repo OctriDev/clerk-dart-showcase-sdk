@@ -8,163 +8,84 @@ part of 'jwks.dart';
 class JWKSEd25519PrivateKey {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Required `string` value serialized in the `kid` wire field.
   final String kid;
-
   /// Required `string` value serialized in the `alg` wire field.
   final String alg;
-
   /// Required `string` value serialized in the `use` wire field.
   final String use;
-
   /// Required enumerated value serialized in the `kty` wire field.
   final JWKSEd25519PrivateKeyKty kty;
-
   /// Required enumerated value serialized in the `crv` wire field.
   final JWKSEd25519PrivateKeyCrv crv;
-
   /// Required `string` value serialized in the `x` wire field.
   final String x;
-
   /// Required `string` value serialized in the `d` wire field.
   final String d;
-
   /// Optional array value serialized in the `x5c` wire field.
   final SdkOptional<List<String>> x5c;
-
   /// Optional `string` value serialized in the `x5t` wire field.
   final SdkOptional<String> x5t;
-
   /// Optional `string` value serialized in the `x5t#S256` wire field.
   final SdkOptional<String> x5tS256;
-
   /// Optional `string` value serialized in the `x5u` wire field.
   final SdkOptional<String> x5u;
 
-  const JWKSEd25519PrivateKey(
-      {required this.kid,
-      required this.alg,
-      required this.use,
-      required this.kty,
-      required this.crv,
-      required this.x,
-      required this.d,
-      this.x5c = const SdkOmitted(),
-      this.x5t = const SdkOmitted(),
-      this.x5tS256 = const SdkOmitted(),
-      this.x5u = const SdkOmitted()});
+  const JWKSEd25519PrivateKey({required this.kid, required this.alg, required this.use, required this.kty, required this.crv, required this.x, required this.d, this.x5c = const SdkOmitted(), this.x5t = const SdkOmitted(), this.x5tS256 = const SdkOmitted(), this.x5u = const SdkOmitted()});
 
-  JWKSEd25519PrivateKey Function(
-      {String kid,
-      String alg,
-      String use,
-      JWKSEd25519PrivateKeyKty kty,
-      JWKSEd25519PrivateKeyCrv crv,
-      String x,
-      String d,
-      SdkOptional<List<String>> x5c,
-      SdkOptional<String> x5t,
-      SdkOptional<String> x5tS256,
-      SdkOptional<String> x5u}) get copyWith => _copyWith;
+  JWKSEd25519PrivateKey Function({String kid, String alg, String use, JWKSEd25519PrivateKeyKty kty, JWKSEd25519PrivateKeyCrv crv, String x, String d, SdkOptional<List<String>> x5c, SdkOptional<String> x5t, SdkOptional<String> x5tS256, SdkOptional<String> x5u}) get copyWith => _copyWith;
 
-  JWKSEd25519PrivateKey _copyWith(
-          {Object? kid = sdkOmittedValue,
-          Object? alg = sdkOmittedValue,
-          Object? use = sdkOmittedValue,
-          Object? kty = sdkOmittedValue,
-          Object? crv = sdkOmittedValue,
-          Object? x = sdkOmittedValue,
-          Object? d = sdkOmittedValue,
-          Object? x5c = sdkOmittedValue,
-          Object? x5t = sdkOmittedValue,
-          Object? x5tS256 = sdkOmittedValue,
-          Object? x5u = sdkOmittedValue}) =>
-      JWKSEd25519PrivateKey(
-        kid: identical(kid, sdkOmittedValue) ? this.kid : kid as String,
-        alg: identical(alg, sdkOmittedValue) ? this.alg : alg as String,
-        use: identical(use, sdkOmittedValue) ? this.use : use as String,
-        kty: identical(kty, sdkOmittedValue)
-            ? this.kty
-            : kty as JWKSEd25519PrivateKeyKty,
-        crv: identical(crv, sdkOmittedValue)
-            ? this.crv
-            : crv as JWKSEd25519PrivateKeyCrv,
-        x: identical(x, sdkOmittedValue) ? this.x : x as String,
-        d: identical(d, sdkOmittedValue) ? this.d : d as String,
-        x5c: identical(x5c, sdkOmittedValue)
-            ? this.x5c
-            : x5c as SdkOptional<List<String>>,
-        x5t: identical(x5t, sdkOmittedValue)
-            ? this.x5t
-            : x5t as SdkOptional<String>,
-        x5tS256: identical(x5tS256, sdkOmittedValue)
-            ? this.x5tS256
-            : x5tS256 as SdkOptional<String>,
-        x5u: identical(x5u, sdkOmittedValue)
-            ? this.x5u
-            : x5u as SdkOptional<String>,
-      );
+  JWKSEd25519PrivateKey _copyWith({Object? kid = sdkOmittedValue, Object? alg = sdkOmittedValue, Object? use = sdkOmittedValue, Object? kty = sdkOmittedValue, Object? crv = sdkOmittedValue, Object? x = sdkOmittedValue, Object? d = sdkOmittedValue, Object? x5c = sdkOmittedValue, Object? x5t = sdkOmittedValue, Object? x5tS256 = sdkOmittedValue, Object? x5u = sdkOmittedValue}) => JWKSEd25519PrivateKey(
+    kid: identical(kid, sdkOmittedValue) ? this.kid : kid as String,
+    alg: identical(alg, sdkOmittedValue) ? this.alg : alg as String,
+    use: identical(use, sdkOmittedValue) ? this.use : use as String,
+    kty: identical(kty, sdkOmittedValue) ? this.kty : kty as JWKSEd25519PrivateKeyKty,
+    crv: identical(crv, sdkOmittedValue) ? this.crv : crv as JWKSEd25519PrivateKeyCrv,
+    x: identical(x, sdkOmittedValue) ? this.x : x as String,
+    d: identical(d, sdkOmittedValue) ? this.d : d as String,
+    x5c: identical(x5c, sdkOmittedValue) ? this.x5c : x5c as SdkOptional<List<String>>,
+    x5t: identical(x5t, sdkOmittedValue) ? this.x5t : x5t as SdkOptional<String>,
+    x5tS256: identical(x5tS256, sdkOmittedValue) ? this.x5tS256 : x5tS256 as SdkOptional<String>,
+    x5u: identical(x5u, sdkOmittedValue) ? this.x5u : x5u as SdkOptional<String>,
+  );
 
-  factory JWKSEd25519PrivateKey.fromJson(Map<String, dynamic> json) =>
-      JWKSEd25519PrivateKey(
-        kid: (json['kid'] as String?)!,
-        alg: (json['alg'] as String?)!,
-        use: (json['use'] as String?)!,
-        kty: (json['kty'] != null
-            ? JWKSEd25519PrivateKeyKty.fromJson(json['kty'] as String)
-            : null)!,
-        crv: (json['crv'] != null
-            ? JWKSEd25519PrivateKeyCrv.fromJson(json['crv'] as String)
-            : null)!,
-        x: (json['x'] as String?)!,
-        d: (json['d'] as String?)!,
-        x5c: json['x5c'] != null
-            ? SdkPresent(
-                ((json['x5c'] as List?)?.map((e) => e as String).toList())!)
-            : const SdkOmitted(),
-        x5t: json['x5t'] != null
-            ? SdkPresent((json['x5t'] as String?)!)
-            : const SdkOmitted(),
-        x5tS256: json['x5t#S256'] != null
-            ? SdkPresent((json['x5t#S256'] as String?)!)
-            : const SdkOmitted(),
-        x5u: json['x5u'] != null
-            ? SdkPresent((json['x5u'] as String?)!)
-            : const SdkOmitted(),
-      );
+  factory JWKSEd25519PrivateKey.fromJson(Map<String, dynamic> json) => JWKSEd25519PrivateKey(
+    kid: (json['kid'] as String?)!,
+    alg: (json['alg'] as String?)!,
+    use: (json['use'] as String?)!,
+    kty: (json['kty'] != null ? JWKSEd25519PrivateKeyKty.fromJson(json['kty'] as String) : null)!,
+    crv: (json['crv'] != null ? JWKSEd25519PrivateKeyCrv.fromJson(json['crv'] as String) : null)!,
+    x: (json['x'] as String?)!,
+    d: (json['d'] as String?)!,
+    x5c: json['x5c'] != null ? SdkPresent(((json['x5c'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
+    x5t: json['x5t'] != null ? SdkPresent((json['x5t'] as String?)!) : const SdkOmitted(),
+    x5tS256: json['x5t#S256'] != null ? SdkPresent((json['x5t#S256'] as String?)!) : const SdkOmitted(),
+    x5u: json['x5u'] != null ? SdkPresent((json['x5u'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        'kid': kid,
-        'alg': alg,
-        'use': use,
-        'kty': kty.toJson(),
-        'crv': crv.toJson(),
-        'x': x,
-        'd': d,
-        ...switch (x5c) {
-          SdkPresent<List<String>>(value: final value) => {
-              'x5c': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (x5t) {
-          SdkPresent<String>(value: final value) => {
-              'x5t': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (x5tS256) {
-          SdkPresent<String>(value: final value) => {
-              'x5t#S256': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (x5u) {
-          SdkPresent<String>(value: final value) => {
-              'x5u': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    'kid': kid,
+    'alg': alg,
+    'use': use,
+    'kty': kty.toJson(),
+    'crv': crv.toJson(),
+    'x': x,
+    'd': d,
+    ...switch (x5c) {
+      SdkPresent<List<String>>(value: final value) => {'x5c': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (x5t) {
+      SdkPresent<String>(value: final value) => {'x5t': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (x5tS256) {
+      SdkPresent<String>(value: final value) => {'x5t#S256': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (x5u) {
+      SdkPresent<String>(value: final value) => {'x5u': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

@@ -6,12 +6,12 @@ part of 'inline.dart';
 // Inline operation models
 /// Required enumerated value serialized in the `status` wire field.
 final class VerificationEmailLinkStatus {
+
   final String value;
 
   const VerificationEmailLinkStatus._(this.value);
 
-  factory VerificationEmailLinkStatus.fromJson(String value) =>
-      VerificationEmailLinkStatus._(value);
+  factory VerificationEmailLinkStatus.fromJson(String value) => VerificationEmailLinkStatus._(value);
 
   static const unverified = VerificationEmailLinkStatus._('unverified');
   static const verified = VerificationEmailLinkStatus._('verified');
@@ -20,39 +20,33 @@ final class VerificationEmailLinkStatus {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is VerificationEmailLinkStatus && other.value == value;
+  @override bool operator ==(Object other) => other is VerificationEmailLinkStatus && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// Required enumerated value serialized in the `strategy` wire field.
 final class VerificationEmailLinkStrategy {
+
   final String value;
 
   const VerificationEmailLinkStrategy._(this.value);
 
-  factory VerificationEmailLinkStrategy.fromJson(String value) =>
-      VerificationEmailLinkStrategy._(value);
+  factory VerificationEmailLinkStrategy.fromJson(String value) => VerificationEmailLinkStrategy._(value);
 
   static const emailLink = VerificationEmailLinkStrategy._('email_link');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is VerificationEmailLinkStrategy && other.value == value;
+  @override bool operator ==(Object other) => other is VerificationEmailLinkStrategy && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// Optional enumerated value serialized in the `object` wire field.
@@ -61,17 +55,14 @@ enum VerificationFromOauthObject {
 
   static VerificationFromOauthObject fromJson(String value) {
     switch (value) {
-      case 'verification_from_oauth':
-        return VerificationFromOauthObject.verificationFromOauth;
-      default:
-        throw ArgumentError('Unknown VerificationFromOauthObject: $value');
+      case 'verification_from_oauth': return VerificationFromOauthObject.verificationFromOauth;
+      default: throw ArgumentError('Unknown VerificationFromOauthObject: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case VerificationFromOauthObject.verificationFromOauth:
-        return 'verification_from_oauth';
+      case VerificationFromOauthObject.verificationFromOauth: return 'verification_from_oauth';
     }
   }
 
@@ -81,27 +72,24 @@ enum VerificationFromOauthObject {
 
 /// Required enumerated value serialized in the `status` wire field.
 final class VerificationFromOauthStatus {
+
   final String value;
 
   const VerificationFromOauthStatus._(this.value);
 
-  factory VerificationFromOauthStatus.fromJson(String value) =>
-      VerificationFromOauthStatus._(value);
+  factory VerificationFromOauthStatus.fromJson(String value) => VerificationFromOauthStatus._(value);
 
   static const unverified = VerificationFromOauthStatus._('unverified');
   static const verified = VerificationFromOauthStatus._('verified');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is VerificationFromOauthStatus && other.value == value;
+  @override bool operator ==(Object other) => other is VerificationFromOauthStatus && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// Optional enumerated value serialized in the `object` wire field.
@@ -110,17 +98,14 @@ enum VerificationGoogleOneTapObject {
 
   static VerificationGoogleOneTapObject fromJson(String value) {
     switch (value) {
-      case 'verification_google_one_tap':
-        return VerificationGoogleOneTapObject.verificationGoogleOneTap;
-      default:
-        throw ArgumentError('Unknown VerificationGoogleOneTapObject: $value');
+      case 'verification_google_one_tap': return VerificationGoogleOneTapObject.verificationGoogleOneTap;
+      default: throw ArgumentError('Unknown VerificationGoogleOneTapObject: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case VerificationGoogleOneTapObject.verificationGoogleOneTap:
-        return 'verification_google_one_tap';
+      case VerificationGoogleOneTapObject.verificationGoogleOneTap: return 'verification_google_one_tap';
     }
   }
 
@@ -130,52 +115,45 @@ enum VerificationGoogleOneTapObject {
 
 /// Required enumerated value serialized in the `status` wire field.
 final class VerificationGoogleOneTapStatus {
+
   final String value;
 
   const VerificationGoogleOneTapStatus._(this.value);
 
-  factory VerificationGoogleOneTapStatus.fromJson(String value) =>
-      VerificationGoogleOneTapStatus._(value);
+  factory VerificationGoogleOneTapStatus.fromJson(String value) => VerificationGoogleOneTapStatus._(value);
 
   static const unverified = VerificationGoogleOneTapStatus._('unverified');
   static const verified = VerificationGoogleOneTapStatus._('verified');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is VerificationGoogleOneTapStatus && other.value == value;
+  @override bool operator ==(Object other) => other is VerificationGoogleOneTapStatus && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// Required enumerated value serialized in the `strategy` wire field.
 final class VerificationGoogleOneTapStrategy {
+
   final String value;
 
   const VerificationGoogleOneTapStrategy._(this.value);
 
-  factory VerificationGoogleOneTapStrategy.fromJson(String value) =>
-      VerificationGoogleOneTapStrategy._(value);
+  factory VerificationGoogleOneTapStrategy.fromJson(String value) => VerificationGoogleOneTapStrategy._(value);
 
-  static const googleOneTap =
-      VerificationGoogleOneTapStrategy._('google_one_tap');
+  static const googleOneTap = VerificationGoogleOneTapStrategy._('google_one_tap');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is VerificationGoogleOneTapStrategy && other.value == value;
+  @override bool operator ==(Object other) => other is VerificationGoogleOneTapStrategy && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// Optional enumerated value serialized in the `object` wire field.
@@ -184,17 +162,14 @@ enum VerificationOauthObject {
 
   static VerificationOauthObject fromJson(String value) {
     switch (value) {
-      case 'verification_oauth':
-        return VerificationOauthObject.verificationOauth;
-      default:
-        throw ArgumentError('Unknown VerificationOauthObject: $value');
+      case 'verification_oauth': return VerificationOauthObject.verificationOauth;
+      default: throw ArgumentError('Unknown VerificationOauthObject: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case VerificationOauthObject.verificationOauth:
-        return 'verification_oauth';
+      case VerificationOauthObject.verificationOauth: return 'verification_oauth';
     }
   }
 
@@ -204,12 +179,12 @@ enum VerificationOauthObject {
 
 /// Required enumerated value serialized in the `status` wire field.
 final class VerificationOauthStatus {
+
   final String value;
 
   const VerificationOauthStatus._(this.value);
 
-  factory VerificationOauthStatus.fromJson(String value) =>
-      VerificationOauthStatus._(value);
+  factory VerificationOauthStatus.fromJson(String value) => VerificationOauthStatus._(value);
 
   static const unverified = VerificationOauthStatus._('unverified');
   static const verified = VerificationOauthStatus._('verified');
@@ -219,15 +194,12 @@ final class VerificationOauthStatus {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is VerificationOauthStatus && other.value == value;
+  @override bool operator ==(Object other) => other is VerificationOauthStatus && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// Optional enumerated value serialized in the `object` wire field.
@@ -236,17 +208,14 @@ enum VerificationOtpObject {
 
   static VerificationOtpObject fromJson(String value) {
     switch (value) {
-      case 'verification_otp':
-        return VerificationOtpObject.verificationOtp;
-      default:
-        throw ArgumentError('Unknown VerificationOtpObject: $value');
+      case 'verification_otp': return VerificationOtpObject.verificationOtp;
+      default: throw ArgumentError('Unknown VerificationOtpObject: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case VerificationOtpObject.verificationOtp:
-        return 'verification_otp';
+      case VerificationOtpObject.verificationOtp: return 'verification_otp';
     }
   }
 
@@ -256,12 +225,12 @@ enum VerificationOtpObject {
 
 /// Required enumerated value serialized in the `status` wire field.
 final class VerificationOtpStatus {
+
   final String value;
 
   const VerificationOtpStatus._(this.value);
 
-  factory VerificationOtpStatus.fromJson(String value) =>
-      VerificationOtpStatus._(value);
+  factory VerificationOtpStatus.fromJson(String value) => VerificationOtpStatus._(value);
 
   static const unverified = VerificationOtpStatus._('unverified');
   static const verified = VerificationOtpStatus._('verified');
@@ -270,64 +239,54 @@ final class VerificationOtpStatus {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is VerificationOtpStatus && other.value == value;
+  @override bool operator ==(Object other) => other is VerificationOtpStatus && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// Required enumerated value serialized in the `strategy` wire field.
 final class VerificationOtpStrategy {
+
   final String value;
 
   const VerificationOtpStrategy._(this.value);
 
-  factory VerificationOtpStrategy.fromJson(String value) =>
-      VerificationOtpStrategy._(value);
+  factory VerificationOtpStrategy.fromJson(String value) => VerificationOtpStrategy._(value);
 
   static const phoneCode = VerificationOtpStrategy._('phone_code');
   static const emailCode = VerificationOtpStrategy._('email_code');
-  static const resetPasswordEmailCode =
-      VerificationOtpStrategy._('reset_password_email_code');
+  static const resetPasswordEmailCode = VerificationOtpStrategy._('reset_password_email_code');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is VerificationOtpStrategy && other.value == value;
+  @override bool operator ==(Object other) => other is VerificationOtpStrategy && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// Optional enumerated value serialized in the `nonce` wire field.
 final class VerificationPasskeyNonce {
+
   final String value;
 
   const VerificationPasskeyNonce._(this.value);
 
-  factory VerificationPasskeyNonce.fromJson(String value) =>
-      VerificationPasskeyNonce._(value);
+  factory VerificationPasskeyNonce.fromJson(String value) => VerificationPasskeyNonce._(value);
 
   static const nonce = VerificationPasskeyNonce._('nonce');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is VerificationPasskeyNonce && other.value == value;
+  @override bool operator ==(Object other) => other is VerificationPasskeyNonce && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }

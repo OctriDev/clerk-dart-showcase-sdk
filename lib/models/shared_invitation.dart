@@ -8,154 +8,76 @@ part of 'shared.dart';
 class Invitation {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Required enumerated value serialized in the `object` wire field.
   final InvitationObject object;
-
   /// Required `string` value serialized in the `id` wire field.
   final String id;
-
   /// Required `email`-formatted value serialized in the `email_address` wire field.
   final String emailAddress;
-
   /// Required object value serialized in the `public_metadata` wire field.
   final Map<String, Object?> publicMetadata;
-
   /// Optional `boolean` value serialized in the `revoked` wire field.
   final SdkOptional<bool> revoked;
-
   /// Required enumerated value serialized in the `status` wire field.
   final InvitationStatus status;
-
   /// Optional `string` value serialized in the `url` wire field.
   final SdkOptional<String> url;
-
   /// Unix timestamp of expiration.
   final SdkOptional<int?> expiresAt;
-
   /// Unix timestamp of creation.
   final int createdAt;
-
   /// Unix timestamp of last update.
   final int updatedAt;
 
-  const Invitation(
-      {required this.object,
-      required this.id,
-      required this.emailAddress,
-      required this.publicMetadata,
-      this.revoked = const SdkOmitted(),
-      required this.status,
-      this.url = const SdkOmitted(),
-      this.expiresAt = const SdkOmitted(),
-      required this.createdAt,
-      required this.updatedAt});
+  const Invitation({required this.object, required this.id, required this.emailAddress, required this.publicMetadata, this.revoked = const SdkOmitted(), required this.status, this.url = const SdkOmitted(), this.expiresAt = const SdkOmitted(), required this.createdAt, required this.updatedAt});
 
-  Invitation Function(
-      {InvitationObject object,
-      String id,
-      String emailAddress,
-      Map<String, Object?> publicMetadata,
-      SdkOptional<bool> revoked,
-      InvitationStatus status,
-      SdkOptional<String> url,
-      SdkOptional<int?> expiresAt,
-      int createdAt,
-      int updatedAt}) get copyWith => _copyWith;
+  Invitation Function({InvitationObject object, String id, String emailAddress, Map<String, Object?> publicMetadata, SdkOptional<bool> revoked, InvitationStatus status, SdkOptional<String> url, SdkOptional<int?> expiresAt, int createdAt, int updatedAt}) get copyWith => _copyWith;
 
-  Invitation _copyWith(
-          {Object? object = sdkOmittedValue,
-          Object? id = sdkOmittedValue,
-          Object? emailAddress = sdkOmittedValue,
-          Object? publicMetadata = sdkOmittedValue,
-          Object? revoked = sdkOmittedValue,
-          Object? status = sdkOmittedValue,
-          Object? url = sdkOmittedValue,
-          Object? expiresAt = sdkOmittedValue,
-          Object? createdAt = sdkOmittedValue,
-          Object? updatedAt = sdkOmittedValue}) =>
-      Invitation(
-        object: identical(object, sdkOmittedValue)
-            ? this.object
-            : object as InvitationObject,
-        id: identical(id, sdkOmittedValue) ? this.id : id as String,
-        emailAddress: identical(emailAddress, sdkOmittedValue)
-            ? this.emailAddress
-            : emailAddress as String,
-        publicMetadata: identical(publicMetadata, sdkOmittedValue)
-            ? this.publicMetadata
-            : publicMetadata as Map<String, Object?>,
-        revoked: identical(revoked, sdkOmittedValue)
-            ? this.revoked
-            : revoked as SdkOptional<bool>,
-        status: identical(status, sdkOmittedValue)
-            ? this.status
-            : status as InvitationStatus,
-        url: identical(url, sdkOmittedValue)
-            ? this.url
-            : url as SdkOptional<String>,
-        expiresAt: identical(expiresAt, sdkOmittedValue)
-            ? this.expiresAt
-            : expiresAt as SdkOptional<int?>,
-        createdAt: identical(createdAt, sdkOmittedValue)
-            ? this.createdAt
-            : createdAt as int,
-        updatedAt: identical(updatedAt, sdkOmittedValue)
-            ? this.updatedAt
-            : updatedAt as int,
-      );
+  Invitation _copyWith({Object? object = sdkOmittedValue, Object? id = sdkOmittedValue, Object? emailAddress = sdkOmittedValue, Object? publicMetadata = sdkOmittedValue, Object? revoked = sdkOmittedValue, Object? status = sdkOmittedValue, Object? url = sdkOmittedValue, Object? expiresAt = sdkOmittedValue, Object? createdAt = sdkOmittedValue, Object? updatedAt = sdkOmittedValue}) => Invitation(
+    object: identical(object, sdkOmittedValue) ? this.object : object as InvitationObject,
+    id: identical(id, sdkOmittedValue) ? this.id : id as String,
+    emailAddress: identical(emailAddress, sdkOmittedValue) ? this.emailAddress : emailAddress as String,
+    publicMetadata: identical(publicMetadata, sdkOmittedValue) ? this.publicMetadata : publicMetadata as Map<String, Object?>,
+    revoked: identical(revoked, sdkOmittedValue) ? this.revoked : revoked as SdkOptional<bool>,
+    status: identical(status, sdkOmittedValue) ? this.status : status as InvitationStatus,
+    url: identical(url, sdkOmittedValue) ? this.url : url as SdkOptional<String>,
+    expiresAt: identical(expiresAt, sdkOmittedValue) ? this.expiresAt : expiresAt as SdkOptional<int?>,
+    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as int,
+    updatedAt: identical(updatedAt, sdkOmittedValue) ? this.updatedAt : updatedAt as int,
+  );
 
   factory Invitation.fromJson(Map<String, dynamic> json) => Invitation(
-        object: (json['object'] != null
-            ? InvitationObject.fromJson(json['object'] as String)
-            : null)!,
-        id: (json['id'] as String?)!,
-        emailAddress: (json['email_address'] as String?)!,
-        publicMetadata: (json['public_metadata'] == null
-            ? null
-            : Map<String, dynamic>.from(json['public_metadata'] as Map)
-                .map((key, value) => MapEntry(key, value)))!,
-        revoked: json['revoked'] != null
-            ? SdkPresent((json['revoked'] as bool?)!)
-            : const SdkOmitted(),
-        status: (json['status'] != null
-            ? InvitationStatus.fromJson(json['status'] as String)
-            : null)!,
-        url: json['url'] != null
-            ? SdkPresent((json['url'] as String?)!)
-            : const SdkOmitted(),
-        expiresAt: json.containsKey('expires_at')
-            ? SdkPresent((json['expires_at'] as num?)?.toInt())
-            : const SdkOmitted(),
-        createdAt: ((json['created_at'] as num?)?.toInt())!,
-        updatedAt: ((json['updated_at'] as num?)?.toInt())!,
-      );
+    object: (json['object'] != null ? InvitationObject.fromJson(json['object'] as String) : null)!,
+    id: (json['id'] as String?)!,
+    emailAddress: (json['email_address'] as String?)!,
+    publicMetadata: (json['public_metadata'] == null ? null : Map<String, dynamic>.from(json['public_metadata'] as Map).map((key, value) => MapEntry(key, value)))!,
+    revoked: json['revoked'] != null ? SdkPresent((json['revoked'] as bool?)!) : const SdkOmitted(),
+    status: (json['status'] != null ? InvitationStatus.fromJson(json['status'] as String) : null)!,
+    url: json['url'] != null ? SdkPresent((json['url'] as String?)!) : const SdkOmitted(),
+    expiresAt: json.containsKey('expires_at') ? SdkPresent((json['expires_at'] as num?)?.toInt()) : const SdkOmitted(),
+    createdAt: ((json['created_at'] as num?)?.toInt())!,
+    updatedAt: ((json['updated_at'] as num?)?.toInt())!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'object': object.toJson(),
-        'id': id,
-        'email_address': emailAddress,
-        'public_metadata': publicMetadata,
-        ...switch (revoked) {
-          SdkPresent<bool>(value: final value) => {
-              'revoked': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        'status': status.toJson(),
-        ...switch (url) {
-          SdkPresent<String>(value: final value) => {
-              'url': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (expiresAt) {
-          SdkPresent<int?>(value: final value) => {
-              'expires_at': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        'created_at': createdAt,
-        'updated_at': updatedAt,
-      };
+    'object': object.toJson(),
+    'id': id,
+    'email_address': emailAddress,
+    'public_metadata': publicMetadata,
+    ...switch (revoked) {
+      SdkPresent<bool>(value: final value) => {'revoked': value,},
+      _ => const <String, dynamic>{},
+    },
+    'status': status.toJson(),
+    ...switch (url) {
+      SdkPresent<String>(value: final value) => {'url': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (expiresAt) {
+      SdkPresent<int?>(value: final value) => {'expires_at': value,},
+      _ => const <String, dynamic>{},
+    },
+    'created_at': createdAt,
+    'updated_at': updatedAt,
+  };
 }

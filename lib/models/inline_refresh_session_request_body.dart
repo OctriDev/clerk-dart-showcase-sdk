@@ -7,152 +7,84 @@ part of 'inline.dart';
 class RefreshSessionRequestBody {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The JWT that is sent via the `__session` cookie from your frontend. Note: this JWT must be associated with the supplied session ID.
   final String expiredToken;
-
   /// The refresh token from the `__refresh` cookie set via FAPI's handshake flow.
   final String refreshToken;
-
   /// The origin of the request.
   final String requestOrigin;
-
   /// The headers of the request.
   final SdkOptional<Map<String, Object?>?> requestHeaders;
-
   /// The format of the response.
   final SdkOptional<RefreshSessionRequestBodyFormat?> format;
-
   /// The IP address of the request.
   final SdkOptional<String?> requestOriginatingIp;
 
-  const RefreshSessionRequestBody(
-      {required this.expiredToken,
-      required this.refreshToken,
-      required this.requestOrigin,
-      this.requestHeaders = const SdkOmitted(),
-      this.format = const SdkOmitted(),
-      this.requestOriginatingIp = const SdkOmitted()});
+  const RefreshSessionRequestBody({required this.expiredToken, required this.refreshToken, required this.requestOrigin, this.requestHeaders = const SdkOmitted(), this.format = const SdkOmitted(), this.requestOriginatingIp = const SdkOmitted()});
 
-  RefreshSessionRequestBody Function(
-      {String expiredToken,
-      String refreshToken,
-      String requestOrigin,
-      SdkOptional<Map<String, Object?>?> requestHeaders,
-      SdkOptional<RefreshSessionRequestBodyFormat?> format,
-      SdkOptional<String?> requestOriginatingIp}) get copyWith => _copyWith;
+  RefreshSessionRequestBody Function({String expiredToken, String refreshToken, String requestOrigin, SdkOptional<Map<String, Object?>?> requestHeaders, SdkOptional<RefreshSessionRequestBodyFormat?> format, SdkOptional<String?> requestOriginatingIp}) get copyWith => _copyWith;
 
-  RefreshSessionRequestBody _copyWith(
-          {Object? expiredToken = sdkOmittedValue,
-          Object? refreshToken = sdkOmittedValue,
-          Object? requestOrigin = sdkOmittedValue,
-          Object? requestHeaders = sdkOmittedValue,
-          Object? format = sdkOmittedValue,
-          Object? requestOriginatingIp = sdkOmittedValue}) =>
-      RefreshSessionRequestBody(
-        expiredToken: identical(expiredToken, sdkOmittedValue)
-            ? this.expiredToken
-            : expiredToken as String,
-        refreshToken: identical(refreshToken, sdkOmittedValue)
-            ? this.refreshToken
-            : refreshToken as String,
-        requestOrigin: identical(requestOrigin, sdkOmittedValue)
-            ? this.requestOrigin
-            : requestOrigin as String,
-        requestHeaders: identical(requestHeaders, sdkOmittedValue)
-            ? this.requestHeaders
-            : requestHeaders as SdkOptional<Map<String, Object?>?>,
-        format: identical(format, sdkOmittedValue)
-            ? this.format
-            : format as SdkOptional<RefreshSessionRequestBodyFormat?>,
-        requestOriginatingIp: identical(requestOriginatingIp, sdkOmittedValue)
-            ? this.requestOriginatingIp
-            : requestOriginatingIp as SdkOptional<String?>,
-      );
+  RefreshSessionRequestBody _copyWith({Object? expiredToken = sdkOmittedValue, Object? refreshToken = sdkOmittedValue, Object? requestOrigin = sdkOmittedValue, Object? requestHeaders = sdkOmittedValue, Object? format = sdkOmittedValue, Object? requestOriginatingIp = sdkOmittedValue}) => RefreshSessionRequestBody(
+    expiredToken: identical(expiredToken, sdkOmittedValue) ? this.expiredToken : expiredToken as String,
+    refreshToken: identical(refreshToken, sdkOmittedValue) ? this.refreshToken : refreshToken as String,
+    requestOrigin: identical(requestOrigin, sdkOmittedValue) ? this.requestOrigin : requestOrigin as String,
+    requestHeaders: identical(requestHeaders, sdkOmittedValue) ? this.requestHeaders : requestHeaders as SdkOptional<Map<String, Object?>?>,
+    format: identical(format, sdkOmittedValue) ? this.format : format as SdkOptional<RefreshSessionRequestBodyFormat?>,
+    requestOriginatingIp: identical(requestOriginatingIp, sdkOmittedValue) ? this.requestOriginatingIp : requestOriginatingIp as SdkOptional<String?>,
+  );
 
-  factory RefreshSessionRequestBody.fromJson(Map<String, dynamic> json) =>
-      RefreshSessionRequestBody(
-        expiredToken: (json['expired_token'] as String?)!,
-        refreshToken: (json['refresh_token'] as String?)!,
-        requestOrigin: (json['request_origin'] as String?)!,
-        requestHeaders: json.containsKey('request_headers')
-            ? SdkPresent(json['request_headers'] == null
-                ? null
-                : Map<String, dynamic>.from(json['request_headers'] as Map)
-                    .map((key, value) => MapEntry(key, value)))
-            : const SdkOmitted(),
-        format: json.containsKey('format')
-            ? SdkPresent(json['format'] != null
-                ? RefreshSessionRequestBodyFormat.fromJson(
-                    json['format'] as String)
-                : null)
-            : const SdkOmitted(),
-        requestOriginatingIp: json.containsKey('request_originating_ip')
-            ? SdkPresent(json['request_originating_ip'] as String?)
-            : const SdkOmitted(),
-      );
+  factory RefreshSessionRequestBody.fromJson(Map<String, dynamic> json) => RefreshSessionRequestBody(
+    expiredToken: (json['expired_token'] as String?)!,
+    refreshToken: (json['refresh_token'] as String?)!,
+    requestOrigin: (json['request_origin'] as String?)!,
+    requestHeaders: json.containsKey('request_headers') ? SdkPresent(json['request_headers'] == null ? null : Map<String, dynamic>.from(json['request_headers'] as Map).map((key, value) => MapEntry(key, value))) : const SdkOmitted(),
+    format: json.containsKey('format') ? SdkPresent(json['format'] != null ? RefreshSessionRequestBodyFormat.fromJson(json['format'] as String) : null) : const SdkOmitted(),
+    requestOriginatingIp: json.containsKey('request_originating_ip') ? SdkPresent(json['request_originating_ip'] as String?) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        'expired_token': expiredToken,
-        'refresh_token': refreshToken,
-        'request_origin': requestOrigin,
-        ...switch (requestHeaders) {
-          SdkPresent<Map<String, Object?>?>(value: final value) => {
-              'request_headers': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (format) {
-          SdkPresent<RefreshSessionRequestBodyFormat?>(value: final value) => {
-              'format': value?.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (requestOriginatingIp) {
-          SdkPresent<String?>(value: final value) => {
-              'request_originating_ip': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    'expired_token': expiredToken,
+    'refresh_token': refreshToken,
+    'request_origin': requestOrigin,
+    ...switch (requestHeaders) {
+      SdkPresent<Map<String, Object?>?>(value: final value) => {'request_headers': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (format) {
+      SdkPresent<RefreshSessionRequestBodyFormat?>(value: final value) => {'format': value?.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (requestOriginatingIp) {
+      SdkPresent<String?>(value: final value) => {'request_originating_ip': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 class CreateSessionTokenRequestBody {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Use this parameter to override the default session token lifetime.
   final SdkOptional<int?> expiresInSeconds;
 
-  const CreateSessionTokenRequestBody(
-      {this.expiresInSeconds = const SdkOmitted()});
+  const CreateSessionTokenRequestBody({this.expiresInSeconds = const SdkOmitted()});
 
-  CreateSessionTokenRequestBody Function({SdkOptional<int?> expiresInSeconds})
-      get copyWith => _copyWith;
+  CreateSessionTokenRequestBody Function({SdkOptional<int?> expiresInSeconds}) get copyWith => _copyWith;
 
-  CreateSessionTokenRequestBody _copyWith(
-          {Object? expiresInSeconds = sdkOmittedValue}) =>
-      CreateSessionTokenRequestBody(
-        expiresInSeconds: identical(expiresInSeconds, sdkOmittedValue)
-            ? this.expiresInSeconds
-            : expiresInSeconds as SdkOptional<int?>,
-      );
+  CreateSessionTokenRequestBody _copyWith({Object? expiresInSeconds = sdkOmittedValue}) => CreateSessionTokenRequestBody(
+    expiresInSeconds: identical(expiresInSeconds, sdkOmittedValue) ? this.expiresInSeconds : expiresInSeconds as SdkOptional<int?>,
+  );
 
-  factory CreateSessionTokenRequestBody.fromJson(Map<String, dynamic> json) =>
-      CreateSessionTokenRequestBody(
-        expiresInSeconds: json.containsKey('expires_in_seconds')
-            ? SdkPresent((json['expires_in_seconds'] as num?)?.toInt())
-            : const SdkOmitted(),
-      );
+  factory CreateSessionTokenRequestBody.fromJson(Map<String, dynamic> json) => CreateSessionTokenRequestBody(
+    expiresInSeconds: json.containsKey('expires_in_seconds') ? SdkPresent((json['expires_in_seconds'] as num?)?.toInt()) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (expiresInSeconds) {
-          SdkPresent<int?>(value: final value) => {
-              'expires_in_seconds': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (expiresInSeconds) {
+      SdkPresent<int?>(value: final value) => {'expires_in_seconds': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 class CreateSessionTokenResponse {
@@ -161,90 +93,56 @@ class CreateSessionTokenResponse {
   final SdkOptional<CreateSessionTokenResponseObject> object;
   final SdkOptional<String> jwt;
 
-  const CreateSessionTokenResponse(
-      {this.object = const SdkOmitted(), this.jwt = const SdkOmitted()});
+  const CreateSessionTokenResponse({this.object = const SdkOmitted(), this.jwt = const SdkOmitted()});
 
-  CreateSessionTokenResponse Function(
-      {SdkOptional<CreateSessionTokenResponseObject> object,
-      SdkOptional<String> jwt}) get copyWith => _copyWith;
+  CreateSessionTokenResponse Function({SdkOptional<CreateSessionTokenResponseObject> object, SdkOptional<String> jwt}) get copyWith => _copyWith;
 
-  CreateSessionTokenResponse _copyWith(
-          {Object? object = sdkOmittedValue, Object? jwt = sdkOmittedValue}) =>
-      CreateSessionTokenResponse(
-        object: identical(object, sdkOmittedValue)
-            ? this.object
-            : object as SdkOptional<CreateSessionTokenResponseObject>,
-        jwt: identical(jwt, sdkOmittedValue)
-            ? this.jwt
-            : jwt as SdkOptional<String>,
-      );
+  CreateSessionTokenResponse _copyWith({Object? object = sdkOmittedValue, Object? jwt = sdkOmittedValue}) => CreateSessionTokenResponse(
+    object: identical(object, sdkOmittedValue) ? this.object : object as SdkOptional<CreateSessionTokenResponseObject>,
+    jwt: identical(jwt, sdkOmittedValue) ? this.jwt : jwt as SdkOptional<String>,
+  );
 
-  factory CreateSessionTokenResponse.fromJson(Map<String, dynamic> json) =>
-      CreateSessionTokenResponse(
-        object: json['object'] != null
-            ? SdkPresent((json['object'] != null
-                ? CreateSessionTokenResponseObject.fromJson(
-                    json['object'] as String)
-                : null)!)
-            : const SdkOmitted(),
-        jwt: json['jwt'] != null
-            ? SdkPresent((json['jwt'] as String?)!)
-            : const SdkOmitted(),
-      );
+  factory CreateSessionTokenResponse.fromJson(Map<String, dynamic> json) => CreateSessionTokenResponse(
+    object: json['object'] != null ? SdkPresent((json['object'] != null ? CreateSessionTokenResponseObject.fromJson(json['object'] as String) : null)!) : const SdkOmitted(),
+    jwt: json['jwt'] != null ? SdkPresent((json['jwt'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (object) {
-          SdkPresent<CreateSessionTokenResponseObject>(value: final value) => {
-              'object': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (jwt) {
-          SdkPresent<String>(value: final value) => {
-              'jwt': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (object) {
+      SdkPresent<CreateSessionTokenResponseObject>(value: final value) => {'object': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (jwt) {
+      SdkPresent<String>(value: final value) => {'jwt': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 class CreateSessionTokenFromTemplateRequestBody {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Use this parameter to override the JWT lifetime.
   final SdkOptional<int?> expiresInSeconds;
 
-  const CreateSessionTokenFromTemplateRequestBody(
-      {this.expiresInSeconds = const SdkOmitted()});
+  const CreateSessionTokenFromTemplateRequestBody({this.expiresInSeconds = const SdkOmitted()});
 
-  CreateSessionTokenFromTemplateRequestBody Function(
-      {SdkOptional<int?> expiresInSeconds}) get copyWith => _copyWith;
+  CreateSessionTokenFromTemplateRequestBody Function({SdkOptional<int?> expiresInSeconds}) get copyWith => _copyWith;
 
-  CreateSessionTokenFromTemplateRequestBody _copyWith(
-          {Object? expiresInSeconds = sdkOmittedValue}) =>
-      CreateSessionTokenFromTemplateRequestBody(
-        expiresInSeconds: identical(expiresInSeconds, sdkOmittedValue)
-            ? this.expiresInSeconds
-            : expiresInSeconds as SdkOptional<int?>,
-      );
+  CreateSessionTokenFromTemplateRequestBody _copyWith({Object? expiresInSeconds = sdkOmittedValue}) => CreateSessionTokenFromTemplateRequestBody(
+    expiresInSeconds: identical(expiresInSeconds, sdkOmittedValue) ? this.expiresInSeconds : expiresInSeconds as SdkOptional<int?>,
+  );
 
-  factory CreateSessionTokenFromTemplateRequestBody.fromJson(
-          Map<String, dynamic> json) =>
-      CreateSessionTokenFromTemplateRequestBody(
-        expiresInSeconds: json.containsKey('expires_in_seconds')
-            ? SdkPresent((json['expires_in_seconds'] as num?)?.toInt())
-            : const SdkOmitted(),
-      );
+  factory CreateSessionTokenFromTemplateRequestBody.fromJson(Map<String, dynamic> json) => CreateSessionTokenFromTemplateRequestBody(
+    expiresInSeconds: json.containsKey('expires_in_seconds') ? SdkPresent((json['expires_in_seconds'] as num?)?.toInt()) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (expiresInSeconds) {
-          SdkPresent<int?>(value: final value) => {
-              'expires_in_seconds': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (expiresInSeconds) {
+      SdkPresent<int?>(value: final value) => {'expires_in_seconds': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 class CreateSessionTokenFromTemplateResponse {
@@ -253,200 +151,102 @@ class CreateSessionTokenFromTemplateResponse {
   final SdkOptional<CreateSessionTokenFromTemplateResponseObject> object;
   final SdkOptional<String> jwt;
 
-  const CreateSessionTokenFromTemplateResponse(
-      {this.object = const SdkOmitted(), this.jwt = const SdkOmitted()});
+  const CreateSessionTokenFromTemplateResponse({this.object = const SdkOmitted(), this.jwt = const SdkOmitted()});
 
-  CreateSessionTokenFromTemplateResponse Function(
-      {SdkOptional<CreateSessionTokenFromTemplateResponseObject> object,
-      SdkOptional<String> jwt}) get copyWith => _copyWith;
+  CreateSessionTokenFromTemplateResponse Function({SdkOptional<CreateSessionTokenFromTemplateResponseObject> object, SdkOptional<String> jwt}) get copyWith => _copyWith;
 
-  CreateSessionTokenFromTemplateResponse _copyWith(
-          {Object? object = sdkOmittedValue, Object? jwt = sdkOmittedValue}) =>
-      CreateSessionTokenFromTemplateResponse(
-        object: identical(object, sdkOmittedValue)
-            ? this.object
-            : object
-                as SdkOptional<CreateSessionTokenFromTemplateResponseObject>,
-        jwt: identical(jwt, sdkOmittedValue)
-            ? this.jwt
-            : jwt as SdkOptional<String>,
-      );
+  CreateSessionTokenFromTemplateResponse _copyWith({Object? object = sdkOmittedValue, Object? jwt = sdkOmittedValue}) => CreateSessionTokenFromTemplateResponse(
+    object: identical(object, sdkOmittedValue) ? this.object : object as SdkOptional<CreateSessionTokenFromTemplateResponseObject>,
+    jwt: identical(jwt, sdkOmittedValue) ? this.jwt : jwt as SdkOptional<String>,
+  );
 
-  factory CreateSessionTokenFromTemplateResponse.fromJson(
-          Map<String, dynamic> json) =>
-      CreateSessionTokenFromTemplateResponse(
-        object: json['object'] != null
-            ? SdkPresent((json['object'] != null
-                ? CreateSessionTokenFromTemplateResponseObject.fromJson(
-                    json['object'] as String)
-                : null)!)
-            : const SdkOmitted(),
-        jwt: json['jwt'] != null
-            ? SdkPresent((json['jwt'] as String?)!)
-            : const SdkOmitted(),
-      );
+  factory CreateSessionTokenFromTemplateResponse.fromJson(Map<String, dynamic> json) => CreateSessionTokenFromTemplateResponse(
+    object: json['object'] != null ? SdkPresent((json['object'] != null ? CreateSessionTokenFromTemplateResponseObject.fromJson(json['object'] as String) : null)!) : const SdkOmitted(),
+    jwt: json['jwt'] != null ? SdkPresent((json['jwt'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (object) {
-          SdkPresent<CreateSessionTokenFromTemplateResponseObject>(
-            value: final value
-          ) =>
-            {
-              'object': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (jwt) {
-          SdkPresent<String>(value: final value) => {
-              'jwt': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (object) {
+      SdkPresent<CreateSessionTokenFromTemplateResponseObject>(value: final value) => {'object': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (jwt) {
+      SdkPresent<String>(value: final value) => {'jwt': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 class UpsertTemplateRequestBody {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The user-friendly name of the template
   final SdkOptional<String> name;
-
   /// The email subject. Applicable only to email templates.
   final SdkOptional<String?> subject;
-
   /// The editor markup used to generate the body of the template
   final SdkOptional<String?> markup;
-
   /// The template body before variable interpolation
   final SdkOptional<String> body;
-
   /// Whether Clerk should deliver emails or SMS messages based on the current template
   final SdkOptional<bool?> deliveredByClerk;
-
   /// The local part of the From email address that will be used for emails. For example, in the address 'hello@example.com', the local part is 'hello'. Applicable only to email templates.
   final SdkOptional<String> fromEmailName;
-
   /// The local part of the Reply To email address that will be used for emails. For example, in the address 'hello@example.com', the local part is 'hello'. Applicable only to email templates.
   final SdkOptional<String> replyToEmailName;
 
-  const UpsertTemplateRequestBody(
-      {this.name = const SdkOmitted(),
-      this.subject = const SdkOmitted(),
-      this.markup = const SdkOmitted(),
-      this.body = const SdkOmitted(),
-      this.deliveredByClerk = const SdkOmitted(),
-      this.fromEmailName = const SdkOmitted(),
-      this.replyToEmailName = const SdkOmitted()});
+  const UpsertTemplateRequestBody({this.name = const SdkOmitted(), this.subject = const SdkOmitted(), this.markup = const SdkOmitted(), this.body = const SdkOmitted(), this.deliveredByClerk = const SdkOmitted(), this.fromEmailName = const SdkOmitted(), this.replyToEmailName = const SdkOmitted()});
 
-  UpsertTemplateRequestBody Function(
-      {SdkOptional<String> name,
-      SdkOptional<String?> subject,
-      SdkOptional<String?> markup,
-      SdkOptional<String> body,
-      SdkOptional<bool?> deliveredByClerk,
-      SdkOptional<String> fromEmailName,
-      SdkOptional<String> replyToEmailName}) get copyWith => _copyWith;
+  UpsertTemplateRequestBody Function({SdkOptional<String> name, SdkOptional<String?> subject, SdkOptional<String?> markup, SdkOptional<String> body, SdkOptional<bool?> deliveredByClerk, SdkOptional<String> fromEmailName, SdkOptional<String> replyToEmailName}) get copyWith => _copyWith;
 
-  UpsertTemplateRequestBody _copyWith(
-          {Object? name = sdkOmittedValue,
-          Object? subject = sdkOmittedValue,
-          Object? markup = sdkOmittedValue,
-          Object? body = sdkOmittedValue,
-          Object? deliveredByClerk = sdkOmittedValue,
-          Object? fromEmailName = sdkOmittedValue,
-          Object? replyToEmailName = sdkOmittedValue}) =>
-      UpsertTemplateRequestBody(
-        name: identical(name, sdkOmittedValue)
-            ? this.name
-            : name as SdkOptional<String>,
-        subject: identical(subject, sdkOmittedValue)
-            ? this.subject
-            : subject as SdkOptional<String?>,
-        markup: identical(markup, sdkOmittedValue)
-            ? this.markup
-            : markup as SdkOptional<String?>,
-        body: identical(body, sdkOmittedValue)
-            ? this.body
-            : body as SdkOptional<String>,
-        deliveredByClerk: identical(deliveredByClerk, sdkOmittedValue)
-            ? this.deliveredByClerk
-            : deliveredByClerk as SdkOptional<bool?>,
-        fromEmailName: identical(fromEmailName, sdkOmittedValue)
-            ? this.fromEmailName
-            : fromEmailName as SdkOptional<String>,
-        replyToEmailName: identical(replyToEmailName, sdkOmittedValue)
-            ? this.replyToEmailName
-            : replyToEmailName as SdkOptional<String>,
-      );
+  UpsertTemplateRequestBody _copyWith({Object? name = sdkOmittedValue, Object? subject = sdkOmittedValue, Object? markup = sdkOmittedValue, Object? body = sdkOmittedValue, Object? deliveredByClerk = sdkOmittedValue, Object? fromEmailName = sdkOmittedValue, Object? replyToEmailName = sdkOmittedValue}) => UpsertTemplateRequestBody(
+    name: identical(name, sdkOmittedValue) ? this.name : name as SdkOptional<String>,
+    subject: identical(subject, sdkOmittedValue) ? this.subject : subject as SdkOptional<String?>,
+    markup: identical(markup, sdkOmittedValue) ? this.markup : markup as SdkOptional<String?>,
+    body: identical(body, sdkOmittedValue) ? this.body : body as SdkOptional<String>,
+    deliveredByClerk: identical(deliveredByClerk, sdkOmittedValue) ? this.deliveredByClerk : deliveredByClerk as SdkOptional<bool?>,
+    fromEmailName: identical(fromEmailName, sdkOmittedValue) ? this.fromEmailName : fromEmailName as SdkOptional<String>,
+    replyToEmailName: identical(replyToEmailName, sdkOmittedValue) ? this.replyToEmailName : replyToEmailName as SdkOptional<String>,
+  );
 
-  factory UpsertTemplateRequestBody.fromJson(Map<String, dynamic> json) =>
-      UpsertTemplateRequestBody(
-        name: json['name'] != null
-            ? SdkPresent((json['name'] as String?)!)
-            : const SdkOmitted(),
-        subject: json.containsKey('subject')
-            ? SdkPresent(json['subject'] as String?)
-            : const SdkOmitted(),
-        markup: json.containsKey('markup')
-            ? SdkPresent(json['markup'] as String?)
-            : const SdkOmitted(),
-        body: json['body'] != null
-            ? SdkPresent((json['body'] as String?)!)
-            : const SdkOmitted(),
-        deliveredByClerk: json.containsKey('delivered_by_clerk')
-            ? SdkPresent(json['delivered_by_clerk'] as bool?)
-            : const SdkOmitted(),
-        fromEmailName: json['from_email_name'] != null
-            ? SdkPresent((json['from_email_name'] as String?)!)
-            : const SdkOmitted(),
-        replyToEmailName: json['reply_to_email_name'] != null
-            ? SdkPresent((json['reply_to_email_name'] as String?)!)
-            : const SdkOmitted(),
-      );
+  factory UpsertTemplateRequestBody.fromJson(Map<String, dynamic> json) => UpsertTemplateRequestBody(
+    name: json['name'] != null ? SdkPresent((json['name'] as String?)!) : const SdkOmitted(),
+    subject: json.containsKey('subject') ? SdkPresent(json['subject'] as String?) : const SdkOmitted(),
+    markup: json.containsKey('markup') ? SdkPresent(json['markup'] as String?) : const SdkOmitted(),
+    body: json['body'] != null ? SdkPresent((json['body'] as String?)!) : const SdkOmitted(),
+    deliveredByClerk: json.containsKey('delivered_by_clerk') ? SdkPresent(json['delivered_by_clerk'] as bool?) : const SdkOmitted(),
+    fromEmailName: json['from_email_name'] != null ? SdkPresent((json['from_email_name'] as String?)!) : const SdkOmitted(),
+    replyToEmailName: json['reply_to_email_name'] != null ? SdkPresent((json['reply_to_email_name'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (name) {
-          SdkPresent<String>(value: final value) => {
-              'name': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (subject) {
-          SdkPresent<String?>(value: final value) => {
-              'subject': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (markup) {
-          SdkPresent<String?>(value: final value) => {
-              'markup': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (body) {
-          SdkPresent<String>(value: final value) => {
-              'body': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (deliveredByClerk) {
-          SdkPresent<bool?>(value: final value) => {
-              'delivered_by_clerk': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (fromEmailName) {
-          SdkPresent<String>(value: final value) => {
-              'from_email_name': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (replyToEmailName) {
-          SdkPresent<String>(value: final value) => {
-              'reply_to_email_name': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (name) {
+      SdkPresent<String>(value: final value) => {'name': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (subject) {
+      SdkPresent<String?>(value: final value) => {'subject': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (markup) {
+      SdkPresent<String?>(value: final value) => {'markup': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (body) {
+      SdkPresent<String>(value: final value) => {'body': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (deliveredByClerk) {
+      SdkPresent<bool?>(value: final value) => {'delivered_by_clerk': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (fromEmailName) {
+      SdkPresent<String>(value: final value) => {'from_email_name': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (replyToEmailName) {
+      SdkPresent<String>(value: final value) => {'reply_to_email_name': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

@@ -6,12 +6,12 @@ part of 'inline.dart';
 // Inline operation models
 /// Required enumerated value serialized in the `status` wire field.
 final class VerificationWeb3Status {
+
   final String value;
 
   const VerificationWeb3Status._(this.value);
 
-  factory VerificationWeb3Status.fromJson(String value) =>
-      VerificationWeb3Status._(value);
+  factory VerificationWeb3Status.fromJson(String value) => VerificationWeb3Status._(value);
 
   static const unverified = VerificationWeb3Status._('unverified');
   static const verified = VerificationWeb3Status._('verified');
@@ -20,133 +20,109 @@ final class VerificationWeb3Status {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is VerificationWeb3Status && other.value == value;
+  @override bool operator ==(Object other) => other is VerificationWeb3Status && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// Required enumerated value serialized in the `strategy` wire field.
 final class VerificationWeb3Strategy {
+
   final String value;
 
   const VerificationWeb3Strategy._(this.value);
 
-  factory VerificationWeb3Strategy.fromJson(String value) =>
-      VerificationWeb3Strategy._(value);
+  factory VerificationWeb3Strategy.fromJson(String value) => VerificationWeb3Strategy._(value);
 
-  static const web3MetamaskSignature =
-      VerificationWeb3Strategy._('web3_metamask_signature');
-  static const web3BaseSignature =
-      VerificationWeb3Strategy._('web3_base_signature');
-  static const web3CoinbaseWalletSignature =
-      VerificationWeb3Strategy._('web3_coinbase_wallet_signature');
-  static const web3OkxWalletSignature =
-      VerificationWeb3Strategy._('web3_okx_wallet_signature');
-  static const web3SolanaSignature =
-      VerificationWeb3Strategy._('web3_solana_signature');
+  static const web3MetamaskSignature = VerificationWeb3Strategy._('web3_metamask_signature');
+  static const web3BaseSignature = VerificationWeb3Strategy._('web3_base_signature');
+  static const web3CoinbaseWalletSignature = VerificationWeb3Strategy._('web3_coinbase_wallet_signature');
+  static const web3OkxWalletSignature = VerificationWeb3Strategy._('web3_okx_wallet_signature');
+  static const web3SolanaSignature = VerificationWeb3Strategy._('web3_solana_signature');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is VerificationWeb3Strategy && other.value == value;
+  @override bool operator ==(Object other) => other is VerificationWeb3Strategy && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 final class VerifyOAuthAccessTokenResponseVariant0Object {
+
   final String value;
 
   const VerifyOAuthAccessTokenResponseVariant0Object._(this.value);
 
-  factory VerifyOAuthAccessTokenResponseVariant0Object.fromJson(String value) =>
-      VerifyOAuthAccessTokenResponseVariant0Object._(value);
+  factory VerifyOAuthAccessTokenResponseVariant0Object.fromJson(String value) => VerifyOAuthAccessTokenResponseVariant0Object._(value);
 
-  static const clerkIdpOauthAccessToken =
-      VerifyOAuthAccessTokenResponseVariant0Object._(
-          'clerk_idp_oauth_access_token');
+  static const clerkIdpOauthAccessToken = VerifyOAuthAccessTokenResponseVariant0Object._('clerk_idp_oauth_access_token');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is VerifyOAuthAccessTokenResponseVariant0Object &&
-      other.value == value;
+  @override bool operator ==(Object other) => other is VerifyOAuthAccessTokenResponseVariant0Object && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// Indicates that a JWT access token is not active (expired)
 final class VerifyOAuthAccessTokenResponseVariant1Active {
+
   final bool value;
 
   const VerifyOAuthAccessTokenResponseVariant1Active._(this.value);
 
-  factory VerifyOAuthAccessTokenResponseVariant1Active.fromJson(bool value) =>
-      VerifyOAuthAccessTokenResponseVariant1Active._(value);
+  factory VerifyOAuthAccessTokenResponseVariant1Active.fromJson(bool value) => VerifyOAuthAccessTokenResponseVariant1Active._(value);
 
   static const false_ = VerifyOAuthAccessTokenResponseVariant1Active._(false);
 
   bool toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is VerifyOAuthAccessTokenResponseVariant1Active &&
-      other.value == value;
+  @override bool operator ==(Object other) => other is VerifyOAuthAccessTokenResponseVariant1Active && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// Required enumerated value serialized in the `object` wire field.
 final class WaitlistEntryObject {
+
   final String value;
 
   const WaitlistEntryObject._(this.value);
 
-  factory WaitlistEntryObject.fromJson(String value) =>
-      WaitlistEntryObject._(value);
+  factory WaitlistEntryObject.fromJson(String value) => WaitlistEntryObject._(value);
 
   static const waitlistEntry = WaitlistEntryObject._('waitlist_entry');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is WaitlistEntryObject && other.value == value;
+  @override bool operator ==(Object other) => other is WaitlistEntryObject && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// Required enumerated value serialized in the `status` wire field.
 final class WaitlistEntryStatus {
+
   final String value;
 
   const WaitlistEntryStatus._(this.value);
 
-  factory WaitlistEntryStatus.fromJson(String value) =>
-      WaitlistEntryStatus._(value);
+  factory WaitlistEntryStatus.fromJson(String value) => WaitlistEntryStatus._(value);
 
   static const pending = WaitlistEntryStatus._('pending');
   static const invited = WaitlistEntryStatus._('invited');
@@ -155,19 +131,17 @@ final class WaitlistEntryStatus {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is WaitlistEntryStatus && other.value == value;
+  @override bool operator ==(Object other) => other is WaitlistEntryStatus && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// String representing the object's type. Objects of the same type share the same value.
 final class Web3WalletObject {
+
   final String value;
 
   const Web3WalletObject._(this.value);
@@ -178,155 +152,132 @@ final class Web3WalletObject {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is Web3WalletObject && other.value == value;
+  @override bool operator ==(Object other) => other is Web3WalletObject && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 final class CreateAdminPortalLinkTokenResponseObject {
+
   final String value;
 
   const CreateAdminPortalLinkTokenResponseObject._(this.value);
 
-  factory CreateAdminPortalLinkTokenResponseObject.fromJson(String value) =>
-      CreateAdminPortalLinkTokenResponseObject._(value);
+  factory CreateAdminPortalLinkTokenResponseObject.fromJson(String value) => CreateAdminPortalLinkTokenResponseObject._(value);
 
-  static const adminPortalLinkToken =
-      CreateAdminPortalLinkTokenResponseObject._('admin_portal_link_token');
+  static const adminPortalLinkToken = CreateAdminPortalLinkTokenResponseObject._('admin_portal_link_token');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is CreateAdminPortalLinkTokenResponseObject && other.value == value;
+  @override bool operator ==(Object other) => other is CreateAdminPortalLinkTokenResponseObject && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 final class RevokeAdminPortalLinkTokenResponseObject {
+
   final String value;
 
   const RevokeAdminPortalLinkTokenResponseObject._(this.value);
 
-  factory RevokeAdminPortalLinkTokenResponseObject.fromJson(String value) =>
-      RevokeAdminPortalLinkTokenResponseObject._(value);
+  factory RevokeAdminPortalLinkTokenResponseObject.fromJson(String value) => RevokeAdminPortalLinkTokenResponseObject._(value);
 
-  static const adminPortalLinkToken =
-      RevokeAdminPortalLinkTokenResponseObject._('admin_portal_link_token');
+  static const adminPortalLinkToken = RevokeAdminPortalLinkTokenResponseObject._('admin_portal_link_token');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is RevokeAdminPortalLinkTokenResponseObject && other.value == value;
+  @override bool operator ==(Object other) => other is RevokeAdminPortalLinkTokenResponseObject && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The permissions granted to the agent task. Must be "*" (all permissions).
 final class CreateAgentTaskRequestBodyPermissions {
+
   final String value;
 
   const CreateAgentTaskRequestBodyPermissions._(this.value);
 
-  factory CreateAgentTaskRequestBodyPermissions.fromJson(String value) =>
-      CreateAgentTaskRequestBodyPermissions._(value);
+  factory CreateAgentTaskRequestBodyPermissions.fromJson(String value) => CreateAgentTaskRequestBodyPermissions._(value);
 
   static const unknown = CreateAgentTaskRequestBodyPermissions._('*');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is CreateAgentTaskRequestBodyPermissions && other.value == value;
+  @override bool operator ==(Object other) => other is CreateAgentTaskRequestBodyPermissions && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 final class ListApiKeysIncludeInvalid {
+
   final String value;
 
   const ListApiKeysIncludeInvalid._(this.value);
 
-  factory ListApiKeysIncludeInvalid.fromJson(String value) =>
-      ListApiKeysIncludeInvalid._(value);
+  factory ListApiKeysIncludeInvalid.fromJson(String value) => ListApiKeysIncludeInvalid._(value);
 
   static const true_ = ListApiKeysIncludeInvalid._('true');
   static const false_ = ListApiKeysIncludeInvalid._('false');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is ListApiKeysIncludeInvalid && other.value == value;
+  @override bool operator ==(Object other) => other is ListApiKeysIncludeInvalid && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 final class ListApiKeysResponseDataItemObject {
+
   final String value;
 
   const ListApiKeysResponseDataItemObject._(this.value);
 
-  factory ListApiKeysResponseDataItemObject.fromJson(String value) =>
-      ListApiKeysResponseDataItemObject._(value);
+  factory ListApiKeysResponseDataItemObject.fromJson(String value) => ListApiKeysResponseDataItemObject._(value);
 
   static const apiKey = ListApiKeysResponseDataItemObject._('api_key');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is ListApiKeysResponseDataItemObject && other.value == value;
+  @override bool operator ==(Object other) => other is ListApiKeysResponseDataItemObject && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 final class CreateApiKeyResponseObject {
+
   final String value;
 
   const CreateApiKeyResponseObject._(this.value);
 
-  factory CreateApiKeyResponseObject.fromJson(String value) =>
-      CreateApiKeyResponseObject._(value);
+  factory CreateApiKeyResponseObject.fromJson(String value) => CreateApiKeyResponseObject._(value);
 
   static const apiKey = CreateApiKeyResponseObject._('api_key');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is CreateApiKeyResponseObject && other.value == value;
+  @override bool operator ==(Object other) => other is CreateApiKeyResponseObject && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }

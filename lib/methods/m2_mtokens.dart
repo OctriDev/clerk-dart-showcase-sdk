@@ -27,8 +27,7 @@ import '../types.dart';
 ///   applies to opaque-format tokens (`token_format` defaults to `opaque`).
 ///   JWT-format tokens are stateless and are never deduplicated.
 Future<CreateM2MTokenResponse> createM2MToken(ClientConfig config,
-    {SdkOptional<CreateM2MTokenRequestBodyTokenFormat> tokenFormat =
-        const SdkOmitted(),
+    {SdkOptional<CreateM2MTokenRequestBodyTokenFormat> tokenFormat = const SdkOmitted(),
     SdkOptional<double?> secondsUntilExpiration = const SdkOmitted(),
     SdkOptional<dynamic> claims = const SdkOmitted(),
     SdkOptional<int> minRemainingTtlSeconds = const SdkOmitted(),
@@ -36,32 +35,28 @@ Future<CreateM2MTokenResponse> createM2MToken(ClientConfig config,
   if (secondsUntilExpiration is SdkPresent<double?>) {
     final secondsUntilExpirationValue = secondsUntilExpiration.value;
     if (secondsUntilExpirationValue != null) {
-      validateRange('seconds_until_expiration', secondsUntilExpirationValue,
-          exclusiveMin: 0);
+      validateRange('seconds_until_expiration', secondsUntilExpirationValue, exclusiveMin: 0);
     }
   }
   if (minRemainingTtlSeconds is SdkPresent<int>) {
-    validateRange('min_remaining_ttl_seconds', minRemainingTtlSeconds.value,
-        min: 0);
+    validateRange('min_remaining_ttl_seconds', minRemainingTtlSeconds.value, min: 0);
   }
 
   return (await sdkRequest<CreateM2MTokenResponse>('POST', '/m2m_tokens',
           config: config,
           body: {
             'token_format': SdkUtils.unwrapOptional(tokenFormat),
-            'seconds_until_expiration':
-                SdkUtils.unwrapOptional(secondsUntilExpiration),
+            'seconds_until_expiration': SdkUtils.unwrapOptional(secondsUntilExpiration),
             'claims': SdkUtils.unwrapOptional(claims),
-            'min_remaining_ttl_seconds':
-                SdkUtils.unwrapOptional(minRemainingTtlSeconds)
+            'min_remaining_ttl_seconds': SdkUtils.unwrapOptional(minRemainingTtlSeconds)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'createM2MToken',
-          fromJsonRaw: (value) =>
-              CreateM2MTokenResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => CreateM2MTokenResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions))
       .data;
 }
+
 
 /// Lists stored opaque-format M2M tokens for a specific machine; stateless JWT-format tokens are not included. Use `revoked` and `expired` to filter the results, and `limit` and `offset` to control pagination. Authenticate with a Machine Secret Key to retrieve tokens for its machine, or a Clerk Secret Key to retrieve tokens for any machine in the instance.
 ///
@@ -88,22 +83,18 @@ Future<GetM2MTokensResponse> getM2MTokens(ClientConfig config,
           config: config,
           query: {
             'subject': SdkQueryValue(subject, style: 'form', explode: true),
-            'revoked': SdkQueryValue(SdkUtils.unwrapOptional(revoked),
-                style: 'form', explode: true),
-            'expired': SdkQueryValue(SdkUtils.unwrapOptional(expired),
-                style: 'form', explode: true),
-            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit),
-                style: 'form', explode: true),
-            'offset': SdkQueryValue(SdkUtils.unwrapOptional(offset),
-                style: 'form', explode: true)
+            'revoked': SdkQueryValue(SdkUtils.unwrapOptional(revoked), style: 'form', explode: true),
+            'expired': SdkQueryValue(SdkUtils.unwrapOptional(expired), style: 'form', explode: true),
+            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit), style: 'form', explode: true),
+            'offset': SdkQueryValue(SdkUtils.unwrapOptional(offset), style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'getM2MTokens',
-          fromJsonRaw: (value) =>
-              GetM2MTokensResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => GetM2MTokensResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions))
       .data;
 }
+
 
 /// Revokes a stored opaque-format M2M token. Use `m2m_token_id` to identify the token and optionally provide a `revocation_reason`. JWT-format M2M tokens are stateless and cannot be revoked; a Machine Secret Key can revoke only tokens managed by its machine, while a Clerk Secret Key can revoke any token in the instance.
 ///
@@ -122,11 +113,11 @@ Future<RevokeM2MTokenResponse> revokeM2MToken(ClientConfig config,
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'revokeM2MToken',
-          fromJsonRaw: (value) =>
-              RevokeM2MTokenResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => RevokeM2MTokenResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions))
       .data;
 }
+
 
 /// Verifies an M2M token and returns its token details when valid. Supply the token in the `token` field. A Machine Secret Key can verify a token only when it grants access to that machine, while a Clerk Secret Key can verify any token in the instance.
 ///
@@ -138,8 +129,7 @@ Future<VerifyM2MTokenResponse> verifyM2MToken(ClientConfig config,
           body: {'token': token},
           decoder: SdkResponseDecoder.json,
           operationId: 'verifyM2MToken',
-          fromJsonRaw: (value) =>
-              VerifyM2MTokenResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => VerifyM2MTokenResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions))
       .data;
 }

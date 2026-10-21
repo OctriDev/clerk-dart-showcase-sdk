@@ -37,32 +37,19 @@ Future<MachineList> listMachines(ClientConfig config,
   return (await sdkRequest<MachineList>('GET', '/machines',
           config: config,
           query: {
-            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit),
-                style: 'form', explode: true),
-            'offset': SdkQueryValue(SdkUtils.unwrapOptional(offset),
-                style: 'form', explode: true),
-            'query': SdkQueryValue(SdkUtils.unwrapOptional(query),
-                style: 'form', explode: true),
-            'order_by': SdkQueryValue(SdkUtils.unwrapOptional(orderBy),
-                style: 'form', explode: true)
+            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit), style: 'form', explode: true),
+            'offset': SdkQueryValue(SdkUtils.unwrapOptional(offset), style: 'form', explode: true),
+            'query': SdkQueryValue(SdkUtils.unwrapOptional(query), style: 'form', explode: true),
+            'order_by': SdkQueryValue(SdkUtils.unwrapOptional(orderBy), style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'listMachines',
-          fromJsonRaw: (value) =>
-              MachineList.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => MachineList.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '400': (value) =>
-                ClerkErrors.fromJson(value as Map<String, dynamic>),
-            '401': (value) =>
-                ClerkErrors.fromJson(value as Map<String, dynamic>),
-            '403': (value) =>
-                ClerkErrors.fromJson(value as Map<String, dynamic>),
-            '422': (value) =>
-                ClerkErrors.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'400': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '401': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '403': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '422': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Creates a new machine. Provide a `name` and optionally configure its machine scopes and default token TTL. The response includes the machine's secret key, so store it securely.
 ///
@@ -83,8 +70,7 @@ Future<MachineCreated> createMachine(ClientConfig config,
     validateItems('scoped_machines', scopedMachines.value, max: 150);
   }
   if (defaultTokenTtl is SdkPresent<int>) {
-    validateRange('default_token_ttl', defaultTokenTtl.value,
-        min: 1, max: 315360000);
+    validateRange('default_token_ttl', defaultTokenTtl.value, min: 1, max: 315360000);
   }
 
   return (await sdkRequest<MachineCreated>('POST', '/machines',
@@ -96,21 +82,12 @@ Future<MachineCreated> createMachine(ClientConfig config,
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'createMachine',
-          fromJsonRaw: (value) =>
-              MachineCreated.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => MachineCreated.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '400': (value) =>
-                ClerkErrors.fromJson(value as Map<String, dynamic>),
-            '401': (value) =>
-                ClerkErrors.fromJson(value as Map<String, dynamic>),
-            '403': (value) =>
-                ClerkErrors.fromJson(value as Map<String, dynamic>),
-            '422': (value) =>
-                ClerkErrors.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'400': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '401': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '403': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '422': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Retrieves the details of a machine. Use its `machine_id` to identify the machine whose configuration and scopes you need to inspect.
 ///
@@ -124,18 +101,12 @@ Future<Machine> getMachine(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'getMachine',
-          fromJsonRaw: (value) =>
-              Machine.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => Machine.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-        '400': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>),
-        '401': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>),
-        '403': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>),
-        '404': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>),
-        '422': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'400': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '401': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '403': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '404': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '422': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Updates an existing machine. Only the provided fields will be updated.
 ///
@@ -152,8 +123,7 @@ Future<Machine> updateMachine(ClientConfig config,
     validateLength('name', name.value, min: 1, max: 255);
   }
   if (defaultTokenTtl is SdkPresent<int>) {
-    validateRange('default_token_ttl', defaultTokenTtl.value,
-        min: 1, max: 315360000);
+    validateRange('default_token_ttl', defaultTokenTtl.value, min: 1, max: 315360000);
   }
 
   return (await sdkRequest<Machine>(
@@ -165,23 +135,12 @@ Future<Machine> updateMachine(ClientConfig config,
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'updateMachine',
-          fromJsonRaw: (value) =>
-              Machine.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => Machine.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '400': (value) =>
-                ClerkErrors.fromJson(value as Map<String, dynamic>),
-            '401': (value) =>
-                ClerkErrors.fromJson(value as Map<String, dynamic>),
-            '403': (value) =>
-                ClerkErrors.fromJson(value as Map<String, dynamic>),
-            '404': (value) =>
-                ClerkErrors.fromJson(value as Map<String, dynamic>),
-            '422': (value) =>
-                ClerkErrors.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'400': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '401': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '403': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '404': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '422': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Deletes a machine. Use its `machine_id` to identify the machine you want to remove. The response confirms deletion with the machine ID and a `deleted` value.
 ///
@@ -195,18 +154,12 @@ Future<MachineDeleted> deleteMachine(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'deleteMachine',
-          fromJsonRaw: (value) =>
-              MachineDeleted.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => MachineDeleted.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-        '400': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>),
-        '401': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>),
-        '403': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>),
-        '404': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>),
-        '422': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'400': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '401': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '403': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '404': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '422': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Retrieves the secret key for a machine. Use the `machine_id` to identify which machine's key you need.
 ///
@@ -220,17 +173,12 @@ Future<MachineSecretKey> getMachineSecretKey(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'getMachineSecretKey',
-          fromJsonRaw: (value) =>
-              MachineSecretKey.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => MachineSecretKey.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-        '400': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>),
-        '401': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>),
-        '403': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>),
-        '404': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'400': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '401': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '403': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '404': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Rotates the machine's secret key. When the secret key is rotated, make sure to update it in your machine/application. The previous secret key will remain valid for the duration specified by the previous_token_ttl parameter.
 ///
@@ -251,23 +199,12 @@ Future<MachineSecretKey> rotateMachineSecretKey(ClientConfig config,
           body: {'previous_token_ttl': previousTokenTtl},
           decoder: SdkResponseDecoder.json,
           operationId: 'rotateMachineSecretKey',
-          fromJsonRaw: (value) =>
-              MachineSecretKey.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => MachineSecretKey.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '400': (value) =>
-                ClerkErrors.fromJson(value as Map<String, dynamic>),
-            '401': (value) =>
-                ClerkErrors.fromJson(value as Map<String, dynamic>),
-            '403': (value) =>
-                ClerkErrors.fromJson(value as Map<String, dynamic>),
-            '404': (value) =>
-                ClerkErrors.fromJson(value as Map<String, dynamic>),
-            '422': (value) =>
-                ClerkErrors.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'400': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '401': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '403': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '404': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '422': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Creates a new machine scope, allowing the specified machine to access another machine. Maximum of 150 scopes per machine.
 ///
@@ -284,25 +221,12 @@ Future<MachineScope> createMachineScope(ClientConfig config,
           body: {'to_machine_id': toMachineId},
           decoder: SdkResponseDecoder.json,
           operationId: 'createMachineScope',
-          fromJsonRaw: (value) =>
-              MachineScope.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => MachineScope.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '400': (value) =>
-                ClerkErrors.fromJson(value as Map<String, dynamic>),
-            '401': (value) =>
-                ClerkErrors.fromJson(value as Map<String, dynamic>),
-            '403': (value) =>
-                ClerkErrors.fromJson(value as Map<String, dynamic>),
-            '404': (value) =>
-                ClerkErrors.fromJson(value as Map<String, dynamic>),
-            '409': (value) =>
-                ClerkErrors.fromJson(value as Map<String, dynamic>),
-            '422': (value) =>
-                ClerkErrors.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'400': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '401': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '403': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '404': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '409': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '422': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Deletes a machine scope, removing access from one machine to another.
 ///
@@ -317,15 +241,8 @@ Future<MachineScopeDeleted> deleteMachineScope(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'deleteMachineScope',
-          fromJsonRaw: (value) =>
-              MachineScopeDeleted.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => MachineScopeDeleted.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-        '400': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>),
-        '401': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>),
-        '403': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>),
-        '404': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>),
-        '422': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'400': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '401': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '403': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '404': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '422': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)}))
       .data;
 }

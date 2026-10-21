@@ -8,145 +8,73 @@ part of 'shared_verification.dart';
 class VerificationResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The type of the verification object.
   final SdkOptional<String> object;
-
   /// The ID of the verification. Pass this to attempt_verification.
   final SdkOptional<String> id;
-
   /// The status of the verification (unverified, verified, expired, or failed).
   final SdkOptional<String> status;
-
   /// The verification strategy (email_code or phone_code).
   final SdkOptional<String> strategy;
-
   /// The number of attempts made against this verification.
   final SdkOptional<int?> attempts;
-
   /// Unix timestamp (milliseconds) at which the code expires.
   final SdkOptional<int?> expireAt;
-
   /// The channel the code was sent over (phone numbers only).
   final SdkOptional<String?> channel;
 
-  const VerificationResponse(
-      {this.object = const SdkOmitted(),
-      this.id = const SdkOmitted(),
-      this.status = const SdkOmitted(),
-      this.strategy = const SdkOmitted(),
-      this.attempts = const SdkOmitted(),
-      this.expireAt = const SdkOmitted(),
-      this.channel = const SdkOmitted()});
+  const VerificationResponse({this.object = const SdkOmitted(), this.id = const SdkOmitted(), this.status = const SdkOmitted(), this.strategy = const SdkOmitted(), this.attempts = const SdkOmitted(), this.expireAt = const SdkOmitted(), this.channel = const SdkOmitted()});
 
-  VerificationResponse Function(
-      {SdkOptional<String> object,
-      SdkOptional<String> id,
-      SdkOptional<String> status,
-      SdkOptional<String> strategy,
-      SdkOptional<int?> attempts,
-      SdkOptional<int?> expireAt,
-      SdkOptional<String?> channel}) get copyWith => _copyWith;
+  VerificationResponse Function({SdkOptional<String> object, SdkOptional<String> id, SdkOptional<String> status, SdkOptional<String> strategy, SdkOptional<int?> attempts, SdkOptional<int?> expireAt, SdkOptional<String?> channel}) get copyWith => _copyWith;
 
-  VerificationResponse _copyWith(
-          {Object? object = sdkOmittedValue,
-          Object? id = sdkOmittedValue,
-          Object? status = sdkOmittedValue,
-          Object? strategy = sdkOmittedValue,
-          Object? attempts = sdkOmittedValue,
-          Object? expireAt = sdkOmittedValue,
-          Object? channel = sdkOmittedValue}) =>
-      VerificationResponse(
-        object: identical(object, sdkOmittedValue)
-            ? this.object
-            : object as SdkOptional<String>,
-        id: identical(id, sdkOmittedValue)
-            ? this.id
-            : id as SdkOptional<String>,
-        status: identical(status, sdkOmittedValue)
-            ? this.status
-            : status as SdkOptional<String>,
-        strategy: identical(strategy, sdkOmittedValue)
-            ? this.strategy
-            : strategy as SdkOptional<String>,
-        attempts: identical(attempts, sdkOmittedValue)
-            ? this.attempts
-            : attempts as SdkOptional<int?>,
-        expireAt: identical(expireAt, sdkOmittedValue)
-            ? this.expireAt
-            : expireAt as SdkOptional<int?>,
-        channel: identical(channel, sdkOmittedValue)
-            ? this.channel
-            : channel as SdkOptional<String?>,
-      );
+  VerificationResponse _copyWith({Object? object = sdkOmittedValue, Object? id = sdkOmittedValue, Object? status = sdkOmittedValue, Object? strategy = sdkOmittedValue, Object? attempts = sdkOmittedValue, Object? expireAt = sdkOmittedValue, Object? channel = sdkOmittedValue}) => VerificationResponse(
+    object: identical(object, sdkOmittedValue) ? this.object : object as SdkOptional<String>,
+    id: identical(id, sdkOmittedValue) ? this.id : id as SdkOptional<String>,
+    status: identical(status, sdkOmittedValue) ? this.status : status as SdkOptional<String>,
+    strategy: identical(strategy, sdkOmittedValue) ? this.strategy : strategy as SdkOptional<String>,
+    attempts: identical(attempts, sdkOmittedValue) ? this.attempts : attempts as SdkOptional<int?>,
+    expireAt: identical(expireAt, sdkOmittedValue) ? this.expireAt : expireAt as SdkOptional<int?>,
+    channel: identical(channel, sdkOmittedValue) ? this.channel : channel as SdkOptional<String?>,
+  );
 
-  factory VerificationResponse.fromJson(Map<String, dynamic> json) =>
-      VerificationResponse(
-        object: json['object'] != null
-            ? SdkPresent((json['object'] as String?)!)
-            : const SdkOmitted(),
-        id: json['id'] != null
-            ? SdkPresent((json['id'] as String?)!)
-            : const SdkOmitted(),
-        status: json['status'] != null
-            ? SdkPresent((json['status'] as String?)!)
-            : const SdkOmitted(),
-        strategy: json['strategy'] != null
-            ? SdkPresent((json['strategy'] as String?)!)
-            : const SdkOmitted(),
-        attempts: json.containsKey('attempts')
-            ? SdkPresent((json['attempts'] as num?)?.toInt())
-            : const SdkOmitted(),
-        expireAt: json.containsKey('expire_at')
-            ? SdkPresent((json['expire_at'] as num?)?.toInt())
-            : const SdkOmitted(),
-        channel: json.containsKey('channel')
-            ? SdkPresent(json['channel'] as String?)
-            : const SdkOmitted(),
-      );
+  factory VerificationResponse.fromJson(Map<String, dynamic> json) => VerificationResponse(
+    object: json['object'] != null ? SdkPresent((json['object'] as String?)!) : const SdkOmitted(),
+    id: json['id'] != null ? SdkPresent((json['id'] as String?)!) : const SdkOmitted(),
+    status: json['status'] != null ? SdkPresent((json['status'] as String?)!) : const SdkOmitted(),
+    strategy: json['strategy'] != null ? SdkPresent((json['strategy'] as String?)!) : const SdkOmitted(),
+    attempts: json.containsKey('attempts') ? SdkPresent((json['attempts'] as num?)?.toInt()) : const SdkOmitted(),
+    expireAt: json.containsKey('expire_at') ? SdkPresent((json['expire_at'] as num?)?.toInt()) : const SdkOmitted(),
+    channel: json.containsKey('channel') ? SdkPresent(json['channel'] as String?) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (object) {
-          SdkPresent<String>(value: final value) => {
-              'object': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (id) {
-          SdkPresent<String>(value: final value) => {
-              'id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (status) {
-          SdkPresent<String>(value: final value) => {
-              'status': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (strategy) {
-          SdkPresent<String>(value: final value) => {
-              'strategy': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (attempts) {
-          SdkPresent<int?>(value: final value) => {
-              'attempts': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (expireAt) {
-          SdkPresent<int?>(value: final value) => {
-              'expire_at': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (channel) {
-          SdkPresent<String?>(value: final value) => {
-              'channel': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (object) {
+      SdkPresent<String>(value: final value) => {'object': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (id) {
+      SdkPresent<String>(value: final value) => {'id': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (status) {
+      SdkPresent<String>(value: final value) => {'status': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (strategy) {
+      SdkPresent<String>(value: final value) => {'strategy': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (attempts) {
+      SdkPresent<int?>(value: final value) => {'attempts': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (expireAt) {
+      SdkPresent<int?>(value: final value) => {'expire_at': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (channel) {
+      SdkPresent<String?>(value: final value) => {'channel': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

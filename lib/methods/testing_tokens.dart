@@ -14,8 +14,7 @@ Future<TestingToken> createTestingToken(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'createTestingToken',
-          fromJsonRaw: (value) =>
-              TestingToken.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => TestingToken.fromJson(value as Map<String, dynamic>),
           options: requestOptions))
       .data;
 }

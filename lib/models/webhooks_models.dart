@@ -8,7 +8,6 @@ part of 'webhooks.dart';
 class SvixURL {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Required `string` value serialized in the `svix_url` wire field.
   final String svixUrl;
 
@@ -17,16 +16,14 @@ class SvixURL {
   SvixURL Function({String svixUrl}) get copyWith => _copyWith;
 
   SvixURL _copyWith({Object? svixUrl = sdkOmittedValue}) => SvixURL(
-        svixUrl: identical(svixUrl, sdkOmittedValue)
-            ? this.svixUrl
-            : svixUrl as String,
-      );
+    svixUrl: identical(svixUrl, sdkOmittedValue) ? this.svixUrl : svixUrl as String,
+  );
 
   factory SvixURL.fromJson(Map<String, dynamic> json) => SvixURL(
-        svixUrl: (json['svix_url'] as String?)!,
-      );
+    svixUrl: (json['svix_url'] as String?)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'svix_url': svixUrl,
-      };
+    'svix_url': svixUrl,
+  };
 }

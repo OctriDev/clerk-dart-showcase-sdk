@@ -16,14 +16,12 @@ Future<SignUp> getSignUp(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'getSignUp',
-          fromJsonRaw: (value) =>
-              SignUp.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => SignUp.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-        '403': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'403': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Updates an existing sign-up with the fields you provide. Use `external_id` to associate the sign-up with an identifier from your external system, or set `custom_action` to mark it as a custom action. The response includes the sign-up's current status and verification details.
 ///
@@ -48,12 +46,8 @@ Future<SignUp> updateSignUp(ClientConfig config,
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'updateSignUp',
-          fromJsonRaw: (value) =>
-              SignUp.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => SignUp.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '403': (value) =>
-                ClerkErrors.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'403': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)}))
       .data;
 }

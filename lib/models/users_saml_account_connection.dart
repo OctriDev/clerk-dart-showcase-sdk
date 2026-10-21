@@ -8,185 +8,92 @@ part of 'users.dart';
 class SAMLAccountConnection {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Required `string` value serialized in the `id` wire field.
   final String id;
-
   /// Required `string` value serialized in the `name` wire field.
   final String name;
-
   /// Optional `string` value serialized in the `domain` wire field.
   final SdkOptional<String> domain;
-
   /// Optional array value serialized in the `domains` wire field.
   final SdkOptional<List<String>> domains;
-
   /// Required `boolean` value serialized in the `active` wire field.
   final bool active;
-
   /// Required `string` value serialized in the `provider` wire field.
   final String provider;
-
   /// Required `boolean` value serialized in the `sync_user_attributes` wire field.
   final bool syncUserAttributes;
-
   /// Optional `boolean` value serialized in the `allow_subdomains` wire field.
   final SdkOptional<bool> allowSubdomains;
-
   /// Optional `boolean` value serialized in the `allow_idp_initiated` wire field.
   final SdkOptional<bool> allowIdpInitiated;
-
   /// Optional `boolean` value serialized in the `disable_additional_identifications` wire field.
   final SdkOptional<bool> disableAdditionalIdentifications;
-
   /// Unix timestamp of creation.
   final int createdAt;
-
   /// Unix timestamp of last update.
   final int updatedAt;
 
-  const SAMLAccountConnection(
-      {required this.id,
-      required this.name,
-      this.domain = const SdkOmitted(),
-      this.domains = const SdkOmitted(),
-      required this.active,
-      required this.provider,
-      required this.syncUserAttributes,
-      this.allowSubdomains = const SdkOmitted(),
-      this.allowIdpInitiated = const SdkOmitted(),
-      this.disableAdditionalIdentifications = const SdkOmitted(),
-      required this.createdAt,
-      required this.updatedAt});
+  const SAMLAccountConnection({required this.id, required this.name, this.domain = const SdkOmitted(), this.domains = const SdkOmitted(), required this.active, required this.provider, required this.syncUserAttributes, this.allowSubdomains = const SdkOmitted(), this.allowIdpInitiated = const SdkOmitted(), this.disableAdditionalIdentifications = const SdkOmitted(), required this.createdAt, required this.updatedAt});
 
-  SAMLAccountConnection Function(
-      {String id,
-      String name,
-      SdkOptional<String> domain,
-      SdkOptional<List<String>> domains,
-      bool active,
-      String provider,
-      bool syncUserAttributes,
-      SdkOptional<bool> allowSubdomains,
-      SdkOptional<bool> allowIdpInitiated,
-      SdkOptional<bool> disableAdditionalIdentifications,
-      int createdAt,
-      int updatedAt}) get copyWith => _copyWith;
+  SAMLAccountConnection Function({String id, String name, SdkOptional<String> domain, SdkOptional<List<String>> domains, bool active, String provider, bool syncUserAttributes, SdkOptional<bool> allowSubdomains, SdkOptional<bool> allowIdpInitiated, SdkOptional<bool> disableAdditionalIdentifications, int createdAt, int updatedAt}) get copyWith => _copyWith;
 
-  SAMLAccountConnection _copyWith(
-          {Object? id = sdkOmittedValue,
-          Object? name = sdkOmittedValue,
-          Object? domain = sdkOmittedValue,
-          Object? domains = sdkOmittedValue,
-          Object? active = sdkOmittedValue,
-          Object? provider = sdkOmittedValue,
-          Object? syncUserAttributes = sdkOmittedValue,
-          Object? allowSubdomains = sdkOmittedValue,
-          Object? allowIdpInitiated = sdkOmittedValue,
-          Object? disableAdditionalIdentifications = sdkOmittedValue,
-          Object? createdAt = sdkOmittedValue,
-          Object? updatedAt = sdkOmittedValue}) =>
-      SAMLAccountConnection(
-        id: identical(id, sdkOmittedValue) ? this.id : id as String,
-        name: identical(name, sdkOmittedValue) ? this.name : name as String,
-        domain: identical(domain, sdkOmittedValue)
-            ? this.domain
-            : domain as SdkOptional<String>,
-        domains: identical(domains, sdkOmittedValue)
-            ? this.domains
-            : domains as SdkOptional<List<String>>,
-        active:
-            identical(active, sdkOmittedValue) ? this.active : active as bool,
-        provider: identical(provider, sdkOmittedValue)
-            ? this.provider
-            : provider as String,
-        syncUserAttributes: identical(syncUserAttributes, sdkOmittedValue)
-            ? this.syncUserAttributes
-            : syncUserAttributes as bool,
-        allowSubdomains: identical(allowSubdomains, sdkOmittedValue)
-            ? this.allowSubdomains
-            : allowSubdomains as SdkOptional<bool>,
-        allowIdpInitiated: identical(allowIdpInitiated, sdkOmittedValue)
-            ? this.allowIdpInitiated
-            : allowIdpInitiated as SdkOptional<bool>,
-        disableAdditionalIdentifications:
-            identical(disableAdditionalIdentifications, sdkOmittedValue)
-                ? this.disableAdditionalIdentifications
-                : disableAdditionalIdentifications as SdkOptional<bool>,
-        createdAt: identical(createdAt, sdkOmittedValue)
-            ? this.createdAt
-            : createdAt as int,
-        updatedAt: identical(updatedAt, sdkOmittedValue)
-            ? this.updatedAt
-            : updatedAt as int,
-      );
+  SAMLAccountConnection _copyWith({Object? id = sdkOmittedValue, Object? name = sdkOmittedValue, Object? domain = sdkOmittedValue, Object? domains = sdkOmittedValue, Object? active = sdkOmittedValue, Object? provider = sdkOmittedValue, Object? syncUserAttributes = sdkOmittedValue, Object? allowSubdomains = sdkOmittedValue, Object? allowIdpInitiated = sdkOmittedValue, Object? disableAdditionalIdentifications = sdkOmittedValue, Object? createdAt = sdkOmittedValue, Object? updatedAt = sdkOmittedValue}) => SAMLAccountConnection(
+    id: identical(id, sdkOmittedValue) ? this.id : id as String,
+    name: identical(name, sdkOmittedValue) ? this.name : name as String,
+    domain: identical(domain, sdkOmittedValue) ? this.domain : domain as SdkOptional<String>,
+    domains: identical(domains, sdkOmittedValue) ? this.domains : domains as SdkOptional<List<String>>,
+    active: identical(active, sdkOmittedValue) ? this.active : active as bool,
+    provider: identical(provider, sdkOmittedValue) ? this.provider : provider as String,
+    syncUserAttributes: identical(syncUserAttributes, sdkOmittedValue) ? this.syncUserAttributes : syncUserAttributes as bool,
+    allowSubdomains: identical(allowSubdomains, sdkOmittedValue) ? this.allowSubdomains : allowSubdomains as SdkOptional<bool>,
+    allowIdpInitiated: identical(allowIdpInitiated, sdkOmittedValue) ? this.allowIdpInitiated : allowIdpInitiated as SdkOptional<bool>,
+    disableAdditionalIdentifications: identical(disableAdditionalIdentifications, sdkOmittedValue) ? this.disableAdditionalIdentifications : disableAdditionalIdentifications as SdkOptional<bool>,
+    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as int,
+    updatedAt: identical(updatedAt, sdkOmittedValue) ? this.updatedAt : updatedAt as int,
+  );
 
-  factory SAMLAccountConnection.fromJson(Map<String, dynamic> json) =>
-      SAMLAccountConnection(
-        id: (json['id'] as String?)!,
-        name: (json['name'] as String?)!,
-        domain: json['domain'] != null
-            ? SdkPresent((json['domain'] as String?)!)
-            : const SdkOmitted(),
-        domains: json['domains'] != null
-            ? SdkPresent(
-                ((json['domains'] as List?)?.map((e) => e as String).toList())!)
-            : const SdkOmitted(),
-        active: (json['active'] as bool?)!,
-        provider: (json['provider'] as String?)!,
-        syncUserAttributes: (json['sync_user_attributes'] as bool?)!,
-        allowSubdomains: json['allow_subdomains'] != null
-            ? SdkPresent((json['allow_subdomains'] as bool?)!)
-            : const SdkOmitted(),
-        allowIdpInitiated: json['allow_idp_initiated'] != null
-            ? SdkPresent((json['allow_idp_initiated'] as bool?)!)
-            : const SdkOmitted(),
-        disableAdditionalIdentifications:
-            json['disable_additional_identifications'] != null
-                ? SdkPresent(
-                    (json['disable_additional_identifications'] as bool?)!)
-                : const SdkOmitted(),
-        createdAt: ((json['created_at'] as num?)?.toInt())!,
-        updatedAt: ((json['updated_at'] as num?)?.toInt())!,
-      );
+  factory SAMLAccountConnection.fromJson(Map<String, dynamic> json) => SAMLAccountConnection(
+    id: (json['id'] as String?)!,
+    name: (json['name'] as String?)!,
+    domain: json['domain'] != null ? SdkPresent((json['domain'] as String?)!) : const SdkOmitted(),
+    domains: json['domains'] != null ? SdkPresent(((json['domains'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
+    active: (json['active'] as bool?)!,
+    provider: (json['provider'] as String?)!,
+    syncUserAttributes: (json['sync_user_attributes'] as bool?)!,
+    allowSubdomains: json['allow_subdomains'] != null ? SdkPresent((json['allow_subdomains'] as bool?)!) : const SdkOmitted(),
+    allowIdpInitiated: json['allow_idp_initiated'] != null ? SdkPresent((json['allow_idp_initiated'] as bool?)!) : const SdkOmitted(),
+    disableAdditionalIdentifications: json['disable_additional_identifications'] != null ? SdkPresent((json['disable_additional_identifications'] as bool?)!) : const SdkOmitted(),
+    createdAt: ((json['created_at'] as num?)?.toInt())!,
+    updatedAt: ((json['updated_at'] as num?)?.toInt())!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'id': id,
-        'name': name,
-        ...switch (domain) {
-          SdkPresent<String>(value: final value) => {
-              'domain': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (domains) {
-          SdkPresent<List<String>>(value: final value) => {
-              'domains': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        'active': active,
-        'provider': provider,
-        'sync_user_attributes': syncUserAttributes,
-        ...switch (allowSubdomains) {
-          SdkPresent<bool>(value: final value) => {
-              'allow_subdomains': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (allowIdpInitiated) {
-          SdkPresent<bool>(value: final value) => {
-              'allow_idp_initiated': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (disableAdditionalIdentifications) {
-          SdkPresent<bool>(value: final value) => {
-              'disable_additional_identifications': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        'created_at': createdAt,
-        'updated_at': updatedAt,
-      };
+    'id': id,
+    'name': name,
+    ...switch (domain) {
+      SdkPresent<String>(value: final value) => {'domain': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (domains) {
+      SdkPresent<List<String>>(value: final value) => {'domains': value,},
+      _ => const <String, dynamic>{},
+    },
+    'active': active,
+    'provider': provider,
+    'sync_user_attributes': syncUserAttributes,
+    ...switch (allowSubdomains) {
+      SdkPresent<bool>(value: final value) => {'allow_subdomains': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (allowIdpInitiated) {
+      SdkPresent<bool>(value: final value) => {'allow_idp_initiated': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (disableAdditionalIdentifications) {
+      SdkPresent<bool>(value: final value) => {'disable_additional_identifications': value,},
+      _ => const <String, dynamic>{},
+    },
+    'created_at': createdAt,
+    'updated_at': updatedAt,
+  };
 }

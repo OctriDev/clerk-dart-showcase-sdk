@@ -8,65 +8,35 @@ part of 'shared_commerce.dart';
 class CommercePerUnitTotalTier2 {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Units billed in this tier; null means unlimited
   final SdkOptional<int?> quantity;
-
   /// Price charged per block in this tier
   final CommerceMoneyResponse feePerBlock;
-
   /// Total charge for this tier
   final CommerceMoneyResponse total;
 
-  const CommercePerUnitTotalTier2(
-      {this.quantity = const SdkOmitted(),
-      required this.feePerBlock,
-      required this.total});
+  const CommercePerUnitTotalTier2({this.quantity = const SdkOmitted(), required this.feePerBlock, required this.total});
 
-  CommercePerUnitTotalTier2 Function(
-      {SdkOptional<int?> quantity,
-      CommerceMoneyResponse feePerBlock,
-      CommerceMoneyResponse total}) get copyWith => _copyWith;
+  CommercePerUnitTotalTier2 Function({SdkOptional<int?> quantity, CommerceMoneyResponse feePerBlock, CommerceMoneyResponse total}) get copyWith => _copyWith;
 
-  CommercePerUnitTotalTier2 _copyWith(
-          {Object? quantity = sdkOmittedValue,
-          Object? feePerBlock = sdkOmittedValue,
-          Object? total = sdkOmittedValue}) =>
-      CommercePerUnitTotalTier2(
-        quantity: identical(quantity, sdkOmittedValue)
-            ? this.quantity
-            : quantity as SdkOptional<int?>,
-        feePerBlock: identical(feePerBlock, sdkOmittedValue)
-            ? this.feePerBlock
-            : feePerBlock as CommerceMoneyResponse,
-        total: identical(total, sdkOmittedValue)
-            ? this.total
-            : total as CommerceMoneyResponse,
-      );
+  CommercePerUnitTotalTier2 _copyWith({Object? quantity = sdkOmittedValue, Object? feePerBlock = sdkOmittedValue, Object? total = sdkOmittedValue}) => CommercePerUnitTotalTier2(
+    quantity: identical(quantity, sdkOmittedValue) ? this.quantity : quantity as SdkOptional<int?>,
+    feePerBlock: identical(feePerBlock, sdkOmittedValue) ? this.feePerBlock : feePerBlock as CommerceMoneyResponse,
+    total: identical(total, sdkOmittedValue) ? this.total : total as CommerceMoneyResponse,
+  );
 
-  factory CommercePerUnitTotalTier2.fromJson(Map<String, dynamic> json) =>
-      CommercePerUnitTotalTier2(
-        quantity: json.containsKey('quantity')
-            ? SdkPresent((json['quantity'] as num?)?.toInt())
-            : const SdkOmitted(),
-        feePerBlock: (json['fee_per_block'] != null
-            ? CommerceMoneyResponse.fromJson(
-                json['fee_per_block'] as Map<String, dynamic>)
-            : null)!,
-        total: (json['total'] != null
-            ? CommerceMoneyResponse.fromJson(
-                json['total'] as Map<String, dynamic>)
-            : null)!,
-      );
+  factory CommercePerUnitTotalTier2.fromJson(Map<String, dynamic> json) => CommercePerUnitTotalTier2(
+    quantity: json.containsKey('quantity') ? SdkPresent((json['quantity'] as num?)?.toInt()) : const SdkOmitted(),
+    feePerBlock: (json['fee_per_block'] != null ? CommerceMoneyResponse.fromJson(json['fee_per_block'] as Map<String, dynamic>) : null)!,
+    total: (json['total'] != null ? CommerceMoneyResponse.fromJson(json['total'] as Map<String, dynamic>) : null)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (quantity) {
-          SdkPresent<int?>(value: final value) => {
-              'quantity': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        'fee_per_block': feePerBlock.toJson(),
-        'total': total.toJson(),
-      };
+    ...switch (quantity) {
+      SdkPresent<int?>(value: final value) => {'quantity': value,},
+      _ => const <String, dynamic>{},
+    },
+    'fee_per_block': feePerBlock.toJson(),
+    'total': total.toJson(),
+  };
 }

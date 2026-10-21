@@ -10,64 +10,32 @@ sealed class ExternalAccountWithVerificationVerification {
   const ExternalAccountWithVerificationVerification();
   factory ExternalAccountWithVerificationVerification.fromJson(Object? json) {
     if (json is Map<String, dynamic>) {
-      try {
-        final value = VerificationOauth.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return ExternalAccountWithVerificationVerificationVerificationOauth(
-              value);
-        }
-      } catch (_) {}
-      try {
-        final value = VerificationGoogleOneTap.fromJson(json);
-        if (sdkKeepsEveryKey(json, value.toJson())) {
-          return ExternalAccountWithVerificationVerificationVerificationGoogleOneTap(
-              value);
-        }
-      } catch (_) {}
+      try { final value = VerificationOauth.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ExternalAccountWithVerificationVerificationVerificationOauth(value); } } catch (_) {}
+      try { final value = VerificationGoogleOneTap.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return ExternalAccountWithVerificationVerificationVerificationGoogleOneTap(value); } } catch (_) {}
     }
-    try {
-      return ExternalAccountWithVerificationVerificationVerificationOauth(
-          VerificationOauth.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    try {
-      return ExternalAccountWithVerificationVerificationVerificationGoogleOneTap(
-          VerificationGoogleOneTap.fromJson(json as Map<String, dynamic>));
-    } catch (_) {}
-    if (json is Map<String, dynamic> &&
-        json["object"] is String &&
-        !const {"verification_oauth", "verification_google_one_tap"}
-            .contains(json["object"])) {
-      return UnknownExternalAccountWithVerificationVerification(json);
-    }
-    throw FormatException(
-        "No variant matched for ExternalAccountWithVerificationVerification");
+    try { return ExternalAccountWithVerificationVerificationVerificationOauth(VerificationOauth.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try { return ExternalAccountWithVerificationVerificationVerificationGoogleOneTap(VerificationGoogleOneTap.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    if (json is Map<String, dynamic> && json["object"] is String && !const {"verification_oauth", "verification_google_one_tap"}.contains(json["object"])) { return UnknownExternalAccountWithVerificationVerification(json); }
+    throw FormatException("No variant matched for ExternalAccountWithVerificationVerification");
   }
   Object? toJson();
 }
 
-final class ExternalAccountWithVerificationVerificationVerificationOauth
-    extends ExternalAccountWithVerificationVerification {
+final class ExternalAccountWithVerificationVerificationVerificationOauth extends ExternalAccountWithVerificationVerification {
   final VerificationOauth value;
-  const ExternalAccountWithVerificationVerificationVerificationOauth(
-      this.value);
-  @override
-  Object? toJson() => value.toJson();
+  const ExternalAccountWithVerificationVerificationVerificationOauth(this.value);
+  @override Object? toJson() => value.toJson();
 }
 
-final class ExternalAccountWithVerificationVerificationVerificationGoogleOneTap
-    extends ExternalAccountWithVerificationVerification {
+final class ExternalAccountWithVerificationVerificationVerificationGoogleOneTap extends ExternalAccountWithVerificationVerification {
   final VerificationGoogleOneTap value;
-  const ExternalAccountWithVerificationVerificationVerificationGoogleOneTap(
-      this.value);
-  @override
-  Object? toJson() => value.toJson();
+  const ExternalAccountWithVerificationVerificationVerificationGoogleOneTap(this.value);
+  @override Object? toJson() => value.toJson();
 }
 
 /// A [ExternalAccountWithVerificationVerification] whose `object` names no branch this SDK knows, kept as received.
-final class UnknownExternalAccountWithVerificationVerification
-    extends ExternalAccountWithVerificationVerification {
+final class UnknownExternalAccountWithVerificationVerification extends ExternalAccountWithVerificationVerification {
   final Map<String, dynamic> raw;
   const UnknownExternalAccountWithVerificationVerification(this.raw);
-  @override
-  Object? toJson() => raw;
+  @override Object? toJson() => raw;
 }

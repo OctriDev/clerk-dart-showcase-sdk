@@ -8,33 +8,27 @@ part of 'shared.dart';
 class IdentificationLink {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Required `string` value serialized in the `type` wire field.
   final String type_;
-
   /// Required `string` value serialized in the `id` wire field.
   final String id;
 
   const IdentificationLink({required this.type_, required this.id});
 
-  IdentificationLink Function({String type_, String id}) get copyWith =>
-      _copyWith;
+  IdentificationLink Function({String type_, String id}) get copyWith => _copyWith;
 
-  IdentificationLink _copyWith(
-          {Object? type_ = sdkOmittedValue, Object? id = sdkOmittedValue}) =>
-      IdentificationLink(
-        type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as String,
-        id: identical(id, sdkOmittedValue) ? this.id : id as String,
-      );
+  IdentificationLink _copyWith({Object? type_ = sdkOmittedValue, Object? id = sdkOmittedValue}) => IdentificationLink(
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as String,
+    id: identical(id, sdkOmittedValue) ? this.id : id as String,
+  );
 
-  factory IdentificationLink.fromJson(Map<String, dynamic> json) =>
-      IdentificationLink(
-        type_: (json['type'] as String?)!,
-        id: (json['id'] as String?)!,
-      );
+  factory IdentificationLink.fromJson(Map<String, dynamic> json) => IdentificationLink(
+    type_: (json['type'] as String?)!,
+    id: (json['id'] as String?)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'type': type_,
-        'id': id,
-      };
+    'type': type_,
+    'id': id,
+  };
 }

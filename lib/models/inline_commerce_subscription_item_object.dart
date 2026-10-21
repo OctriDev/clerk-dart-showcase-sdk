@@ -6,62 +6,55 @@ part of 'inline.dart';
 // Inline operation models
 /// String representing the object's type. Objects of the same type share the same value.
 final class CommerceSubscriptionItemObject {
+
   final String value;
 
   const CommerceSubscriptionItemObject._(this.value);
 
-  factory CommerceSubscriptionItemObject.fromJson(String value) =>
-      CommerceSubscriptionItemObject._(value);
+  factory CommerceSubscriptionItemObject.fromJson(String value) => CommerceSubscriptionItemObject._(value);
 
-  static const commerceSubscriptionItem =
-      CommerceSubscriptionItemObject._('commerce_subscription_item');
+  static const commerceSubscriptionItem = CommerceSubscriptionItemObject._('commerce_subscription_item');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is CommerceSubscriptionItemObject && other.value == value;
+  @override bool operator ==(Object other) => other is CommerceSubscriptionItemObject && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The billing period for this subscription item.
 final class CommerceSubscriptionItemPlanPeriod {
+
   final String value;
 
   const CommerceSubscriptionItemPlanPeriod._(this.value);
 
-  factory CommerceSubscriptionItemPlanPeriod.fromJson(String value) =>
-      CommerceSubscriptionItemPlanPeriod._(value);
+  factory CommerceSubscriptionItemPlanPeriod.fromJson(String value) => CommerceSubscriptionItemPlanPeriod._(value);
 
   static const month = CommerceSubscriptionItemPlanPeriod._('month');
   static const annual = CommerceSubscriptionItemPlanPeriod._('annual');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is CommerceSubscriptionItemPlanPeriod && other.value == value;
+  @override bool operator ==(Object other) => other is CommerceSubscriptionItemPlanPeriod && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// Current status of the subscription item.
 final class CommerceSubscriptionItemStatus {
+
   final String value;
 
   const CommerceSubscriptionItemStatus._(this.value);
 
-  factory CommerceSubscriptionItemStatus.fromJson(String value) =>
-      CommerceSubscriptionItemStatus._(value);
+  factory CommerceSubscriptionItemStatus.fromJson(String value) => CommerceSubscriptionItemStatus._(value);
 
   static const active = CommerceSubscriptionItemStatus._('active');
   static const canceled = CommerceSubscriptionItemStatus._('canceled');
@@ -74,75 +67,65 @@ final class CommerceSubscriptionItemStatus {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is CommerceSubscriptionItemStatus && other.value == value;
+  @override bool operator ==(Object other) => other is CommerceSubscriptionItemStatus && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// String representing the object's type. Objects of the same type share the same value.
 final class CommerceSubscriptionItem2Object {
+
   final String value;
 
   const CommerceSubscriptionItem2Object._(this.value);
 
-  factory CommerceSubscriptionItem2Object.fromJson(String value) =>
-      CommerceSubscriptionItem2Object._(value);
+  factory CommerceSubscriptionItem2Object.fromJson(String value) => CommerceSubscriptionItem2Object._(value);
 
-  static const commerceSubscriptionItem =
-      CommerceSubscriptionItem2Object._('commerce_subscription_item');
+  static const commerceSubscriptionItem = CommerceSubscriptionItem2Object._('commerce_subscription_item');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is CommerceSubscriptionItem2Object && other.value == value;
+  @override bool operator ==(Object other) => other is CommerceSubscriptionItem2Object && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// The billing period for this subscription.
 final class CommerceSubscriptionItem2PlanPeriod {
+
   final String value;
 
   const CommerceSubscriptionItem2PlanPeriod._(this.value);
 
-  factory CommerceSubscriptionItem2PlanPeriod.fromJson(String value) =>
-      CommerceSubscriptionItem2PlanPeriod._(value);
+  factory CommerceSubscriptionItem2PlanPeriod.fromJson(String value) => CommerceSubscriptionItem2PlanPeriod._(value);
 
   static const month = CommerceSubscriptionItem2PlanPeriod._('month');
   static const annual = CommerceSubscriptionItem2PlanPeriod._('annual');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is CommerceSubscriptionItem2PlanPeriod && other.value == value;
+  @override bool operator ==(Object other) => other is CommerceSubscriptionItem2PlanPeriod && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// Current status of the subscription item.
 final class CommerceSubscriptionItem2Status {
+
   final String value;
 
   const CommerceSubscriptionItem2Status._(this.value);
 
-  factory CommerceSubscriptionItem2Status.fromJson(String value) =>
-      CommerceSubscriptionItem2Status._(value);
+  factory CommerceSubscriptionItem2Status.fromJson(String value) => CommerceSubscriptionItem2Status._(value);
 
   static const active = CommerceSubscriptionItem2Status._('active');
   static const ended = CommerceSubscriptionItem2Status._('ended');
@@ -153,15 +136,12 @@ final class CommerceSubscriptionItem2Status {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is CommerceSubscriptionItem2Status && other.value == value;
+  @override bool operator ==(Object other) => other is CommerceSubscriptionItem2Status && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// String representing the object's type. Objects of the same type share the same value.
@@ -170,17 +150,14 @@ enum CookiesObject {
 
   static CookiesObject fromJson(String value) {
     switch (value) {
-      case 'cookies':
-        return CookiesObject.cookies;
-      default:
-        throw ArgumentError('Unknown CookiesObject: $value');
+      case 'cookies': return CookiesObject.cookies;
+      default: throw ArgumentError('Unknown CookiesObject: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case CookiesObject.cookies:
-        return 'cookies';
+      case CookiesObject.cookies: return 'cookies';
     }
   }
 
@@ -190,37 +167,30 @@ enum CookiesObject {
 
 /// Which billing periods this price supports. Inferred from amounts if omitted.
 final class CreateBillingPriceRequestSupportedBillingPeriods {
+
   final String value;
 
   const CreateBillingPriceRequestSupportedBillingPeriods._(this.value);
 
-  factory CreateBillingPriceRequestSupportedBillingPeriods.fromJson(
-          String value) =>
-      CreateBillingPriceRequestSupportedBillingPeriods._(value);
+  factory CreateBillingPriceRequestSupportedBillingPeriods.fromJson(String value) => CreateBillingPriceRequestSupportedBillingPeriods._(value);
 
-  static const month =
-      CreateBillingPriceRequestSupportedBillingPeriods._('month');
-  static const annual =
-      CreateBillingPriceRequestSupportedBillingPeriods._('annual');
-  static const both =
-      CreateBillingPriceRequestSupportedBillingPeriods._('both');
+  static const month = CreateBillingPriceRequestSupportedBillingPeriods._('month');
+  static const annual = CreateBillingPriceRequestSupportedBillingPeriods._('annual');
+  static const both = CreateBillingPriceRequestSupportedBillingPeriods._('both');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is CreateBillingPriceRequestSupportedBillingPeriods &&
-      other.value == value;
+  @override bool operator ==(Object other) => other is CreateBillingPriceRequestSupportedBillingPeriods && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// String representing the object's type. Always "directory".
 final class DirectoryObject {
+
   final String value;
 
   const DirectoryObject._(this.value);
@@ -231,87 +201,73 @@ final class DirectoryObject {
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is DirectoryObject && other.value == value;
+  @override bool operator ==(Object other) => other is DirectoryObject && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// String representing the object's type. Always "directory_group_role_mapping".
 final class DirectoryGroupRoleMappingObject {
+
   final String value;
 
   const DirectoryGroupRoleMappingObject._(this.value);
 
-  factory DirectoryGroupRoleMappingObject.fromJson(String value) =>
-      DirectoryGroupRoleMappingObject._(value);
+  factory DirectoryGroupRoleMappingObject.fromJson(String value) => DirectoryGroupRoleMappingObject._(value);
 
-  static const directoryGroupRoleMapping =
-      DirectoryGroupRoleMappingObject._('directory_group_role_mapping');
+  static const directoryGroupRoleMapping = DirectoryGroupRoleMappingObject._('directory_group_role_mapping');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is DirectoryGroupRoleMappingObject && other.value == value;
+  @override bool operator ==(Object other) => other is DirectoryGroupRoleMappingObject && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// Whether the directory group role mapping was successfully deleted.
 final class DirectoryGroupRoleMappingDeletedDeleted {
+
   final bool value;
 
   const DirectoryGroupRoleMappingDeletedDeleted._(this.value);
 
-  factory DirectoryGroupRoleMappingDeletedDeleted.fromJson(bool value) =>
-      DirectoryGroupRoleMappingDeletedDeleted._(value);
+  factory DirectoryGroupRoleMappingDeletedDeleted.fromJson(bool value) => DirectoryGroupRoleMappingDeletedDeleted._(value);
 
   static const true_ = DirectoryGroupRoleMappingDeletedDeleted._(true);
 
   bool toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is DirectoryGroupRoleMappingDeletedDeleted && other.value == value;
+  @override bool operator ==(Object other) => other is DirectoryGroupRoleMappingDeletedDeleted && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }
 
 /// String representing the object's type.
 final class DirectoryGroupRoleMappingDeletedObject {
+
   final String value;
 
   const DirectoryGroupRoleMappingDeletedObject._(this.value);
 
-  factory DirectoryGroupRoleMappingDeletedObject.fromJson(String value) =>
-      DirectoryGroupRoleMappingDeletedObject._(value);
+  factory DirectoryGroupRoleMappingDeletedObject.fromJson(String value) => DirectoryGroupRoleMappingDeletedObject._(value);
 
-  static const directoryGroupRoleMapping =
-      DirectoryGroupRoleMappingDeletedObject._('directory_group_role_mapping');
+  static const directoryGroupRoleMapping = DirectoryGroupRoleMappingDeletedObject._('directory_group_role_mapping');
 
   String toJson() => value;
 
-  @override
-  String toString() => value.toString();
+  @override String toString() => value.toString();
 
-  @override
-  bool operator ==(Object other) =>
-      other is DirectoryGroupRoleMappingDeletedObject && other.value == value;
+  @override bool operator ==(Object other) => other is DirectoryGroupRoleMappingDeletedObject && other.value == value;
 
-  @override
-  int get hashCode => value.hashCode;
+  @override int get hashCode => value.hashCode;
+
 }

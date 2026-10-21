@@ -8,67 +8,37 @@ part of 'machines.dart';
 class MachineScopeDeleted {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// String representing the object's type.
   final MachineScopeDeletedObject object;
-
   /// The ID of the machine that had access to the target machine
   final String fromMachineId;
-
   /// The ID of the machine that was being accessed
   final String toMachineId;
-
   /// Whether the machine scope was successfully deleted
   final MachineScopeDeletedDeleted deleted;
 
-  const MachineScopeDeleted(
-      {required this.object,
-      required this.fromMachineId,
-      required this.toMachineId,
-      required this.deleted});
+  const MachineScopeDeleted({required this.object, required this.fromMachineId, required this.toMachineId, required this.deleted});
 
-  MachineScopeDeleted Function(
-      {MachineScopeDeletedObject object,
-      String fromMachineId,
-      String toMachineId,
-      MachineScopeDeletedDeleted deleted}) get copyWith => _copyWith;
+  MachineScopeDeleted Function({MachineScopeDeletedObject object, String fromMachineId, String toMachineId, MachineScopeDeletedDeleted deleted}) get copyWith => _copyWith;
 
-  MachineScopeDeleted _copyWith(
-          {Object? object = sdkOmittedValue,
-          Object? fromMachineId = sdkOmittedValue,
-          Object? toMachineId = sdkOmittedValue,
-          Object? deleted = sdkOmittedValue}) =>
-      MachineScopeDeleted(
-        object: identical(object, sdkOmittedValue)
-            ? this.object
-            : object as MachineScopeDeletedObject,
-        fromMachineId: identical(fromMachineId, sdkOmittedValue)
-            ? this.fromMachineId
-            : fromMachineId as String,
-        toMachineId: identical(toMachineId, sdkOmittedValue)
-            ? this.toMachineId
-            : toMachineId as String,
-        deleted: identical(deleted, sdkOmittedValue)
-            ? this.deleted
-            : deleted as MachineScopeDeletedDeleted,
-      );
+  MachineScopeDeleted _copyWith({Object? object = sdkOmittedValue, Object? fromMachineId = sdkOmittedValue, Object? toMachineId = sdkOmittedValue, Object? deleted = sdkOmittedValue}) => MachineScopeDeleted(
+    object: identical(object, sdkOmittedValue) ? this.object : object as MachineScopeDeletedObject,
+    fromMachineId: identical(fromMachineId, sdkOmittedValue) ? this.fromMachineId : fromMachineId as String,
+    toMachineId: identical(toMachineId, sdkOmittedValue) ? this.toMachineId : toMachineId as String,
+    deleted: identical(deleted, sdkOmittedValue) ? this.deleted : deleted as MachineScopeDeletedDeleted,
+  );
 
-  factory MachineScopeDeleted.fromJson(Map<String, dynamic> json) =>
-      MachineScopeDeleted(
-        object: (json['object'] != null
-            ? MachineScopeDeletedObject.fromJson(json['object'] as String)
-            : null)!,
-        fromMachineId: (json['from_machine_id'] as String?)!,
-        toMachineId: (json['to_machine_id'] as String?)!,
-        deleted: (json['deleted'] != null
-            ? MachineScopeDeletedDeleted.fromJson(json['deleted'] as bool)
-            : null)!,
-      );
+  factory MachineScopeDeleted.fromJson(Map<String, dynamic> json) => MachineScopeDeleted(
+    object: (json['object'] != null ? MachineScopeDeletedObject.fromJson(json['object'] as String) : null)!,
+    fromMachineId: (json['from_machine_id'] as String?)!,
+    toMachineId: (json['to_machine_id'] as String?)!,
+    deleted: (json['deleted'] != null ? MachineScopeDeletedDeleted.fromJson(json['deleted'] as bool) : null)!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'object': object.toJson(),
-        'from_machine_id': fromMachineId,
-        'to_machine_id': toMachineId,
-        'deleted': deleted.toJson(),
-      };
+    'object': object.toJson(),
+    'from_machine_id': fromMachineId,
+    'to_machine_id': toMachineId,
+    'deleted': deleted.toJson(),
+  };
 }

@@ -8,44 +8,27 @@ part of 'billing.dart';
 class PaginatedCommerceSubscriptionItemResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Array of subscription items.
   final List<CommerceSubscriptionItem> data;
-
   /// Total number of subscription items.
   final int totalCount;
 
-  const PaginatedCommerceSubscriptionItemResponse(
-      {required this.data, required this.totalCount});
+  const PaginatedCommerceSubscriptionItemResponse({required this.data, required this.totalCount});
 
-  PaginatedCommerceSubscriptionItemResponse Function(
-      {List<CommerceSubscriptionItem> data,
-      int totalCount}) get copyWith => _copyWith;
+  PaginatedCommerceSubscriptionItemResponse Function({List<CommerceSubscriptionItem> data, int totalCount}) get copyWith => _copyWith;
 
-  PaginatedCommerceSubscriptionItemResponse _copyWith(
-          {Object? data = sdkOmittedValue,
-          Object? totalCount = sdkOmittedValue}) =>
-      PaginatedCommerceSubscriptionItemResponse(
-        data: identical(data, sdkOmittedValue)
-            ? this.data
-            : data as List<CommerceSubscriptionItem>,
-        totalCount: identical(totalCount, sdkOmittedValue)
-            ? this.totalCount
-            : totalCount as int,
-      );
+  PaginatedCommerceSubscriptionItemResponse _copyWith({Object? data = sdkOmittedValue, Object? totalCount = sdkOmittedValue}) => PaginatedCommerceSubscriptionItemResponse(
+    data: identical(data, sdkOmittedValue) ? this.data : data as List<CommerceSubscriptionItem>,
+    totalCount: identical(totalCount, sdkOmittedValue) ? this.totalCount : totalCount as int,
+  );
 
-  factory PaginatedCommerceSubscriptionItemResponse.fromJson(
-          Map<String, dynamic> json) =>
-      PaginatedCommerceSubscriptionItemResponse(
-        data: ((json['data'] as List?)
-            ?.map((e) =>
-                CommerceSubscriptionItem.fromJson(e as Map<String, dynamic>))
-            .toList())!,
-        totalCount: ((json['total_count'] as num?)?.toInt())!,
-      );
+  factory PaginatedCommerceSubscriptionItemResponse.fromJson(Map<String, dynamic> json) => PaginatedCommerceSubscriptionItemResponse(
+    data: ((json['data'] as List?)?.map((e) => CommerceSubscriptionItem.fromJson(e as Map<String, dynamic>)).toList())!,
+    totalCount: ((json['total_count'] as num?)?.toInt())!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'data': data.map((item) => item.toJson()).toList(),
-        'total_count': totalCount,
-      };
+    'data': data.map((item) => item.toJson()).toList(),
+    'total_count': totalCount,
+  };
 }

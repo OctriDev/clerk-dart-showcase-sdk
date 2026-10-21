@@ -8,40 +8,27 @@ part of 'saml_connections.dart';
 class SAMLConnections {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Required array value serialized in the `data` wire field.
   final List<SAMLConnection> data;
-
   /// Total number of SAML Connections
   final int totalCount;
 
   const SAMLConnections({required this.data, required this.totalCount});
 
-  SAMLConnections Function({List<SAMLConnection> data, int totalCount})
-      get copyWith => _copyWith;
+  SAMLConnections Function({List<SAMLConnection> data, int totalCount}) get copyWith => _copyWith;
 
-  SAMLConnections _copyWith(
-          {Object? data = sdkOmittedValue,
-          Object? totalCount = sdkOmittedValue}) =>
-      SAMLConnections(
-        data: identical(data, sdkOmittedValue)
-            ? this.data
-            : data as List<SAMLConnection>,
-        totalCount: identical(totalCount, sdkOmittedValue)
-            ? this.totalCount
-            : totalCount as int,
-      );
+  SAMLConnections _copyWith({Object? data = sdkOmittedValue, Object? totalCount = sdkOmittedValue}) => SAMLConnections(
+    data: identical(data, sdkOmittedValue) ? this.data : data as List<SAMLConnection>,
+    totalCount: identical(totalCount, sdkOmittedValue) ? this.totalCount : totalCount as int,
+  );
 
-  factory SAMLConnections.fromJson(Map<String, dynamic> json) =>
-      SAMLConnections(
-        data: ((json['data'] as List?)
-            ?.map((e) => SAMLConnection.fromJson(e as Map<String, dynamic>))
-            .toList())!,
-        totalCount: ((json['total_count'] as num?)?.toInt())!,
-      );
+  factory SAMLConnections.fromJson(Map<String, dynamic> json) => SAMLConnections(
+    data: ((json['data'] as List?)?.map((e) => SAMLConnection.fromJson(e as Map<String, dynamic>)).toList())!,
+    totalCount: ((json['total_count'] as num?)?.toInt())!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'data': data.map((item) => item.toJson()).toList(),
-        'total_count': totalCount,
-      };
+    'data': data.map((item) => item.toJson()).toList(),
+    'total_count': totalCount,
+  };
 }

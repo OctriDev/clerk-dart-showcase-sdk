@@ -7,486 +7,278 @@ part of 'inline.dart';
 class CreateAgentTaskRequestBody {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Identifies the user on whose behalf the agent task is created. Exactly one of user_id or identifier must be provided.
   final CreateAgentTaskRequestBodyOnBehalfOf onBehalfOf;
-
   /// The permissions granted to the agent task. Must be "*" (all permissions).
   final CreateAgentTaskRequestBodyPermissions permissions;
-
   /// A name identifying the agent. Used to derive a stable agent_id per instance. Logged for audit purposes.
   final String agentName;
-
   /// A description of the task being performed. Logged for audit purposes.
   final String taskDescription;
-
   /// The URL the user is redirected to after the agent task is accepted. Must be a valid absolute URL with an `https` scheme in production instances. In development instances, `http` is also permitted. The URL's domain must belong to one of the instance's associated domains (primary or satellite); otherwise the redirect will be rejected when the task ticket is consumed.
   final String redirectUrl;
-
   /// The maximum duration that the session which will be created by the generated agent task should last. By default, the duration of a session created via an agent task lasts 30 minutes.
   final SdkOptional<int> sessionMaxDurationInSeconds;
 
-  const CreateAgentTaskRequestBody(
-      {required this.onBehalfOf,
-      required this.permissions,
-      required this.agentName,
-      required this.taskDescription,
-      required this.redirectUrl,
-      this.sessionMaxDurationInSeconds = const SdkOmitted()});
+  const CreateAgentTaskRequestBody({required this.onBehalfOf, required this.permissions, required this.agentName, required this.taskDescription, required this.redirectUrl, this.sessionMaxDurationInSeconds = const SdkOmitted()});
 
-  CreateAgentTaskRequestBody Function(
-      {CreateAgentTaskRequestBodyOnBehalfOf onBehalfOf,
-      CreateAgentTaskRequestBodyPermissions permissions,
-      String agentName,
-      String taskDescription,
-      String redirectUrl,
-      SdkOptional<int> sessionMaxDurationInSeconds}) get copyWith => _copyWith;
+  CreateAgentTaskRequestBody Function({CreateAgentTaskRequestBodyOnBehalfOf onBehalfOf, CreateAgentTaskRequestBodyPermissions permissions, String agentName, String taskDescription, String redirectUrl, SdkOptional<int> sessionMaxDurationInSeconds}) get copyWith => _copyWith;
 
-  CreateAgentTaskRequestBody _copyWith(
-          {Object? onBehalfOf = sdkOmittedValue,
-          Object? permissions = sdkOmittedValue,
-          Object? agentName = sdkOmittedValue,
-          Object? taskDescription = sdkOmittedValue,
-          Object? redirectUrl = sdkOmittedValue,
-          Object? sessionMaxDurationInSeconds = sdkOmittedValue}) =>
-      CreateAgentTaskRequestBody(
-        onBehalfOf: identical(onBehalfOf, sdkOmittedValue)
-            ? this.onBehalfOf
-            : onBehalfOf as CreateAgentTaskRequestBodyOnBehalfOf,
-        permissions: identical(permissions, sdkOmittedValue)
-            ? this.permissions
-            : permissions as CreateAgentTaskRequestBodyPermissions,
-        agentName: identical(agentName, sdkOmittedValue)
-            ? this.agentName
-            : agentName as String,
-        taskDescription: identical(taskDescription, sdkOmittedValue)
-            ? this.taskDescription
-            : taskDescription as String,
-        redirectUrl: identical(redirectUrl, sdkOmittedValue)
-            ? this.redirectUrl
-            : redirectUrl as String,
-        sessionMaxDurationInSeconds:
-            identical(sessionMaxDurationInSeconds, sdkOmittedValue)
-                ? this.sessionMaxDurationInSeconds
-                : sessionMaxDurationInSeconds as SdkOptional<int>,
-      );
+  CreateAgentTaskRequestBody _copyWith({Object? onBehalfOf = sdkOmittedValue, Object? permissions = sdkOmittedValue, Object? agentName = sdkOmittedValue, Object? taskDescription = sdkOmittedValue, Object? redirectUrl = sdkOmittedValue, Object? sessionMaxDurationInSeconds = sdkOmittedValue}) => CreateAgentTaskRequestBody(
+    onBehalfOf: identical(onBehalfOf, sdkOmittedValue) ? this.onBehalfOf : onBehalfOf as CreateAgentTaskRequestBodyOnBehalfOf,
+    permissions: identical(permissions, sdkOmittedValue) ? this.permissions : permissions as CreateAgentTaskRequestBodyPermissions,
+    agentName: identical(agentName, sdkOmittedValue) ? this.agentName : agentName as String,
+    taskDescription: identical(taskDescription, sdkOmittedValue) ? this.taskDescription : taskDescription as String,
+    redirectUrl: identical(redirectUrl, sdkOmittedValue) ? this.redirectUrl : redirectUrl as String,
+    sessionMaxDurationInSeconds: identical(sessionMaxDurationInSeconds, sdkOmittedValue) ? this.sessionMaxDurationInSeconds : sessionMaxDurationInSeconds as SdkOptional<int>,
+  );
 
-  factory CreateAgentTaskRequestBody.fromJson(Map<String, dynamic> json) =>
-      CreateAgentTaskRequestBody(
-        onBehalfOf: (json['on_behalf_of'] != null
-            ? CreateAgentTaskRequestBodyOnBehalfOf.fromJson(
-                json['on_behalf_of'] as Map<String, dynamic>)
-            : null)!,
-        permissions: (json['permissions'] != null
-            ? CreateAgentTaskRequestBodyPermissions.fromJson(
-                json['permissions'] as String)
-            : null)!,
-        agentName: (json['agent_name'] as String?)!,
-        taskDescription: (json['task_description'] as String?)!,
-        redirectUrl: (json['redirect_url'] as String?)!,
-        sessionMaxDurationInSeconds: json['session_max_duration_in_seconds'] !=
-                null
-            ? SdkPresent(
-                ((json['session_max_duration_in_seconds'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-      );
+  factory CreateAgentTaskRequestBody.fromJson(Map<String, dynamic> json) => CreateAgentTaskRequestBody(
+    onBehalfOf: (json['on_behalf_of'] != null ? CreateAgentTaskRequestBodyOnBehalfOf.fromJson(json['on_behalf_of'] as Map<String, dynamic>) : null)!,
+    permissions: (json['permissions'] != null ? CreateAgentTaskRequestBodyPermissions.fromJson(json['permissions'] as String) : null)!,
+    agentName: (json['agent_name'] as String?)!,
+    taskDescription: (json['task_description'] as String?)!,
+    redirectUrl: (json['redirect_url'] as String?)!,
+    sessionMaxDurationInSeconds: json['session_max_duration_in_seconds'] != null ? SdkPresent(((json['session_max_duration_in_seconds'] as num?)?.toInt())!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        'on_behalf_of': onBehalfOf.toJson(),
-        'permissions': permissions.toJson(),
-        'agent_name': agentName,
-        'task_description': taskDescription,
-        'redirect_url': redirectUrl,
-        ...switch (sessionMaxDurationInSeconds) {
-          SdkPresent<int>(value: final value) => {
-              'session_max_duration_in_seconds': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    'on_behalf_of': onBehalfOf.toJson(),
+    'permissions': permissions.toJson(),
+    'agent_name': agentName,
+    'task_description': taskDescription,
+    'redirect_url': redirectUrl,
+    ...switch (sessionMaxDurationInSeconds) {
+      SdkPresent<int>(value: final value) => {'session_max_duration_in_seconds': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 class CreateWaitlistEntryRequestBody {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The email address to add to the waitlist
   final String emailAddress;
-
   /// Optional flag which denotes whether a confirmation email should be sent to the given email address. Defaults to `true`.
   final SdkOptional<bool?> notify;
 
-  const CreateWaitlistEntryRequestBody(
-      {required this.emailAddress, this.notify = const SdkOmitted()});
+  const CreateWaitlistEntryRequestBody({required this.emailAddress, this.notify = const SdkOmitted()});
 
-  CreateWaitlistEntryRequestBody Function(
-      {String emailAddress,
-      SdkOptional<bool?> notify}) get copyWith => _copyWith;
+  CreateWaitlistEntryRequestBody Function({String emailAddress, SdkOptional<bool?> notify}) get copyWith => _copyWith;
 
-  CreateWaitlistEntryRequestBody _copyWith(
-          {Object? emailAddress = sdkOmittedValue,
-          Object? notify = sdkOmittedValue}) =>
-      CreateWaitlistEntryRequestBody(
-        emailAddress: identical(emailAddress, sdkOmittedValue)
-            ? this.emailAddress
-            : emailAddress as String,
-        notify: identical(notify, sdkOmittedValue)
-            ? this.notify
-            : notify as SdkOptional<bool?>,
-      );
+  CreateWaitlistEntryRequestBody _copyWith({Object? emailAddress = sdkOmittedValue, Object? notify = sdkOmittedValue}) => CreateWaitlistEntryRequestBody(
+    emailAddress: identical(emailAddress, sdkOmittedValue) ? this.emailAddress : emailAddress as String,
+    notify: identical(notify, sdkOmittedValue) ? this.notify : notify as SdkOptional<bool?>,
+  );
 
-  factory CreateWaitlistEntryRequestBody.fromJson(Map<String, dynamic> json) =>
-      CreateWaitlistEntryRequestBody(
-        emailAddress: (json['email_address'] as String?)!,
-        notify: json.containsKey('notify')
-            ? SdkPresent(json['notify'] as bool?)
-            : const SdkOmitted(),
-      );
+  factory CreateWaitlistEntryRequestBody.fromJson(Map<String, dynamic> json) => CreateWaitlistEntryRequestBody(
+    emailAddress: (json['email_address'] as String?)!,
+    notify: json.containsKey('notify') ? SdkPresent(json['notify'] as bool?) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        'email_address': emailAddress,
-        ...switch (notify) {
-          SdkPresent<bool?>(value: final value) => {
-              'notify': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    'email_address': emailAddress,
+    ...switch (notify) {
+      SdkPresent<bool?>(value: final value) => {'notify': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 class CreateBulkWaitlistEntriesRequestBodyItem {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The email address to add to the waitlist
   final String emailAddress;
-
   /// Optional flag which denotes whether a confirmation email should be sent to the given email address. Defaults to `true`.
   final SdkOptional<bool?> notify;
 
-  const CreateBulkWaitlistEntriesRequestBodyItem(
-      {required this.emailAddress, this.notify = const SdkOmitted()});
+  const CreateBulkWaitlistEntriesRequestBodyItem({required this.emailAddress, this.notify = const SdkOmitted()});
 
-  CreateBulkWaitlistEntriesRequestBodyItem Function(
-      {String emailAddress,
-      SdkOptional<bool?> notify}) get copyWith => _copyWith;
+  CreateBulkWaitlistEntriesRequestBodyItem Function({String emailAddress, SdkOptional<bool?> notify}) get copyWith => _copyWith;
 
-  CreateBulkWaitlistEntriesRequestBodyItem _copyWith(
-          {Object? emailAddress = sdkOmittedValue,
-          Object? notify = sdkOmittedValue}) =>
-      CreateBulkWaitlistEntriesRequestBodyItem(
-        emailAddress: identical(emailAddress, sdkOmittedValue)
-            ? this.emailAddress
-            : emailAddress as String,
-        notify: identical(notify, sdkOmittedValue)
-            ? this.notify
-            : notify as SdkOptional<bool?>,
-      );
+  CreateBulkWaitlistEntriesRequestBodyItem _copyWith({Object? emailAddress = sdkOmittedValue, Object? notify = sdkOmittedValue}) => CreateBulkWaitlistEntriesRequestBodyItem(
+    emailAddress: identical(emailAddress, sdkOmittedValue) ? this.emailAddress : emailAddress as String,
+    notify: identical(notify, sdkOmittedValue) ? this.notify : notify as SdkOptional<bool?>,
+  );
 
-  factory CreateBulkWaitlistEntriesRequestBodyItem.fromJson(
-          Map<String, dynamic> json) =>
-      CreateBulkWaitlistEntriesRequestBodyItem(
-        emailAddress: (json['email_address'] as String?)!,
-        notify: json.containsKey('notify')
-            ? SdkPresent(json['notify'] as bool?)
-            : const SdkOmitted(),
-      );
+  factory CreateBulkWaitlistEntriesRequestBodyItem.fromJson(Map<String, dynamic> json) => CreateBulkWaitlistEntriesRequestBodyItem(
+    emailAddress: (json['email_address'] as String?)!,
+    notify: json.containsKey('notify') ? SdkPresent(json['notify'] as bool?) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        'email_address': emailAddress,
-        ...switch (notify) {
-          SdkPresent<bool?>(value: final value) => {
-              'notify': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    'email_address': emailAddress,
+    ...switch (notify) {
+      SdkPresent<bool?>(value: final value) => {'notify': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 class InviteWaitlistEntryRequestBody {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Whether an invitation should be created if there is already an existing invitation for this email address, or it's claimed by another user.
   final SdkOptional<bool?> ignoreExisting;
 
-  const InviteWaitlistEntryRequestBody(
-      {this.ignoreExisting = const SdkOmitted()});
+  const InviteWaitlistEntryRequestBody({this.ignoreExisting = const SdkOmitted()});
 
-  InviteWaitlistEntryRequestBody Function({SdkOptional<bool?> ignoreExisting})
-      get copyWith => _copyWith;
+  InviteWaitlistEntryRequestBody Function({SdkOptional<bool?> ignoreExisting}) get copyWith => _copyWith;
 
-  InviteWaitlistEntryRequestBody _copyWith(
-          {Object? ignoreExisting = sdkOmittedValue}) =>
-      InviteWaitlistEntryRequestBody(
-        ignoreExisting: identical(ignoreExisting, sdkOmittedValue)
-            ? this.ignoreExisting
-            : ignoreExisting as SdkOptional<bool?>,
-      );
+  InviteWaitlistEntryRequestBody _copyWith({Object? ignoreExisting = sdkOmittedValue}) => InviteWaitlistEntryRequestBody(
+    ignoreExisting: identical(ignoreExisting, sdkOmittedValue) ? this.ignoreExisting : ignoreExisting as SdkOptional<bool?>,
+  );
 
-  factory InviteWaitlistEntryRequestBody.fromJson(Map<String, dynamic> json) =>
-      InviteWaitlistEntryRequestBody(
-        ignoreExisting: json.containsKey('ignore_existing')
-            ? SdkPresent(json['ignore_existing'] as bool?)
-            : const SdkOmitted(),
-      );
+  factory InviteWaitlistEntryRequestBody.fromJson(Map<String, dynamic> json) => InviteWaitlistEntryRequestBody(
+    ignoreExisting: json.containsKey('ignore_existing') ? SdkPresent(json['ignore_existing'] as bool?) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (ignoreExisting) {
-          SdkPresent<bool?>(value: final value) => {
-              'ignore_existing': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (ignoreExisting) {
+      SdkPresent<bool?>(value: final value) => {'ignore_existing': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 class CreateOrganizationPermissionRequestBody {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The name of the permission.
   final String name;
-
   /// The key of the permission. Must have the format "org:feature:action" where feature and action are segments consisting of lowercase letters, digits, or underscores, for example "org:billing:manage" or "org:team:read". Cannot begin with "org:sys_" as that prefix is reserved for system permissions.
   final String key;
-
   /// A description of the permission.
   final SdkOptional<String> description;
 
-  const CreateOrganizationPermissionRequestBody(
-      {required this.name,
-      required this.key,
-      this.description = const SdkOmitted()});
+  const CreateOrganizationPermissionRequestBody({required this.name, required this.key, this.description = const SdkOmitted()});
 
-  CreateOrganizationPermissionRequestBody Function(
-      {String name,
-      String key,
-      SdkOptional<String> description}) get copyWith => _copyWith;
+  CreateOrganizationPermissionRequestBody Function({String name, String key, SdkOptional<String> description}) get copyWith => _copyWith;
 
-  CreateOrganizationPermissionRequestBody _copyWith(
-          {Object? name = sdkOmittedValue,
-          Object? key = sdkOmittedValue,
-          Object? description = sdkOmittedValue}) =>
-      CreateOrganizationPermissionRequestBody(
-        name: identical(name, sdkOmittedValue) ? this.name : name as String,
-        key: identical(key, sdkOmittedValue) ? this.key : key as String,
-        description: identical(description, sdkOmittedValue)
-            ? this.description
-            : description as SdkOptional<String>,
-      );
+  CreateOrganizationPermissionRequestBody _copyWith({Object? name = sdkOmittedValue, Object? key = sdkOmittedValue, Object? description = sdkOmittedValue}) => CreateOrganizationPermissionRequestBody(
+    name: identical(name, sdkOmittedValue) ? this.name : name as String,
+    key: identical(key, sdkOmittedValue) ? this.key : key as String,
+    description: identical(description, sdkOmittedValue) ? this.description : description as SdkOptional<String>,
+  );
 
-  factory CreateOrganizationPermissionRequestBody.fromJson(
-          Map<String, dynamic> json) =>
-      CreateOrganizationPermissionRequestBody(
-        name: (json['name'] as String?)!,
-        key: (json['key'] as String?)!,
-        description: json['description'] != null
-            ? SdkPresent((json['description'] as String?)!)
-            : const SdkOmitted(),
-      );
+  factory CreateOrganizationPermissionRequestBody.fromJson(Map<String, dynamic> json) => CreateOrganizationPermissionRequestBody(
+    name: (json['name'] as String?)!,
+    key: (json['key'] as String?)!,
+    description: json['description'] != null ? SdkPresent((json['description'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        'name': name,
-        'key': key,
-        ...switch (description) {
-          SdkPresent<String>(value: final value) => {
-              'description': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    'name': name,
+    'key': key,
+    ...switch (description) {
+      SdkPresent<String>(value: final value) => {'description': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 class UpdateOrganizationPermissionRequestBody {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The name of the permission.
   final SdkOptional<String> name;
-
   /// The key of the permission. Must have the format "org:feature:action" where feature and action are segments consisting of lowercase letters, digits, or underscores. Cannot begin with "org:sys_" as that prefix is reserved for system permissions.
   final SdkOptional<String> key;
-
   /// A description of the permission.
   final SdkOptional<String> description;
 
-  const UpdateOrganizationPermissionRequestBody(
-      {this.name = const SdkOmitted(),
-      this.key = const SdkOmitted(),
-      this.description = const SdkOmitted()});
+  const UpdateOrganizationPermissionRequestBody({this.name = const SdkOmitted(), this.key = const SdkOmitted(), this.description = const SdkOmitted()});
 
-  UpdateOrganizationPermissionRequestBody Function(
-      {SdkOptional<String> name,
-      SdkOptional<String> key,
-      SdkOptional<String> description}) get copyWith => _copyWith;
+  UpdateOrganizationPermissionRequestBody Function({SdkOptional<String> name, SdkOptional<String> key, SdkOptional<String> description}) get copyWith => _copyWith;
 
-  UpdateOrganizationPermissionRequestBody _copyWith(
-          {Object? name = sdkOmittedValue,
-          Object? key = sdkOmittedValue,
-          Object? description = sdkOmittedValue}) =>
-      UpdateOrganizationPermissionRequestBody(
-        name: identical(name, sdkOmittedValue)
-            ? this.name
-            : name as SdkOptional<String>,
-        key: identical(key, sdkOmittedValue)
-            ? this.key
-            : key as SdkOptional<String>,
-        description: identical(description, sdkOmittedValue)
-            ? this.description
-            : description as SdkOptional<String>,
-      );
+  UpdateOrganizationPermissionRequestBody _copyWith({Object? name = sdkOmittedValue, Object? key = sdkOmittedValue, Object? description = sdkOmittedValue}) => UpdateOrganizationPermissionRequestBody(
+    name: identical(name, sdkOmittedValue) ? this.name : name as SdkOptional<String>,
+    key: identical(key, sdkOmittedValue) ? this.key : key as SdkOptional<String>,
+    description: identical(description, sdkOmittedValue) ? this.description : description as SdkOptional<String>,
+  );
 
-  factory UpdateOrganizationPermissionRequestBody.fromJson(
-          Map<String, dynamic> json) =>
-      UpdateOrganizationPermissionRequestBody(
-        name: json['name'] != null
-            ? SdkPresent((json['name'] as String?)!)
-            : const SdkOmitted(),
-        key: json['key'] != null
-            ? SdkPresent((json['key'] as String?)!)
-            : const SdkOmitted(),
-        description: json['description'] != null
-            ? SdkPresent((json['description'] as String?)!)
-            : const SdkOmitted(),
-      );
+  factory UpdateOrganizationPermissionRequestBody.fromJson(Map<String, dynamic> json) => UpdateOrganizationPermissionRequestBody(
+    name: json['name'] != null ? SdkPresent((json['name'] as String?)!) : const SdkOmitted(),
+    key: json['key'] != null ? SdkPresent((json['key'] as String?)!) : const SdkOmitted(),
+    description: json['description'] != null ? SdkPresent((json['description'] as String?)!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (name) {
-          SdkPresent<String>(value: final value) => {
-              'name': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (key) {
-          SdkPresent<String>(value: final value) => {
-              'key': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (description) {
-          SdkPresent<String>(value: final value) => {
-              'description': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (name) {
+      SdkPresent<String>(value: final value) => {'name': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (key) {
+      SdkPresent<String>(value: final value) => {'key': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (description) {
+      SdkPresent<String>(value: final value) => {'description': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }
 
 class CreateRoleSetRequestBody {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// The name of the new role set
   final String name;
-
   /// A unique key for the role set. Must start with 'role_set:' and contain only lowercase alphanumeric characters and underscores. If not provided, a key will be generated from the name.
   final SdkOptional<String> key;
-
   /// Optional description for the role set
   final SdkOptional<String?> description;
-
   /// The key of the role to use as the default role for new organization members. Must be one of the roles in the `roles` array.
   final String defaultRoleKey;
-
   /// The key of the role to assign to organization creators. Must be one of the roles in the `roles` array.
   final String creatorRoleKey;
-
   /// The type of the role set. "initial" role sets are the default for new organizations. Only one role set can be "initial" per instance.
   final SdkOptional<CreateRoleSetRequestBodyType> type_;
-
   /// Array of role keys to include in the role set. Must contain at least one role and no more than 10 roles.
   final List<String> roles;
 
-  const CreateRoleSetRequestBody(
-      {required this.name,
-      this.key = const SdkOmitted(),
-      this.description = const SdkOmitted(),
-      required this.defaultRoleKey,
-      required this.creatorRoleKey,
-      this.type_ = const SdkOmitted(),
-      required this.roles});
+  const CreateRoleSetRequestBody({required this.name, this.key = const SdkOmitted(), this.description = const SdkOmitted(), required this.defaultRoleKey, required this.creatorRoleKey, this.type_ = const SdkOmitted(), required this.roles});
 
-  CreateRoleSetRequestBody Function(
-      {String name,
-      SdkOptional<String> key,
-      SdkOptional<String?> description,
-      String defaultRoleKey,
-      String creatorRoleKey,
-      SdkOptional<CreateRoleSetRequestBodyType> type_,
-      List<String> roles}) get copyWith => _copyWith;
+  CreateRoleSetRequestBody Function({String name, SdkOptional<String> key, SdkOptional<String?> description, String defaultRoleKey, String creatorRoleKey, SdkOptional<CreateRoleSetRequestBodyType> type_, List<String> roles}) get copyWith => _copyWith;
 
-  CreateRoleSetRequestBody _copyWith(
-          {Object? name = sdkOmittedValue,
-          Object? key = sdkOmittedValue,
-          Object? description = sdkOmittedValue,
-          Object? defaultRoleKey = sdkOmittedValue,
-          Object? creatorRoleKey = sdkOmittedValue,
-          Object? type_ = sdkOmittedValue,
-          Object? roles = sdkOmittedValue}) =>
-      CreateRoleSetRequestBody(
-        name: identical(name, sdkOmittedValue) ? this.name : name as String,
-        key: identical(key, sdkOmittedValue)
-            ? this.key
-            : key as SdkOptional<String>,
-        description: identical(description, sdkOmittedValue)
-            ? this.description
-            : description as SdkOptional<String?>,
-        defaultRoleKey: identical(defaultRoleKey, sdkOmittedValue)
-            ? this.defaultRoleKey
-            : defaultRoleKey as String,
-        creatorRoleKey: identical(creatorRoleKey, sdkOmittedValue)
-            ? this.creatorRoleKey
-            : creatorRoleKey as String,
-        type_: identical(type_, sdkOmittedValue)
-            ? this.type_
-            : type_ as SdkOptional<CreateRoleSetRequestBodyType>,
-        roles: identical(roles, sdkOmittedValue)
-            ? this.roles
-            : roles as List<String>,
-      );
+  CreateRoleSetRequestBody _copyWith({Object? name = sdkOmittedValue, Object? key = sdkOmittedValue, Object? description = sdkOmittedValue, Object? defaultRoleKey = sdkOmittedValue, Object? creatorRoleKey = sdkOmittedValue, Object? type_ = sdkOmittedValue, Object? roles = sdkOmittedValue}) => CreateRoleSetRequestBody(
+    name: identical(name, sdkOmittedValue) ? this.name : name as String,
+    key: identical(key, sdkOmittedValue) ? this.key : key as SdkOptional<String>,
+    description: identical(description, sdkOmittedValue) ? this.description : description as SdkOptional<String?>,
+    defaultRoleKey: identical(defaultRoleKey, sdkOmittedValue) ? this.defaultRoleKey : defaultRoleKey as String,
+    creatorRoleKey: identical(creatorRoleKey, sdkOmittedValue) ? this.creatorRoleKey : creatorRoleKey as String,
+    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as SdkOptional<CreateRoleSetRequestBodyType>,
+    roles: identical(roles, sdkOmittedValue) ? this.roles : roles as List<String>,
+  );
 
-  factory CreateRoleSetRequestBody.fromJson(Map<String, dynamic> json) =>
-      CreateRoleSetRequestBody(
-        name: (json['name'] as String?)!,
-        key: json['key'] != null
-            ? SdkPresent((json['key'] as String?)!)
-            : const SdkOmitted(),
-        description: json.containsKey('description')
-            ? SdkPresent(json['description'] as String?)
-            : const SdkOmitted(),
-        defaultRoleKey: (json['default_role_key'] as String?)!,
-        creatorRoleKey: (json['creator_role_key'] as String?)!,
-        type_: json['type'] != null
-            ? SdkPresent((json['type'] != null
-                ? CreateRoleSetRequestBodyType.fromJson(json['type'] as String)
-                : null)!)
-            : const SdkOmitted(),
-        roles: ((json['roles'] as List?)?.map((e) => e as String).toList())!,
-      );
+  factory CreateRoleSetRequestBody.fromJson(Map<String, dynamic> json) => CreateRoleSetRequestBody(
+    name: (json['name'] as String?)!,
+    key: json['key'] != null ? SdkPresent((json['key'] as String?)!) : const SdkOmitted(),
+    description: json.containsKey('description') ? SdkPresent(json['description'] as String?) : const SdkOmitted(),
+    defaultRoleKey: (json['default_role_key'] as String?)!,
+    creatorRoleKey: (json['creator_role_key'] as String?)!,
+    type_: json['type'] != null ? SdkPresent((json['type'] != null ? CreateRoleSetRequestBodyType.fromJson(json['type'] as String) : null)!) : const SdkOmitted(),
+    roles: ((json['roles'] as List?)?.map((e) => e as String).toList())!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'name': name,
-        ...switch (key) {
-          SdkPresent<String>(value: final value) => {
-              'key': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (description) {
-          SdkPresent<String?>(value: final value) => {
-              'description': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        'default_role_key': defaultRoleKey,
-        'creator_role_key': creatorRoleKey,
-        ...switch (type_) {
-          SdkPresent<CreateRoleSetRequestBodyType>(value: final value) => {
-              'type': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        'roles': roles,
-      };
+    'name': name,
+    ...switch (key) {
+      SdkPresent<String>(value: final value) => {'key': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (description) {
+      SdkPresent<String?>(value: final value) => {'description': value,},
+      _ => const <String, dynamic>{},
+    },
+    'default_role_key': defaultRoleKey,
+    'creator_role_key': creatorRoleKey,
+    ...switch (type_) {
+      SdkPresent<CreateRoleSetRequestBodyType>(value: final value) => {'type': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    'roles': roles,
+  };
 }

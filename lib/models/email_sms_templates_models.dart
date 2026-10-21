@@ -8,456 +8,209 @@ part of 'email_sms_templates.dart';
 class Template {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Optional `string` value serialized in the `id` wire field.
   final SdkOptional<String> id;
-
   /// String representing the object's type. Objects of the same type share the same value.
   final SdkOptional<TemplateObject> object;
-
   /// The ID of the instance to which the template belongs
   final SdkOptional<String?> instanceId;
-
   /// whether this is a system (default) or user overridden) template
   final SdkOptional<String> resourceType;
-
   /// whether this is an email or SMS template
   final SdkOptional<String> templateType;
-
   /// user-friendly name of the template
   final SdkOptional<String> name;
-
   /// machine-friendly name of the template
   final SdkOptional<String> slug;
-
   /// position with the listing of templates
   final SdkOptional<int> position;
-
   /// whether this template can be reverted to the corresponding system default
   final SdkOptional<bool> canRevert;
-
   /// whether this template can be deleted
   final SdkOptional<bool> canDelete;
-
   /// whether the body of this template can be edited
   final SdkOptional<bool> canEditBody;
-
   /// whether this template can be enabled or disabled, true only for notification SMS templates
   final SdkOptional<bool> canToggle;
-
   /// email subject
   final SdkOptional<String?> subject;
-
   /// the editor markup used to generate the body of the template
   final SdkOptional<String> markup;
-
   /// the template body before variable interpolation
   final SdkOptional<String> body;
-
   /// list of variables that are available for use in the template body
   final SdkOptional<List<String>> availableVariables;
-
   /// list of variables that must be contained in the template body
   final SdkOptional<List<String>> requiredVariables;
-
   /// Optional `string` value serialized in the `from_email_name` wire field.
   final SdkOptional<String> fromEmailName;
-
   /// Optional `string` value serialized in the `reply_to_email_name` wire field.
   final SdkOptional<String> replyToEmailName;
-
   /// Optional `boolean` value serialized in the `delivered_by_clerk` wire field.
   final SdkOptional<bool> deliveredByClerk;
-
   /// Optional `boolean` value serialized in the `enabled` wire field.
   final SdkOptional<bool> enabled;
-
   /// Optional `boolean` value serialized in the `flagged_as_suspicious` wire field.
   final SdkOptional<bool> flaggedAsSuspicious;
-
   /// Unix timestamp of last update.
   final SdkOptional<int> updatedAt;
-
   /// Unix timestamp of creation.
   final SdkOptional<int> createdAt;
 
-  const Template(
-      {this.id = const SdkOmitted(),
-      this.object = const SdkOmitted(),
-      this.instanceId = const SdkOmitted(),
-      this.resourceType = const SdkOmitted(),
-      this.templateType = const SdkOmitted(),
-      this.name = const SdkOmitted(),
-      this.slug = const SdkOmitted(),
-      this.position = const SdkOmitted(),
-      this.canRevert = const SdkOmitted(),
-      this.canDelete = const SdkOmitted(),
-      this.canEditBody = const SdkOmitted(),
-      this.canToggle = const SdkOmitted(),
-      this.subject = const SdkOmitted(),
-      this.markup = const SdkOmitted(),
-      this.body = const SdkOmitted(),
-      this.availableVariables = const SdkOmitted(),
-      this.requiredVariables = const SdkOmitted(),
-      this.fromEmailName = const SdkOmitted(),
-      this.replyToEmailName = const SdkOmitted(),
-      this.deliveredByClerk = const SdkOmitted(),
-      this.enabled = const SdkOmitted(),
-      this.flaggedAsSuspicious = const SdkOmitted(),
-      this.updatedAt = const SdkOmitted(),
-      this.createdAt = const SdkOmitted()});
+  const Template({this.id = const SdkOmitted(), this.object = const SdkOmitted(), this.instanceId = const SdkOmitted(), this.resourceType = const SdkOmitted(), this.templateType = const SdkOmitted(), this.name = const SdkOmitted(), this.slug = const SdkOmitted(), this.position = const SdkOmitted(), this.canRevert = const SdkOmitted(), this.canDelete = const SdkOmitted(), this.canEditBody = const SdkOmitted(), this.canToggle = const SdkOmitted(), this.subject = const SdkOmitted(), this.markup = const SdkOmitted(), this.body = const SdkOmitted(), this.availableVariables = const SdkOmitted(), this.requiredVariables = const SdkOmitted(), this.fromEmailName = const SdkOmitted(), this.replyToEmailName = const SdkOmitted(), this.deliveredByClerk = const SdkOmitted(), this.enabled = const SdkOmitted(), this.flaggedAsSuspicious = const SdkOmitted(), this.updatedAt = const SdkOmitted(), this.createdAt = const SdkOmitted()});
 
-  Template Function(
-      {SdkOptional<String> id,
-      SdkOptional<TemplateObject> object,
-      SdkOptional<String?> instanceId,
-      SdkOptional<String> resourceType,
-      SdkOptional<String> templateType,
-      SdkOptional<String> name,
-      SdkOptional<String> slug,
-      SdkOptional<int> position,
-      SdkOptional<bool> canRevert,
-      SdkOptional<bool> canDelete,
-      SdkOptional<bool> canEditBody,
-      SdkOptional<bool> canToggle,
-      SdkOptional<String?> subject,
-      SdkOptional<String> markup,
-      SdkOptional<String> body,
-      SdkOptional<List<String>> availableVariables,
-      SdkOptional<List<String>> requiredVariables,
-      SdkOptional<String> fromEmailName,
-      SdkOptional<String> replyToEmailName,
-      SdkOptional<bool> deliveredByClerk,
-      SdkOptional<bool> enabled,
-      SdkOptional<bool> flaggedAsSuspicious,
-      SdkOptional<int> updatedAt,
-      SdkOptional<int> createdAt}) get copyWith => _copyWith;
+  Template Function({SdkOptional<String> id, SdkOptional<TemplateObject> object, SdkOptional<String?> instanceId, SdkOptional<String> resourceType, SdkOptional<String> templateType, SdkOptional<String> name, SdkOptional<String> slug, SdkOptional<int> position, SdkOptional<bool> canRevert, SdkOptional<bool> canDelete, SdkOptional<bool> canEditBody, SdkOptional<bool> canToggle, SdkOptional<String?> subject, SdkOptional<String> markup, SdkOptional<String> body, SdkOptional<List<String>> availableVariables, SdkOptional<List<String>> requiredVariables, SdkOptional<String> fromEmailName, SdkOptional<String> replyToEmailName, SdkOptional<bool> deliveredByClerk, SdkOptional<bool> enabled, SdkOptional<bool> flaggedAsSuspicious, SdkOptional<int> updatedAt, SdkOptional<int> createdAt}) get copyWith => _copyWith;
 
-  Template _copyWith(
-          {Object? id = sdkOmittedValue,
-          Object? object = sdkOmittedValue,
-          Object? instanceId = sdkOmittedValue,
-          Object? resourceType = sdkOmittedValue,
-          Object? templateType = sdkOmittedValue,
-          Object? name = sdkOmittedValue,
-          Object? slug = sdkOmittedValue,
-          Object? position = sdkOmittedValue,
-          Object? canRevert = sdkOmittedValue,
-          Object? canDelete = sdkOmittedValue,
-          Object? canEditBody = sdkOmittedValue,
-          Object? canToggle = sdkOmittedValue,
-          Object? subject = sdkOmittedValue,
-          Object? markup = sdkOmittedValue,
-          Object? body = sdkOmittedValue,
-          Object? availableVariables = sdkOmittedValue,
-          Object? requiredVariables = sdkOmittedValue,
-          Object? fromEmailName = sdkOmittedValue,
-          Object? replyToEmailName = sdkOmittedValue,
-          Object? deliveredByClerk = sdkOmittedValue,
-          Object? enabled = sdkOmittedValue,
-          Object? flaggedAsSuspicious = sdkOmittedValue,
-          Object? updatedAt = sdkOmittedValue,
-          Object? createdAt = sdkOmittedValue}) =>
-      Template(
-        id: identical(id, sdkOmittedValue)
-            ? this.id
-            : id as SdkOptional<String>,
-        object: identical(object, sdkOmittedValue)
-            ? this.object
-            : object as SdkOptional<TemplateObject>,
-        instanceId: identical(instanceId, sdkOmittedValue)
-            ? this.instanceId
-            : instanceId as SdkOptional<String?>,
-        resourceType: identical(resourceType, sdkOmittedValue)
-            ? this.resourceType
-            : resourceType as SdkOptional<String>,
-        templateType: identical(templateType, sdkOmittedValue)
-            ? this.templateType
-            : templateType as SdkOptional<String>,
-        name: identical(name, sdkOmittedValue)
-            ? this.name
-            : name as SdkOptional<String>,
-        slug: identical(slug, sdkOmittedValue)
-            ? this.slug
-            : slug as SdkOptional<String>,
-        position: identical(position, sdkOmittedValue)
-            ? this.position
-            : position as SdkOptional<int>,
-        canRevert: identical(canRevert, sdkOmittedValue)
-            ? this.canRevert
-            : canRevert as SdkOptional<bool>,
-        canDelete: identical(canDelete, sdkOmittedValue)
-            ? this.canDelete
-            : canDelete as SdkOptional<bool>,
-        canEditBody: identical(canEditBody, sdkOmittedValue)
-            ? this.canEditBody
-            : canEditBody as SdkOptional<bool>,
-        canToggle: identical(canToggle, sdkOmittedValue)
-            ? this.canToggle
-            : canToggle as SdkOptional<bool>,
-        subject: identical(subject, sdkOmittedValue)
-            ? this.subject
-            : subject as SdkOptional<String?>,
-        markup: identical(markup, sdkOmittedValue)
-            ? this.markup
-            : markup as SdkOptional<String>,
-        body: identical(body, sdkOmittedValue)
-            ? this.body
-            : body as SdkOptional<String>,
-        availableVariables: identical(availableVariables, sdkOmittedValue)
-            ? this.availableVariables
-            : availableVariables as SdkOptional<List<String>>,
-        requiredVariables: identical(requiredVariables, sdkOmittedValue)
-            ? this.requiredVariables
-            : requiredVariables as SdkOptional<List<String>>,
-        fromEmailName: identical(fromEmailName, sdkOmittedValue)
-            ? this.fromEmailName
-            : fromEmailName as SdkOptional<String>,
-        replyToEmailName: identical(replyToEmailName, sdkOmittedValue)
-            ? this.replyToEmailName
-            : replyToEmailName as SdkOptional<String>,
-        deliveredByClerk: identical(deliveredByClerk, sdkOmittedValue)
-            ? this.deliveredByClerk
-            : deliveredByClerk as SdkOptional<bool>,
-        enabled: identical(enabled, sdkOmittedValue)
-            ? this.enabled
-            : enabled as SdkOptional<bool>,
-        flaggedAsSuspicious: identical(flaggedAsSuspicious, sdkOmittedValue)
-            ? this.flaggedAsSuspicious
-            : flaggedAsSuspicious as SdkOptional<bool>,
-        updatedAt: identical(updatedAt, sdkOmittedValue)
-            ? this.updatedAt
-            : updatedAt as SdkOptional<int>,
-        createdAt: identical(createdAt, sdkOmittedValue)
-            ? this.createdAt
-            : createdAt as SdkOptional<int>,
-      );
+  Template _copyWith({Object? id = sdkOmittedValue, Object? object = sdkOmittedValue, Object? instanceId = sdkOmittedValue, Object? resourceType = sdkOmittedValue, Object? templateType = sdkOmittedValue, Object? name = sdkOmittedValue, Object? slug = sdkOmittedValue, Object? position = sdkOmittedValue, Object? canRevert = sdkOmittedValue, Object? canDelete = sdkOmittedValue, Object? canEditBody = sdkOmittedValue, Object? canToggle = sdkOmittedValue, Object? subject = sdkOmittedValue, Object? markup = sdkOmittedValue, Object? body = sdkOmittedValue, Object? availableVariables = sdkOmittedValue, Object? requiredVariables = sdkOmittedValue, Object? fromEmailName = sdkOmittedValue, Object? replyToEmailName = sdkOmittedValue, Object? deliveredByClerk = sdkOmittedValue, Object? enabled = sdkOmittedValue, Object? flaggedAsSuspicious = sdkOmittedValue, Object? updatedAt = sdkOmittedValue, Object? createdAt = sdkOmittedValue}) => Template(
+    id: identical(id, sdkOmittedValue) ? this.id : id as SdkOptional<String>,
+    object: identical(object, sdkOmittedValue) ? this.object : object as SdkOptional<TemplateObject>,
+    instanceId: identical(instanceId, sdkOmittedValue) ? this.instanceId : instanceId as SdkOptional<String?>,
+    resourceType: identical(resourceType, sdkOmittedValue) ? this.resourceType : resourceType as SdkOptional<String>,
+    templateType: identical(templateType, sdkOmittedValue) ? this.templateType : templateType as SdkOptional<String>,
+    name: identical(name, sdkOmittedValue) ? this.name : name as SdkOptional<String>,
+    slug: identical(slug, sdkOmittedValue) ? this.slug : slug as SdkOptional<String>,
+    position: identical(position, sdkOmittedValue) ? this.position : position as SdkOptional<int>,
+    canRevert: identical(canRevert, sdkOmittedValue) ? this.canRevert : canRevert as SdkOptional<bool>,
+    canDelete: identical(canDelete, sdkOmittedValue) ? this.canDelete : canDelete as SdkOptional<bool>,
+    canEditBody: identical(canEditBody, sdkOmittedValue) ? this.canEditBody : canEditBody as SdkOptional<bool>,
+    canToggle: identical(canToggle, sdkOmittedValue) ? this.canToggle : canToggle as SdkOptional<bool>,
+    subject: identical(subject, sdkOmittedValue) ? this.subject : subject as SdkOptional<String?>,
+    markup: identical(markup, sdkOmittedValue) ? this.markup : markup as SdkOptional<String>,
+    body: identical(body, sdkOmittedValue) ? this.body : body as SdkOptional<String>,
+    availableVariables: identical(availableVariables, sdkOmittedValue) ? this.availableVariables : availableVariables as SdkOptional<List<String>>,
+    requiredVariables: identical(requiredVariables, sdkOmittedValue) ? this.requiredVariables : requiredVariables as SdkOptional<List<String>>,
+    fromEmailName: identical(fromEmailName, sdkOmittedValue) ? this.fromEmailName : fromEmailName as SdkOptional<String>,
+    replyToEmailName: identical(replyToEmailName, sdkOmittedValue) ? this.replyToEmailName : replyToEmailName as SdkOptional<String>,
+    deliveredByClerk: identical(deliveredByClerk, sdkOmittedValue) ? this.deliveredByClerk : deliveredByClerk as SdkOptional<bool>,
+    enabled: identical(enabled, sdkOmittedValue) ? this.enabled : enabled as SdkOptional<bool>,
+    flaggedAsSuspicious: identical(flaggedAsSuspicious, sdkOmittedValue) ? this.flaggedAsSuspicious : flaggedAsSuspicious as SdkOptional<bool>,
+    updatedAt: identical(updatedAt, sdkOmittedValue) ? this.updatedAt : updatedAt as SdkOptional<int>,
+    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as SdkOptional<int>,
+  );
 
   factory Template.fromJson(Map<String, dynamic> json) => Template(
-        id: json['id'] != null
-            ? SdkPresent((json['id'] as String?)!)
-            : const SdkOmitted(),
-        object: json['object'] != null
-            ? SdkPresent((json['object'] != null
-                ? TemplateObject.fromJson(json['object'] as String)
-                : null)!)
-            : const SdkOmitted(),
-        instanceId: json.containsKey('instance_id')
-            ? SdkPresent(json['instance_id'] as String?)
-            : const SdkOmitted(),
-        resourceType: json['resource_type'] != null
-            ? SdkPresent((json['resource_type'] as String?)!)
-            : const SdkOmitted(),
-        templateType: json['template_type'] != null
-            ? SdkPresent((json['template_type'] as String?)!)
-            : const SdkOmitted(),
-        name: json['name'] != null
-            ? SdkPresent((json['name'] as String?)!)
-            : const SdkOmitted(),
-        slug: json['slug'] != null
-            ? SdkPresent((json['slug'] as String?)!)
-            : const SdkOmitted(),
-        position: json['position'] != null
-            ? SdkPresent(((json['position'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        canRevert: json['can_revert'] != null
-            ? SdkPresent((json['can_revert'] as bool?)!)
-            : const SdkOmitted(),
-        canDelete: json['can_delete'] != null
-            ? SdkPresent((json['can_delete'] as bool?)!)
-            : const SdkOmitted(),
-        canEditBody: json['can_edit_body'] != null
-            ? SdkPresent((json['can_edit_body'] as bool?)!)
-            : const SdkOmitted(),
-        canToggle: json['can_toggle'] != null
-            ? SdkPresent((json['can_toggle'] as bool?)!)
-            : const SdkOmitted(),
-        subject: json.containsKey('subject')
-            ? SdkPresent(json['subject'] as String?)
-            : const SdkOmitted(),
-        markup: json['markup'] != null
-            ? SdkPresent((json['markup'] as String?)!)
-            : const SdkOmitted(),
-        body: json['body'] != null
-            ? SdkPresent((json['body'] as String?)!)
-            : const SdkOmitted(),
-        availableVariables: json['available_variables'] != null
-            ? SdkPresent(((json['available_variables'] as List?)
-                ?.map((e) => e as String)
-                .toList())!)
-            : const SdkOmitted(),
-        requiredVariables: json['required_variables'] != null
-            ? SdkPresent(((json['required_variables'] as List?)
-                ?.map((e) => e as String)
-                .toList())!)
-            : const SdkOmitted(),
-        fromEmailName: json['from_email_name'] != null
-            ? SdkPresent((json['from_email_name'] as String?)!)
-            : const SdkOmitted(),
-        replyToEmailName: json['reply_to_email_name'] != null
-            ? SdkPresent((json['reply_to_email_name'] as String?)!)
-            : const SdkOmitted(),
-        deliveredByClerk: json['delivered_by_clerk'] != null
-            ? SdkPresent((json['delivered_by_clerk'] as bool?)!)
-            : const SdkOmitted(),
-        enabled: json['enabled'] != null
-            ? SdkPresent((json['enabled'] as bool?)!)
-            : const SdkOmitted(),
-        flaggedAsSuspicious: json['flagged_as_suspicious'] != null
-            ? SdkPresent((json['flagged_as_suspicious'] as bool?)!)
-            : const SdkOmitted(),
-        updatedAt: json['updated_at'] != null
-            ? SdkPresent(((json['updated_at'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-        createdAt: json['created_at'] != null
-            ? SdkPresent(((json['created_at'] as num?)?.toInt())!)
-            : const SdkOmitted(),
-      );
+    id: json['id'] != null ? SdkPresent((json['id'] as String?)!) : const SdkOmitted(),
+    object: json['object'] != null ? SdkPresent((json['object'] != null ? TemplateObject.fromJson(json['object'] as String) : null)!) : const SdkOmitted(),
+    instanceId: json.containsKey('instance_id') ? SdkPresent(json['instance_id'] as String?) : const SdkOmitted(),
+    resourceType: json['resource_type'] != null ? SdkPresent((json['resource_type'] as String?)!) : const SdkOmitted(),
+    templateType: json['template_type'] != null ? SdkPresent((json['template_type'] as String?)!) : const SdkOmitted(),
+    name: json['name'] != null ? SdkPresent((json['name'] as String?)!) : const SdkOmitted(),
+    slug: json['slug'] != null ? SdkPresent((json['slug'] as String?)!) : const SdkOmitted(),
+    position: json['position'] != null ? SdkPresent(((json['position'] as num?)?.toInt())!) : const SdkOmitted(),
+    canRevert: json['can_revert'] != null ? SdkPresent((json['can_revert'] as bool?)!) : const SdkOmitted(),
+    canDelete: json['can_delete'] != null ? SdkPresent((json['can_delete'] as bool?)!) : const SdkOmitted(),
+    canEditBody: json['can_edit_body'] != null ? SdkPresent((json['can_edit_body'] as bool?)!) : const SdkOmitted(),
+    canToggle: json['can_toggle'] != null ? SdkPresent((json['can_toggle'] as bool?)!) : const SdkOmitted(),
+    subject: json.containsKey('subject') ? SdkPresent(json['subject'] as String?) : const SdkOmitted(),
+    markup: json['markup'] != null ? SdkPresent((json['markup'] as String?)!) : const SdkOmitted(),
+    body: json['body'] != null ? SdkPresent((json['body'] as String?)!) : const SdkOmitted(),
+    availableVariables: json['available_variables'] != null ? SdkPresent(((json['available_variables'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
+    requiredVariables: json['required_variables'] != null ? SdkPresent(((json['required_variables'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
+    fromEmailName: json['from_email_name'] != null ? SdkPresent((json['from_email_name'] as String?)!) : const SdkOmitted(),
+    replyToEmailName: json['reply_to_email_name'] != null ? SdkPresent((json['reply_to_email_name'] as String?)!) : const SdkOmitted(),
+    deliveredByClerk: json['delivered_by_clerk'] != null ? SdkPresent((json['delivered_by_clerk'] as bool?)!) : const SdkOmitted(),
+    enabled: json['enabled'] != null ? SdkPresent((json['enabled'] as bool?)!) : const SdkOmitted(),
+    flaggedAsSuspicious: json['flagged_as_suspicious'] != null ? SdkPresent((json['flagged_as_suspicious'] as bool?)!) : const SdkOmitted(),
+    updatedAt: json['updated_at'] != null ? SdkPresent(((json['updated_at'] as num?)?.toInt())!) : const SdkOmitted(),
+    createdAt: json['created_at'] != null ? SdkPresent(((json['created_at'] as num?)?.toInt())!) : const SdkOmitted(),
+  );
 
   Map<String, dynamic> toJson() => {
-        ...switch (id) {
-          SdkPresent<String>(value: final value) => {
-              'id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (object) {
-          SdkPresent<TemplateObject>(value: final value) => {
-              'object': value.toJson(),
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (instanceId) {
-          SdkPresent<String?>(value: final value) => {
-              'instance_id': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (resourceType) {
-          SdkPresent<String>(value: final value) => {
-              'resource_type': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (templateType) {
-          SdkPresent<String>(value: final value) => {
-              'template_type': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (name) {
-          SdkPresent<String>(value: final value) => {
-              'name': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (slug) {
-          SdkPresent<String>(value: final value) => {
-              'slug': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (position) {
-          SdkPresent<int>(value: final value) => {
-              'position': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (canRevert) {
-          SdkPresent<bool>(value: final value) => {
-              'can_revert': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (canDelete) {
-          SdkPresent<bool>(value: final value) => {
-              'can_delete': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (canEditBody) {
-          SdkPresent<bool>(value: final value) => {
-              'can_edit_body': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (canToggle) {
-          SdkPresent<bool>(value: final value) => {
-              'can_toggle': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (subject) {
-          SdkPresent<String?>(value: final value) => {
-              'subject': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (markup) {
-          SdkPresent<String>(value: final value) => {
-              'markup': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (body) {
-          SdkPresent<String>(value: final value) => {
-              'body': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (availableVariables) {
-          SdkPresent<List<String>>(value: final value) => {
-              'available_variables': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (requiredVariables) {
-          SdkPresent<List<String>>(value: final value) => {
-              'required_variables': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (fromEmailName) {
-          SdkPresent<String>(value: final value) => {
-              'from_email_name': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (replyToEmailName) {
-          SdkPresent<String>(value: final value) => {
-              'reply_to_email_name': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (deliveredByClerk) {
-          SdkPresent<bool>(value: final value) => {
-              'delivered_by_clerk': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (enabled) {
-          SdkPresent<bool>(value: final value) => {
-              'enabled': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (flaggedAsSuspicious) {
-          SdkPresent<bool>(value: final value) => {
-              'flagged_as_suspicious': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (updatedAt) {
-          SdkPresent<int>(value: final value) => {
-              'updated_at': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-        ...switch (createdAt) {
-          SdkPresent<int>(value: final value) => {
-              'created_at': value,
-            },
-          _ => const <String, dynamic>{},
-        },
-      };
+    ...switch (id) {
+      SdkPresent<String>(value: final value) => {'id': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (object) {
+      SdkPresent<TemplateObject>(value: final value) => {'object': value.toJson(),},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (instanceId) {
+      SdkPresent<String?>(value: final value) => {'instance_id': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (resourceType) {
+      SdkPresent<String>(value: final value) => {'resource_type': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (templateType) {
+      SdkPresent<String>(value: final value) => {'template_type': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (name) {
+      SdkPresent<String>(value: final value) => {'name': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (slug) {
+      SdkPresent<String>(value: final value) => {'slug': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (position) {
+      SdkPresent<int>(value: final value) => {'position': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (canRevert) {
+      SdkPresent<bool>(value: final value) => {'can_revert': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (canDelete) {
+      SdkPresent<bool>(value: final value) => {'can_delete': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (canEditBody) {
+      SdkPresent<bool>(value: final value) => {'can_edit_body': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (canToggle) {
+      SdkPresent<bool>(value: final value) => {'can_toggle': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (subject) {
+      SdkPresent<String?>(value: final value) => {'subject': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (markup) {
+      SdkPresent<String>(value: final value) => {'markup': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (body) {
+      SdkPresent<String>(value: final value) => {'body': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (availableVariables) {
+      SdkPresent<List<String>>(value: final value) => {'available_variables': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (requiredVariables) {
+      SdkPresent<List<String>>(value: final value) => {'required_variables': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (fromEmailName) {
+      SdkPresent<String>(value: final value) => {'from_email_name': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (replyToEmailName) {
+      SdkPresent<String>(value: final value) => {'reply_to_email_name': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (deliveredByClerk) {
+      SdkPresent<bool>(value: final value) => {'delivered_by_clerk': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (enabled) {
+      SdkPresent<bool>(value: final value) => {'enabled': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (flaggedAsSuspicious) {
+      SdkPresent<bool>(value: final value) => {'flagged_as_suspicious': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (updatedAt) {
+      SdkPresent<int>(value: final value) => {'updated_at': value,},
+      _ => const <String, dynamic>{},
+    },
+    ...switch (createdAt) {
+      SdkPresent<int>(value: final value) => {'created_at': value,},
+      _ => const <String, dynamic>{},
+    },
+  };
 }

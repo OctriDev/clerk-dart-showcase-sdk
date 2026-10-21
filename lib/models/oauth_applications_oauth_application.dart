@@ -8,292 +8,137 @@ part of 'oauth_applications.dart';
 class OAuthApplication {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
-
   /// Required enumerated value serialized in the `object` wire field.
   final OAuthApplicationObject object;
-
   /// Required `string` value serialized in the `id` wire field.
   final String id;
-
   /// Required `string` value serialized in the `instance_id` wire field.
   final String instanceId;
-
   /// Required `string` value serialized in the `name` wire field.
   final String name;
-
   /// Required `string` value serialized in the `client_id` wire field.
   final String clientId;
-
   /// Required `string` value serialized in the `client_uri` wire field.
   final String? clientUri;
-
   /// Required `string` value serialized in the `client_image_url` wire field.
   final String? clientImageUrl;
-
   /// Required `boolean` value serialized in the `dynamically_registered` wire field.
   final bool dynamicallyRegistered;
-
   /// Required `boolean` value serialized in the `consent_screen_enabled` wire field.
   final bool consentScreenEnabled;
-
   /// Required `boolean` value serialized in the `pkce_required` wire field.
   final bool pkceRequired;
-
   /// The active application audience URI, whose registry identity is permanently reserved to this application.
   final String? audienceUri;
-
   /// Whether this confidential application accepts token exchanges from its active audience.
   final bool tokenExchangeEnabled;
-
   /// Required `boolean` value serialized in the `device_authorization_grant_enabled` wire field.
   final bool deviceAuthorizationGrantEnabled;
-
   /// Required `boolean` value serialized in the `public` wire field.
   final bool public;
-
   /// The complete scope ceiling for the OAuth application, as a space-delimited list of built-in and assigned custom scope keys.
   final String scopes;
-
   /// Required array value serialized in the `redirect_uris` wire field.
   final List<String> redirectUris;
-
   /// Deprecated: Use redirect_uris instead.
   final String callbackUrl;
-
   /// Required `string` value serialized in the `authorize_url` wire field.
   final String authorizeUrl;
-
   /// Required `string` value serialized in the `token_fetch_url` wire field.
   final String tokenFetchUrl;
-
   /// Required `string` value serialized in the `user_info_url` wire field.
   final String userInfoUrl;
-
   /// Required `string` value serialized in the `discovery_url` wire field.
   final String discoveryUrl;
-
   /// Required `string` value serialized in the `token_introspection_url` wire field.
   final String tokenIntrospectionUrl;
-
   /// Unix timestamp of creation.
   final int createdAt;
-
   /// Unix timestamp of last update.
   final int updatedAt;
 
-  const OAuthApplication(
-      {required this.object,
-      required this.id,
-      required this.instanceId,
-      required this.name,
-      required this.clientId,
-      required this.clientUri,
-      required this.clientImageUrl,
-      required this.dynamicallyRegistered,
-      required this.consentScreenEnabled,
-      required this.pkceRequired,
-      required this.audienceUri,
-      required this.tokenExchangeEnabled,
-      required this.deviceAuthorizationGrantEnabled,
-      required this.public,
-      required this.scopes,
-      required this.redirectUris,
-      required this.callbackUrl,
-      required this.authorizeUrl,
-      required this.tokenFetchUrl,
-      required this.userInfoUrl,
-      required this.discoveryUrl,
-      required this.tokenIntrospectionUrl,
-      required this.createdAt,
-      required this.updatedAt});
+  const OAuthApplication({required this.object, required this.id, required this.instanceId, required this.name, required this.clientId, required this.clientUri, required this.clientImageUrl, required this.dynamicallyRegistered, required this.consentScreenEnabled, required this.pkceRequired, required this.audienceUri, required this.tokenExchangeEnabled, required this.deviceAuthorizationGrantEnabled, required this.public, required this.scopes, required this.redirectUris, required this.callbackUrl, required this.authorizeUrl, required this.tokenFetchUrl, required this.userInfoUrl, required this.discoveryUrl, required this.tokenIntrospectionUrl, required this.createdAt, required this.updatedAt});
 
-  OAuthApplication Function(
-      {OAuthApplicationObject object,
-      String id,
-      String instanceId,
-      String name,
-      String clientId,
-      String? clientUri,
-      String? clientImageUrl,
-      bool dynamicallyRegistered,
-      bool consentScreenEnabled,
-      bool pkceRequired,
-      String? audienceUri,
-      bool tokenExchangeEnabled,
-      bool deviceAuthorizationGrantEnabled,
-      bool public,
-      String scopes,
-      List<String> redirectUris,
-      String callbackUrl,
-      String authorizeUrl,
-      String tokenFetchUrl,
-      String userInfoUrl,
-      String discoveryUrl,
-      String tokenIntrospectionUrl,
-      int createdAt,
-      int updatedAt}) get copyWith => _copyWith;
+  OAuthApplication Function({OAuthApplicationObject object, String id, String instanceId, String name, String clientId, String? clientUri, String? clientImageUrl, bool dynamicallyRegistered, bool consentScreenEnabled, bool pkceRequired, String? audienceUri, bool tokenExchangeEnabled, bool deviceAuthorizationGrantEnabled, bool public, String scopes, List<String> redirectUris, String callbackUrl, String authorizeUrl, String tokenFetchUrl, String userInfoUrl, String discoveryUrl, String tokenIntrospectionUrl, int createdAt, int updatedAt}) get copyWith => _copyWith;
 
-  OAuthApplication _copyWith(
-          {Object? object = sdkOmittedValue,
-          Object? id = sdkOmittedValue,
-          Object? instanceId = sdkOmittedValue,
-          Object? name = sdkOmittedValue,
-          Object? clientId = sdkOmittedValue,
-          Object? clientUri = sdkOmittedValue,
-          Object? clientImageUrl = sdkOmittedValue,
-          Object? dynamicallyRegistered = sdkOmittedValue,
-          Object? consentScreenEnabled = sdkOmittedValue,
-          Object? pkceRequired = sdkOmittedValue,
-          Object? audienceUri = sdkOmittedValue,
-          Object? tokenExchangeEnabled = sdkOmittedValue,
-          Object? deviceAuthorizationGrantEnabled = sdkOmittedValue,
-          Object? public = sdkOmittedValue,
-          Object? scopes = sdkOmittedValue,
-          Object? redirectUris = sdkOmittedValue,
-          Object? callbackUrl = sdkOmittedValue,
-          Object? authorizeUrl = sdkOmittedValue,
-          Object? tokenFetchUrl = sdkOmittedValue,
-          Object? userInfoUrl = sdkOmittedValue,
-          Object? discoveryUrl = sdkOmittedValue,
-          Object? tokenIntrospectionUrl = sdkOmittedValue,
-          Object? createdAt = sdkOmittedValue,
-          Object? updatedAt = sdkOmittedValue}) =>
-      OAuthApplication(
-        object: identical(object, sdkOmittedValue)
-            ? this.object
-            : object as OAuthApplicationObject,
-        id: identical(id, sdkOmittedValue) ? this.id : id as String,
-        instanceId: identical(instanceId, sdkOmittedValue)
-            ? this.instanceId
-            : instanceId as String,
-        name: identical(name, sdkOmittedValue) ? this.name : name as String,
-        clientId: identical(clientId, sdkOmittedValue)
-            ? this.clientId
-            : clientId as String,
-        clientUri: identical(clientUri, sdkOmittedValue)
-            ? this.clientUri
-            : clientUri as String?,
-        clientImageUrl: identical(clientImageUrl, sdkOmittedValue)
-            ? this.clientImageUrl
-            : clientImageUrl as String?,
-        dynamicallyRegistered: identical(dynamicallyRegistered, sdkOmittedValue)
-            ? this.dynamicallyRegistered
-            : dynamicallyRegistered as bool,
-        consentScreenEnabled: identical(consentScreenEnabled, sdkOmittedValue)
-            ? this.consentScreenEnabled
-            : consentScreenEnabled as bool,
-        pkceRequired: identical(pkceRequired, sdkOmittedValue)
-            ? this.pkceRequired
-            : pkceRequired as bool,
-        audienceUri: identical(audienceUri, sdkOmittedValue)
-            ? this.audienceUri
-            : audienceUri as String?,
-        tokenExchangeEnabled: identical(tokenExchangeEnabled, sdkOmittedValue)
-            ? this.tokenExchangeEnabled
-            : tokenExchangeEnabled as bool,
-        deviceAuthorizationGrantEnabled:
-            identical(deviceAuthorizationGrantEnabled, sdkOmittedValue)
-                ? this.deviceAuthorizationGrantEnabled
-                : deviceAuthorizationGrantEnabled as bool,
-        public:
-            identical(public, sdkOmittedValue) ? this.public : public as bool,
-        scopes:
-            identical(scopes, sdkOmittedValue) ? this.scopes : scopes as String,
-        redirectUris: identical(redirectUris, sdkOmittedValue)
-            ? this.redirectUris
-            : redirectUris as List<String>,
-        callbackUrl: identical(callbackUrl, sdkOmittedValue)
-            ? this.callbackUrl
-            : callbackUrl as String,
-        authorizeUrl: identical(authorizeUrl, sdkOmittedValue)
-            ? this.authorizeUrl
-            : authorizeUrl as String,
-        tokenFetchUrl: identical(tokenFetchUrl, sdkOmittedValue)
-            ? this.tokenFetchUrl
-            : tokenFetchUrl as String,
-        userInfoUrl: identical(userInfoUrl, sdkOmittedValue)
-            ? this.userInfoUrl
-            : userInfoUrl as String,
-        discoveryUrl: identical(discoveryUrl, sdkOmittedValue)
-            ? this.discoveryUrl
-            : discoveryUrl as String,
-        tokenIntrospectionUrl: identical(tokenIntrospectionUrl, sdkOmittedValue)
-            ? this.tokenIntrospectionUrl
-            : tokenIntrospectionUrl as String,
-        createdAt: identical(createdAt, sdkOmittedValue)
-            ? this.createdAt
-            : createdAt as int,
-        updatedAt: identical(updatedAt, sdkOmittedValue)
-            ? this.updatedAt
-            : updatedAt as int,
-      );
+  OAuthApplication _copyWith({Object? object = sdkOmittedValue, Object? id = sdkOmittedValue, Object? instanceId = sdkOmittedValue, Object? name = sdkOmittedValue, Object? clientId = sdkOmittedValue, Object? clientUri = sdkOmittedValue, Object? clientImageUrl = sdkOmittedValue, Object? dynamicallyRegistered = sdkOmittedValue, Object? consentScreenEnabled = sdkOmittedValue, Object? pkceRequired = sdkOmittedValue, Object? audienceUri = sdkOmittedValue, Object? tokenExchangeEnabled = sdkOmittedValue, Object? deviceAuthorizationGrantEnabled = sdkOmittedValue, Object? public = sdkOmittedValue, Object? scopes = sdkOmittedValue, Object? redirectUris = sdkOmittedValue, Object? callbackUrl = sdkOmittedValue, Object? authorizeUrl = sdkOmittedValue, Object? tokenFetchUrl = sdkOmittedValue, Object? userInfoUrl = sdkOmittedValue, Object? discoveryUrl = sdkOmittedValue, Object? tokenIntrospectionUrl = sdkOmittedValue, Object? createdAt = sdkOmittedValue, Object? updatedAt = sdkOmittedValue}) => OAuthApplication(
+    object: identical(object, sdkOmittedValue) ? this.object : object as OAuthApplicationObject,
+    id: identical(id, sdkOmittedValue) ? this.id : id as String,
+    instanceId: identical(instanceId, sdkOmittedValue) ? this.instanceId : instanceId as String,
+    name: identical(name, sdkOmittedValue) ? this.name : name as String,
+    clientId: identical(clientId, sdkOmittedValue) ? this.clientId : clientId as String,
+    clientUri: identical(clientUri, sdkOmittedValue) ? this.clientUri : clientUri as String?,
+    clientImageUrl: identical(clientImageUrl, sdkOmittedValue) ? this.clientImageUrl : clientImageUrl as String?,
+    dynamicallyRegistered: identical(dynamicallyRegistered, sdkOmittedValue) ? this.dynamicallyRegistered : dynamicallyRegistered as bool,
+    consentScreenEnabled: identical(consentScreenEnabled, sdkOmittedValue) ? this.consentScreenEnabled : consentScreenEnabled as bool,
+    pkceRequired: identical(pkceRequired, sdkOmittedValue) ? this.pkceRequired : pkceRequired as bool,
+    audienceUri: identical(audienceUri, sdkOmittedValue) ? this.audienceUri : audienceUri as String?,
+    tokenExchangeEnabled: identical(tokenExchangeEnabled, sdkOmittedValue) ? this.tokenExchangeEnabled : tokenExchangeEnabled as bool,
+    deviceAuthorizationGrantEnabled: identical(deviceAuthorizationGrantEnabled, sdkOmittedValue) ? this.deviceAuthorizationGrantEnabled : deviceAuthorizationGrantEnabled as bool,
+    public: identical(public, sdkOmittedValue) ? this.public : public as bool,
+    scopes: identical(scopes, sdkOmittedValue) ? this.scopes : scopes as String,
+    redirectUris: identical(redirectUris, sdkOmittedValue) ? this.redirectUris : redirectUris as List<String>,
+    callbackUrl: identical(callbackUrl, sdkOmittedValue) ? this.callbackUrl : callbackUrl as String,
+    authorizeUrl: identical(authorizeUrl, sdkOmittedValue) ? this.authorizeUrl : authorizeUrl as String,
+    tokenFetchUrl: identical(tokenFetchUrl, sdkOmittedValue) ? this.tokenFetchUrl : tokenFetchUrl as String,
+    userInfoUrl: identical(userInfoUrl, sdkOmittedValue) ? this.userInfoUrl : userInfoUrl as String,
+    discoveryUrl: identical(discoveryUrl, sdkOmittedValue) ? this.discoveryUrl : discoveryUrl as String,
+    tokenIntrospectionUrl: identical(tokenIntrospectionUrl, sdkOmittedValue) ? this.tokenIntrospectionUrl : tokenIntrospectionUrl as String,
+    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as int,
+    updatedAt: identical(updatedAt, sdkOmittedValue) ? this.updatedAt : updatedAt as int,
+  );
 
-  factory OAuthApplication.fromJson(Map<String, dynamic> json) =>
-      OAuthApplication(
-        object: (json['object'] != null
-            ? OAuthApplicationObject.fromJson(json['object'] as String)
-            : null)!,
-        id: (json['id'] as String?)!,
-        instanceId: (json['instance_id'] as String?)!,
-        name: (json['name'] as String?)!,
-        clientId: (json['client_id'] as String?)!,
-        clientUri: json.containsKey('client_uri')
-            ? json['client_uri'] as String?
-            : throw ArgumentError.value(
-                null, 'client_uri', 'Required property is missing'),
-        clientImageUrl: json.containsKey('client_image_url')
-            ? json['client_image_url'] as String?
-            : throw ArgumentError.value(
-                null, 'client_image_url', 'Required property is missing'),
-        dynamicallyRegistered: (json['dynamically_registered'] as bool?)!,
-        consentScreenEnabled: (json['consent_screen_enabled'] as bool?)!,
-        pkceRequired: (json['pkce_required'] as bool?)!,
-        audienceUri: json.containsKey('audience_uri')
-            ? json['audience_uri'] as String?
-            : throw ArgumentError.value(
-                null, 'audience_uri', 'Required property is missing'),
-        tokenExchangeEnabled: (json['token_exchange_enabled'] as bool?)!,
-        deviceAuthorizationGrantEnabled:
-            (json['device_authorization_grant_enabled'] as bool?)!,
-        public: (json['public'] as bool?)!,
-        scopes: (json['scopes'] as String?)!,
-        redirectUris: ((json['redirect_uris'] as List?)
-            ?.map((e) => e as String)
-            .toList())!,
-        callbackUrl: (json['callback_url'] as String?)!,
-        authorizeUrl: (json['authorize_url'] as String?)!,
-        tokenFetchUrl: (json['token_fetch_url'] as String?)!,
-        userInfoUrl: (json['user_info_url'] as String?)!,
-        discoveryUrl: (json['discovery_url'] as String?)!,
-        tokenIntrospectionUrl: (json['token_introspection_url'] as String?)!,
-        createdAt: ((json['created_at'] as num?)?.toInt())!,
-        updatedAt: ((json['updated_at'] as num?)?.toInt())!,
-      );
+  factory OAuthApplication.fromJson(Map<String, dynamic> json) => OAuthApplication(
+    object: (json['object'] != null ? OAuthApplicationObject.fromJson(json['object'] as String) : null)!,
+    id: (json['id'] as String?)!,
+    instanceId: (json['instance_id'] as String?)!,
+    name: (json['name'] as String?)!,
+    clientId: (json['client_id'] as String?)!,
+    clientUri: json.containsKey('client_uri') ? json['client_uri'] as String? : throw ArgumentError.value(null, 'client_uri', 'Required property is missing'),
+    clientImageUrl: json.containsKey('client_image_url') ? json['client_image_url'] as String? : throw ArgumentError.value(null, 'client_image_url', 'Required property is missing'),
+    dynamicallyRegistered: (json['dynamically_registered'] as bool?)!,
+    consentScreenEnabled: (json['consent_screen_enabled'] as bool?)!,
+    pkceRequired: (json['pkce_required'] as bool?)!,
+    audienceUri: json.containsKey('audience_uri') ? json['audience_uri'] as String? : throw ArgumentError.value(null, 'audience_uri', 'Required property is missing'),
+    tokenExchangeEnabled: (json['token_exchange_enabled'] as bool?)!,
+    deviceAuthorizationGrantEnabled: (json['device_authorization_grant_enabled'] as bool?)!,
+    public: (json['public'] as bool?)!,
+    scopes: (json['scopes'] as String?)!,
+    redirectUris: ((json['redirect_uris'] as List?)?.map((e) => e as String).toList())!,
+    callbackUrl: (json['callback_url'] as String?)!,
+    authorizeUrl: (json['authorize_url'] as String?)!,
+    tokenFetchUrl: (json['token_fetch_url'] as String?)!,
+    userInfoUrl: (json['user_info_url'] as String?)!,
+    discoveryUrl: (json['discovery_url'] as String?)!,
+    tokenIntrospectionUrl: (json['token_introspection_url'] as String?)!,
+    createdAt: ((json['created_at'] as num?)?.toInt())!,
+    updatedAt: ((json['updated_at'] as num?)?.toInt())!,
+  );
 
   Map<String, dynamic> toJson() => {
-        'object': object.toJson(),
-        'id': id,
-        'instance_id': instanceId,
-        'name': name,
-        'client_id': clientId,
-        'client_uri': clientUri,
-        'client_image_url': clientImageUrl,
-        'dynamically_registered': dynamicallyRegistered,
-        'consent_screen_enabled': consentScreenEnabled,
-        'pkce_required': pkceRequired,
-        'audience_uri': audienceUri,
-        'token_exchange_enabled': tokenExchangeEnabled,
-        'device_authorization_grant_enabled': deviceAuthorizationGrantEnabled,
-        'public': public,
-        'scopes': scopes,
-        'redirect_uris': redirectUris,
-        'callback_url': callbackUrl,
-        'authorize_url': authorizeUrl,
-        'token_fetch_url': tokenFetchUrl,
-        'user_info_url': userInfoUrl,
-        'discovery_url': discoveryUrl,
-        'token_introspection_url': tokenIntrospectionUrl,
-        'created_at': createdAt,
-        'updated_at': updatedAt,
-      };
+    'object': object.toJson(),
+    'id': id,
+    'instance_id': instanceId,
+    'name': name,
+    'client_id': clientId,
+    'client_uri': clientUri,
+    'client_image_url': clientImageUrl,
+    'dynamically_registered': dynamicallyRegistered,
+    'consent_screen_enabled': consentScreenEnabled,
+    'pkce_required': pkceRequired,
+    'audience_uri': audienceUri,
+    'token_exchange_enabled': tokenExchangeEnabled,
+    'device_authorization_grant_enabled': deviceAuthorizationGrantEnabled,
+    'public': public,
+    'scopes': scopes,
+    'redirect_uris': redirectUris,
+    'callback_url': callbackUrl,
+    'authorize_url': authorizeUrl,
+    'token_fetch_url': tokenFetchUrl,
+    'user_info_url': userInfoUrl,
+    'discovery_url': discoveryUrl,
+    'token_introspection_url': tokenIntrospectionUrl,
+    'created_at': createdAt,
+    'updated_at': updatedAt,
+  };
 }

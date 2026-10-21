@@ -145,103 +145,41 @@ Future<List<User>> listUsers(ClientConfig config,
   return (await sdkRequest<List<User>>('GET', '/users',
           config: config,
           query: {
-            'email_address': SdkQueryValue(
-                SdkUtils.unwrapOptional(emailAddress),
-                style: 'form',
-                explode: true),
-            'phone_number': SdkQueryValue(SdkUtils.unwrapOptional(phoneNumber),
-                style: 'form', explode: true),
-            'external_id': SdkQueryValue(SdkUtils.unwrapOptional(externalId),
-                style: 'form', explode: true),
-            'username': SdkQueryValue(SdkUtils.unwrapOptional(username),
-                style: 'form', explode: true),
-            'web3_wallet': SdkQueryValue(SdkUtils.unwrapOptional(web3Wallet),
-                style: 'form', explode: true),
-            'user_id': SdkQueryValue(SdkUtils.unwrapOptional(userId),
-                style: 'form', explode: true),
-            'organization_id': SdkQueryValue(
-                SdkUtils.unwrapOptional(organizationId),
-                style: 'form',
-                explode: true),
-            'query': SdkQueryValue(SdkUtils.unwrapOptional(query),
-                style: 'form', explode: true),
-            'email_address_query': SdkQueryValue(
-                SdkUtils.unwrapOptional(emailAddressQuery),
-                style: 'form',
-                explode: true),
-            'phone_number_query': SdkQueryValue(
-                SdkUtils.unwrapOptional(phoneNumberQuery),
-                style: 'form',
-                explode: true),
-            'username_query': SdkQueryValue(
-                SdkUtils.unwrapOptional(usernameQuery),
-                style: 'form',
-                explode: true),
-            'name_query': SdkQueryValue(SdkUtils.unwrapOptional(nameQuery),
-                style: 'form', explode: true),
-            'banned': SdkQueryValue(SdkUtils.unwrapOptional(banned),
-                style: 'form', explode: true),
-            'last_active_at_before': SdkQueryValue(
-                SdkUtils.unwrapOptional(lastActiveAtBefore),
-                style: 'form',
-                explode: true),
-            'last_active_at_after': SdkQueryValue(
-                SdkUtils.unwrapOptional(lastActiveAtAfter),
-                style: 'form',
-                explode: true),
-            'last_active_at_since': SdkQueryValue(
-                SdkUtils.unwrapOptional(lastActiveAtSince),
-                style: 'form',
-                explode: true),
-            'created_at_before': SdkQueryValue(
-                SdkUtils.unwrapOptional(createdAtBefore),
-                style: 'form',
-                explode: true),
-            'created_at_after': SdkQueryValue(
-                SdkUtils.unwrapOptional(createdAtAfter),
-                style: 'form',
-                explode: true),
-            'last_sign_in_at_before': SdkQueryValue(
-                SdkUtils.unwrapOptional(lastSignInAtBefore),
-                style: 'form',
-                explode: true),
-            'last_sign_in_at_after': SdkQueryValue(
-                SdkUtils.unwrapOptional(lastSignInAtAfter),
-                style: 'form',
-                explode: true),
-            'provider': SdkQueryValue(SdkUtils.unwrapOptional(provider),
-                style: 'form', explode: true),
-            'provider_user_id': SdkQueryValue(
-                SdkUtils.unwrapOptional(providerUserId),
-                style: 'form',
-                explode: true),
-            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit),
-                style: 'form', explode: true),
-            'offset': SdkQueryValue(SdkUtils.unwrapOptional(offset),
-                style: 'form', explode: true),
-            'starting_after': SdkQueryValue(
-                SdkUtils.unwrapOptional(startingAfter),
-                style: 'form',
-                explode: true),
-            'order_by': SdkQueryValue(SdkUtils.unwrapOptional(orderBy),
-                style: 'form', explode: true)
+            'email_address': SdkQueryValue(SdkUtils.unwrapOptional(emailAddress), style: 'form', explode: true),
+            'phone_number': SdkQueryValue(SdkUtils.unwrapOptional(phoneNumber), style: 'form', explode: true),
+            'external_id': SdkQueryValue(SdkUtils.unwrapOptional(externalId), style: 'form', explode: true),
+            'username': SdkQueryValue(SdkUtils.unwrapOptional(username), style: 'form', explode: true),
+            'web3_wallet': SdkQueryValue(SdkUtils.unwrapOptional(web3Wallet), style: 'form', explode: true),
+            'user_id': SdkQueryValue(SdkUtils.unwrapOptional(userId), style: 'form', explode: true),
+            'organization_id': SdkQueryValue(SdkUtils.unwrapOptional(organizationId), style: 'form', explode: true),
+            'query': SdkQueryValue(SdkUtils.unwrapOptional(query), style: 'form', explode: true),
+            'email_address_query': SdkQueryValue(SdkUtils.unwrapOptional(emailAddressQuery), style: 'form', explode: true),
+            'phone_number_query': SdkQueryValue(SdkUtils.unwrapOptional(phoneNumberQuery), style: 'form', explode: true),
+            'username_query': SdkQueryValue(SdkUtils.unwrapOptional(usernameQuery), style: 'form', explode: true),
+            'name_query': SdkQueryValue(SdkUtils.unwrapOptional(nameQuery), style: 'form', explode: true),
+            'banned': SdkQueryValue(SdkUtils.unwrapOptional(banned), style: 'form', explode: true),
+            'last_active_at_before': SdkQueryValue(SdkUtils.unwrapOptional(lastActiveAtBefore), style: 'form', explode: true),
+            'last_active_at_after': SdkQueryValue(SdkUtils.unwrapOptional(lastActiveAtAfter), style: 'form', explode: true),
+            'last_active_at_since': SdkQueryValue(SdkUtils.unwrapOptional(lastActiveAtSince), style: 'form', explode: true),
+            'created_at_before': SdkQueryValue(SdkUtils.unwrapOptional(createdAtBefore), style: 'form', explode: true),
+            'created_at_after': SdkQueryValue(SdkUtils.unwrapOptional(createdAtAfter), style: 'form', explode: true),
+            'last_sign_in_at_before': SdkQueryValue(SdkUtils.unwrapOptional(lastSignInAtBefore), style: 'form', explode: true),
+            'last_sign_in_at_after': SdkQueryValue(SdkUtils.unwrapOptional(lastSignInAtAfter), style: 'form', explode: true),
+            'provider': SdkQueryValue(SdkUtils.unwrapOptional(provider), style: 'form', explode: true),
+            'provider_user_id': SdkQueryValue(SdkUtils.unwrapOptional(providerUserId), style: 'form', explode: true),
+            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit), style: 'form', explode: true),
+            'offset': SdkQueryValue(SdkUtils.unwrapOptional(offset), style: 'form', explode: true),
+            'starting_after': SdkQueryValue(SdkUtils.unwrapOptional(startingAfter), style: 'form', explode: true),
+            'order_by': SdkQueryValue(SdkUtils.unwrapOptional(orderBy), style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'listUsers',
-          fromJsonRaw: (value) => (value as List)
-              .map((item) => User.fromJson(item as Map<String, dynamic>))
-              .toList(),
+          fromJsonRaw: (value) => (value as List).map((item) => User.fromJson(item as Map<String, dynamic>)).toList(),
           options: requestOptions,
-          errors: {
-            '400': (value) =>
-                ClerkErrors.fromJson(value as Map<String, dynamic>),
-            '401': (value) =>
-                ClerkErrors.fromJson(value as Map<String, dynamic>),
-            '422': (value) =>
-                ClerkErrors.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'400': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '401': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '422': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Creates a new user. Your user management settings determine how you should setup your user model. By default, any email address and phone number created using this method is marked as verified. Use the `email_address_identification_status` and `phone_number_identification_status` arrays to instead create some or all of them as reserved (unverified but usable for sign-in and locked so no other user can claim them). Note: If you are performing a migration, check out our guide on [zero downtime migrations](https://clerk.com/docs/deployments/migrate-overview). The following rate limit rules apply to this endpoint: 1000 requests per 10 seconds for production instances and 100 requests per 10 seconds for development instances
 ///
@@ -369,11 +307,9 @@ Future<User> createUser(ClientConfig config,
     SdkOptional<String?> locale = const SdkOmitted(),
     SdkOptional<String?> timezone = const SdkOmitted(),
     SdkOptional<List<String>> emailAddress = const SdkOmitted(),
-    SdkOptional<List<CreateUserRequestBodyEmailAddressIdentificationStatusItem>>
-        emailAddressIdentificationStatus = const SdkOmitted(),
+    SdkOptional<List<CreateUserRequestBodyEmailAddressIdentificationStatusItem>> emailAddressIdentificationStatus = const SdkOmitted(),
     SdkOptional<List<String>> phoneNumber = const SdkOmitted(),
-    SdkOptional<List<CreateUserRequestBodyPhoneNumberIdentificationStatusItem>>
-        phoneNumberIdentificationStatus = const SdkOmitted(),
+    SdkOptional<List<CreateUserRequestBodyPhoneNumberIdentificationStatusItem>> phoneNumberIdentificationStatus = const SdkOmitted(),
     SdkOptional<List<String>> web3Wallet = const SdkOmitted(),
     SdkOptional<String?> username = const SdkOmitted(),
     SdkOptional<String?> password = const SdkOmitted(),
@@ -407,21 +343,17 @@ Future<User> createUser(ClientConfig config,
             'locale': SdkUtils.unwrapOptional(locale),
             'timezone': SdkUtils.unwrapOptional(timezone),
             'email_address': SdkUtils.unwrapOptional(emailAddress),
-            'email_address_identification_status':
-                SdkUtils.unwrapOptional(emailAddressIdentificationStatus),
+            'email_address_identification_status': SdkUtils.unwrapOptional(emailAddressIdentificationStatus),
             'phone_number': SdkUtils.unwrapOptional(phoneNumber),
-            'phone_number_identification_status':
-                SdkUtils.unwrapOptional(phoneNumberIdentificationStatus),
+            'phone_number_identification_status': SdkUtils.unwrapOptional(phoneNumberIdentificationStatus),
             'web3_wallet': SdkUtils.unwrapOptional(web3Wallet),
             'username': SdkUtils.unwrapOptional(username),
             'password': SdkUtils.unwrapOptional(password),
             'password_digest': SdkUtils.unwrapOptional(passwordDigest),
             'password_hasher': SdkUtils.unwrapOptional(passwordHasher),
             'skip_password_checks': SdkUtils.unwrapOptional(skipPasswordChecks),
-            'skip_password_requirement':
-                SdkUtils.unwrapOptional(skipPasswordRequirement),
-            'skip_restriction_checks':
-                SdkUtils.unwrapOptional(skipRestrictionChecks),
+            'skip_password_requirement': SdkUtils.unwrapOptional(skipPasswordRequirement),
+            'skip_restriction_checks': SdkUtils.unwrapOptional(skipRestrictionChecks),
             'totp_secret': SdkUtils.unwrapOptional(totpSecret),
             'backup_codes': SdkUtils.unwrapOptional(backupCodes),
             'public_metadata': SdkUtils.unwrapOptional(publicMetadata),
@@ -430,12 +362,9 @@ Future<User> createUser(ClientConfig config,
             'delete_self_enabled': SdkUtils.unwrapOptional(deleteSelfEnabled),
             'legal_accepted_at': SdkUtils.unwrapOptional(legalAcceptedAt),
             'skip_legal_checks': SdkUtils.unwrapOptional(skipLegalChecks),
-            'skip_user_requirement':
-                SdkUtils.unwrapOptional(skipUserRequirement),
-            'create_organization_enabled':
-                SdkUtils.unwrapOptional(createOrganizationEnabled),
-            'create_organizations_limit':
-                SdkUtils.unwrapOptional(createOrganizationsLimit),
+            'skip_user_requirement': SdkUtils.unwrapOptional(skipUserRequirement),
+            'create_organization_enabled': SdkUtils.unwrapOptional(createOrganizationEnabled),
+            'create_organizations_limit': SdkUtils.unwrapOptional(createOrganizationsLimit),
             'created_at': SdkUtils.unwrapOptional(createdAt),
             'bypass_client_trust': SdkUtils.unwrapOptional(bypassClientTrust),
             'banned': SdkUtils.unwrapOptional(banned),
@@ -445,20 +374,10 @@ Future<User> createUser(ClientConfig config,
           operationId: 'createUser',
           fromJsonRaw: (value) => User.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '400': (value) =>
-                ClerkErrors.fromJson(value as Map<String, dynamic>),
-            '401': (value) =>
-                ClerkErrors.fromJson(value as Map<String, dynamic>),
-            '402': (value) =>
-                ClerkErrors.fromJson(value as Map<String, dynamic>),
-            '403': (value) =>
-                ClerkErrors.fromJson(value as Map<String, dynamic>),
-            '422': (value) =>
-                ClerkErrors.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'400': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '401': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '402': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '403': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '422': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Returns a total count of all users that match the given filtering criteria.
 ///
@@ -557,88 +476,37 @@ Future<TotalCount> getUsersCount(ClientConfig config,
   return (await sdkRequest<TotalCount>('GET', '/users/count',
           config: config,
           query: {
-            'email_address': SdkQueryValue(
-                SdkUtils.unwrapOptional(emailAddress),
-                style: 'form',
-                explode: true),
-            'phone_number': SdkQueryValue(SdkUtils.unwrapOptional(phoneNumber),
-                style: 'form', explode: true),
-            'external_id': SdkQueryValue(SdkUtils.unwrapOptional(externalId),
-                style: 'form', explode: true),
-            'username': SdkQueryValue(SdkUtils.unwrapOptional(username),
-                style: 'form', explode: true),
-            'web3_wallet': SdkQueryValue(SdkUtils.unwrapOptional(web3Wallet),
-                style: 'form', explode: true),
-            'user_id': SdkQueryValue(SdkUtils.unwrapOptional(userId),
-                style: 'form', explode: true),
-            'organization_id': SdkQueryValue(
-                SdkUtils.unwrapOptional(organizationId),
-                style: 'form',
-                explode: true),
-            'query': SdkQueryValue(SdkUtils.unwrapOptional(query),
-                style: 'form', explode: true),
-            'email_address_query': SdkQueryValue(
-                SdkUtils.unwrapOptional(emailAddressQuery),
-                style: 'form',
-                explode: true),
-            'phone_number_query': SdkQueryValue(
-                SdkUtils.unwrapOptional(phoneNumberQuery),
-                style: 'form',
-                explode: true),
-            'username_query': SdkQueryValue(
-                SdkUtils.unwrapOptional(usernameQuery),
-                style: 'form',
-                explode: true),
-            'name_query': SdkQueryValue(SdkUtils.unwrapOptional(nameQuery),
-                style: 'form', explode: true),
-            'banned': SdkQueryValue(SdkUtils.unwrapOptional(banned),
-                style: 'form', explode: true),
-            'last_active_at_before': SdkQueryValue(
-                SdkUtils.unwrapOptional(lastActiveAtBefore),
-                style: 'form',
-                explode: true),
-            'last_active_at_after': SdkQueryValue(
-                SdkUtils.unwrapOptional(lastActiveAtAfter),
-                style: 'form',
-                explode: true),
-            'last_active_at_since': SdkQueryValue(
-                SdkUtils.unwrapOptional(lastActiveAtSince),
-                style: 'form',
-                explode: true),
-            'created_at_before': SdkQueryValue(
-                SdkUtils.unwrapOptional(createdAtBefore),
-                style: 'form',
-                explode: true),
-            'created_at_after': SdkQueryValue(
-                SdkUtils.unwrapOptional(createdAtAfter),
-                style: 'form',
-                explode: true),
-            'last_sign_in_at_before': SdkQueryValue(
-                SdkUtils.unwrapOptional(lastSignInAtBefore),
-                style: 'form',
-                explode: true),
-            'last_sign_in_at_after': SdkQueryValue(
-                SdkUtils.unwrapOptional(lastSignInAtAfter),
-                style: 'form',
-                explode: true),
-            'provider': SdkQueryValue(SdkUtils.unwrapOptional(provider),
-                style: 'form', explode: true),
-            'provider_user_id': SdkQueryValue(
-                SdkUtils.unwrapOptional(providerUserId),
-                style: 'form',
-                explode: true)
+            'email_address': SdkQueryValue(SdkUtils.unwrapOptional(emailAddress), style: 'form', explode: true),
+            'phone_number': SdkQueryValue(SdkUtils.unwrapOptional(phoneNumber), style: 'form', explode: true),
+            'external_id': SdkQueryValue(SdkUtils.unwrapOptional(externalId), style: 'form', explode: true),
+            'username': SdkQueryValue(SdkUtils.unwrapOptional(username), style: 'form', explode: true),
+            'web3_wallet': SdkQueryValue(SdkUtils.unwrapOptional(web3Wallet), style: 'form', explode: true),
+            'user_id': SdkQueryValue(SdkUtils.unwrapOptional(userId), style: 'form', explode: true),
+            'organization_id': SdkQueryValue(SdkUtils.unwrapOptional(organizationId), style: 'form', explode: true),
+            'query': SdkQueryValue(SdkUtils.unwrapOptional(query), style: 'form', explode: true),
+            'email_address_query': SdkQueryValue(SdkUtils.unwrapOptional(emailAddressQuery), style: 'form', explode: true),
+            'phone_number_query': SdkQueryValue(SdkUtils.unwrapOptional(phoneNumberQuery), style: 'form', explode: true),
+            'username_query': SdkQueryValue(SdkUtils.unwrapOptional(usernameQuery), style: 'form', explode: true),
+            'name_query': SdkQueryValue(SdkUtils.unwrapOptional(nameQuery), style: 'form', explode: true),
+            'banned': SdkQueryValue(SdkUtils.unwrapOptional(banned), style: 'form', explode: true),
+            'last_active_at_before': SdkQueryValue(SdkUtils.unwrapOptional(lastActiveAtBefore), style: 'form', explode: true),
+            'last_active_at_after': SdkQueryValue(SdkUtils.unwrapOptional(lastActiveAtAfter), style: 'form', explode: true),
+            'last_active_at_since': SdkQueryValue(SdkUtils.unwrapOptional(lastActiveAtSince), style: 'form', explode: true),
+            'created_at_before': SdkQueryValue(SdkUtils.unwrapOptional(createdAtBefore), style: 'form', explode: true),
+            'created_at_after': SdkQueryValue(SdkUtils.unwrapOptional(createdAtAfter), style: 'form', explode: true),
+            'last_sign_in_at_before': SdkQueryValue(SdkUtils.unwrapOptional(lastSignInAtBefore), style: 'form', explode: true),
+            'last_sign_in_at_after': SdkQueryValue(SdkUtils.unwrapOptional(lastSignInAtAfter), style: 'form', explode: true),
+            'provider': SdkQueryValue(SdkUtils.unwrapOptional(provider), style: 'form', explode: true),
+            'provider_user_id': SdkQueryValue(SdkUtils.unwrapOptional(providerUserId), style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'getUsersCount',
-          fromJsonRaw: (value) =>
-              TotalCount.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => TotalCount.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '422': (value) =>
-                ClerkErrors.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'422': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Retrieves the details of a user by their identifier. Use `user_id` to select the user whose account details you need.
 ///
@@ -654,13 +522,10 @@ Future<User> getUser(ClientConfig config,
           operationId: 'getUser',
           fromJsonRaw: (value) => User.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-        '400': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>),
-        '401': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>),
-        '404': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'400': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '401': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '404': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Update a user's attributes. You can set the user's primary contact identifiers (email address and phone numbers) by updating the `primary_email_address_id` and `primary_phone_number_id` attributes respectively. Both IDs should correspond to verified identifications that belong to the user. You can remove a user's username by setting the username attribute to null or the blank string "". As of API version 2026-05-12, this endpoint no longer accepts `public_metadata`, `private_metadata`, or `unsafe_metadata`. Use `PATCH /v1/users/{user_id}/metadata` to merge updates into existing metadata, or `PUT /v1/users/{user_id}/metadata` to replace a metadata field entirely.
 ///
@@ -775,31 +640,24 @@ Future<User> updateUser(ClientConfig config,
             'last_name': SdkUtils.unwrapOptional(lastName),
             'locale': SdkUtils.unwrapOptional(locale),
             'timezone': SdkUtils.unwrapOptional(timezone),
-            'primary_email_address_id':
-                SdkUtils.unwrapOptional(primaryEmailAddressId),
-            'notify_primary_email_address_changed':
-                SdkUtils.unwrapOptional(notifyPrimaryEmailAddressChanged),
-            'primary_phone_number_id':
-                SdkUtils.unwrapOptional(primaryPhoneNumberId),
-            'primary_web3_wallet_id':
-                SdkUtils.unwrapOptional(primaryWeb3WalletId),
+            'primary_email_address_id': SdkUtils.unwrapOptional(primaryEmailAddressId),
+            'notify_primary_email_address_changed': SdkUtils.unwrapOptional(notifyPrimaryEmailAddressChanged),
+            'primary_phone_number_id': SdkUtils.unwrapOptional(primaryPhoneNumberId),
+            'primary_web3_wallet_id': SdkUtils.unwrapOptional(primaryWeb3WalletId),
             'username': SdkUtils.unwrapOptional(username),
             'profile_image_id': SdkUtils.unwrapOptional(profileImageId),
             'password': SdkUtils.unwrapOptional(password),
             'password_digest': SdkUtils.unwrapOptional(passwordDigest),
             'password_hasher': SdkUtils.unwrapOptional(passwordHasher),
             'skip_password_checks': SdkUtils.unwrapOptional(skipPasswordChecks),
-            'sign_out_of_other_sessions':
-                SdkUtils.unwrapOptional(signOutOfOtherSessions),
+            'sign_out_of_other_sessions': SdkUtils.unwrapOptional(signOutOfOtherSessions),
             'totp_secret': SdkUtils.unwrapOptional(totpSecret),
             'backup_codes': SdkUtils.unwrapOptional(backupCodes),
             'delete_self_enabled': SdkUtils.unwrapOptional(deleteSelfEnabled),
-            'create_organization_enabled':
-                SdkUtils.unwrapOptional(createOrganizationEnabled),
+            'create_organization_enabled': SdkUtils.unwrapOptional(createOrganizationEnabled),
             'legal_accepted_at': SdkUtils.unwrapOptional(legalAcceptedAt),
             'skip_legal_checks': SdkUtils.unwrapOptional(skipLegalChecks),
-            'create_organizations_limit':
-                SdkUtils.unwrapOptional(createOrganizationsLimit),
+            'create_organizations_limit': SdkUtils.unwrapOptional(createOrganizationsLimit),
             'created_at': SdkUtils.unwrapOptional(createdAt),
             'bypass_client_trust': SdkUtils.unwrapOptional(bypassClientTrust)
           },
@@ -807,20 +665,10 @@ Future<User> updateUser(ClientConfig config,
           operationId: 'updateUser',
           fromJsonRaw: (value) => User.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '400': (value) =>
-                ClerkErrors.fromJson(value as Map<String, dynamic>),
-            '401': (value) =>
-                ClerkErrors.fromJson(value as Map<String, dynamic>),
-            '404': (value) =>
-                ClerkErrors.fromJson(value as Map<String, dynamic>),
-            '409': (value) =>
-                ClerkErrors.fromJson(value as Map<String, dynamic>),
-            '422': (value) =>
-                ClerkErrors.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'400': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '401': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '404': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '409': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '422': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Deletes the specified user. Use `user_id` to identify the user to remove; the response confirms whether the deletion occurred.
 ///
@@ -834,16 +682,12 @@ Future<DeletedObject> deleteUser(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'deleteUser',
-          fromJsonRaw: (value) =>
-              DeletedObject.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => DeletedObject.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-        '400': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>),
-        '401': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>),
-        '404': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'400': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '401': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '404': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Marks the given user as banned, which means that all their sessions are revoked and they are not allowed to sign in again.
 ///
@@ -857,11 +701,10 @@ Future<User> banUser(ClientConfig config,
           operationId: 'banUser',
           fromJsonRaw: (value) => User.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-        '402': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'402': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Removes the ban mark from a user account. Use `user_id` to identify the user whose ban you want to remove. A 200 response returns the updated user object.
 ///
@@ -877,11 +720,10 @@ Future<User> unbanUser(ClientConfig config,
           operationId: 'unbanUser',
           fromJsonRaw: (value) => User.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-        '402': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'402': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Marks multiple users as banned, which means that all their sessions are revoked and they are not allowed to sign in again.
 ///
@@ -895,18 +737,12 @@ Future<List<User>> banUsersBulk(ClientConfig config,
           body: {'user_ids': userIds},
           decoder: SdkResponseDecoder.json,
           operationId: 'banUsersBulk',
-          fromJsonRaw: (value) => (value as List)
-              .map((item) => User.fromJson(item as Map<String, dynamic>))
-              .toList(),
+          fromJsonRaw: (value) => (value as List).map((item) => User.fromJson(item as Map<String, dynamic>)).toList(),
           options: requestOptions,
-          errors: {
-            '400': (value) =>
-                ClerkErrors.fromJson(value as Map<String, dynamic>),
-            '402': (value) =>
-                ClerkErrors.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'400': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '402': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Removes the ban marks from multiple user accounts in one request. Supply `user_ids` with between 1 and 50 user IDs. A 200 response returns the updated user objects.
 ///
@@ -922,18 +758,12 @@ Future<List<User>> unbanUsersBulk(ClientConfig config,
           body: {'user_ids': userIds},
           decoder: SdkResponseDecoder.json,
           operationId: 'unbanUsersBulk',
-          fromJsonRaw: (value) => (value as List)
-              .map((item) => User.fromJson(item as Map<String, dynamic>))
-              .toList(),
+          fromJsonRaw: (value) => (value as List).map((item) => User.fromJson(item as Map<String, dynamic>)).toList(),
           options: requestOptions,
-          errors: {
-            '400': (value) =>
-                ClerkErrors.fromJson(value as Map<String, dynamic>),
-            '402': (value) =>
-                ClerkErrors.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'400': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '402': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Marks the given user as locked, which means they are not allowed to sign in again until the lock expires. Lock duration can be configured in the instance's restrictions settings.
 ///
@@ -947,11 +777,10 @@ Future<User> lockUser(ClientConfig config,
           operationId: 'lockUser',
           fromJsonRaw: (value) => User.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-        '403': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'403': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Removes the lock from a user account. Use `user_id` to identify the user whose lock you want to remove. A 200 response returns the updated user object.
 ///
@@ -967,11 +796,10 @@ Future<User> unlockUser(ClientConfig config,
           operationId: 'unlockUser',
           fromJsonRaw: (value) => User.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-        '403': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'403': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Sets or replaces a user's profile image. Send the image in the `file` field as multipart form data, and use `user_id` to identify the account to update. A 200 response returns the updated user object.
 ///
@@ -991,16 +819,10 @@ Future<User> setUserProfileImage(ClientConfig config,
           operationId: 'setUserProfileImage',
           fromJsonRaw: (value) => User.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '400': (value) =>
-                ClerkErrors.fromJson(value as Map<String, dynamic>),
-            '401': (value) =>
-                ClerkErrors.fromJson(value as Map<String, dynamic>),
-            '404': (value) =>
-                ClerkErrors.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'400': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '401': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '404': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Deletes the profile image associated with a user account. Use `user_id` to identify the account whose image you want to remove. A 200 response returns the updated user object.
 ///
@@ -1016,11 +838,10 @@ Future<User> deleteUserProfileImage(ClientConfig config,
           operationId: 'deleteUserProfileImage',
           fromJsonRaw: (value) => User.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-        '404': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'404': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Update a user's metadata attributes by merging existing values with the provided parameters. This endpoint behaves differently than the *Update a user* endpoint. Metadata values will not be replaced entirely. Instead, a deep merge will be performed. Deep means that any nested JSON objects will be merged as well. You can remove metadata keys at any level by setting their value to `null`.
 ///
@@ -1051,18 +872,10 @@ Future<User> updateUserMetadata(ClientConfig config,
           operationId: 'updateUserMetadata',
           fromJsonRaw: (value) => User.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '400': (value) =>
-                ClerkErrors.fromJson(value as Map<String, dynamic>),
-            '401': (value) =>
-                ClerkErrors.fromJson(value as Map<String, dynamic>),
-            '404': (value) =>
-                ClerkErrors.fromJson(value as Map<String, dynamic>),
-            '422': (value) =>
-                ClerkErrors.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'400': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '401': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '404': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '422': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Replace a user's metadata attributes with the provided values. Unlike `PATCH /v1/users/{user_id}/metadata` (merge semantics), this endpoint replaces the supplied metadata fields entirely — the prior contents of each supplied field are discarded. Fields omitted from the request body are left unchanged. Prefer the `PATCH` endpoint for partial updates. Use `PUT` only when you explicitly intend to overwrite a metadata field wholesale.
 ///
@@ -1094,18 +907,10 @@ Future<User> replaceUserMetadata(ClientConfig config,
           operationId: 'replaceUserMetadata',
           fromJsonRaw: (value) => User.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '400': (value) =>
-                ClerkErrors.fromJson(value as Map<String, dynamic>),
-            '401': (value) =>
-                ClerkErrors.fromJson(value as Map<String, dynamic>),
-            '404': (value) =>
-                ClerkErrors.fromJson(value as Map<String, dynamic>),
-            '422': (value) =>
-                ClerkErrors.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'400': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '401': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '404': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '422': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Retrieves the billing subscription for the specified user. This includes subscription details, active plans, billing information, and payment status. The subscription contains subscription items which represent the individual plans the user is subscribed to.
 ///
@@ -1117,45 +922,29 @@ Future<CommerceSubscription> getUserBillingSubscription(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'getUserBillingSubscription',
-          fromJsonRaw: (value) =>
-              CommerceSubscription.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => CommerceSubscription.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-        '400': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>),
-        '401': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>),
-        '403': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>),
-        '404': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>),
-        '422': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>),
-        '500': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'400': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '401': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '403': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '404': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '422': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '500': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Retrieves the current credit balance for the specified user. Credits can be applied during checkout to reduce the charge or automatically applied to upcoming recurring charges
 ///
 /// [userId] The ID of the user whose credit balance to retrieve
-Future<CommerceCreditBalanceResponse> getUserBillingCreditBalance(
-    ClientConfig config,
-    {required String userId,
-    RequestOptions? requestOptions}) async {
+Future<CommerceCreditBalanceResponse> getUserBillingCreditBalance(ClientConfig config,
+    {required String userId, RequestOptions? requestOptions}) async {
   return (await sdkRequest<CommerceCreditBalanceResponse>('GET',
           '/users/${Uri.encodeComponent(userId.toString())}/billing/credits',
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'getUserBillingCreditBalance',
-          fromJsonRaw: (value) => CommerceCreditBalanceResponse.fromJson(
-              value as Map<String, dynamic>),
+          fromJsonRaw: (value) => CommerceCreditBalanceResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-        '400': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>),
-        '401': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>),
-        '403': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>),
-        '404': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>),
-        '422': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>),
-        '500': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'400': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '401': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '403': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '404': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '422': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '500': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Increases or decreases the credit balance for the specified user. Each adjustment is recorded as a ledger entry. The idempotency_key parameter ensures that duplicate requests are safely handled.
 ///
@@ -1166,15 +955,15 @@ Future<CommerceCreditBalanceResponse> getUserBillingCreditBalance(
 ///   Repeated requests with the same key return the original ledger entry.
 /// [currency] The currency code (e.g. "USD"). Defaults to USD if not provided.
 /// [note] An optional note to attach to the ledger entry.
-Future<CommerceCreditLedgerResponse> adjustUserBillingCreditBalance(
-    ClientConfig config,
-    {required String userId,
-    required int amount,
-    required AdjustCreditBalanceRequestAction action,
-    required String idempotencyKey,
-    SdkOptional<String> currency = const SdkOmitted(),
-    SdkOptional<String> note = const SdkOmitted(),
-    RequestOptions? requestOptions}) async {
+Future<CommerceCreditLedgerResponse>
+    adjustUserBillingCreditBalance(ClientConfig config,
+        {required String userId,
+        required int amount,
+        required AdjustCreditBalanceRequestAction action,
+        required String idempotencyKey,
+        SdkOptional<String> currency = const SdkOmitted(),
+        SdkOptional<String> note = const SdkOmitted(),
+        RequestOptions? requestOptions}) async {
   return (await sdkRequest<CommerceCreditLedgerResponse>('POST',
           '/users/${Uri.encodeComponent(userId.toString())}/billing/credits',
           config: config,
@@ -1187,27 +976,12 @@ Future<CommerceCreditLedgerResponse> adjustUserBillingCreditBalance(
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'adjustUserBillingCreditBalance',
-          fromJsonRaw: (value) => CommerceCreditLedgerResponse.fromJson(
-              value as Map<String, dynamic>),
+          fromJsonRaw: (value) => CommerceCreditLedgerResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '400': (value) =>
-                ClerkErrors.fromJson(value as Map<String, dynamic>),
-            '401': (value) =>
-                ClerkErrors.fromJson(value as Map<String, dynamic>),
-            '403': (value) =>
-                ClerkErrors.fromJson(value as Map<String, dynamic>),
-            '404': (value) =>
-                ClerkErrors.fromJson(value as Map<String, dynamic>),
-            '409': (value) =>
-                ClerkErrors.fromJson(value as Map<String, dynamic>),
-            '422': (value) =>
-                ClerkErrors.fromJson(value as Map<String, dynamic>),
-            '500': (value) =>
-                ClerkErrors.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'400': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '401': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '403': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '404': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '409': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '422': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '500': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Fetch the corresponding OAuth access token for a user that has previously authenticated with a particular OAuth provider. For OAuth 2.0, if the access token has expired and we have a corresponding refresh token, the access token will be refreshed transparently the new one will be returned.
 ///
@@ -1237,30 +1011,18 @@ Future<List<OAuthAccessTokenItem>> getOAuthAccessToken(ClientConfig config,
           '/users/${Uri.encodeComponent(userId.toString())}/oauth_access_tokens/${Uri.encodeComponent(provider.toString())}',
           config: config,
           query: {
-            'paginated': SdkQueryValue(SdkUtils.unwrapOptional(paginated),
-                style: 'form', explode: true),
-            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit),
-                style: 'form', explode: true),
-            'offset': SdkQueryValue(SdkUtils.unwrapOptional(offset),
-                style: 'form', explode: true)
+            'paginated': SdkQueryValue(SdkUtils.unwrapOptional(paginated), style: 'form', explode: true),
+            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit), style: 'form', explode: true),
+            'offset': SdkQueryValue(SdkUtils.unwrapOptional(offset), style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'getOAuthAccessToken',
-          fromJsonRaw: (value) => (value as List)
-              .map((item) =>
-                  OAuthAccessTokenItem.fromJson(item as Map<String, dynamic>))
-              .toList(),
+          fromJsonRaw: (value) => (value as List).map((item) => OAuthAccessTokenItem.fromJson(item as Map<String, dynamic>)).toList(),
           options: requestOptions,
-          errors: {
-            '400': (value) =>
-                ClerkErrors.fromJson(value as Map<String, dynamic>),
-            '404': (value) =>
-                ClerkErrors.fromJson(value as Map<String, dynamic>),
-            '422': (value) =>
-                ClerkErrors.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'400': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '404': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '422': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Retrieve a paginated list of the user's organization memberships
 ///
@@ -1270,12 +1032,12 @@ Future<List<OAuthAccessTokenItem>> getOAuthAccessToken(ClientConfig config,
 ///   paginating the results together with `offset`.
 /// [offset] Skip the first `offset` results when paginating. Needs to be an
 ///   integer greater or equal to zero. To be used in conjunction with `limit`.
-Future<OrganizationMemberships> usersGetOrganizationMemberships(
-    ClientConfig config,
-    {required String userId,
-    SdkOptional<int> limit = const SdkOmitted(),
-    SdkOptional<int> offset = const SdkOmitted(),
-    RequestOptions? requestOptions}) async {
+Future<OrganizationMemberships>
+    usersGetOrganizationMemberships(ClientConfig config,
+        {required String userId,
+        SdkOptional<int> limit = const SdkOmitted(),
+        SdkOptional<int> offset = const SdkOmitted(),
+        RequestOptions? requestOptions}) async {
   if (limit is SdkPresent<int>) {
     validateRange('limit', limit.value, min: 1, max: 500);
   }
@@ -1287,22 +1049,17 @@ Future<OrganizationMemberships> usersGetOrganizationMemberships(
           '/users/${Uri.encodeComponent(userId.toString())}/organization_memberships',
           config: config,
           query: {
-            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit),
-                style: 'form', explode: true),
-            'offset': SdkQueryValue(SdkUtils.unwrapOptional(offset),
-                style: 'form', explode: true)
+            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit), style: 'form', explode: true),
+            'offset': SdkQueryValue(SdkUtils.unwrapOptional(offset), style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'usersGetOrganizationMemberships',
-          fromJsonRaw: (value) =>
-              OrganizationMemberships.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => OrganizationMemberships.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '403': (value) =>
-                ClerkErrors.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'403': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Retrieve a paginated list of the user's organization invitations
 ///
@@ -1318,8 +1075,7 @@ Future<OrganizationInvitationsWithPublicOrganizationData>
         {required String userId,
         SdkOptional<int> limit = const SdkOmitted(),
         SdkOptional<int> offset = const SdkOmitted(),
-        SdkOptional<UsersGetOrganizationInvitationsStatus> status =
-            const SdkOmitted(),
+        SdkOptional<UsersGetOrganizationInvitationsStatus> status = const SdkOmitted(),
         RequestOptions? requestOptions}) async {
   if (limit is SdkPresent<int>) {
     validateRange('limit', limit.value, min: 1, max: 500);
@@ -1328,34 +1084,22 @@ Future<OrganizationInvitationsWithPublicOrganizationData>
     validateRange('offset', offset.value, min: 0);
   }
 
-  return (await sdkRequest<OrganizationInvitationsWithPublicOrganizationData>(
-          'GET',
+  return (await sdkRequest<OrganizationInvitationsWithPublicOrganizationData>('GET',
           '/users/${Uri.encodeComponent(userId.toString())}/organization_invitations',
           config: config,
           query: {
-            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit),
-                style: 'form', explode: true),
-            'offset': SdkQueryValue(SdkUtils.unwrapOptional(offset),
-                style: 'form', explode: true),
-            'status': SdkQueryValue(SdkUtils.unwrapOptional(status),
-                style: 'form', explode: true)
+            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit), style: 'form', explode: true),
+            'offset': SdkQueryValue(SdkUtils.unwrapOptional(offset), style: 'form', explode: true),
+            'status': SdkQueryValue(SdkUtils.unwrapOptional(status), style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'usersGetOrganizationInvitations',
-          fromJsonRaw: (value) =>
-              OrganizationInvitationsWithPublicOrganizationData.fromJson(
-                  value as Map<String, dynamic>),
+          fromJsonRaw: (value) => OrganizationInvitationsWithPublicOrganizationData.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '400': (value) =>
-                ClerkErrors.fromJson(value as Map<String, dynamic>),
-            '403': (value) =>
-                ClerkErrors.fromJson(value as Map<String, dynamic>),
-            '404': (value) =>
-                ClerkErrors.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'400': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '403': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '404': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Removes the password credential from the given user. This is a privileged operation and does not require the user's current password. Password removal is allowed even when the user has no other sign-in method configured. If the user does not have a password, the user is returned unchanged and no password-deletion or user-update event is emitted. By default, existing sessions remain active. Set `sign_out_of_other_sessions` to `true` to revoke sessions active when the request is processed.
 ///
@@ -1370,27 +1114,16 @@ Future<User> removeUserPassword(ClientConfig config,
           '/users/${Uri.encodeComponent(userId.toString())}/remove_password',
           config: config,
           body: {
-            'sign_out_of_other_sessions':
-                SdkUtils.unwrapOptional(signOutOfOtherSessions)
+            'sign_out_of_other_sessions': SdkUtils.unwrapOptional(signOutOfOtherSessions)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'removeUserPassword',
           fromJsonRaw: (value) => User.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '400': (value) =>
-                ClerkErrors.fromJson(value as Map<String, dynamic>),
-            '401': (value) =>
-                ClerkErrors.fromJson(value as Map<String, dynamic>),
-            '403': (value) =>
-                ClerkErrors.fromJson(value as Map<String, dynamic>),
-            '404': (value) =>
-                ClerkErrors.fromJson(value as Map<String, dynamic>),
-            '500': (value) =>
-                ClerkErrors.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'400': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '401': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '403': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '404': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '500': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Check that the user's password matches the supplied input. Useful for custom auth flows and re-verification.
 ///
@@ -1406,15 +1139,12 @@ Future<VerifyPasswordResponse> verifyPassword(ClientConfig config,
           body: {'password': password},
           decoder: SdkResponseDecoder.json,
           operationId: 'verifyPassword',
-          fromJsonRaw: (value) =>
-              VerifyPasswordResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => VerifyPasswordResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '500': (value) =>
-                ClerkErrors.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'500': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Verify that the provided TOTP or backup code is valid for the user. Verifying a backup code will result it in being consumed (i.e. it will become invalid). Useful for custom auth flows and re-verification.
 ///
@@ -1430,15 +1160,12 @@ Future<VerifyTOTPResponse> verifyTotp(ClientConfig config,
           body: {'code': code},
           decoder: SdkResponseDecoder.json,
           operationId: 'verifyTotp',
-          fromJsonRaw: (value) =>
-              VerifyTOTPResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => VerifyTOTPResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '500': (value) =>
-                ClerkErrors.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'500': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Disable all of a user's MFA methods (e.g. OTP sent via SMS, TOTP on their authenticator app) at once.
 ///
@@ -1450,15 +1177,12 @@ Future<DisableMFAResponse> disableMfa(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'disableMfa',
-          fromJsonRaw: (value) =>
-              DisableMFAResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => DisableMFAResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-        '404': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>),
-        '500': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'404': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '500': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Deletes all backup codes for a user, disabling them for future use. Supply `user_id` to identify the user whose backup codes you want to disable.
 ///
@@ -1472,15 +1196,12 @@ Future<DeleteBackupCodeResponse> deleteBackupCode(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'deleteBackupCode',
-          fromJsonRaw: (value) =>
-              DeleteBackupCodeResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => DeleteBackupCodeResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-        '404': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>),
-        '500': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'404': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '500': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Delete the passkey identification for a given user. The user is notified through email or SMS unless the passkey registration was never completed.
 ///
@@ -1495,16 +1216,12 @@ Future<DeletedObject> deleteUserPasskey(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'deleteUserPasskey',
-          fromJsonRaw: (value) =>
-              DeletedObject.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => DeletedObject.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-        '403': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>),
-        '404': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>),
-        '500': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'403': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '404': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '500': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Returns the active trusted devices enrolled by the user.
 ///
@@ -1518,16 +1235,12 @@ Future<TrustedDeviceList> listUserTrustedDevices(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'listUserTrustedDevices',
-          fromJsonRaw: (value) =>
-              TrustedDeviceList.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => TrustedDeviceList.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-        '403': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>),
-        '404': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>),
-        '500': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'403': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '404': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '500': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Revokes an active trusted device enrolled by the user.
 ///
@@ -1544,39 +1257,29 @@ Future<TrustedDevice> revokeUserTrustedDevice(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'revokeUserTrustedDevice',
-          fromJsonRaw: (value) =>
-              TrustedDevice.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => TrustedDevice.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-        '403': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>),
-        '404': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>),
-        '500': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'403': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '404': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '500': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Returns the active biometric credentials enrolled by the user.
 ///
 /// [userId] The ID of the user whose biometric credentials are returned
-Future<BiometricCredentialList> listUserBiometricCredentials(
-    ClientConfig config,
-    {required String userId,
-    RequestOptions? requestOptions}) async {
+Future<BiometricCredentialList> listUserBiometricCredentials(ClientConfig config,
+    {required String userId, RequestOptions? requestOptions}) async {
   return (await sdkRequest<BiometricCredentialList>('GET',
           '/users/${Uri.encodeComponent(userId.toString())}/biometric_credentials',
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'listUserBiometricCredentials',
-          fromJsonRaw: (value) =>
-              BiometricCredentialList.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => BiometricCredentialList.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-        '403': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>),
-        '404': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>),
-        '500': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'403': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '404': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '500': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Revokes an active biometric credential enrolled by the user.
 ///
@@ -1591,16 +1294,12 @@ Future<BiometricCredential> revokeUserBiometricCredential(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'revokeUserBiometricCredential',
-          fromJsonRaw: (value) =>
-              BiometricCredential.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => BiometricCredential.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-        '403': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>),
-        '404': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>),
-        '500': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'403': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '404': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '500': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Delete the web3 wallet identification for a given user.
 ///
@@ -1616,17 +1315,12 @@ Future<DeletedObject> deleteUsersWeb3Wallet(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'deleteUsersWeb3Wallet',
-          fromJsonRaw: (value) =>
-              DeletedObject.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => DeletedObject.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-        '400': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>),
-        '403': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>),
-        '404': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>),
-        '500': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'400': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '403': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '404': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '500': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Deletes all TOTP credentials associated with a user. Supply the `user_id` of the user whose TOTPs you want to delete; the operation removes all of that user's TOTPs.
 ///
@@ -1640,15 +1334,12 @@ Future<DeleteTOTPResponse> deleteTotp(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'deleteTotp',
-          fromJsonRaw: (value) =>
-              DeleteTOTPResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => DeleteTOTPResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-        '404': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>),
-        '500': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'404': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '500': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Deletes an external account associated with a user. Supply the `user_id` and `external_account_id` for the account you want to remove.
 ///
@@ -1665,17 +1356,12 @@ Future<DeletedObject> deleteExternalAccount(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'deleteExternalAccount',
-          fromJsonRaw: (value) =>
-              DeletedObject.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => DeletedObject.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-        '400': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>),
-        '403': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>),
-        '404': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>),
-        '500': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'400': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '403': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '404': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '500': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Marks a user's password as compromised so the user is prompted to reset it at their next sign-in. Supply the `user_id` of the user whose password you want to flag. You can optionally set `revoke_all_sessions` to revoke the user's sessions as part of the operation.
 ///
@@ -1696,20 +1382,10 @@ Future<User> setUserPasswordCompromised(ClientConfig config,
           operationId: 'setUserPasswordCompromised',
           fromJsonRaw: (value) => User.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-            '400': (value) =>
-                ClerkErrors.fromJson(value as Map<String, dynamic>),
-            '401': (value) =>
-                ClerkErrors.fromJson(value as Map<String, dynamic>),
-            '403': (value) =>
-                ClerkErrors.fromJson(value as Map<String, dynamic>),
-            '404': (value) =>
-                ClerkErrors.fromJson(value as Map<String, dynamic>),
-            '422': (value) =>
-                ClerkErrors.fromJson(value as Map<String, dynamic>)
-          }))
+          errors: {'400': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '401': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '403': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '404': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '422': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)}))
       .data;
 }
+
 
 /// Sets the given user's password as no longer compromised. The user will no longer be prompted to reset their password on their next sign-in. If the user is in reserved-email password quarantine, the quarantine is preserved and the returned user will still have `requires_password_reset` set to `true`. Reserved-email password quarantine can only be cleared by completing a password reset or changing/removing the password.
 ///
@@ -1723,12 +1399,6 @@ Future<User> unsetUserPasswordCompromised(ClientConfig config,
           operationId: 'unsetUserPasswordCompromised',
           fromJsonRaw: (value) => User.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {
-        '400': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>),
-        '401': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>),
-        '403': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>),
-        '404': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>),
-        '422': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)
-      }))
+          errors: {'400': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '401': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '403': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '404': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '422': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)}))
       .data;
 }

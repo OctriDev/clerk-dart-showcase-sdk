@@ -5,4 +5,4 @@
 import '../sdk_utils.dart';
 import 'shared_commerce.dart';
 
-part 'shared_billing_part1.dart';
+part 'shared_billing_models.dart';

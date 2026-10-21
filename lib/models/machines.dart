@@ -5,5 +5,9 @@
 import '../sdk_utils.dart';
 import 'inline.dart';
 
-part 'machines_part1.dart';
-part 'machines_part2.dart';
+part 'machines_shared.dart';
+part 'machines_create_machine.dart';
+part 'machines_delete_machine.dart';
+part 'machines_list_machines.dart';
+part 'machines_create_machine_scope.dart';
+part 'machines_delete_machine_scope.dart';

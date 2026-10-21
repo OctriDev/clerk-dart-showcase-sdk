@@ -5,6 +5,12 @@
 import '../sdk_utils.dart';
 import 'inline.dart';
 
-part 'jwks_part1.dart';
-part 'jwks_part2.dart';
-part 'jwks_part3.dart';
+part 'jwks2.dart';
+part 'jwks_ecdsa_private_key.dart';
+part 'jwks_ecdsa_public_key.dart';
+part 'jwks_ed25519_private_key.dart';
+part 'jwks_ed25519_public_key.dart';
+part 'jwks_keys_item.dart';
+part 'jwks_rsa_private_key.dart';
+part 'jwks_rsa_public_key.dart';
+part 'jwks_symmetric_key.dart';

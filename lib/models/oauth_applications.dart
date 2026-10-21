@@ -5,5 +5,6 @@
 import '../sdk_utils.dart';
 import 'inline.dart';
 
-part 'oauth_applications_part1.dart';
-part 'oauth_applications_part2.dart';
+part 'oauth_applications_oauth_application.dart';
+part 'oauth_applications_oauth_application_with_secret.dart';
+part 'oauth_applications_list_oauth_applications.dart';

@@ -4,4 +4,4 @@
 // shared_clerk domain model library.
 import '../sdk_utils.dart';
 
-part 'shared_clerk_part1.dart';
+part 'shared_clerk_models.dart';

@@ -5,4 +5,4 @@
 import '../sdk_utils.dart';
 import 'inline.dart';
 
-part 'proxy_checks_part1.dart';
+part 'proxy_checks_models.dart';

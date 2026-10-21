@@ -7,4 +7,4 @@ import 'inline.dart';
 import 'shared.dart';
 import 'shared_verification.dart';
 
-part 'shared_email_part1.dart';
+part 'shared_email_models.dart';

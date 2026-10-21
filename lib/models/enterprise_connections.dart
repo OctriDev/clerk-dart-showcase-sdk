@@ -5,8 +5,8 @@
 import '../sdk_utils.dart';
 import 'inline.dart';
 
-part 'enterprise_connections_part1.dart';
-part 'enterprise_connections_part2.dart';
-part 'enterprise_connections_part3.dart';
-part 'enterprise_connections_part4.dart';
-part 'enterprise_connections_part5.dart';
+part 'enterprise_connections_enterprise_connection.dart';
+part 'enterprise_connections_enterprise_connection_oauth_config.dart';
+part 'enterprise_connections_list_enterprise_connections.dart';
+part 'enterprise_connections_list_enterprise_connection_test_runs.dart';
+part 'enterprise_connections_create_enterprise_connection_test_run.dart';

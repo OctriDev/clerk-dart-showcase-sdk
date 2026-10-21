@@ -6,5 +6,6 @@ import '../sdk_utils.dart';
 import 'inline.dart';
 import 'shared.dart';
 
-part 'scim_directories_part1.dart';
-part 'scim_directories_part2.dart';
+part 'scim_directories_list_scim_directories.dart';
+part 'scim_directories_shared.dart';
+part 'scim_directories_delete_scim_group_role_mapping.dart';

@@ -6,5 +6,11 @@ import '../sdk_utils.dart';
 import 'inline.dart';
 import 'shared_clerk.dart';
 
-part 'shared_verification_part1.dart';
-part 'shared_verification_part2.dart';
+part 'shared_verification_admin.dart';
+part 'shared_verification_email_link.dart';
+part 'shared_verification_from_oauth.dart';
+part 'shared_verification_otp.dart';
+part 'shared_verification_response.dart';
+part 'shared_verification_saml.dart';
+part 'shared_verification_scim.dart';
+part 'shared_verification_ticket.dart';

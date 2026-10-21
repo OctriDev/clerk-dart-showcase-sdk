@@ -5,5 +5,4 @@
 import '../sdk_utils.dart';
 import 'inline.dart';
 
-part 'sign_ups_part1.dart';
-part 'sign_ups_part2.dart';
+part 'sign_ups_models.dart';

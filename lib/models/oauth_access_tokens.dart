@@ -5,4 +5,4 @@
 import '../sdk_utils.dart';
 import 'inline.dart';
 
-part 'oauth_access_tokens_part1.dart';
+part 'oauth_access_tokens_models.dart';

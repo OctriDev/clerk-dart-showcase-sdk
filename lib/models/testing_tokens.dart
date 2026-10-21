@@ -5,4 +5,4 @@
 import '../sdk_utils.dart';
 import 'inline.dart';
 
-part 'testing_tokens_part1.dart';
+part 'testing_tokens_models.dart';

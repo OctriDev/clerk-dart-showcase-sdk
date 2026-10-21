@@ -5,4 +5,4 @@
 import '../sdk_utils.dart';
 import 'inline.dart';
 
-part 'jwt_templates_part1.dart';
+part 'jwt_templates_models.dart';

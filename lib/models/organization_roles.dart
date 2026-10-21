@@ -5,4 +5,4 @@
 import '../sdk_utils.dart';
 import 'shared.dart';
 
-part 'organization_roles_part1.dart';
+part 'organization_roles_models.dart';

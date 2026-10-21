@@ -5,4 +5,4 @@
 import '../sdk_utils.dart';
 import 'inline.dart';
 
-part 'agent_tasks_part1.dart';
+part 'agent_tasks_models.dart';

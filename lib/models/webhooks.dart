@@ -4,4 +4,4 @@
 // webhooks domain model library.
 import '../sdk_utils.dart';
 
-part 'webhooks_part1.dart';
+part 'webhooks_models.dart';

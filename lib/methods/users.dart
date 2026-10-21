@@ -1207,7 +1207,7 @@ Future<DeleteBackupCodeResponse> deleteBackupCode(ClientConfig config,
 ///
 /// [userId] The ID of the user that owns the passkey identity
 /// [passkeyIdentificationId] The ID of the passkey identity to be deleted
-Future<DeletedObject> deleteUsersPasskey(ClientConfig config,
+Future<DeletedObject> deleteUserPasskey(ClientConfig config,
     {required String userId,
     required String passkeyIdentificationId,
     RequestOptions? requestOptions}) async {
@@ -1215,7 +1215,7 @@ Future<DeletedObject> deleteUsersPasskey(ClientConfig config,
           '/users/${Uri.encodeComponent(userId.toString())}/passkeys/${Uri.encodeComponent(passkeyIdentificationId.toString())}',
           config: config,
           decoder: SdkResponseDecoder.json,
-          operationId: 'deleteUsersPasskey',
+          operationId: 'deleteUserPasskey',
           fromJsonRaw: (value) => DeletedObject.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
           errors: {'403': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '404': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '500': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)}))

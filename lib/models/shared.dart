@@ -5,5 +5,11 @@
 import '../sdk_utils.dart';
 import 'inline.dart';
 
-part 'shared_part1.dart';
-part 'shared_part2.dart';
+part 'shared_adjust_credit_balance_request.dart';
+part 'shared_deleted_object.dart';
+part 'shared_feature_response.dart';
+part 'shared_identification_link.dart';
+part 'shared_invitation.dart';
+part 'shared_permission.dart';
+part 'shared_reassignment_mappings.dart';
+part 'shared_role.dart';

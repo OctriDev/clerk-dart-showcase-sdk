@@ -6,5 +6,4 @@ import '../sdk_utils.dart';
 import 'inline.dart';
 import 'shared_organization.dart';
 
-part 'organizations_part1.dart';
-part 'organizations_part2.dart';
+part 'organizations_models.dart';

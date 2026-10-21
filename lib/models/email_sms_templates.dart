@@ -5,4 +5,4 @@
 import '../sdk_utils.dart';
 import 'inline.dart';
 
-part 'email_sms_templates_part1.dart';
+part 'email_sms_templates_models.dart';

@@ -7,4 +7,4 @@ import 'inline.dart';
 import 'shared.dart';
 import 'shared_verification.dart';
 
-part 'shared_phone_part1.dart';
+part 'shared_phone_models.dart';

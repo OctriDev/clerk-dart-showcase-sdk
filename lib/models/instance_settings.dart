@@ -5,5 +5,6 @@
 import '../sdk_utils.dart';
 import 'inline.dart';
 
-part 'instance_settings_part1.dart';
-part 'instance_settings_part2.dart';
+part 'instance_settings_get_instance.dart';
+part 'instance_settings_shared.dart';
+part 'instance_settings_update_instance_restrictions.dart';

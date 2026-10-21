@@ -5,6 +5,11 @@
 import '../sdk_utils.dart';
 import 'inline.dart';
 
-part 'shared_organization_part1.dart';
-part 'shared_organization_part2.dart';
-part 'shared_organization_part3.dart';
+part 'shared_organization2.dart';
+part 'shared_organization_invitation_public_organization_data.dart';
+part 'shared_organization_invitation_public_user_data.dart';
+part 'shared_organization_invitations_with_public_organization_data.dart';
+part 'shared_organization_invitation_with_public_organization_data.dart';
+part 'shared_organization_membership.dart';
+part 'shared_organization_membership_public_user_data.dart';
+part 'shared_organization_memberships.dart';

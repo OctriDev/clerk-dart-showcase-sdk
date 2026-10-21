@@ -5,4 +5,4 @@
 import '../sdk_utils.dart';
 import 'inline.dart';
 
-part 'sso_bypass_part1.dart';
+part 'sso_bypass_models.dart';

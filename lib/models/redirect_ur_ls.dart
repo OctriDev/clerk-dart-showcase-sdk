@@ -5,4 +5,4 @@
 import '../sdk_utils.dart';
 import 'inline.dart';
 
-part 'redirect_ur_ls_part1.dart';
+part 'redirect_ur_ls_models.dart';

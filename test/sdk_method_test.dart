@@ -3279,6 +3279,42 @@ void main() {
       );
     });
 
+    test("deleteUserPasskey reaches the mock and decodes its response", () async {
+      final actual = await sdk_methods_3.deleteUserPasskey(
+        config,
+        userId: (jsonDecode("\"user-1\"") as String),
+        passkeyIdentificationId: (jsonDecode("\"passkey_identification-1\"") as String),
+      );
+      expect(
+        mismatch(
+          normal(actual),
+          SdkUtils.decodeJson("{\"object\":\"object\",\"id\":\"id-1\",\"slug\":\"slug\",\"deleted\":false,\"external_id\":\"external-1\"}"),
+        ),
+        isNull,
+      );
+    });
+
+    test("deleteUserPasskey answers 403 with its declared error body", () async {
+      SdkConfig.getConfig().baseUrl = '$baseUrl/__mockStatus/403';
+      addTearDown(() => SdkConfig.getConfig().baseUrl = baseUrl);
+      final SdkHttpError error;
+      try {
+        await sdk_methods_3.deleteUserPasskey(
+        config,
+        userId: (jsonDecode("\"user-1\"") as String),
+        passkeyIdentificationId: (jsonDecode("\"passkey_identification-1\"") as String),
+      );
+        fail('did not raise its declared error');
+      } on SdkHttpError catch (caught) {
+        error = caught;
+      }
+      expect(error.statusCode, 403);
+      expect(
+        mismatch(normal(error.data), SdkUtils.decodeJson("{\"errors\":[{\"message\":\"example text\",\"long_message\":\"example text\",\"code\":\"code\",\"meta\":{}}],\"meta\":{},\"clerk_trace_id\":\"clerk_trace-1\"}")),
+        isNull,
+      );
+    });
+
     test("deleteUserProfileImage reaches the mock and decodes its response", () async {
       final actual = await sdk_methods_3.deleteUserProfileImage(
         config,
@@ -3307,42 +3343,6 @@ void main() {
         error = caught;
       }
       expect(error.statusCode, 404);
-      expect(
-        mismatch(normal(error.data), SdkUtils.decodeJson("{\"errors\":[{\"message\":\"example text\",\"long_message\":\"example text\",\"code\":\"code\",\"meta\":{}}],\"meta\":{},\"clerk_trace_id\":\"clerk_trace-1\"}")),
-        isNull,
-      );
-    });
-
-    test("deleteUsersPasskey reaches the mock and decodes its response", () async {
-      final actual = await sdk_methods_3.deleteUsersPasskey(
-        config,
-        userId: (jsonDecode("\"user-1\"") as String),
-        passkeyIdentificationId: (jsonDecode("\"passkey_identification-1\"") as String),
-      );
-      expect(
-        mismatch(
-          normal(actual),
-          SdkUtils.decodeJson("{\"object\":\"object\",\"id\":\"id-1\",\"slug\":\"slug\",\"deleted\":false,\"external_id\":\"external-1\"}"),
-        ),
-        isNull,
-      );
-    });
-
-    test("deleteUsersPasskey answers 403 with its declared error body", () async {
-      SdkConfig.getConfig().baseUrl = '$baseUrl/__mockStatus/403';
-      addTearDown(() => SdkConfig.getConfig().baseUrl = baseUrl);
-      final SdkHttpError error;
-      try {
-        await sdk_methods_3.deleteUsersPasskey(
-        config,
-        userId: (jsonDecode("\"user-1\"") as String),
-        passkeyIdentificationId: (jsonDecode("\"passkey_identification-1\"") as String),
-      );
-        fail('did not raise its declared error');
-      } on SdkHttpError catch (caught) {
-        error = caught;
-      }
-      expect(error.statusCode, 403);
       expect(
         mismatch(normal(error.data), SdkUtils.decodeJson("{\"errors\":[{\"message\":\"example text\",\"long_message\":\"example text\",\"code\":\"code\",\"meta\":{}}],\"meta\":{},\"clerk_trace_id\":\"clerk_trace-1\"}")),
         isNull,

@@ -6,5 +6,6 @@ import '../sdk_utils.dart';
 import 'inline.dart';
 import 'shared.dart';
 
-part 'directories_part1.dart';
-part 'directories_part2.dart';
+part 'directories_list_directories.dart';
+part 'directories_shared.dart';
+part 'directories_delete_directory_group_role_mapping.dart';

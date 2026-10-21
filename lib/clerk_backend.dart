@@ -743,7 +743,7 @@ class UsersNamespace {
       {required String userId,
       required String passkeyIdentificationId,
       RequestOptions? requestOptions}) async {
-    return users_methods.deleteUsersPasskey(_config, userId: userId, passkeyIdentificationId: passkeyIdentificationId, requestOptions: requestOptions);
+    return users_methods.deleteUserPasskey(_config, userId: userId, passkeyIdentificationId: passkeyIdentificationId, requestOptions: requestOptions);
   }
 
   /// Returns the active trusted devices enrolled by the user.

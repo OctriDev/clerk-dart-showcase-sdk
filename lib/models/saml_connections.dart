@@ -5,6 +5,7 @@
 import '../sdk_utils.dart';
 import 'inline.dart';
 
-part 'saml_connections_part1.dart';
-part 'saml_connections_part2.dart';
-part 'saml_connections_part3.dart';
+part 'saml_connections_saml_connection.dart';
+part 'saml_connections_saml_connection_attribute_mapping.dart';
+part 'saml_connections_saml_connection_login_hint.dart';
+part 'saml_connections_list_saml_connections.dart';

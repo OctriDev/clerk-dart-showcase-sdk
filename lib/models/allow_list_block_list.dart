@@ -5,4 +5,4 @@
 import '../sdk_utils.dart';
 import 'inline.dart';
 
-part 'allow_list_block_list_part1.dart';
+part 'allow_list_block_list_models.dart';

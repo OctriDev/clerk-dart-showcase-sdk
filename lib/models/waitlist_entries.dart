@@ -6,4 +6,4 @@ import '../sdk_utils.dart';
 import 'inline.dart';
 import 'shared.dart';
 
-part 'waitlist_entries_part1.dart';
+part 'waitlist_entries_models.dart';

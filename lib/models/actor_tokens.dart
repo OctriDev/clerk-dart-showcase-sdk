@@ -5,4 +5,4 @@
 import '../sdk_utils.dart';
 import 'inline.dart';
 
-part 'actor_tokens_part1.dart';
+part 'actor_tokens_models.dart';

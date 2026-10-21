@@ -8,47 +8,91 @@ part of 'shared_organization.dart';
 class OrganizationInvitationPublicUserData {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Required `string` value serialized in the `user_id` wire field.
   final String userId;
+
   /// Required `string` value serialized in the `first_name` wire field.
   final String? firstName;
+
   /// Required `string` value serialized in the `last_name` wire field.
   final String? lastName;
+
   /// Required `string` value serialized in the `image_url` wire field.
   final String imageUrl;
+
   /// Required `boolean` value serialized in the `has_image` wire field.
   final bool hasImage;
+
   /// Required `string` value serialized in the `identifier` wire field.
   final String identifier;
 
-  const OrganizationInvitationPublicUserData({required this.userId, required this.firstName, required this.lastName, required this.imageUrl, required this.hasImage, required this.identifier});
+  const OrganizationInvitationPublicUserData(
+      {required this.userId,
+      required this.firstName,
+      required this.lastName,
+      required this.imageUrl,
+      required this.hasImage,
+      required this.identifier});
 
-  OrganizationInvitationPublicUserData Function({String userId, String? firstName, String? lastName, String imageUrl, bool hasImage, String identifier}) get copyWith => _copyWith;
+  OrganizationInvitationPublicUserData Function(
+      {String userId,
+      String? firstName,
+      String? lastName,
+      String imageUrl,
+      bool hasImage,
+      String identifier}) get copyWith => _copyWith;
 
-  OrganizationInvitationPublicUserData _copyWith({Object? userId = sdkOmittedValue, Object? firstName = sdkOmittedValue, Object? lastName = sdkOmittedValue, Object? imageUrl = sdkOmittedValue, Object? hasImage = sdkOmittedValue, Object? identifier = sdkOmittedValue}) => OrganizationInvitationPublicUserData(
-    userId: identical(userId, sdkOmittedValue) ? this.userId : userId as String,
-    firstName: identical(firstName, sdkOmittedValue) ? this.firstName : firstName as String?,
-    lastName: identical(lastName, sdkOmittedValue) ? this.lastName : lastName as String?,
-    imageUrl: identical(imageUrl, sdkOmittedValue) ? this.imageUrl : imageUrl as String,
-    hasImage: identical(hasImage, sdkOmittedValue) ? this.hasImage : hasImage as bool,
-    identifier: identical(identifier, sdkOmittedValue) ? this.identifier : identifier as String,
-  );
+  OrganizationInvitationPublicUserData _copyWith(
+          {Object? userId = sdkOmittedValue,
+          Object? firstName = sdkOmittedValue,
+          Object? lastName = sdkOmittedValue,
+          Object? imageUrl = sdkOmittedValue,
+          Object? hasImage = sdkOmittedValue,
+          Object? identifier = sdkOmittedValue}) =>
+      OrganizationInvitationPublicUserData(
+        userId:
+            identical(userId, sdkOmittedValue) ? this.userId : userId as String,
+        firstName: identical(firstName, sdkOmittedValue)
+            ? this.firstName
+            : firstName as String?,
+        lastName: identical(lastName, sdkOmittedValue)
+            ? this.lastName
+            : lastName as String?,
+        imageUrl: identical(imageUrl, sdkOmittedValue)
+            ? this.imageUrl
+            : imageUrl as String,
+        hasImage: identical(hasImage, sdkOmittedValue)
+            ? this.hasImage
+            : hasImage as bool,
+        identifier: identical(identifier, sdkOmittedValue)
+            ? this.identifier
+            : identifier as String,
+      );
 
-  factory OrganizationInvitationPublicUserData.fromJson(Map<String, dynamic> json) => OrganizationInvitationPublicUserData(
-    userId: (json['user_id'] as String?)!,
-    firstName: json.containsKey('first_name') ? json['first_name'] as String? : throw ArgumentError.value(null, 'first_name', 'Required property is missing'),
-    lastName: json.containsKey('last_name') ? json['last_name'] as String? : throw ArgumentError.value(null, 'last_name', 'Required property is missing'),
-    imageUrl: (json['image_url'] as String?)!,
-    hasImage: (json['has_image'] as bool?)!,
-    identifier: (json['identifier'] as String?)!,
-  );
+  factory OrganizationInvitationPublicUserData.fromJson(
+          Map<String, dynamic> json) =>
+      OrganizationInvitationPublicUserData(
+        userId: (json['user_id'] as String?)!,
+        firstName: json.containsKey('first_name')
+            ? json['first_name'] as String?
+            : throw ArgumentError.value(
+                null, 'first_name', 'Required property is missing'),
+        lastName: json.containsKey('last_name')
+            ? json['last_name'] as String?
+            : throw ArgumentError.value(
+                null, 'last_name', 'Required property is missing'),
+        imageUrl: (json['image_url'] as String?)!,
+        hasImage: (json['has_image'] as bool?)!,
+        identifier: (json['identifier'] as String?)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'user_id': userId,
-    'first_name': firstName,
-    'last_name': lastName,
-    'image_url': imageUrl,
-    'has_image': hasImage,
-    'identifier': identifier,
-  };
+        'user_id': userId,
+        'first_name': firstName,
+        'last_name': lastName,
+        'image_url': imageUrl,
+        'has_image': hasImage,
+        'identifier': identifier,
+      };
 }

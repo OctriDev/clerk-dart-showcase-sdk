@@ -8,123 +8,272 @@ part of 'shared_commerce.dart';
 class CommercePaymentMethodResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// String representing the object's type. Objects of the same type share the same value.
   final CommercePaymentMethodResponseObject object;
+
   /// Unique identifier for the payment method.
   final String id;
+
   /// Unique identifier for the payer.
   final String payerId;
+
   /// The payment method type.
   final CommercePaymentMethodResponsePaymentType paymentType;
+
   /// Whether this is the default payment method for the payer.
   final SdkOptional<bool> isDefault;
+
   /// The payment gateway.
   final String gateway;
+
   /// External ID in the payment gateway.
   final String gatewayExternalId;
+
   /// External account ID in the payment gateway.
   final String? gatewayExternalAccountId;
+
   /// Last 4 digits of the card (for card payment methods).
   final String? last4;
+
   /// Status of the payment method.
   final CommercePaymentMethodResponseStatus status;
+
   /// Type of wallet (if applicable).
   final SdkOptional<String?> walletType;
+
   /// Type of card (if applicable).
   final String? cardType;
+
   /// Card expiration year (for card payment methods).
   final SdkOptional<int?> expiryYear;
+
   /// Card expiration month (for card payment methods).
   final SdkOptional<int?> expiryMonth;
+
   /// Unix timestamp (in milliseconds) when the payment method was created.
   final SdkOptional<int> createdAt;
+
   /// Unix timestamp (in milliseconds) when the payment method was last updated.
   final SdkOptional<int> updatedAt;
+
   /// Whether this payment method can be removed.
   final SdkOptional<bool> isRemovable;
 
-  const CommercePaymentMethodResponse({required this.object, required this.id, required this.payerId, required this.paymentType, this.isDefault = const SdkOmitted(), required this.gateway, required this.gatewayExternalId, required this.gatewayExternalAccountId, required this.last4, required this.status, this.walletType = const SdkOmitted(), required this.cardType, this.expiryYear = const SdkOmitted(), this.expiryMonth = const SdkOmitted(), this.createdAt = const SdkOmitted(), this.updatedAt = const SdkOmitted(), this.isRemovable = const SdkOmitted()});
+  const CommercePaymentMethodResponse(
+      {required this.object,
+      required this.id,
+      required this.payerId,
+      required this.paymentType,
+      this.isDefault = const SdkOmitted(),
+      required this.gateway,
+      required this.gatewayExternalId,
+      required this.gatewayExternalAccountId,
+      required this.last4,
+      required this.status,
+      this.walletType = const SdkOmitted(),
+      required this.cardType,
+      this.expiryYear = const SdkOmitted(),
+      this.expiryMonth = const SdkOmitted(),
+      this.createdAt = const SdkOmitted(),
+      this.updatedAt = const SdkOmitted(),
+      this.isRemovable = const SdkOmitted()});
 
-  CommercePaymentMethodResponse Function({CommercePaymentMethodResponseObject object, String id, String payerId, CommercePaymentMethodResponsePaymentType paymentType, SdkOptional<bool> isDefault, String gateway, String gatewayExternalId, String? gatewayExternalAccountId, String? last4, CommercePaymentMethodResponseStatus status, SdkOptional<String?> walletType, String? cardType, SdkOptional<int?> expiryYear, SdkOptional<int?> expiryMonth, SdkOptional<int> createdAt, SdkOptional<int> updatedAt, SdkOptional<bool> isRemovable}) get copyWith => _copyWith;
+  CommercePaymentMethodResponse Function(
+      {CommercePaymentMethodResponseObject object,
+      String id,
+      String payerId,
+      CommercePaymentMethodResponsePaymentType paymentType,
+      SdkOptional<bool> isDefault,
+      String gateway,
+      String gatewayExternalId,
+      String? gatewayExternalAccountId,
+      String? last4,
+      CommercePaymentMethodResponseStatus status,
+      SdkOptional<String?> walletType,
+      String? cardType,
+      SdkOptional<int?> expiryYear,
+      SdkOptional<int?> expiryMonth,
+      SdkOptional<int> createdAt,
+      SdkOptional<int> updatedAt,
+      SdkOptional<bool> isRemovable}) get copyWith => _copyWith;
 
-  CommercePaymentMethodResponse _copyWith({Object? object = sdkOmittedValue, Object? id = sdkOmittedValue, Object? payerId = sdkOmittedValue, Object? paymentType = sdkOmittedValue, Object? isDefault = sdkOmittedValue, Object? gateway = sdkOmittedValue, Object? gatewayExternalId = sdkOmittedValue, Object? gatewayExternalAccountId = sdkOmittedValue, Object? last4 = sdkOmittedValue, Object? status = sdkOmittedValue, Object? walletType = sdkOmittedValue, Object? cardType = sdkOmittedValue, Object? expiryYear = sdkOmittedValue, Object? expiryMonth = sdkOmittedValue, Object? createdAt = sdkOmittedValue, Object? updatedAt = sdkOmittedValue, Object? isRemovable = sdkOmittedValue}) => CommercePaymentMethodResponse(
-    object: identical(object, sdkOmittedValue) ? this.object : object as CommercePaymentMethodResponseObject,
-    id: identical(id, sdkOmittedValue) ? this.id : id as String,
-    payerId: identical(payerId, sdkOmittedValue) ? this.payerId : payerId as String,
-    paymentType: identical(paymentType, sdkOmittedValue) ? this.paymentType : paymentType as CommercePaymentMethodResponsePaymentType,
-    isDefault: identical(isDefault, sdkOmittedValue) ? this.isDefault : isDefault as SdkOptional<bool>,
-    gateway: identical(gateway, sdkOmittedValue) ? this.gateway : gateway as String,
-    gatewayExternalId: identical(gatewayExternalId, sdkOmittedValue) ? this.gatewayExternalId : gatewayExternalId as String,
-    gatewayExternalAccountId: identical(gatewayExternalAccountId, sdkOmittedValue) ? this.gatewayExternalAccountId : gatewayExternalAccountId as String?,
-    last4: identical(last4, sdkOmittedValue) ? this.last4 : last4 as String?,
-    status: identical(status, sdkOmittedValue) ? this.status : status as CommercePaymentMethodResponseStatus,
-    walletType: identical(walletType, sdkOmittedValue) ? this.walletType : walletType as SdkOptional<String?>,
-    cardType: identical(cardType, sdkOmittedValue) ? this.cardType : cardType as String?,
-    expiryYear: identical(expiryYear, sdkOmittedValue) ? this.expiryYear : expiryYear as SdkOptional<int?>,
-    expiryMonth: identical(expiryMonth, sdkOmittedValue) ? this.expiryMonth : expiryMonth as SdkOptional<int?>,
-    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as SdkOptional<int>,
-    updatedAt: identical(updatedAt, sdkOmittedValue) ? this.updatedAt : updatedAt as SdkOptional<int>,
-    isRemovable: identical(isRemovable, sdkOmittedValue) ? this.isRemovable : isRemovable as SdkOptional<bool>,
-  );
+  CommercePaymentMethodResponse _copyWith(
+          {Object? object = sdkOmittedValue,
+          Object? id = sdkOmittedValue,
+          Object? payerId = sdkOmittedValue,
+          Object? paymentType = sdkOmittedValue,
+          Object? isDefault = sdkOmittedValue,
+          Object? gateway = sdkOmittedValue,
+          Object? gatewayExternalId = sdkOmittedValue,
+          Object? gatewayExternalAccountId = sdkOmittedValue,
+          Object? last4 = sdkOmittedValue,
+          Object? status = sdkOmittedValue,
+          Object? walletType = sdkOmittedValue,
+          Object? cardType = sdkOmittedValue,
+          Object? expiryYear = sdkOmittedValue,
+          Object? expiryMonth = sdkOmittedValue,
+          Object? createdAt = sdkOmittedValue,
+          Object? updatedAt = sdkOmittedValue,
+          Object? isRemovable = sdkOmittedValue}) =>
+      CommercePaymentMethodResponse(
+        object: identical(object, sdkOmittedValue)
+            ? this.object
+            : object as CommercePaymentMethodResponseObject,
+        id: identical(id, sdkOmittedValue) ? this.id : id as String,
+        payerId: identical(payerId, sdkOmittedValue)
+            ? this.payerId
+            : payerId as String,
+        paymentType: identical(paymentType, sdkOmittedValue)
+            ? this.paymentType
+            : paymentType as CommercePaymentMethodResponsePaymentType,
+        isDefault: identical(isDefault, sdkOmittedValue)
+            ? this.isDefault
+            : isDefault as SdkOptional<bool>,
+        gateway: identical(gateway, sdkOmittedValue)
+            ? this.gateway
+            : gateway as String,
+        gatewayExternalId: identical(gatewayExternalId, sdkOmittedValue)
+            ? this.gatewayExternalId
+            : gatewayExternalId as String,
+        gatewayExternalAccountId:
+            identical(gatewayExternalAccountId, sdkOmittedValue)
+                ? this.gatewayExternalAccountId
+                : gatewayExternalAccountId as String?,
+        last4:
+            identical(last4, sdkOmittedValue) ? this.last4 : last4 as String?,
+        status: identical(status, sdkOmittedValue)
+            ? this.status
+            : status as CommercePaymentMethodResponseStatus,
+        walletType: identical(walletType, sdkOmittedValue)
+            ? this.walletType
+            : walletType as SdkOptional<String?>,
+        cardType: identical(cardType, sdkOmittedValue)
+            ? this.cardType
+            : cardType as String?,
+        expiryYear: identical(expiryYear, sdkOmittedValue)
+            ? this.expiryYear
+            : expiryYear as SdkOptional<int?>,
+        expiryMonth: identical(expiryMonth, sdkOmittedValue)
+            ? this.expiryMonth
+            : expiryMonth as SdkOptional<int?>,
+        createdAt: identical(createdAt, sdkOmittedValue)
+            ? this.createdAt
+            : createdAt as SdkOptional<int>,
+        updatedAt: identical(updatedAt, sdkOmittedValue)
+            ? this.updatedAt
+            : updatedAt as SdkOptional<int>,
+        isRemovable: identical(isRemovable, sdkOmittedValue)
+            ? this.isRemovable
+            : isRemovable as SdkOptional<bool>,
+      );
 
-  factory CommercePaymentMethodResponse.fromJson(Map<String, dynamic> json) => CommercePaymentMethodResponse(
-    object: (json['object'] != null ? CommercePaymentMethodResponseObject.fromJson(json['object'] as String) : null)!,
-    id: (json['id'] as String?)!,
-    payerId: (json['payer_id'] as String?)!,
-    paymentType: (json['payment_type'] != null ? CommercePaymentMethodResponsePaymentType.fromJson(json['payment_type'] as String) : null)!,
-    isDefault: json['is_default'] != null ? SdkPresent((json['is_default'] as bool?)!) : const SdkOmitted(),
-    gateway: (json['gateway'] as String?)!,
-    gatewayExternalId: (json['gateway_external_id'] as String?)!,
-    gatewayExternalAccountId: json.containsKey('gateway_external_account_id') ? json['gateway_external_account_id'] as String? : throw ArgumentError.value(null, 'gateway_external_account_id', 'Required property is missing'),
-    last4: json.containsKey('last4') ? json['last4'] as String? : throw ArgumentError.value(null, 'last4', 'Required property is missing'),
-    status: (json['status'] != null ? CommercePaymentMethodResponseStatus.fromJson(json['status'] as String) : null)!,
-    walletType: json.containsKey('wallet_type') ? SdkPresent(json['wallet_type'] as String?) : const SdkOmitted(),
-    cardType: json.containsKey('card_type') ? json['card_type'] as String? : throw ArgumentError.value(null, 'card_type', 'Required property is missing'),
-    expiryYear: json.containsKey('expiry_year') ? SdkPresent((json['expiry_year'] as num?)?.toInt()) : const SdkOmitted(),
-    expiryMonth: json.containsKey('expiry_month') ? SdkPresent((json['expiry_month'] as num?)?.toInt()) : const SdkOmitted(),
-    createdAt: json['created_at'] != null ? SdkPresent(((json['created_at'] as num?)?.toInt())!) : const SdkOmitted(),
-    updatedAt: json['updated_at'] != null ? SdkPresent(((json['updated_at'] as num?)?.toInt())!) : const SdkOmitted(),
-    isRemovable: json['is_removable'] != null ? SdkPresent((json['is_removable'] as bool?)!) : const SdkOmitted(),
-  );
+  factory CommercePaymentMethodResponse.fromJson(Map<String, dynamic> json) =>
+      CommercePaymentMethodResponse(
+        object: (json['object'] != null
+            ? CommercePaymentMethodResponseObject.fromJson(
+                json['object'] as String)
+            : null)!,
+        id: (json['id'] as String?)!,
+        payerId: (json['payer_id'] as String?)!,
+        paymentType: (json['payment_type'] != null
+            ? CommercePaymentMethodResponsePaymentType.fromJson(
+                json['payment_type'] as String)
+            : null)!,
+        isDefault: json['is_default'] != null
+            ? SdkPresent((json['is_default'] as bool?)!)
+            : const SdkOmitted(),
+        gateway: (json['gateway'] as String?)!,
+        gatewayExternalId: (json['gateway_external_id'] as String?)!,
+        gatewayExternalAccountId:
+            json.containsKey('gateway_external_account_id')
+                ? json['gateway_external_account_id'] as String?
+                : throw ArgumentError.value(null, 'gateway_external_account_id',
+                    'Required property is missing'),
+        last4: json.containsKey('last4')
+            ? json['last4'] as String?
+            : throw ArgumentError.value(
+                null, 'last4', 'Required property is missing'),
+        status: (json['status'] != null
+            ? CommercePaymentMethodResponseStatus.fromJson(
+                json['status'] as String)
+            : null)!,
+        walletType: json.containsKey('wallet_type')
+            ? SdkPresent(json['wallet_type'] as String?)
+            : const SdkOmitted(),
+        cardType: json.containsKey('card_type')
+            ? json['card_type'] as String?
+            : throw ArgumentError.value(
+                null, 'card_type', 'Required property is missing'),
+        expiryYear: json.containsKey('expiry_year')
+            ? SdkPresent((json['expiry_year'] as num?)?.toInt())
+            : const SdkOmitted(),
+        expiryMonth: json.containsKey('expiry_month')
+            ? SdkPresent((json['expiry_month'] as num?)?.toInt())
+            : const SdkOmitted(),
+        createdAt: json['created_at'] != null
+            ? SdkPresent(((json['created_at'] as num?)?.toInt())!)
+            : const SdkOmitted(),
+        updatedAt: json['updated_at'] != null
+            ? SdkPresent(((json['updated_at'] as num?)?.toInt())!)
+            : const SdkOmitted(),
+        isRemovable: json['is_removable'] != null
+            ? SdkPresent((json['is_removable'] as bool?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    'object': object.toJson(),
-    'id': id,
-    'payer_id': payerId,
-    'payment_type': paymentType.toJson(),
-    ...switch (isDefault) {
-      SdkPresent<bool>(value: final value) => {'is_default': value,},
-      _ => const <String, dynamic>{},
-    },
-    'gateway': gateway,
-    'gateway_external_id': gatewayExternalId,
-    'gateway_external_account_id': gatewayExternalAccountId,
-    'last4': last4,
-    'status': status.toJson(),
-    ...switch (walletType) {
-      SdkPresent<String?>(value: final value) => {'wallet_type': value,},
-      _ => const <String, dynamic>{},
-    },
-    'card_type': cardType,
-    ...switch (expiryYear) {
-      SdkPresent<int?>(value: final value) => {'expiry_year': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (expiryMonth) {
-      SdkPresent<int?>(value: final value) => {'expiry_month': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (createdAt) {
-      SdkPresent<int>(value: final value) => {'created_at': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (updatedAt) {
-      SdkPresent<int>(value: final value) => {'updated_at': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (isRemovable) {
-      SdkPresent<bool>(value: final value) => {'is_removable': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        'object': object.toJson(),
+        'id': id,
+        'payer_id': payerId,
+        'payment_type': paymentType.toJson(),
+        ...switch (isDefault) {
+          SdkPresent<bool>(value: final value) => {
+              'is_default': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        'gateway': gateway,
+        'gateway_external_id': gatewayExternalId,
+        'gateway_external_account_id': gatewayExternalAccountId,
+        'last4': last4,
+        'status': status.toJson(),
+        ...switch (walletType) {
+          SdkPresent<String?>(value: final value) => {
+              'wallet_type': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        'card_type': cardType,
+        ...switch (expiryYear) {
+          SdkPresent<int?>(value: final value) => {
+              'expiry_year': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (expiryMonth) {
+          SdkPresent<int?>(value: final value) => {
+              'expiry_month': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (createdAt) {
+          SdkPresent<int>(value: final value) => {
+              'created_at': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (updatedAt) {
+          SdkPresent<int>(value: final value) => {
+              'updated_at': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (isRemovable) {
+          SdkPresent<bool>(value: final value) => {
+              'is_removable': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

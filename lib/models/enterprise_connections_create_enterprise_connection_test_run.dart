@@ -8,22 +8,28 @@ part of 'enterprise_connections.dart';
 class EnterpriseConnectionTestRunResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// A short-lived URL that can be used to initiate the test run flow
   final String url;
 
   const EnterpriseConnectionTestRunResponse({required this.url});
 
-  EnterpriseConnectionTestRunResponse Function({String url}) get copyWith => _copyWith;
+  EnterpriseConnectionTestRunResponse Function({String url}) get copyWith =>
+      _copyWith;
 
-  EnterpriseConnectionTestRunResponse _copyWith({Object? url = sdkOmittedValue}) => EnterpriseConnectionTestRunResponse(
-    url: identical(url, sdkOmittedValue) ? this.url : url as String,
-  );
+  EnterpriseConnectionTestRunResponse _copyWith(
+          {Object? url = sdkOmittedValue}) =>
+      EnterpriseConnectionTestRunResponse(
+        url: identical(url, sdkOmittedValue) ? this.url : url as String,
+      );
 
-  factory EnterpriseConnectionTestRunResponse.fromJson(Map<String, dynamic> json) => EnterpriseConnectionTestRunResponse(
-    url: (json['url'] as String?)!,
-  );
+  factory EnterpriseConnectionTestRunResponse.fromJson(
+          Map<String, dynamic> json) =>
+      EnterpriseConnectionTestRunResponse(
+        url: (json['url'] as String?)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'url': url,
-  };
+        'url': url,
+      };
 }

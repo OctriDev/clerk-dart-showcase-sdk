@@ -8,30 +8,48 @@ part of 'saml_connections.dart';
 class SAMLConnectionLoginHint {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Controls the login_hint sent to the IdP on SSO sign-in
   final SAMLConnectionLoginHintMode mode;
+
   /// The user public_metadata key whose value is sent as the login_hint when mode is custom_attribute
   final SdkOptional<String> source;
 
-  const SAMLConnectionLoginHint({required this.mode, this.source = const SdkOmitted()});
+  const SAMLConnectionLoginHint(
+      {required this.mode, this.source = const SdkOmitted()});
 
-  SAMLConnectionLoginHint Function({SAMLConnectionLoginHintMode mode, SdkOptional<String> source}) get copyWith => _copyWith;
+  SAMLConnectionLoginHint Function(
+      {SAMLConnectionLoginHintMode mode,
+      SdkOptional<String> source}) get copyWith => _copyWith;
 
-  SAMLConnectionLoginHint _copyWith({Object? mode = sdkOmittedValue, Object? source = sdkOmittedValue}) => SAMLConnectionLoginHint(
-    mode: identical(mode, sdkOmittedValue) ? this.mode : mode as SAMLConnectionLoginHintMode,
-    source: identical(source, sdkOmittedValue) ? this.source : source as SdkOptional<String>,
-  );
+  SAMLConnectionLoginHint _copyWith(
+          {Object? mode = sdkOmittedValue, Object? source = sdkOmittedValue}) =>
+      SAMLConnectionLoginHint(
+        mode: identical(mode, sdkOmittedValue)
+            ? this.mode
+            : mode as SAMLConnectionLoginHintMode,
+        source: identical(source, sdkOmittedValue)
+            ? this.source
+            : source as SdkOptional<String>,
+      );
 
-  factory SAMLConnectionLoginHint.fromJson(Map<String, dynamic> json) => SAMLConnectionLoginHint(
-    mode: (json['mode'] != null ? SAMLConnectionLoginHintMode.fromJson(json['mode'] as String) : null)!,
-    source: json['source'] != null ? SdkPresent((json['source'] as String?)!) : const SdkOmitted(),
-  );
+  factory SAMLConnectionLoginHint.fromJson(Map<String, dynamic> json) =>
+      SAMLConnectionLoginHint(
+        mode: (json['mode'] != null
+            ? SAMLConnectionLoginHintMode.fromJson(json['mode'] as String)
+            : null)!,
+        source: json['source'] != null
+            ? SdkPresent((json['source'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    'mode': mode.toJson(),
-    ...switch (source) {
-      SdkPresent<String>(value: final value) => {'source': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        'mode': mode.toJson(),
+        ...switch (source) {
+          SdkPresent<String>(value: final value) => {
+              'source': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

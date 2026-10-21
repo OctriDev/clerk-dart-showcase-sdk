@@ -9,7 +9,10 @@ sealed class PasskeyVerification {
   static const String constructionSurface = 'named';
   const PasskeyVerification();
   factory PasskeyVerification.fromJson(Object? json) {
-    try { return PasskeyVerificationVerificationPasskey(VerificationPasskey.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try {
+      return PasskeyVerificationVerificationPasskey(
+          VerificationPasskey.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
     throw FormatException("No variant matched for PasskeyVerification");
   }
   Object? toJson();
@@ -18,52 +21,94 @@ sealed class PasskeyVerification {
 final class PasskeyVerificationVerificationPasskey extends PasskeyVerification {
   final VerificationPasskey value;
   const PasskeyVerificationVerificationPasskey(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 /// Typed representation of the `Passkey` API schema.
 class Passkey {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Optional `string` value serialized in the `id` wire field.
   final SdkOptional<String> id;
+
   /// String representing the object's type. Objects of the same type share the same value.
   final PasskeyObject object;
+
   /// Required `string` value serialized in the `name` wire field.
   final String name;
+
   /// Unix timestamp of when the passkey was last used.
   final int lastUsedAt;
+
   /// Required object value serialized in the `verification` wire field.
   final VerificationPasskey? verification;
 
-  const Passkey({this.id = const SdkOmitted(), required this.object, required this.name, required this.lastUsedAt, required this.verification});
+  const Passkey(
+      {this.id = const SdkOmitted(),
+      required this.object,
+      required this.name,
+      required this.lastUsedAt,
+      required this.verification});
 
-  Passkey Function({SdkOptional<String> id, PasskeyObject object, String name, int lastUsedAt, VerificationPasskey? verification}) get copyWith => _copyWith;
+  Passkey Function(
+      {SdkOptional<String> id,
+      PasskeyObject object,
+      String name,
+      int lastUsedAt,
+      VerificationPasskey? verification}) get copyWith => _copyWith;
 
-  Passkey _copyWith({Object? id = sdkOmittedValue, Object? object = sdkOmittedValue, Object? name = sdkOmittedValue, Object? lastUsedAt = sdkOmittedValue, Object? verification = sdkOmittedValue}) => Passkey(
-    id: identical(id, sdkOmittedValue) ? this.id : id as SdkOptional<String>,
-    object: identical(object, sdkOmittedValue) ? this.object : object as PasskeyObject,
-    name: identical(name, sdkOmittedValue) ? this.name : name as String,
-    lastUsedAt: identical(lastUsedAt, sdkOmittedValue) ? this.lastUsedAt : lastUsedAt as int,
-    verification: identical(verification, sdkOmittedValue) ? this.verification : verification as VerificationPasskey?,
-  );
+  Passkey _copyWith(
+          {Object? id = sdkOmittedValue,
+          Object? object = sdkOmittedValue,
+          Object? name = sdkOmittedValue,
+          Object? lastUsedAt = sdkOmittedValue,
+          Object? verification = sdkOmittedValue}) =>
+      Passkey(
+        id: identical(id, sdkOmittedValue)
+            ? this.id
+            : id as SdkOptional<String>,
+        object: identical(object, sdkOmittedValue)
+            ? this.object
+            : object as PasskeyObject,
+        name: identical(name, sdkOmittedValue) ? this.name : name as String,
+        lastUsedAt: identical(lastUsedAt, sdkOmittedValue)
+            ? this.lastUsedAt
+            : lastUsedAt as int,
+        verification: identical(verification, sdkOmittedValue)
+            ? this.verification
+            : verification as VerificationPasskey?,
+      );
 
   factory Passkey.fromJson(Map<String, dynamic> json) => Passkey(
-    id: json['id'] != null ? SdkPresent((json['id'] as String?)!) : const SdkOmitted(),
-    object: (json['object'] != null ? PasskeyObject.fromJson(json['object'] as String) : null)!,
-    name: (json['name'] as String?)!,
-    lastUsedAt: ((json['last_used_at'] as num?)?.toInt())!,
-    verification: json.containsKey('verification') ? json['verification'] != null ? VerificationPasskey.fromJson(json['verification'] as Map<String, dynamic>) : null : throw ArgumentError.value(null, 'verification', 'Required property is missing'),
-  );
+        id: json['id'] != null
+            ? SdkPresent((json['id'] as String?)!)
+            : const SdkOmitted(),
+        object: (json['object'] != null
+            ? PasskeyObject.fromJson(json['object'] as String)
+            : null)!,
+        name: (json['name'] as String?)!,
+        lastUsedAt: ((json['last_used_at'] as num?)?.toInt())!,
+        verification: json.containsKey('verification')
+            ? json['verification'] != null
+                ? VerificationPasskey.fromJson(
+                    json['verification'] as Map<String, dynamic>)
+                : null
+            : throw ArgumentError.value(
+                null, 'verification', 'Required property is missing'),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (id) {
-      SdkPresent<String>(value: final value) => {'id': value,},
-      _ => const <String, dynamic>{},
-    },
-    'object': object.toJson(),
-    'name': name,
-    'last_used_at': lastUsedAt,
-    'verification': verification?.toJson(),
-  };
+        ...switch (id) {
+          SdkPresent<String>(value: final value) => {
+              'id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        'object': object.toJson(),
+        'name': name,
+        'last_used_at': lastUsedAt,
+        'verification': verification?.toJson(),
+      };
 }

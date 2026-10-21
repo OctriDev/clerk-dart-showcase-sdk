@@ -9,77 +9,155 @@ sealed class VerificationGoogleOneTapError {
   static const String constructionSurface = 'named';
   const VerificationGoogleOneTapError();
   factory VerificationGoogleOneTapError.fromJson(Object? json) {
-    try { return VerificationGoogleOneTapErrorClerkError(ClerkError.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    throw FormatException("No variant matched for VerificationGoogleOneTapError");
+    try {
+      return VerificationGoogleOneTapErrorClerkError(
+          ClerkError.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    throw FormatException(
+        "No variant matched for VerificationGoogleOneTapError");
   }
   Object? toJson();
 }
 
-final class VerificationGoogleOneTapErrorClerkError extends VerificationGoogleOneTapError {
+final class VerificationGoogleOneTapErrorClerkError
+    extends VerificationGoogleOneTapError {
   final ClerkError value;
   const VerificationGoogleOneTapErrorClerkError(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 /// Typed representation of the `VerificationGoogleOneTap` API schema.
 class VerificationGoogleOneTap {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Optional enumerated value serialized in the `object` wire field.
   final SdkOptional<VerificationGoogleOneTapObject> object;
+
   /// Required enumerated value serialized in the `status` wire field.
   final VerificationGoogleOneTapStatus status;
+
   /// Required enumerated value serialized in the `strategy` wire field.
   final VerificationGoogleOneTapStrategy strategy;
+
   /// Required `integer` value serialized in the `expire_at` wire field.
   final int? expireAt;
+
   /// Required `integer` value serialized in the `attempts` wire field.
   final int? attempts;
+
   /// Optional `string` value serialized in the `verified_at_client` wire field.
   final SdkOptional<String?> verifiedAtClient;
+
   /// Optional object value serialized in the `error` wire field.
   final SdkOptional<ClerkError?> error;
 
-  const VerificationGoogleOneTap({this.object = const SdkOmitted(), required this.status, required this.strategy, required this.expireAt, required this.attempts, this.verifiedAtClient = const SdkOmitted(), this.error = const SdkOmitted()});
+  const VerificationGoogleOneTap(
+      {this.object = const SdkOmitted(),
+      required this.status,
+      required this.strategy,
+      required this.expireAt,
+      required this.attempts,
+      this.verifiedAtClient = const SdkOmitted(),
+      this.error = const SdkOmitted()});
 
-  VerificationGoogleOneTap Function({SdkOptional<VerificationGoogleOneTapObject> object, VerificationGoogleOneTapStatus status, VerificationGoogleOneTapStrategy strategy, int? expireAt, int? attempts, SdkOptional<String?> verifiedAtClient, SdkOptional<ClerkError?> error}) get copyWith => _copyWith;
+  VerificationGoogleOneTap Function(
+      {SdkOptional<VerificationGoogleOneTapObject> object,
+      VerificationGoogleOneTapStatus status,
+      VerificationGoogleOneTapStrategy strategy,
+      int? expireAt,
+      int? attempts,
+      SdkOptional<String?> verifiedAtClient,
+      SdkOptional<ClerkError?> error}) get copyWith => _copyWith;
 
-  VerificationGoogleOneTap _copyWith({Object? object = sdkOmittedValue, Object? status = sdkOmittedValue, Object? strategy = sdkOmittedValue, Object? expireAt = sdkOmittedValue, Object? attempts = sdkOmittedValue, Object? verifiedAtClient = sdkOmittedValue, Object? error = sdkOmittedValue}) => VerificationGoogleOneTap(
-    object: identical(object, sdkOmittedValue) ? this.object : object as SdkOptional<VerificationGoogleOneTapObject>,
-    status: identical(status, sdkOmittedValue) ? this.status : status as VerificationGoogleOneTapStatus,
-    strategy: identical(strategy, sdkOmittedValue) ? this.strategy : strategy as VerificationGoogleOneTapStrategy,
-    expireAt: identical(expireAt, sdkOmittedValue) ? this.expireAt : expireAt as int?,
-    attempts: identical(attempts, sdkOmittedValue) ? this.attempts : attempts as int?,
-    verifiedAtClient: identical(verifiedAtClient, sdkOmittedValue) ? this.verifiedAtClient : verifiedAtClient as SdkOptional<String?>,
-    error: identical(error, sdkOmittedValue) ? this.error : error as SdkOptional<ClerkError?>,
-  );
+  VerificationGoogleOneTap _copyWith(
+          {Object? object = sdkOmittedValue,
+          Object? status = sdkOmittedValue,
+          Object? strategy = sdkOmittedValue,
+          Object? expireAt = sdkOmittedValue,
+          Object? attempts = sdkOmittedValue,
+          Object? verifiedAtClient = sdkOmittedValue,
+          Object? error = sdkOmittedValue}) =>
+      VerificationGoogleOneTap(
+        object: identical(object, sdkOmittedValue)
+            ? this.object
+            : object as SdkOptional<VerificationGoogleOneTapObject>,
+        status: identical(status, sdkOmittedValue)
+            ? this.status
+            : status as VerificationGoogleOneTapStatus,
+        strategy: identical(strategy, sdkOmittedValue)
+            ? this.strategy
+            : strategy as VerificationGoogleOneTapStrategy,
+        expireAt: identical(expireAt, sdkOmittedValue)
+            ? this.expireAt
+            : expireAt as int?,
+        attempts: identical(attempts, sdkOmittedValue)
+            ? this.attempts
+            : attempts as int?,
+        verifiedAtClient: identical(verifiedAtClient, sdkOmittedValue)
+            ? this.verifiedAtClient
+            : verifiedAtClient as SdkOptional<String?>,
+        error: identical(error, sdkOmittedValue)
+            ? this.error
+            : error as SdkOptional<ClerkError?>,
+      );
 
-  factory VerificationGoogleOneTap.fromJson(Map<String, dynamic> json) => VerificationGoogleOneTap(
-    object: json['object'] != null ? SdkPresent((json['object'] != null ? VerificationGoogleOneTapObject.fromJson(json['object'] as String) : null)!) : const SdkOmitted(),
-    status: (json['status'] != null ? VerificationGoogleOneTapStatus.fromJson(json['status'] as String) : null)!,
-    strategy: (json['strategy'] != null ? VerificationGoogleOneTapStrategy.fromJson(json['strategy'] as String) : null)!,
-    expireAt: json.containsKey('expire_at') ? (json['expire_at'] as num?)?.toInt() : throw ArgumentError.value(null, 'expire_at', 'Required property is missing'),
-    attempts: json.containsKey('attempts') ? (json['attempts'] as num?)?.toInt() : throw ArgumentError.value(null, 'attempts', 'Required property is missing'),
-    verifiedAtClient: json.containsKey('verified_at_client') ? SdkPresent(json['verified_at_client'] as String?) : const SdkOmitted(),
-    error: json.containsKey('error') ? SdkPresent(json['error'] != null ? ClerkError.fromJson(json['error'] as Map<String, dynamic>) : null) : const SdkOmitted(),
-  );
+  factory VerificationGoogleOneTap.fromJson(Map<String, dynamic> json) =>
+      VerificationGoogleOneTap(
+        object: json['object'] != null
+            ? SdkPresent((json['object'] != null
+                ? VerificationGoogleOneTapObject.fromJson(
+                    json['object'] as String)
+                : null)!)
+            : const SdkOmitted(),
+        status: (json['status'] != null
+            ? VerificationGoogleOneTapStatus.fromJson(json['status'] as String)
+            : null)!,
+        strategy: (json['strategy'] != null
+            ? VerificationGoogleOneTapStrategy.fromJson(
+                json['strategy'] as String)
+            : null)!,
+        expireAt: json.containsKey('expire_at')
+            ? (json['expire_at'] as num?)?.toInt()
+            : throw ArgumentError.value(
+                null, 'expire_at', 'Required property is missing'),
+        attempts: json.containsKey('attempts')
+            ? (json['attempts'] as num?)?.toInt()
+            : throw ArgumentError.value(
+                null, 'attempts', 'Required property is missing'),
+        verifiedAtClient: json.containsKey('verified_at_client')
+            ? SdkPresent(json['verified_at_client'] as String?)
+            : const SdkOmitted(),
+        error: json.containsKey('error')
+            ? SdkPresent(json['error'] != null
+                ? ClerkError.fromJson(json['error'] as Map<String, dynamic>)
+                : null)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (object) {
-      SdkPresent<VerificationGoogleOneTapObject>(value: final value) => {'object': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    'status': status.toJson(),
-    'strategy': strategy.toJson(),
-    'expire_at': expireAt,
-    'attempts': attempts,
-    ...switch (verifiedAtClient) {
-      SdkPresent<String?>(value: final value) => {'verified_at_client': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (error) {
-      SdkPresent<ClerkError?>(value: final value) => {'error': value?.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (object) {
+          SdkPresent<VerificationGoogleOneTapObject>(value: final value) => {
+              'object': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        'status': status.toJson(),
+        'strategy': strategy.toJson(),
+        'expire_at': expireAt,
+        'attempts': attempts,
+        ...switch (verifiedAtClient) {
+          SdkPresent<String?>(value: final value) => {
+              'verified_at_client': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (error) {
+          SdkPresent<ClerkError?>(value: final value) => {
+              'error': value?.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

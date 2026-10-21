@@ -7,82 +7,194 @@ part of 'inline.dart';
 class CreateEnterpriseConnectionRequestBody {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The display name of the connection
   final String name;
+
   /// The identity provider (e.g. saml_custom, oidc_custom, oidc_github_enterprise, oidc_gitlab)
   final CreateEnterpriseConnectionRequestBodyProvider provider;
+
   /// Domains associated with the enterprise connection (required; at least one). Values are normalized to lowercase. Each domain must be a valid fully qualified domain name.
   final List<String> domains;
+
   /// Organization ID when the connection is linked to an organization
   final SdkOptional<String?> organizationId;
+
   /// Whether this connection supports account linking via organization membership
   final SdkOptional<bool?> allowOrganizationAccountLinking;
+
   /// Whether the enterprise connection is active. When true, IdP metadata must be provided via the `saml` object.
   final SdkOptional<bool?> active;
+
   /// SAML connection-specific properties. Only applied when the enterprise connection uses SAML (e.g. provider is saml_custom). Use this to set IdP configuration, attribute mapping, and other SAML-specific settings at creation time.
   final SdkOptional<CreateEnterpriseConnectionRequestBodySaml?> saml;
+
   /// OIDC connection-specific properties. Only applied when the enterprise connection uses OIDC (e.g. provider is oidc_custom, oidc_github_enterprise, or oidc_gitlab).
   final SdkOptional<CreateEnterpriseConnectionRequestBodyOidc?> oidc;
+
   /// Custom attributes to map from the IdP to the user's profile via SSO or SCIM provisioning. Requires the custom attributes feature to be enabled for the instance.
-  final SdkOptional<List<CreateEnterpriseConnectionRequestBodyCustomAttributesItem>> customAttributes;
+  final SdkOptional<
+          List<CreateEnterpriseConnectionRequestBodyCustomAttributesItem>>
+      customAttributes;
 
-  const CreateEnterpriseConnectionRequestBody({required this.name, required this.provider, required this.domains, this.organizationId = const SdkOmitted(), this.allowOrganizationAccountLinking = const SdkOmitted(), this.active = const SdkOmitted(), this.saml = const SdkOmitted(), this.oidc = const SdkOmitted(), this.customAttributes = const SdkOmitted()});
+  const CreateEnterpriseConnectionRequestBody(
+      {required this.name,
+      required this.provider,
+      required this.domains,
+      this.organizationId = const SdkOmitted(),
+      this.allowOrganizationAccountLinking = const SdkOmitted(),
+      this.active = const SdkOmitted(),
+      this.saml = const SdkOmitted(),
+      this.oidc = const SdkOmitted(),
+      this.customAttributes = const SdkOmitted()});
 
-  CreateEnterpriseConnectionRequestBody Function({String name, CreateEnterpriseConnectionRequestBodyProvider provider, List<String> domains, SdkOptional<String?> organizationId, SdkOptional<bool?> allowOrganizationAccountLinking, SdkOptional<bool?> active, SdkOptional<CreateEnterpriseConnectionRequestBodySaml?> saml, SdkOptional<CreateEnterpriseConnectionRequestBodyOidc?> oidc, SdkOptional<List<CreateEnterpriseConnectionRequestBodyCustomAttributesItem>> customAttributes}) get copyWith => _copyWith;
+  CreateEnterpriseConnectionRequestBody Function(
+      {String name,
+      CreateEnterpriseConnectionRequestBodyProvider provider,
+      List<String> domains,
+      SdkOptional<String?> organizationId,
+      SdkOptional<bool?> allowOrganizationAccountLinking,
+      SdkOptional<bool?> active,
+      SdkOptional<CreateEnterpriseConnectionRequestBodySaml?> saml,
+      SdkOptional<CreateEnterpriseConnectionRequestBodyOidc?> oidc,
+      SdkOptional<
+              List<CreateEnterpriseConnectionRequestBodyCustomAttributesItem>>
+          customAttributes}) get copyWith => _copyWith;
 
-  CreateEnterpriseConnectionRequestBody _copyWith({Object? name = sdkOmittedValue, Object? provider = sdkOmittedValue, Object? domains = sdkOmittedValue, Object? organizationId = sdkOmittedValue, Object? allowOrganizationAccountLinking = sdkOmittedValue, Object? active = sdkOmittedValue, Object? saml = sdkOmittedValue, Object? oidc = sdkOmittedValue, Object? customAttributes = sdkOmittedValue}) => CreateEnterpriseConnectionRequestBody(
-    name: identical(name, sdkOmittedValue) ? this.name : name as String,
-    provider: identical(provider, sdkOmittedValue) ? this.provider : provider as CreateEnterpriseConnectionRequestBodyProvider,
-    domains: identical(domains, sdkOmittedValue) ? this.domains : domains as List<String>,
-    organizationId: identical(organizationId, sdkOmittedValue) ? this.organizationId : organizationId as SdkOptional<String?>,
-    allowOrganizationAccountLinking: identical(allowOrganizationAccountLinking, sdkOmittedValue) ? this.allowOrganizationAccountLinking : allowOrganizationAccountLinking as SdkOptional<bool?>,
-    active: identical(active, sdkOmittedValue) ? this.active : active as SdkOptional<bool?>,
-    saml: identical(saml, sdkOmittedValue) ? this.saml : saml as SdkOptional<CreateEnterpriseConnectionRequestBodySaml?>,
-    oidc: identical(oidc, sdkOmittedValue) ? this.oidc : oidc as SdkOptional<CreateEnterpriseConnectionRequestBodyOidc?>,
-    customAttributes: identical(customAttributes, sdkOmittedValue) ? this.customAttributes : customAttributes as SdkOptional<List<CreateEnterpriseConnectionRequestBodyCustomAttributesItem>>,
-  );
+  CreateEnterpriseConnectionRequestBody _copyWith(
+          {Object? name = sdkOmittedValue,
+          Object? provider = sdkOmittedValue,
+          Object? domains = sdkOmittedValue,
+          Object? organizationId = sdkOmittedValue,
+          Object? allowOrganizationAccountLinking = sdkOmittedValue,
+          Object? active = sdkOmittedValue,
+          Object? saml = sdkOmittedValue,
+          Object? oidc = sdkOmittedValue,
+          Object? customAttributes = sdkOmittedValue}) =>
+      CreateEnterpriseConnectionRequestBody(
+        name: identical(name, sdkOmittedValue) ? this.name : name as String,
+        provider: identical(provider, sdkOmittedValue)
+            ? this.provider
+            : provider as CreateEnterpriseConnectionRequestBodyProvider,
+        domains: identical(domains, sdkOmittedValue)
+            ? this.domains
+            : domains as List<String>,
+        organizationId: identical(organizationId, sdkOmittedValue)
+            ? this.organizationId
+            : organizationId as SdkOptional<String?>,
+        allowOrganizationAccountLinking:
+            identical(allowOrganizationAccountLinking, sdkOmittedValue)
+                ? this.allowOrganizationAccountLinking
+                : allowOrganizationAccountLinking as SdkOptional<bool?>,
+        active: identical(active, sdkOmittedValue)
+            ? this.active
+            : active as SdkOptional<bool?>,
+        saml: identical(saml, sdkOmittedValue)
+            ? this.saml
+            : saml as SdkOptional<CreateEnterpriseConnectionRequestBodySaml?>,
+        oidc: identical(oidc, sdkOmittedValue)
+            ? this.oidc
+            : oidc as SdkOptional<CreateEnterpriseConnectionRequestBodyOidc?>,
+        customAttributes: identical(customAttributes, sdkOmittedValue)
+            ? this.customAttributes
+            : customAttributes as SdkOptional<
+                List<
+                    CreateEnterpriseConnectionRequestBodyCustomAttributesItem>>,
+      );
 
-  factory CreateEnterpriseConnectionRequestBody.fromJson(Map<String, dynamic> json) => CreateEnterpriseConnectionRequestBody(
-    name: (json['name'] as String?)!,
-    provider: (json['provider'] != null ? CreateEnterpriseConnectionRequestBodyProvider.fromJson(json['provider'] as String) : null)!,
-    domains: ((json['domains'] as List?)?.map((e) => e as String).toList())!,
-    organizationId: json.containsKey('organization_id') ? SdkPresent(json['organization_id'] as String?) : const SdkOmitted(),
-    allowOrganizationAccountLinking: json.containsKey('allow_organization_account_linking') ? SdkPresent(json['allow_organization_account_linking'] as bool?) : const SdkOmitted(),
-    active: json.containsKey('active') ? SdkPresent(json['active'] as bool?) : const SdkOmitted(),
-    saml: json.containsKey('saml') ? SdkPresent(json['saml'] != null ? CreateEnterpriseConnectionRequestBodySaml.fromJson(json['saml'] as Map<String, dynamic>) : null) : const SdkOmitted(),
-    oidc: json.containsKey('oidc') ? SdkPresent(json['oidc'] != null ? CreateEnterpriseConnectionRequestBodyOidc.fromJson(json['oidc'] as Map<String, dynamic>) : null) : const SdkOmitted(),
-    customAttributes: json['custom_attributes'] != null ? SdkPresent(((json['custom_attributes'] as List?)?.map((e) => CreateEnterpriseConnectionRequestBodyCustomAttributesItem.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-  );
+  factory CreateEnterpriseConnectionRequestBody.fromJson(
+          Map<String, dynamic> json) =>
+      CreateEnterpriseConnectionRequestBody(
+        name: (json['name'] as String?)!,
+        provider: (json['provider'] != null
+            ? CreateEnterpriseConnectionRequestBodyProvider.fromJson(
+                json['provider'] as String)
+            : null)!,
+        domains:
+            ((json['domains'] as List?)?.map((e) => e as String).toList())!,
+        organizationId: json.containsKey('organization_id')
+            ? SdkPresent(json['organization_id'] as String?)
+            : const SdkOmitted(),
+        allowOrganizationAccountLinking: json
+                .containsKey('allow_organization_account_linking')
+            ? SdkPresent(json['allow_organization_account_linking'] as bool?)
+            : const SdkOmitted(),
+        active: json.containsKey('active')
+            ? SdkPresent(json['active'] as bool?)
+            : const SdkOmitted(),
+        saml: json.containsKey('saml')
+            ? SdkPresent(json['saml'] != null
+                ? CreateEnterpriseConnectionRequestBodySaml.fromJson(
+                    json['saml'] as Map<String, dynamic>)
+                : null)
+            : const SdkOmitted(),
+        oidc: json.containsKey('oidc')
+            ? SdkPresent(json['oidc'] != null
+                ? CreateEnterpriseConnectionRequestBodyOidc.fromJson(
+                    json['oidc'] as Map<String, dynamic>)
+                : null)
+            : const SdkOmitted(),
+        customAttributes: json['custom_attributes'] != null
+            ? SdkPresent(((json['custom_attributes'] as List?)
+                ?.map((e) =>
+                    CreateEnterpriseConnectionRequestBodyCustomAttributesItem
+                        .fromJson(e as Map<String, dynamic>))
+                .toList())!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    'name': name,
-    'provider': provider.toJson(),
-    'domains': domains,
-    ...switch (organizationId) {
-      SdkPresent<String?>(value: final value) => {'organization_id': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (allowOrganizationAccountLinking) {
-      SdkPresent<bool?>(value: final value) => {'allow_organization_account_linking': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (active) {
-      SdkPresent<bool?>(value: final value) => {'active': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (saml) {
-      SdkPresent<CreateEnterpriseConnectionRequestBodySaml?>(value: final value) => {'saml': value?.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (oidc) {
-      SdkPresent<CreateEnterpriseConnectionRequestBodyOidc?>(value: final value) => {'oidc': value?.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (customAttributes) {
-      SdkPresent<List<CreateEnterpriseConnectionRequestBodyCustomAttributesItem>>(value: final value) => {'custom_attributes': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        'name': name,
+        'provider': provider.toJson(),
+        'domains': domains,
+        ...switch (organizationId) {
+          SdkPresent<String?>(value: final value) => {
+              'organization_id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (allowOrganizationAccountLinking) {
+          SdkPresent<bool?>(value: final value) => {
+              'allow_organization_account_linking': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (active) {
+          SdkPresent<bool?>(value: final value) => {
+              'active': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (saml) {
+          SdkPresent<CreateEnterpriseConnectionRequestBodySaml?>(
+            value: final value
+          ) =>
+            {
+              'saml': value?.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (oidc) {
+          SdkPresent<CreateEnterpriseConnectionRequestBodyOidc?>(
+            value: final value
+          ) =>
+            {
+              'oidc': value?.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (customAttributes) {
+          SdkPresent<
+                List<
+                    CreateEnterpriseConnectionRequestBodyCustomAttributesItem>>(
+            value: final value
+          ) =>
+            {
+              'custom_attributes': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Attribute mapping for SAML attributes
@@ -94,184 +206,384 @@ class UpdateEnterpriseConnectionRequestBodySamlAttributeMapping {
   final SdkOptional<String?> firstName;
   final SdkOptional<String?> lastName;
 
-  const UpdateEnterpriseConnectionRequestBodySamlAttributeMapping({this.userId = const SdkOmitted(), this.emailAddress = const SdkOmitted(), this.firstName = const SdkOmitted(), this.lastName = const SdkOmitted()});
+  const UpdateEnterpriseConnectionRequestBodySamlAttributeMapping(
+      {this.userId = const SdkOmitted(),
+      this.emailAddress = const SdkOmitted(),
+      this.firstName = const SdkOmitted(),
+      this.lastName = const SdkOmitted()});
 
-  UpdateEnterpriseConnectionRequestBodySamlAttributeMapping Function({SdkOptional<String?> userId, SdkOptional<String?> emailAddress, SdkOptional<String?> firstName, SdkOptional<String?> lastName}) get copyWith => _copyWith;
+  UpdateEnterpriseConnectionRequestBodySamlAttributeMapping Function(
+      {SdkOptional<String?> userId,
+      SdkOptional<String?> emailAddress,
+      SdkOptional<String?> firstName,
+      SdkOptional<String?> lastName}) get copyWith => _copyWith;
 
-  UpdateEnterpriseConnectionRequestBodySamlAttributeMapping _copyWith({Object? userId = sdkOmittedValue, Object? emailAddress = sdkOmittedValue, Object? firstName = sdkOmittedValue, Object? lastName = sdkOmittedValue}) => UpdateEnterpriseConnectionRequestBodySamlAttributeMapping(
-    userId: identical(userId, sdkOmittedValue) ? this.userId : userId as SdkOptional<String?>,
-    emailAddress: identical(emailAddress, sdkOmittedValue) ? this.emailAddress : emailAddress as SdkOptional<String?>,
-    firstName: identical(firstName, sdkOmittedValue) ? this.firstName : firstName as SdkOptional<String?>,
-    lastName: identical(lastName, sdkOmittedValue) ? this.lastName : lastName as SdkOptional<String?>,
-  );
+  UpdateEnterpriseConnectionRequestBodySamlAttributeMapping _copyWith(
+          {Object? userId = sdkOmittedValue,
+          Object? emailAddress = sdkOmittedValue,
+          Object? firstName = sdkOmittedValue,
+          Object? lastName = sdkOmittedValue}) =>
+      UpdateEnterpriseConnectionRequestBodySamlAttributeMapping(
+        userId: identical(userId, sdkOmittedValue)
+            ? this.userId
+            : userId as SdkOptional<String?>,
+        emailAddress: identical(emailAddress, sdkOmittedValue)
+            ? this.emailAddress
+            : emailAddress as SdkOptional<String?>,
+        firstName: identical(firstName, sdkOmittedValue)
+            ? this.firstName
+            : firstName as SdkOptional<String?>,
+        lastName: identical(lastName, sdkOmittedValue)
+            ? this.lastName
+            : lastName as SdkOptional<String?>,
+      );
 
-  factory UpdateEnterpriseConnectionRequestBodySamlAttributeMapping.fromJson(Map<String, dynamic> json) => UpdateEnterpriseConnectionRequestBodySamlAttributeMapping(
-    userId: json.containsKey('user_id') ? SdkPresent(json['user_id'] as String?) : const SdkOmitted(),
-    emailAddress: json.containsKey('email_address') ? SdkPresent(json['email_address'] as String?) : const SdkOmitted(),
-    firstName: json.containsKey('first_name') ? SdkPresent(json['first_name'] as String?) : const SdkOmitted(),
-    lastName: json.containsKey('last_name') ? SdkPresent(json['last_name'] as String?) : const SdkOmitted(),
-  );
+  factory UpdateEnterpriseConnectionRequestBodySamlAttributeMapping.fromJson(
+          Map<String, dynamic> json) =>
+      UpdateEnterpriseConnectionRequestBodySamlAttributeMapping(
+        userId: json.containsKey('user_id')
+            ? SdkPresent(json['user_id'] as String?)
+            : const SdkOmitted(),
+        emailAddress: json.containsKey('email_address')
+            ? SdkPresent(json['email_address'] as String?)
+            : const SdkOmitted(),
+        firstName: json.containsKey('first_name')
+            ? SdkPresent(json['first_name'] as String?)
+            : const SdkOmitted(),
+        lastName: json.containsKey('last_name')
+            ? SdkPresent(json['last_name'] as String?)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (userId) {
-      SdkPresent<String?>(value: final value) => {'user_id': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (emailAddress) {
-      SdkPresent<String?>(value: final value) => {'email_address': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (firstName) {
-      SdkPresent<String?>(value: final value) => {'first_name': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (lastName) {
-      SdkPresent<String?>(value: final value) => {'last_name': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (userId) {
+          SdkPresent<String?>(value: final value) => {
+              'user_id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (emailAddress) {
+          SdkPresent<String?>(value: final value) => {
+              'email_address': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (firstName) {
+          SdkPresent<String?>(value: final value) => {
+              'first_name': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (lastName) {
+          SdkPresent<String?>(value: final value) => {
+              'last_name': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Configuration for the login_hint sent to the IdP on SSO sign-in
 class UpdateEnterpriseConnectionRequestBodySamlLoginHint {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Controls the login_hint sent to the IdP on SSO sign-in
   final UpdateEnterpriseConnectionRequestBodySamlLoginHintMode mode;
+
   /// The user public_metadata key whose value is sent as the login_hint when mode is custom_attribute
   final SdkOptional<String> source;
 
-  const UpdateEnterpriseConnectionRequestBodySamlLoginHint({required this.mode, this.source = const SdkOmitted()});
+  const UpdateEnterpriseConnectionRequestBodySamlLoginHint(
+      {required this.mode, this.source = const SdkOmitted()});
 
-  UpdateEnterpriseConnectionRequestBodySamlLoginHint Function({UpdateEnterpriseConnectionRequestBodySamlLoginHintMode mode, SdkOptional<String> source}) get copyWith => _copyWith;
+  UpdateEnterpriseConnectionRequestBodySamlLoginHint Function(
+      {UpdateEnterpriseConnectionRequestBodySamlLoginHintMode mode,
+      SdkOptional<String> source}) get copyWith => _copyWith;
 
-  UpdateEnterpriseConnectionRequestBodySamlLoginHint _copyWith({Object? mode = sdkOmittedValue, Object? source = sdkOmittedValue}) => UpdateEnterpriseConnectionRequestBodySamlLoginHint(
-    mode: identical(mode, sdkOmittedValue) ? this.mode : mode as UpdateEnterpriseConnectionRequestBodySamlLoginHintMode,
-    source: identical(source, sdkOmittedValue) ? this.source : source as SdkOptional<String>,
-  );
+  UpdateEnterpriseConnectionRequestBodySamlLoginHint _copyWith(
+          {Object? mode = sdkOmittedValue, Object? source = sdkOmittedValue}) =>
+      UpdateEnterpriseConnectionRequestBodySamlLoginHint(
+        mode: identical(mode, sdkOmittedValue)
+            ? this.mode
+            : mode as UpdateEnterpriseConnectionRequestBodySamlLoginHintMode,
+        source: identical(source, sdkOmittedValue)
+            ? this.source
+            : source as SdkOptional<String>,
+      );
 
-  factory UpdateEnterpriseConnectionRequestBodySamlLoginHint.fromJson(Map<String, dynamic> json) => UpdateEnterpriseConnectionRequestBodySamlLoginHint(
-    mode: (json['mode'] != null ? UpdateEnterpriseConnectionRequestBodySamlLoginHintMode.fromJson(json['mode'] as String) : null)!,
-    source: json['source'] != null ? SdkPresent((json['source'] as String?)!) : const SdkOmitted(),
-  );
+  factory UpdateEnterpriseConnectionRequestBodySamlLoginHint.fromJson(
+          Map<String, dynamic> json) =>
+      UpdateEnterpriseConnectionRequestBodySamlLoginHint(
+        mode: (json['mode'] != null
+            ? UpdateEnterpriseConnectionRequestBodySamlLoginHintMode.fromJson(
+                json['mode'] as String)
+            : null)!,
+        source: json['source'] != null
+            ? SdkPresent((json['source'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    'mode': mode.toJson(),
-    ...switch (source) {
-      SdkPresent<String>(value: final value) => {'source': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        'mode': mode.toJson(),
+        ...switch (source) {
+          SdkPresent<String>(value: final value) => {
+              'source': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// SAML connection-specific properties. Only applied when the enterprise connection uses SAML. Use this to update IdP configuration, attribute mapping, and other SAML-specific settings.
 class UpdateEnterpriseConnectionRequestBodySaml {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Display name of the SAML connection
   final SdkOptional<String?> name;
+
   /// IdP entity ID
   final SdkOptional<String?> idpEntityId;
+
   /// IdP SSO URL
   final SdkOptional<String?> idpSsoUrl;
+
   /// Deprecated, use idp_certificates. One X.509 certificate, PEM or bare base64, or several concatenated PEM certificates; replaces the connection's whole certificate set
   final SdkOptional<String?> idpCertificate;
+
   /// The IdP X.509 signing certificates the connection trusts, one per entry, in PEM or bare base64. Replaces the connection's whole certificate set and takes precedence over idp_certificate
   final SdkOptional<List<String>> idpCertificates;
+
   /// URL to IdP metadata
   final SdkOptional<String?> idpMetadataUrl;
+
   /// Raw IdP metadata XML
   final SdkOptional<String?> idpMetadata;
+
   /// Attribute mapping for SAML attributes
-  final SdkOptional<UpdateEnterpriseConnectionRequestBodySamlAttributeMapping?> attributeMapping;
+  final SdkOptional<UpdateEnterpriseConnectionRequestBodySamlAttributeMapping?>
+      attributeMapping;
   final SdkOptional<bool?> allowSubdomains;
   final SdkOptional<bool?> allowIdpInitiated;
   final SdkOptional<bool?> forceAuthn;
+
   /// Configuration for the login_hint sent to the IdP on SSO sign-in
-  final SdkOptional<UpdateEnterpriseConnectionRequestBodySamlLoginHint?> loginHint;
+  final SdkOptional<UpdateEnterpriseConnectionRequestBodySamlLoginHint?>
+      loginHint;
 
-  const UpdateEnterpriseConnectionRequestBodySaml({this.name = const SdkOmitted(), this.idpEntityId = const SdkOmitted(), this.idpSsoUrl = const SdkOmitted(), this.idpCertificate = const SdkOmitted(), this.idpCertificates = const SdkOmitted(), this.idpMetadataUrl = const SdkOmitted(), this.idpMetadata = const SdkOmitted(), this.attributeMapping = const SdkOmitted(), this.allowSubdomains = const SdkOmitted(), this.allowIdpInitiated = const SdkOmitted(), this.forceAuthn = const SdkOmitted(), this.loginHint = const SdkOmitted()});
+  const UpdateEnterpriseConnectionRequestBodySaml(
+      {this.name = const SdkOmitted(),
+      this.idpEntityId = const SdkOmitted(),
+      this.idpSsoUrl = const SdkOmitted(),
+      this.idpCertificate = const SdkOmitted(),
+      this.idpCertificates = const SdkOmitted(),
+      this.idpMetadataUrl = const SdkOmitted(),
+      this.idpMetadata = const SdkOmitted(),
+      this.attributeMapping = const SdkOmitted(),
+      this.allowSubdomains = const SdkOmitted(),
+      this.allowIdpInitiated = const SdkOmitted(),
+      this.forceAuthn = const SdkOmitted(),
+      this.loginHint = const SdkOmitted()});
 
-  UpdateEnterpriseConnectionRequestBodySaml Function({SdkOptional<String?> name, SdkOptional<String?> idpEntityId, SdkOptional<String?> idpSsoUrl, SdkOptional<String?> idpCertificate, SdkOptional<List<String>> idpCertificates, SdkOptional<String?> idpMetadataUrl, SdkOptional<String?> idpMetadata, SdkOptional<UpdateEnterpriseConnectionRequestBodySamlAttributeMapping?> attributeMapping, SdkOptional<bool?> allowSubdomains, SdkOptional<bool?> allowIdpInitiated, SdkOptional<bool?> forceAuthn, SdkOptional<UpdateEnterpriseConnectionRequestBodySamlLoginHint?> loginHint}) get copyWith => _copyWith;
+  UpdateEnterpriseConnectionRequestBodySaml Function(
+      {SdkOptional<String?> name,
+      SdkOptional<String?> idpEntityId,
+      SdkOptional<String?> idpSsoUrl,
+      SdkOptional<String?> idpCertificate,
+      SdkOptional<List<String>> idpCertificates,
+      SdkOptional<String?> idpMetadataUrl,
+      SdkOptional<String?> idpMetadata,
+      SdkOptional<UpdateEnterpriseConnectionRequestBodySamlAttributeMapping?>
+          attributeMapping,
+      SdkOptional<bool?> allowSubdomains,
+      SdkOptional<bool?> allowIdpInitiated,
+      SdkOptional<bool?> forceAuthn,
+      SdkOptional<UpdateEnterpriseConnectionRequestBodySamlLoginHint?>
+          loginHint}) get copyWith => _copyWith;
 
-  UpdateEnterpriseConnectionRequestBodySaml _copyWith({Object? name = sdkOmittedValue, Object? idpEntityId = sdkOmittedValue, Object? idpSsoUrl = sdkOmittedValue, Object? idpCertificate = sdkOmittedValue, Object? idpCertificates = sdkOmittedValue, Object? idpMetadataUrl = sdkOmittedValue, Object? idpMetadata = sdkOmittedValue, Object? attributeMapping = sdkOmittedValue, Object? allowSubdomains = sdkOmittedValue, Object? allowIdpInitiated = sdkOmittedValue, Object? forceAuthn = sdkOmittedValue, Object? loginHint = sdkOmittedValue}) => UpdateEnterpriseConnectionRequestBodySaml(
-    name: identical(name, sdkOmittedValue) ? this.name : name as SdkOptional<String?>,
-    idpEntityId: identical(idpEntityId, sdkOmittedValue) ? this.idpEntityId : idpEntityId as SdkOptional<String?>,
-    idpSsoUrl: identical(idpSsoUrl, sdkOmittedValue) ? this.idpSsoUrl : idpSsoUrl as SdkOptional<String?>,
-    idpCertificate: identical(idpCertificate, sdkOmittedValue) ? this.idpCertificate : idpCertificate as SdkOptional<String?>,
-    idpCertificates: identical(idpCertificates, sdkOmittedValue) ? this.idpCertificates : idpCertificates as SdkOptional<List<String>>,
-    idpMetadataUrl: identical(idpMetadataUrl, sdkOmittedValue) ? this.idpMetadataUrl : idpMetadataUrl as SdkOptional<String?>,
-    idpMetadata: identical(idpMetadata, sdkOmittedValue) ? this.idpMetadata : idpMetadata as SdkOptional<String?>,
-    attributeMapping: identical(attributeMapping, sdkOmittedValue) ? this.attributeMapping : attributeMapping as SdkOptional<UpdateEnterpriseConnectionRequestBodySamlAttributeMapping?>,
-    allowSubdomains: identical(allowSubdomains, sdkOmittedValue) ? this.allowSubdomains : allowSubdomains as SdkOptional<bool?>,
-    allowIdpInitiated: identical(allowIdpInitiated, sdkOmittedValue) ? this.allowIdpInitiated : allowIdpInitiated as SdkOptional<bool?>,
-    forceAuthn: identical(forceAuthn, sdkOmittedValue) ? this.forceAuthn : forceAuthn as SdkOptional<bool?>,
-    loginHint: identical(loginHint, sdkOmittedValue) ? this.loginHint : loginHint as SdkOptional<UpdateEnterpriseConnectionRequestBodySamlLoginHint?>,
-  );
+  UpdateEnterpriseConnectionRequestBodySaml _copyWith(
+          {Object? name = sdkOmittedValue,
+          Object? idpEntityId = sdkOmittedValue,
+          Object? idpSsoUrl = sdkOmittedValue,
+          Object? idpCertificate = sdkOmittedValue,
+          Object? idpCertificates = sdkOmittedValue,
+          Object? idpMetadataUrl = sdkOmittedValue,
+          Object? idpMetadata = sdkOmittedValue,
+          Object? attributeMapping = sdkOmittedValue,
+          Object? allowSubdomains = sdkOmittedValue,
+          Object? allowIdpInitiated = sdkOmittedValue,
+          Object? forceAuthn = sdkOmittedValue,
+          Object? loginHint = sdkOmittedValue}) =>
+      UpdateEnterpriseConnectionRequestBodySaml(
+        name: identical(name, sdkOmittedValue)
+            ? this.name
+            : name as SdkOptional<String?>,
+        idpEntityId: identical(idpEntityId, sdkOmittedValue)
+            ? this.idpEntityId
+            : idpEntityId as SdkOptional<String?>,
+        idpSsoUrl: identical(idpSsoUrl, sdkOmittedValue)
+            ? this.idpSsoUrl
+            : idpSsoUrl as SdkOptional<String?>,
+        idpCertificate: identical(idpCertificate, sdkOmittedValue)
+            ? this.idpCertificate
+            : idpCertificate as SdkOptional<String?>,
+        idpCertificates: identical(idpCertificates, sdkOmittedValue)
+            ? this.idpCertificates
+            : idpCertificates as SdkOptional<List<String>>,
+        idpMetadataUrl: identical(idpMetadataUrl, sdkOmittedValue)
+            ? this.idpMetadataUrl
+            : idpMetadataUrl as SdkOptional<String?>,
+        idpMetadata: identical(idpMetadata, sdkOmittedValue)
+            ? this.idpMetadata
+            : idpMetadata as SdkOptional<String?>,
+        attributeMapping: identical(attributeMapping, sdkOmittedValue)
+            ? this.attributeMapping
+            : attributeMapping as SdkOptional<
+                UpdateEnterpriseConnectionRequestBodySamlAttributeMapping?>,
+        allowSubdomains: identical(allowSubdomains, sdkOmittedValue)
+            ? this.allowSubdomains
+            : allowSubdomains as SdkOptional<bool?>,
+        allowIdpInitiated: identical(allowIdpInitiated, sdkOmittedValue)
+            ? this.allowIdpInitiated
+            : allowIdpInitiated as SdkOptional<bool?>,
+        forceAuthn: identical(forceAuthn, sdkOmittedValue)
+            ? this.forceAuthn
+            : forceAuthn as SdkOptional<bool?>,
+        loginHint: identical(loginHint, sdkOmittedValue)
+            ? this.loginHint
+            : loginHint as SdkOptional<
+                UpdateEnterpriseConnectionRequestBodySamlLoginHint?>,
+      );
 
-  factory UpdateEnterpriseConnectionRequestBodySaml.fromJson(Map<String, dynamic> json) => UpdateEnterpriseConnectionRequestBodySaml(
-    name: json.containsKey('name') ? SdkPresent(json['name'] as String?) : const SdkOmitted(),
-    idpEntityId: json.containsKey('idp_entity_id') ? SdkPresent(json['idp_entity_id'] as String?) : const SdkOmitted(),
-    idpSsoUrl: json.containsKey('idp_sso_url') ? SdkPresent(json['idp_sso_url'] as String?) : const SdkOmitted(),
-    idpCertificate: json.containsKey('idp_certificate') ? SdkPresent(json['idp_certificate'] as String?) : const SdkOmitted(),
-    idpCertificates: json['idp_certificates'] != null ? SdkPresent(((json['idp_certificates'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
-    idpMetadataUrl: json.containsKey('idp_metadata_url') ? SdkPresent(json['idp_metadata_url'] as String?) : const SdkOmitted(),
-    idpMetadata: json.containsKey('idp_metadata') ? SdkPresent(json['idp_metadata'] as String?) : const SdkOmitted(),
-    attributeMapping: json.containsKey('attribute_mapping') ? SdkPresent(json['attribute_mapping'] != null ? UpdateEnterpriseConnectionRequestBodySamlAttributeMapping.fromJson(json['attribute_mapping'] as Map<String, dynamic>) : null) : const SdkOmitted(),
-    allowSubdomains: json.containsKey('allow_subdomains') ? SdkPresent(json['allow_subdomains'] as bool?) : const SdkOmitted(),
-    allowIdpInitiated: json.containsKey('allow_idp_initiated') ? SdkPresent(json['allow_idp_initiated'] as bool?) : const SdkOmitted(),
-    forceAuthn: json.containsKey('force_authn') ? SdkPresent(json['force_authn'] as bool?) : const SdkOmitted(),
-    loginHint: json.containsKey('login_hint') ? SdkPresent(json['login_hint'] != null ? UpdateEnterpriseConnectionRequestBodySamlLoginHint.fromJson(json['login_hint'] as Map<String, dynamic>) : null) : const SdkOmitted(),
-  );
+  factory UpdateEnterpriseConnectionRequestBodySaml.fromJson(
+          Map<String, dynamic> json) =>
+      UpdateEnterpriseConnectionRequestBodySaml(
+        name: json.containsKey('name')
+            ? SdkPresent(json['name'] as String?)
+            : const SdkOmitted(),
+        idpEntityId: json.containsKey('idp_entity_id')
+            ? SdkPresent(json['idp_entity_id'] as String?)
+            : const SdkOmitted(),
+        idpSsoUrl: json.containsKey('idp_sso_url')
+            ? SdkPresent(json['idp_sso_url'] as String?)
+            : const SdkOmitted(),
+        idpCertificate: json.containsKey('idp_certificate')
+            ? SdkPresent(json['idp_certificate'] as String?)
+            : const SdkOmitted(),
+        idpCertificates: json['idp_certificates'] != null
+            ? SdkPresent(((json['idp_certificates'] as List?)
+                ?.map((e) => e as String)
+                .toList())!)
+            : const SdkOmitted(),
+        idpMetadataUrl: json.containsKey('idp_metadata_url')
+            ? SdkPresent(json['idp_metadata_url'] as String?)
+            : const SdkOmitted(),
+        idpMetadata: json.containsKey('idp_metadata')
+            ? SdkPresent(json['idp_metadata'] as String?)
+            : const SdkOmitted(),
+        attributeMapping: json.containsKey('attribute_mapping')
+            ? SdkPresent(json['attribute_mapping'] != null
+                ? UpdateEnterpriseConnectionRequestBodySamlAttributeMapping
+                    .fromJson(json['attribute_mapping'] as Map<String, dynamic>)
+                : null)
+            : const SdkOmitted(),
+        allowSubdomains: json.containsKey('allow_subdomains')
+            ? SdkPresent(json['allow_subdomains'] as bool?)
+            : const SdkOmitted(),
+        allowIdpInitiated: json.containsKey('allow_idp_initiated')
+            ? SdkPresent(json['allow_idp_initiated'] as bool?)
+            : const SdkOmitted(),
+        forceAuthn: json.containsKey('force_authn')
+            ? SdkPresent(json['force_authn'] as bool?)
+            : const SdkOmitted(),
+        loginHint: json.containsKey('login_hint')
+            ? SdkPresent(json['login_hint'] != null
+                ? UpdateEnterpriseConnectionRequestBodySamlLoginHint.fromJson(
+                    json['login_hint'] as Map<String, dynamic>)
+                : null)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (name) {
-      SdkPresent<String?>(value: final value) => {'name': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (idpEntityId) {
-      SdkPresent<String?>(value: final value) => {'idp_entity_id': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (idpSsoUrl) {
-      SdkPresent<String?>(value: final value) => {'idp_sso_url': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (idpCertificate) {
-      SdkPresent<String?>(value: final value) => {'idp_certificate': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (idpCertificates) {
-      SdkPresent<List<String>>(value: final value) => {'idp_certificates': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (idpMetadataUrl) {
-      SdkPresent<String?>(value: final value) => {'idp_metadata_url': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (idpMetadata) {
-      SdkPresent<String?>(value: final value) => {'idp_metadata': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (attributeMapping) {
-      SdkPresent<UpdateEnterpriseConnectionRequestBodySamlAttributeMapping?>(value: final value) => {'attribute_mapping': value?.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (allowSubdomains) {
-      SdkPresent<bool?>(value: final value) => {'allow_subdomains': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (allowIdpInitiated) {
-      SdkPresent<bool?>(value: final value) => {'allow_idp_initiated': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (forceAuthn) {
-      SdkPresent<bool?>(value: final value) => {'force_authn': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (loginHint) {
-      SdkPresent<UpdateEnterpriseConnectionRequestBodySamlLoginHint?>(value: final value) => {'login_hint': value?.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (name) {
+          SdkPresent<String?>(value: final value) => {
+              'name': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (idpEntityId) {
+          SdkPresent<String?>(value: final value) => {
+              'idp_entity_id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (idpSsoUrl) {
+          SdkPresent<String?>(value: final value) => {
+              'idp_sso_url': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (idpCertificate) {
+          SdkPresent<String?>(value: final value) => {
+              'idp_certificate': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (idpCertificates) {
+          SdkPresent<List<String>>(value: final value) => {
+              'idp_certificates': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (idpMetadataUrl) {
+          SdkPresent<String?>(value: final value) => {
+              'idp_metadata_url': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (idpMetadata) {
+          SdkPresent<String?>(value: final value) => {
+              'idp_metadata': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (attributeMapping) {
+          SdkPresent<
+                UpdateEnterpriseConnectionRequestBodySamlAttributeMapping?>(
+            value: final value
+          ) =>
+            {
+              'attribute_mapping': value?.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (allowSubdomains) {
+          SdkPresent<bool?>(value: final value) => {
+              'allow_subdomains': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (allowIdpInitiated) {
+          SdkPresent<bool?>(value: final value) => {
+              'allow_idp_initiated': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (forceAuthn) {
+          SdkPresent<bool?>(value: final value) => {
+              'force_authn': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (loginHint) {
+          SdkPresent<UpdateEnterpriseConnectionRequestBodySamlLoginHint?>(
+            value: final value
+          ) =>
+            {
+              'login_hint': value?.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

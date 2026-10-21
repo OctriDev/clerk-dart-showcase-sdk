@@ -8,30 +8,54 @@ part of 'shared_commerce.dart';
 class CommerceSubscriptionItemSeatsResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Seat quantity being billed; null means unlimited
   final int? quantity;
+
   /// Per-unit cost breakdown by pricing tier
   final SdkOptional<List<CommercePerUnitTotalTier2>> tiers;
 
-  const CommerceSubscriptionItemSeatsResponse({required this.quantity, this.tiers = const SdkOmitted()});
+  const CommerceSubscriptionItemSeatsResponse(
+      {required this.quantity, this.tiers = const SdkOmitted()});
 
-  CommerceSubscriptionItemSeatsResponse Function({int? quantity, SdkOptional<List<CommercePerUnitTotalTier2>> tiers}) get copyWith => _copyWith;
+  CommerceSubscriptionItemSeatsResponse Function(
+          {int? quantity, SdkOptional<List<CommercePerUnitTotalTier2>> tiers})
+      get copyWith => _copyWith;
 
-  CommerceSubscriptionItemSeatsResponse _copyWith({Object? quantity = sdkOmittedValue, Object? tiers = sdkOmittedValue}) => CommerceSubscriptionItemSeatsResponse(
-    quantity: identical(quantity, sdkOmittedValue) ? this.quantity : quantity as int?,
-    tiers: identical(tiers, sdkOmittedValue) ? this.tiers : tiers as SdkOptional<List<CommercePerUnitTotalTier2>>,
-  );
+  CommerceSubscriptionItemSeatsResponse _copyWith(
+          {Object? quantity = sdkOmittedValue,
+          Object? tiers = sdkOmittedValue}) =>
+      CommerceSubscriptionItemSeatsResponse(
+        quantity: identical(quantity, sdkOmittedValue)
+            ? this.quantity
+            : quantity as int?,
+        tiers: identical(tiers, sdkOmittedValue)
+            ? this.tiers
+            : tiers as SdkOptional<List<CommercePerUnitTotalTier2>>,
+      );
 
-  factory CommerceSubscriptionItemSeatsResponse.fromJson(Map<String, dynamic> json) => CommerceSubscriptionItemSeatsResponse(
-    quantity: json.containsKey('quantity') ? (json['quantity'] as num?)?.toInt() : throw ArgumentError.value(null, 'quantity', 'Required property is missing'),
-    tiers: json['tiers'] != null ? SdkPresent(((json['tiers'] as List?)?.map((e) => CommercePerUnitTotalTier2.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-  );
+  factory CommerceSubscriptionItemSeatsResponse.fromJson(
+          Map<String, dynamic> json) =>
+      CommerceSubscriptionItemSeatsResponse(
+        quantity: json.containsKey('quantity')
+            ? (json['quantity'] as num?)?.toInt()
+            : throw ArgumentError.value(
+                null, 'quantity', 'Required property is missing'),
+        tiers: json['tiers'] != null
+            ? SdkPresent(((json['tiers'] as List?)
+                ?.map((e) => CommercePerUnitTotalTier2.fromJson(
+                    e as Map<String, dynamic>))
+                .toList())!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    'quantity': quantity,
-    ...switch (tiers) {
-      SdkPresent<List<CommercePerUnitTotalTier2>>(value: final value) => {'tiers': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        'quantity': quantity,
+        ...switch (tiers) {
+          SdkPresent<List<CommercePerUnitTotalTier2>>(value: final value) => {
+              'tiers': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

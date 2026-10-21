@@ -8,240 +8,550 @@ part of 'sign_ups.dart';
 class SignUp {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Required enumerated value serialized in the `object` wire field.
   final SignUpObject object;
+
   /// Required `string` value serialized in the `id` wire field.
   final String id;
+
   /// Required enumerated value serialized in the `status` wire field.
   final SignUpStatus status;
+
   /// Required array value serialized in the `required_fields` wire field.
   final List<String> requiredFields;
+
   /// Required array value serialized in the `optional_fields` wire field.
   final List<String> optionalFields;
+
   /// Required array value serialized in the `missing_fields` wire field.
   final List<String> missingFields;
+
   /// Required array value serialized in the `unverified_fields` wire field.
   final List<String> unverifiedFields;
+
   /// Required object value serialized in the `verifications` wire field.
   final SignUpVerifications verifications;
+
   /// Required `string` value serialized in the `username` wire field.
   final String? username;
+
   /// Required `string` value serialized in the `email_address` wire field.
   final String? emailAddress;
+
   /// Required `string` value serialized in the `phone_number` wire field.
   final String? phoneNumber;
+
   /// Required `string` value serialized in the `web3_wallet` wire field.
   final String? web3Wallet;
+
   /// Required `boolean` value serialized in the `password_enabled` wire field.
   final bool passwordEnabled;
+
   /// Required `string` value serialized in the `first_name` wire field.
   final String? firstName;
+
   /// Required `string` value serialized in the `last_name` wire field.
   final String? lastName;
+
   /// Optional object value serialized in the `unsafe_metadata` wire field.
   final SdkOptional<Map<String, Object?>> unsafeMetadata;
+
   /// Optional object value serialized in the `public_metadata` wire field.
   final SdkOptional<Map<String, Object?>> publicMetadata;
+
   /// Required `boolean` value serialized in the `custom_action` wire field.
   final bool customAction;
+
   /// Required `string` value serialized in the `external_id` wire field.
   final String? externalId;
+
   /// Required `string` value serialized in the `created_session_id` wire field.
   final String? createdSessionId;
+
   /// Required `string` value serialized in the `created_user_id` wire field.
   final String? createdUserId;
+
   /// Unix timestamp at which the user abandoned the sign up attempt.
   final int abandonAt;
+
   /// Unix timestamp at which the user accepted the legal requirements.
   final int? legalAcceptedAt;
+
   /// The IANA timezone associated with the sign-up attempt.
   final SdkOptional<String?> timezone;
+
   /// The user locale preference for the sign-up specified as a BCP-47 language tag.
   final SdkOptional<String?> locale;
+
   /// Optional object value serialized in the `external_account` wire field.
   final SdkOptional<Map<String, dynamic>> externalAccount;
 
-  const SignUp({required this.object, required this.id, required this.status, required this.requiredFields, required this.optionalFields, required this.missingFields, required this.unverifiedFields, required this.verifications, required this.username, required this.emailAddress, required this.phoneNumber, required this.web3Wallet, required this.passwordEnabled, required this.firstName, required this.lastName, this.unsafeMetadata = const SdkOmitted(), this.publicMetadata = const SdkOmitted(), required this.customAction, required this.externalId, required this.createdSessionId, required this.createdUserId, required this.abandonAt, required this.legalAcceptedAt, this.timezone = const SdkOmitted(), this.locale = const SdkOmitted(), this.externalAccount = const SdkOmitted()});
+  const SignUp(
+      {required this.object,
+      required this.id,
+      required this.status,
+      required this.requiredFields,
+      required this.optionalFields,
+      required this.missingFields,
+      required this.unverifiedFields,
+      required this.verifications,
+      required this.username,
+      required this.emailAddress,
+      required this.phoneNumber,
+      required this.web3Wallet,
+      required this.passwordEnabled,
+      required this.firstName,
+      required this.lastName,
+      this.unsafeMetadata = const SdkOmitted(),
+      this.publicMetadata = const SdkOmitted(),
+      required this.customAction,
+      required this.externalId,
+      required this.createdSessionId,
+      required this.createdUserId,
+      required this.abandonAt,
+      required this.legalAcceptedAt,
+      this.timezone = const SdkOmitted(),
+      this.locale = const SdkOmitted(),
+      this.externalAccount = const SdkOmitted()});
 
-  SignUp Function({SignUpObject object, String id, SignUpStatus status, List<String> requiredFields, List<String> optionalFields, List<String> missingFields, List<String> unverifiedFields, SignUpVerifications verifications, String? username, String? emailAddress, String? phoneNumber, String? web3Wallet, bool passwordEnabled, String? firstName, String? lastName, SdkOptional<Map<String, Object?>> unsafeMetadata, SdkOptional<Map<String, Object?>> publicMetadata, bool customAction, String? externalId, String? createdSessionId, String? createdUserId, int abandonAt, int? legalAcceptedAt, SdkOptional<String?> timezone, SdkOptional<String?> locale, SdkOptional<Map<String, dynamic>> externalAccount}) get copyWith => _copyWith;
+  SignUp Function(
+          {SignUpObject object,
+          String id,
+          SignUpStatus status,
+          List<String> requiredFields,
+          List<String> optionalFields,
+          List<String> missingFields,
+          List<String> unverifiedFields,
+          SignUpVerifications verifications,
+          String? username,
+          String? emailAddress,
+          String? phoneNumber,
+          String? web3Wallet,
+          bool passwordEnabled,
+          String? firstName,
+          String? lastName,
+          SdkOptional<Map<String, Object?>> unsafeMetadata,
+          SdkOptional<Map<String, Object?>> publicMetadata,
+          bool customAction,
+          String? externalId,
+          String? createdSessionId,
+          String? createdUserId,
+          int abandonAt,
+          int? legalAcceptedAt,
+          SdkOptional<String?> timezone,
+          SdkOptional<String?> locale,
+          SdkOptional<Map<String, dynamic>> externalAccount})
+      get copyWith => _copyWith;
 
-  SignUp _copyWith({Object? object = sdkOmittedValue, Object? id = sdkOmittedValue, Object? status = sdkOmittedValue, Object? requiredFields = sdkOmittedValue, Object? optionalFields = sdkOmittedValue, Object? missingFields = sdkOmittedValue, Object? unverifiedFields = sdkOmittedValue, Object? verifications = sdkOmittedValue, Object? username = sdkOmittedValue, Object? emailAddress = sdkOmittedValue, Object? phoneNumber = sdkOmittedValue, Object? web3Wallet = sdkOmittedValue, Object? passwordEnabled = sdkOmittedValue, Object? firstName = sdkOmittedValue, Object? lastName = sdkOmittedValue, Object? unsafeMetadata = sdkOmittedValue, Object? publicMetadata = sdkOmittedValue, Object? customAction = sdkOmittedValue, Object? externalId = sdkOmittedValue, Object? createdSessionId = sdkOmittedValue, Object? createdUserId = sdkOmittedValue, Object? abandonAt = sdkOmittedValue, Object? legalAcceptedAt = sdkOmittedValue, Object? timezone = sdkOmittedValue, Object? locale = sdkOmittedValue, Object? externalAccount = sdkOmittedValue}) => SignUp(
-    object: identical(object, sdkOmittedValue) ? this.object : object as SignUpObject,
-    id: identical(id, sdkOmittedValue) ? this.id : id as String,
-    status: identical(status, sdkOmittedValue) ? this.status : status as SignUpStatus,
-    requiredFields: identical(requiredFields, sdkOmittedValue) ? this.requiredFields : requiredFields as List<String>,
-    optionalFields: identical(optionalFields, sdkOmittedValue) ? this.optionalFields : optionalFields as List<String>,
-    missingFields: identical(missingFields, sdkOmittedValue) ? this.missingFields : missingFields as List<String>,
-    unverifiedFields: identical(unverifiedFields, sdkOmittedValue) ? this.unverifiedFields : unverifiedFields as List<String>,
-    verifications: identical(verifications, sdkOmittedValue) ? this.verifications : verifications as SignUpVerifications,
-    username: identical(username, sdkOmittedValue) ? this.username : username as String?,
-    emailAddress: identical(emailAddress, sdkOmittedValue) ? this.emailAddress : emailAddress as String?,
-    phoneNumber: identical(phoneNumber, sdkOmittedValue) ? this.phoneNumber : phoneNumber as String?,
-    web3Wallet: identical(web3Wallet, sdkOmittedValue) ? this.web3Wallet : web3Wallet as String?,
-    passwordEnabled: identical(passwordEnabled, sdkOmittedValue) ? this.passwordEnabled : passwordEnabled as bool,
-    firstName: identical(firstName, sdkOmittedValue) ? this.firstName : firstName as String?,
-    lastName: identical(lastName, sdkOmittedValue) ? this.lastName : lastName as String?,
-    unsafeMetadata: identical(unsafeMetadata, sdkOmittedValue) ? this.unsafeMetadata : unsafeMetadata as SdkOptional<Map<String, Object?>>,
-    publicMetadata: identical(publicMetadata, sdkOmittedValue) ? this.publicMetadata : publicMetadata as SdkOptional<Map<String, Object?>>,
-    customAction: identical(customAction, sdkOmittedValue) ? this.customAction : customAction as bool,
-    externalId: identical(externalId, sdkOmittedValue) ? this.externalId : externalId as String?,
-    createdSessionId: identical(createdSessionId, sdkOmittedValue) ? this.createdSessionId : createdSessionId as String?,
-    createdUserId: identical(createdUserId, sdkOmittedValue) ? this.createdUserId : createdUserId as String?,
-    abandonAt: identical(abandonAt, sdkOmittedValue) ? this.abandonAt : abandonAt as int,
-    legalAcceptedAt: identical(legalAcceptedAt, sdkOmittedValue) ? this.legalAcceptedAt : legalAcceptedAt as int?,
-    timezone: identical(timezone, sdkOmittedValue) ? this.timezone : timezone as SdkOptional<String?>,
-    locale: identical(locale, sdkOmittedValue) ? this.locale : locale as SdkOptional<String?>,
-    externalAccount: identical(externalAccount, sdkOmittedValue) ? this.externalAccount : externalAccount as SdkOptional<Map<String, dynamic>>,
-  );
+  SignUp _copyWith(
+          {Object? object = sdkOmittedValue,
+          Object? id = sdkOmittedValue,
+          Object? status = sdkOmittedValue,
+          Object? requiredFields = sdkOmittedValue,
+          Object? optionalFields = sdkOmittedValue,
+          Object? missingFields = sdkOmittedValue,
+          Object? unverifiedFields = sdkOmittedValue,
+          Object? verifications = sdkOmittedValue,
+          Object? username = sdkOmittedValue,
+          Object? emailAddress = sdkOmittedValue,
+          Object? phoneNumber = sdkOmittedValue,
+          Object? web3Wallet = sdkOmittedValue,
+          Object? passwordEnabled = sdkOmittedValue,
+          Object? firstName = sdkOmittedValue,
+          Object? lastName = sdkOmittedValue,
+          Object? unsafeMetadata = sdkOmittedValue,
+          Object? publicMetadata = sdkOmittedValue,
+          Object? customAction = sdkOmittedValue,
+          Object? externalId = sdkOmittedValue,
+          Object? createdSessionId = sdkOmittedValue,
+          Object? createdUserId = sdkOmittedValue,
+          Object? abandonAt = sdkOmittedValue,
+          Object? legalAcceptedAt = sdkOmittedValue,
+          Object? timezone = sdkOmittedValue,
+          Object? locale = sdkOmittedValue,
+          Object? externalAccount = sdkOmittedValue}) =>
+      SignUp(
+        object: identical(object, sdkOmittedValue)
+            ? this.object
+            : object as SignUpObject,
+        id: identical(id, sdkOmittedValue) ? this.id : id as String,
+        status: identical(status, sdkOmittedValue)
+            ? this.status
+            : status as SignUpStatus,
+        requiredFields: identical(requiredFields, sdkOmittedValue)
+            ? this.requiredFields
+            : requiredFields as List<String>,
+        optionalFields: identical(optionalFields, sdkOmittedValue)
+            ? this.optionalFields
+            : optionalFields as List<String>,
+        missingFields: identical(missingFields, sdkOmittedValue)
+            ? this.missingFields
+            : missingFields as List<String>,
+        unverifiedFields: identical(unverifiedFields, sdkOmittedValue)
+            ? this.unverifiedFields
+            : unverifiedFields as List<String>,
+        verifications: identical(verifications, sdkOmittedValue)
+            ? this.verifications
+            : verifications as SignUpVerifications,
+        username: identical(username, sdkOmittedValue)
+            ? this.username
+            : username as String?,
+        emailAddress: identical(emailAddress, sdkOmittedValue)
+            ? this.emailAddress
+            : emailAddress as String?,
+        phoneNumber: identical(phoneNumber, sdkOmittedValue)
+            ? this.phoneNumber
+            : phoneNumber as String?,
+        web3Wallet: identical(web3Wallet, sdkOmittedValue)
+            ? this.web3Wallet
+            : web3Wallet as String?,
+        passwordEnabled: identical(passwordEnabled, sdkOmittedValue)
+            ? this.passwordEnabled
+            : passwordEnabled as bool,
+        firstName: identical(firstName, sdkOmittedValue)
+            ? this.firstName
+            : firstName as String?,
+        lastName: identical(lastName, sdkOmittedValue)
+            ? this.lastName
+            : lastName as String?,
+        unsafeMetadata: identical(unsafeMetadata, sdkOmittedValue)
+            ? this.unsafeMetadata
+            : unsafeMetadata as SdkOptional<Map<String, Object?>>,
+        publicMetadata: identical(publicMetadata, sdkOmittedValue)
+            ? this.publicMetadata
+            : publicMetadata as SdkOptional<Map<String, Object?>>,
+        customAction: identical(customAction, sdkOmittedValue)
+            ? this.customAction
+            : customAction as bool,
+        externalId: identical(externalId, sdkOmittedValue)
+            ? this.externalId
+            : externalId as String?,
+        createdSessionId: identical(createdSessionId, sdkOmittedValue)
+            ? this.createdSessionId
+            : createdSessionId as String?,
+        createdUserId: identical(createdUserId, sdkOmittedValue)
+            ? this.createdUserId
+            : createdUserId as String?,
+        abandonAt: identical(abandonAt, sdkOmittedValue)
+            ? this.abandonAt
+            : abandonAt as int,
+        legalAcceptedAt: identical(legalAcceptedAt, sdkOmittedValue)
+            ? this.legalAcceptedAt
+            : legalAcceptedAt as int?,
+        timezone: identical(timezone, sdkOmittedValue)
+            ? this.timezone
+            : timezone as SdkOptional<String?>,
+        locale: identical(locale, sdkOmittedValue)
+            ? this.locale
+            : locale as SdkOptional<String?>,
+        externalAccount: identical(externalAccount, sdkOmittedValue)
+            ? this.externalAccount
+            : externalAccount as SdkOptional<Map<String, dynamic>>,
+      );
 
   factory SignUp.fromJson(Map<String, dynamic> json) => SignUp(
-    object: (json['object'] != null ? SignUpObject.fromJson(json['object'] as String) : null)!,
-    id: (json['id'] as String?)!,
-    status: (json['status'] != null ? SignUpStatus.fromJson(json['status'] as String) : null)!,
-    requiredFields: ((json['required_fields'] as List?)?.map((e) => e as String).toList())!,
-    optionalFields: ((json['optional_fields'] as List?)?.map((e) => e as String).toList())!,
-    missingFields: ((json['missing_fields'] as List?)?.map((e) => e as String).toList())!,
-    unverifiedFields: ((json['unverified_fields'] as List?)?.map((e) => e as String).toList())!,
-    verifications: (json['verifications'] != null ? SignUpVerifications.fromJson(json['verifications'] as Map<String, dynamic>) : null)!,
-    username: json.containsKey('username') ? json['username'] as String? : throw ArgumentError.value(null, 'username', 'Required property is missing'),
-    emailAddress: json.containsKey('email_address') ? json['email_address'] as String? : throw ArgumentError.value(null, 'email_address', 'Required property is missing'),
-    phoneNumber: json.containsKey('phone_number') ? json['phone_number'] as String? : throw ArgumentError.value(null, 'phone_number', 'Required property is missing'),
-    web3Wallet: json.containsKey('web3_wallet') ? json['web3_wallet'] as String? : throw ArgumentError.value(null, 'web3_wallet', 'Required property is missing'),
-    passwordEnabled: (json['password_enabled'] as bool?)!,
-    firstName: json.containsKey('first_name') ? json['first_name'] as String? : throw ArgumentError.value(null, 'first_name', 'Required property is missing'),
-    lastName: json.containsKey('last_name') ? json['last_name'] as String? : throw ArgumentError.value(null, 'last_name', 'Required property is missing'),
-    unsafeMetadata: json['unsafe_metadata'] != null ? SdkPresent((json['unsafe_metadata'] == null ? null : Map<String, dynamic>.from(json['unsafe_metadata'] as Map).map((key, value) => MapEntry(key, value)))!) : const SdkOmitted(),
-    publicMetadata: json['public_metadata'] != null ? SdkPresent((json['public_metadata'] == null ? null : Map<String, dynamic>.from(json['public_metadata'] as Map).map((key, value) => MapEntry(key, value)))!) : const SdkOmitted(),
-    customAction: (json['custom_action'] as bool?)!,
-    externalId: json.containsKey('external_id') ? json['external_id'] as String? : throw ArgumentError.value(null, 'external_id', 'Required property is missing'),
-    createdSessionId: json.containsKey('created_session_id') ? json['created_session_id'] as String? : throw ArgumentError.value(null, 'created_session_id', 'Required property is missing'),
-    createdUserId: json.containsKey('created_user_id') ? json['created_user_id'] as String? : throw ArgumentError.value(null, 'created_user_id', 'Required property is missing'),
-    abandonAt: ((json['abandon_at'] as num?)?.toInt())!,
-    legalAcceptedAt: json.containsKey('legal_accepted_at') ? (json['legal_accepted_at'] as num?)?.toInt() : throw ArgumentError.value(null, 'legal_accepted_at', 'Required property is missing'),
-    timezone: json.containsKey('timezone') ? SdkPresent(json['timezone'] as String?) : const SdkOmitted(),
-    locale: json.containsKey('locale') ? SdkPresent(json['locale'] as String?) : const SdkOmitted(),
-    externalAccount: json['external_account'] != null ? SdkPresent((json['external_account'] == null ? null : json['external_account'] as Map<String, dynamic>)!) : const SdkOmitted(),
-  );
+        object: (json['object'] != null
+            ? SignUpObject.fromJson(json['object'] as String)
+            : null)!,
+        id: (json['id'] as String?)!,
+        status: (json['status'] != null
+            ? SignUpStatus.fromJson(json['status'] as String)
+            : null)!,
+        requiredFields: ((json['required_fields'] as List?)
+            ?.map((e) => e as String)
+            .toList())!,
+        optionalFields: ((json['optional_fields'] as List?)
+            ?.map((e) => e as String)
+            .toList())!,
+        missingFields: ((json['missing_fields'] as List?)
+            ?.map((e) => e as String)
+            .toList())!,
+        unverifiedFields: ((json['unverified_fields'] as List?)
+            ?.map((e) => e as String)
+            .toList())!,
+        verifications: (json['verifications'] != null
+            ? SignUpVerifications.fromJson(
+                json['verifications'] as Map<String, dynamic>)
+            : null)!,
+        username: json.containsKey('username')
+            ? json['username'] as String?
+            : throw ArgumentError.value(
+                null, 'username', 'Required property is missing'),
+        emailAddress: json.containsKey('email_address')
+            ? json['email_address'] as String?
+            : throw ArgumentError.value(
+                null, 'email_address', 'Required property is missing'),
+        phoneNumber: json.containsKey('phone_number')
+            ? json['phone_number'] as String?
+            : throw ArgumentError.value(
+                null, 'phone_number', 'Required property is missing'),
+        web3Wallet: json.containsKey('web3_wallet')
+            ? json['web3_wallet'] as String?
+            : throw ArgumentError.value(
+                null, 'web3_wallet', 'Required property is missing'),
+        passwordEnabled: (json['password_enabled'] as bool?)!,
+        firstName: json.containsKey('first_name')
+            ? json['first_name'] as String?
+            : throw ArgumentError.value(
+                null, 'first_name', 'Required property is missing'),
+        lastName: json.containsKey('last_name')
+            ? json['last_name'] as String?
+            : throw ArgumentError.value(
+                null, 'last_name', 'Required property is missing'),
+        unsafeMetadata: json['unsafe_metadata'] != null
+            ? SdkPresent((json['unsafe_metadata'] == null
+                ? null
+                : Map<String, dynamic>.from(json['unsafe_metadata'] as Map)
+                    .map((key, value) => MapEntry(key, value)))!)
+            : const SdkOmitted(),
+        publicMetadata: json['public_metadata'] != null
+            ? SdkPresent((json['public_metadata'] == null
+                ? null
+                : Map<String, dynamic>.from(json['public_metadata'] as Map)
+                    .map((key, value) => MapEntry(key, value)))!)
+            : const SdkOmitted(),
+        customAction: (json['custom_action'] as bool?)!,
+        externalId: json.containsKey('external_id')
+            ? json['external_id'] as String?
+            : throw ArgumentError.value(
+                null, 'external_id', 'Required property is missing'),
+        createdSessionId: json.containsKey('created_session_id')
+            ? json['created_session_id'] as String?
+            : throw ArgumentError.value(
+                null, 'created_session_id', 'Required property is missing'),
+        createdUserId: json.containsKey('created_user_id')
+            ? json['created_user_id'] as String?
+            : throw ArgumentError.value(
+                null, 'created_user_id', 'Required property is missing'),
+        abandonAt: ((json['abandon_at'] as num?)?.toInt())!,
+        legalAcceptedAt: json.containsKey('legal_accepted_at')
+            ? (json['legal_accepted_at'] as num?)?.toInt()
+            : throw ArgumentError.value(
+                null, 'legal_accepted_at', 'Required property is missing'),
+        timezone: json.containsKey('timezone')
+            ? SdkPresent(json['timezone'] as String?)
+            : const SdkOmitted(),
+        locale: json.containsKey('locale')
+            ? SdkPresent(json['locale'] as String?)
+            : const SdkOmitted(),
+        externalAccount: json['external_account'] != null
+            ? SdkPresent((json['external_account'] == null
+                ? null
+                : json['external_account'] as Map<String, dynamic>)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    'object': object.toJson(),
-    'id': id,
-    'status': status.toJson(),
-    'required_fields': requiredFields,
-    'optional_fields': optionalFields,
-    'missing_fields': missingFields,
-    'unverified_fields': unverifiedFields,
-    'verifications': verifications.toJson(),
-    'username': username,
-    'email_address': emailAddress,
-    'phone_number': phoneNumber,
-    'web3_wallet': web3Wallet,
-    'password_enabled': passwordEnabled,
-    'first_name': firstName,
-    'last_name': lastName,
-    ...switch (unsafeMetadata) {
-      SdkPresent<Map<String, Object?>>(value: final value) => {'unsafe_metadata': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (publicMetadata) {
-      SdkPresent<Map<String, Object?>>(value: final value) => {'public_metadata': value,},
-      _ => const <String, dynamic>{},
-    },
-    'custom_action': customAction,
-    'external_id': externalId,
-    'created_session_id': createdSessionId,
-    'created_user_id': createdUserId,
-    'abandon_at': abandonAt,
-    'legal_accepted_at': legalAcceptedAt,
-    ...switch (timezone) {
-      SdkPresent<String?>(value: final value) => {'timezone': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (locale) {
-      SdkPresent<String?>(value: final value) => {'locale': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (externalAccount) {
-      SdkPresent<Map<String, dynamic>>(value: final value) => {'external_account': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        'object': object.toJson(),
+        'id': id,
+        'status': status.toJson(),
+        'required_fields': requiredFields,
+        'optional_fields': optionalFields,
+        'missing_fields': missingFields,
+        'unverified_fields': unverifiedFields,
+        'verifications': verifications.toJson(),
+        'username': username,
+        'email_address': emailAddress,
+        'phone_number': phoneNumber,
+        'web3_wallet': web3Wallet,
+        'password_enabled': passwordEnabled,
+        'first_name': firstName,
+        'last_name': lastName,
+        ...switch (unsafeMetadata) {
+          SdkPresent<Map<String, Object?>>(value: final value) => {
+              'unsafe_metadata': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (publicMetadata) {
+          SdkPresent<Map<String, Object?>>(value: final value) => {
+              'public_metadata': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        'custom_action': customAction,
+        'external_id': externalId,
+        'created_session_id': createdSessionId,
+        'created_user_id': createdUserId,
+        'abandon_at': abandonAt,
+        'legal_accepted_at': legalAcceptedAt,
+        ...switch (timezone) {
+          SdkPresent<String?>(value: final value) => {
+              'timezone': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (locale) {
+          SdkPresent<String?>(value: final value) => {
+              'locale': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (externalAccount) {
+          SdkPresent<Map<String, dynamic>>(value: final value) => {
+              'external_account': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Typed representation of the `SignUpVerification` API schema.
 class SignUpVerification {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Optional enumerated value serialized in the `next_action` wire field.
   final SdkOptional<SignUpVerificationNextAction> nextAction;
+
   /// Optional array value serialized in the `supported_strategies` wire field.
   final SdkOptional<List<String>> supportedStrategies;
   final Map<String, dynamic> additionalProperties;
 
-  const SignUpVerification({this.nextAction = const SdkOmitted(), this.supportedStrategies = const SdkOmitted(), this.additionalProperties = const <String, dynamic>{}});
+  const SignUpVerification(
+      {this.nextAction = const SdkOmitted(),
+      this.supportedStrategies = const SdkOmitted(),
+      this.additionalProperties = const <String, dynamic>{}});
 
-  SignUpVerification Function({SdkOptional<SignUpVerificationNextAction> nextAction, SdkOptional<List<String>> supportedStrategies}) get copyWith => _copyWith;
+  SignUpVerification Function(
+      {SdkOptional<SignUpVerificationNextAction> nextAction,
+      SdkOptional<List<String>> supportedStrategies}) get copyWith => _copyWith;
 
-  SignUpVerification _copyWith({Object? nextAction = sdkOmittedValue, Object? supportedStrategies = sdkOmittedValue}) => SignUpVerification(
-    nextAction: identical(nextAction, sdkOmittedValue) ? this.nextAction : nextAction as SdkOptional<SignUpVerificationNextAction>,
-    supportedStrategies: identical(supportedStrategies, sdkOmittedValue) ? this.supportedStrategies : supportedStrategies as SdkOptional<List<String>>,
-    additionalProperties: additionalProperties,
-  );
+  SignUpVerification _copyWith(
+          {Object? nextAction = sdkOmittedValue,
+          Object? supportedStrategies = sdkOmittedValue}) =>
+      SignUpVerification(
+        nextAction: identical(nextAction, sdkOmittedValue)
+            ? this.nextAction
+            : nextAction as SdkOptional<SignUpVerificationNextAction>,
+        supportedStrategies: identical(supportedStrategies, sdkOmittedValue)
+            ? this.supportedStrategies
+            : supportedStrategies as SdkOptional<List<String>>,
+        additionalProperties: additionalProperties,
+      );
 
-  factory SignUpVerification.fromJson(Map<String, dynamic> json) => SignUpVerification(
-    nextAction: json['next_action'] != null ? SdkPresent((json['next_action'] != null ? SignUpVerificationNextAction.fromJson(json['next_action'] as String) : null)!) : const SdkOmitted(),
-    supportedStrategies: json['supported_strategies'] != null ? SdkPresent(((json['supported_strategies'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
-    additionalProperties: Map.of(json)..removeWhere((key, _) => const <String>{'next_action', 'supported_strategies'}.contains(key)),
-  );
+  factory SignUpVerification.fromJson(Map<String, dynamic> json) =>
+      SignUpVerification(
+        nextAction: json['next_action'] != null
+            ? SdkPresent((json['next_action'] != null
+                ? SignUpVerificationNextAction.fromJson(
+                    json['next_action'] as String)
+                : null)!)
+            : const SdkOmitted(),
+        supportedStrategies: json['supported_strategies'] != null
+            ? SdkPresent(((json['supported_strategies'] as List?)
+                ?.map((e) => e as String)
+                .toList())!)
+            : const SdkOmitted(),
+        additionalProperties: Map.of(json)
+          ..removeWhere((key, _) => const <String>{
+                'next_action',
+                'supported_strategies'
+              }.contains(key)),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...additionalProperties,
-    ...switch (nextAction) {
-      SdkPresent<SignUpVerificationNextAction>(value: final value) => {'next_action': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (supportedStrategies) {
-      SdkPresent<List<String>>(value: final value) => {'supported_strategies': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...additionalProperties,
+        ...switch (nextAction) {
+          SdkPresent<SignUpVerificationNextAction>(value: final value) => {
+              'next_action': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (supportedStrategies) {
+          SdkPresent<List<String>>(value: final value) => {
+              'supported_strategies': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Typed representation of the `SignUpVerifications` API schema.
 class SignUpVerifications {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Required object value serialized in the `email_address` wire field.
   final SignUpVerification? emailAddress;
+
   /// Required object value serialized in the `phone_number` wire field.
   final SignUpVerification? phoneNumber;
+
   /// Required object value serialized in the `web3_wallet` wire field.
   final SignUpVerification? web3Wallet;
+
   /// Required object value serialized in the `external_account` wire field.
   final Map<String, dynamic>? externalAccount;
 
-  const SignUpVerifications({required this.emailAddress, required this.phoneNumber, required this.web3Wallet, required this.externalAccount});
+  const SignUpVerifications(
+      {required this.emailAddress,
+      required this.phoneNumber,
+      required this.web3Wallet,
+      required this.externalAccount});
 
-  SignUpVerifications Function({SignUpVerification? emailAddress, SignUpVerification? phoneNumber, SignUpVerification? web3Wallet, Map<String, dynamic>? externalAccount}) get copyWith => _copyWith;
+  SignUpVerifications Function(
+      {SignUpVerification? emailAddress,
+      SignUpVerification? phoneNumber,
+      SignUpVerification? web3Wallet,
+      Map<String, dynamic>? externalAccount}) get copyWith => _copyWith;
 
-  SignUpVerifications _copyWith({Object? emailAddress = sdkOmittedValue, Object? phoneNumber = sdkOmittedValue, Object? web3Wallet = sdkOmittedValue, Object? externalAccount = sdkOmittedValue}) => SignUpVerifications(
-    emailAddress: identical(emailAddress, sdkOmittedValue) ? this.emailAddress : emailAddress as SignUpVerification?,
-    phoneNumber: identical(phoneNumber, sdkOmittedValue) ? this.phoneNumber : phoneNumber as SignUpVerification?,
-    web3Wallet: identical(web3Wallet, sdkOmittedValue) ? this.web3Wallet : web3Wallet as SignUpVerification?,
-    externalAccount: identical(externalAccount, sdkOmittedValue) ? this.externalAccount : externalAccount as Map<String, dynamic>?,
-  );
+  SignUpVerifications _copyWith(
+          {Object? emailAddress = sdkOmittedValue,
+          Object? phoneNumber = sdkOmittedValue,
+          Object? web3Wallet = sdkOmittedValue,
+          Object? externalAccount = sdkOmittedValue}) =>
+      SignUpVerifications(
+        emailAddress: identical(emailAddress, sdkOmittedValue)
+            ? this.emailAddress
+            : emailAddress as SignUpVerification?,
+        phoneNumber: identical(phoneNumber, sdkOmittedValue)
+            ? this.phoneNumber
+            : phoneNumber as SignUpVerification?,
+        web3Wallet: identical(web3Wallet, sdkOmittedValue)
+            ? this.web3Wallet
+            : web3Wallet as SignUpVerification?,
+        externalAccount: identical(externalAccount, sdkOmittedValue)
+            ? this.externalAccount
+            : externalAccount as Map<String, dynamic>?,
+      );
 
-  factory SignUpVerifications.fromJson(Map<String, dynamic> json) => SignUpVerifications(
-    emailAddress: json.containsKey('email_address') ? json['email_address'] != null ? SignUpVerification.fromJson(json['email_address'] as Map<String, dynamic>) : null : throw ArgumentError.value(null, 'email_address', 'Required property is missing'),
-    phoneNumber: json.containsKey('phone_number') ? json['phone_number'] != null ? SignUpVerification.fromJson(json['phone_number'] as Map<String, dynamic>) : null : throw ArgumentError.value(null, 'phone_number', 'Required property is missing'),
-    web3Wallet: json.containsKey('web3_wallet') ? json['web3_wallet'] != null ? SignUpVerification.fromJson(json['web3_wallet'] as Map<String, dynamic>) : null : throw ArgumentError.value(null, 'web3_wallet', 'Required property is missing'),
-    externalAccount: json.containsKey('external_account') ? json['external_account'] == null ? null : json['external_account'] as Map<String, dynamic> : throw ArgumentError.value(null, 'external_account', 'Required property is missing'),
-  );
+  factory SignUpVerifications.fromJson(Map<String, dynamic> json) =>
+      SignUpVerifications(
+        emailAddress: json.containsKey('email_address')
+            ? json['email_address'] != null
+                ? SignUpVerification.fromJson(
+                    json['email_address'] as Map<String, dynamic>)
+                : null
+            : throw ArgumentError.value(
+                null, 'email_address', 'Required property is missing'),
+        phoneNumber: json.containsKey('phone_number')
+            ? json['phone_number'] != null
+                ? SignUpVerification.fromJson(
+                    json['phone_number'] as Map<String, dynamic>)
+                : null
+            : throw ArgumentError.value(
+                null, 'phone_number', 'Required property is missing'),
+        web3Wallet: json.containsKey('web3_wallet')
+            ? json['web3_wallet'] != null
+                ? SignUpVerification.fromJson(
+                    json['web3_wallet'] as Map<String, dynamic>)
+                : null
+            : throw ArgumentError.value(
+                null, 'web3_wallet', 'Required property is missing'),
+        externalAccount: json.containsKey('external_account')
+            ? json['external_account'] == null
+                ? null
+                : json['external_account'] as Map<String, dynamic>
+            : throw ArgumentError.value(
+                null, 'external_account', 'Required property is missing'),
+      );
 
   Map<String, dynamic> toJson() => {
-    'email_address': emailAddress?.toJson(),
-    'phone_number': phoneNumber?.toJson(),
-    'web3_wallet': web3Wallet?.toJson(),
-    'external_account': externalAccount,
-  };
+        'email_address': emailAddress?.toJson(),
+        'phone_number': phoneNumber?.toJson(),
+        'web3_wallet': web3Wallet?.toJson(),
+        'external_account': externalAccount,
+      };
 }

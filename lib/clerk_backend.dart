@@ -13,7 +13,8 @@ import 'methods/sessions.dart' as sessions_methods;
 import 'methods/email_sms_templates.dart' as email_sms_templates_methods;
 import 'methods/users.dart' as users_methods;
 import 'methods/invitations.dart' as invitations_methods;
-import 'methods/organization_invitations.dart' as organization_invitations_methods;
+import 'methods/organization_invitations.dart'
+    as organization_invitations_methods;
 import 'methods/allow_list_block_list.dart' as allow_list_block_list_methods;
 import 'methods/beta_features.dart' as beta_features_methods;
 import 'methods/actor_tokens.dart' as actor_tokens_methods;
@@ -24,7 +25,8 @@ import 'methods/jwt_templates.dart' as jwt_templates_methods;
 import 'methods/machines.dart' as machines_methods;
 import 'methods/organizations.dart' as organizations_methods;
 import 'methods/organization_roles.dart' as organization_roles_methods;
-import 'methods/organization_memberships.dart' as organization_memberships_methods;
+import 'methods/organization_memberships.dart'
+    as organization_memberships_methods;
 import 'methods/organization_domains.dart' as organization_domains_methods;
 import 'methods/proxy_checks.dart' as proxy_checks_methods;
 import 'methods/redirect_urls.dart' as redirect_urls_methods;
@@ -38,11 +40,13 @@ import 'methods/testing_tokens.dart' as testing_tokens_methods;
 import 'methods/agent_tasks.dart' as agent_tasks_methods;
 import 'methods/waitlist_entries.dart' as waitlist_entries_methods;
 import 'methods/billing.dart' as billing_methods;
-import 'methods/organization_permissions.dart' as organization_permissions_methods;
+import 'methods/organization_permissions.dart'
+    as organization_permissions_methods;
 import 'methods/role_sets.dart' as role_sets_methods;
 import 'methods/scim_directories.dart' as scim_directories_methods;
 import 'methods/directories.dart' as directories_methods;
-import 'methods/admin_portal_link_tokens.dart' as admin_portal_link_tokens_methods;
+import 'methods/admin_portal_link_tokens.dart'
+    as admin_portal_link_tokens_methods;
 import 'methods/api_keys.dart' as api_keys_methods;
 import 'methods/m2_mtokens.dart' as m2_mtokens_methods;
 import 'methods/o_auth_access_tokens.dart' as o_auth_access_tokens_methods;
@@ -50,6 +54,7 @@ import 'methods/o_auth_access_tokens.dart' as o_auth_access_tokens_methods;
 class MiscellaneousNamespace {
   final ClientConfig _config;
   MiscellaneousNamespace(ClientConfig config) : _config = config;
+
   /// The Clerk interstitial endpoint serves an html page that loads clerk.js in order to check the user's authentication state. It is used by Clerk SDKs when the user's authentication state cannot be immediately determined.
   Future<void> getPublicInterstitial(
       {SdkOptional<String> frontendApi = const SdkOmitted(),
@@ -60,26 +65,34 @@ class MiscellaneousNamespace {
       SdkOptional<String> signInUrl = const SdkOmitted(),
       SdkOptional<bool> useDomainForScript = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return miscellaneous_methods.getPublicInterstitial(_config, frontendApi: frontendApi, frontendApi_: frontendApi_, publishableKey: publishableKey, proxyUrl: proxyUrl, domain: domain, signInUrl: signInUrl, useDomainForScript: useDomainForScript, requestOptions: requestOptions);
+    return miscellaneous_methods.getPublicInterstitial(_config,
+        frontendApi: frontendApi,
+        frontendApi_: frontendApi_,
+        publishableKey: publishableKey,
+        proxyUrl: proxyUrl,
+        domain: domain,
+        signInUrl: signInUrl,
+        useDomainForScript: useDomainForScript,
+        requestOptions: requestOptions);
   }
-
 }
 
 class JwksNamespace {
   final ClientConfig _config;
   JwksNamespace(ClientConfig config) : _config = config;
+
   /// Retrieves the instance's JSON Web Key Set. Use the returned keys when you need the public key material associated with the instance.
   ///
   /// Retrieve the JSON Web Key Set of the instance
   Future<JWKS> get_({RequestOptions? requestOptions}) async {
     return jwks_methods.getJwks(_config, requestOptions: requestOptions);
   }
-
 }
 
 class ClientsNamespace {
   final ClientConfig _config;
   ClientsNamespace(ClientConfig config) : _config = config;
+
   /// Returns a list of all clients. The clients are returned sorted by creation date, with the newest clients appearing first. Warning: the endpoint is being deprecated and will be removed in future versions.
   ///
   /// **Deprecated:** this operation is deprecated and may be removed in a future release.
@@ -88,7 +101,11 @@ class ClientsNamespace {
       SdkOptional<int> limit = const SdkOmitted(),
       SdkOptional<int> offset = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return clients_methods.listClients(_config, paginated: paginated, limit: limit, offset: offset, requestOptions: requestOptions);
+    return clients_methods.listClients(_config,
+        paginated: paginated,
+        limit: limit,
+        offset: offset,
+        requestOptions: requestOptions);
   }
 
   /// Verifies a client by validating the JWT supplied in the request body. Send the token for the active client to retrieve the associated client and session details.
@@ -96,7 +113,8 @@ class ClientsNamespace {
   /// Verifies the client in the provided token
   Future<Client> verify(
       {required String token, RequestOptions? requestOptions}) async {
-    return clients_methods.verifyClient(_config, token: token, requestOptions: requestOptions);
+    return clients_methods.verifyClient(_config,
+        token: token, requestOptions: requestOptions);
   }
 
   /// Retrieves the details of a client and its associated session information. Use `client_id` to look up the client whose sessions and authentication state you need to inspect.
@@ -104,14 +122,15 @@ class ClientsNamespace {
   /// Returns the details of a client.
   Future<Client> get_(
       {required String clientId, RequestOptions? requestOptions}) async {
-    return clients_methods.getClient(_config, clientId: clientId, requestOptions: requestOptions);
+    return clients_methods.getClient(_config,
+        clientId: clientId, requestOptions: requestOptions);
   }
-
 }
 
 class EmailAddressesNamespace {
   final ClientConfig _config;
   EmailAddressesNamespace(ClientConfig config) : _config = config;
+
   /// Creates a new email address for a user. Supply `user_id` and an RFC 5322-formatted `email_address`; optionally set `verified` or `primary` when creating it. If omitted, `primary` defaults to false unless this is the user's first email address.
   ///
   /// Create a new email address
@@ -122,7 +141,13 @@ class EmailAddressesNamespace {
       SdkOptional<bool?> primary = const SdkOmitted(),
       SdkOptional<bool?> notifyPrimaryEmailAddressChanged = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return email_addresses_methods.createEmailAddress(_config, userId: userId, emailAddress: emailAddress, verified: verified, primary: primary, notifyPrimaryEmailAddressChanged: notifyPrimaryEmailAddressChanged, requestOptions: requestOptions);
+    return email_addresses_methods.createEmailAddress(_config,
+        userId: userId,
+        emailAddress: emailAddress,
+        verified: verified,
+        primary: primary,
+        notifyPrimaryEmailAddressChanged: notifyPrimaryEmailAddressChanged,
+        requestOptions: requestOptions);
   }
 
   /// Retrieves an email address and its verification and association details. Use `email_address_id` to identify the address to inspect.
@@ -130,7 +155,8 @@ class EmailAddressesNamespace {
   /// Returns the details of an email address.
   Future<EmailAddress> getEmailAddress(
       {required String emailAddressId, RequestOptions? requestOptions}) async {
-    return email_addresses_methods.getEmailAddress(_config, emailAddressId: emailAddressId, requestOptions: requestOptions);
+    return email_addresses_methods.getEmailAddress(_config,
+        emailAddressId: emailAddressId, requestOptions: requestOptions);
   }
 
   /// Deletes an email address by its identifier. Use `email_address_id` to select the address to remove. The response confirms the deletion and identifies the deleted object.
@@ -138,7 +164,8 @@ class EmailAddressesNamespace {
   /// Delete the email address with the given ID
   Future<DeletedObject> deleteEmailAddress(
       {required String emailAddressId, RequestOptions? requestOptions}) async {
-    return email_addresses_methods.deleteEmailAddress(_config, emailAddressId: emailAddressId, requestOptions: requestOptions);
+    return email_addresses_methods.deleteEmailAddress(_config,
+        emailAddressId: emailAddressId, requestOptions: requestOptions);
   }
 
   /// Updates an existing email address's verification or primary status, or its notification behavior. Supply any of `verified`, `primary`, or `notify_primary_email_address_changed` to change that setting. The notification option applies when the update makes this address the user's new primary address.
@@ -150,13 +177,19 @@ class EmailAddressesNamespace {
       SdkOptional<bool?> primary = const SdkOmitted(),
       SdkOptional<bool?> notifyPrimaryEmailAddressChanged = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return email_addresses_methods.updateEmailAddress(_config, emailAddressId: emailAddressId, verified: verified, primary: primary, notifyPrimaryEmailAddressChanged: notifyPrimaryEmailAddressChanged, requestOptions: requestOptions);
+    return email_addresses_methods.updateEmailAddress(_config,
+        emailAddressId: emailAddressId,
+        verified: verified,
+        primary: primary,
+        notifyPrimaryEmailAddressChanged: notifyPrimaryEmailAddressChanged,
+        requestOptions: requestOptions);
   }
 
   /// Sends a one-time code to the given email address so that a backend can verify the user controls it (for example, in a custom, backend-driven sign-in flow). The code is tracked on its own verification; confirm it with attempt_verification.
   Future<VerificationResponse> prepareEmailAddressVerification(
       {required String emailAddressId, RequestOptions? requestOptions}) async {
-    return email_addresses_methods.prepareEmailAddressVerification(_config, emailAddressId: emailAddressId, requestOptions: requestOptions);
+    return email_addresses_methods.prepareEmailAddressVerification(_config,
+        emailAddressId: emailAddressId, requestOptions: requestOptions);
   }
 
   /// Checks a one-time code against the verification identified by verification_id, and returns the verification with its updated status (`verified`, `unverified`, `expired`, or `failed`) and attempt count, so a backend driving its own frontend can react on every attempt — an incorrect or expired code is reported through the status, not as an error. Resubmitting a verification whose code was already accepted is rejected with a `verification_already_verified` error. If the code is correct and the email address is not already verified, it is also marked as verified as a side effect (just as it would be in a frontend verification flow); an already verified email address is left unchanged. It never creates a session; to sign the user in afterwards, mint a sign-in token.
@@ -165,24 +198,34 @@ class EmailAddressesNamespace {
       required String verificationId,
       required String code,
       RequestOptions? requestOptions}) async {
-    return email_addresses_methods.attemptEmailAddressVerification(_config, emailAddressId: emailAddressId, verificationId: verificationId, code: code, requestOptions: requestOptions);
+    return email_addresses_methods.attemptEmailAddressVerification(_config,
+        emailAddressId: emailAddressId,
+        verificationId: verificationId,
+        code: code,
+        requestOptions: requestOptions);
   }
 
   /// Replaces all of the user's email addresses with a single primary email address. By default the new email address is created verified, with the admin verification strategy. When `identification_status` is `reserved` it is created reserved instead: unverified but usable for sign-in and locked so no other user can claim it. When it is `unverified` the address is neither usable for sign-in nor locked. Any existing email addresses are deleted. If an existing email address is linked to a connected account, the request is rejected; remove the connected account first. **Warning:** `identification_status: unverified` can lock the user out of their account. An unverified email address cannot be used to sign in, so if the user has no other verified or reserved identifier, deleting their existing email addresses leaves them unable to authenticate — and unable to verify the new address, since that requires signing in. Recovery then requires another admin API call.
   Future<EmailAddress> replaceUserEmailAddress(
       {required String userId,
       required String emailAddress,
-      SdkOptional<ReplaceUserEmailAddressRequestBodyIdentificationStatus> identificationStatus = const SdkOmitted(),
+      SdkOptional<ReplaceUserEmailAddressRequestBodyIdentificationStatus>
+          identificationStatus = const SdkOmitted(),
       SdkOptional<bool?> notifyPrimaryEmailAddressChanged = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return email_addresses_methods.replaceUserEmailAddress(_config, userId: userId, emailAddress: emailAddress, identificationStatus: identificationStatus, notifyPrimaryEmailAddressChanged: notifyPrimaryEmailAddressChanged, requestOptions: requestOptions);
+    return email_addresses_methods.replaceUserEmailAddress(_config,
+        userId: userId,
+        emailAddress: emailAddress,
+        identificationStatus: identificationStatus,
+        notifyPrimaryEmailAddressChanged: notifyPrimaryEmailAddressChanged,
+        requestOptions: requestOptions);
   }
-
 }
 
 class PhoneNumbersNamespace {
   final ClientConfig _config;
   PhoneNumbersNamespace(ClientConfig config) : _config = config;
+
   /// Creates a phone number for a user. Provide `user_id` and an E.164-formatted `phone_number`; set `verified` to true before reserving the number for multi-factor authentication. A 200 response returns the created phone number and its verification, linkage, and reservation details.
   ///
   /// Create a new phone number
@@ -193,7 +236,13 @@ class PhoneNumbersNamespace {
       SdkOptional<bool?> primary = const SdkOmitted(),
       SdkOptional<bool?> reservedForSecondFactor = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return phone_numbers_methods.createPhoneNumber(_config, userId: userId, phoneNumber: phoneNumber, verified: verified, primary: primary, reservedForSecondFactor: reservedForSecondFactor, requestOptions: requestOptions);
+    return phone_numbers_methods.createPhoneNumber(_config,
+        userId: userId,
+        phoneNumber: phoneNumber,
+        verified: verified,
+        primary: primary,
+        reservedForSecondFactor: reservedForSecondFactor,
+        requestOptions: requestOptions);
   }
 
   /// Retrieves the details of a phone number. Use its identifier to get the phone number, verification details, linked resources, and reservation status.
@@ -201,7 +250,8 @@ class PhoneNumbersNamespace {
   /// Returns the details of a phone number
   Future<PhoneNumber> get_(
       {required String phoneNumberId, RequestOptions? requestOptions}) async {
-    return phone_numbers_methods.getPhoneNumber(_config, phoneNumberId: phoneNumberId, requestOptions: requestOptions);
+    return phone_numbers_methods.getPhoneNumber(_config,
+        phoneNumberId: phoneNumberId, requestOptions: requestOptions);
   }
 
   /// Deletes a phone number by its identifier. Use this operation to remove a phone number you no longer need; the response confirms whether it was deleted.
@@ -209,7 +259,8 @@ class PhoneNumbersNamespace {
   /// Delete the phone number with the given ID
   Future<DeletedObject> delete(
       {required String phoneNumberId, RequestOptions? requestOptions}) async {
-    return phone_numbers_methods.deletePhoneNumber(_config, phoneNumberId: phoneNumberId, requestOptions: requestOptions);
+    return phone_numbers_methods.deletePhoneNumber(_config,
+        phoneNumberId: phoneNumberId, requestOptions: requestOptions);
   }
 
   /// Updates verification, primary-phone, or multi-factor authentication reservation settings for a phone number. Supply only the fields you want to change; reserving the number for multi-factor authentication requires it to be verified.
@@ -221,13 +272,19 @@ class PhoneNumbersNamespace {
       SdkOptional<bool?> primary = const SdkOmitted(),
       SdkOptional<bool?> reservedForSecondFactor = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return phone_numbers_methods.updatePhoneNumber(_config, phoneNumberId: phoneNumberId, verified: verified, primary: primary, reservedForSecondFactor: reservedForSecondFactor, requestOptions: requestOptions);
+    return phone_numbers_methods.updatePhoneNumber(_config,
+        phoneNumberId: phoneNumberId,
+        verified: verified,
+        primary: primary,
+        reservedForSecondFactor: reservedForSecondFactor,
+        requestOptions: requestOptions);
   }
 
   /// Sends a one-time code to the given phone number so that a backend can verify the user controls it (for example, in a custom, backend-driven sign-in flow). The code is tracked on its own verification; confirm it with attempt_verification.
   Future<VerificationResponse> prepareVerification(
       {required String phoneNumberId, RequestOptions? requestOptions}) async {
-    return phone_numbers_methods.preparePhoneNumberVerification(_config, phoneNumberId: phoneNumberId, requestOptions: requestOptions);
+    return phone_numbers_methods.preparePhoneNumberVerification(_config,
+        phoneNumberId: phoneNumberId, requestOptions: requestOptions);
   }
 
   /// Checks a one-time code against the verification identified by verification_id, and returns the verification with its updated status (`verified`, `unverified`, `expired`, or `failed`) and attempt count, so a backend driving its own frontend can react on every attempt — an incorrect or expired code is reported through the status, not as an error. Resubmitting a verification whose code was already accepted is rejected with a `verification_already_verified` error. If the code for this verification could not be sent (the SMS provider refused or failed the send after prepare_verification had returned), the attempt is rejected with a `verification_code_not_sent` error and no attempt is counted; call prepare_verification again to send a new code. If too many codes have been checked for this phone number recently, the attempt is rejected with a `verification_code_too_many_attempts` error and no attempt is counted; the limit is per phone number, so wait for the `Retry-After` period rather than sending a new code. If the code is correct and the phone number is not already verified, it is also marked as verified as a side effect (just as it would be in a frontend verification flow); an already verified phone number is left unchanged. It never creates a session; to sign the user in afterwards, mint a sign-in token.
@@ -236,23 +293,32 @@ class PhoneNumbersNamespace {
       required String verificationId,
       required String code,
       RequestOptions? requestOptions}) async {
-    return phone_numbers_methods.attemptPhoneNumberVerification(_config, phoneNumberId: phoneNumberId, verificationId: verificationId, code: code, requestOptions: requestOptions);
+    return phone_numbers_methods.attemptPhoneNumberVerification(_config,
+        phoneNumberId: phoneNumberId,
+        verificationId: verificationId,
+        code: code,
+        requestOptions: requestOptions);
   }
 
   /// Replaces all of the user's phone numbers with a single primary phone number. By default the new phone number is created verified, with the admin verification strategy. When `identification_status` is `reserved` it is created reserved instead: unverified but usable for sign-in and locked so no other user can claim it. When it is `unverified` the phone number is neither usable for sign-in nor locked. The new phone number is never reserved for second factor. Any existing phone numbers are deleted; replacing a phone number that is reserved for second factor disables the user's MFA. **Warning:** `identification_status: unverified` can lock the user out of their account. An unverified phone number cannot be used to sign in, so if the user has no other verified or reserved identifier, deleting their existing phone numbers leaves them unable to authenticate — and unable to verify the new number, since that requires signing in. Recovery then requires another admin API call.
   Future<PhoneNumber> replace(
       {required String userId,
       required String phoneNumber,
-      SdkOptional<ReplaceUserPhoneNumberRequestBodyIdentificationStatus> identificationStatus = const SdkOmitted(),
+      SdkOptional<ReplaceUserPhoneNumberRequestBodyIdentificationStatus>
+          identificationStatus = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return phone_numbers_methods.replaceUserPhoneNumber(_config, userId: userId, phoneNumber: phoneNumber, identificationStatus: identificationStatus, requestOptions: requestOptions);
+    return phone_numbers_methods.replaceUserPhoneNumber(_config,
+        userId: userId,
+        phoneNumber: phoneNumber,
+        identificationStatus: identificationStatus,
+        requestOptions: requestOptions);
   }
-
 }
 
 class SessionsNamespace {
   final ClientConfig _config;
   SessionsNamespace(ClientConfig config) : _config = config;
+
   /// Returns a list of sessions matching the provided criteria. The sessions are returned sorted by creation date, with the newest sessions appearing first. Note: This endpoint does not return all sessions that have ever existed. Old and inactive sessions are periodically cleaned up and will not be included in the results. **Deprecation Notice (2024-01-01):** All parameters were initially considered optional, however moving forward at least one of `client_id` or `user_id` parameters should be provided.
   Future<List<Session>> list(
       {SdkOptional<String> clientId = const SdkOmitted(),
@@ -262,7 +328,14 @@ class SessionsNamespace {
       SdkOptional<int> limit = const SdkOmitted(),
       SdkOptional<int> offset = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return sessions_methods.listSessions(_config, clientId: clientId, userId: userId, status: status, paginated: paginated, limit: limit, offset: offset, requestOptions: requestOptions);
+    return sessions_methods.listSessions(_config,
+        clientId: clientId,
+        userId: userId,
+        status: status,
+        paginated: paginated,
+        limit: limit,
+        offset: offset,
+        requestOptions: requestOptions);
   }
 
   /// Create a new active session for the provided user ID. **This operation is intended only for use in testing, and is not available for production instances.** If you are looking to generate a user session from the backend, we recommend using the [Sign-in Tokens](https://clerk.com/docs/reference/backend-api/tag/Sign-in-Tokens#operation/CreateSignInToken) resource instead.
@@ -270,7 +343,10 @@ class SessionsNamespace {
       {required String userId,
       SdkOptional<String> activeOrganizationId = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return sessions_methods.createSession(_config, userId: userId, activeOrganizationId: activeOrganizationId, requestOptions: requestOptions);
+    return sessions_methods.createSession(_config,
+        userId: userId,
+        activeOrganizationId: activeOrganizationId,
+        requestOptions: requestOptions);
   }
 
   /// Retrieves the details and current status of a session identified by its session ID. Use `session_id` to look up the session and inspect its user, client, activity timestamps, expiry, and latest activity when available.
@@ -278,7 +354,8 @@ class SessionsNamespace {
   /// Retrieve the details of a session
   Future<Session> get_(
       {required String sessionId, RequestOptions? requestOptions}) async {
-    return sessions_methods.getSession(_config, sessionId: sessionId, requestOptions: requestOptions);
+    return sessions_methods.getSession(_config,
+        sessionId: sessionId, requestOptions: requestOptions);
   }
 
   /// Refreshes a session by creating a new session token. A 401 is returned when there are validation errors, which signals the SDKs to fall back to the handshake flow.
@@ -291,7 +368,15 @@ class SessionsNamespace {
       SdkOptional<RefreshSessionRequestBodyFormat?> format = const SdkOmitted(),
       SdkOptional<String?> requestOriginatingIp = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return sessions_methods.refreshSession(_config, sessionId: sessionId, expiredToken: expiredToken, refreshToken: refreshToken, requestOrigin: requestOrigin, requestHeaders: requestHeaders, format: format, requestOriginatingIp: requestOriginatingIp, requestOptions: requestOptions);
+    return sessions_methods.refreshSession(_config,
+        sessionId: sessionId,
+        expiredToken: expiredToken,
+        refreshToken: refreshToken,
+        requestOrigin: requestOrigin,
+        requestHeaders: requestHeaders,
+        format: format,
+        requestOriginatingIp: requestOriginatingIp,
+        requestOptions: requestOptions);
   }
 
   /// Retrieve a reverification scoped to a session. A resource server can use this to validate a reverification id it received from its client: confirm it is real, scoped to the expected session, completed, and how fresh each factor is. Single-use / replay detection is the caller's responsibility (the id is stable, so the caller dedups consumed ids).
@@ -299,13 +384,17 @@ class SessionsNamespace {
       {required String sessionId,
       required String reverificationId,
       RequestOptions? requestOptions}) async {
-    return sessions_methods.getReverification(_config, sessionId: sessionId, reverificationId: reverificationId, requestOptions: requestOptions);
+    return sessions_methods.getReverification(_config,
+        sessionId: sessionId,
+        reverificationId: reverificationId,
+        requestOptions: requestOptions);
   }
 
   /// Sets the status of a session as "revoked", which is an unauthenticated state. In multi-session mode, a revoked session will still be returned along with its client object, however the user will need to sign in again.
   Future<Session> revoke(
       {required String sessionId, RequestOptions? requestOptions}) async {
-    return sessions_methods.revokeSession(_config, sessionId: sessionId, requestOptions: requestOptions);
+    return sessions_methods.revokeSession(_config,
+        sessionId: sessionId, requestOptions: requestOptions);
   }
 
   /// Creates a session JSON Web Token (JWT) for the specified session. You can optionally set `expires_in_seconds` to override the default token lifetime; the value must be between 30 and 315360000 seconds.
@@ -315,7 +404,10 @@ class SessionsNamespace {
       {required String sessionId,
       SdkOptional<int?> expiresInSeconds = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return sessions_methods.createSessionToken(_config, sessionId: sessionId, expiresInSeconds: expiresInSeconds, requestOptions: requestOptions);
+    return sessions_methods.createSessionToken(_config,
+        sessionId: sessionId,
+        expiresInSeconds: expiresInSeconds,
+        requestOptions: requestOptions);
   }
 
   /// Creates a JSON Web Token (JWT) for the specified session using a JWT template defined for your instance. Use `template_name` to select the template and optionally set `expires_in_seconds` to override the token lifetime, between 30 and 315360000 seconds.
@@ -326,14 +418,18 @@ class SessionsNamespace {
       required String templateName,
       SdkOptional<int?> expiresInSeconds = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return sessions_methods.createSessionTokenFromTemplate(_config, sessionId: sessionId, templateName: templateName, expiresInSeconds: expiresInSeconds, requestOptions: requestOptions);
+    return sessions_methods.createSessionTokenFromTemplate(_config,
+        sessionId: sessionId,
+        templateName: templateName,
+        expiresInSeconds: expiresInSeconds,
+        requestOptions: requestOptions);
   }
-
 }
 
 class EmailSmsTemplatesNamespace {
   final ClientConfig _config;
   EmailSmsTemplatesNamespace(ClientConfig config) : _config = config;
+
   /// Returns a list of all templates. The templates are returned sorted by position.
   ///
   /// **Deprecated:** this operation is deprecated and may be removed in a future release.
@@ -343,7 +439,12 @@ class EmailSmsTemplatesNamespace {
       SdkOptional<int> limit = const SdkOmitted(),
       SdkOptional<int> offset = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return email_sms_templates_methods.getTemplateList(_config, templateType: templateType, paginated: paginated, limit: limit, offset: offset, requestOptions: requestOptions);
+    return email_sms_templates_methods.getTemplateList(_config,
+        templateType: templateType,
+        paginated: paginated,
+        limit: limit,
+        offset: offset,
+        requestOptions: requestOptions);
   }
 
   /// Retrieves the details of an email or SMS template by its slug. Use `template_type` to select the template category and `slug` to identify the template. This operation is deprecated.
@@ -355,7 +456,8 @@ class EmailSmsTemplatesNamespace {
       {required GetTemplateTemplateType templateType,
       required String slug,
       RequestOptions? requestOptions}) async {
-    return email_sms_templates_methods.getTemplate(_config, templateType: templateType, slug: slug, requestOptions: requestOptions);
+    return email_sms_templates_methods.getTemplate(_config,
+        templateType: templateType, slug: slug, requestOptions: requestOptions);
   }
 
   /// Updates the existing template of the given type and slug
@@ -372,7 +474,17 @@ class EmailSmsTemplatesNamespace {
       SdkOptional<String> fromEmailName = const SdkOmitted(),
       SdkOptional<String> replyToEmailName = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return email_sms_templates_methods.upsertTemplate(_config, templateType: templateType, slug: slug, name: name, subject: subject, markup: markup, body: body, deliveredByClerk: deliveredByClerk, fromEmailName: fromEmailName, replyToEmailName: replyToEmailName, requestOptions: requestOptions);
+    return email_sms_templates_methods.upsertTemplate(_config,
+        templateType: templateType,
+        slug: slug,
+        name: name,
+        subject: subject,
+        markup: markup,
+        body: body,
+        deliveredByClerk: deliveredByClerk,
+        fromEmailName: fromEmailName,
+        replyToEmailName: replyToEmailName,
+        requestOptions: requestOptions);
   }
 
   /// Reverts an email or SMS template to its corresponding system default. Use `template_type` and `slug` to identify the template to restore.
@@ -384,7 +496,8 @@ class EmailSmsTemplatesNamespace {
       {required RevertTemplateTemplateType templateType,
       required String slug,
       RequestOptions? requestOptions}) async {
-    return email_sms_templates_methods.revertTemplate(_config, templateType: templateType, slug: slug, requestOptions: requestOptions);
+    return email_sms_templates_methods.revertTemplate(_config,
+        templateType: templateType, slug: slug, requestOptions: requestOptions);
   }
 
   /// Returns a preview of a template using the specified template type, slug, and optional body values. Use the body fields to preview changes; `subject`, `from_email_name`, and `reply_to_email_name` apply only to email templates.
@@ -400,7 +513,14 @@ class EmailSmsTemplatesNamespace {
       SdkOptional<String> fromEmailName = const SdkOmitted(),
       SdkOptional<String> replyToEmailName = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return email_sms_templates_methods.previewTemplate(_config, templateType: templateType, slug: slug, subject: subject, body: body, fromEmailName: fromEmailName, replyToEmailName: replyToEmailName, requestOptions: requestOptions);
+    return email_sms_templates_methods.previewTemplate(_config,
+        templateType: templateType,
+        slug: slug,
+        subject: subject,
+        body: body,
+        fromEmailName: fromEmailName,
+        replyToEmailName: replyToEmailName,
+        requestOptions: requestOptions);
   }
 
   /// Toggles the delivery by Clerk for a template of a given type and slug. If disabled, Clerk will not deliver the resulting email or SMS. The app developer will need to listen to the `email.created` or `sms.created` webhooks in order to handle delivery themselves.
@@ -411,14 +531,18 @@ class EmailSmsTemplatesNamespace {
       required String slug,
       SdkOptional<bool> deliveredByClerk = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return email_sms_templates_methods.toggleTemplateDelivery(_config, templateType: templateType, slug: slug, deliveredByClerk: deliveredByClerk, requestOptions: requestOptions);
+    return email_sms_templates_methods.toggleTemplateDelivery(_config,
+        templateType: templateType,
+        slug: slug,
+        deliveredByClerk: deliveredByClerk,
+        requestOptions: requestOptions);
   }
-
 }
 
 class UsersNamespace {
   final ClientConfig _config;
   UsersNamespace(ClientConfig config) : _config = config;
+
   /// Returns a list of all users. The users are returned sorted by creation date, with the newest users appearing first. To walk more than a few pages, paginate with `starting_after` rather than `offset`. A cursor page costs the same no matter how far into the list it sits, while a large `offset` has to walk and discard every row before it, so it gets progressively slower and eventually times out. Cursor pagination requires the `created_at` ordering, which is the default.
   Future<List<User>> list(
       {SdkOptional<List<String>> emailAddress = const SdkOmitted(),
@@ -448,7 +572,34 @@ class UsersNamespace {
       SdkOptional<String> startingAfter = const SdkOmitted(),
       SdkOptional<String> orderBy = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return users_methods.listUsers(_config, emailAddress: emailAddress, phoneNumber: phoneNumber, externalId: externalId, username: username, web3Wallet: web3Wallet, userId: userId, organizationId: organizationId, query: query, emailAddressQuery: emailAddressQuery, phoneNumberQuery: phoneNumberQuery, usernameQuery: usernameQuery, nameQuery: nameQuery, banned: banned, lastActiveAtBefore: lastActiveAtBefore, lastActiveAtAfter: lastActiveAtAfter, lastActiveAtSince: lastActiveAtSince, createdAtBefore: createdAtBefore, createdAtAfter: createdAtAfter, lastSignInAtBefore: lastSignInAtBefore, lastSignInAtAfter: lastSignInAtAfter, provider: provider, providerUserId: providerUserId, limit: limit, offset: offset, startingAfter: startingAfter, orderBy: orderBy, requestOptions: requestOptions);
+    return users_methods.listUsers(_config,
+        emailAddress: emailAddress,
+        phoneNumber: phoneNumber,
+        externalId: externalId,
+        username: username,
+        web3Wallet: web3Wallet,
+        userId: userId,
+        organizationId: organizationId,
+        query: query,
+        emailAddressQuery: emailAddressQuery,
+        phoneNumberQuery: phoneNumberQuery,
+        usernameQuery: usernameQuery,
+        nameQuery: nameQuery,
+        banned: banned,
+        lastActiveAtBefore: lastActiveAtBefore,
+        lastActiveAtAfter: lastActiveAtAfter,
+        lastActiveAtSince: lastActiveAtSince,
+        createdAtBefore: createdAtBefore,
+        createdAtAfter: createdAtAfter,
+        lastSignInAtBefore: lastSignInAtBefore,
+        lastSignInAtAfter: lastSignInAtAfter,
+        provider: provider,
+        providerUserId: providerUserId,
+        limit: limit,
+        offset: offset,
+        startingAfter: startingAfter,
+        orderBy: orderBy,
+        requestOptions: requestOptions);
   }
 
   /// Creates a new user. Your user management settings determine how you should setup your user model. By default, any email address and phone number created using this method is marked as verified. Use the `email_address_identification_status` and `phone_number_identification_status` arrays to instead create some or all of them as reserved (unverified but usable for sign-in and locked so no other user can claim them). Note: If you are performing a migration, check out our guide on [zero downtime migrations](https://clerk.com/docs/deployments/migrate-overview). The following rate limit rules apply to this endpoint: 1000 requests per 10 seconds for production instances and 100 requests per 10 seconds for development instances
@@ -459,9 +610,13 @@ class UsersNamespace {
       SdkOptional<String?> locale = const SdkOmitted(),
       SdkOptional<String?> timezone = const SdkOmitted(),
       SdkOptional<List<String>> emailAddress = const SdkOmitted(),
-      SdkOptional<List<CreateUserRequestBodyEmailAddressIdentificationStatusItem>> emailAddressIdentificationStatus = const SdkOmitted(),
+      SdkOptional<
+              List<CreateUserRequestBodyEmailAddressIdentificationStatusItem>>
+          emailAddressIdentificationStatus = const SdkOmitted(),
       SdkOptional<List<String>> phoneNumber = const SdkOmitted(),
-      SdkOptional<List<CreateUserRequestBodyPhoneNumberIdentificationStatusItem>> phoneNumberIdentificationStatus = const SdkOmitted(),
+      SdkOptional<
+              List<CreateUserRequestBodyPhoneNumberIdentificationStatusItem>>
+          phoneNumberIdentificationStatus = const SdkOmitted(),
       SdkOptional<List<String>> web3Wallet = const SdkOmitted(),
       SdkOptional<String?> username = const SdkOmitted(),
       SdkOptional<String?> password = const SdkOmitted(),
@@ -486,7 +641,40 @@ class UsersNamespace {
       SdkOptional<bool?> banned = const SdkOmitted(),
       SdkOptional<bool?> locked = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return users_methods.createUser(_config, externalId: externalId, firstName: firstName, lastName: lastName, locale: locale, timezone: timezone, emailAddress: emailAddress, emailAddressIdentificationStatus: emailAddressIdentificationStatus, phoneNumber: phoneNumber, phoneNumberIdentificationStatus: phoneNumberIdentificationStatus, web3Wallet: web3Wallet, username: username, password: password, passwordDigest: passwordDigest, passwordHasher: passwordHasher, skipPasswordChecks: skipPasswordChecks, skipPasswordRequirement: skipPasswordRequirement, skipRestrictionChecks: skipRestrictionChecks, totpSecret: totpSecret, backupCodes: backupCodes, publicMetadata: publicMetadata, privateMetadata: privateMetadata, unsafeMetadata: unsafeMetadata, deleteSelfEnabled: deleteSelfEnabled, legalAcceptedAt: legalAcceptedAt, skipLegalChecks: skipLegalChecks, skipUserRequirement: skipUserRequirement, createOrganizationEnabled: createOrganizationEnabled, createOrganizationsLimit: createOrganizationsLimit, createdAt: createdAt, bypassClientTrust: bypassClientTrust, banned: banned, locked: locked, requestOptions: requestOptions);
+    return users_methods.createUser(_config,
+        externalId: externalId,
+        firstName: firstName,
+        lastName: lastName,
+        locale: locale,
+        timezone: timezone,
+        emailAddress: emailAddress,
+        emailAddressIdentificationStatus: emailAddressIdentificationStatus,
+        phoneNumber: phoneNumber,
+        phoneNumberIdentificationStatus: phoneNumberIdentificationStatus,
+        web3Wallet: web3Wallet,
+        username: username,
+        password: password,
+        passwordDigest: passwordDigest,
+        passwordHasher: passwordHasher,
+        skipPasswordChecks: skipPasswordChecks,
+        skipPasswordRequirement: skipPasswordRequirement,
+        skipRestrictionChecks: skipRestrictionChecks,
+        totpSecret: totpSecret,
+        backupCodes: backupCodes,
+        publicMetadata: publicMetadata,
+        privateMetadata: privateMetadata,
+        unsafeMetadata: unsafeMetadata,
+        deleteSelfEnabled: deleteSelfEnabled,
+        legalAcceptedAt: legalAcceptedAt,
+        skipLegalChecks: skipLegalChecks,
+        skipUserRequirement: skipUserRequirement,
+        createOrganizationEnabled: createOrganizationEnabled,
+        createOrganizationsLimit: createOrganizationsLimit,
+        createdAt: createdAt,
+        bypassClientTrust: bypassClientTrust,
+        banned: banned,
+        locked: locked,
+        requestOptions: requestOptions);
   }
 
   /// Returns a total count of all users that match the given filtering criteria.
@@ -514,7 +702,30 @@ class UsersNamespace {
       SdkOptional<String> provider = const SdkOmitted(),
       SdkOptional<List<String>> providerUserId = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return users_methods.getUsersCount(_config, emailAddress: emailAddress, phoneNumber: phoneNumber, externalId: externalId, username: username, web3Wallet: web3Wallet, userId: userId, organizationId: organizationId, query: query, emailAddressQuery: emailAddressQuery, phoneNumberQuery: phoneNumberQuery, usernameQuery: usernameQuery, nameQuery: nameQuery, banned: banned, lastActiveAtBefore: lastActiveAtBefore, lastActiveAtAfter: lastActiveAtAfter, lastActiveAtSince: lastActiveAtSince, createdAtBefore: createdAtBefore, createdAtAfter: createdAtAfter, lastSignInAtBefore: lastSignInAtBefore, lastSignInAtAfter: lastSignInAtAfter, provider: provider, providerUserId: providerUserId, requestOptions: requestOptions);
+    return users_methods.getUsersCount(_config,
+        emailAddress: emailAddress,
+        phoneNumber: phoneNumber,
+        externalId: externalId,
+        username: username,
+        web3Wallet: web3Wallet,
+        userId: userId,
+        organizationId: organizationId,
+        query: query,
+        emailAddressQuery: emailAddressQuery,
+        phoneNumberQuery: phoneNumberQuery,
+        usernameQuery: usernameQuery,
+        nameQuery: nameQuery,
+        banned: banned,
+        lastActiveAtBefore: lastActiveAtBefore,
+        lastActiveAtAfter: lastActiveAtAfter,
+        lastActiveAtSince: lastActiveAtSince,
+        createdAtBefore: createdAtBefore,
+        createdAtAfter: createdAtAfter,
+        lastSignInAtBefore: lastSignInAtBefore,
+        lastSignInAtAfter: lastSignInAtAfter,
+        provider: provider,
+        providerUserId: providerUserId,
+        requestOptions: requestOptions);
   }
 
   /// Retrieves the details of a user by their identifier. Use `user_id` to select the user whose account details you need.
@@ -522,7 +733,8 @@ class UsersNamespace {
   /// Retrieve the details of a user
   Future<User> get_(
       {required String userId, RequestOptions? requestOptions}) async {
-    return users_methods.getUser(_config, userId: userId, requestOptions: requestOptions);
+    return users_methods.getUser(_config,
+        userId: userId, requestOptions: requestOptions);
   }
 
   /// Update a user's attributes. You can set the user's primary contact identifiers (email address and phone numbers) by updating the `primary_email_address_id` and `primary_phone_number_id` attributes respectively. Both IDs should correspond to verified identifications that belong to the user. You can remove a user's username by setting the username attribute to null or the blank string "". As of API version 2026-05-12, this endpoint no longer accepts `public_metadata`, `private_metadata`, or `unsafe_metadata`. Use `PATCH /v1/users/{user_id}/metadata` to merge updates into existing metadata, or `PUT /v1/users/{user_id}/metadata` to replace a metadata field entirely.
@@ -554,7 +766,34 @@ class UsersNamespace {
       SdkOptional<String?> createdAt = const SdkOmitted(),
       SdkOptional<bool?> bypassClientTrust = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return users_methods.updateUser(_config, userId: userId, externalId: externalId, firstName: firstName, lastName: lastName, locale: locale, timezone: timezone, primaryEmailAddressId: primaryEmailAddressId, notifyPrimaryEmailAddressChanged: notifyPrimaryEmailAddressChanged, primaryPhoneNumberId: primaryPhoneNumberId, primaryWeb3WalletId: primaryWeb3WalletId, username: username, profileImageId: profileImageId, password: password, passwordDigest: passwordDigest, passwordHasher: passwordHasher, skipPasswordChecks: skipPasswordChecks, signOutOfOtherSessions: signOutOfOtherSessions, totpSecret: totpSecret, backupCodes: backupCodes, deleteSelfEnabled: deleteSelfEnabled, createOrganizationEnabled: createOrganizationEnabled, legalAcceptedAt: legalAcceptedAt, skipLegalChecks: skipLegalChecks, createOrganizationsLimit: createOrganizationsLimit, createdAt: createdAt, bypassClientTrust: bypassClientTrust, requestOptions: requestOptions);
+    return users_methods.updateUser(_config,
+        userId: userId,
+        externalId: externalId,
+        firstName: firstName,
+        lastName: lastName,
+        locale: locale,
+        timezone: timezone,
+        primaryEmailAddressId: primaryEmailAddressId,
+        notifyPrimaryEmailAddressChanged: notifyPrimaryEmailAddressChanged,
+        primaryPhoneNumberId: primaryPhoneNumberId,
+        primaryWeb3WalletId: primaryWeb3WalletId,
+        username: username,
+        profileImageId: profileImageId,
+        password: password,
+        passwordDigest: passwordDigest,
+        passwordHasher: passwordHasher,
+        skipPasswordChecks: skipPasswordChecks,
+        signOutOfOtherSessions: signOutOfOtherSessions,
+        totpSecret: totpSecret,
+        backupCodes: backupCodes,
+        deleteSelfEnabled: deleteSelfEnabled,
+        createOrganizationEnabled: createOrganizationEnabled,
+        legalAcceptedAt: legalAcceptedAt,
+        skipLegalChecks: skipLegalChecks,
+        createOrganizationsLimit: createOrganizationsLimit,
+        createdAt: createdAt,
+        bypassClientTrust: bypassClientTrust,
+        requestOptions: requestOptions);
   }
 
   /// Deletes the specified user. Use `user_id` to identify the user to remove; the response confirms whether the deletion occurred.
@@ -562,13 +801,15 @@ class UsersNamespace {
   /// Delete the specified user
   Future<DeletedObject> delete(
       {required String userId, RequestOptions? requestOptions}) async {
-    return users_methods.deleteUser(_config, userId: userId, requestOptions: requestOptions);
+    return users_methods.deleteUser(_config,
+        userId: userId, requestOptions: requestOptions);
   }
 
   /// Marks the given user as banned, which means that all their sessions are revoked and they are not allowed to sign in again.
   Future<User> ban(
       {required String userId, RequestOptions? requestOptions}) async {
-    return users_methods.banUser(_config, userId: userId, requestOptions: requestOptions);
+    return users_methods.banUser(_config,
+        userId: userId, requestOptions: requestOptions);
   }
 
   /// Removes the ban mark from a user account. Use `user_id` to identify the user whose ban you want to remove. A 200 response returns the updated user object.
@@ -576,13 +817,15 @@ class UsersNamespace {
   /// Removes the ban mark from the given user.
   Future<User> unban(
       {required String userId, RequestOptions? requestOptions}) async {
-    return users_methods.unbanUser(_config, userId: userId, requestOptions: requestOptions);
+    return users_methods.unbanUser(_config,
+        userId: userId, requestOptions: requestOptions);
   }
 
   /// Marks multiple users as banned, which means that all their sessions are revoked and they are not allowed to sign in again.
   Future<List<User>> banBulk(
       {required List<String> userIds, RequestOptions? requestOptions}) async {
-    return users_methods.banUsersBulk(_config, userIds: userIds, requestOptions: requestOptions);
+    return users_methods.banUsersBulk(_config,
+        userIds: userIds, requestOptions: requestOptions);
   }
 
   /// Removes the ban marks from multiple user accounts in one request. Supply `user_ids` with between 1 and 50 user IDs. A 200 response returns the updated user objects.
@@ -590,13 +833,15 @@ class UsersNamespace {
   /// Removes the ban mark from multiple users.
   Future<List<User>> unbanBulk(
       {required List<String> userIds, RequestOptions? requestOptions}) async {
-    return users_methods.unbanUsersBulk(_config, userIds: userIds, requestOptions: requestOptions);
+    return users_methods.unbanUsersBulk(_config,
+        userIds: userIds, requestOptions: requestOptions);
   }
 
   /// Marks the given user as locked, which means they are not allowed to sign in again until the lock expires. Lock duration can be configured in the instance's restrictions settings.
   Future<User> lock(
       {required String userId, RequestOptions? requestOptions}) async {
-    return users_methods.lockUser(_config, userId: userId, requestOptions: requestOptions);
+    return users_methods.lockUser(_config,
+        userId: userId, requestOptions: requestOptions);
   }
 
   /// Removes the lock from a user account. Use `user_id` to identify the user whose lock you want to remove. A 200 response returns the updated user object.
@@ -604,7 +849,8 @@ class UsersNamespace {
   /// Removes the lock from the given user.
   Future<User> unlock(
       {required String userId, RequestOptions? requestOptions}) async {
-    return users_methods.unlockUser(_config, userId: userId, requestOptions: requestOptions);
+    return users_methods.unlockUser(_config,
+        userId: userId, requestOptions: requestOptions);
   }
 
   /// Sets or replaces a user's profile image. Send the image in the `file` field as multipart form data, and use `user_id` to identify the account to update. A 200 response returns the updated user object.
@@ -614,7 +860,8 @@ class UsersNamespace {
       {required String userId,
       SdkOptional<SdkUploadFile> file = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return users_methods.setUserProfileImage(_config, userId: userId, file: file, requestOptions: requestOptions);
+    return users_methods.setUserProfileImage(_config,
+        userId: userId, file: file, requestOptions: requestOptions);
   }
 
   /// Deletes the profile image associated with a user account. Use `user_id` to identify the account whose image you want to remove. A 200 response returns the updated user object.
@@ -622,7 +869,8 @@ class UsersNamespace {
   /// Delete a user's profile image
   Future<User> deleteProfileImage(
       {required String userId, RequestOptions? requestOptions}) async {
-    return users_methods.deleteUserProfileImage(_config, userId: userId, requestOptions: requestOptions);
+    return users_methods.deleteUserProfileImage(_config,
+        userId: userId, requestOptions: requestOptions);
   }
 
   /// Update a user's metadata attributes by merging existing values with the provided parameters. This endpoint behaves differently than the *Update a user* endpoint. Metadata values will not be replaced entirely. Instead, a deep merge will be performed. Deep means that any nested JSON objects will be merged as well. You can remove metadata keys at any level by setting their value to `null`.
@@ -632,7 +880,12 @@ class UsersNamespace {
       SdkOptional<Map<String, Object?>> privateMetadata = const SdkOmitted(),
       SdkOptional<Map<String, Object?>> unsafeMetadata = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return users_methods.updateUserMetadata(_config, userId: userId, publicMetadata: publicMetadata, privateMetadata: privateMetadata, unsafeMetadata: unsafeMetadata, requestOptions: requestOptions);
+    return users_methods.updateUserMetadata(_config,
+        userId: userId,
+        publicMetadata: publicMetadata,
+        privateMetadata: privateMetadata,
+        unsafeMetadata: unsafeMetadata,
+        requestOptions: requestOptions);
   }
 
   /// Replace a user's metadata attributes with the provided values. Unlike `PATCH /v1/users/{user_id}/metadata` (merge semantics), this endpoint replaces the supplied metadata fields entirely — the prior contents of each supplied field are discarded. Fields omitted from the request body are left unchanged. Prefer the `PATCH` endpoint for partial updates. Use `PUT` only when you explicitly intend to overwrite a metadata field wholesale.
@@ -642,19 +895,26 @@ class UsersNamespace {
       SdkOptional<Map<String, Object?>> privateMetadata = const SdkOmitted(),
       SdkOptional<Map<String, Object?>> unsafeMetadata = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return users_methods.replaceUserMetadata(_config, userId: userId, publicMetadata: publicMetadata, privateMetadata: privateMetadata, unsafeMetadata: unsafeMetadata, requestOptions: requestOptions);
+    return users_methods.replaceUserMetadata(_config,
+        userId: userId,
+        publicMetadata: publicMetadata,
+        privateMetadata: privateMetadata,
+        unsafeMetadata: unsafeMetadata,
+        requestOptions: requestOptions);
   }
 
   /// Retrieves the billing subscription for the specified user. This includes subscription details, active plans, billing information, and payment status. The subscription contains subscription items which represent the individual plans the user is subscribed to.
   Future<CommerceSubscription> getBillingSubscription(
       {required String userId, RequestOptions? requestOptions}) async {
-    return users_methods.getUserBillingSubscription(_config, userId: userId, requestOptions: requestOptions);
+    return users_methods.getUserBillingSubscription(_config,
+        userId: userId, requestOptions: requestOptions);
   }
 
   /// Retrieves the current credit balance for the specified user. Credits can be applied during checkout to reduce the charge or automatically applied to upcoming recurring charges
   Future<CommerceCreditBalanceResponse> getBillingCreditBalance(
       {required String userId, RequestOptions? requestOptions}) async {
-    return users_methods.getUserBillingCreditBalance(_config, userId: userId, requestOptions: requestOptions);
+    return users_methods.getUserBillingCreditBalance(_config,
+        userId: userId, requestOptions: requestOptions);
   }
 
   /// Increases or decreases the credit balance for the specified user. Each adjustment is recorded as a ledger entry. The idempotency_key parameter ensures that duplicate requests are safely handled.
@@ -666,7 +926,14 @@ class UsersNamespace {
       SdkOptional<String> currency = const SdkOmitted(),
       SdkOptional<String> note = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return users_methods.adjustUserBillingCreditBalance(_config, userId: userId, amount: amount, action: action, idempotencyKey: idempotencyKey, currency: currency, note: note, requestOptions: requestOptions);
+    return users_methods.adjustUserBillingCreditBalance(_config,
+        userId: userId,
+        amount: amount,
+        action: action,
+        idempotencyKey: idempotencyKey,
+        currency: currency,
+        note: note,
+        requestOptions: requestOptions);
   }
 
   /// Fetch the corresponding OAuth access token for a user that has previously authenticated with a particular OAuth provider. For OAuth 2.0, if the access token has expired and we have a corresponding refresh token, the access token will be refreshed transparently the new one will be returned.
@@ -677,7 +944,13 @@ class UsersNamespace {
       SdkOptional<int> limit = const SdkOmitted(),
       SdkOptional<int> offset = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return users_methods.getOAuthAccessToken(_config, userId: userId, provider: provider, paginated: paginated, limit: limit, offset: offset, requestOptions: requestOptions);
+    return users_methods.getOAuthAccessToken(_config,
+        userId: userId,
+        provider: provider,
+        paginated: paginated,
+        limit: limit,
+        offset: offset,
+        requestOptions: requestOptions);
   }
 
   /// Retrieve a paginated list of the user's organization memberships
@@ -686,7 +959,11 @@ class UsersNamespace {
       SdkOptional<int> limit = const SdkOmitted(),
       SdkOptional<int> offset = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return users_methods.usersGetOrganizationMemberships(_config, userId: userId, limit: limit, offset: offset, requestOptions: requestOptions);
+    return users_methods.usersGetOrganizationMemberships(_config,
+        userId: userId,
+        limit: limit,
+        offset: offset,
+        requestOptions: requestOptions);
   }
 
   /// Retrieve a paginated list of the user's organization invitations
@@ -695,9 +972,15 @@ class UsersNamespace {
           {required String userId,
           SdkOptional<int> limit = const SdkOmitted(),
           SdkOptional<int> offset = const SdkOmitted(),
-          SdkOptional<UsersGetOrganizationInvitationsStatus> status = const SdkOmitted(),
+          SdkOptional<UsersGetOrganizationInvitationsStatus> status =
+              const SdkOmitted(),
           RequestOptions? requestOptions}) async {
-    return users_methods.usersGetOrganizationInvitations(_config, userId: userId, limit: limit, offset: offset, status: status, requestOptions: requestOptions);
+    return users_methods.usersGetOrganizationInvitations(_config,
+        userId: userId,
+        limit: limit,
+        offset: offset,
+        status: status,
+        requestOptions: requestOptions);
   }
 
   /// Removes the password credential from the given user. This is a privileged operation and does not require the user's current password. Password removal is allowed even when the user has no other sign-in method configured. If the user does not have a password, the user is returned unchanged and no password-deletion or user-update event is emitted. By default, existing sessions remain active. Set `sign_out_of_other_sessions` to `true` to revoke sessions active when the request is processed.
@@ -705,7 +988,10 @@ class UsersNamespace {
       {required String userId,
       SdkOptional<bool> signOutOfOtherSessions = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return users_methods.removeUserPassword(_config, userId: userId, signOutOfOtherSessions: signOutOfOtherSessions, requestOptions: requestOptions);
+    return users_methods.removeUserPassword(_config,
+        userId: userId,
+        signOutOfOtherSessions: signOutOfOtherSessions,
+        requestOptions: requestOptions);
   }
 
   /// Check that the user's password matches the supplied input. Useful for custom auth flows and re-verification.
@@ -713,7 +999,8 @@ class UsersNamespace {
       {required String userId,
       required String password,
       RequestOptions? requestOptions}) async {
-    return users_methods.verifyPassword(_config, userId: userId, password: password, requestOptions: requestOptions);
+    return users_methods.verifyPassword(_config,
+        userId: userId, password: password, requestOptions: requestOptions);
   }
 
   /// Verify that the provided TOTP or backup code is valid for the user. Verifying a backup code will result it in being consumed (i.e. it will become invalid). Useful for custom auth flows and re-verification.
@@ -721,13 +1008,15 @@ class UsersNamespace {
       {required String userId,
       required String code,
       RequestOptions? requestOptions}) async {
-    return users_methods.verifyTotp(_config, userId: userId, code: code, requestOptions: requestOptions);
+    return users_methods.verifyTotp(_config,
+        userId: userId, code: code, requestOptions: requestOptions);
   }
 
   /// Disable all of a user's MFA methods (e.g. OTP sent via SMS, TOTP on their authenticator app) at once.
   Future<DisableMFAResponse> disableMfa(
       {required String userId, RequestOptions? requestOptions}) async {
-    return users_methods.disableMfa(_config, userId: userId, requestOptions: requestOptions);
+    return users_methods.disableMfa(_config,
+        userId: userId, requestOptions: requestOptions);
   }
 
   /// Deletes all backup codes for a user, disabling them for future use. Supply `user_id` to identify the user whose backup codes you want to disable.
@@ -735,7 +1024,8 @@ class UsersNamespace {
   /// Disable all of a user's backup codes.
   Future<DeleteBackupCodeResponse> deleteBackupCode(
       {required String userId, RequestOptions? requestOptions}) async {
-    return users_methods.deleteBackupCode(_config, userId: userId, requestOptions: requestOptions);
+    return users_methods.deleteBackupCode(_config,
+        userId: userId, requestOptions: requestOptions);
   }
 
   /// Delete the passkey identification for a given user. The user is notified through email or SMS unless the passkey registration was never completed.
@@ -743,7 +1033,10 @@ class UsersNamespace {
       {required String userId,
       required String passkeyIdentificationId,
       RequestOptions? requestOptions}) async {
-    return users_methods.deleteUserPasskey(_config, userId: userId, passkeyIdentificationId: passkeyIdentificationId, requestOptions: requestOptions);
+    return users_methods.deleteUserPasskey(_config,
+        userId: userId,
+        passkeyIdentificationId: passkeyIdentificationId,
+        requestOptions: requestOptions);
   }
 
   /// Returns the active trusted devices enrolled by the user.
@@ -751,7 +1044,8 @@ class UsersNamespace {
   /// **Deprecated:** this operation is deprecated and may be removed in a future release.
   Future<TrustedDeviceList> listTrustedDevices(
       {required String userId, RequestOptions? requestOptions}) async {
-    return users_methods.listUserTrustedDevices(_config, userId: userId, requestOptions: requestOptions);
+    return users_methods.listUserTrustedDevices(_config,
+        userId: userId, requestOptions: requestOptions);
   }
 
   /// Revokes an active trusted device enrolled by the user.
@@ -761,13 +1055,17 @@ class UsersNamespace {
       {required String userId,
       required String trustedDeviceId,
       RequestOptions? requestOptions}) async {
-    return users_methods.revokeUserTrustedDevice(_config, userId: userId, trustedDeviceId: trustedDeviceId, requestOptions: requestOptions);
+    return users_methods.revokeUserTrustedDevice(_config,
+        userId: userId,
+        trustedDeviceId: trustedDeviceId,
+        requestOptions: requestOptions);
   }
 
   /// Returns the active biometric credentials enrolled by the user.
   Future<BiometricCredentialList> listBiometricCredentials(
       {required String userId, RequestOptions? requestOptions}) async {
-    return users_methods.listUserBiometricCredentials(_config, userId: userId, requestOptions: requestOptions);
+    return users_methods.listUserBiometricCredentials(_config,
+        userId: userId, requestOptions: requestOptions);
   }
 
   /// Revokes an active biometric credential enrolled by the user.
@@ -775,7 +1073,10 @@ class UsersNamespace {
       {required String userId,
       required String biometricCredentialId,
       RequestOptions? requestOptions}) async {
-    return users_methods.revokeUserBiometricCredential(_config, userId: userId, biometricCredentialId: biometricCredentialId, requestOptions: requestOptions);
+    return users_methods.revokeUserBiometricCredential(_config,
+        userId: userId,
+        biometricCredentialId: biometricCredentialId,
+        requestOptions: requestOptions);
   }
 
   /// Delete the web3 wallet identification for a given user.
@@ -783,7 +1084,10 @@ class UsersNamespace {
       {required String userId,
       required String web3WalletIdentificationId,
       RequestOptions? requestOptions}) async {
-    return users_methods.deleteUsersWeb3Wallet(_config, userId: userId, web3WalletIdentificationId: web3WalletIdentificationId, requestOptions: requestOptions);
+    return users_methods.deleteUsersWeb3Wallet(_config,
+        userId: userId,
+        web3WalletIdentificationId: web3WalletIdentificationId,
+        requestOptions: requestOptions);
   }
 
   /// Deletes all TOTP credentials associated with a user. Supply the `user_id` of the user whose TOTPs you want to delete; the operation removes all of that user's TOTPs.
@@ -791,7 +1095,8 @@ class UsersNamespace {
   /// Deletes all of the user's TOTPs.
   Future<DeleteTOTPResponse> deleteTotp(
       {required String userId, RequestOptions? requestOptions}) async {
-    return users_methods.deleteTotp(_config, userId: userId, requestOptions: requestOptions);
+    return users_methods.deleteTotp(_config,
+        userId: userId, requestOptions: requestOptions);
   }
 
   /// Deletes an external account associated with a user. Supply the `user_id` and `external_account_id` for the account you want to remove.
@@ -801,7 +1106,10 @@ class UsersNamespace {
       {required String userId,
       required String externalAccountId,
       RequestOptions? requestOptions}) async {
-    return users_methods.deleteExternalAccount(_config, userId: userId, externalAccountId: externalAccountId, requestOptions: requestOptions);
+    return users_methods.deleteExternalAccount(_config,
+        userId: userId,
+        externalAccountId: externalAccountId,
+        requestOptions: requestOptions);
   }
 
   /// Marks a user's password as compromised so the user is prompted to reset it at their next sign-in. Supply the `user_id` of the user whose password you want to flag. You can optionally set `revoke_all_sessions` to revoke the user's sessions as part of the operation.
@@ -811,20 +1119,24 @@ class UsersNamespace {
       {required String userId,
       SdkOptional<bool?> revokeAllSessions = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return users_methods.setUserPasswordCompromised(_config, userId: userId, revokeAllSessions: revokeAllSessions, requestOptions: requestOptions);
+    return users_methods.setUserPasswordCompromised(_config,
+        userId: userId,
+        revokeAllSessions: revokeAllSessions,
+        requestOptions: requestOptions);
   }
 
   /// Sets the given user's password as no longer compromised. The user will no longer be prompted to reset their password on their next sign-in. If the user is in reserved-email password quarantine, the quarantine is preserved and the returned user will still have `requires_password_reset` set to `true`. Reserved-email password quarantine can only be cleared by completing a password reset or changing/removing the password.
   Future<User> unsetPasswordCompromised(
       {required String userId, RequestOptions? requestOptions}) async {
-    return users_methods.unsetUserPasswordCompromised(_config, userId: userId, requestOptions: requestOptions);
+    return users_methods.unsetUserPasswordCompromised(_config,
+        userId: userId, requestOptions: requestOptions);
   }
-
 }
 
 class InvitationsNamespace {
   final ClientConfig _config;
   InvitationsNamespace(ClientConfig config) : _config = config;
+
   /// Creates a new invitation for the given email address and sends the invitation email. Keep in mind that you cannot create an invitation if there is already one for the given email address. Also, trying to create an invitation for an email address that already exists in your application will result to an error.
   Future<Invitation> create(
       {required String emailAddress,
@@ -833,9 +1145,18 @@ class InvitationsNamespace {
       SdkOptional<bool?> notify = const SdkOmitted(),
       SdkOptional<bool?> ignoreExisting = const SdkOmitted(),
       SdkOptional<int?> expiresInDays = const SdkOmitted(),
-      SdkOptional<CreateInvitationRequestBodyTemplateSlug> templateSlug = const SdkOmitted(),
+      SdkOptional<CreateInvitationRequestBodyTemplateSlug> templateSlug =
+          const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return invitations_methods.createInvitation(_config, emailAddress: emailAddress, publicMetadata: publicMetadata, redirectUrl: redirectUrl, notify: notify, ignoreExisting: ignoreExisting, expiresInDays: expiresInDays, templateSlug: templateSlug, requestOptions: requestOptions);
+    return invitations_methods.createInvitation(_config,
+        emailAddress: emailAddress,
+        publicMetadata: publicMetadata,
+        redirectUrl: redirectUrl,
+        notify: notify,
+        ignoreExisting: ignoreExisting,
+        expiresInDays: expiresInDays,
+        templateSlug: templateSlug,
+        requestOptions: requestOptions);
   }
 
   /// Returns all non-revoked invitations for your application, sorted by creation date
@@ -847,45 +1168,63 @@ class InvitationsNamespace {
       SdkOptional<int> limit = const SdkOmitted(),
       SdkOptional<int> offset = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return invitations_methods.listInvitations(_config, status: status, query: query, orderBy: orderBy, paginated: paginated, limit: limit, offset: offset, requestOptions: requestOptions);
+    return invitations_methods.listInvitations(_config,
+        status: status,
+        query: query,
+        orderBy: orderBy,
+        paginated: paginated,
+        limit: limit,
+        offset: offset,
+        requestOptions: requestOptions);
   }
 
   /// Creates multiple invitations for the supplied email addresses. Include an `email_address` in each item; set `ignore_existing` to allow an existing invitation, but you cannot invite an address associated with an existing user. Send at most 10 invitations per request, and use `notify` to control whether invitation emails are sent.
   ///
   /// Use this API operation to create multiple invitations for the provided email addresses. You can choose to send the invitations as emails by setting the `notify` parameter to `true`. There cannot be an existing invitation for any of the email addresses you provide unless you set `ignore_existing` to `true` for specific email addresses. Please note that there must be no existing user for any of the email addresses you provide, and this rule cannot be bypassed. This endpoint is limited to a maximum of 10 invitations per API call. If you need to send more invitations, please make multiple requests.
   Future<List<Invitation>> createBulk(
-      {SdkOptional<List<CreateBulkInvitationsRequestBodyItem>> body = const SdkOmitted(),
+      {SdkOptional<List<CreateBulkInvitationsRequestBodyItem>> body =
+          const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return invitations_methods.createBulkInvitations(_config, body: body, requestOptions: requestOptions);
+    return invitations_methods.createBulkInvitations(_config,
+        body: body, requestOptions: requestOptions);
   }
 
   /// Permanently deletes the given invitation and the copies of the invitation email Clerk stored for its recipient. Unlike revoking, deleting removes the invitation record itself, which helps honor a data erasure request from someone who was invited but never signed up. Other records that contain the same email address, such as users or organization invitations, are not affected. Invitations of any status can be deleted.
   Future<DeletedObject> delete(
       {required String invitationId, RequestOptions? requestOptions}) async {
-    return invitations_methods.deleteInvitation(_config, invitationId: invitationId, requestOptions: requestOptions);
+    return invitations_methods.deleteInvitation(_config,
+        invitationId: invitationId, requestOptions: requestOptions);
   }
 
   /// Revokes the given invitation. Revoking an invitation will prevent the user from using the invitation link that was sent to them. However, it doesn't prevent the user from signing up if they follow the sign up flow. Only active (i.e. non-revoked) invitations can be revoked.
   Future<InvitationRevoked> revoke(
       {required String invitationId, RequestOptions? requestOptions}) async {
-    return invitations_methods.revokeInvitation(_config, invitationId: invitationId, requestOptions: requestOptions);
+    return invitations_methods.revokeInvitation(_config,
+        invitationId: invitationId, requestOptions: requestOptions);
   }
-
 }
 
 class OrganizationInvitationsNamespace {
   final ClientConfig _config;
   OrganizationInvitationsNamespace(ClientConfig config) : _config = config;
+
   /// This request returns the list of organization invitations for the instance. Results can be paginated using the optional `limit` and `offset` query parameters. You can filter them by providing the 'status' query parameter, that accepts multiple values. You can change the order by providing the 'order' query parameter, that accepts multiple values. You can filter by the invited user email address providing the `query` query parameter. The organization invitations are ordered by descending creation date by default.
-  Future<OrganizationInvitationsWithPublicOrganizationData>
-      listInstance(
-          {SdkOptional<String> orderBy = const SdkOmitted(),
-          SdkOptional<ListInstanceOrganizationInvitationsStatus> status = const SdkOmitted(),
-          SdkOptional<String> query = const SdkOmitted(),
-          SdkOptional<int> limit = const SdkOmitted(),
-          SdkOptional<int> offset = const SdkOmitted(),
-          RequestOptions? requestOptions}) async {
-    return organization_invitations_methods.listInstanceOrganizationInvitations(_config, orderBy: orderBy, status: status, query: query, limit: limit, offset: offset, requestOptions: requestOptions);
+  Future<OrganizationInvitationsWithPublicOrganizationData> listInstance(
+      {SdkOptional<String> orderBy = const SdkOmitted(),
+      SdkOptional<ListInstanceOrganizationInvitationsStatus> status =
+          const SdkOmitted(),
+      SdkOptional<String> query = const SdkOmitted(),
+      SdkOptional<int> limit = const SdkOmitted(),
+      SdkOptional<int> offset = const SdkOmitted(),
+      RequestOptions? requestOptions}) async {
+    return organization_invitations_methods.listInstanceOrganizationInvitations(
+        _config,
+        orderBy: orderBy,
+        status: status,
+        query: query,
+        limit: limit,
+        offset: offset,
+        requestOptions: requestOptions);
   }
 
   /// Creates a new organization invitation and sends an email to the provided `email_address` with a link to accept the invitation and join the organization. You can specify the `role` for the invited organization member. New organization invitations get a "pending" status until they are revoked by an organization administrator or accepted by the invitee. The request body supports passing an optional `redirect_url` parameter. When the invited user clicks the link to accept the invitation, they will be redirected to the URL provided. Use this parameter to implement a custom invitation acceptance flow. You can specify the ID of the user that will send the invitation with the `inviter_user_id` parameter. That user must be a member with administrator privileges in the organization. Only "admin" members can create organization invitations. You can optionally provide public and private metadata for the organization invitation. The public metadata are visible by both the Frontend and the Backend whereas the private ones only by the Backend. When the organization invitation is accepted, the metadata will be transferred to the newly created organization membership.
@@ -900,19 +1239,38 @@ class OrganizationInvitationsNamespace {
       SdkOptional<int?> expiresInDays = const SdkOmitted(),
       SdkOptional<bool?> notify = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return organization_invitations_methods.createOrganizationInvitation(_config, organizationId: organizationId, emailAddress: emailAddress, role: role, inviterUserId: inviterUserId, publicMetadata: publicMetadata, privateMetadata: privateMetadata, redirectUrl: redirectUrl, expiresInDays: expiresInDays, notify: notify, requestOptions: requestOptions);
+    return organization_invitations_methods.createOrganizationInvitation(
+        _config,
+        organizationId: organizationId,
+        emailAddress: emailAddress,
+        role: role,
+        inviterUserId: inviterUserId,
+        publicMetadata: publicMetadata,
+        privateMetadata: privateMetadata,
+        redirectUrl: redirectUrl,
+        expiresInDays: expiresInDays,
+        notify: notify,
+        requestOptions: requestOptions);
   }
 
   /// This request returns the list of organization invitations. Results can be paginated using the optional `limit` and `offset` query parameters. You can filter them by providing the 'status' query parameter, that accepts multiple values. The organization invitations are ordered by descending creation date. Most recent invitations will be returned first. Any invitations created as a result of an Organization Domain are not included in the results.
   Future<OrganizationInvitations> list(
       {required String organizationId,
-      SdkOptional<ListOrganizationInvitationsStatus> status = const SdkOmitted(),
+      SdkOptional<ListOrganizationInvitationsStatus> status =
+          const SdkOmitted(),
       SdkOptional<String> emailAddress = const SdkOmitted(),
       SdkOptional<String> orderBy = const SdkOmitted(),
       SdkOptional<int> limit = const SdkOmitted(),
       SdkOptional<int> offset = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return organization_invitations_methods.listOrganizationInvitations(_config, organizationId: organizationId, status: status, emailAddress: emailAddress, orderBy: orderBy, limit: limit, offset: offset, requestOptions: requestOptions);
+    return organization_invitations_methods.listOrganizationInvitations(_config,
+        organizationId: organizationId,
+        status: status,
+        emailAddress: emailAddress,
+        orderBy: orderBy,
+        limit: limit,
+        offset: offset,
+        requestOptions: requestOptions);
   }
 
   /// Creates and sends organization invitations in bulk for a specified organization. Provide 1–10 invitation objects, each with `email_address` and `role`; you can set a different role and inviter for each invitation. Invitations remain pending until accepted or revoked, and `notify` controls whether an invitation email is sent.
@@ -922,7 +1280,11 @@ class OrganizationInvitationsNamespace {
       {required String organizationId,
       required List<CreateOrganizationInvitationBulkRequestBodyItem> body,
       RequestOptions? requestOptions}) async {
-    return organization_invitations_methods.createOrganizationInvitationBulk(_config, organizationId: organizationId, body: body, requestOptions: requestOptions);
+    return organization_invitations_methods.createOrganizationInvitationBulk(
+        _config,
+        organizationId: organizationId,
+        body: body,
+        requestOptions: requestOptions);
   }
 
   /// This request returns the list of organization invitations with "pending" status. These are the organization invitations that can still be used to join the organization, but have not been accepted by the invited user yet. Results can be paginated using the optional `limit` and `offset` query parameters. The organization invitations are ordered by descending creation date. Most recent invitations will be returned first. Any invitations created as a result of an Organization Domain are not included in the results.
@@ -933,7 +1295,12 @@ class OrganizationInvitationsNamespace {
       SdkOptional<int> limit = const SdkOmitted(),
       SdkOptional<int> offset = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return organization_invitations_methods.listPendingOrganizationInvitations(_config, organizationId: organizationId, limit: limit, offset: offset, requestOptions: requestOptions);
+    return organization_invitations_methods.listPendingOrganizationInvitations(
+        _config,
+        organizationId: organizationId,
+        limit: limit,
+        offset: offset,
+        requestOptions: requestOptions);
   }
 
   /// Use this request to get an existing organization invitation by ID.
@@ -941,7 +1308,10 @@ class OrganizationInvitationsNamespace {
       {required String organizationId,
       required String invitationId,
       RequestOptions? requestOptions}) async {
-    return organization_invitations_methods.getOrganizationInvitation(_config, organizationId: organizationId, invitationId: invitationId, requestOptions: requestOptions);
+    return organization_invitations_methods.getOrganizationInvitation(_config,
+        organizationId: organizationId,
+        invitationId: invitationId,
+        requestOptions: requestOptions);
   }
 
   /// Use this request to revoke a previously issued organization invitation. Revoking an organization invitation makes it invalid; the invited user will no longer be able to join the organization with the revoked invitation. Only organization invitations with "pending" status can be revoked. The request accepts the `requesting_user_id` parameter to specify the user which revokes the invitation. Only users with "admin" role can revoke invitations.
@@ -950,21 +1320,30 @@ class OrganizationInvitationsNamespace {
       required String invitationId,
       SdkOptional<String?> requestingUserId = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return organization_invitations_methods.revokeOrganizationInvitation(_config, organizationId: organizationId, invitationId: invitationId, requestingUserId: requestingUserId, requestOptions: requestOptions);
+    return organization_invitations_methods.revokeOrganizationInvitation(
+        _config,
+        organizationId: organizationId,
+        invitationId: invitationId,
+        requestingUserId: requestingUserId,
+        requestOptions: requestOptions);
   }
-
 }
 
 class AllowListBlockListNamespace {
   final ClientConfig _config;
   AllowListBlockListNamespace(ClientConfig config) : _config = config;
+
   /// Get a list of all identifiers allowed to sign up to an instance
   Future<List<AllowlistIdentifier>> listAllowlistIdentifiers(
       {SdkOptional<bool> paginated = const SdkOmitted(),
       SdkOptional<int> limit = const SdkOmitted(),
       SdkOptional<int> offset = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return allow_list_block_list_methods.listAllowlistIdentifiers(_config, paginated: paginated, limit: limit, offset: offset, requestOptions: requestOptions);
+    return allow_list_block_list_methods.listAllowlistIdentifiers(_config,
+        paginated: paginated,
+        limit: limit,
+        offset: offset,
+        requestOptions: requestOptions);
   }
 
   /// Create an identifier allowed to sign up to an instance
@@ -972,7 +1351,8 @@ class AllowListBlockListNamespace {
       {required String identifier,
       SdkOptional<bool> notify = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return allow_list_block_list_methods.createAllowlistIdentifier(_config, identifier: identifier, notify: notify, requestOptions: requestOptions);
+    return allow_list_block_list_methods.createAllowlistIdentifier(_config,
+        identifier: identifier, notify: notify, requestOptions: requestOptions);
   }
 
   /// Deletes an identifier from the instance allow-list. Use the `identifier_id` path parameter to select the entry to remove. The response confirms whether the object was deleted.
@@ -980,19 +1360,22 @@ class AllowListBlockListNamespace {
   /// Delete an identifier from the instance allow-list
   Future<DeletedObject> deleteAllowlistIdentifier(
       {required String identifierId, RequestOptions? requestOptions}) async {
-    return allow_list_block_list_methods.deleteAllowlistIdentifier(_config, identifierId: identifierId, requestOptions: requestOptions);
+    return allow_list_block_list_methods.deleteAllowlistIdentifier(_config,
+        identifierId: identifierId, requestOptions: requestOptions);
   }
 
   /// Get a list of all identifiers which are not allowed to access an instance
   Future<BlocklistIdentifiers> listBlocklistIdentifiers(
       {RequestOptions? requestOptions}) async {
-    return allow_list_block_list_methods.listBlocklistIdentifiers(_config, requestOptions: requestOptions);
+    return allow_list_block_list_methods.listBlocklistIdentifiers(_config,
+        requestOptions: requestOptions);
   }
 
   /// Create an identifier that is blocked from accessing an instance
   Future<BlocklistIdentifier> createBlocklistIdentifier(
       {required String identifier, RequestOptions? requestOptions}) async {
-    return allow_list_block_list_methods.createBlocklistIdentifier(_config, identifier: identifier, requestOptions: requestOptions);
+    return allow_list_block_list_methods.createBlocklistIdentifier(_config,
+        identifier: identifier, requestOptions: requestOptions);
   }
 
   /// Deletes an identifier from the instance block-list. Supply `identifier_id` to select the block-list identifier; a successful response indicates whether the object was deleted.
@@ -1000,14 +1383,15 @@ class AllowListBlockListNamespace {
   /// Delete an identifier from the instance block-list
   Future<DeletedObject> deleteBlocklistIdentifier(
       {required String identifierId, RequestOptions? requestOptions}) async {
-    return allow_list_block_list_methods.deleteBlocklistIdentifier(_config, identifierId: identifierId, requestOptions: requestOptions);
+    return allow_list_block_list_methods.deleteBlocklistIdentifier(_config,
+        identifierId: identifierId, requestOptions: requestOptions);
   }
-
 }
 
 class BetaFeaturesNamespace {
   final ClientConfig _config;
   BetaFeaturesNamespace(ClientConfig config) : _config = config;
+
   /// Updates instance authentication settings, including allowlist restrictions, the sender address for authentication emails, progressive sign-up, and test mode. Set `from_email_address` to an alphanumeric local part only; `restricted_to_allowlist` defaults to false when omitted, and test mode defaults to true for development instances.
   ///
   /// Updates the settings of an instance
@@ -1017,7 +1401,12 @@ class BetaFeaturesNamespace {
       SdkOptional<bool?> progressiveSignUp = const SdkOmitted(),
       SdkOptional<bool?> testMode = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return beta_features_methods.updateInstanceAuthConfig(_config, restrictedToAllowlist: restrictedToAllowlist, fromEmailAddress: fromEmailAddress, progressiveSignUp: progressiveSignUp, testMode: testMode, requestOptions: requestOptions);
+    return beta_features_methods.updateInstanceAuthConfig(_config,
+        restrictedToAllowlist: restrictedToAllowlist,
+        fromEmailAddress: fromEmailAddress,
+        progressiveSignUp: progressiveSignUp,
+        testMode: testMode,
+        requestOptions: requestOptions);
   }
 
   /// Change the domain of a production instance. Changing the domain requires updating the [DNS records](https://clerk.com/docs/deployments/overview#dns-records) accordingly, deploying new [SSL certificates](https://clerk.com/docs/deployments/overview#deploy-certificates), updating your Social Connection's redirect URLs and setting the new keys in your code. WARNING: Changing your domain will invalidate all current user sessions (i.e. users will be logged out). Also, while your application is being deployed, a small downtime is expected to occur. Returns 403 `domain_managed_by_integration` for applications in a Vercel-managed workspace; change the domain from the Vercel integration instead.
@@ -1027,7 +1416,10 @@ class BetaFeaturesNamespace {
       {SdkOptional<String> homeUrl = const SdkOmitted(),
       SdkOptional<bool> isSecondary = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return beta_features_methods.updateProductionInstanceDomain(_config, homeUrl: homeUrl, isSecondary: isSecondary, requestOptions: requestOptions);
+    return beta_features_methods.updateProductionInstanceDomain(_config,
+        homeUrl: homeUrl,
+        isSecondary: isSecondary,
+        requestOptions: requestOptions);
   }
 
   /// Change the domain of a production instance. Changing the domain requires updating the [DNS records](https://clerk.com/docs/deployments/overview#dns-records) accordingly, deploying new [SSL certificates](https://clerk.com/docs/deployments/overview#deploy-certificates), updating your Social Connection's redirect URLs and setting the new keys in your code. WARNING: Changing your domain will invalidate all current user sessions (i.e. users will be logged out). Also, while your application is being deployed, a small downtime is expected to occur. Returns 403 `domain_managed_by_integration` for applications in a Vercel-managed workspace; change the domain from the Vercel integration instead.
@@ -1035,14 +1427,17 @@ class BetaFeaturesNamespace {
       {SdkOptional<String> homeUrl = const SdkOmitted(),
       SdkOptional<bool> isSecondary = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return beta_features_methods.changeProductionInstanceDomain(_config, homeUrl: homeUrl, isSecondary: isSecondary, requestOptions: requestOptions);
+    return beta_features_methods.changeProductionInstanceDomain(_config,
+        homeUrl: homeUrl,
+        isSecondary: isSecondary,
+        requestOptions: requestOptions);
   }
-
 }
 
 class ActorTokensNamespace {
   final ClientConfig _config;
   ActorTokensNamespace(ClientConfig config) : _config = config;
+
   /// Create an actor token that can be used to impersonate the given user. The `actor` parameter needs to include at least a "sub" key whose value is the ID of the actor (impersonating) user.
   Future<ActorToken> create(
       {required String userId,
@@ -1050,7 +1445,12 @@ class ActorTokensNamespace {
       SdkOptional<int> expiresInSeconds = const SdkOmitted(),
       SdkOptional<int> sessionMaxDurationInSeconds = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return actor_tokens_methods.createActorToken(_config, userId: userId, actor: actor, expiresInSeconds: expiresInSeconds, sessionMaxDurationInSeconds: sessionMaxDurationInSeconds, requestOptions: requestOptions);
+    return actor_tokens_methods.createActorToken(_config,
+        userId: userId,
+        actor: actor,
+        expiresInSeconds: expiresInSeconds,
+        sessionMaxDurationInSeconds: sessionMaxDurationInSeconds,
+        requestOptions: requestOptions);
   }
 
   /// Revokes a pending actor token, changing its status to revoked. Use `actor_token_id` to identify the token; the response includes its resulting status and associated actor and user details.
@@ -1058,14 +1458,15 @@ class ActorTokensNamespace {
   /// Revokes a pending actor token.
   Future<ActorToken> revoke(
       {required String actorTokenId, RequestOptions? requestOptions}) async {
-    return actor_tokens_methods.revokeActorToken(_config, actorTokenId: actorTokenId, requestOptions: requestOptions);
+    return actor_tokens_methods.revokeActorToken(_config,
+        actorTokenId: actorTokenId, requestOptions: requestOptions);
   }
-
 }
 
 class DomainsNamespace {
   final ClientConfig _config;
   DomainsNamespace(ClientConfig config) : _config = config;
+
   /// Use this endpoint to get a list of all domains for an instance. The response will contain the primary domain for the instance and any satellite domains. Each domain in the response contains information about the URLs where Clerk operates and the required CNAME targets.
   Future<Domains> list({RequestOptions? requestOptions}) async {
     return domains_methods.listDomains(_config, requestOptions: requestOptions);
@@ -1077,13 +1478,18 @@ class DomainsNamespace {
       required bool isSatellite,
       SdkOptional<String?> proxyUrl = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return domains_methods.addDomain(_config, name: name, isSatellite: isSatellite, proxyUrl: proxyUrl, requestOptions: requestOptions);
+    return domains_methods.addDomain(_config,
+        name: name,
+        isSatellite: isSatellite,
+        proxyUrl: proxyUrl,
+        requestOptions: requestOptions);
   }
 
   /// Deletes a domain for the instance. The instance's active domain cannot be deleted. Deleting a non-satellite domain returns 403 `domain_managed_by_integration` for applications in a Vercel-managed workspace; change the domain from the Vercel integration instead.
   Future<DeletedObject> delete(
       {required String domainId, RequestOptions? requestOptions}) async {
-    return domains_methods.deleteDomain(_config, domainId: domainId, requestOptions: requestOptions);
+    return domains_methods.deleteDomain(_config,
+        domainId: domainId, requestOptions: requestOptions);
   }
 
   /// The `proxy_url` can be updated only for production instances. Update one of the instance's domains. Both primary and satellite domains can be updated. If you choose to use Clerk via proxy, use this endpoint to specify the `proxy_url`. Whenever you decide you'd rather switch to DNS setup for Clerk, simply set `proxy_url` to `null` for the domain. When you update a production instance's primary domain name, you have to make sure that you've completed all the necessary setup steps for DNS and emails to work. Expect downtime otherwise. Updating a primary domain's name will also update the instance's home origin, affecting the default application paths. Updating the `name` or `is_secondary` of a primary domain returns 403 `domain_managed_by_integration` for applications in a Vercel-managed workspace; change the domain from the Vercel integration instead.
@@ -1093,19 +1499,25 @@ class DomainsNamespace {
       SdkOptional<String?> proxyUrl = const SdkOmitted(),
       SdkOptional<bool?> isSecondary = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return domains_methods.updateDomain(_config, domainId: domainId, name: name, proxyUrl: proxyUrl, isSecondary: isSecondary, requestOptions: requestOptions);
+    return domains_methods.updateDomain(_config,
+        domainId: domainId,
+        name: name,
+        proxyUrl: proxyUrl,
+        isSecondary: isSecondary,
+        requestOptions: requestOptions);
   }
-
 }
 
 class InstanceSettingsNamespace {
   final ClientConfig _config;
   InstanceSettingsNamespace(ClientConfig config) : _config = config;
+
   /// Retrieves the current instance configuration, including its environment, allowed origins, and subdomain access settings. Use the returned `allowed_subdomains` and `subdomain_allowlist_enabled` values to understand which subdomains may originate requests.
   ///
   /// Fetches the current instance
   Future<Instance> getInstance({RequestOptions? requestOptions}) async {
-    return instance_settings_methods.getInstance(_config, requestOptions: requestOptions);
+    return instance_settings_methods.getInstance(_config,
+        requestOptions: requestOptions);
   }
 
   /// Updates configurable settings for an instance, including browser origins, password breach checks, and sign-in preferences. Supply only the settings you want to change; `preferred_sign_in_strategy_when_password_required` accepts `password`, `otp`, or an empty string.
@@ -1122,9 +1534,24 @@ class InstanceSettingsNamespace {
       SdkOptional<bool?> subdomainAllowlistEnabled = const SdkOmitted(),
       SdkOptional<bool?> cookielessDev = const SdkOmitted(),
       SdkOptional<bool?> urlBasedSessionSyncing = const SdkOmitted(),
-      SdkOptional<UpdateInstanceRequestBodyPreferredSignInStrategyWhenPasswordRequired?> preferredSignInStrategyWhenPasswordRequired = const SdkOmitted(),
+      SdkOptional<
+              UpdateInstanceRequestBodyPreferredSignInStrategyWhenPasswordRequired?>
+          preferredSignInStrategyWhenPasswordRequired = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return instance_settings_methods.updateInstance(_config, testMode: testMode, hibp: hibp, supportEmail: supportEmail, clerkJsVersion: clerkJsVersion, developmentOrigin: developmentOrigin, allowedOrigins: allowedOrigins, allowedSubdomains: allowedSubdomains, subdomainAllowlistEnabled: subdomainAllowlistEnabled, cookielessDev: cookielessDev, urlBasedSessionSyncing: urlBasedSessionSyncing, preferredSignInStrategyWhenPasswordRequired: preferredSignInStrategyWhenPasswordRequired, requestOptions: requestOptions);
+    return instance_settings_methods.updateInstance(_config,
+        testMode: testMode,
+        hibp: hibp,
+        supportEmail: supportEmail,
+        clerkJsVersion: clerkJsVersion,
+        developmentOrigin: developmentOrigin,
+        allowedOrigins: allowedOrigins,
+        allowedSubdomains: allowedSubdomains,
+        subdomainAllowlistEnabled: subdomainAllowlistEnabled,
+        cookielessDev: cookielessDev,
+        urlBasedSessionSyncing: urlBasedSessionSyncing,
+        preferredSignInStrategyWhenPasswordRequired:
+            preferredSignInStrategyWhenPasswordRequired,
+        requestOptions: requestOptions);
   }
 
   /// Updates the restriction settings that control allowlisting, blocklisting, and email address checks for an instance. Supply the boolean settings you want to change; the response contains the resulting restriction configuration.
@@ -1133,65 +1560,99 @@ class InstanceSettingsNamespace {
   Future<InstanceRestrictions> updateInstanceRestrictions(
       {SdkOptional<bool?> allowlist = const SdkOmitted(),
       SdkOptional<bool?> blocklist = const SdkOmitted(),
-      SdkOptional<bool?> allowlistBlocklistDisabledOnSignIn = const SdkOmitted(),
+      SdkOptional<bool?> allowlistBlocklistDisabledOnSignIn =
+          const SdkOmitted(),
       SdkOptional<bool?> blockEmailSubaddresses = const SdkOmitted(),
       SdkOptional<bool?> blockDisposableEmailDomains = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return instance_settings_methods.updateInstanceRestrictions(_config, allowlist: allowlist, blocklist: blocklist, allowlistBlocklistDisabledOnSignIn: allowlistBlocklistDisabledOnSignIn, blockEmailSubaddresses: blockEmailSubaddresses, blockDisposableEmailDomains: blockDisposableEmailDomains, requestOptions: requestOptions);
+    return instance_settings_methods.updateInstanceRestrictions(_config,
+        allowlist: allowlist,
+        blocklist: blocklist,
+        allowlistBlocklistDisabledOnSignIn: allowlistBlocklistDisabledOnSignIn,
+        blockEmailSubaddresses: blockEmailSubaddresses,
+        blockDisposableEmailDomains: blockDisposableEmailDomains,
+        requestOptions: requestOptions);
   }
 
   /// Retrieves the Protect settings for the instance, including rule enforcement and prerequisite check status. Use `rules_enabled` to distinguish active enforcement from shadow evaluation, where rules are scored and recorded without blocking traffic.
   Future<InstanceProtect> getInstanceProtect(
       {RequestOptions? requestOptions}) async {
-    return instance_settings_methods.getInstanceProtect(_config, requestOptions: requestOptions);
+    return instance_settings_methods.getInstanceProtect(_config,
+        requestOptions: requestOptions);
   }
 
   /// Updates whether Protect rules are enforced for the instance. Set `rules_enabled` to true to enforce rules or false to return to shadow evaluation, which continues scoring and recording rules without blocking traffic.
   Future<InstanceProtect> updateInstanceProtect(
       {SdkOptional<bool?> rulesEnabled = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return instance_settings_methods.updateInstanceProtect(_config, rulesEnabled: rulesEnabled, requestOptions: requestOptions);
+    return instance_settings_methods.updateInstanceProtect(_config,
+        rulesEnabled: rulesEnabled, requestOptions: requestOptions);
   }
 
   /// Retrieves the per-instance SMS communication settings, including the SMS country blocklist.
   Future<InstanceCommunication> getInstanceCommunication(
       {RequestOptions? requestOptions}) async {
-    return instance_settings_methods.getInstanceCommunication(_config, requestOptions: requestOptions);
+    return instance_settings_methods.getInstanceCommunication(_config,
+        requestOptions: requestOptions);
   }
 
   /// Replaces the SMS country blocklist for this instance. Pass the full set of ISO 3166-1 alpha-2 country codes that should be blocked; codes that aren't recognized as SMS-tier countries are silently dropped from the persisted list. Omitting `blocked_country_codes` is a no-op.
   Future<InstanceCommunication> updateInstanceCommunication(
       {SdkOptional<List<String>?> blockedCountryCodes = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return instance_settings_methods.updateInstanceCommunication(_config, blockedCountryCodes: blockedCountryCodes, requestOptions: requestOptions);
+    return instance_settings_methods.updateInstanceCommunication(_config,
+        blockedCountryCodes: blockedCountryCodes,
+        requestOptions: requestOptions);
   }
 
   /// Retrieves the settings for OAuth applications for the instance (dynamic client registration, JWT access tokens, etc.).
   Future<OAuthApplicationSettings> getInstanceOAuthApplicationSettings(
       {RequestOptions? requestOptions}) async {
-    return instance_settings_methods.getInstanceOAuthApplicationSettings(_config, requestOptions: requestOptions);
+    return instance_settings_methods.getInstanceOAuthApplicationSettings(
+        _config,
+        requestOptions: requestOptions);
   }
 
   /// Updates the OAuth application settings for the instance.
   Future<OAuthApplicationSettings> updateInstanceOAuthApplicationSettings(
       {SdkOptional<bool?> dynamicOauthClientRegistration = const SdkOmitted(),
-      SdkOptional<List<String>?> dynamicClientAllowedScopes = const SdkOmitted(),
+      SdkOptional<List<String>?> dynamicClientAllowedScopes =
+          const SdkOmitted(),
       SdkOptional<List<String>?> defaultScopes = const SdkOmitted(),
       SdkOptional<bool?> oauthJwtAccessTokens = const SdkOmitted(),
       SdkOptional<bool?> audClaimEnabled = const SdkOmitted(),
       SdkOptional<bool?> audClaimRefreshBackfillEnabled = const SdkOmitted(),
       SdkOptional<bool?> pkceRequired = const SdkOmitted(),
-      SdkOptional<bool?> clientIdMetadataDocumentsAdvertised = const SdkOmitted(),
-      SdkOptional<bool?> clientIdMetadataDocumentsOnlyAllowPreRegisteredClients = const SdkOmitted(),
-      SdkOptional<bool?> clientIdMetadataDocumentsBlockImplicitlyAllowedClients = const SdkOmitted(),
+      SdkOptional<bool?> clientIdMetadataDocumentsAdvertised =
+          const SdkOmitted(),
+      SdkOptional<bool?> clientIdMetadataDocumentsOnlyAllowPreRegisteredClients =
+          const SdkOmitted(),
+      SdkOptional<bool?> clientIdMetadataDocumentsBlockImplicitlyAllowedClients =
+          const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return instance_settings_methods.updateInstanceOAuthApplicationSettings(_config, dynamicOauthClientRegistration: dynamicOauthClientRegistration, dynamicClientAllowedScopes: dynamicClientAllowedScopes, defaultScopes: defaultScopes, oauthJwtAccessTokens: oauthJwtAccessTokens, audClaimEnabled: audClaimEnabled, audClaimRefreshBackfillEnabled: audClaimRefreshBackfillEnabled, pkceRequired: pkceRequired, clientIdMetadataDocumentsAdvertised: clientIdMetadataDocumentsAdvertised, clientIdMetadataDocumentsOnlyAllowPreRegisteredClients: clientIdMetadataDocumentsOnlyAllowPreRegisteredClients, clientIdMetadataDocumentsBlockImplicitlyAllowedClients: clientIdMetadataDocumentsBlockImplicitlyAllowedClients, requestOptions: requestOptions);
+    return instance_settings_methods.updateInstanceOAuthApplicationSettings(
+        _config,
+        dynamicOauthClientRegistration: dynamicOauthClientRegistration,
+        dynamicClientAllowedScopes: dynamicClientAllowedScopes,
+        defaultScopes: defaultScopes,
+        oauthJwtAccessTokens: oauthJwtAccessTokens,
+        audClaimEnabled: audClaimEnabled,
+        audClaimRefreshBackfillEnabled: audClaimRefreshBackfillEnabled,
+        pkceRequired: pkceRequired,
+        clientIdMetadataDocumentsAdvertised:
+            clientIdMetadataDocumentsAdvertised,
+        clientIdMetadataDocumentsOnlyAllowPreRegisteredClients:
+            clientIdMetadataDocumentsOnlyAllowPreRegisteredClients,
+        clientIdMetadataDocumentsBlockImplicitlyAllowedClients:
+            clientIdMetadataDocumentsBlockImplicitlyAllowedClients,
+        requestOptions: requestOptions);
   }
 
   /// Retrieves the organization settings of the instance
   Future<OrganizationSettings> getInstanceOrganizationSettings(
       {RequestOptions? requestOptions}) async {
-    return instance_settings_methods.getInstanceOrganizationSettings(_config, requestOptions: requestOptions);
+    return instance_settings_methods.getInstanceOrganizationSettings(_config,
+        requestOptions: requestOptions);
   }
 
   /// Updates the organization settings for the instance. Use the available fields to configure organization creation, membership limits, deletion, and domain enrollment; `domains_enrollment_modes` supports automatic invitations and suggestions. The response returns the updated organization settings.
@@ -1207,41 +1668,57 @@ class InstanceSettingsNamespace {
       SdkOptional<String?> creatorRoleId = const SdkOmitted(),
       SdkOptional<String?> domainsDefaultRoleId = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return instance_settings_methods.updateInstanceOrganizationSettings(_config, enabled: enabled, maxAllowedMemberships: maxAllowedMemberships, adminDeleteEnabled: adminDeleteEnabled, domainsEnabled: domainsEnabled, slugDisabled: slugDisabled, domainsEnrollmentModes: domainsEnrollmentModes, creatorRoleId: creatorRoleId, domainsDefaultRoleId: domainsDefaultRoleId, requestOptions: requestOptions);
+    return instance_settings_methods.updateInstanceOrganizationSettings(_config,
+        enabled: enabled,
+        maxAllowedMemberships: maxAllowedMemberships,
+        adminDeleteEnabled: adminDeleteEnabled,
+        domainsEnabled: domainsEnabled,
+        slugDisabled: slugDisabled,
+        domainsEnrollmentModes: domainsEnrollmentModes,
+        creatorRoleId: creatorRoleId,
+        domainsDefaultRoleId: domainsDefaultRoleId,
+        requestOptions: requestOptions);
   }
-
 }
 
 class WebhooksNamespace {
   final ClientConfig _config;
   WebhooksNamespace(ClientConfig config) : _config = config;
+
   /// Create a Svix app and associate it with the current instance
   Future<SvixURL> createSvixApp({RequestOptions? requestOptions}) async {
-    return webhooks_methods.createSvixApp(_config, requestOptions: requestOptions);
+    return webhooks_methods.createSvixApp(_config,
+        requestOptions: requestOptions);
   }
 
   /// Delete a Svix app and disassociate it from the current instance
   Future<void> deleteSvixApp({RequestOptions? requestOptions}) async {
-    return webhooks_methods.deleteSvixApp(_config, requestOptions: requestOptions);
+    return webhooks_methods.deleteSvixApp(_config,
+        requestOptions: requestOptions);
   }
 
   /// Generate a new URL for accessing the Svix's management dashboard for that particular instance
   Future<SvixURL> generateSvixAuthUrl({RequestOptions? requestOptions}) async {
-    return webhooks_methods.generateSvixAuthUrl(_config, requestOptions: requestOptions);
+    return webhooks_methods.generateSvixAuthUrl(_config,
+        requestOptions: requestOptions);
   }
-
 }
 
 class JwtTemplatesNamespace {
   final ClientConfig _config;
   JwtTemplatesNamespace(ClientConfig config) : _config = config;
+
   /// Lists JWT templates, with an option to return paginated or unpaginated results. Use `limit` and `offset` to control the number of templates returned and the starting position.
   Future<List<JWTTemplate>> list(
       {SdkOptional<bool> paginated = const SdkOmitted(),
       SdkOptional<int> limit = const SdkOmitted(),
       SdkOptional<int> offset = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return jwt_templates_methods.listJwtTemplates(_config, paginated: paginated, limit: limit, offset: offset, requestOptions: requestOptions);
+    return jwt_templates_methods.listJwtTemplates(_config,
+        paginated: paginated,
+        limit: limit,
+        offset: offset,
+        requestOptions: requestOptions);
   }
 
   /// Creates a JWT template with the supplied name and claims. Include `name` and `claims`; set `lifetime` and `allowed_clock_skew` within their permitted ranges, and provide a signing algorithm and key when `custom_signing_key` is true. The response returns the created template.
@@ -1256,7 +1733,15 @@ class JwtTemplatesNamespace {
       SdkOptional<String?> signingAlgorithm = const SdkOmitted(),
       SdkOptional<String?> signingKey = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return jwt_templates_methods.createJwtTemplate(_config, name: name, claims: claims, lifetime: lifetime, allowedClockSkew: allowedClockSkew, customSigningKey: customSigningKey, signingAlgorithm: signingAlgorithm, signingKey: signingKey, requestOptions: requestOptions);
+    return jwt_templates_methods.createJwtTemplate(_config,
+        name: name,
+        claims: claims,
+        lifetime: lifetime,
+        allowedClockSkew: allowedClockSkew,
+        customSigningKey: customSigningKey,
+        signingAlgorithm: signingAlgorithm,
+        signingKey: signingKey,
+        requestOptions: requestOptions);
   }
 
   /// Retrieves the details of a JWT template by its identifier. Use `template_id` to select the template whose claims, lifetime, and signing configuration you need.
@@ -1264,7 +1749,8 @@ class JwtTemplatesNamespace {
   /// Retrieve the details of a given JWT template
   Future<JWTTemplate> get_(
       {required String templateId, RequestOptions? requestOptions}) async {
-    return jwt_templates_methods.getJwtTemplate(_config, templateId: templateId, requestOptions: requestOptions);
+    return jwt_templates_methods.getJwtTemplate(_config,
+        templateId: templateId, requestOptions: requestOptions);
   }
 
   /// Updates an existing JWT template's configuration. Include `name` and `claims`; `lifetime` and `allowed_clock_skew` must fall within their permitted ranges, and custom signing details are required when `custom_signing_key` is true. The response returns the updated template.
@@ -1280,20 +1766,30 @@ class JwtTemplatesNamespace {
       SdkOptional<String?> signingAlgorithm = const SdkOmitted(),
       SdkOptional<String?> signingKey = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return jwt_templates_methods.updateJwtTemplate(_config, templateId: templateId, name: name, claims: claims, lifetime: lifetime, allowedClockSkew: allowedClockSkew, customSigningKey: customSigningKey, signingAlgorithm: signingAlgorithm, signingKey: signingKey, requestOptions: requestOptions);
+    return jwt_templates_methods.updateJwtTemplate(_config,
+        templateId: templateId,
+        name: name,
+        claims: claims,
+        lifetime: lifetime,
+        allowedClockSkew: allowedClockSkew,
+        customSigningKey: customSigningKey,
+        signingAlgorithm: signingAlgorithm,
+        signingKey: signingKey,
+        requestOptions: requestOptions);
   }
 
   /// Deletes a JWT template by its identifier. Use `template_id` to select the template to remove. The response indicates whether the template was deleted.
   Future<DeletedObject> delete(
       {required String templateId, RequestOptions? requestOptions}) async {
-    return jwt_templates_methods.deleteJwtTemplate(_config, templateId: templateId, requestOptions: requestOptions);
+    return jwt_templates_methods.deleteJwtTemplate(_config,
+        templateId: templateId, requestOptions: requestOptions);
   }
-
 }
 
 class MachinesNamespace {
   final ClientConfig _config;
   MachinesNamespace(ClientConfig config) : _config = config;
+
   /// This request returns the list of machines for an instance. The machines are ordered by descending creation date (i.e. most recent machines will be returned first)
   Future<MachineList> list(
       {SdkOptional<int> limit = const SdkOmitted(),
@@ -1301,7 +1797,12 @@ class MachinesNamespace {
       SdkOptional<String> query = const SdkOmitted(),
       SdkOptional<String> orderBy = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return machines_methods.listMachines(_config, limit: limit, offset: offset, query: query, orderBy: orderBy, requestOptions: requestOptions);
+    return machines_methods.listMachines(_config,
+        limit: limit,
+        offset: offset,
+        query: query,
+        orderBy: orderBy,
+        requestOptions: requestOptions);
   }
 
   /// Creates a new machine. Provide a `name` and optionally configure its machine scopes and default token TTL. The response includes the machine's secret key, so store it securely.
@@ -1312,7 +1813,11 @@ class MachinesNamespace {
       SdkOptional<List<String>> scopedMachines = const SdkOmitted(),
       SdkOptional<int> defaultTokenTtl = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return machines_methods.createMachine(_config, name: name, scopedMachines: scopedMachines, defaultTokenTtl: defaultTokenTtl, requestOptions: requestOptions);
+    return machines_methods.createMachine(_config,
+        name: name,
+        scopedMachines: scopedMachines,
+        defaultTokenTtl: defaultTokenTtl,
+        requestOptions: requestOptions);
   }
 
   /// Retrieves the details of a machine. Use its `machine_id` to identify the machine whose configuration and scopes you need to inspect.
@@ -1320,7 +1825,8 @@ class MachinesNamespace {
   /// Returns the details of a machine.
   Future<Machine> get_(
       {required String machineId, RequestOptions? requestOptions}) async {
-    return machines_methods.getMachine(_config, machineId: machineId, requestOptions: requestOptions);
+    return machines_methods.getMachine(_config,
+        machineId: machineId, requestOptions: requestOptions);
   }
 
   /// Updates an existing machine. Only the provided fields will be updated.
@@ -1329,7 +1835,11 @@ class MachinesNamespace {
       SdkOptional<String> name = const SdkOmitted(),
       SdkOptional<int> defaultTokenTtl = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return machines_methods.updateMachine(_config, machineId: machineId, name: name, defaultTokenTtl: defaultTokenTtl, requestOptions: requestOptions);
+    return machines_methods.updateMachine(_config,
+        machineId: machineId,
+        name: name,
+        defaultTokenTtl: defaultTokenTtl,
+        requestOptions: requestOptions);
   }
 
   /// Deletes a machine. Use its `machine_id` to identify the machine you want to remove. The response confirms deletion with the machine ID and a `deleted` value.
@@ -1337,7 +1847,8 @@ class MachinesNamespace {
   /// Deletes a machine.
   Future<MachineDeleted> delete(
       {required String machineId, RequestOptions? requestOptions}) async {
-    return machines_methods.deleteMachine(_config, machineId: machineId, requestOptions: requestOptions);
+    return machines_methods.deleteMachine(_config,
+        machineId: machineId, requestOptions: requestOptions);
   }
 
   /// Retrieves the secret key for a machine. Use the `machine_id` to identify which machine's key you need.
@@ -1345,7 +1856,8 @@ class MachinesNamespace {
   /// Returns the secret key for a machine.
   Future<MachineSecretKey> getSecretKey(
       {required String machineId, RequestOptions? requestOptions}) async {
-    return machines_methods.getMachineSecretKey(_config, machineId: machineId, requestOptions: requestOptions);
+    return machines_methods.getMachineSecretKey(_config,
+        machineId: machineId, requestOptions: requestOptions);
   }
 
   /// Rotates the machine's secret key. When the secret key is rotated, make sure to update it in your machine/application. The previous secret key will remain valid for the duration specified by the previous_token_ttl parameter.
@@ -1353,7 +1865,10 @@ class MachinesNamespace {
       {required String machineId,
       required int previousTokenTtl,
       RequestOptions? requestOptions}) async {
-    return machines_methods.rotateMachineSecretKey(_config, machineId: machineId, previousTokenTtl: previousTokenTtl, requestOptions: requestOptions);
+    return machines_methods.rotateMachineSecretKey(_config,
+        machineId: machineId,
+        previousTokenTtl: previousTokenTtl,
+        requestOptions: requestOptions);
   }
 
   /// Creates a new machine scope, allowing the specified machine to access another machine. Maximum of 150 scopes per machine.
@@ -1361,7 +1876,10 @@ class MachinesNamespace {
       {required String machineId,
       required String toMachineId,
       RequestOptions? requestOptions}) async {
-    return machines_methods.createMachineScope(_config, machineId: machineId, toMachineId: toMachineId, requestOptions: requestOptions);
+    return machines_methods.createMachineScope(_config,
+        machineId: machineId,
+        toMachineId: toMachineId,
+        requestOptions: requestOptions);
   }
 
   /// Deletes a machine scope, removing access from one machine to another.
@@ -1369,18 +1887,22 @@ class MachinesNamespace {
       {required String machineId,
       required String otherMachineId,
       RequestOptions? requestOptions}) async {
-    return machines_methods.deleteMachineScope(_config, machineId: machineId, otherMachineId: otherMachineId, requestOptions: requestOptions);
+    return machines_methods.deleteMachineScope(_config,
+        machineId: machineId,
+        otherMachineId: otherMachineId,
+        requestOptions: requestOptions);
   }
-
 }
 
 class OrganizationsNamespace {
   final ClientConfig _config;
   OrganizationsNamespace(ClientConfig config) : _config = config;
+
   /// This request returns the list of organizations for an instance. Results can be paginated using the optional `limit` and `offset` query parameters. The organizations are ordered by descending creation date. Most recent organizations will be returned first.
   Future<Organizations> list(
       {SdkOptional<bool> includeMembersCount = const SdkOmitted(),
-      SdkOptional<bool> includeMissingMemberWithElevatedPermissions = const SdkOmitted(),
+      SdkOptional<bool> includeMissingMemberWithElevatedPermissions =
+          const SdkOmitted(),
       SdkOptional<String> query = const SdkOmitted(),
       SdkOptional<List<String>> userId = const SdkOmitted(),
       SdkOptional<List<String>> organizationId = const SdkOmitted(),
@@ -1388,7 +1910,17 @@ class OrganizationsNamespace {
       SdkOptional<int> limit = const SdkOmitted(),
       SdkOptional<int> offset = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return organizations_methods.listOrganizations(_config, includeMembersCount: includeMembersCount, includeMissingMemberWithElevatedPermissions: includeMissingMemberWithElevatedPermissions, query: query, userId: userId, organizationId: organizationId, orderBy: orderBy, limit: limit, offset: offset, requestOptions: requestOptions);
+    return organizations_methods.listOrganizations(_config,
+        includeMembersCount: includeMembersCount,
+        includeMissingMemberWithElevatedPermissions:
+            includeMissingMemberWithElevatedPermissions,
+        query: query,
+        userId: userId,
+        organizationId: organizationId,
+        orderBy: orderBy,
+        limit: limit,
+        offset: offset,
+        requestOptions: requestOptions);
   }
 
   /// Creates a new organization with the given name for an instance. You can specify an optional slug for the new organization. If provided, the organization slug can contain only lowercase alphanumeric characters (letters and digits) and the dash "-". Organization slugs must be unique for the instance. You can provide additional metadata for the organization and set any custom attribute you want. Organizations support private and public metadata. Private metadata can only be accessed from the Backend API. Public metadata can be accessed from the Backend API, and are read-only from the Frontend API. The `created_by` user will see this as their [active organization](https://clerk.com/docs/organizations/overview#active-organization) the next time they create a session, presuming they don't explicitly set a different organization as active before then.
@@ -1402,16 +1934,31 @@ class OrganizationsNamespace {
       SdkOptional<String?> createdAt = const SdkOmitted(),
       SdkOptional<String?> roleSetKey = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return organizations_methods.createOrganization(_config, name: name, createdBy: createdBy, privateMetadata: privateMetadata, publicMetadata: publicMetadata, slug: slug, maxAllowedMemberships: maxAllowedMemberships, createdAt: createdAt, roleSetKey: roleSetKey, requestOptions: requestOptions);
+    return organizations_methods.createOrganization(_config,
+        name: name,
+        createdBy: createdBy,
+        privateMetadata: privateMetadata,
+        publicMetadata: publicMetadata,
+        slug: slug,
+        maxAllowedMemberships: maxAllowedMemberships,
+        createdAt: createdAt,
+        roleSetKey: roleSetKey,
+        requestOptions: requestOptions);
   }
 
   /// Fetches the organization whose ID or slug matches the provided `id_or_slug` URL query parameter.
   Future<Organization> get_(
       {required String organizationId,
       SdkOptional<bool> includeMembersCount = const SdkOmitted(),
-      SdkOptional<bool> includeMissingMemberWithElevatedPermissions = const SdkOmitted(),
+      SdkOptional<bool> includeMissingMemberWithElevatedPermissions =
+          const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return organizations_methods.getOrganization(_config, organizationId: organizationId, includeMembersCount: includeMembersCount, includeMissingMemberWithElevatedPermissions: includeMissingMemberWithElevatedPermissions, requestOptions: requestOptions);
+    return organizations_methods.getOrganization(_config,
+        organizationId: organizationId,
+        includeMembersCount: includeMembersCount,
+        includeMissingMemberWithElevatedPermissions:
+            includeMissingMemberWithElevatedPermissions,
+        requestOptions: requestOptions);
   }
 
   /// Updates an existing organization. As of API version 2026-05-12, this endpoint no longer accepts `public_metadata` or `private_metadata`. Use `PATCH /v1/organizations/{organization_id}/metadata` to merge updates into existing metadata, or `PUT /v1/organizations/{organization_id}/metadata` to replace a metadata field entirely.
@@ -1425,15 +1972,28 @@ class OrganizationsNamespace {
       SdkOptional<bool?> selfServeDirectorySyncEnabled = const SdkOmitted(),
       SdkOptional<String?> createdAt = const SdkOmitted(),
       SdkOptional<String?> roleSetKey = const SdkOmitted(),
-      SdkOptional<Map<String, dynamic>?> reassignmentMappings = const SdkOmitted(),
+      SdkOptional<Map<String, dynamic>?> reassignmentMappings =
+          const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return organizations_methods.updateOrganization(_config, organizationId: organizationId, name: name, slug: slug, maxAllowedMemberships: maxAllowedMemberships, adminDeleteEnabled: adminDeleteEnabled, selfServeSsoEnabled: selfServeSsoEnabled, selfServeDirectorySyncEnabled: selfServeDirectorySyncEnabled, createdAt: createdAt, roleSetKey: roleSetKey, reassignmentMappings: reassignmentMappings, requestOptions: requestOptions);
+    return organizations_methods.updateOrganization(_config,
+        organizationId: organizationId,
+        name: name,
+        slug: slug,
+        maxAllowedMemberships: maxAllowedMemberships,
+        adminDeleteEnabled: adminDeleteEnabled,
+        selfServeSsoEnabled: selfServeSsoEnabled,
+        selfServeDirectorySyncEnabled: selfServeDirectorySyncEnabled,
+        createdAt: createdAt,
+        roleSetKey: roleSetKey,
+        reassignmentMappings: reassignmentMappings,
+        requestOptions: requestOptions);
   }
 
   /// Deletes the given organization. Please note that deleting an organization will also delete all memberships and invitations. This is not reversible. After the organization is deleted, any user's active sessions that contain the deleted organization will be cleared.
   Future<DeletedObject> delete(
       {required String organizationId, RequestOptions? requestOptions}) async {
-    return organizations_methods.deleteOrganization(_config, organizationId: organizationId, requestOptions: requestOptions);
+    return organizations_methods.deleteOrganization(_config,
+        organizationId: organizationId, requestOptions: requestOptions);
   }
 
   /// Update organization metadata attributes by merging existing values with the provided parameters. Metadata values will be updated via a deep merge. Deep meaning that any nested JSON objects will be merged as well. You can remove metadata keys at any level by setting their value to `null`.
@@ -1442,7 +2002,11 @@ class OrganizationsNamespace {
       SdkOptional<Map<String, Object?>> publicMetadata = const SdkOmitted(),
       SdkOptional<Map<String, Object?>> privateMetadata = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return organizations_methods.mergeOrganizationMetadata(_config, organizationId: organizationId, publicMetadata: publicMetadata, privateMetadata: privateMetadata, requestOptions: requestOptions);
+    return organizations_methods.mergeOrganizationMetadata(_config,
+        organizationId: organizationId,
+        publicMetadata: publicMetadata,
+        privateMetadata: privateMetadata,
+        requestOptions: requestOptions);
   }
 
   /// Replace an organization's metadata attributes with the provided values. Unlike `PATCH /v1/organizations/{organization_id}/metadata` (merge semantics), this endpoint replaces the supplied metadata fields entirely — the prior contents of each supplied field are discarded. Fields omitted from the request body are left unchanged. Prefer the `PATCH` endpoint for partial updates. Use `PUT` only when you explicitly intend to overwrite a metadata field wholesale.
@@ -1451,7 +2015,11 @@ class OrganizationsNamespace {
       SdkOptional<Map<String, Object?>> publicMetadata = const SdkOmitted(),
       SdkOptional<Map<String, Object?>> privateMetadata = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return organizations_methods.replaceOrganizationMetadata(_config, organizationId: organizationId, publicMetadata: publicMetadata, privateMetadata: privateMetadata, requestOptions: requestOptions);
+    return organizations_methods.replaceOrganizationMetadata(_config,
+        organizationId: organizationId,
+        publicMetadata: publicMetadata,
+        privateMetadata: privateMetadata,
+        requestOptions: requestOptions);
   }
 
   /// Uploads an image file as the logo for an organization. Send the request as `multipart/form-data`; files must be no larger than 10 MB and use a supported image content type. A 200 response returns the organization with its logo URL.
@@ -1462,7 +2030,11 @@ class OrganizationsNamespace {
       required SdkUploadFile file,
       SdkOptional<String> uploaderUserId = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return organizations_methods.uploadOrganizationLogo(_config, organizationId: organizationId, file: file, uploaderUserId: uploaderUserId, requestOptions: requestOptions);
+    return organizations_methods.uploadOrganizationLogo(_config,
+        organizationId: organizationId,
+        file: file,
+        uploaderUserId: uploaderUserId,
+        requestOptions: requestOptions);
   }
 
   /// Deletes the logo associated with an organization. Use `organization_id` to identify the organization whose logo you want to remove. A 200 response returns the organization with its updated logo-related fields.
@@ -1470,19 +2042,22 @@ class OrganizationsNamespace {
   /// Delete the organization's logo.
   Future<Organization> deleteLogo(
       {required String organizationId, RequestOptions? requestOptions}) async {
-    return organizations_methods.deleteOrganizationLogo(_config, organizationId: organizationId, requestOptions: requestOptions);
+    return organizations_methods.deleteOrganizationLogo(_config,
+        organizationId: organizationId, requestOptions: requestOptions);
   }
 
   /// Retrieves the billing subscription for the specified organization. This includes subscription details, active plans, billing information, and payment status. The subscription contains subscription items which represent the individual plans the organization is subscribed to.
   Future<CommerceSubscription> getBillingSubscription(
       {required String organizationId, RequestOptions? requestOptions}) async {
-    return organizations_methods.getOrganizationBillingSubscription(_config, organizationId: organizationId, requestOptions: requestOptions);
+    return organizations_methods.getOrganizationBillingSubscription(_config,
+        organizationId: organizationId, requestOptions: requestOptions);
   }
 
   /// Retrieves the current credit balance for the specified organization. Credits can be applied during checkout to reduce the charge or automatically applied to upcoming recurring charges.
   Future<CommerceCreditBalanceResponse> getBillingCreditBalance(
       {required String organizationId, RequestOptions? requestOptions}) async {
-    return organizations_methods.getOrganizationBillingCreditBalance(_config, organizationId: organizationId, requestOptions: requestOptions);
+    return organizations_methods.getOrganizationBillingCreditBalance(_config,
+        organizationId: organizationId, requestOptions: requestOptions);
   }
 
   /// Increases or decreases the credit balance for the specified organization. Each adjustment is recorded as a ledger entry. The idempotency_key parameter ensures that duplicate requests are safely handled.
@@ -1494,14 +2069,21 @@ class OrganizationsNamespace {
       SdkOptional<String> currency = const SdkOmitted(),
       SdkOptional<String> note = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return organizations_methods.adjustOrganizationBillingCreditBalance(_config, organizationId: organizationId, amount: amount, action: action, idempotencyKey: idempotencyKey, currency: currency, note: note, requestOptions: requestOptions);
+    return organizations_methods.adjustOrganizationBillingCreditBalance(_config,
+        organizationId: organizationId,
+        amount: amount,
+        action: action,
+        idempotencyKey: idempotencyKey,
+        currency: currency,
+        note: note,
+        requestOptions: requestOptions);
   }
-
 }
 
 class OrganizationRolesNamespace {
   final ClientConfig _config;
   OrganizationRolesNamespace(ClientConfig config) : _config = config;
+
   /// This request returns the list of organization roles for the instance. Results can be paginated using the optional `limit` and `offset` query parameters. The organization roles are ordered by descending creation date. Most recent roles will be returned first.
   Future<Roles> list(
       {SdkOptional<String> query = const SdkOmitted(),
@@ -1509,7 +2091,12 @@ class OrganizationRolesNamespace {
       SdkOptional<int> limit = const SdkOmitted(),
       SdkOptional<int> offset = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return organization_roles_methods.listOrganizationRoles(_config, query: query, orderBy: orderBy, limit: limit, offset: offset, requestOptions: requestOptions);
+    return organization_roles_methods.listOrganizationRoles(_config,
+        query: query,
+        orderBy: orderBy,
+        limit: limit,
+        offset: offset,
+        requestOptions: requestOptions);
   }
 
   /// Creates a new organization role with the given name and permissions for an instance. The key must be unique for the instance and start with the 'org:' prefix, followed by lowercase alphanumeric characters and underscores only. You can optionally provide a description for the role and specify whether it should be included in the initial role set. Organization roles support permissions that can be assigned to control access within the organization.
@@ -1520,14 +2107,21 @@ class OrganizationRolesNamespace {
       SdkOptional<List<String>?> permissions = const SdkOmitted(),
       SdkOptional<bool?> includeInInitialRoleSet = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return organization_roles_methods.createOrganizationRole(_config, name: name, key: key, description: description, permissions: permissions, includeInInitialRoleSet: includeInInitialRoleSet, requestOptions: requestOptions);
+    return organization_roles_methods.createOrganizationRole(_config,
+        name: name,
+        key: key,
+        description: description,
+        permissions: permissions,
+        includeInInitialRoleSet: includeInInitialRoleSet,
+        requestOptions: requestOptions);
   }
 
   /// Use this request to retrieve an existing organization role by its ID.
   Future<Role> get_(
       {required String organizationRoleId,
       RequestOptions? requestOptions}) async {
-    return organization_roles_methods.getOrganizationRole(_config, organizationRoleId: organizationRoleId, requestOptions: requestOptions);
+    return organization_roles_methods.getOrganizationRole(_config,
+        organizationRoleId: organizationRoleId, requestOptions: requestOptions);
   }
 
   /// Updates an existing organization role. You can update the name, key, description, and permissions of the role. All parameters are optional - you can update only the fields you want to change. If the role is used as a creator role or domain default role, updating the key will cascade the update to the organization settings.
@@ -1538,14 +2132,21 @@ class OrganizationRolesNamespace {
       SdkOptional<String?> description = const SdkOmitted(),
       SdkOptional<List<String>?> permissions = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return organization_roles_methods.updateOrganizationRole(_config, organizationRoleId: organizationRoleId, name: name, key: key, description: description, permissions: permissions, requestOptions: requestOptions);
+    return organization_roles_methods.updateOrganizationRole(_config,
+        organizationRoleId: organizationRoleId,
+        name: name,
+        key: key,
+        description: description,
+        permissions: permissions,
+        requestOptions: requestOptions);
   }
 
   /// Deletes the organization role. The role cannot be deleted if it is currently used as the default creator role, domain default role, assigned to any members, or exists in any invitations.
   Future<DeletedObject> delete(
       {required String organizationRoleId,
       RequestOptions? requestOptions}) async {
-    return organization_roles_methods.deleteOrganizationRole(_config, organizationRoleId: organizationRoleId, requestOptions: requestOptions);
+    return organization_roles_methods.deleteOrganizationRole(_config,
+        organizationRoleId: organizationRoleId, requestOptions: requestOptions);
   }
 
   /// Assigns a permission to an organization role. Use the `organization_role_id` and `permission_id` path parameters to identify the role and permission to link. The response contains the updated role and its permissions.
@@ -1555,7 +2156,11 @@ class OrganizationRolesNamespace {
       {required String organizationRoleId,
       required String permissionId,
       RequestOptions? requestOptions}) async {
-    return organization_roles_methods.assignPermissionToOrganizationRole(_config, organizationRoleId: organizationRoleId, permissionId: permissionId, requestOptions: requestOptions);
+    return organization_roles_methods.assignPermissionToOrganizationRole(
+        _config,
+        organizationRoleId: organizationRoleId,
+        permissionId: permissionId,
+        requestOptions: requestOptions);
   }
 
   /// Removes a permission from an organization role. Use the `organization_role_id` and `permission_id` path parameters to identify the role and permission to unlink. The response contains the updated role and its remaining permissions.
@@ -1565,14 +2170,18 @@ class OrganizationRolesNamespace {
       {required String organizationRoleId,
       required String permissionId,
       RequestOptions? requestOptions}) async {
-    return organization_roles_methods.removePermissionFromOrganizationRole(_config, organizationRoleId: organizationRoleId, permissionId: permissionId, requestOptions: requestOptions);
+    return organization_roles_methods.removePermissionFromOrganizationRole(
+        _config,
+        organizationRoleId: organizationRoleId,
+        permissionId: permissionId,
+        requestOptions: requestOptions);
   }
-
 }
 
 class OrganizationMembershipsNamespace {
   final ClientConfig _config;
   OrganizationMembershipsNamespace(ClientConfig config) : _config = config;
+
   /// Adds a user as a member to the given organization. Only users in the same instance as the organization can be added as members. This organization will be the user's [active organization] (https://clerk.com/docs/organizations/overview#active-organization) the next time they create a session, presuming they don't explicitly set a different organization as active before then.
   Future<OrganizationMembership> create(
       {required String organizationId,
@@ -1581,7 +2190,14 @@ class OrganizationMembershipsNamespace {
       SdkOptional<Map<String, Object?>?> publicMetadata = const SdkOmitted(),
       SdkOptional<Map<String, Object?>?> privateMetadata = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return organization_memberships_methods.createOrganizationMembership(_config, organizationId: organizationId, userId: userId, role: role, publicMetadata: publicMetadata, privateMetadata: privateMetadata, requestOptions: requestOptions);
+    return organization_memberships_methods.createOrganizationMembership(
+        _config,
+        organizationId: organizationId,
+        userId: userId,
+        role: role,
+        publicMetadata: publicMetadata,
+        privateMetadata: privateMetadata,
+        requestOptions: requestOptions);
   }
 
   /// Retrieves all user memberships for the given organization
@@ -1606,7 +2222,27 @@ class OrganizationMembershipsNamespace {
       SdkOptional<int> limit = const SdkOmitted(),
       SdkOptional<int> offset = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return organization_memberships_methods.listOrganizationMemberships(_config, organizationId: organizationId, orderBy: orderBy, userId: userId, emailAddress: emailAddress, phoneNumber: phoneNumber, username: username, web3Wallet: web3Wallet, role: role, query: query, emailAddressQuery: emailAddressQuery, phoneNumberQuery: phoneNumberQuery, usernameQuery: usernameQuery, nameQuery: nameQuery, lastActiveAtBefore: lastActiveAtBefore, lastActiveAtAfter: lastActiveAtAfter, createdAtBefore: createdAtBefore, createdAtAfter: createdAtAfter, limit: limit, offset: offset, requestOptions: requestOptions);
+    return organization_memberships_methods.listOrganizationMemberships(_config,
+        organizationId: organizationId,
+        orderBy: orderBy,
+        userId: userId,
+        emailAddress: emailAddress,
+        phoneNumber: phoneNumber,
+        username: username,
+        web3Wallet: web3Wallet,
+        role: role,
+        query: query,
+        emailAddressQuery: emailAddressQuery,
+        phoneNumberQuery: phoneNumberQuery,
+        usernameQuery: usernameQuery,
+        nameQuery: nameQuery,
+        lastActiveAtBefore: lastActiveAtBefore,
+        lastActiveAtAfter: lastActiveAtAfter,
+        createdAtBefore: createdAtBefore,
+        createdAtAfter: createdAtAfter,
+        limit: limit,
+        offset: offset,
+        requestOptions: requestOptions);
   }
 
   /// Updates the properties of an existing organization membership
@@ -1615,7 +2251,12 @@ class OrganizationMembershipsNamespace {
       required String userId,
       required String role,
       RequestOptions? requestOptions}) async {
-    return organization_memberships_methods.updateOrganizationMembership(_config, organizationId: organizationId, userId: userId, role: role, requestOptions: requestOptions);
+    return organization_memberships_methods.updateOrganizationMembership(
+        _config,
+        organizationId: organizationId,
+        userId: userId,
+        role: role,
+        requestOptions: requestOptions);
   }
 
   /// Removes the given membership from the organization
@@ -1623,7 +2264,11 @@ class OrganizationMembershipsNamespace {
       {required String organizationId,
       required String userId,
       RequestOptions? requestOptions}) async {
-    return organization_memberships_methods.deleteOrganizationMembership(_config, organizationId: organizationId, userId: userId, requestOptions: requestOptions);
+    return organization_memberships_methods.deleteOrganizationMembership(
+        _config,
+        organizationId: organizationId,
+        userId: userId,
+        requestOptions: requestOptions);
   }
 
   /// Update an organization membership's metadata attributes by merging existing values with the provided parameters. Metadata values will be updated via a deep merge. Deep means that any nested JSON objects will be merged as well. You can remove metadata keys at any level by setting their value to `null`.
@@ -1633,7 +2278,13 @@ class OrganizationMembershipsNamespace {
       SdkOptional<Map<String, Object?>> publicMetadata = const SdkOmitted(),
       SdkOptional<Map<String, Object?>> privateMetadata = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return organization_memberships_methods.updateOrganizationMembershipMetadata(_config, organizationId: organizationId, userId: userId, publicMetadata: publicMetadata, privateMetadata: privateMetadata, requestOptions: requestOptions);
+    return organization_memberships_methods
+        .updateOrganizationMembershipMetadata(_config,
+            organizationId: organizationId,
+            userId: userId,
+            publicMetadata: publicMetadata,
+            privateMetadata: privateMetadata,
+            requestOptions: requestOptions);
   }
 
   /// Retrieves all organization user memberships for the given instance.
@@ -1642,14 +2293,19 @@ class OrganizationMembershipsNamespace {
       SdkOptional<int> limit = const SdkOmitted(),
       SdkOptional<int> offset = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return organization_memberships_methods.listOrganizationMembershipsAll(_config, orderBy: orderBy, limit: limit, offset: offset, requestOptions: requestOptions);
+    return organization_memberships_methods.listOrganizationMembershipsAll(
+        _config,
+        orderBy: orderBy,
+        limit: limit,
+        offset: offset,
+        requestOptions: requestOptions);
   }
-
 }
 
 class OrganizationDomainsNamespace {
   final ClientConfig _config;
   OrganizationDomainsNamespace(ClientConfig config) : _config = config;
+
   /// Creates a new organization domain. By default the domain is verified, but can be optionally set to unverified.
   Future<OrganizationDomain> create(
       {required String organizationId,
@@ -1657,7 +2313,12 @@ class OrganizationDomainsNamespace {
       SdkOptional<String> enrollmentMode = const SdkOmitted(),
       SdkOptional<bool?> verified = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return organization_domains_methods.createOrganizationDomain(_config, organizationId: organizationId, name: name, enrollmentMode: enrollmentMode, verified: verified, requestOptions: requestOptions);
+    return organization_domains_methods.createOrganizationDomain(_config,
+        organizationId: organizationId,
+        name: name,
+        enrollmentMode: enrollmentMode,
+        verified: verified,
+        requestOptions: requestOptions);
   }
 
   /// Lists domains associated with an organization. Filter the results by verification status or enrollment mode, and use `limit` and `offset` to control the result window. The response includes the matching domains and their total count.
@@ -1670,7 +2331,13 @@ class OrganizationDomainsNamespace {
       SdkOptional<int> limit = const SdkOmitted(),
       SdkOptional<int> offset = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return organization_domains_methods.listOrganizationDomains(_config, organizationId: organizationId, verified: verified, enrollmentMode: enrollmentMode, limit: limit, offset: offset, requestOptions: requestOptions);
+    return organization_domains_methods.listOrganizationDomains(_config,
+        organizationId: organizationId,
+        verified: verified,
+        enrollmentMode: enrollmentMode,
+        limit: limit,
+        offset: offset,
+        requestOptions: requestOptions);
   }
 
   /// Updates the properties of an existing organization domain.
@@ -1680,7 +2347,12 @@ class OrganizationDomainsNamespace {
       SdkOptional<String?> enrollmentMode = const SdkOmitted(),
       SdkOptional<bool?> verified = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return organization_domains_methods.updateOrganizationDomain(_config, organizationId: organizationId, domainId: domainId, enrollmentMode: enrollmentMode, verified: verified, requestOptions: requestOptions);
+    return organization_domains_methods.updateOrganizationDomain(_config,
+        organizationId: organizationId,
+        domainId: domainId,
+        enrollmentMode: enrollmentMode,
+        verified: verified,
+        requestOptions: requestOptions);
   }
 
   /// Deletes a domain from an organization. Use the `organization_id` and `domain_id` path parameters to identify the organization and domain to remove. A successful response indicates that the domain was deleted.
@@ -1690,7 +2362,10 @@ class OrganizationDomainsNamespace {
       {required String organizationId,
       required String domainId,
       RequestOptions? requestOptions}) async {
-    return organization_domains_methods.deleteOrganizationDomain(_config, organizationId: organizationId, domainId: domainId, requestOptions: requestOptions);
+    return organization_domains_methods.deleteOrganizationDomain(_config,
+        organizationId: organizationId,
+        domainId: domainId,
+        requestOptions: requestOptions);
   }
 
   /// Flips the organization domain's ownership state to verified via the manual override path, bypassing the self-serve TXT DNS challenge. The domain row records strategy=`manual_override` and an `organization_domain.ownership_verified` audit event is emitted with the same strategy. Idempotent: re-calling on an already-verified domain returns the current ownership state without re-emitting the audit event.
@@ -1698,48 +2373,68 @@ class OrganizationDomainsNamespace {
       {required String organizationId,
       required String domainId,
       RequestOptions? requestOptions}) async {
-    return organization_domains_methods.verifyOrganizationDomainOwnership(_config, organizationId: organizationId, domainId: domainId, requestOptions: requestOptions);
+    return organization_domains_methods.verifyOrganizationDomainOwnership(
+        _config,
+        organizationId: organizationId,
+        domainId: domainId,
+        requestOptions: requestOptions);
   }
 
   /// Retrieves a list of all organization domains within the current instance. This endpoint can be used to list all domains across all organizations or filter domains by organization, verification status, enrollment mode, or search query. The response includes pagination information and details about each domain including its verification status, enrollment mode, and associated counts.
   Future<OrganizationDomains> listAll(
       {SdkOptional<String> organizationId = const SdkOmitted(),
-      SdkOptional<ListAllOrganizationDomainsVerified> verified = const SdkOmitted(),
-      SdkOptional<List<ListAllOrganizationDomainsEnrollmentModeItem>> enrollmentMode = const SdkOmitted(),
+      SdkOptional<ListAllOrganizationDomainsVerified> verified =
+          const SdkOmitted(),
+      SdkOptional<List<ListAllOrganizationDomainsEnrollmentModeItem>>
+          enrollmentMode = const SdkOmitted(),
       SdkOptional<String> query = const SdkOmitted(),
       SdkOptional<List<String>> domains = const SdkOmitted(),
       SdkOptional<String> orderBy = const SdkOmitted(),
       SdkOptional<int> offset = const SdkOmitted(),
       SdkOptional<int> limit = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return organization_domains_methods.listAllOrganizationDomains(_config, organizationId: organizationId, verified: verified, enrollmentMode: enrollmentMode, query: query, domains: domains, orderBy: orderBy, offset: offset, limit: limit, requestOptions: requestOptions);
+    return organization_domains_methods.listAllOrganizationDomains(_config,
+        organizationId: organizationId,
+        verified: verified,
+        enrollmentMode: enrollmentMode,
+        query: query,
+        domains: domains,
+        orderBy: orderBy,
+        offset: offset,
+        limit: limit,
+        requestOptions: requestOptions);
   }
-
 }
 
 class ProxyChecksNamespace {
   final ClientConfig _config;
   ProxyChecksNamespace(ClientConfig config) : _config = config;
+
   /// This endpoint can be used to validate that a proxy-enabled domain is operational. It tries to verify that the proxy URL provided in the parameters maps to a functional proxy that can reach the Clerk Frontend API. You can use this endpoint before you set a proxy URL for a domain. This way you can ensure that switching to proxy-based configuration will not lead to downtime for your instance. The `proxy_url` parameter allows for testing proxy configurations for domains that don't have a proxy URL yet, or operate on a different proxy URL than the one provided. It can also be used to re-validate a domain that is already configured to work with a proxy.
   Future<ProxyCheck> verifyDomainProxy(
       {SdkOptional<String> domainId = const SdkOmitted(),
       SdkOptional<String> proxyUrl = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return proxy_checks_methods.verifyDomainProxy(_config, domainId: domainId, proxyUrl: proxyUrl, requestOptions: requestOptions);
+    return proxy_checks_methods.verifyDomainProxy(_config,
+        domainId: domainId, proxyUrl: proxyUrl, requestOptions: requestOptions);
   }
-
 }
 
 class RedirectUrlsNamespace {
   final ClientConfig _config;
   RedirectUrlsNamespace(ClientConfig config) : _config = config;
+
   /// Lists all whitelisted redirect_urls for the instance
   Future<List<RedirectURL>> list(
       {SdkOptional<bool> paginated = const SdkOmitted(),
       SdkOptional<int> limit = const SdkOmitted(),
       SdkOptional<int> offset = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return redirect_urls_methods.listRedirectUrls(_config, paginated: paginated, limit: limit, offset: offset, requestOptions: requestOptions);
+    return redirect_urls_methods.listRedirectUrls(_config,
+        paginated: paginated,
+        limit: limit,
+        offset: offset,
+        requestOptions: requestOptions);
   }
 
   /// Creates a redirect URL. When you provide a request body, include `url` as a full URL prefixed with `https://` or a URL using a custom scheme. The response includes the created redirect URL and its timestamps.
@@ -1747,34 +2442,43 @@ class RedirectUrlsNamespace {
   /// Create a redirect URL
   Future<RedirectURL> create(
       {required String url, RequestOptions? requestOptions}) async {
-    return redirect_urls_methods.createRedirectUrl(_config, url: url, requestOptions: requestOptions);
+    return redirect_urls_methods.createRedirectUrl(_config,
+        url: url, requestOptions: requestOptions);
   }
 
   /// Retrieve the details of the redirect URL with the given ID
   Future<RedirectURL> get_(
       {required String id, RequestOptions? requestOptions}) async {
-    return redirect_urls_methods.getRedirectUrl(_config, id: id, requestOptions: requestOptions);
+    return redirect_urls_methods.getRedirectUrl(_config,
+        id: id, requestOptions: requestOptions);
   }
 
   /// Remove the selected redirect URL from the whitelist of the instance
   Future<DeletedObject> delete(
       {required String id, RequestOptions? requestOptions}) async {
-    return redirect_urls_methods.deleteRedirectUrl(_config, id: id, requestOptions: requestOptions);
+    return redirect_urls_methods.deleteRedirectUrl(_config,
+        id: id, requestOptions: requestOptions);
   }
-
 }
 
 class SignInTokensNamespace {
   final ClientConfig _config;
   SignInTokensNamespace(ClientConfig config) : _config = config;
+
   /// Creates a new sign-in token and associates it with the given user. By default, sign-in tokens expire in 30 days. You can optionally supply a different duration in seconds using the `expires_in_seconds` property.
   Future<SignInToken> create(
       {required String userId,
       SdkOptional<String?> orgId = const SdkOmitted(),
       SdkOptional<int?> expiresInSeconds = const SdkOmitted(),
-      SdkOptional<CreateSignInTokenRequestBodySecondFactorVerification?> secondFactorVerification = const SdkOmitted(),
+      SdkOptional<CreateSignInTokenRequestBodySecondFactorVerification?>
+          secondFactorVerification = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return sign_in_tokens_methods.createSignInToken(_config, userId: userId, orgId: orgId, expiresInSeconds: expiresInSeconds, secondFactorVerification: secondFactorVerification, requestOptions: requestOptions);
+    return sign_in_tokens_methods.createSignInToken(_config,
+        userId: userId,
+        orgId: orgId,
+        expiresInSeconds: expiresInSeconds,
+        secondFactorVerification: secondFactorVerification,
+        requestOptions: requestOptions);
   }
 
   /// Revokes a pending sign-in token. Use the `sign_in_token_id` path parameter to identify the token; a successful response returns the token with its updated status.
@@ -1782,18 +2486,20 @@ class SignInTokensNamespace {
   /// Revokes a pending sign-in token
   Future<SignInToken> revoke(
       {required String signInTokenId, RequestOptions? requestOptions}) async {
-    return sign_in_tokens_methods.revokeSignInToken(_config, signInTokenId: signInTokenId, requestOptions: requestOptions);
+    return sign_in_tokens_methods.revokeSignInToken(_config,
+        signInTokenId: signInTokenId, requestOptions: requestOptions);
   }
-
 }
 
 class SignUpsNamespace {
   final ClientConfig _config;
   SignUpsNamespace(ClientConfig config) : _config = config;
+
   /// Retrieve the details of the sign-up with the given ID
   Future<SignUp> get_(
       {required String id, RequestOptions? requestOptions}) async {
-    return sign_ups_methods.getSignUp(_config, id: id, requestOptions: requestOptions);
+    return sign_ups_methods.getSignUp(_config,
+        id: id, requestOptions: requestOptions);
   }
 
   /// Updates an existing sign-up with the fields you provide. Use `external_id` to associate the sign-up with an identifier from your external system, or set `custom_action` to mark it as a custom action. The response includes the sign-up's current status and verification details.
@@ -1804,14 +2510,18 @@ class SignUpsNamespace {
       SdkOptional<String?> externalId = const SdkOmitted(),
       SdkOptional<bool?> customAction = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return sign_ups_methods.updateSignUp(_config, id: id, externalId: externalId, customAction: customAction, requestOptions: requestOptions);
+    return sign_ups_methods.updateSignUp(_config,
+        id: id,
+        externalId: externalId,
+        customAction: customAction,
+        requestOptions: requestOptions);
   }
-
 }
 
 class OAuthApplicationsNamespace {
   final ClientConfig _config;
   OAuthApplicationsNamespace(ClientConfig config) : _config = config;
+
   /// This request returns the list of OAuth applications for an instance. Results can be paginated using the optional `limit` and `offset` query parameters. The OAuth applications are ordered by descending creation date. Most recent OAuth applications will be returned first.
   Future<OAuthApplications> list(
       {SdkOptional<int> limit = const SdkOmitted(),
@@ -1819,7 +2529,12 @@ class OAuthApplicationsNamespace {
       SdkOptional<String> orderBy = const SdkOmitted(),
       SdkOptional<String> nameQuery = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return o_auth_applications_methods.listOAuthApplications(_config, limit: limit, offset: offset, orderBy: orderBy, nameQuery: nameQuery, requestOptions: requestOptions);
+    return o_auth_applications_methods.listOAuthApplications(_config,
+        limit: limit,
+        offset: offset,
+        orderBy: orderBy,
+        nameQuery: nameQuery,
+        requestOptions: requestOptions);
   }
 
   /// Creates a new OAuth application with the given name and callback URL for an instance. The callback URL must be a valid URL. All URL schemes are allowed such as `http://`, `https://`, `myapp://`, etc...
@@ -1836,14 +2551,27 @@ class OAuthApplicationsNamespace {
       SdkOptional<bool?> deviceAuthorizationGrantEnabled = const SdkOmitted(),
       SdkOptional<bool?> public = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return o_auth_applications_methods.createOAuthApplication(_config, name: name, redirectUris: redirectUris, callbackUrl: callbackUrl, scopes: scopes, consentScreenEnabled: consentScreenEnabled, pkceRequired: pkceRequired, audienceUri: audienceUri, tokenExchangeEnabled: tokenExchangeEnabled, adoptAudienceResource: adoptAudienceResource, deviceAuthorizationGrantEnabled: deviceAuthorizationGrantEnabled, public: public, requestOptions: requestOptions);
+    return o_auth_applications_methods.createOAuthApplication(_config,
+        name: name,
+        redirectUris: redirectUris,
+        callbackUrl: callbackUrl,
+        scopes: scopes,
+        consentScreenEnabled: consentScreenEnabled,
+        pkceRequired: pkceRequired,
+        audienceUri: audienceUri,
+        tokenExchangeEnabled: tokenExchangeEnabled,
+        adoptAudienceResource: adoptAudienceResource,
+        deviceAuthorizationGrantEnabled: deviceAuthorizationGrantEnabled,
+        public: public,
+        requestOptions: requestOptions);
   }
 
   /// Fetches the OAuth application whose ID matches the provided `id` in the path.
   Future<OAuthApplication> get_(
       {required String oauthApplicationId,
       RequestOptions? requestOptions}) async {
-    return o_auth_applications_methods.getOAuthApplication(_config, oauthApplicationId: oauthApplicationId, requestOptions: requestOptions);
+    return o_auth_applications_methods.getOAuthApplication(_config,
+        oauthApplicationId: oauthApplicationId, requestOptions: requestOptions);
   }
 
   /// Updates an existing OAuth application with the properties you provide. Use `scopes` to replace the application's complete built-in and custom scope ceiling, rather than adding individual scopes. Include required built-in scopes and use custom scope keys from the instance OAuth scope catalog.
@@ -1863,14 +2591,28 @@ class OAuthApplicationsNamespace {
       SdkOptional<bool?> deviceAuthorizationGrantEnabled = const SdkOmitted(),
       SdkOptional<bool?> public = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return o_auth_applications_methods.updateOAuthApplication(_config, oauthApplicationId: oauthApplicationId, name: name, redirectUris: redirectUris, callbackUrl: callbackUrl, scopes: scopes, consentScreenEnabled: consentScreenEnabled, pkceRequired: pkceRequired, audienceUri: audienceUri, tokenExchangeEnabled: tokenExchangeEnabled, adoptAudienceResource: adoptAudienceResource, deviceAuthorizationGrantEnabled: deviceAuthorizationGrantEnabled, public: public, requestOptions: requestOptions);
+    return o_auth_applications_methods.updateOAuthApplication(_config,
+        oauthApplicationId: oauthApplicationId,
+        name: name,
+        redirectUris: redirectUris,
+        callbackUrl: callbackUrl,
+        scopes: scopes,
+        consentScreenEnabled: consentScreenEnabled,
+        pkceRequired: pkceRequired,
+        audienceUri: audienceUri,
+        tokenExchangeEnabled: tokenExchangeEnabled,
+        adoptAudienceResource: adoptAudienceResource,
+        deviceAuthorizationGrantEnabled: deviceAuthorizationGrantEnabled,
+        public: public,
+        requestOptions: requestOptions);
   }
 
   /// Deletes the given OAuth application. This is not reversible.
   Future<DeletedObject> delete(
       {required String oauthApplicationId,
       RequestOptions? requestOptions}) async {
-    return o_auth_applications_methods.deleteOAuthApplication(_config, oauthApplicationId: oauthApplicationId, requestOptions: requestOptions);
+    return o_auth_applications_methods.deleteOAuthApplication(_config,
+        oauthApplicationId: oauthApplicationId, requestOptions: requestOptions);
   }
 
   /// Uploads an image to set or replace an OAuth application's logo. Send the request as `multipart/form-data` with the image in the `file` field; supported types are JPEG, PNG, GIF, and WebP, and the file must not exceed 10 MB. You can provide `uploader_user_id` to credit a user with the upload.
@@ -1881,14 +2623,19 @@ class OAuthApplicationsNamespace {
       required SdkUploadFile file,
       SdkOptional<String> uploaderUserId = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return o_auth_applications_methods.uploadOAuthApplicationLogo(_config, oauthApplicationId: oauthApplicationId, file: file, uploaderUserId: uploaderUserId, requestOptions: requestOptions);
+    return o_auth_applications_methods.uploadOAuthApplicationLogo(_config,
+        oauthApplicationId: oauthApplicationId,
+        file: file,
+        uploaderUserId: uploaderUserId,
+        requestOptions: requestOptions);
   }
 
   /// Rotates the OAuth application's client secret. When the client secret is rotated, make sure to update it in authorized OAuth clients.
   Future<OAuthApplicationWithSecret> rotateSecret(
       {required String oauthApplicationId,
       RequestOptions? requestOptions}) async {
-    return o_auth_applications_methods.rotateOAuthApplicationSecret(_config, oauthApplicationId: oauthApplicationId, requestOptions: requestOptions);
+    return o_auth_applications_methods.rotateOAuthApplicationSecret(_config,
+        oauthApplicationId: oauthApplicationId, requestOptions: requestOptions);
   }
 
   /// Revoke both OAuth access token and refresh token for the associated grant for the given OAuth application. The request may specify either token. JWT access tokens cannot be revoked.
@@ -1896,14 +2643,17 @@ class OAuthApplicationsNamespace {
       {required String oauthApplicationId,
       required String token,
       RequestOptions? requestOptions}) async {
-    return o_auth_applications_methods.revokeOAuthApplicationToken(_config, oauthApplicationId: oauthApplicationId, token: token, requestOptions: requestOptions);
+    return o_auth_applications_methods.revokeOAuthApplicationToken(_config,
+        oauthApplicationId: oauthApplicationId,
+        token: token,
+        requestOptions: requestOptions);
   }
-
 }
 
 class SamlConnectionsNamespace {
   final ClientConfig _config;
   SamlConnectionsNamespace(ClientConfig config) : _config = config;
+
   /// Returns the list of SAML Connections for an instance. Results can be paginated using the optional `limit` and `offset` query parameters. The SAML Connections are ordered by descending creation date and the most recent will be returned first. Deprecated: Use the Enterprise Connections API instead. This endpoint will be removed in future versions.
   ///
   /// **Deprecated:** this operation is deprecated and may be removed in a future release.
@@ -1914,7 +2664,13 @@ class SamlConnectionsNamespace {
       SdkOptional<String> orderBy = const SdkOmitted(),
       SdkOptional<List<String>> organizationId = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return saml_connections_methods.listSamlConnections(_config, limit: limit, offset: offset, query: query, orderBy: orderBy, organizationId: organizationId, requestOptions: requestOptions);
+    return saml_connections_methods.listSamlConnections(_config,
+        limit: limit,
+        offset: offset,
+        query: query,
+        orderBy: orderBy,
+        organizationId: organizationId,
+        requestOptions: requestOptions);
   }
 
   /// Create a new SAML Connection. Deprecated: Use the Enterprise Connections API instead. This endpoint will be removed in future versions.
@@ -1932,11 +2688,28 @@ class SamlConnectionsNamespace {
       SdkOptional<String?> idpMetadataUrl = const SdkOmitted(),
       SdkOptional<String?> idpMetadata = const SdkOmitted(),
       SdkOptional<String?> organizationId = const SdkOmitted(),
-      SdkOptional<CreateSAMLConnectionRequestBodyAttributeMapping?> attributeMapping = const SdkOmitted(),
+      SdkOptional<CreateSAMLConnectionRequestBodyAttributeMapping?>
+          attributeMapping = const SdkOmitted(),
       SdkOptional<bool> forceAuthn = const SdkOmitted(),
-      SdkOptional<CreateSAMLConnectionRequestBodyLoginHint?> loginHint = const SdkOmitted(),
+      SdkOptional<CreateSAMLConnectionRequestBodyLoginHint?> loginHint =
+          const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return saml_connections_methods.createSamlConnection(_config, name: name, provider: provider, domain: domain, domains: domains, idpEntityId: idpEntityId, idpSsoUrl: idpSsoUrl, idpCertificate: idpCertificate, idpCertificates: idpCertificates, idpMetadataUrl: idpMetadataUrl, idpMetadata: idpMetadata, organizationId: organizationId, attributeMapping: attributeMapping, forceAuthn: forceAuthn, loginHint: loginHint, requestOptions: requestOptions);
+    return saml_connections_methods.createSamlConnection(_config,
+        name: name,
+        provider: provider,
+        domain: domain,
+        domains: domains,
+        idpEntityId: idpEntityId,
+        idpSsoUrl: idpSsoUrl,
+        idpCertificate: idpCertificate,
+        idpCertificates: idpCertificates,
+        idpMetadataUrl: idpMetadataUrl,
+        idpMetadata: idpMetadata,
+        organizationId: organizationId,
+        attributeMapping: attributeMapping,
+        forceAuthn: forceAuthn,
+        loginHint: loginHint,
+        requestOptions: requestOptions);
   }
 
   /// Fetches the SAML Connection whose ID matches the provided `saml_connection_id` in the path. Deprecated: Use the Enterprise Connections API instead. This endpoint will be removed in future versions.
@@ -1945,7 +2718,8 @@ class SamlConnectionsNamespace {
   Future<SAMLConnection> get_(
       {required String samlConnectionId,
       RequestOptions? requestOptions}) async {
-    return saml_connections_methods.getSamlConnection(_config, samlConnectionId: samlConnectionId, requestOptions: requestOptions);
+    return saml_connections_methods.getSamlConnection(_config,
+        samlConnectionId: samlConnectionId, requestOptions: requestOptions);
   }
 
   /// Updates the SAML Connection whose ID matches the provided `id` in the path. Deprecated: Use the Enterprise Connections API instead. This endpoint will be removed in future versions.
@@ -1963,7 +2737,8 @@ class SamlConnectionsNamespace {
       SdkOptional<String?> idpMetadataUrl = const SdkOmitted(),
       SdkOptional<String?> idpMetadata = const SdkOmitted(),
       SdkOptional<String?> organizationId = const SdkOmitted(),
-      SdkOptional<UpdateSAMLConnectionRequestBodyAttributeMapping?> attributeMapping = const SdkOmitted(),
+      SdkOptional<UpdateSAMLConnectionRequestBodyAttributeMapping?>
+          attributeMapping = const SdkOmitted(),
       SdkOptional<bool?> active = const SdkOmitted(),
       SdkOptional<bool?> syncUserAttributes = const SdkOmitted(),
       SdkOptional<bool?> allowSubdomains = const SdkOmitted(),
@@ -1971,10 +2746,33 @@ class SamlConnectionsNamespace {
       SdkOptional<bool?> disableAdditionalIdentifications = const SdkOmitted(),
       SdkOptional<bool?> allowOrganizationAccountLinking = const SdkOmitted(),
       SdkOptional<bool> forceAuthn = const SdkOmitted(),
-      SdkOptional<UpdateSAMLConnectionRequestBodyLoginHint?> loginHint = const SdkOmitted(),
+      SdkOptional<UpdateSAMLConnectionRequestBodyLoginHint?> loginHint =
+          const SdkOmitted(),
       SdkOptional<bool?> consentVerifiedDomainsDeletion = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return saml_connections_methods.updateSamlConnection(_config, samlConnectionId: samlConnectionId, name: name, domain: domain, domains: domains, idpEntityId: idpEntityId, idpSsoUrl: idpSsoUrl, idpCertificate: idpCertificate, idpCertificates: idpCertificates, idpMetadataUrl: idpMetadataUrl, idpMetadata: idpMetadata, organizationId: organizationId, attributeMapping: attributeMapping, active: active, syncUserAttributes: syncUserAttributes, allowSubdomains: allowSubdomains, allowIdpInitiated: allowIdpInitiated, disableAdditionalIdentifications: disableAdditionalIdentifications, allowOrganizationAccountLinking: allowOrganizationAccountLinking, forceAuthn: forceAuthn, loginHint: loginHint, consentVerifiedDomainsDeletion: consentVerifiedDomainsDeletion, requestOptions: requestOptions);
+    return saml_connections_methods.updateSamlConnection(_config,
+        samlConnectionId: samlConnectionId,
+        name: name,
+        domain: domain,
+        domains: domains,
+        idpEntityId: idpEntityId,
+        idpSsoUrl: idpSsoUrl,
+        idpCertificate: idpCertificate,
+        idpCertificates: idpCertificates,
+        idpMetadataUrl: idpMetadataUrl,
+        idpMetadata: idpMetadata,
+        organizationId: organizationId,
+        attributeMapping: attributeMapping,
+        active: active,
+        syncUserAttributes: syncUserAttributes,
+        allowSubdomains: allowSubdomains,
+        allowIdpInitiated: allowIdpInitiated,
+        disableAdditionalIdentifications: disableAdditionalIdentifications,
+        allowOrganizationAccountLinking: allowOrganizationAccountLinking,
+        forceAuthn: forceAuthn,
+        loginHint: loginHint,
+        consentVerifiedDomainsDeletion: consentVerifiedDomainsDeletion,
+        requestOptions: requestOptions);
   }
 
   /// Deletes the SAML Connection whose ID matches the provided `id` in the path. Deprecated: Use the Enterprise Connections API instead. This endpoint will be removed in future versions.
@@ -1983,14 +2781,15 @@ class SamlConnectionsNamespace {
   Future<DeletedObject> delete(
       {required String samlConnectionId,
       RequestOptions? requestOptions}) async {
-    return saml_connections_methods.deleteSamlConnection(_config, samlConnectionId: samlConnectionId, requestOptions: requestOptions);
+    return saml_connections_methods.deleteSamlConnection(_config,
+        samlConnectionId: samlConnectionId, requestOptions: requestOptions);
   }
-
 }
 
 class EnterpriseConnectionsNamespace {
   final ClientConfig _config;
   EnterpriseConnectionsNamespace(ClientConfig config) : _config = config;
+
   /// Returns the list of enterprise connections for the instance. Results can be paginated using the optional `limit` and `offset` query parameters.
   Future<EnterpriseConnections> list(
       {SdkOptional<int> limit = const SdkOmitted(),
@@ -1998,7 +2797,12 @@ class EnterpriseConnectionsNamespace {
       SdkOptional<String> organizationId = const SdkOmitted(),
       SdkOptional<bool> active = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return enterprise_connections_methods.listEnterpriseConnections(_config, limit: limit, offset: offset, organizationId: organizationId, active: active, requestOptions: requestOptions);
+    return enterprise_connections_methods.listEnterpriseConnections(_config,
+        limit: limit,
+        offset: offset,
+        organizationId: organizationId,
+        active: active,
+        requestOptions: requestOptions);
   }
 
   /// Creates a new enterprise connection for an identity provider and associates it with one or more domains. Supply `name`, `provider`, and at least one valid fully qualified domain name in `domains`; choose `saml` or `oidc` settings to configure the connection for the selected provider. When `active` is true, provide IdP metadata in `saml` for SAML connections.
@@ -2011,18 +2815,34 @@ class EnterpriseConnectionsNamespace {
       SdkOptional<String?> organizationId = const SdkOmitted(),
       SdkOptional<bool?> allowOrganizationAccountLinking = const SdkOmitted(),
       SdkOptional<bool?> active = const SdkOmitted(),
-      SdkOptional<CreateEnterpriseConnectionRequestBodySaml?> saml = const SdkOmitted(),
-      SdkOptional<CreateEnterpriseConnectionRequestBodyOidc?> oidc = const SdkOmitted(),
-      SdkOptional<List<CreateEnterpriseConnectionRequestBodyCustomAttributesItem>> customAttributes = const SdkOmitted(),
+      SdkOptional<CreateEnterpriseConnectionRequestBodySaml?> saml =
+          const SdkOmitted(),
+      SdkOptional<CreateEnterpriseConnectionRequestBodyOidc?> oidc =
+          const SdkOmitted(),
+      SdkOptional<
+              List<CreateEnterpriseConnectionRequestBodyCustomAttributesItem>>
+          customAttributes = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return enterprise_connections_methods.createEnterpriseConnection(_config, name: name, provider: provider, domains: domains, organizationId: organizationId, allowOrganizationAccountLinking: allowOrganizationAccountLinking, active: active, saml: saml, oidc: oidc, customAttributes: customAttributes, requestOptions: requestOptions);
+    return enterprise_connections_methods.createEnterpriseConnection(_config,
+        name: name,
+        provider: provider,
+        domains: domains,
+        organizationId: organizationId,
+        allowOrganizationAccountLinking: allowOrganizationAccountLinking,
+        active: active,
+        saml: saml,
+        oidc: oidc,
+        customAttributes: customAttributes,
+        requestOptions: requestOptions);
   }
 
   /// Fetches the enterprise connection whose ID matches the provided `enterprise_connection_id` in the path.
   Future<EnterpriseConnection> get_(
       {required String enterpriseConnectionId,
       RequestOptions? requestOptions}) async {
-    return enterprise_connections_methods.getEnterpriseConnection(_config, enterpriseConnectionId: enterpriseConnectionId, requestOptions: requestOptions);
+    return enterprise_connections_methods.getEnterpriseConnection(_config,
+        enterpriseConnectionId: enterpriseConnectionId,
+        requestOptions: requestOptions);
   }
 
   /// Updates the enterprise connection whose ID matches the provided `enterprise_connection_id` in the path. When enabling the connection (setting `active` to true), any existing verified organization domains that match the connection's domains (e.g. used for enrollment modes like automatic invitation) may be deleted so the connection can be enabled.
@@ -2035,79 +2855,111 @@ class EnterpriseConnectionsNamespace {
       SdkOptional<bool?> disableAdditionalIdentifications = const SdkOmitted(),
       SdkOptional<bool?> allowOrganizationAccountLinking = const SdkOmitted(),
       SdkOptional<String?> organizationId = const SdkOmitted(),
-      SdkOptional<UpdateEnterpriseConnectionRequestBodySaml?> saml = const SdkOmitted(),
-      SdkOptional<UpdateEnterpriseConnectionRequestBodyOidc?> oidc = const SdkOmitted(),
-      SdkOptional<List<UpdateEnterpriseConnectionRequestBodyCustomAttributesItem>?> customAttributes = const SdkOmitted(),
+      SdkOptional<UpdateEnterpriseConnectionRequestBodySaml?> saml =
+          const SdkOmitted(),
+      SdkOptional<UpdateEnterpriseConnectionRequestBodyOidc?> oidc =
+          const SdkOmitted(),
+      SdkOptional<
+              List<UpdateEnterpriseConnectionRequestBodyCustomAttributesItem>?>
+          customAttributes = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return enterprise_connections_methods.updateEnterpriseConnection(_config, enterpriseConnectionId: enterpriseConnectionId, name: name, domains: domains, active: active, syncUserAttributes: syncUserAttributes, disableAdditionalIdentifications: disableAdditionalIdentifications, allowOrganizationAccountLinking: allowOrganizationAccountLinking, organizationId: organizationId, saml: saml, oidc: oidc, customAttributes: customAttributes, requestOptions: requestOptions);
+    return enterprise_connections_methods.updateEnterpriseConnection(_config,
+        enterpriseConnectionId: enterpriseConnectionId,
+        name: name,
+        domains: domains,
+        active: active,
+        syncUserAttributes: syncUserAttributes,
+        disableAdditionalIdentifications: disableAdditionalIdentifications,
+        allowOrganizationAccountLinking: allowOrganizationAccountLinking,
+        organizationId: organizationId,
+        saml: saml,
+        oidc: oidc,
+        customAttributes: customAttributes,
+        requestOptions: requestOptions);
   }
 
   /// Deletes the enterprise connection whose ID matches the provided `enterprise_connection_id` in the path.
   Future<DeletedObject> delete(
       {required String enterpriseConnectionId,
       RequestOptions? requestOptions}) async {
-    return enterprise_connections_methods.deleteEnterpriseConnection(_config, enterpriseConnectionId: enterpriseConnectionId, requestOptions: requestOptions);
+    return enterprise_connections_methods.deleteEnterpriseConnection(_config,
+        enterpriseConnectionId: enterpriseConnectionId,
+        requestOptions: requestOptions);
   }
 
   /// Returns a paginated list of SAML or OIDC debug test runs for an enterprise connection.
   Future<EnterpriseConnectionTestRuns> listTestRuns(
       {required String enterpriseConnectionId,
-      SdkOptional<List<ListEnterpriseConnectionTestRunsStatusItem>> status = const SdkOmitted(),
+      SdkOptional<List<ListEnterpriseConnectionTestRunsStatusItem>> status =
+          const SdkOmitted(),
       SdkOptional<int> limit = const SdkOmitted(),
       SdkOptional<int> offset = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return enterprise_connections_methods.listEnterpriseConnectionTestRuns(_config, enterpriseConnectionId: enterpriseConnectionId, status: status, limit: limit, offset: offset, requestOptions: requestOptions);
+    return enterprise_connections_methods.listEnterpriseConnectionTestRuns(
+        _config,
+        enterpriseConnectionId: enterpriseConnectionId,
+        status: status,
+        limit: limit,
+        offset: offset,
+        requestOptions: requestOptions);
   }
 
   /// Returns a short-lived URL that starts the IdP test flow for this connection.
   Future<EnterpriseConnectionTestRunResponse> createTestRun(
       {required String enterpriseConnectionId,
       RequestOptions? requestOptions}) async {
-    return enterprise_connections_methods.createEnterpriseConnectionTestRun(_config, enterpriseConnectionId: enterpriseConnectionId, requestOptions: requestOptions);
+    return enterprise_connections_methods.createEnterpriseConnectionTestRun(
+        _config,
+        enterpriseConnectionId: enterpriseConnectionId,
+        requestOptions: requestOptions);
   }
-
 }
 
 class SsoBypassNamespace {
   final ClientConfig _config;
   SsoBypassNamespace(ClientConfig config) : _config = config;
+
   /// Returns the users who may verify an email code instead of reaching their identity provider when enterprise SSO is unreachable.
   Future<List<SSOBypassAllowlistUser>> listAllowlistUsers(
       {SdkOptional<String> enterpriseConnectionId = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return sso_bypass_methods.listSsoBypassAllowlistUsers(_config, enterpriseConnectionId: enterpriseConnectionId, requestOptions: requestOptions);
+    return sso_bypass_methods.listSsoBypassAllowlistUsers(_config,
+        enterpriseConnectionId: enterpriseConnectionId,
+        requestOptions: requestOptions);
   }
 
   /// Puts a user on the allowlist. The request is rejected unless the user holds a verified email address on a domain one of the instance's enterprise connections serves.
   Future<SSOBypassAllowlistUser> createAllowlistUser(
       {required String userId, RequestOptions? requestOptions}) async {
-    return sso_bypass_methods.createSsoBypassAllowlistUser(_config, userId: userId, requestOptions: requestOptions);
+    return sso_bypass_methods.createSsoBypassAllowlistUser(_config,
+        userId: userId, requestOptions: requestOptions);
   }
 
   /// Removes the user from the allowlist, across every enterprise connection that serves them.
   Future<DeletedObject> deleteAllowlistUser(
       {required String userId, RequestOptions? requestOptions}) async {
-    return sso_bypass_methods.deleteSsoBypassAllowlistUser(_config, userId: userId, requestOptions: requestOptions);
+    return sso_bypass_methods.deleteSsoBypassAllowlistUser(_config,
+        userId: userId, requestOptions: requestOptions);
   }
-
 }
 
 class TestingTokensNamespace {
   final ClientConfig _config;
   TestingTokensNamespace(ClientConfig config) : _config = config;
+
   /// Creates a testing token for use with Frontend API requests. Pass the returned `token` value in the `__clerk_testing_token` query parameter; the response includes its expiration time as `expires_at`.
   ///
   /// Retrieve a new testing token.
-  Future<TestingToken> create(
-      {RequestOptions? requestOptions}) async {
-    return testing_tokens_methods.createTestingToken(_config, requestOptions: requestOptions);
+  Future<TestingToken> create({RequestOptions? requestOptions}) async {
+    return testing_tokens_methods.createTestingToken(_config,
+        requestOptions: requestOptions);
   }
-
 }
 
 class AgentTasksNamespace {
   final ClientConfig _config;
   AgentTasksNamespace(ClientConfig config) : _config = config;
+
   /// Create an agent task on behalf of a user. The response contains a URL that, when visited, creates a session for the user. The agent_id is stable per agent_name within an instance. The agent_task_id is unique per call.
   Future<AgentTask> create(
       {required CreateAgentTaskRequestBodyOnBehalfOf onBehalfOf,
@@ -2117,7 +2969,14 @@ class AgentTasksNamespace {
       required String redirectUrl,
       SdkOptional<int> sessionMaxDurationInSeconds = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return agent_tasks_methods.createAgentTask(_config, onBehalfOf: onBehalfOf, permissions: permissions, agentName: agentName, taskDescription: taskDescription, redirectUrl: redirectUrl, sessionMaxDurationInSeconds: sessionMaxDurationInSeconds, requestOptions: requestOptions);
+    return agent_tasks_methods.createAgentTask(_config,
+        onBehalfOf: onBehalfOf,
+        permissions: permissions,
+        agentName: agentName,
+        taskDescription: taskDescription,
+        redirectUrl: redirectUrl,
+        sessionMaxDurationInSeconds: sessionMaxDurationInSeconds,
+        requestOptions: requestOptions);
   }
 
   /// Revokes a pending agent task. Use `agent_task_id` to identify the task whose pending status you want to revoke.
@@ -2125,14 +2984,15 @@ class AgentTasksNamespace {
   /// Revokes a pending agent task.
   Future<AgentTask> revoke(
       {required String agentTaskId, RequestOptions? requestOptions}) async {
-    return agent_tasks_methods.revokeAgentTask(_config, agentTaskId: agentTaskId, requestOptions: requestOptions);
+    return agent_tasks_methods.revokeAgentTask(_config,
+        agentTaskId: agentTaskId, requestOptions: requestOptions);
   }
-
 }
 
 class WaitlistEntriesNamespace {
   final ClientConfig _config;
   WaitlistEntriesNamespace(ClientConfig config) : _config = config;
+
   /// Retrieve a list of waitlist entries for the instance. Entries are ordered by creation date in descending order by default. Supports filtering by email address or status and pagination with limit and offset parameters.
   Future<WaitlistEntries> list(
       {SdkOptional<int> limit = const SdkOmitted(),
@@ -2141,7 +3001,13 @@ class WaitlistEntriesNamespace {
       SdkOptional<ListWaitlistEntriesStatus> status = const SdkOmitted(),
       SdkOptional<String> orderBy = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return waitlist_entries_methods.listWaitlistEntries(_config, limit: limit, offset: offset, query: query, status: status, orderBy: orderBy, requestOptions: requestOptions);
+    return waitlist_entries_methods.listWaitlistEntries(_config,
+        limit: limit,
+        offset: offset,
+        query: query,
+        status: status,
+        orderBy: orderBy,
+        requestOptions: requestOptions);
   }
 
   /// Creates a new waitlist entry for the given email address. If the email address is already on the waitlist, no new entry will be created and the existing waitlist entry will be returned.
@@ -2149,16 +3015,21 @@ class WaitlistEntriesNamespace {
       {required String emailAddress,
       SdkOptional<bool?> notify = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return waitlist_entries_methods.createWaitlistEntry(_config, emailAddress: emailAddress, notify: notify, requestOptions: requestOptions);
+    return waitlist_entries_methods.createWaitlistEntry(_config,
+        emailAddress: emailAddress,
+        notify: notify,
+        requestOptions: requestOptions);
   }
 
   /// Creates multiple waitlist entries from email addresses in a single request. Each entry requires `email_address`; `notify` defaults to true when omitted. You can submit 1 to 50 entries per request, but duplicate email addresses within the request are not allowed, and existing waitlist entries are returned without creating new entries.
   ///
   /// Creates multiple waitlist entries for the provided email addresses. You can choose whether to send confirmation emails by setting the `notify` parameter to `true` or `false` for each entry. If the `notify` parameter is omitted, it defaults to `true`. If an email address is already on the waitlist, no new entry will be created and the existing waitlist entry will be returned. Duplicate email addresses within the same request are not allowed. This endpoint is limited to a maximum of 50 entries per API call. If you need to add more entries, please make multiple requests.
   Future<List<WaitlistEntry>> createBulk(
-      {SdkOptional<List<CreateBulkWaitlistEntriesRequestBodyItem>> body = const SdkOmitted(),
+      {SdkOptional<List<CreateBulkWaitlistEntriesRequestBodyItem>> body =
+          const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return waitlist_entries_methods.createBulkWaitlistEntries(_config, body: body, requestOptions: requestOptions);
+    return waitlist_entries_methods.createBulkWaitlistEntries(_config,
+        body: body, requestOptions: requestOptions);
   }
 
   /// Deletes a pending waitlist entry. Use the `waitlist_entry_id` path parameter to identify the entry to delete. Entries locked while a batch action is processing are unavailable for other actions.
@@ -2166,7 +3037,8 @@ class WaitlistEntriesNamespace {
   /// Delete a pending waitlist entry.
   Future<DeletedObject> delete(
       {required String waitlistEntryId, RequestOptions? requestOptions}) async {
-    return waitlist_entries_methods.deleteWaitlistEntry(_config, waitlistEntryId: waitlistEntryId, requestOptions: requestOptions);
+    return waitlist_entries_methods.deleteWaitlistEntry(_config,
+        waitlistEntryId: waitlistEntryId, requestOptions: requestOptions);
   }
 
   /// Send an invite to the email address in a waitlist entry.
@@ -2174,7 +3046,10 @@ class WaitlistEntriesNamespace {
       {required String waitlistEntryId,
       SdkOptional<bool?> ignoreExisting = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return waitlist_entries_methods.inviteWaitlistEntry(_config, waitlistEntryId: waitlistEntryId, ignoreExisting: ignoreExisting, requestOptions: requestOptions);
+    return waitlist_entries_methods.inviteWaitlistEntry(_config,
+        waitlistEntryId: waitlistEntryId,
+        ignoreExisting: ignoreExisting,
+        requestOptions: requestOptions);
   }
 
   /// Rejects a waitlist entry and returns the resulting entry. Use the `waitlist_entry_id` path parameter to identify the entry to reject. Entries locked while a batch action is processing are unavailable for other actions.
@@ -2182,14 +3057,15 @@ class WaitlistEntriesNamespace {
   /// Reject a waitlist entry.
   Future<WaitlistEntry> reject(
       {required String waitlistEntryId, RequestOptions? requestOptions}) async {
-    return waitlist_entries_methods.rejectWaitlistEntry(_config, waitlistEntryId: waitlistEntryId, requestOptions: requestOptions);
+    return waitlist_entries_methods.rejectWaitlistEntry(_config,
+        waitlistEntryId: waitlistEntryId, requestOptions: requestOptions);
   }
-
 }
 
 class BillingNamespace {
   final ClientConfig _config;
   BillingNamespace(ClientConfig config) : _config = config;
+
   /// Returns a list of all billing plans for the instance. The plans are returned sorted by creation date, with the newest plans appearing first. This includes both free and paid plans. Pagination is supported.
   Future<PaginatedCommercePlanResponse> getCommercePlanList(
       {SdkOptional<bool> paginated = const SdkOmitted(),
@@ -2197,7 +3073,12 @@ class BillingNamespace {
       SdkOptional<int> offset = const SdkOmitted(),
       SdkOptional<GetCommercePlanListPayerType> payerType = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return billing_methods.getCommercePlanList(_config, paginated: paginated, limit: limit, offset: offset, payerType: payerType, requestOptions: requestOptions);
+    return billing_methods.getCommercePlanList(_config,
+        paginated: paginated,
+        limit: limit,
+        offset: offset,
+        payerType: payerType,
+        requestOptions: requestOptions);
   }
 
   /// Returns a list of all prices for the instance. The prices are returned sorted by amount ascending, then by creation date descending. This includes both default and custom prices. Pagination is supported.
@@ -2207,7 +3088,12 @@ class BillingNamespace {
       SdkOptional<int> offset = const SdkOmitted(),
       SdkOptional<String> planId = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return billing_methods.getBillingPriceList(_config, paginated: paginated, limit: limit, offset: offset, planId: planId, requestOptions: requestOptions);
+    return billing_methods.getBillingPriceList(_config,
+        paginated: paginated,
+        limit: limit,
+        offset: offset,
+        planId: planId,
+        requestOptions: requestOptions);
   }
 
   /// Creates a custom price for a billing plan. Custom prices allow you to offer different pricing to specific customers while maintaining the same plan structure.
@@ -2217,9 +3103,17 @@ class BillingNamespace {
       SdkOptional<String> currency = const SdkOmitted(),
       SdkOptional<int?> annualMonthlyAmount = const SdkOmitted(),
       SdkOptional<String> description = const SdkOmitted(),
-      SdkOptional<CreateBillingPriceRequestSupportedBillingPeriods> supportedBillingPeriods = const SdkOmitted(),
+      SdkOptional<CreateBillingPriceRequestSupportedBillingPeriods>
+          supportedBillingPeriods = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return billing_methods.createBillingPrice(_config, planId: planId, amount: amount, currency: currency, annualMonthlyAmount: annualMonthlyAmount, description: description, supportedBillingPeriods: supportedBillingPeriods, requestOptions: requestOptions);
+    return billing_methods.createBillingPrice(_config,
+        planId: planId,
+        amount: amount,
+        currency: currency,
+        annualMonthlyAmount: annualMonthlyAmount,
+        description: description,
+        supportedBillingPeriods: supportedBillingPeriods,
+        requestOptions: requestOptions);
   }
 
   /// Returns a list of all subscription items for the instance. The subscription items are returned sorted by creation date, with the newest appearing first. This includes subscriptions for both users and organizations. Pagination is supported.
@@ -2228,13 +3122,24 @@ class BillingNamespace {
           {SdkOptional<bool> paginated = const SdkOmitted(),
           SdkOptional<int> limit = const SdkOmitted(),
           SdkOptional<int> offset = const SdkOmitted(),
-          SdkOptional<GetCommerceSubscriptionItemListStatus> status = const SdkOmitted(),
-          SdkOptional<GetCommerceSubscriptionItemListPayerType> payerType = const SdkOmitted(),
+          SdkOptional<GetCommerceSubscriptionItemListStatus> status =
+              const SdkOmitted(),
+          SdkOptional<GetCommerceSubscriptionItemListPayerType> payerType =
+              const SdkOmitted(),
           SdkOptional<String> planId = const SdkOmitted(),
           SdkOptional<bool> includeFree = const SdkOmitted(),
           SdkOptional<String> query = const SdkOmitted(),
           RequestOptions? requestOptions}) async {
-    return billing_methods.getCommerceSubscriptionItemList(_config, paginated: paginated, limit: limit, offset: offset, status: status, payerType: payerType, planId: planId, includeFree: includeFree, query: query, requestOptions: requestOptions);
+    return billing_methods.getCommerceSubscriptionItemList(_config,
+        paginated: paginated,
+        limit: limit,
+        offset: offset,
+        status: status,
+        payerType: payerType,
+        planId: planId,
+        includeFree: includeFree,
+        query: query,
+        requestOptions: requestOptions);
   }
 
   /// Cancel a specific subscription item. The subscription item can be canceled immediately or at the end of the current billing period.
@@ -2242,7 +3147,10 @@ class BillingNamespace {
       {required String subscriptionItemId,
       SdkOptional<bool> endNow = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return billing_methods.cancelCommerceSubscriptionItem(_config, subscriptionItemId: subscriptionItemId, endNow: endNow, requestOptions: requestOptions);
+    return billing_methods.cancelCommerceSubscriptionItem(_config,
+        subscriptionItemId: subscriptionItemId,
+        endNow: endNow,
+        requestOptions: requestOptions);
   }
 
   /// Extends the free trial period for a specific subscription item to the specified timestamp. The subscription item must be currently in a free trial period, and the plan must support free trials. The timestamp must be in the future and not more than 365 days from the end of the current trial period This operation is idempotent - repeated requests with the same timestamp will not change the trial period.
@@ -2250,7 +3158,10 @@ class BillingNamespace {
       {required String subscriptionItemId,
       required String extendTo,
       RequestOptions? requestOptions}) async {
-    return billing_methods.extendBillingSubscriptionItemFreeTrial(_config, subscriptionItemId: subscriptionItemId, extendTo: extendTo, requestOptions: requestOptions);
+    return billing_methods.extendBillingSubscriptionItemFreeTrial(_config,
+        subscriptionItemId: subscriptionItemId,
+        extendTo: extendTo,
+        requestOptions: requestOptions);
   }
 
   /// Creates a price transition for the specified subscription item. This may create an upcoming subscription item or activate immediately depending on plan and payer rules.
@@ -2259,25 +3170,33 @@ class BillingNamespace {
       required String fromPriceId,
       required String toPriceId,
       RequestOptions? requestOptions}) async {
-    return billing_methods.createBillingPriceTransition(_config, subscriptionItemId: subscriptionItemId, fromPriceId: fromPriceId, toPriceId: toPriceId, requestOptions: requestOptions);
+    return billing_methods.createBillingPriceTransition(_config,
+        subscriptionItemId: subscriptionItemId,
+        fromPriceId: fromPriceId,
+        toPriceId: toPriceId,
+        requestOptions: requestOptions);
   }
 
   /// Applies an existing discount to a subscription item. Manual application is an override path: self-serve distribution rules are not enforced. At most one active discount is allowed per subscription item; applying a different discount replaces the currently active one. Re-applying the same active discount returns a conflict.
-  Future<CommerceDiscountRedemptionResponse>
-      applySubscriptionItemDiscount(
-          {required String subscriptionItemId,
-          required String discountId,
-          RequestOptions? requestOptions}) async {
-    return billing_methods.applyBillingSubscriptionItemDiscount(_config, subscriptionItemId: subscriptionItemId, discountId: discountId, requestOptions: requestOptions);
+  Future<CommerceDiscountRedemptionResponse> applySubscriptionItemDiscount(
+      {required String subscriptionItemId,
+      required String discountId,
+      RequestOptions? requestOptions}) async {
+    return billing_methods.applyBillingSubscriptionItemDiscount(_config,
+        subscriptionItemId: subscriptionItemId,
+        discountId: discountId,
+        requestOptions: requestOptions);
   }
 
   /// Removes the active discount from a subscription item. The discount_id must match the subscription item's currently active discount.
-  Future<CommerceDiscountRedemptionResponse>
-      removeSubscriptionItemDiscount(
-          {required String subscriptionItemId,
-          required String discountId,
-          RequestOptions? requestOptions}) async {
-    return billing_methods.removeBillingSubscriptionItemDiscount(_config, subscriptionItemId: subscriptionItemId, discountId: discountId, requestOptions: requestOptions);
+  Future<CommerceDiscountRedemptionResponse> removeSubscriptionItemDiscount(
+      {required String subscriptionItemId,
+      required String discountId,
+      RequestOptions? requestOptions}) async {
+    return billing_methods.removeBillingSubscriptionItemDiscount(_config,
+        subscriptionItemId: subscriptionItemId,
+        discountId: discountId,
+        requestOptions: requestOptions);
   }
 
   /// Returns a list of all billing statements for the instance. The statements are returned sorted by creation date, with the newest statements appearing first. Pagination is supported.
@@ -2286,7 +3205,11 @@ class BillingNamespace {
       SdkOptional<int> limit = const SdkOmitted(),
       SdkOptional<int> offset = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return billing_methods.getBillingStatementList(_config, paginated: paginated, limit: limit, offset: offset, requestOptions: requestOptions);
+    return billing_methods.getBillingStatementList(_config,
+        paginated: paginated,
+        limit: limit,
+        offset: offset,
+        requestOptions: requestOptions);
   }
 
   /// Retrieves a billing statement by its unique identifier. Use `statementID` to inspect the statement’s payer, current status, totals, and grouped items.
@@ -2294,25 +3217,30 @@ class BillingNamespace {
   /// Retrieves the details of a billing statement.
   Future<BillingStatement> getStatement(
       {required String statementId, RequestOptions? requestOptions}) async {
-    return billing_methods.getBillingStatement(_config, statementId: statementId, requestOptions: requestOptions);
+    return billing_methods.getBillingStatement(_config,
+        statementId: statementId, requestOptions: requestOptions);
   }
 
   /// Returns a list of all payment attempts for a specific billing statement. The payment attempts are returned sorted by creation date, with the newest payment attempts appearing first. Pagination is supported.
-  Future<PaginatedBillingPaymentAttemptResponse>
-      getStatementPaymentAttempts(
-          {required String statementId,
-          SdkOptional<bool> paginated = const SdkOmitted(),
-          SdkOptional<int> limit = const SdkOmitted(),
-          SdkOptional<int> offset = const SdkOmitted(),
-          RequestOptions? requestOptions}) async {
-    return billing_methods.getBillingStatementPaymentAttempts(_config, statementId: statementId, paginated: paginated, limit: limit, offset: offset, requestOptions: requestOptions);
+  Future<PaginatedBillingPaymentAttemptResponse> getStatementPaymentAttempts(
+      {required String statementId,
+      SdkOptional<bool> paginated = const SdkOmitted(),
+      SdkOptional<int> limit = const SdkOmitted(),
+      SdkOptional<int> offset = const SdkOmitted(),
+      RequestOptions? requestOptions}) async {
+    return billing_methods.getBillingStatementPaymentAttempts(_config,
+        statementId: statementId,
+        paginated: paginated,
+        limit: limit,
+        offset: offset,
+        requestOptions: requestOptions);
   }
-
 }
 
 class OrganizationPermissionsNamespace {
   final ClientConfig _config;
   OrganizationPermissionsNamespace(ClientConfig config) : _config = config;
+
   /// Retrieves all organization permissions for the given instance.
   Future<Permissions> list(
       {SdkOptional<String> query = const SdkOmitted(),
@@ -2320,7 +3248,12 @@ class OrganizationPermissionsNamespace {
       SdkOptional<int> limit = const SdkOmitted(),
       SdkOptional<int> offset = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return organization_permissions_methods.listOrganizationPermissions(_config, query: query, orderBy: orderBy, limit: limit, offset: offset, requestOptions: requestOptions);
+    return organization_permissions_methods.listOrganizationPermissions(_config,
+        query: query,
+        orderBy: orderBy,
+        limit: limit,
+        offset: offset,
+        requestOptions: requestOptions);
   }
 
   /// Creates a new organization permission for the given instance.
@@ -2329,13 +3262,19 @@ class OrganizationPermissionsNamespace {
       required String key,
       SdkOptional<String> description = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return organization_permissions_methods.createOrganizationPermission(_config, name: name, key: key, description: description, requestOptions: requestOptions);
+    return organization_permissions_methods.createOrganizationPermission(
+        _config,
+        name: name,
+        key: key,
+        description: description,
+        requestOptions: requestOptions);
   }
 
   /// Retrieves the details of an organization permission.
   Future<Permission> get_(
       {required String permissionId, RequestOptions? requestOptions}) async {
-    return organization_permissions_methods.getOrganizationPermission(_config, permissionId: permissionId, requestOptions: requestOptions);
+    return organization_permissions_methods.getOrganizationPermission(_config,
+        permissionId: permissionId, requestOptions: requestOptions);
   }
 
   /// Updates the properties of an existing organization permission. System permissions cannot be updated.
@@ -2345,20 +3284,29 @@ class OrganizationPermissionsNamespace {
       SdkOptional<String> key = const SdkOmitted(),
       SdkOptional<String> description = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return organization_permissions_methods.updateOrganizationPermission(_config, permissionId: permissionId, name: name, key: key, description: description, requestOptions: requestOptions);
+    return organization_permissions_methods.updateOrganizationPermission(
+        _config,
+        permissionId: permissionId,
+        name: name,
+        key: key,
+        description: description,
+        requestOptions: requestOptions);
   }
 
   /// Deletes an organization permission. System permissions cannot be deleted.
   Future<DeletedObject> delete(
       {required String permissionId, RequestOptions? requestOptions}) async {
-    return organization_permissions_methods.deleteOrganizationPermission(_config, permissionId: permissionId, requestOptions: requestOptions);
+    return organization_permissions_methods.deleteOrganizationPermission(
+        _config,
+        permissionId: permissionId,
+        requestOptions: requestOptions);
   }
-
 }
 
 class RoleSetsNamespace {
   final ClientConfig _config;
   RoleSetsNamespace(ClientConfig config) : _config = config;
+
   /// Returns a list of role sets for the instance. Results can be paginated using the optional `limit` and `offset` query parameters. The role sets are ordered by descending creation date by default.
   Future<RoleSets> list(
       {SdkOptional<String> query = const SdkOmitted(),
@@ -2366,7 +3314,12 @@ class RoleSetsNamespace {
       SdkOptional<int> limit = const SdkOmitted(),
       SdkOptional<int> offset = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return role_sets_methods.listRoleSets(_config, query: query, orderBy: orderBy, limit: limit, offset: offset, requestOptions: requestOptions);
+    return role_sets_methods.listRoleSets(_config,
+        query: query,
+        orderBy: orderBy,
+        limit: limit,
+        offset: offset,
+        requestOptions: requestOptions);
   }
 
   /// Creates a new role set with the given name and roles. The key must be unique for the instance and start with the 'role_set:' prefix, followed by lowercase alphanumeric characters and underscores only. You must provide at least one role and specify a default role key and creator role key.
@@ -2379,7 +3332,15 @@ class RoleSetsNamespace {
       SdkOptional<String?> description = const SdkOmitted(),
       SdkOptional<CreateRoleSetRequestBodyType> type_ = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return role_sets_methods.createRoleSet(_config, name: name, defaultRoleKey: defaultRoleKey, creatorRoleKey: creatorRoleKey, roles: roles, key: key, description: description, type_: type_, requestOptions: requestOptions);
+    return role_sets_methods.createRoleSet(_config,
+        name: name,
+        defaultRoleKey: defaultRoleKey,
+        creatorRoleKey: creatorRoleKey,
+        roles: roles,
+        key: key,
+        description: description,
+        type_: type_,
+        requestOptions: requestOptions);
   }
 
   /// Retrieves a role set by its key or ID, including its roles and organization-member defaults. Use `role_set_key_or_id` to identify the role set; the response also includes its type and creation and update timestamps.
@@ -2387,7 +3348,8 @@ class RoleSetsNamespace {
   /// Retrieves an existing role set by its key or ID.
   Future<RoleSet> get_(
       {required String roleSetKeyOrId, RequestOptions? requestOptions}) async {
-    return role_sets_methods.getRoleSet(_config, roleSetKeyOrId: roleSetKeyOrId, requestOptions: requestOptions);
+    return role_sets_methods.getRoleSet(_config,
+        roleSetKeyOrId: roleSetKeyOrId, requestOptions: requestOptions);
   }
 
   /// Updates an existing role set. You can update the name, key, description, type, default role, or creator role. All parameters are optional - you can update only the fields you want to change.
@@ -2400,16 +3362,29 @@ class RoleSetsNamespace {
       SdkOptional<String?> defaultRoleKey = const SdkOmitted(),
       SdkOptional<String?> creatorRoleKey = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return role_sets_methods.updateRoleSet(_config, roleSetKeyOrId: roleSetKeyOrId, name: name, key: key, description: description, type_: type_, defaultRoleKey: defaultRoleKey, creatorRoleKey: creatorRoleKey, requestOptions: requestOptions);
+    return role_sets_methods.updateRoleSet(_config,
+        roleSetKeyOrId: roleSetKeyOrId,
+        name: name,
+        key: key,
+        description: description,
+        type_: type_,
+        defaultRoleKey: defaultRoleKey,
+        creatorRoleKey: creatorRoleKey,
+        requestOptions: requestOptions);
   }
 
   /// Replaces a role set with another role set. This is functionally equivalent to deleting the role set but allows for atomic replacement with migration support. Organizations using this role set will be migrated to the destination role set.
   Future<DeletedObject> replace(
       {required String roleSetKeyOrId,
       required String destRoleSetKey,
-      SdkOptional<Map<String, dynamic>> reassignmentMappings = const SdkOmitted(),
+      SdkOptional<Map<String, dynamic>> reassignmentMappings =
+          const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return role_sets_methods.replaceRoleSet(_config, roleSetKeyOrId: roleSetKeyOrId, destRoleSetKey: destRoleSetKey, reassignmentMappings: reassignmentMappings, requestOptions: requestOptions);
+    return role_sets_methods.replaceRoleSet(_config,
+        roleSetKeyOrId: roleSetKeyOrId,
+        destRoleSetKey: destRoleSetKey,
+        reassignmentMappings: reassignmentMappings,
+        requestOptions: requestOptions);
   }
 
   /// Adds one or more roles to an existing role set. You can optionally update the default role or creator role when adding new roles.
@@ -2419,7 +3394,12 @@ class RoleSetsNamespace {
       SdkOptional<String> defaultRoleKey = const SdkOmitted(),
       SdkOptional<String> creatorRoleKey = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return role_sets_methods.addRolesToRoleSet(_config, roleSetKeyOrId: roleSetKeyOrId, roleKeys: roleKeys, defaultRoleKey: defaultRoleKey, creatorRoleKey: creatorRoleKey, requestOptions: requestOptions);
+    return role_sets_methods.addRolesToRoleSet(_config,
+        roleSetKeyOrId: roleSetKeyOrId,
+        roleKeys: roleKeys,
+        defaultRoleKey: defaultRoleKey,
+        creatorRoleKey: creatorRoleKey,
+        requestOptions: requestOptions);
   }
 
   /// Replaces a role in a role set with another role. This atomically removes the source role and reassigns any members to the destination role.
@@ -2428,20 +3408,25 @@ class RoleSetsNamespace {
       required String roleKey,
       required String toRoleKey,
       RequestOptions? requestOptions}) async {
-    return role_sets_methods.replaceRoleInRoleSet(_config, roleSetKeyOrId: roleSetKeyOrId, roleKey: roleKey, toRoleKey: toRoleKey, requestOptions: requestOptions);
+    return role_sets_methods.replaceRoleInRoleSet(_config,
+        roleSetKeyOrId: roleSetKeyOrId,
+        roleKey: roleKey,
+        toRoleKey: toRoleKey,
+        requestOptions: requestOptions);
   }
-
 }
 
 class ScimDirectoriesNamespace {
   final ClientConfig _config;
   ScimDirectoriesNamespace(ClientConfig config) : _config = config;
+
   /// Returns a list of all directories for the instance.
   Future<SCIMDirectoryList> list(
       {SdkOptional<int> limit = const SdkOmitted(),
       SdkOptional<int> offset = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return scim_directories_methods.listScimDirectories(_config, limit: limit, offset: offset, requestOptions: requestOptions);
+    return scim_directories_methods.listScimDirectories(_config,
+        limit: limit, offset: offset, requestOptions: requestOptions);
   }
 
   /// Creates a SCIM directory for the instance and associates it with an enterprise connection. Supply `enterprise_connection_id` and `provider`; you can also include group-to-role mappings to create with the directory. The created directory response includes its SCIM endpoint URL and API key.
@@ -2451,9 +3436,15 @@ class ScimDirectoriesNamespace {
       {required String enterpriseConnectionId,
       required String provider,
       SdkOptional<String> name = const SdkOmitted(),
-      SdkOptional<List<CreateSCIMDirectoryRequestBodyGroupRoleMappingsItem>> groupRoleMappings = const SdkOmitted(),
+      SdkOptional<List<CreateSCIMDirectoryRequestBodyGroupRoleMappingsItem>>
+          groupRoleMappings = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return scim_directories_methods.createScimDirectory(_config, enterpriseConnectionId: enterpriseConnectionId, provider: provider, name: name, groupRoleMappings: groupRoleMappings, requestOptions: requestOptions);
+    return scim_directories_methods.createScimDirectory(_config,
+        enterpriseConnectionId: enterpriseConnectionId,
+        provider: provider,
+        name: name,
+        groupRoleMappings: groupRoleMappings,
+        requestOptions: requestOptions);
   }
 
   /// Retrieves the configuration for a SCIM directory. Use its identifier to look up details such as its provider, endpoint URL, enabled state, and attribute mappings.
@@ -2461,7 +3452,8 @@ class ScimDirectoriesNamespace {
   /// Returns the details of a directory.
   Future<SCIMDirectory> get_(
       {required String scimDirectoryId, RequestOptions? requestOptions}) async {
-    return scim_directories_methods.getScimDirectory(_config, scimDirectoryId: scimDirectoryId, requestOptions: requestOptions);
+    return scim_directories_methods.getScimDirectory(_config,
+        scimDirectoryId: scimDirectoryId, requestOptions: requestOptions);
   }
 
   /// Updates the configuration of a SCIM directory. Supply only the settings you want to change; `attribute_mapping` entries are merged, and setting a key to `null` removes it from the mapping.
@@ -2475,25 +3467,35 @@ class ScimDirectoriesNamespace {
       SdkOptional<Map<String, String>> attributeMapping = const SdkOmitted(),
       SdkOptional<bool> groupRoleMappingEnabled = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return scim_directories_methods.updateScimDirectory(_config, scimDirectoryId: scimDirectoryId, name: name, enabled: enabled, provider: provider, attributeMapping: attributeMapping, groupRoleMappingEnabled: groupRoleMappingEnabled, requestOptions: requestOptions);
+    return scim_directories_methods.updateScimDirectory(_config,
+        scimDirectoryId: scimDirectoryId,
+        name: name,
+        enabled: enabled,
+        provider: provider,
+        attributeMapping: attributeMapping,
+        groupRoleMappingEnabled: groupRoleMappingEnabled,
+        requestOptions: requestOptions);
   }
 
   /// Deletes a directory and stops provisioning for it. SCIM requests authenticated with the directory's API key are rejected afterwards.
   Future<DeletedObject> delete(
       {required String scimDirectoryId, RequestOptions? requestOptions}) async {
-    return scim_directories_methods.deleteScimDirectory(_config, scimDirectoryId: scimDirectoryId, requestOptions: requestOptions);
+    return scim_directories_methods.deleteScimDirectory(_config,
+        scimDirectoryId: scimDirectoryId, requestOptions: requestOptions);
   }
 
   /// Generates a new API key for the directory and returns it in the `api_key` field. This is the only way to obtain the key after creation, so make sure to update it in your identity provider. The previous key remains valid for a short grace period before it expires.
   Future<SCIMDirectory> rotateApiKey(
       {required String scimDirectoryId, RequestOptions? requestOptions}) async {
-    return scim_directories_methods.rotateScimDirectoryApiKey(_config, scimDirectoryId: scimDirectoryId, requestOptions: requestOptions);
+    return scim_directories_methods.rotateScimDirectoryApiKey(_config,
+        scimDirectoryId: scimDirectoryId, requestOptions: requestOptions);
   }
 
   /// Returns the list of SCIM group to organization role mappings for a directory, ordered by precedence.
   Future<SCIMGroupRoleMappingList> listScimGroupRoleMappings(
       {required String scimDirectoryId, RequestOptions? requestOptions}) async {
-    return scim_directories_methods.listScimGroupRoleMappings(_config, scimDirectoryId: scimDirectoryId, requestOptions: requestOptions);
+    return scim_directories_methods.listScimGroupRoleMappings(_config,
+        scimDirectoryId: scimDirectoryId, requestOptions: requestOptions);
   }
 
   /// Creates a new SCIM group to organization role mapping for a directory. Mappings can be created while group role mapping is disabled on the directory, but they only take effect once it is enabled.
@@ -2503,15 +3505,24 @@ class ScimDirectoriesNamespace {
       required String roleId,
       SdkOptional<int> precedence = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return scim_directories_methods.createScimGroupRoleMapping(_config, scimDirectoryId: scimDirectoryId, scimGroupId: scimGroupId, roleId: roleId, precedence: precedence, requestOptions: requestOptions);
+    return scim_directories_methods.createScimGroupRoleMapping(_config,
+        scimDirectoryId: scimDirectoryId,
+        scimGroupId: scimGroupId,
+        roleId: roleId,
+        precedence: precedence,
+        requestOptions: requestOptions);
   }
 
   /// Replaces the entire set of SCIM group role mappings for a directory. The position of each item in the `mappings` array determines its precedence (the first item gets precedence 1). Passing an empty array removes all mappings. Mappings can be replaced while group role mapping is disabled on the directory, but they only take effect once it is enabled.
   Future<SCIMGroupRoleMappingList> replaceScimGroupRoleMappings(
       {required String scimDirectoryId,
-      required List<ReplaceSCIMGroupRoleMappingsRequestBodyMappingsItem> mappings,
+      required List<ReplaceSCIMGroupRoleMappingsRequestBodyMappingsItem>
+          mappings,
       RequestOptions? requestOptions}) async {
-    return scim_directories_methods.replaceScimGroupRoleMappings(_config, scimDirectoryId: scimDirectoryId, mappings: mappings, requestOptions: requestOptions);
+    return scim_directories_methods.replaceScimGroupRoleMappings(_config,
+        scimDirectoryId: scimDirectoryId,
+        mappings: mappings,
+        requestOptions: requestOptions);
   }
 
   /// Deletes a single SCIM group role mapping. Mappings can be deleted while group role mapping is disabled on the directory, but the change only takes effect once it is enabled.
@@ -2519,20 +3530,24 @@ class ScimDirectoriesNamespace {
       {required String scimDirectoryId,
       required String mappingId,
       RequestOptions? requestOptions}) async {
-    return scim_directories_methods.deleteScimGroupRoleMapping(_config, scimDirectoryId: scimDirectoryId, mappingId: mappingId, requestOptions: requestOptions);
+    return scim_directories_methods.deleteScimGroupRoleMapping(_config,
+        scimDirectoryId: scimDirectoryId,
+        mappingId: mappingId,
+        requestOptions: requestOptions);
   }
-
 }
 
 class DirectoriesNamespace {
   final ClientConfig _config;
   DirectoriesNamespace(ClientConfig config) : _config = config;
+
   /// Returns a list of all directories for the instance.
   Future<DirectoryList> list(
       {SdkOptional<int> limit = const SdkOmitted(),
       SdkOptional<int> offset = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return directories_methods.listDirectories(_config, limit: limit, offset: offset, requestOptions: requestOptions);
+    return directories_methods.listDirectories(_config,
+        limit: limit, offset: offset, requestOptions: requestOptions);
   }
 
   /// Creates a directory for provisioning users from an identity provider and associates it with an enterprise connection. Supply `enterprise_connection_id` and `provider`; optionally include a name and group-to-role mappings to create with the directory. The response includes the directory configuration and its API key.
@@ -2542,9 +3557,15 @@ class DirectoriesNamespace {
       {required String enterpriseConnectionId,
       required String provider,
       SdkOptional<String> name = const SdkOmitted(),
-      SdkOptional<List<CreateDirectoryRequestBodyGroupRoleMappingsItem>> groupRoleMappings = const SdkOmitted(),
+      SdkOptional<List<CreateDirectoryRequestBodyGroupRoleMappingsItem>>
+          groupRoleMappings = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return directories_methods.createDirectory(_config, enterpriseConnectionId: enterpriseConnectionId, provider: provider, name: name, groupRoleMappings: groupRoleMappings, requestOptions: requestOptions);
+    return directories_methods.createDirectory(_config,
+        enterpriseConnectionId: enterpriseConnectionId,
+        provider: provider,
+        name: name,
+        groupRoleMappings: groupRoleMappings,
+        requestOptions: requestOptions);
   }
 
   /// Retrieves the configuration for a directory used to provision users from an identity provider. Use `directory_id` to identify the directory whose details you need.
@@ -2552,7 +3573,8 @@ class DirectoriesNamespace {
   /// Returns the details of a directory.
   Future<Directory> get_(
       {required String directoryId, RequestOptions? requestOptions}) async {
-    return directories_methods.getDirectory(_config, directoryId: directoryId, requestOptions: requestOptions);
+    return directories_methods.getDirectory(_config,
+        directoryId: directoryId, requestOptions: requestOptions);
   }
 
   /// Updates configurable properties of a directory used to provision users from an identity provider. Supply only the fields you want to change; `attribute_mapping` entries are merged into the existing mapping, and a key set to `null` is removed.
@@ -2566,25 +3588,35 @@ class DirectoriesNamespace {
       SdkOptional<Map<String, String>> attributeMapping = const SdkOmitted(),
       SdkOptional<bool> groupRoleMappingEnabled = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return directories_methods.updateDirectory(_config, directoryId: directoryId, name: name, enabled: enabled, provider: provider, attributeMapping: attributeMapping, groupRoleMappingEnabled: groupRoleMappingEnabled, requestOptions: requestOptions);
+    return directories_methods.updateDirectory(_config,
+        directoryId: directoryId,
+        name: name,
+        enabled: enabled,
+        provider: provider,
+        attributeMapping: attributeMapping,
+        groupRoleMappingEnabled: groupRoleMappingEnabled,
+        requestOptions: requestOptions);
   }
 
   /// Deletes a directory and stops provisioning for it. Provisioning requests authenticated with the directory's API key are rejected afterwards.
   Future<DeletedObject> delete(
       {required String directoryId, RequestOptions? requestOptions}) async {
-    return directories_methods.deleteDirectory(_config, directoryId: directoryId, requestOptions: requestOptions);
+    return directories_methods.deleteDirectory(_config,
+        directoryId: directoryId, requestOptions: requestOptions);
   }
 
   /// Generates a new API key for the directory and returns it in the `api_key` field. This is the only way to obtain the key after creation, so make sure to update it in your identity provider. The previous key remains valid for a short grace period before it expires.
   Future<Directory> rotateApiKey(
       {required String directoryId, RequestOptions? requestOptions}) async {
-    return directories_methods.rotateDirectoryApiKey(_config, directoryId: directoryId, requestOptions: requestOptions);
+    return directories_methods.rotateDirectoryApiKey(_config,
+        directoryId: directoryId, requestOptions: requestOptions);
   }
 
   /// Returns the list of directory group to organization role mappings for a directory, ordered by precedence.
   Future<DirectoryGroupRoleMappingList> listGroupRoleMappings(
       {required String directoryId, RequestOptions? requestOptions}) async {
-    return directories_methods.listDirectoryGroupRoleMappings(_config, directoryId: directoryId, requestOptions: requestOptions);
+    return directories_methods.listDirectoryGroupRoleMappings(_config,
+        directoryId: directoryId, requestOptions: requestOptions);
   }
 
   /// Creates a new directory group to organization role mapping for a directory. Mappings can be created while group role mapping is disabled on the directory, but they only take effect once it is enabled.
@@ -2595,15 +3627,25 @@ class DirectoriesNamespace {
       SdkOptional<String> scimGroupId = const SdkOmitted(),
       SdkOptional<int> precedence = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return directories_methods.createDirectoryGroupRoleMapping(_config, directoryId: directoryId, roleId: roleId, directoryGroupId: directoryGroupId, scimGroupId: scimGroupId, precedence: precedence, requestOptions: requestOptions);
+    return directories_methods.createDirectoryGroupRoleMapping(_config,
+        directoryId: directoryId,
+        roleId: roleId,
+        directoryGroupId: directoryGroupId,
+        scimGroupId: scimGroupId,
+        precedence: precedence,
+        requestOptions: requestOptions);
   }
 
   /// Replaces the entire set of directory group role mappings for a directory. The position of each item in the `mappings` array determines its precedence (the first item gets precedence 1). Passing an empty array removes all mappings. Mappings can be replaced while group role mapping is disabled on the directory, but they only take effect once it is enabled.
   Future<DirectoryGroupRoleMappingList> replaceGroupRoleMappings(
       {required String directoryId,
-      required List<ReplaceDirectoryGroupRoleMappingsRequestBodyMappingsItem> mappings,
+      required List<ReplaceDirectoryGroupRoleMappingsRequestBodyMappingsItem>
+          mappings,
       RequestOptions? requestOptions}) async {
-    return directories_methods.replaceDirectoryGroupRoleMappings(_config, directoryId: directoryId, mappings: mappings, requestOptions: requestOptions);
+    return directories_methods.replaceDirectoryGroupRoleMappings(_config,
+        directoryId: directoryId,
+        mappings: mappings,
+        requestOptions: requestOptions);
   }
 
   /// Deletes a single directory group role mapping. Mappings can be deleted while group role mapping is disabled on the directory, but the change only takes effect once it is enabled.
@@ -2611,14 +3653,17 @@ class DirectoriesNamespace {
       {required String directoryId,
       required String mappingId,
       RequestOptions? requestOptions}) async {
-    return directories_methods.deleteDirectoryGroupRoleMapping(_config, directoryId: directoryId, mappingId: mappingId, requestOptions: requestOptions);
+    return directories_methods.deleteDirectoryGroupRoleMapping(_config,
+        directoryId: directoryId,
+        mappingId: mappingId,
+        requestOptions: requestOptions);
   }
-
 }
 
 class AdminPortalLinkTokensNamespace {
   final ClientConfig _config;
   AdminPortalLinkTokensNamespace(ClientConfig config) : _config = config;
+
   /// Creates a single-use admin portal link token, optionally scoped to an organization and IT contact. Supply `organization_id`, `it_contact_id`, `scopes`, and `seconds_until_expiration` as needed; the expiration defaults to 3600 seconds. Treat the returned token as a secret because it is URL-borne.
   Future<CreateAdminPortalLinkTokenResponse> create(
       {SdkOptional<String> organizationId = const SdkOmitted(),
@@ -2626,7 +3671,12 @@ class AdminPortalLinkTokensNamespace {
       SdkOptional<List<String>> scopes = const SdkOmitted(),
       SdkOptional<int> secondsUntilExpiration = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return admin_portal_link_tokens_methods.createAdminPortalLinkToken(_config, organizationId: organizationId, itContactId: itContactId, scopes: scopes, secondsUntilExpiration: secondsUntilExpiration, requestOptions: requestOptions);
+    return admin_portal_link_tokens_methods.createAdminPortalLinkToken(_config,
+        organizationId: organizationId,
+        itContactId: itContactId,
+        scopes: scopes,
+        secondsUntilExpiration: secondsUntilExpiration,
+        requestOptions: requestOptions);
   }
 
   /// Revokes an admin portal link token identified by its token ID. You can include `revocation_reason` to record why the token was revoked. The response contains the token's updated revocation state.
@@ -2634,14 +3684,17 @@ class AdminPortalLinkTokensNamespace {
       {required String adminPortalLinkTokenId,
       SdkOptional<String?> revocationReason = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return admin_portal_link_tokens_methods.revokeAdminPortalLinkToken(_config, adminPortalLinkTokenId: adminPortalLinkTokenId, revocationReason: revocationReason, requestOptions: requestOptions);
+    return admin_portal_link_tokens_methods.revokeAdminPortalLinkToken(_config,
+        adminPortalLinkTokenId: adminPortalLinkTokenId,
+        revocationReason: revocationReason,
+        requestOptions: requestOptions);
   }
-
 }
 
 class ApiKeysNamespace {
   final ClientConfig _config;
   ApiKeysNamespace(ClientConfig config) : _config = config;
+
   /// Creates an API key for the specified subject. Supply `name` and `subject`, and provide optional claims, scopes, creator, and expiration settings as needed. The response includes the key secret, so handle it as a credential.
   Future<CreateApiKeyResponse> create(
       {required String name,
@@ -2653,25 +3706,43 @@ class ApiKeysNamespace {
       SdkOptional<String?> createdBy = const SdkOmitted(),
       SdkOptional<double?> secondsUntilExpiration = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return api_keys_methods.createApiKey(_config, name: name, subject: subject, type_: type_, description: description, claims: claims, scopes: scopes, createdBy: createdBy, secondsUntilExpiration: secondsUntilExpiration, requestOptions: requestOptions);
+    return api_keys_methods.createApiKey(_config,
+        name: name,
+        subject: subject,
+        type_: type_,
+        description: description,
+        claims: claims,
+        scopes: scopes,
+        createdBy: createdBy,
+        secondsUntilExpiration: secondsUntilExpiration,
+        requestOptions: requestOptions);
   }
 
   /// Lists API keys associated with a specified subject. Use `include_invalid` to control whether invalid keys are included, and use `query` to filter the results. Use `limit` and `offset` to paginate the results.
   Future<ListApiKeysResponse> list(
       {required String subject,
       SdkOptional<String> type_ = const SdkOmitted(),
-      SdkOptional<ListApiKeysIncludeInvalid> includeInvalid = const SdkOmitted(),
+      SdkOptional<ListApiKeysIncludeInvalid> includeInvalid =
+          const SdkOmitted(),
       SdkOptional<double> limit = const SdkOmitted(),
       SdkOptional<double?> offset = const SdkOmitted(),
       SdkOptional<String> query = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return api_keys_methods.listApiKeys(_config, subject: subject, type_: type_, includeInvalid: includeInvalid, limit: limit, offset: offset, query: query, requestOptions: requestOptions);
+    return api_keys_methods.listApiKeys(_config,
+        subject: subject,
+        type_: type_,
+        includeInvalid: includeInvalid,
+        limit: limit,
+        offset: offset,
+        query: query,
+        requestOptions: requestOptions);
   }
 
   /// Retrieves an API key by its identifier. Supply the key ID in the path using either the `ak_` or `api_key_` prefix followed by 32 hexadecimal characters. The response contains the key's configuration and status.
   Future<GetApiKeyResponse> get_(
       {required String apiKeyId, RequestOptions? requestOptions}) async {
-    return api_keys_methods.getApiKey(_config, apiKeyId: apiKeyId, requestOptions: requestOptions);
+    return api_keys_methods.getApiKey(_config,
+        apiKeyId: apiKeyId, requestOptions: requestOptions);
   }
 
   /// Updates configurable properties of an API key. Include only the fields you want to change, such as `scopes`, `description`, `subject`, or `seconds_until_expiration`. The response contains the updated API key object.
@@ -2683,19 +3754,28 @@ class ApiKeysNamespace {
       SdkOptional<String> subject = const SdkOmitted(),
       SdkOptional<double?> secondsUntilExpiration = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return api_keys_methods.updateApiKey(_config, apiKeyId: apiKeyId, claims: claims, scopes: scopes, description: description, subject: subject, secondsUntilExpiration: secondsUntilExpiration, requestOptions: requestOptions);
+    return api_keys_methods.updateApiKey(_config,
+        apiKeyId: apiKeyId,
+        claims: claims,
+        scopes: scopes,
+        description: description,
+        subject: subject,
+        secondsUntilExpiration: secondsUntilExpiration,
+        requestOptions: requestOptions);
   }
 
   /// Deletes an API key identified by its ID. Supply the identifier using the `ak_` or `api_key_` prefix followed by 32 hexadecimal characters. The response confirms that the key was deleted.
   Future<DeleteApiKeyResponse> delete(
       {required String apiKeyId, RequestOptions? requestOptions}) async {
-    return api_keys_methods.deleteApiKey(_config, apiKeyId: apiKeyId, requestOptions: requestOptions);
+    return api_keys_methods.deleteApiKey(_config,
+        apiKeyId: apiKeyId, requestOptions: requestOptions);
   }
 
   /// Retrieves the secret for an API key by its identifier. Supply the key ID using the `ak_` or `api_key_` prefix followed by 32 hexadecimal characters. Treat the returned secret as a credential.
   Future<GetApiKeySecretResponse> getSecret(
       {required String apiKeyId, RequestOptions? requestOptions}) async {
-    return api_keys_methods.getApiKeySecret(_config, apiKeyId: apiKeyId, requestOptions: requestOptions);
+    return api_keys_methods.getApiKeySecret(_config,
+        apiKeyId: apiKeyId, requestOptions: requestOptions);
   }
 
   /// Revokes an API key identified by its ID. You can include `revocation_reason` to record why the key was revoked. The response contains the API key's updated revocation state.
@@ -2703,30 +3783,40 @@ class ApiKeysNamespace {
       {required String apiKeyId,
       SdkOptional<String?> revocationReason = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return api_keys_methods.revokeApiKey(_config, apiKeyId: apiKeyId, revocationReason: revocationReason, requestOptions: requestOptions);
+    return api_keys_methods.revokeApiKey(_config,
+        apiKeyId: apiKeyId,
+        revocationReason: revocationReason,
+        requestOptions: requestOptions);
   }
 
   /// Verifies an API key using its secret. Supply the key in the `secret` field to retrieve its metadata and status. The response includes whether the key is revoked or expired and its associated subject and scopes.
   Future<VerifyApiKeyResponse> verify(
       {required String secret, RequestOptions? requestOptions}) async {
-    return api_keys_methods.verifyApiKey(_config, secret: secret, requestOptions: requestOptions);
+    return api_keys_methods.verifyApiKey(_config,
+        secret: secret, requestOptions: requestOptions);
   }
-
 }
 
 class M2MTokensNamespace {
   final ClientConfig _config;
   M2MTokensNamespace(ClientConfig config) : _config = config;
+
   /// Creates a new M2M token for the machine associated with the Machine Secret Key used to authenticate the request. Use `token_format` to choose opaque or JWT format and `seconds_until_expiration` to set the token lifetime. Set `min_remaining_ttl_seconds` to reuse an eligible existing opaque token instead of minting a new one.
   ///
   /// Creates a new M2M Token. Must be authenticated via a Machine Secret Key.
   Future<CreateM2MTokenResponse> create(
-      {SdkOptional<CreateM2MTokenRequestBodyTokenFormat> tokenFormat = const SdkOmitted(),
+      {SdkOptional<CreateM2MTokenRequestBodyTokenFormat> tokenFormat =
+          const SdkOmitted(),
       SdkOptional<double?> secondsUntilExpiration = const SdkOmitted(),
       SdkOptional<dynamic> claims = const SdkOmitted(),
       SdkOptional<int> minRemainingTtlSeconds = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return m2_mtokens_methods.createM2MToken(_config, tokenFormat: tokenFormat, secondsUntilExpiration: secondsUntilExpiration, claims: claims, minRemainingTtlSeconds: minRemainingTtlSeconds, requestOptions: requestOptions);
+    return m2_mtokens_methods.createM2MToken(_config,
+        tokenFormat: tokenFormat,
+        secondsUntilExpiration: secondsUntilExpiration,
+        claims: claims,
+        minRemainingTtlSeconds: minRemainingTtlSeconds,
+        requestOptions: requestOptions);
   }
 
   /// Lists stored opaque-format M2M tokens for a specific machine; stateless JWT-format tokens are not included. Use `revoked` and `expired` to filter the results, and `limit` and `offset` to control pagination. Authenticate with a Machine Secret Key to retrieve tokens for its machine, or a Clerk Secret Key to retrieve tokens for any machine in the instance.
@@ -2739,7 +3829,13 @@ class M2MTokensNamespace {
       SdkOptional<double> limit = const SdkOmitted(),
       SdkOptional<double?> offset = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return m2_mtokens_methods.getM2MTokens(_config, subject: subject, revoked: revoked, expired: expired, limit: limit, offset: offset, requestOptions: requestOptions);
+    return m2_mtokens_methods.getM2MTokens(_config,
+        subject: subject,
+        revoked: revoked,
+        expired: expired,
+        limit: limit,
+        offset: offset,
+        requestOptions: requestOptions);
   }
 
   /// Revokes a stored opaque-format M2M token. Use `m2m_token_id` to identify the token and optionally provide a `revocation_reason`. JWT-format M2M tokens are stateless and cannot be revoked; a Machine Secret Key can revoke only tokens managed by its machine, while a Clerk Secret Key can revoke any token in the instance.
@@ -2749,7 +3845,10 @@ class M2MTokensNamespace {
       {required String m2mTokenId,
       SdkOptional<String?> revocationReason = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return m2_mtokens_methods.revokeM2MToken(_config, m2mTokenId: m2mTokenId, revocationReason: revocationReason, requestOptions: requestOptions);
+    return m2_mtokens_methods.revokeM2MToken(_config,
+        m2mTokenId: m2mTokenId,
+        revocationReason: revocationReason,
+        requestOptions: requestOptions);
   }
 
   /// Verifies an M2M token and returns its token details when valid. Supply the token in the `token` field. A Machine Secret Key can verify a token only when it grants access to that machine, while a Clerk Secret Key can verify any token in the instance.
@@ -2757,22 +3856,25 @@ class M2MTokensNamespace {
   /// Verifies a M2M Token. This endpoint can be authenticated by either a Machine Secret Key or by a Clerk Secret Key. - When verifying a M2M Token with a Machine Secret Key, the token must be granted access to the Machine associated with the Machine Secret Key. - When verifying a M2M Token with a Clerk Secret Key, any token on the Instance can be verified.
   Future<VerifyM2MTokenResponse> verify(
       {required String token, RequestOptions? requestOptions}) async {
-    return m2_mtokens_methods.verifyM2MToken(_config, token: token, requestOptions: requestOptions);
+    return m2_mtokens_methods.verifyM2MToken(_config,
+        token: token, requestOptions: requestOptions);
   }
-
 }
 
 class OAuthAccessTokensNamespace {
   final ClientConfig _config;
   OAuthAccessTokensNamespace(ClientConfig config) : _config = config;
+
   /// Verifies an OAuth access token and returns its token details or active status. Supply the token in `access_token`; the legacy `secret` field is deprecated. Use this endpoint to check whether an access token is active and retrieve its associated client, subject, and scopes when available.
   Future<VerifyOAuthAccessTokenResponse> verify(
       {SdkOptional<String> accessToken = const SdkOmitted(),
       SdkOptional<String> secret = const SdkOmitted(),
       RequestOptions? requestOptions}) async {
-    return o_auth_access_tokens_methods.verifyOAuthAccessToken(_config, accessToken: accessToken, secret: secret, requestOptions: requestOptions);
+    return o_auth_access_tokens_methods.verifyOAuthAccessToken(_config,
+        accessToken: accessToken,
+        secret: secret,
+        requestOptions: requestOptions);
   }
-
 }
 
 class ClerkBackend {
@@ -2890,5 +3992,4 @@ class ClerkBackend {
     logging.enabled = enabled ?? true;
     return logging;
   }
-
 }

@@ -34,19 +34,32 @@ Future<EnterpriseConnections> listEnterpriseConnections(ClientConfig config,
           'GET', '/enterprise_connections',
           config: config,
           query: {
-            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit), style: 'form', explode: true),
-            'offset': SdkQueryValue(SdkUtils.unwrapOptional(offset), style: 'form', explode: true),
-            'organization_id': SdkQueryValue(SdkUtils.unwrapOptional(organizationId), style: 'form', explode: true),
-            'active': SdkQueryValue(SdkUtils.unwrapOptional(active), style: 'form', explode: true)
+            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit),
+                style: 'form', explode: true),
+            'offset': SdkQueryValue(SdkUtils.unwrapOptional(offset),
+                style: 'form', explode: true),
+            'organization_id': SdkQueryValue(
+                SdkUtils.unwrapOptional(organizationId),
+                style: 'form',
+                explode: true),
+            'active': SdkQueryValue(SdkUtils.unwrapOptional(active),
+                style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'listEnterpriseConnections',
-          fromJsonRaw: (value) => EnterpriseConnections.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              EnterpriseConnections.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'402': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '403': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '422': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '402': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>),
+            '403': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>),
+            '422': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Creates a new enterprise connection for an identity provider and associates it with one or more domains. Supply `name`, `provider`, and at least one valid fully qualified domain name in `domains`; choose `saml` or `oidc` settings to configure the connection for the selected provider. When `active` is true, provide IdP metadata in `saml` for SAML connections.
 ///
@@ -81,9 +94,12 @@ Future<EnterpriseConnection> createEnterpriseConnection(ClientConfig config,
     SdkOptional<String?> organizationId = const SdkOmitted(),
     SdkOptional<bool?> allowOrganizationAccountLinking = const SdkOmitted(),
     SdkOptional<bool?> active = const SdkOmitted(),
-    SdkOptional<CreateEnterpriseConnectionRequestBodySaml?> saml = const SdkOmitted(),
-    SdkOptional<CreateEnterpriseConnectionRequestBodyOidc?> oidc = const SdkOmitted(),
-    SdkOptional<List<CreateEnterpriseConnectionRequestBodyCustomAttributesItem>> customAttributes = const SdkOmitted(),
+    SdkOptional<CreateEnterpriseConnectionRequestBodySaml?> saml =
+        const SdkOmitted(),
+    SdkOptional<CreateEnterpriseConnectionRequestBodyOidc?> oidc =
+        const SdkOmitted(),
+    SdkOptional<List<CreateEnterpriseConnectionRequestBodyCustomAttributesItem>>
+        customAttributes = const SdkOmitted(),
     RequestOptions? requestOptions}) async {
   validateItems('domains', domains, min: 1);
 
@@ -95,7 +111,8 @@ Future<EnterpriseConnection> createEnterpriseConnection(ClientConfig config,
             'provider': provider,
             'domains': domains,
             'organization_id': SdkUtils.unwrapOptional(organizationId),
-            'allow_organization_account_linking': SdkUtils.unwrapOptional(allowOrganizationAccountLinking),
+            'allow_organization_account_linking':
+                SdkUtils.unwrapOptional(allowOrganizationAccountLinking),
             'active': SdkUtils.unwrapOptional(active),
             'saml': SdkUtils.unwrapOptional(saml),
             'oidc': SdkUtils.unwrapOptional(oidc),
@@ -103,12 +120,23 @@ Future<EnterpriseConnection> createEnterpriseConnection(ClientConfig config,
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'createEnterpriseConnection',
-          fromJsonRaw: (value) => EnterpriseConnection.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              EnterpriseConnection.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'402': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '403': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '404': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '409': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '422': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '402': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>),
+            '403': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>),
+            '404': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>),
+            '409': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>),
+            '422': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Fetches the enterprise connection whose ID matches the provided `enterprise_connection_id` in the path.
 ///
@@ -121,12 +149,16 @@ Future<EnterpriseConnection> getEnterpriseConnection(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'getEnterpriseConnection',
-          fromJsonRaw: (value) => EnterpriseConnection.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              EnterpriseConnection.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'402': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '403': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '404': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '402': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>),
+        '403': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>),
+        '404': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// Updates the enterprise connection whose ID matches the provided `enterprise_connection_id` in the path. When enabling the connection (setting `active` to true), any existing verified organization domains that match the connection's domains (e.g. used for enrollment modes like automatic invitation) may be deleted so the connection can be enabled.
 ///
@@ -164,9 +196,13 @@ Future<EnterpriseConnection> updateEnterpriseConnection(ClientConfig config,
     SdkOptional<bool?> disableAdditionalIdentifications = const SdkOmitted(),
     SdkOptional<bool?> allowOrganizationAccountLinking = const SdkOmitted(),
     SdkOptional<String?> organizationId = const SdkOmitted(),
-    SdkOptional<UpdateEnterpriseConnectionRequestBodySaml?> saml = const SdkOmitted(),
-    SdkOptional<UpdateEnterpriseConnectionRequestBodyOidc?> oidc = const SdkOmitted(),
-    SdkOptional<List<UpdateEnterpriseConnectionRequestBodyCustomAttributesItem>?> customAttributes = const SdkOmitted(),
+    SdkOptional<UpdateEnterpriseConnectionRequestBodySaml?> saml =
+        const SdkOmitted(),
+    SdkOptional<UpdateEnterpriseConnectionRequestBodyOidc?> oidc =
+        const SdkOmitted(),
+    SdkOptional<
+            List<UpdateEnterpriseConnectionRequestBodyCustomAttributesItem>?>
+        customAttributes = const SdkOmitted(),
     RequestOptions? requestOptions}) async {
   return (await sdkRequest<EnterpriseConnection>('PATCH',
           '/enterprise_connections/${Uri.encodeComponent(enterpriseConnectionId.toString())}',
@@ -176,8 +212,10 @@ Future<EnterpriseConnection> updateEnterpriseConnection(ClientConfig config,
             'domains': SdkUtils.unwrapOptional(domains),
             'active': SdkUtils.unwrapOptional(active),
             'sync_user_attributes': SdkUtils.unwrapOptional(syncUserAttributes),
-            'disable_additional_identifications': SdkUtils.unwrapOptional(disableAdditionalIdentifications),
-            'allow_organization_account_linking': SdkUtils.unwrapOptional(allowOrganizationAccountLinking),
+            'disable_additional_identifications':
+                SdkUtils.unwrapOptional(disableAdditionalIdentifications),
+            'allow_organization_account_linking':
+                SdkUtils.unwrapOptional(allowOrganizationAccountLinking),
             'organization_id': SdkUtils.unwrapOptional(organizationId),
             'saml': SdkUtils.unwrapOptional(saml),
             'oidc': SdkUtils.unwrapOptional(oidc),
@@ -185,12 +223,23 @@ Future<EnterpriseConnection> updateEnterpriseConnection(ClientConfig config,
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'updateEnterpriseConnection',
-          fromJsonRaw: (value) => EnterpriseConnection.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              EnterpriseConnection.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '402': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '403': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '404': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '422': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '400': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>),
+            '402': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>),
+            '403': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>),
+            '404': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>),
+            '422': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Deletes the enterprise connection whose ID matches the provided `enterprise_connection_id` in the path.
 ///
@@ -203,12 +252,16 @@ Future<DeletedObject> deleteEnterpriseConnection(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'deleteEnterpriseConnection',
-          fromJsonRaw: (value) => DeletedObject.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              DeletedObject.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'402': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '403': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '404': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '402': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>),
+        '403': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>),
+        '404': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// Returns a paginated list of SAML or OIDC debug test runs for an enterprise connection.
 ///
@@ -218,13 +271,14 @@ Future<DeletedObject> deleteEnterpriseConnection(ClientConfig config,
 ///   paginating the results together with `offset`.
 /// [offset] Skip the first `offset` results when paginating. Needs to be an
 ///   integer greater or equal to zero. To be used in conjunction with `limit`.
-Future<EnterpriseConnectionTestRuns>
-    listEnterpriseConnectionTestRuns(ClientConfig config,
-        {required String enterpriseConnectionId,
-        SdkOptional<List<ListEnterpriseConnectionTestRunsStatusItem>> status = const SdkOmitted(),
-        SdkOptional<int> limit = const SdkOmitted(),
-        SdkOptional<int> offset = const SdkOmitted(),
-        RequestOptions? requestOptions}) async {
+Future<EnterpriseConnectionTestRuns> listEnterpriseConnectionTestRuns(
+    ClientConfig config,
+    {required String enterpriseConnectionId,
+    SdkOptional<List<ListEnterpriseConnectionTestRunsStatusItem>> status =
+        const SdkOmitted(),
+    SdkOptional<int> limit = const SdkOmitted(),
+    SdkOptional<int> offset = const SdkOmitted(),
+    RequestOptions? requestOptions}) async {
   if (limit is SdkPresent<int>) {
     validateRange('limit', limit.value, min: 1, max: 500);
   }
@@ -236,33 +290,50 @@ Future<EnterpriseConnectionTestRuns>
           '/enterprise_connections/${Uri.encodeComponent(enterpriseConnectionId.toString())}/test_runs',
           config: config,
           query: {
-            'status': SdkQueryValue(SdkUtils.unwrapOptional(status), style: 'form', explode: true),
-            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit), style: 'form', explode: true),
-            'offset': SdkQueryValue(SdkUtils.unwrapOptional(offset), style: 'form', explode: true)
+            'status': SdkQueryValue(SdkUtils.unwrapOptional(status),
+                style: 'form', explode: true),
+            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit),
+                style: 'form', explode: true),
+            'offset': SdkQueryValue(SdkUtils.unwrapOptional(offset),
+                style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'listEnterpriseConnectionTestRuns',
-          fromJsonRaw: (value) => EnterpriseConnectionTestRuns.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => EnterpriseConnectionTestRuns.fromJson(
+              value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'402': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '403': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '404': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '422': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '402': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>),
+            '403': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>),
+            '404': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>),
+            '422': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Returns a short-lived URL that starts the IdP test flow for this connection.
 ///
 /// [enterpriseConnectionId] The ID of the enterprise connection
-Future<EnterpriseConnectionTestRunResponse>
-    createEnterpriseConnectionTestRun(ClientConfig config,
-        {required String enterpriseConnectionId,
-        RequestOptions? requestOptions}) async {
+Future<EnterpriseConnectionTestRunResponse> createEnterpriseConnectionTestRun(
+    ClientConfig config,
+    {required String enterpriseConnectionId,
+    RequestOptions? requestOptions}) async {
   return (await sdkRequest<EnterpriseConnectionTestRunResponse>('POST',
           '/enterprise_connections/${Uri.encodeComponent(enterpriseConnectionId.toString())}/test_runs',
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'createEnterpriseConnectionTestRun',
-          fromJsonRaw: (value) => EnterpriseConnectionTestRunResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => EnterpriseConnectionTestRunResponse.fromJson(
+              value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'402': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '403': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '404': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '402': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>),
+        '403': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>),
+        '404': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }

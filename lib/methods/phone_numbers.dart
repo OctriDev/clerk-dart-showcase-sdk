@@ -34,16 +34,28 @@ Future<PhoneNumber> createPhoneNumber(ClientConfig config,
             'phone_number': phoneNumber,
             'verified': SdkUtils.unwrapOptional(verified),
             'primary': SdkUtils.unwrapOptional(primary),
-            'reserved_for_second_factor': SdkUtils.unwrapOptional(reservedForSecondFactor)
+            'reserved_for_second_factor':
+                SdkUtils.unwrapOptional(reservedForSecondFactor)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'createPhoneNumber',
-          fromJsonRaw: (value) => PhoneNumber.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              PhoneNumber.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '401': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '403': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '404': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '422': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '400': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>),
+            '401': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>),
+            '403': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>),
+            '404': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>),
+            '422': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Retrieves the details of a phone number. Use its identifier to get the phone number, verification details, linked resources, and reservation status.
 ///
@@ -57,12 +69,17 @@ Future<PhoneNumber> getPhoneNumber(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'getPhoneNumber',
-          fromJsonRaw: (value) => PhoneNumber.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              PhoneNumber.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '401': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '403': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '404': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '400': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>),
+        '401': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>),
+        '403': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>),
+        '404': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// Deletes a phone number by its identifier. Use this operation to remove a phone number you no longer need; the response confirms whether it was deleted.
 ///
@@ -76,12 +93,17 @@ Future<DeletedObject> deletePhoneNumber(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'deletePhoneNumber',
-          fromJsonRaw: (value) => DeletedObject.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              DeletedObject.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '401': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '403': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '404': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '400': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>),
+        '401': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>),
+        '403': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>),
+        '404': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// Updates verification, primary-phone, or multi-factor authentication reservation settings for a phone number. Supply only the fields you want to change; reserving the number for multi-factor authentication requires it to be verified.
 ///
@@ -106,16 +128,26 @@ Future<PhoneNumber> updatePhoneNumber(ClientConfig config,
           body: {
             'verified': SdkUtils.unwrapOptional(verified),
             'primary': SdkUtils.unwrapOptional(primary),
-            'reserved_for_second_factor': SdkUtils.unwrapOptional(reservedForSecondFactor)
+            'reserved_for_second_factor':
+                SdkUtils.unwrapOptional(reservedForSecondFactor)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'updatePhoneNumber',
-          fromJsonRaw: (value) => PhoneNumber.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              PhoneNumber.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '401': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '403': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '404': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '400': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>),
+            '401': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>),
+            '403': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>),
+            '404': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Sends a one-time code to the given phone number so that a backend can verify the user controls it (for example, in a custom, backend-driven sign-in flow). The code is tracked on its own verification; confirm it with attempt_verification.
 ///
@@ -127,12 +159,19 @@ Future<VerificationResponse> preparePhoneNumberVerification(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'preparePhoneNumberVerification',
-          fromJsonRaw: (value) => VerificationResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              VerificationResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '401': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '403': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '404': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '429': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '500': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '400': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>),
+        '401': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>),
+        '403': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>),
+        '404': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>),
+        '429': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>),
+        '500': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// Checks a one-time code against the verification identified by verification_id, and returns the verification with its updated status (`verified`, `unverified`, `expired`, or `failed`) and attempt count, so a backend driving its own frontend can react on every attempt — an incorrect or expired code is reported through the status, not as an error. Resubmitting a verification whose code was already accepted is rejected with a `verification_already_verified` error. If the code for this verification could not be sent (the SMS provider refused or failed the send after prepare_verification had returned), the attempt is rejected with a `verification_code_not_sent` error and no attempt is counted; call prepare_verification again to send a new code. If too many codes have been checked for this phone number recently, the attempt is rejected with a `verification_code_too_many_attempts` error and no attempt is counted; the limit is per phone number, so wait for the `Retry-After` period rather than sending a new code. If the code is correct and the phone number is not already verified, it is also marked as verified as a side effect (just as it would be in a frontend verification flow); an already verified phone number is left unchanged. It never creates a session; to sign the user in afterwards, mint a sign-in token.
 ///
@@ -151,12 +190,27 @@ Future<VerificationResponse> attemptPhoneNumberVerification(ClientConfig config,
           body: {'verification_id': verificationId, 'code': code},
           decoder: SdkResponseDecoder.json,
           operationId: 'attemptPhoneNumberVerification',
-          fromJsonRaw: (value) => VerificationResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              VerificationResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '401': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '403': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '404': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '422': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '429': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '500': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '400': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>),
+            '401': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>),
+            '403': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>),
+            '404': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>),
+            '422': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>),
+            '429': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>),
+            '500': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Replaces all of the user's phone numbers with a single primary phone number. By default the new phone number is created verified, with the admin verification strategy. When `identification_status` is `reserved` it is created reserved instead: unverified but usable for sign-in and locked so no other user can claim it. When it is `unverified` the phone number is neither usable for sign-in nor locked. The new phone number is never reserved for second factor. Any existing phone numbers are deleted; replacing a phone number that is reserved for second factor disables the user's MFA. **Warning:** `identification_status: unverified` can lock the user out of their account. An unverified phone number cannot be used to sign in, so if the user has no other verified or reserved identifier, deleting their existing phone numbers leaves them unable to authenticate — and unable to verify the new number, since that requires signing in. Recovery then requires another admin API call.
 ///
@@ -176,19 +230,33 @@ Future<VerificationResponse> attemptPhoneNumberVerification(ClientConfig config,
 Future<PhoneNumber> replaceUserPhoneNumber(ClientConfig config,
     {required String userId,
     required String phoneNumber,
-    SdkOptional<ReplaceUserPhoneNumberRequestBodyIdentificationStatus> identificationStatus = const SdkOmitted(),
+    SdkOptional<ReplaceUserPhoneNumberRequestBodyIdentificationStatus>
+        identificationStatus = const SdkOmitted(),
     RequestOptions? requestOptions}) async {
   return (await sdkRequest<PhoneNumber>('PUT',
           '/users/${Uri.encodeComponent(userId.toString())}/phone_number',
           config: config,
           body: {
             'phone_number': phoneNumber,
-            'identification_status': SdkUtils.unwrapOptional(identificationStatus)
+            'identification_status':
+                SdkUtils.unwrapOptional(identificationStatus)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'replaceUserPhoneNumber',
-          fromJsonRaw: (value) => PhoneNumber.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              PhoneNumber.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '401': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '403': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '404': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '422': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '400': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>),
+            '401': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>),
+            '403': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>),
+            '404': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>),
+            '422': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }

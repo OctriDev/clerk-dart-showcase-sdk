@@ -8,32 +8,51 @@ part of 'shared_commerce.dart';
 class CommercePerUnitTotal2 {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Name of the billable unit (for example, seats)
   final String name;
+
   /// Number of units included in each pricing block
   final int blockSize;
+
   /// Computed totals for each pricing tier
   final List<CommercePerUnitTotalTier2> tiers;
 
-  const CommercePerUnitTotal2({required this.name, required this.blockSize, required this.tiers});
+  const CommercePerUnitTotal2(
+      {required this.name, required this.blockSize, required this.tiers});
 
-  CommercePerUnitTotal2 Function({String name, int blockSize, List<CommercePerUnitTotalTier2> tiers}) get copyWith => _copyWith;
+  CommercePerUnitTotal2 Function(
+      {String name,
+      int blockSize,
+      List<CommercePerUnitTotalTier2> tiers}) get copyWith => _copyWith;
 
-  CommercePerUnitTotal2 _copyWith({Object? name = sdkOmittedValue, Object? blockSize = sdkOmittedValue, Object? tiers = sdkOmittedValue}) => CommercePerUnitTotal2(
-    name: identical(name, sdkOmittedValue) ? this.name : name as String,
-    blockSize: identical(blockSize, sdkOmittedValue) ? this.blockSize : blockSize as int,
-    tiers: identical(tiers, sdkOmittedValue) ? this.tiers : tiers as List<CommercePerUnitTotalTier2>,
-  );
+  CommercePerUnitTotal2 _copyWith(
+          {Object? name = sdkOmittedValue,
+          Object? blockSize = sdkOmittedValue,
+          Object? tiers = sdkOmittedValue}) =>
+      CommercePerUnitTotal2(
+        name: identical(name, sdkOmittedValue) ? this.name : name as String,
+        blockSize: identical(blockSize, sdkOmittedValue)
+            ? this.blockSize
+            : blockSize as int,
+        tiers: identical(tiers, sdkOmittedValue)
+            ? this.tiers
+            : tiers as List<CommercePerUnitTotalTier2>,
+      );
 
-  factory CommercePerUnitTotal2.fromJson(Map<String, dynamic> json) => CommercePerUnitTotal2(
-    name: (json['name'] as String?)!,
-    blockSize: ((json['block_size'] as num?)?.toInt())!,
-    tiers: ((json['tiers'] as List?)?.map((e) => CommercePerUnitTotalTier2.fromJson(e as Map<String, dynamic>)).toList())!,
-  );
+  factory CommercePerUnitTotal2.fromJson(Map<String, dynamic> json) =>
+      CommercePerUnitTotal2(
+        name: (json['name'] as String?)!,
+        blockSize: ((json['block_size'] as num?)?.toInt())!,
+        tiers: ((json['tiers'] as List?)
+            ?.map((e) =>
+                CommercePerUnitTotalTier2.fromJson(e as Map<String, dynamic>))
+            .toList())!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'name': name,
-    'block_size': blockSize,
-    'tiers': tiers.map((item) => item.toJson()).toList(),
-  };
+        'name': name,
+        'block_size': blockSize,
+        'tiers': tiers.map((item) => item.toJson()).toList(),
+      };
 }

@@ -8,37 +8,68 @@ part of 'shared_commerce.dart';
 class CommerceProrationDiscountResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Required object value serialized in the `amount` wire field.
   final CommerceMoneyResponse amount;
+
   /// Required `int64`-formatted value serialized in the `cycle_days_passed` wire field.
   final int cycleDaysPassed;
+
   /// Required `int64`-formatted value serialized in the `cycle_days_total` wire field.
   final int cycleDaysTotal;
+
   /// Required `float`-formatted value serialized in the `cycle_passed_percent` wire field.
   final double cyclePassedPercent;
 
-  const CommerceProrationDiscountResponse({required this.amount, required this.cycleDaysPassed, required this.cycleDaysTotal, required this.cyclePassedPercent});
+  const CommerceProrationDiscountResponse(
+      {required this.amount,
+      required this.cycleDaysPassed,
+      required this.cycleDaysTotal,
+      required this.cyclePassedPercent});
 
-  CommerceProrationDiscountResponse Function({CommerceMoneyResponse amount, int cycleDaysPassed, int cycleDaysTotal, double cyclePassedPercent}) get copyWith => _copyWith;
+  CommerceProrationDiscountResponse Function(
+      {CommerceMoneyResponse amount,
+      int cycleDaysPassed,
+      int cycleDaysTotal,
+      double cyclePassedPercent}) get copyWith => _copyWith;
 
-  CommerceProrationDiscountResponse _copyWith({Object? amount = sdkOmittedValue, Object? cycleDaysPassed = sdkOmittedValue, Object? cycleDaysTotal = sdkOmittedValue, Object? cyclePassedPercent = sdkOmittedValue}) => CommerceProrationDiscountResponse(
-    amount: identical(amount, sdkOmittedValue) ? this.amount : amount as CommerceMoneyResponse,
-    cycleDaysPassed: identical(cycleDaysPassed, sdkOmittedValue) ? this.cycleDaysPassed : cycleDaysPassed as int,
-    cycleDaysTotal: identical(cycleDaysTotal, sdkOmittedValue) ? this.cycleDaysTotal : cycleDaysTotal as int,
-    cyclePassedPercent: identical(cyclePassedPercent, sdkOmittedValue) ? this.cyclePassedPercent : cyclePassedPercent as double,
-  );
+  CommerceProrationDiscountResponse _copyWith(
+          {Object? amount = sdkOmittedValue,
+          Object? cycleDaysPassed = sdkOmittedValue,
+          Object? cycleDaysTotal = sdkOmittedValue,
+          Object? cyclePassedPercent = sdkOmittedValue}) =>
+      CommerceProrationDiscountResponse(
+        amount: identical(amount, sdkOmittedValue)
+            ? this.amount
+            : amount as CommerceMoneyResponse,
+        cycleDaysPassed: identical(cycleDaysPassed, sdkOmittedValue)
+            ? this.cycleDaysPassed
+            : cycleDaysPassed as int,
+        cycleDaysTotal: identical(cycleDaysTotal, sdkOmittedValue)
+            ? this.cycleDaysTotal
+            : cycleDaysTotal as int,
+        cyclePassedPercent: identical(cyclePassedPercent, sdkOmittedValue)
+            ? this.cyclePassedPercent
+            : cyclePassedPercent as double,
+      );
 
-  factory CommerceProrationDiscountResponse.fromJson(Map<String, dynamic> json) => CommerceProrationDiscountResponse(
-    amount: (json['amount'] != null ? CommerceMoneyResponse.fromJson(json['amount'] as Map<String, dynamic>) : null)!,
-    cycleDaysPassed: ((json['cycle_days_passed'] as num?)?.toInt())!,
-    cycleDaysTotal: ((json['cycle_days_total'] as num?)?.toInt())!,
-    cyclePassedPercent: ((json['cycle_passed_percent'] as num?)?.toDouble())!,
-  );
+  factory CommerceProrationDiscountResponse.fromJson(
+          Map<String, dynamic> json) =>
+      CommerceProrationDiscountResponse(
+        amount: (json['amount'] != null
+            ? CommerceMoneyResponse.fromJson(
+                json['amount'] as Map<String, dynamic>)
+            : null)!,
+        cycleDaysPassed: ((json['cycle_days_passed'] as num?)?.toInt())!,
+        cycleDaysTotal: ((json['cycle_days_total'] as num?)?.toInt())!,
+        cyclePassedPercent:
+            ((json['cycle_passed_percent'] as num?)?.toDouble())!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'amount': amount.toJson(),
-    'cycle_days_passed': cycleDaysPassed,
-    'cycle_days_total': cycleDaysTotal,
-    'cycle_passed_percent': cyclePassedPercent,
-  };
+        'amount': amount.toJson(),
+        'cycle_days_passed': cycleDaysPassed,
+        'cycle_days_total': cycleDaysTotal,
+        'cycle_passed_percent': cyclePassedPercent,
+      };
 }

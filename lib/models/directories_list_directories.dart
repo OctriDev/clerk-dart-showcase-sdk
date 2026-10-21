@@ -10,27 +10,39 @@ part of 'directories.dart';
 class DirectoryList {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Required array value serialized in the `data` wire field.
   final List<Directory> data;
+
   /// Total number of directories.
   final int totalCount;
 
   const DirectoryList({required this.data, required this.totalCount});
 
-  DirectoryList Function({List<Directory> data, int totalCount}) get copyWith => _copyWith;
+  DirectoryList Function({List<Directory> data, int totalCount}) get copyWith =>
+      _copyWith;
 
-  DirectoryList _copyWith({Object? data = sdkOmittedValue, Object? totalCount = sdkOmittedValue}) => DirectoryList(
-    data: identical(data, sdkOmittedValue) ? this.data : data as List<Directory>,
-    totalCount: identical(totalCount, sdkOmittedValue) ? this.totalCount : totalCount as int,
-  );
+  DirectoryList _copyWith(
+          {Object? data = sdkOmittedValue,
+          Object? totalCount = sdkOmittedValue}) =>
+      DirectoryList(
+        data: identical(data, sdkOmittedValue)
+            ? this.data
+            : data as List<Directory>,
+        totalCount: identical(totalCount, sdkOmittedValue)
+            ? this.totalCount
+            : totalCount as int,
+      );
 
   factory DirectoryList.fromJson(Map<String, dynamic> json) => DirectoryList(
-    data: ((json['data'] as List?)?.map((e) => Directory.fromJson(e as Map<String, dynamic>)).toList())!,
-    totalCount: ((json['total_count'] as num?)?.toInt())!,
-  );
+        data: ((json['data'] as List?)
+            ?.map((e) => Directory.fromJson(e as Map<String, dynamic>))
+            .toList())!,
+        totalCount: ((json['total_count'] as num?)?.toInt())!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'data': data.map((item) => item.toJson()).toList(),
-    'total_count': totalCount,
-  };
+        'data': data.map((item) => item.toJson()).toList(),
+        'total_count': totalCount,
+      };
 }

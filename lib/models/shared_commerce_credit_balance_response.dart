@@ -8,27 +8,45 @@ part of 'shared_commerce.dart';
 class CommerceCreditBalanceResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// String representing the object's type. Always "commerce_credit_balance".
   final String object;
+
   /// The current credit balance. Null when the payer has never had credits.
   final CommerceMoneyResponse? balance;
 
-  const CommerceCreditBalanceResponse({required this.object, required this.balance});
+  const CommerceCreditBalanceResponse(
+      {required this.object, required this.balance});
 
-  CommerceCreditBalanceResponse Function({String object, CommerceMoneyResponse? balance}) get copyWith => _copyWith;
+  CommerceCreditBalanceResponse Function(
+      {String object,
+      CommerceMoneyResponse? balance}) get copyWith => _copyWith;
 
-  CommerceCreditBalanceResponse _copyWith({Object? object = sdkOmittedValue, Object? balance = sdkOmittedValue}) => CommerceCreditBalanceResponse(
-    object: identical(object, sdkOmittedValue) ? this.object : object as String,
-    balance: identical(balance, sdkOmittedValue) ? this.balance : balance as CommerceMoneyResponse?,
-  );
+  CommerceCreditBalanceResponse _copyWith(
+          {Object? object = sdkOmittedValue,
+          Object? balance = sdkOmittedValue}) =>
+      CommerceCreditBalanceResponse(
+        object:
+            identical(object, sdkOmittedValue) ? this.object : object as String,
+        balance: identical(balance, sdkOmittedValue)
+            ? this.balance
+            : balance as CommerceMoneyResponse?,
+      );
 
-  factory CommerceCreditBalanceResponse.fromJson(Map<String, dynamic> json) => CommerceCreditBalanceResponse(
-    object: (json['object'] as String?)!,
-    balance: json.containsKey('balance') ? json['balance'] != null ? CommerceMoneyResponse.fromJson(json['balance'] as Map<String, dynamic>) : null : throw ArgumentError.value(null, 'balance', 'Required property is missing'),
-  );
+  factory CommerceCreditBalanceResponse.fromJson(Map<String, dynamic> json) =>
+      CommerceCreditBalanceResponse(
+        object: (json['object'] as String?)!,
+        balance: json.containsKey('balance')
+            ? json['balance'] != null
+                ? CommerceMoneyResponse.fromJson(
+                    json['balance'] as Map<String, dynamic>)
+                : null
+            : throw ArgumentError.value(
+                null, 'balance', 'Required property is missing'),
+      );
 
   Map<String, dynamic> toJson() => {
-    'object': object,
-    'balance': balance?.toJson(),
-  };
+        'object': object,
+        'balance': balance?.toJson(),
+      };
 }

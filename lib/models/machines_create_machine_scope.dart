@@ -8,37 +8,64 @@ part of 'machines.dart';
 class MachineScope {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Required enumerated value serialized in the `object` wire field.
   final MachineScopeObject object;
+
   /// The ID of the machine that has access to the target machine.
   final String fromMachineId;
+
   /// The ID of the machine that is being accessed.
   final String toMachineId;
+
   /// Unix timestamp of creation.
   final int createdAt;
 
-  const MachineScope({required this.object, required this.fromMachineId, required this.toMachineId, required this.createdAt});
+  const MachineScope(
+      {required this.object,
+      required this.fromMachineId,
+      required this.toMachineId,
+      required this.createdAt});
 
-  MachineScope Function({MachineScopeObject object, String fromMachineId, String toMachineId, int createdAt}) get copyWith => _copyWith;
+  MachineScope Function(
+      {MachineScopeObject object,
+      String fromMachineId,
+      String toMachineId,
+      int createdAt}) get copyWith => _copyWith;
 
-  MachineScope _copyWith({Object? object = sdkOmittedValue, Object? fromMachineId = sdkOmittedValue, Object? toMachineId = sdkOmittedValue, Object? createdAt = sdkOmittedValue}) => MachineScope(
-    object: identical(object, sdkOmittedValue) ? this.object : object as MachineScopeObject,
-    fromMachineId: identical(fromMachineId, sdkOmittedValue) ? this.fromMachineId : fromMachineId as String,
-    toMachineId: identical(toMachineId, sdkOmittedValue) ? this.toMachineId : toMachineId as String,
-    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as int,
-  );
+  MachineScope _copyWith(
+          {Object? object = sdkOmittedValue,
+          Object? fromMachineId = sdkOmittedValue,
+          Object? toMachineId = sdkOmittedValue,
+          Object? createdAt = sdkOmittedValue}) =>
+      MachineScope(
+        object: identical(object, sdkOmittedValue)
+            ? this.object
+            : object as MachineScopeObject,
+        fromMachineId: identical(fromMachineId, sdkOmittedValue)
+            ? this.fromMachineId
+            : fromMachineId as String,
+        toMachineId: identical(toMachineId, sdkOmittedValue)
+            ? this.toMachineId
+            : toMachineId as String,
+        createdAt: identical(createdAt, sdkOmittedValue)
+            ? this.createdAt
+            : createdAt as int,
+      );
 
   factory MachineScope.fromJson(Map<String, dynamic> json) => MachineScope(
-    object: (json['object'] != null ? MachineScopeObject.fromJson(json['object'] as String) : null)!,
-    fromMachineId: (json['from_machine_id'] as String?)!,
-    toMachineId: (json['to_machine_id'] as String?)!,
-    createdAt: ((json['created_at'] as num?)?.toInt())!,
-  );
+        object: (json['object'] != null
+            ? MachineScopeObject.fromJson(json['object'] as String)
+            : null)!,
+        fromMachineId: (json['from_machine_id'] as String?)!,
+        toMachineId: (json['to_machine_id'] as String?)!,
+        createdAt: ((json['created_at'] as num?)?.toInt())!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'object': object.toJson(),
-    'from_machine_id': fromMachineId,
-    'to_machine_id': toMachineId,
-    'created_at': createdAt,
-  };
+        'object': object.toJson(),
+        'from_machine_id': fromMachineId,
+        'to_machine_id': toMachineId,
+        'created_at': createdAt,
+      };
 }

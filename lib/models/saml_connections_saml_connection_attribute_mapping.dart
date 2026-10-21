@@ -8,37 +8,62 @@ part of 'saml_connections.dart';
 class SAMLConnectionAttributeMapping {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Required `string` value serialized in the `user_id` wire field.
   final String userId;
+
   /// Required `string` value serialized in the `email_address` wire field.
   final String emailAddress;
+
   /// Required `string` value serialized in the `first_name` wire field.
   final String firstName;
+
   /// Required `string` value serialized in the `last_name` wire field.
   final String lastName;
 
-  const SAMLConnectionAttributeMapping({required this.userId, required this.emailAddress, required this.firstName, required this.lastName});
+  const SAMLConnectionAttributeMapping(
+      {required this.userId,
+      required this.emailAddress,
+      required this.firstName,
+      required this.lastName});
 
-  SAMLConnectionAttributeMapping Function({String userId, String emailAddress, String firstName, String lastName}) get copyWith => _copyWith;
+  SAMLConnectionAttributeMapping Function(
+      {String userId,
+      String emailAddress,
+      String firstName,
+      String lastName}) get copyWith => _copyWith;
 
-  SAMLConnectionAttributeMapping _copyWith({Object? userId = sdkOmittedValue, Object? emailAddress = sdkOmittedValue, Object? firstName = sdkOmittedValue, Object? lastName = sdkOmittedValue}) => SAMLConnectionAttributeMapping(
-    userId: identical(userId, sdkOmittedValue) ? this.userId : userId as String,
-    emailAddress: identical(emailAddress, sdkOmittedValue) ? this.emailAddress : emailAddress as String,
-    firstName: identical(firstName, sdkOmittedValue) ? this.firstName : firstName as String,
-    lastName: identical(lastName, sdkOmittedValue) ? this.lastName : lastName as String,
-  );
+  SAMLConnectionAttributeMapping _copyWith(
+          {Object? userId = sdkOmittedValue,
+          Object? emailAddress = sdkOmittedValue,
+          Object? firstName = sdkOmittedValue,
+          Object? lastName = sdkOmittedValue}) =>
+      SAMLConnectionAttributeMapping(
+        userId:
+            identical(userId, sdkOmittedValue) ? this.userId : userId as String,
+        emailAddress: identical(emailAddress, sdkOmittedValue)
+            ? this.emailAddress
+            : emailAddress as String,
+        firstName: identical(firstName, sdkOmittedValue)
+            ? this.firstName
+            : firstName as String,
+        lastName: identical(lastName, sdkOmittedValue)
+            ? this.lastName
+            : lastName as String,
+      );
 
-  factory SAMLConnectionAttributeMapping.fromJson(Map<String, dynamic> json) => SAMLConnectionAttributeMapping(
-    userId: (json['user_id'] as String?)!,
-    emailAddress: (json['email_address'] as String?)!,
-    firstName: (json['first_name'] as String?)!,
-    lastName: (json['last_name'] as String?)!,
-  );
+  factory SAMLConnectionAttributeMapping.fromJson(Map<String, dynamic> json) =>
+      SAMLConnectionAttributeMapping(
+        userId: (json['user_id'] as String?)!,
+        emailAddress: (json['email_address'] as String?)!,
+        firstName: (json['first_name'] as String?)!,
+        lastName: (json['last_name'] as String?)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'user_id': userId,
-    'email_address': emailAddress,
-    'first_name': firstName,
-    'last_name': lastName,
-  };
+        'user_id': userId,
+        'email_address': emailAddress,
+        'first_name': firstName,
+        'last_name': lastName,
+      };
 }

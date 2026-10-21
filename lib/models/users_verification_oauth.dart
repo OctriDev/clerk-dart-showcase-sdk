@@ -9,7 +9,10 @@ sealed class VerificationOauthError {
   static const String constructionSurface = 'named';
   const VerificationOauthError();
   factory VerificationOauthError.fromJson(Object? json) {
-    try { return VerificationOauthErrorClerkError(ClerkError.fromJson(json as Map<String, dynamic>)); } catch (_) {}
+    try {
+      return VerificationOauthErrorClerkError(
+          ClerkError.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
     throw FormatException("No variant matched for VerificationOauthError");
   }
   Object? toJson();
@@ -18,76 +21,155 @@ sealed class VerificationOauthError {
 final class VerificationOauthErrorClerkError extends VerificationOauthError {
   final ClerkError value;
   const VerificationOauthErrorClerkError(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 /// Typed representation of the `VerificationOauth` API schema.
 class VerificationOauth {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Optional enumerated value serialized in the `object` wire field.
   final SdkOptional<VerificationOauthObject> object;
+
   /// Required enumerated value serialized in the `status` wire field.
   final VerificationOauthStatus status;
+
   /// Required `string` value serialized in the `strategy` wire field.
   final String strategy;
+
   /// Optional `string` value serialized in the `external_verification_redirect_url` wire field.
   final SdkOptional<String> externalVerificationRedirectUrl;
+
   /// Optional object value serialized in the `error` wire field.
   final SdkOptional<ClerkError?> error;
+
   /// Required `integer` value serialized in the `expire_at` wire field.
   final int expireAt;
+
   /// Required `integer` value serialized in the `attempts` wire field.
   final int? attempts;
+
   /// Optional `string` value serialized in the `verified_at_client` wire field.
   final SdkOptional<String?> verifiedAtClient;
 
-  const VerificationOauth({this.object = const SdkOmitted(), required this.status, required this.strategy, this.externalVerificationRedirectUrl = const SdkOmitted(), this.error = const SdkOmitted(), required this.expireAt, required this.attempts, this.verifiedAtClient = const SdkOmitted()});
+  const VerificationOauth(
+      {this.object = const SdkOmitted(),
+      required this.status,
+      required this.strategy,
+      this.externalVerificationRedirectUrl = const SdkOmitted(),
+      this.error = const SdkOmitted(),
+      required this.expireAt,
+      required this.attempts,
+      this.verifiedAtClient = const SdkOmitted()});
 
-  VerificationOauth Function({SdkOptional<VerificationOauthObject> object, VerificationOauthStatus status, String strategy, SdkOptional<String> externalVerificationRedirectUrl, SdkOptional<ClerkError?> error, int expireAt, int? attempts, SdkOptional<String?> verifiedAtClient}) get copyWith => _copyWith;
+  VerificationOauth Function(
+      {SdkOptional<VerificationOauthObject> object,
+      VerificationOauthStatus status,
+      String strategy,
+      SdkOptional<String> externalVerificationRedirectUrl,
+      SdkOptional<ClerkError?> error,
+      int expireAt,
+      int? attempts,
+      SdkOptional<String?> verifiedAtClient}) get copyWith => _copyWith;
 
-  VerificationOauth _copyWith({Object? object = sdkOmittedValue, Object? status = sdkOmittedValue, Object? strategy = sdkOmittedValue, Object? externalVerificationRedirectUrl = sdkOmittedValue, Object? error = sdkOmittedValue, Object? expireAt = sdkOmittedValue, Object? attempts = sdkOmittedValue, Object? verifiedAtClient = sdkOmittedValue}) => VerificationOauth(
-    object: identical(object, sdkOmittedValue) ? this.object : object as SdkOptional<VerificationOauthObject>,
-    status: identical(status, sdkOmittedValue) ? this.status : status as VerificationOauthStatus,
-    strategy: identical(strategy, sdkOmittedValue) ? this.strategy : strategy as String,
-    externalVerificationRedirectUrl: identical(externalVerificationRedirectUrl, sdkOmittedValue) ? this.externalVerificationRedirectUrl : externalVerificationRedirectUrl as SdkOptional<String>,
-    error: identical(error, sdkOmittedValue) ? this.error : error as SdkOptional<ClerkError?>,
-    expireAt: identical(expireAt, sdkOmittedValue) ? this.expireAt : expireAt as int,
-    attempts: identical(attempts, sdkOmittedValue) ? this.attempts : attempts as int?,
-    verifiedAtClient: identical(verifiedAtClient, sdkOmittedValue) ? this.verifiedAtClient : verifiedAtClient as SdkOptional<String?>,
-  );
+  VerificationOauth _copyWith(
+          {Object? object = sdkOmittedValue,
+          Object? status = sdkOmittedValue,
+          Object? strategy = sdkOmittedValue,
+          Object? externalVerificationRedirectUrl = sdkOmittedValue,
+          Object? error = sdkOmittedValue,
+          Object? expireAt = sdkOmittedValue,
+          Object? attempts = sdkOmittedValue,
+          Object? verifiedAtClient = sdkOmittedValue}) =>
+      VerificationOauth(
+        object: identical(object, sdkOmittedValue)
+            ? this.object
+            : object as SdkOptional<VerificationOauthObject>,
+        status: identical(status, sdkOmittedValue)
+            ? this.status
+            : status as VerificationOauthStatus,
+        strategy: identical(strategy, sdkOmittedValue)
+            ? this.strategy
+            : strategy as String,
+        externalVerificationRedirectUrl:
+            identical(externalVerificationRedirectUrl, sdkOmittedValue)
+                ? this.externalVerificationRedirectUrl
+                : externalVerificationRedirectUrl as SdkOptional<String>,
+        error: identical(error, sdkOmittedValue)
+            ? this.error
+            : error as SdkOptional<ClerkError?>,
+        expireAt: identical(expireAt, sdkOmittedValue)
+            ? this.expireAt
+            : expireAt as int,
+        attempts: identical(attempts, sdkOmittedValue)
+            ? this.attempts
+            : attempts as int?,
+        verifiedAtClient: identical(verifiedAtClient, sdkOmittedValue)
+            ? this.verifiedAtClient
+            : verifiedAtClient as SdkOptional<String?>,
+      );
 
-  factory VerificationOauth.fromJson(Map<String, dynamic> json) => VerificationOauth(
-    object: json['object'] != null ? SdkPresent((json['object'] != null ? VerificationOauthObject.fromJson(json['object'] as String) : null)!) : const SdkOmitted(),
-    status: (json['status'] != null ? VerificationOauthStatus.fromJson(json['status'] as String) : null)!,
-    strategy: (json['strategy'] as String?)!,
-    externalVerificationRedirectUrl: json['external_verification_redirect_url'] != null ? SdkPresent((json['external_verification_redirect_url'] as String?)!) : const SdkOmitted(),
-    error: json.containsKey('error') ? SdkPresent(json['error'] != null ? ClerkError.fromJson(json['error'] as Map<String, dynamic>) : null) : const SdkOmitted(),
-    expireAt: ((json['expire_at'] as num?)?.toInt())!,
-    attempts: json.containsKey('attempts') ? (json['attempts'] as num?)?.toInt() : throw ArgumentError.value(null, 'attempts', 'Required property is missing'),
-    verifiedAtClient: json.containsKey('verified_at_client') ? SdkPresent(json['verified_at_client'] as String?) : const SdkOmitted(),
-  );
+  factory VerificationOauth.fromJson(Map<String, dynamic> json) =>
+      VerificationOauth(
+        object: json['object'] != null
+            ? SdkPresent((json['object'] != null
+                ? VerificationOauthObject.fromJson(json['object'] as String)
+                : null)!)
+            : const SdkOmitted(),
+        status: (json['status'] != null
+            ? VerificationOauthStatus.fromJson(json['status'] as String)
+            : null)!,
+        strategy: (json['strategy'] as String?)!,
+        externalVerificationRedirectUrl:
+            json['external_verification_redirect_url'] != null
+                ? SdkPresent(
+                    (json['external_verification_redirect_url'] as String?)!)
+                : const SdkOmitted(),
+        error: json.containsKey('error')
+            ? SdkPresent(json['error'] != null
+                ? ClerkError.fromJson(json['error'] as Map<String, dynamic>)
+                : null)
+            : const SdkOmitted(),
+        expireAt: ((json['expire_at'] as num?)?.toInt())!,
+        attempts: json.containsKey('attempts')
+            ? (json['attempts'] as num?)?.toInt()
+            : throw ArgumentError.value(
+                null, 'attempts', 'Required property is missing'),
+        verifiedAtClient: json.containsKey('verified_at_client')
+            ? SdkPresent(json['verified_at_client'] as String?)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (object) {
-      SdkPresent<VerificationOauthObject>(value: final value) => {'object': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    'status': status.toJson(),
-    'strategy': strategy,
-    ...switch (externalVerificationRedirectUrl) {
-      SdkPresent<String>(value: final value) => {'external_verification_redirect_url': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (error) {
-      SdkPresent<ClerkError?>(value: final value) => {'error': value?.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    'expire_at': expireAt,
-    'attempts': attempts,
-    ...switch (verifiedAtClient) {
-      SdkPresent<String?>(value: final value) => {'verified_at_client': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (object) {
+          SdkPresent<VerificationOauthObject>(value: final value) => {
+              'object': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        'status': status.toJson(),
+        'strategy': strategy,
+        ...switch (externalVerificationRedirectUrl) {
+          SdkPresent<String>(value: final value) => {
+              'external_verification_redirect_url': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (error) {
+          SdkPresent<ClerkError?>(value: final value) => {
+              'error': value?.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        'expire_at': expireAt,
+        'attempts': attempts,
+        ...switch (verifiedAtClient) {
+          SdkPresent<String?>(value: final value) => {
+              'verified_at_client': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

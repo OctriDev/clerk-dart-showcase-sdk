@@ -8,27 +8,45 @@ part of 'shared_organization.dart';
 class OrganizationInvitationsWithPublicOrganizationData {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Required array value serialized in the `data` wire field.
   final List<OrganizationInvitationWithPublicOrganizationData> data;
+
   /// Total number of organization invitations
   final int totalCount;
 
-  const OrganizationInvitationsWithPublicOrganizationData({required this.data, required this.totalCount});
+  const OrganizationInvitationsWithPublicOrganizationData(
+      {required this.data, required this.totalCount});
 
-  OrganizationInvitationsWithPublicOrganizationData Function({List<OrganizationInvitationWithPublicOrganizationData> data, int totalCount}) get copyWith => _copyWith;
+  OrganizationInvitationsWithPublicOrganizationData Function(
+      {List<OrganizationInvitationWithPublicOrganizationData> data,
+      int totalCount}) get copyWith => _copyWith;
 
-  OrganizationInvitationsWithPublicOrganizationData _copyWith({Object? data = sdkOmittedValue, Object? totalCount = sdkOmittedValue}) => OrganizationInvitationsWithPublicOrganizationData(
-    data: identical(data, sdkOmittedValue) ? this.data : data as List<OrganizationInvitationWithPublicOrganizationData>,
-    totalCount: identical(totalCount, sdkOmittedValue) ? this.totalCount : totalCount as int,
-  );
+  OrganizationInvitationsWithPublicOrganizationData _copyWith(
+          {Object? data = sdkOmittedValue,
+          Object? totalCount = sdkOmittedValue}) =>
+      OrganizationInvitationsWithPublicOrganizationData(
+        data: identical(data, sdkOmittedValue)
+            ? this.data
+            : data as List<OrganizationInvitationWithPublicOrganizationData>,
+        totalCount: identical(totalCount, sdkOmittedValue)
+            ? this.totalCount
+            : totalCount as int,
+      );
 
-  factory OrganizationInvitationsWithPublicOrganizationData.fromJson(Map<String, dynamic> json) => OrganizationInvitationsWithPublicOrganizationData(
-    data: ((json['data'] as List?)?.map((e) => OrganizationInvitationWithPublicOrganizationData.fromJson(e as Map<String, dynamic>)).toList())!,
-    totalCount: ((json['total_count'] as num?)?.toInt())!,
-  );
+  factory OrganizationInvitationsWithPublicOrganizationData.fromJson(
+          Map<String, dynamic> json) =>
+      OrganizationInvitationsWithPublicOrganizationData(
+        data: ((json['data'] as List?)
+            ?.map((e) =>
+                OrganizationInvitationWithPublicOrganizationData.fromJson(
+                    e as Map<String, dynamic>))
+            .toList())!,
+        totalCount: ((json['total_count'] as num?)?.toInt())!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'data': data.map((item) => item.toJson()).toList(),
-    'total_count': totalCount,
-  };
+        'data': data.map((item) => item.toJson()).toList(),
+        'total_count': totalCount,
+      };
 }

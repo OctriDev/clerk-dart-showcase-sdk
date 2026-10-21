@@ -8,27 +8,39 @@ part of 'machines.dart';
 class MachineList {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Required array value serialized in the `data` wire field.
   final List<Machine> data;
+
   /// Total number of machines
   final int totalCount;
 
   const MachineList({required this.data, required this.totalCount});
 
-  MachineList Function({List<Machine> data, int totalCount}) get copyWith => _copyWith;
+  MachineList Function({List<Machine> data, int totalCount}) get copyWith =>
+      _copyWith;
 
-  MachineList _copyWith({Object? data = sdkOmittedValue, Object? totalCount = sdkOmittedValue}) => MachineList(
-    data: identical(data, sdkOmittedValue) ? this.data : data as List<Machine>,
-    totalCount: identical(totalCount, sdkOmittedValue) ? this.totalCount : totalCount as int,
-  );
+  MachineList _copyWith(
+          {Object? data = sdkOmittedValue,
+          Object? totalCount = sdkOmittedValue}) =>
+      MachineList(
+        data: identical(data, sdkOmittedValue)
+            ? this.data
+            : data as List<Machine>,
+        totalCount: identical(totalCount, sdkOmittedValue)
+            ? this.totalCount
+            : totalCount as int,
+      );
 
   factory MachineList.fromJson(Map<String, dynamic> json) => MachineList(
-    data: ((json['data'] as List?)?.map((e) => Machine.fromJson(e as Map<String, dynamic>)).toList())!,
-    totalCount: ((json['total_count'] as num?)?.toInt())!,
-  );
+        data: ((json['data'] as List?)
+            ?.map((e) => Machine.fromJson(e as Map<String, dynamic>))
+            .toList())!,
+        totalCount: ((json['total_count'] as num?)?.toInt())!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'data': data.map((item) => item.toJson()).toList(),
-    'total_count': totalCount,
-  };
+        'data': data.map((item) => item.toJson()).toList(),
+        'total_count': totalCount,
+      };
 }

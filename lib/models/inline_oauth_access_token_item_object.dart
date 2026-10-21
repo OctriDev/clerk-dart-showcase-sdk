@@ -5,243 +5,295 @@ part of 'inline.dart';
 
 // Inline operation models
 final class OAuthAccessTokenItemObject {
-
   final String value;
 
   const OAuthAccessTokenItemObject._(this.value);
 
-  factory OAuthAccessTokenItemObject.fromJson(String value) => OAuthAccessTokenItemObject._(value);
+  factory OAuthAccessTokenItemObject.fromJson(String value) =>
+      OAuthAccessTokenItemObject._(value);
 
-  static const oauthAccessToken = OAuthAccessTokenItemObject._('oauth_access_token');
+  static const oauthAccessToken =
+      OAuthAccessTokenItemObject._('oauth_access_token');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is OAuthAccessTokenItemObject && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is OAuthAccessTokenItemObject && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Required enumerated value serialized in the `object` wire field.
 final class OAuthApplicationObject {
-
   final String value;
 
   const OAuthApplicationObject._(this.value);
 
-  factory OAuthApplicationObject.fromJson(String value) => OAuthApplicationObject._(value);
+  factory OAuthApplicationObject.fromJson(String value) =>
+      OAuthApplicationObject._(value);
 
   static const oauthApplication = OAuthApplicationObject._('oauth_application');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is OAuthApplicationObject && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is OAuthApplicationObject && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// String representing the object's type. Objects of the same type share the same value.
 final class OAuthApplicationSettingsObject {
-
   final String value;
 
   const OAuthApplicationSettingsObject._(this.value);
 
-  factory OAuthApplicationSettingsObject.fromJson(String value) => OAuthApplicationSettingsObject._(value);
+  factory OAuthApplicationSettingsObject.fromJson(String value) =>
+      OAuthApplicationSettingsObject._(value);
 
-  static const oauthApplicationSettings = OAuthApplicationSettingsObject._('oauth_application_settings');
+  static const oauthApplicationSettings =
+      OAuthApplicationSettingsObject._('oauth_application_settings');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is OAuthApplicationSettingsObject && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is OAuthApplicationSettingsObject && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Required enumerated value serialized in the `object` wire field.
 final class OrganizationObject {
-
   final String value;
 
   const OrganizationObject._(this.value);
 
-  factory OrganizationObject.fromJson(String value) => OrganizationObject._(value);
+  factory OrganizationObject.fromJson(String value) =>
+      OrganizationObject._(value);
 
   static const organization = OrganizationObject._('organization');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is OrganizationObject && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is OrganizationObject && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Mode of enrollment for the domain
 final class OrganizationDomainEnrollmentMode {
-
   final String value;
 
   const OrganizationDomainEnrollmentMode._(this.value);
 
-  factory OrganizationDomainEnrollmentMode.fromJson(String value) => OrganizationDomainEnrollmentMode._(value);
+  factory OrganizationDomainEnrollmentMode.fromJson(String value) =>
+      OrganizationDomainEnrollmentMode._(value);
 
-  static const manualInvitation = OrganizationDomainEnrollmentMode._('manual_invitation');
-  static const automaticInvitation = OrganizationDomainEnrollmentMode._('automatic_invitation');
-  static const automaticSuggestion = OrganizationDomainEnrollmentMode._('automatic_suggestion');
-  static const enterpriseSso = OrganizationDomainEnrollmentMode._('enterprise_sso');
+  static const manualInvitation =
+      OrganizationDomainEnrollmentMode._('manual_invitation');
+  static const automaticInvitation =
+      OrganizationDomainEnrollmentMode._('automatic_invitation');
+  static const automaticSuggestion =
+      OrganizationDomainEnrollmentMode._('automatic_suggestion');
+  static const enterpriseSso =
+      OrganizationDomainEnrollmentMode._('enterprise_sso');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is OrganizationDomainEnrollmentMode && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is OrganizationDomainEnrollmentMode && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// String representing the object's type. Objects of the same type share the same value. Always `organization_domain`
 final class OrganizationDomainObject {
-
   final String value;
 
   const OrganizationDomainObject._(this.value);
 
-  factory OrganizationDomainObject.fromJson(String value) => OrganizationDomainObject._(value);
+  factory OrganizationDomainObject.fromJson(String value) =>
+      OrganizationDomainObject._(value);
 
-  static const organizationDomain = OrganizationDomainObject._('organization_domain');
+  static const organizationDomain =
+      OrganizationDomainObject._('organization_domain');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is OrganizationDomainObject && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is OrganizationDomainObject && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// String representing the object's type. Objects of the same type share the same value.
 final class OrganizationInvitationObject {
-
   final String value;
 
   const OrganizationInvitationObject._(this.value);
 
-  factory OrganizationInvitationObject.fromJson(String value) => OrganizationInvitationObject._(value);
+  factory OrganizationInvitationObject.fromJson(String value) =>
+      OrganizationInvitationObject._(value);
 
-  static const organizationInvitation = OrganizationInvitationObject._('organization_invitation');
+  static const organizationInvitation =
+      OrganizationInvitationObject._('organization_invitation');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is OrganizationInvitationObject && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is OrganizationInvitationObject && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// String representing the object's type. Objects of the same type share the same value.
 final class OrganizationInvitationWithPublicOrganizationDataVariant0Object {
-
   final String value;
 
-  const OrganizationInvitationWithPublicOrganizationDataVariant0Object._(this.value);
+  const OrganizationInvitationWithPublicOrganizationDataVariant0Object._(
+      this.value);
 
-  factory OrganizationInvitationWithPublicOrganizationDataVariant0Object.fromJson(String value) => OrganizationInvitationWithPublicOrganizationDataVariant0Object._(value);
+  factory OrganizationInvitationWithPublicOrganizationDataVariant0Object.fromJson(
+          String value) =>
+      OrganizationInvitationWithPublicOrganizationDataVariant0Object._(value);
 
-  static const organizationInvitation = OrganizationInvitationWithPublicOrganizationDataVariant0Object._('organization_invitation');
+  static const organizationInvitation =
+      OrganizationInvitationWithPublicOrganizationDataVariant0Object._(
+          'organization_invitation');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is OrganizationInvitationWithPublicOrganizationDataVariant0Object && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is OrganizationInvitationWithPublicOrganizationDataVariant0Object &&
+      other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// String representing the object's type. Objects of the same type share the same value.
 final class OrganizationMembershipObject {
-
   final String value;
 
   const OrganizationMembershipObject._(this.value);
 
-  factory OrganizationMembershipObject.fromJson(String value) => OrganizationMembershipObject._(value);
+  factory OrganizationMembershipObject.fromJson(String value) =>
+      OrganizationMembershipObject._(value);
 
-  static const organizationMembership = OrganizationMembershipObject._('organization_membership');
+  static const organizationMembership =
+      OrganizationMembershipObject._('organization_membership');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is OrganizationMembershipObject && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is OrganizationMembershipObject && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Required enumerated value serialized in the `domains_enrollment_modes[]` wire field.
 final class OrganizationSettingsDomainsEnrollmentModesItem {
-
   final String value;
 
   const OrganizationSettingsDomainsEnrollmentModesItem._(this.value);
 
-  factory OrganizationSettingsDomainsEnrollmentModesItem.fromJson(String value) => OrganizationSettingsDomainsEnrollmentModesItem._(value);
+  factory OrganizationSettingsDomainsEnrollmentModesItem.fromJson(
+          String value) =>
+      OrganizationSettingsDomainsEnrollmentModesItem._(value);
 
-  static const manualInvitation = OrganizationSettingsDomainsEnrollmentModesItem._('manual_invitation');
-  static const automaticInvitation = OrganizationSettingsDomainsEnrollmentModesItem._('automatic_invitation');
-  static const automaticSuggestion = OrganizationSettingsDomainsEnrollmentModesItem._('automatic_suggestion');
+  static const manualInvitation =
+      OrganizationSettingsDomainsEnrollmentModesItem._('manual_invitation');
+  static const automaticInvitation =
+      OrganizationSettingsDomainsEnrollmentModesItem._('automatic_invitation');
+  static const automaticSuggestion =
+      OrganizationSettingsDomainsEnrollmentModesItem._('automatic_suggestion');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is OrganizationSettingsDomainsEnrollmentModesItem && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is OrganizationSettingsDomainsEnrollmentModesItem &&
+      other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// String representing the object's type. Objects of the same type share the same value.
 final class OrganizationSettingsObject {
-
   final String value;
 
   const OrganizationSettingsObject._(this.value);
 
-  factory OrganizationSettingsObject.fromJson(String value) => OrganizationSettingsObject._(value);
+  factory OrganizationSettingsObject.fromJson(String value) =>
+      OrganizationSettingsObject._(value);
 
-  static const organizationSettings = OrganizationSettingsObject._('organization_settings');
+  static const organizationSettings =
+      OrganizationSettingsObject._('organization_settings');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is OrganizationSettingsObject && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is OrganizationSettingsObject && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// String representing the object's type. Objects of the same type share the same value.
 final class PasskeyObject {
-
   final String value;
 
   const PasskeyObject._(this.value);
@@ -252,17 +304,19 @@ final class PasskeyObject {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is PasskeyObject && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is PasskeyObject && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Required enumerated value serialized in the `object` wire field.
 final class PermissionObject {
-
   final String value;
 
   const PermissionObject._(this.value);
@@ -273,10 +327,13 @@ final class PermissionObject {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is PermissionObject && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is PermissionObject && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }

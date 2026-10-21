@@ -8,65 +8,131 @@ part of 'beta_features.dart';
 class InstanceSettings {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// String representing the object's type. Objects of the same type share the same value.
   final SdkOptional<InstanceSettingsObject> object;
+
   /// Optional `string` value serialized in the `id` wire field.
   final SdkOptional<String> id;
+
   /// Optional `boolean` value serialized in the `restricted_to_allowlist` wire field.
   final SdkOptional<bool> restrictedToAllowlist;
+
   /// Optional `string` value serialized in the `from_email_address` wire field.
   final SdkOptional<String> fromEmailAddress;
+
   /// Optional `boolean` value serialized in the `progressive_sign_up` wire field.
   final SdkOptional<bool> progressiveSignUp;
+
   /// Deprecated. This setting is retired and no longer affects email delivery; all email is sent through the instance's configured email sending domain. The field is preserved for API compatibility only and will be removed in a future version.
   final SdkOptional<bool> enhancedEmailDeliverability;
 
-  const InstanceSettings({this.object = const SdkOmitted(), this.id = const SdkOmitted(), this.restrictedToAllowlist = const SdkOmitted(), this.fromEmailAddress = const SdkOmitted(), this.progressiveSignUp = const SdkOmitted(), this.enhancedEmailDeliverability = const SdkOmitted()});
+  const InstanceSettings(
+      {this.object = const SdkOmitted(),
+      this.id = const SdkOmitted(),
+      this.restrictedToAllowlist = const SdkOmitted(),
+      this.fromEmailAddress = const SdkOmitted(),
+      this.progressiveSignUp = const SdkOmitted(),
+      this.enhancedEmailDeliverability = const SdkOmitted()});
 
-  InstanceSettings Function({SdkOptional<InstanceSettingsObject> object, SdkOptional<String> id, SdkOptional<bool> restrictedToAllowlist, SdkOptional<String> fromEmailAddress, SdkOptional<bool> progressiveSignUp, SdkOptional<bool> enhancedEmailDeliverability}) get copyWith => _copyWith;
+  InstanceSettings Function(
+      {SdkOptional<InstanceSettingsObject> object,
+      SdkOptional<String> id,
+      SdkOptional<bool> restrictedToAllowlist,
+      SdkOptional<String> fromEmailAddress,
+      SdkOptional<bool> progressiveSignUp,
+      SdkOptional<bool> enhancedEmailDeliverability}) get copyWith => _copyWith;
 
-  InstanceSettings _copyWith({Object? object = sdkOmittedValue, Object? id = sdkOmittedValue, Object? restrictedToAllowlist = sdkOmittedValue, Object? fromEmailAddress = sdkOmittedValue, Object? progressiveSignUp = sdkOmittedValue, Object? enhancedEmailDeliverability = sdkOmittedValue}) => InstanceSettings(
-    object: identical(object, sdkOmittedValue) ? this.object : object as SdkOptional<InstanceSettingsObject>,
-    id: identical(id, sdkOmittedValue) ? this.id : id as SdkOptional<String>,
-    restrictedToAllowlist: identical(restrictedToAllowlist, sdkOmittedValue) ? this.restrictedToAllowlist : restrictedToAllowlist as SdkOptional<bool>,
-    fromEmailAddress: identical(fromEmailAddress, sdkOmittedValue) ? this.fromEmailAddress : fromEmailAddress as SdkOptional<String>,
-    progressiveSignUp: identical(progressiveSignUp, sdkOmittedValue) ? this.progressiveSignUp : progressiveSignUp as SdkOptional<bool>,
-    enhancedEmailDeliverability: identical(enhancedEmailDeliverability, sdkOmittedValue) ? this.enhancedEmailDeliverability : enhancedEmailDeliverability as SdkOptional<bool>,
-  );
+  InstanceSettings _copyWith(
+          {Object? object = sdkOmittedValue,
+          Object? id = sdkOmittedValue,
+          Object? restrictedToAllowlist = sdkOmittedValue,
+          Object? fromEmailAddress = sdkOmittedValue,
+          Object? progressiveSignUp = sdkOmittedValue,
+          Object? enhancedEmailDeliverability = sdkOmittedValue}) =>
+      InstanceSettings(
+        object: identical(object, sdkOmittedValue)
+            ? this.object
+            : object as SdkOptional<InstanceSettingsObject>,
+        id: identical(id, sdkOmittedValue)
+            ? this.id
+            : id as SdkOptional<String>,
+        restrictedToAllowlist: identical(restrictedToAllowlist, sdkOmittedValue)
+            ? this.restrictedToAllowlist
+            : restrictedToAllowlist as SdkOptional<bool>,
+        fromEmailAddress: identical(fromEmailAddress, sdkOmittedValue)
+            ? this.fromEmailAddress
+            : fromEmailAddress as SdkOptional<String>,
+        progressiveSignUp: identical(progressiveSignUp, sdkOmittedValue)
+            ? this.progressiveSignUp
+            : progressiveSignUp as SdkOptional<bool>,
+        enhancedEmailDeliverability:
+            identical(enhancedEmailDeliverability, sdkOmittedValue)
+                ? this.enhancedEmailDeliverability
+                : enhancedEmailDeliverability as SdkOptional<bool>,
+      );
 
-  factory InstanceSettings.fromJson(Map<String, dynamic> json) => InstanceSettings(
-    object: json['object'] != null ? SdkPresent((json['object'] != null ? InstanceSettingsObject.fromJson(json['object'] as String) : null)!) : const SdkOmitted(),
-    id: json['id'] != null ? SdkPresent((json['id'] as String?)!) : const SdkOmitted(),
-    restrictedToAllowlist: json['restricted_to_allowlist'] != null ? SdkPresent((json['restricted_to_allowlist'] as bool?)!) : const SdkOmitted(),
-    fromEmailAddress: json['from_email_address'] != null ? SdkPresent((json['from_email_address'] as String?)!) : const SdkOmitted(),
-    progressiveSignUp: json['progressive_sign_up'] != null ? SdkPresent((json['progressive_sign_up'] as bool?)!) : const SdkOmitted(),
-    enhancedEmailDeliverability: json['enhanced_email_deliverability'] != null ? SdkPresent((json['enhanced_email_deliverability'] as bool?)!) : const SdkOmitted(),
-  );
+  factory InstanceSettings.fromJson(Map<String, dynamic> json) =>
+      InstanceSettings(
+        object: json['object'] != null
+            ? SdkPresent((json['object'] != null
+                ? InstanceSettingsObject.fromJson(json['object'] as String)
+                : null)!)
+            : const SdkOmitted(),
+        id: json['id'] != null
+            ? SdkPresent((json['id'] as String?)!)
+            : const SdkOmitted(),
+        restrictedToAllowlist: json['restricted_to_allowlist'] != null
+            ? SdkPresent((json['restricted_to_allowlist'] as bool?)!)
+            : const SdkOmitted(),
+        fromEmailAddress: json['from_email_address'] != null
+            ? SdkPresent((json['from_email_address'] as String?)!)
+            : const SdkOmitted(),
+        progressiveSignUp: json['progressive_sign_up'] != null
+            ? SdkPresent((json['progressive_sign_up'] as bool?)!)
+            : const SdkOmitted(),
+        enhancedEmailDeliverability:
+            json['enhanced_email_deliverability'] != null
+                ? SdkPresent((json['enhanced_email_deliverability'] as bool?)!)
+                : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (object) {
-      SdkPresent<InstanceSettingsObject>(value: final value) => {'object': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (id) {
-      SdkPresent<String>(value: final value) => {'id': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (restrictedToAllowlist) {
-      SdkPresent<bool>(value: final value) => {'restricted_to_allowlist': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (fromEmailAddress) {
-      SdkPresent<String>(value: final value) => {'from_email_address': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (progressiveSignUp) {
-      SdkPresent<bool>(value: final value) => {'progressive_sign_up': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (enhancedEmailDeliverability) {
-      SdkPresent<bool>(value: final value) => {'enhanced_email_deliverability': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (object) {
+          SdkPresent<InstanceSettingsObject>(value: final value) => {
+              'object': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (id) {
+          SdkPresent<String>(value: final value) => {
+              'id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (restrictedToAllowlist) {
+          SdkPresent<bool>(value: final value) => {
+              'restricted_to_allowlist': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (fromEmailAddress) {
+          SdkPresent<String>(value: final value) => {
+              'from_email_address': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (progressiveSignUp) {
+          SdkPresent<bool>(value: final value) => {
+              'progressive_sign_up': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (enhancedEmailDeliverability) {
+          SdkPresent<bool>(value: final value) => {
+              'enhanced_email_deliverability': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

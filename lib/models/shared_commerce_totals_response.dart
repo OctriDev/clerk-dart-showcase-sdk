@@ -8,61 +8,139 @@ part of 'shared_commerce.dart';
 class CommerceTotalsResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Required object value serialized in the `subtotal` wire field.
   final CommerceMoneyResponse subtotal;
+
   /// Required object value serialized in the `base_fee` wire field.
   final CommerceMoneyResponse baseFee;
+
   /// Required object value serialized in the `tax_total` wire field.
   final CommerceMoneyResponse taxTotal;
+
   /// Required object value serialized in the `grand_total` wire field.
   final CommerceMoneyResponse grandTotal;
+
   /// Optional array value serialized in the `per_unit_totals` wire field.
   final SdkOptional<List<CommercePerUnitTotal>> perUnitTotals;
+
   /// Optional object value serialized in the `credits` wire field.
   final SdkOptional<CommerceCreditsResponse?> credits;
+
   /// Optional object value serialized in the `discounts` wire field.
   final SdkOptional<CommerceDiscountsResponse?> discounts;
 
-  const CommerceTotalsResponse({required this.subtotal, required this.baseFee, required this.taxTotal, required this.grandTotal, this.perUnitTotals = const SdkOmitted(), this.credits = const SdkOmitted(), this.discounts = const SdkOmitted()});
+  const CommerceTotalsResponse(
+      {required this.subtotal,
+      required this.baseFee,
+      required this.taxTotal,
+      required this.grandTotal,
+      this.perUnitTotals = const SdkOmitted(),
+      this.credits = const SdkOmitted(),
+      this.discounts = const SdkOmitted()});
 
-  CommerceTotalsResponse Function({CommerceMoneyResponse subtotal, CommerceMoneyResponse baseFee, CommerceMoneyResponse taxTotal, CommerceMoneyResponse grandTotal, SdkOptional<List<CommercePerUnitTotal>> perUnitTotals, SdkOptional<CommerceCreditsResponse?> credits, SdkOptional<CommerceDiscountsResponse?> discounts}) get copyWith => _copyWith;
+  CommerceTotalsResponse Function(
+          {CommerceMoneyResponse subtotal,
+          CommerceMoneyResponse baseFee,
+          CommerceMoneyResponse taxTotal,
+          CommerceMoneyResponse grandTotal,
+          SdkOptional<List<CommercePerUnitTotal>> perUnitTotals,
+          SdkOptional<CommerceCreditsResponse?> credits,
+          SdkOptional<CommerceDiscountsResponse?> discounts})
+      get copyWith => _copyWith;
 
-  CommerceTotalsResponse _copyWith({Object? subtotal = sdkOmittedValue, Object? baseFee = sdkOmittedValue, Object? taxTotal = sdkOmittedValue, Object? grandTotal = sdkOmittedValue, Object? perUnitTotals = sdkOmittedValue, Object? credits = sdkOmittedValue, Object? discounts = sdkOmittedValue}) => CommerceTotalsResponse(
-    subtotal: identical(subtotal, sdkOmittedValue) ? this.subtotal : subtotal as CommerceMoneyResponse,
-    baseFee: identical(baseFee, sdkOmittedValue) ? this.baseFee : baseFee as CommerceMoneyResponse,
-    taxTotal: identical(taxTotal, sdkOmittedValue) ? this.taxTotal : taxTotal as CommerceMoneyResponse,
-    grandTotal: identical(grandTotal, sdkOmittedValue) ? this.grandTotal : grandTotal as CommerceMoneyResponse,
-    perUnitTotals: identical(perUnitTotals, sdkOmittedValue) ? this.perUnitTotals : perUnitTotals as SdkOptional<List<CommercePerUnitTotal>>,
-    credits: identical(credits, sdkOmittedValue) ? this.credits : credits as SdkOptional<CommerceCreditsResponse?>,
-    discounts: identical(discounts, sdkOmittedValue) ? this.discounts : discounts as SdkOptional<CommerceDiscountsResponse?>,
-  );
+  CommerceTotalsResponse _copyWith(
+          {Object? subtotal = sdkOmittedValue,
+          Object? baseFee = sdkOmittedValue,
+          Object? taxTotal = sdkOmittedValue,
+          Object? grandTotal = sdkOmittedValue,
+          Object? perUnitTotals = sdkOmittedValue,
+          Object? credits = sdkOmittedValue,
+          Object? discounts = sdkOmittedValue}) =>
+      CommerceTotalsResponse(
+        subtotal: identical(subtotal, sdkOmittedValue)
+            ? this.subtotal
+            : subtotal as CommerceMoneyResponse,
+        baseFee: identical(baseFee, sdkOmittedValue)
+            ? this.baseFee
+            : baseFee as CommerceMoneyResponse,
+        taxTotal: identical(taxTotal, sdkOmittedValue)
+            ? this.taxTotal
+            : taxTotal as CommerceMoneyResponse,
+        grandTotal: identical(grandTotal, sdkOmittedValue)
+            ? this.grandTotal
+            : grandTotal as CommerceMoneyResponse,
+        perUnitTotals: identical(perUnitTotals, sdkOmittedValue)
+            ? this.perUnitTotals
+            : perUnitTotals as SdkOptional<List<CommercePerUnitTotal>>,
+        credits: identical(credits, sdkOmittedValue)
+            ? this.credits
+            : credits as SdkOptional<CommerceCreditsResponse?>,
+        discounts: identical(discounts, sdkOmittedValue)
+            ? this.discounts
+            : discounts as SdkOptional<CommerceDiscountsResponse?>,
+      );
 
-  factory CommerceTotalsResponse.fromJson(Map<String, dynamic> json) => CommerceTotalsResponse(
-    subtotal: (json['subtotal'] != null ? CommerceMoneyResponse.fromJson(json['subtotal'] as Map<String, dynamic>) : null)!,
-    baseFee: (json['base_fee'] != null ? CommerceMoneyResponse.fromJson(json['base_fee'] as Map<String, dynamic>) : null)!,
-    taxTotal: (json['tax_total'] != null ? CommerceMoneyResponse.fromJson(json['tax_total'] as Map<String, dynamic>) : null)!,
-    grandTotal: (json['grand_total'] != null ? CommerceMoneyResponse.fromJson(json['grand_total'] as Map<String, dynamic>) : null)!,
-    perUnitTotals: json['per_unit_totals'] != null ? SdkPresent(((json['per_unit_totals'] as List?)?.map((e) => CommercePerUnitTotal.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-    credits: json.containsKey('credits') ? SdkPresent(json['credits'] != null ? CommerceCreditsResponse.fromJson(json['credits'] as Map<String, dynamic>) : null) : const SdkOmitted(),
-    discounts: json.containsKey('discounts') ? SdkPresent(json['discounts'] != null ? CommerceDiscountsResponse.fromJson(json['discounts'] as Map<String, dynamic>) : null) : const SdkOmitted(),
-  );
+  factory CommerceTotalsResponse.fromJson(Map<String, dynamic> json) =>
+      CommerceTotalsResponse(
+        subtotal: (json['subtotal'] != null
+            ? CommerceMoneyResponse.fromJson(
+                json['subtotal'] as Map<String, dynamic>)
+            : null)!,
+        baseFee: (json['base_fee'] != null
+            ? CommerceMoneyResponse.fromJson(
+                json['base_fee'] as Map<String, dynamic>)
+            : null)!,
+        taxTotal: (json['tax_total'] != null
+            ? CommerceMoneyResponse.fromJson(
+                json['tax_total'] as Map<String, dynamic>)
+            : null)!,
+        grandTotal: (json['grand_total'] != null
+            ? CommerceMoneyResponse.fromJson(
+                json['grand_total'] as Map<String, dynamic>)
+            : null)!,
+        perUnitTotals: json['per_unit_totals'] != null
+            ? SdkPresent(((json['per_unit_totals'] as List?)
+                ?.map((e) =>
+                    CommercePerUnitTotal.fromJson(e as Map<String, dynamic>))
+                .toList())!)
+            : const SdkOmitted(),
+        credits: json.containsKey('credits')
+            ? SdkPresent(json['credits'] != null
+                ? CommerceCreditsResponse.fromJson(
+                    json['credits'] as Map<String, dynamic>)
+                : null)
+            : const SdkOmitted(),
+        discounts: json.containsKey('discounts')
+            ? SdkPresent(json['discounts'] != null
+                ? CommerceDiscountsResponse.fromJson(
+                    json['discounts'] as Map<String, dynamic>)
+                : null)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    'subtotal': subtotal.toJson(),
-    'base_fee': baseFee.toJson(),
-    'tax_total': taxTotal.toJson(),
-    'grand_total': grandTotal.toJson(),
-    ...switch (perUnitTotals) {
-      SdkPresent<List<CommercePerUnitTotal>>(value: final value) => {'per_unit_totals': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (credits) {
-      SdkPresent<CommerceCreditsResponse?>(value: final value) => {'credits': value?.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (discounts) {
-      SdkPresent<CommerceDiscountsResponse?>(value: final value) => {'discounts': value?.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        'subtotal': subtotal.toJson(),
+        'base_fee': baseFee.toJson(),
+        'tax_total': taxTotal.toJson(),
+        'grand_total': grandTotal.toJson(),
+        ...switch (perUnitTotals) {
+          SdkPresent<List<CommercePerUnitTotal>>(value: final value) => {
+              'per_unit_totals': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (credits) {
+          SdkPresent<CommerceCreditsResponse?>(value: final value) => {
+              'credits': value?.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (discounts) {
+          SdkPresent<CommerceDiscountsResponse?>(value: final value) => {
+              'discounts': value?.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

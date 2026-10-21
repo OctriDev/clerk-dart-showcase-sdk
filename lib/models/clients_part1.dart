@@ -8,67 +8,147 @@ part of 'clients.dart';
 class Client {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// String representing the object's type. Objects of the same type share the same value.
   final ClientObject object;
+
   /// String representing the identifier of the session.
   final String id;
+
   /// Required array value serialized in the `session_ids` wire field.
   final List<String> sessionIds;
+
   /// Required array value serialized in the `sessions` wire field.
   final List<Session> sessions;
+
   /// Required `string` value serialized in the `sign_in_id` wire field.
   final String? signInId;
+
   /// Required `string` value serialized in the `sign_up_id` wire field.
   final String? signUpId;
+
   /// Last active session_id.
   final String? lastActiveSessionId;
+
   /// The authentication strategy that was last used to authenticate the user on this client.
   final String? lastAuthenticationStrategy;
+
   /// Unix timestamp of last update.
   final int updatedAt;
+
   /// Unix timestamp of creation.
   final int createdAt;
 
-  const Client({required this.object, required this.id, required this.sessionIds, required this.sessions, required this.signInId, required this.signUpId, required this.lastActiveSessionId, required this.lastAuthenticationStrategy, required this.updatedAt, required this.createdAt});
+  const Client(
+      {required this.object,
+      required this.id,
+      required this.sessionIds,
+      required this.sessions,
+      required this.signInId,
+      required this.signUpId,
+      required this.lastActiveSessionId,
+      required this.lastAuthenticationStrategy,
+      required this.updatedAt,
+      required this.createdAt});
 
-  Client Function({ClientObject object, String id, List<String> sessionIds, List<Session> sessions, String? signInId, String? signUpId, String? lastActiveSessionId, String? lastAuthenticationStrategy, int updatedAt, int createdAt}) get copyWith => _copyWith;
+  Client Function(
+      {ClientObject object,
+      String id,
+      List<String> sessionIds,
+      List<Session> sessions,
+      String? signInId,
+      String? signUpId,
+      String? lastActiveSessionId,
+      String? lastAuthenticationStrategy,
+      int updatedAt,
+      int createdAt}) get copyWith => _copyWith;
 
-  Client _copyWith({Object? object = sdkOmittedValue, Object? id = sdkOmittedValue, Object? sessionIds = sdkOmittedValue, Object? sessions = sdkOmittedValue, Object? signInId = sdkOmittedValue, Object? signUpId = sdkOmittedValue, Object? lastActiveSessionId = sdkOmittedValue, Object? lastAuthenticationStrategy = sdkOmittedValue, Object? updatedAt = sdkOmittedValue, Object? createdAt = sdkOmittedValue}) => Client(
-    object: identical(object, sdkOmittedValue) ? this.object : object as ClientObject,
-    id: identical(id, sdkOmittedValue) ? this.id : id as String,
-    sessionIds: identical(sessionIds, sdkOmittedValue) ? this.sessionIds : sessionIds as List<String>,
-    sessions: identical(sessions, sdkOmittedValue) ? this.sessions : sessions as List<Session>,
-    signInId: identical(signInId, sdkOmittedValue) ? this.signInId : signInId as String?,
-    signUpId: identical(signUpId, sdkOmittedValue) ? this.signUpId : signUpId as String?,
-    lastActiveSessionId: identical(lastActiveSessionId, sdkOmittedValue) ? this.lastActiveSessionId : lastActiveSessionId as String?,
-    lastAuthenticationStrategy: identical(lastAuthenticationStrategy, sdkOmittedValue) ? this.lastAuthenticationStrategy : lastAuthenticationStrategy as String?,
-    updatedAt: identical(updatedAt, sdkOmittedValue) ? this.updatedAt : updatedAt as int,
-    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as int,
-  );
+  Client _copyWith(
+          {Object? object = sdkOmittedValue,
+          Object? id = sdkOmittedValue,
+          Object? sessionIds = sdkOmittedValue,
+          Object? sessions = sdkOmittedValue,
+          Object? signInId = sdkOmittedValue,
+          Object? signUpId = sdkOmittedValue,
+          Object? lastActiveSessionId = sdkOmittedValue,
+          Object? lastAuthenticationStrategy = sdkOmittedValue,
+          Object? updatedAt = sdkOmittedValue,
+          Object? createdAt = sdkOmittedValue}) =>
+      Client(
+        object: identical(object, sdkOmittedValue)
+            ? this.object
+            : object as ClientObject,
+        id: identical(id, sdkOmittedValue) ? this.id : id as String,
+        sessionIds: identical(sessionIds, sdkOmittedValue)
+            ? this.sessionIds
+            : sessionIds as List<String>,
+        sessions: identical(sessions, sdkOmittedValue)
+            ? this.sessions
+            : sessions as List<Session>,
+        signInId: identical(signInId, sdkOmittedValue)
+            ? this.signInId
+            : signInId as String?,
+        signUpId: identical(signUpId, sdkOmittedValue)
+            ? this.signUpId
+            : signUpId as String?,
+        lastActiveSessionId: identical(lastActiveSessionId, sdkOmittedValue)
+            ? this.lastActiveSessionId
+            : lastActiveSessionId as String?,
+        lastAuthenticationStrategy:
+            identical(lastAuthenticationStrategy, sdkOmittedValue)
+                ? this.lastAuthenticationStrategy
+                : lastAuthenticationStrategy as String?,
+        updatedAt: identical(updatedAt, sdkOmittedValue)
+            ? this.updatedAt
+            : updatedAt as int,
+        createdAt: identical(createdAt, sdkOmittedValue)
+            ? this.createdAt
+            : createdAt as int,
+      );
 
   factory Client.fromJson(Map<String, dynamic> json) => Client(
-    object: (json['object'] != null ? ClientObject.fromJson(json['object'] as String) : null)!,
-    id: (json['id'] as String?)!,
-    sessionIds: ((json['session_ids'] as List?)?.map((e) => e as String).toList())!,
-    sessions: ((json['sessions'] as List?)?.map((e) => Session.fromJson(e as Map<String, dynamic>)).toList())!,
-    signInId: json.containsKey('sign_in_id') ? json['sign_in_id'] as String? : throw ArgumentError.value(null, 'sign_in_id', 'Required property is missing'),
-    signUpId: json.containsKey('sign_up_id') ? json['sign_up_id'] as String? : throw ArgumentError.value(null, 'sign_up_id', 'Required property is missing'),
-    lastActiveSessionId: json.containsKey('last_active_session_id') ? json['last_active_session_id'] as String? : throw ArgumentError.value(null, 'last_active_session_id', 'Required property is missing'),
-    lastAuthenticationStrategy: json.containsKey('last_authentication_strategy') ? json['last_authentication_strategy'] as String? : throw ArgumentError.value(null, 'last_authentication_strategy', 'Required property is missing'),
-    updatedAt: ((json['updated_at'] as num?)?.toInt())!,
-    createdAt: ((json['created_at'] as num?)?.toInt())!,
-  );
+        object: (json['object'] != null
+            ? ClientObject.fromJson(json['object'] as String)
+            : null)!,
+        id: (json['id'] as String?)!,
+        sessionIds:
+            ((json['session_ids'] as List?)?.map((e) => e as String).toList())!,
+        sessions: ((json['sessions'] as List?)
+            ?.map((e) => Session.fromJson(e as Map<String, dynamic>))
+            .toList())!,
+        signInId: json.containsKey('sign_in_id')
+            ? json['sign_in_id'] as String?
+            : throw ArgumentError.value(
+                null, 'sign_in_id', 'Required property is missing'),
+        signUpId: json.containsKey('sign_up_id')
+            ? json['sign_up_id'] as String?
+            : throw ArgumentError.value(
+                null, 'sign_up_id', 'Required property is missing'),
+        lastActiveSessionId: json.containsKey('last_active_session_id')
+            ? json['last_active_session_id'] as String?
+            : throw ArgumentError.value(
+                null, 'last_active_session_id', 'Required property is missing'),
+        lastAuthenticationStrategy:
+            json.containsKey('last_authentication_strategy')
+                ? json['last_authentication_strategy'] as String?
+                : throw ArgumentError.value(
+                    null,
+                    'last_authentication_strategy',
+                    'Required property is missing'),
+        updatedAt: ((json['updated_at'] as num?)?.toInt())!,
+        createdAt: ((json['created_at'] as num?)?.toInt())!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'object': object.toJson(),
-    'id': id,
-    'session_ids': sessionIds,
-    'sessions': sessions.map((item) => item.toJson()).toList(),
-    'sign_in_id': signInId,
-    'sign_up_id': signUpId,
-    'last_active_session_id': lastActiveSessionId,
-    'last_authentication_strategy': lastAuthenticationStrategy,
-    'updated_at': updatedAt,
-    'created_at': createdAt,
-  };
+        'object': object.toJson(),
+        'id': id,
+        'session_ids': sessionIds,
+        'sessions': sessions.map((item) => item.toJson()).toList(),
+        'sign_in_id': signInId,
+        'sign_up_id': signUpId,
+        'last_active_session_id': lastActiveSessionId,
+        'last_authentication_strategy': lastAuthenticationStrategy,
+        'updated_at': updatedAt,
+        'created_at': createdAt,
+      };
 }

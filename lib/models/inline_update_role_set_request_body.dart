@@ -7,251 +7,456 @@ part of 'inline.dart';
 class UpdateRoleSetRequestBody {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The new name for the role set
   final SdkOptional<String?> name;
+
   /// A unique key for the role set. Must start with 'role_set:' and contain only lowercase alphanumeric characters and underscores.
   final SdkOptional<String?> key;
+
   /// Optional description for the role set
   final SdkOptional<String?> description;
+
   /// Set to "initial" to make this the default role set for new organizations. Only one role set can be "initial" per instance; setting this will change any existing initial role set to "custom".
   final SdkOptional<UpdateRoleSetRequestBodyType?> type_;
+
   /// The key of the role to use as the default role for new organization members. Must be an existing role in the role set.
   final SdkOptional<String?> defaultRoleKey;
+
   /// The key of the role to assign to organization creators. Must be an existing role in the role set.
   final SdkOptional<String?> creatorRoleKey;
 
-  const UpdateRoleSetRequestBody({this.name = const SdkOmitted(), this.key = const SdkOmitted(), this.description = const SdkOmitted(), this.type_ = const SdkOmitted(), this.defaultRoleKey = const SdkOmitted(), this.creatorRoleKey = const SdkOmitted()});
+  const UpdateRoleSetRequestBody(
+      {this.name = const SdkOmitted(),
+      this.key = const SdkOmitted(),
+      this.description = const SdkOmitted(),
+      this.type_ = const SdkOmitted(),
+      this.defaultRoleKey = const SdkOmitted(),
+      this.creatorRoleKey = const SdkOmitted()});
 
-  UpdateRoleSetRequestBody Function({SdkOptional<String?> name, SdkOptional<String?> key, SdkOptional<String?> description, SdkOptional<UpdateRoleSetRequestBodyType?> type_, SdkOptional<String?> defaultRoleKey, SdkOptional<String?> creatorRoleKey}) get copyWith => _copyWith;
+  UpdateRoleSetRequestBody Function(
+      {SdkOptional<String?> name,
+      SdkOptional<String?> key,
+      SdkOptional<String?> description,
+      SdkOptional<UpdateRoleSetRequestBodyType?> type_,
+      SdkOptional<String?> defaultRoleKey,
+      SdkOptional<String?> creatorRoleKey}) get copyWith => _copyWith;
 
-  UpdateRoleSetRequestBody _copyWith({Object? name = sdkOmittedValue, Object? key = sdkOmittedValue, Object? description = sdkOmittedValue, Object? type_ = sdkOmittedValue, Object? defaultRoleKey = sdkOmittedValue, Object? creatorRoleKey = sdkOmittedValue}) => UpdateRoleSetRequestBody(
-    name: identical(name, sdkOmittedValue) ? this.name : name as SdkOptional<String?>,
-    key: identical(key, sdkOmittedValue) ? this.key : key as SdkOptional<String?>,
-    description: identical(description, sdkOmittedValue) ? this.description : description as SdkOptional<String?>,
-    type_: identical(type_, sdkOmittedValue) ? this.type_ : type_ as SdkOptional<UpdateRoleSetRequestBodyType?>,
-    defaultRoleKey: identical(defaultRoleKey, sdkOmittedValue) ? this.defaultRoleKey : defaultRoleKey as SdkOptional<String?>,
-    creatorRoleKey: identical(creatorRoleKey, sdkOmittedValue) ? this.creatorRoleKey : creatorRoleKey as SdkOptional<String?>,
-  );
+  UpdateRoleSetRequestBody _copyWith(
+          {Object? name = sdkOmittedValue,
+          Object? key = sdkOmittedValue,
+          Object? description = sdkOmittedValue,
+          Object? type_ = sdkOmittedValue,
+          Object? defaultRoleKey = sdkOmittedValue,
+          Object? creatorRoleKey = sdkOmittedValue}) =>
+      UpdateRoleSetRequestBody(
+        name: identical(name, sdkOmittedValue)
+            ? this.name
+            : name as SdkOptional<String?>,
+        key: identical(key, sdkOmittedValue)
+            ? this.key
+            : key as SdkOptional<String?>,
+        description: identical(description, sdkOmittedValue)
+            ? this.description
+            : description as SdkOptional<String?>,
+        type_: identical(type_, sdkOmittedValue)
+            ? this.type_
+            : type_ as SdkOptional<UpdateRoleSetRequestBodyType?>,
+        defaultRoleKey: identical(defaultRoleKey, sdkOmittedValue)
+            ? this.defaultRoleKey
+            : defaultRoleKey as SdkOptional<String?>,
+        creatorRoleKey: identical(creatorRoleKey, sdkOmittedValue)
+            ? this.creatorRoleKey
+            : creatorRoleKey as SdkOptional<String?>,
+      );
 
-  factory UpdateRoleSetRequestBody.fromJson(Map<String, dynamic> json) => UpdateRoleSetRequestBody(
-    name: json.containsKey('name') ? SdkPresent(json['name'] as String?) : const SdkOmitted(),
-    key: json.containsKey('key') ? SdkPresent(json['key'] as String?) : const SdkOmitted(),
-    description: json.containsKey('description') ? SdkPresent(json['description'] as String?) : const SdkOmitted(),
-    type_: json.containsKey('type') ? SdkPresent(json['type'] != null ? UpdateRoleSetRequestBodyType.fromJson(json['type'] as String) : null) : const SdkOmitted(),
-    defaultRoleKey: json.containsKey('default_role_key') ? SdkPresent(json['default_role_key'] as String?) : const SdkOmitted(),
-    creatorRoleKey: json.containsKey('creator_role_key') ? SdkPresent(json['creator_role_key'] as String?) : const SdkOmitted(),
-  );
+  factory UpdateRoleSetRequestBody.fromJson(Map<String, dynamic> json) =>
+      UpdateRoleSetRequestBody(
+        name: json.containsKey('name')
+            ? SdkPresent(json['name'] as String?)
+            : const SdkOmitted(),
+        key: json.containsKey('key')
+            ? SdkPresent(json['key'] as String?)
+            : const SdkOmitted(),
+        description: json.containsKey('description')
+            ? SdkPresent(json['description'] as String?)
+            : const SdkOmitted(),
+        type_: json.containsKey('type')
+            ? SdkPresent(json['type'] != null
+                ? UpdateRoleSetRequestBodyType.fromJson(json['type'] as String)
+                : null)
+            : const SdkOmitted(),
+        defaultRoleKey: json.containsKey('default_role_key')
+            ? SdkPresent(json['default_role_key'] as String?)
+            : const SdkOmitted(),
+        creatorRoleKey: json.containsKey('creator_role_key')
+            ? SdkPresent(json['creator_role_key'] as String?)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (name) {
-      SdkPresent<String?>(value: final value) => {'name': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (key) {
-      SdkPresent<String?>(value: final value) => {'key': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (description) {
-      SdkPresent<String?>(value: final value) => {'description': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (type_) {
-      SdkPresent<UpdateRoleSetRequestBodyType?>(value: final value) => {'type': value?.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (defaultRoleKey) {
-      SdkPresent<String?>(value: final value) => {'default_role_key': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (creatorRoleKey) {
-      SdkPresent<String?>(value: final value) => {'creator_role_key': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (name) {
+          SdkPresent<String?>(value: final value) => {
+              'name': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (key) {
+          SdkPresent<String?>(value: final value) => {
+              'key': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (description) {
+          SdkPresent<String?>(value: final value) => {
+              'description': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (type_) {
+          SdkPresent<UpdateRoleSetRequestBodyType?>(value: final value) => {
+              'type': value?.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (defaultRoleKey) {
+          SdkPresent<String?>(value: final value) => {
+              'default_role_key': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (creatorRoleKey) {
+          SdkPresent<String?>(value: final value) => {
+              'creator_role_key': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 class ReplaceRoleSetRequestBody {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The key of the destination role set
   final String destRoleSetKey;
+
   /// Mappings from source role keys to destination role keys. Required if members have roles that need to be reassigned.
   final SdkOptional<Map<String, dynamic>> reassignmentMappings;
 
-  const ReplaceRoleSetRequestBody({required this.destRoleSetKey, this.reassignmentMappings = const SdkOmitted()});
+  const ReplaceRoleSetRequestBody(
+      {required this.destRoleSetKey,
+      this.reassignmentMappings = const SdkOmitted()});
 
-  ReplaceRoleSetRequestBody Function({String destRoleSetKey, SdkOptional<Map<String, dynamic>> reassignmentMappings}) get copyWith => _copyWith;
+  ReplaceRoleSetRequestBody Function(
+          {String destRoleSetKey,
+          SdkOptional<Map<String, dynamic>> reassignmentMappings})
+      get copyWith => _copyWith;
 
-  ReplaceRoleSetRequestBody _copyWith({Object? destRoleSetKey = sdkOmittedValue, Object? reassignmentMappings = sdkOmittedValue}) => ReplaceRoleSetRequestBody(
-    destRoleSetKey: identical(destRoleSetKey, sdkOmittedValue) ? this.destRoleSetKey : destRoleSetKey as String,
-    reassignmentMappings: identical(reassignmentMappings, sdkOmittedValue) ? this.reassignmentMappings : reassignmentMappings as SdkOptional<Map<String, dynamic>>,
-  );
+  ReplaceRoleSetRequestBody _copyWith(
+          {Object? destRoleSetKey = sdkOmittedValue,
+          Object? reassignmentMappings = sdkOmittedValue}) =>
+      ReplaceRoleSetRequestBody(
+        destRoleSetKey: identical(destRoleSetKey, sdkOmittedValue)
+            ? this.destRoleSetKey
+            : destRoleSetKey as String,
+        reassignmentMappings: identical(reassignmentMappings, sdkOmittedValue)
+            ? this.reassignmentMappings
+            : reassignmentMappings as SdkOptional<Map<String, dynamic>>,
+      );
 
-  factory ReplaceRoleSetRequestBody.fromJson(Map<String, dynamic> json) => ReplaceRoleSetRequestBody(
-    destRoleSetKey: (json['dest_role_set_key'] as String?)!,
-    reassignmentMappings: json['reassignment_mappings'] != null ? SdkPresent((json['reassignment_mappings'] == null ? null : json['reassignment_mappings'] as Map<String, dynamic>)!) : const SdkOmitted(),
-  );
+  factory ReplaceRoleSetRequestBody.fromJson(Map<String, dynamic> json) =>
+      ReplaceRoleSetRequestBody(
+        destRoleSetKey: (json['dest_role_set_key'] as String?)!,
+        reassignmentMappings: json['reassignment_mappings'] != null
+            ? SdkPresent((json['reassignment_mappings'] == null
+                ? null
+                : json['reassignment_mappings'] as Map<String, dynamic>)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    'dest_role_set_key': destRoleSetKey,
-    ...switch (reassignmentMappings) {
-      SdkPresent<Map<String, dynamic>>(value: final value) => {'reassignment_mappings': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        'dest_role_set_key': destRoleSetKey,
+        ...switch (reassignmentMappings) {
+          SdkPresent<Map<String, dynamic>>(value: final value) => {
+              'reassignment_mappings': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 class AddRolesToRoleSetRequestBody {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Array of role keys to add to the role set. Must contain at least one role and no more than 10 roles.
   final List<String> roleKeys;
+
   /// Optionally update the default role to one of the newly added roles.
   final SdkOptional<String> defaultRoleKey;
+
   /// Optionally update the creator role to one of the newly added roles.
   final SdkOptional<String> creatorRoleKey;
 
-  const AddRolesToRoleSetRequestBody({required this.roleKeys, this.defaultRoleKey = const SdkOmitted(), this.creatorRoleKey = const SdkOmitted()});
+  const AddRolesToRoleSetRequestBody(
+      {required this.roleKeys,
+      this.defaultRoleKey = const SdkOmitted(),
+      this.creatorRoleKey = const SdkOmitted()});
 
-  AddRolesToRoleSetRequestBody Function({List<String> roleKeys, SdkOptional<String> defaultRoleKey, SdkOptional<String> creatorRoleKey}) get copyWith => _copyWith;
+  AddRolesToRoleSetRequestBody Function(
+      {List<String> roleKeys,
+      SdkOptional<String> defaultRoleKey,
+      SdkOptional<String> creatorRoleKey}) get copyWith => _copyWith;
 
-  AddRolesToRoleSetRequestBody _copyWith({Object? roleKeys = sdkOmittedValue, Object? defaultRoleKey = sdkOmittedValue, Object? creatorRoleKey = sdkOmittedValue}) => AddRolesToRoleSetRequestBody(
-    roleKeys: identical(roleKeys, sdkOmittedValue) ? this.roleKeys : roleKeys as List<String>,
-    defaultRoleKey: identical(defaultRoleKey, sdkOmittedValue) ? this.defaultRoleKey : defaultRoleKey as SdkOptional<String>,
-    creatorRoleKey: identical(creatorRoleKey, sdkOmittedValue) ? this.creatorRoleKey : creatorRoleKey as SdkOptional<String>,
-  );
+  AddRolesToRoleSetRequestBody _copyWith(
+          {Object? roleKeys = sdkOmittedValue,
+          Object? defaultRoleKey = sdkOmittedValue,
+          Object? creatorRoleKey = sdkOmittedValue}) =>
+      AddRolesToRoleSetRequestBody(
+        roleKeys: identical(roleKeys, sdkOmittedValue)
+            ? this.roleKeys
+            : roleKeys as List<String>,
+        defaultRoleKey: identical(defaultRoleKey, sdkOmittedValue)
+            ? this.defaultRoleKey
+            : defaultRoleKey as SdkOptional<String>,
+        creatorRoleKey: identical(creatorRoleKey, sdkOmittedValue)
+            ? this.creatorRoleKey
+            : creatorRoleKey as SdkOptional<String>,
+      );
 
-  factory AddRolesToRoleSetRequestBody.fromJson(Map<String, dynamic> json) => AddRolesToRoleSetRequestBody(
-    roleKeys: ((json['role_keys'] as List?)?.map((e) => e as String).toList())!,
-    defaultRoleKey: json['default_role_key'] != null ? SdkPresent((json['default_role_key'] as String?)!) : const SdkOmitted(),
-    creatorRoleKey: json['creator_role_key'] != null ? SdkPresent((json['creator_role_key'] as String?)!) : const SdkOmitted(),
-  );
+  factory AddRolesToRoleSetRequestBody.fromJson(Map<String, dynamic> json) =>
+      AddRolesToRoleSetRequestBody(
+        roleKeys:
+            ((json['role_keys'] as List?)?.map((e) => e as String).toList())!,
+        defaultRoleKey: json['default_role_key'] != null
+            ? SdkPresent((json['default_role_key'] as String?)!)
+            : const SdkOmitted(),
+        creatorRoleKey: json['creator_role_key'] != null
+            ? SdkPresent((json['creator_role_key'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    'role_keys': roleKeys,
-    ...switch (defaultRoleKey) {
-      SdkPresent<String>(value: final value) => {'default_role_key': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (creatorRoleKey) {
-      SdkPresent<String>(value: final value) => {'creator_role_key': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        'role_keys': roleKeys,
+        ...switch (defaultRoleKey) {
+          SdkPresent<String>(value: final value) => {
+              'default_role_key': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (creatorRoleKey) {
+          SdkPresent<String>(value: final value) => {
+              'creator_role_key': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 class ReplaceRoleInRoleSetRequestBody {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The key of the role to remove from the role set
   final String roleKey;
+
   /// The key of the role to reassign members to
   final String toRoleKey;
 
-  const ReplaceRoleInRoleSetRequestBody({required this.roleKey, required this.toRoleKey});
+  const ReplaceRoleInRoleSetRequestBody(
+      {required this.roleKey, required this.toRoleKey});
 
-  ReplaceRoleInRoleSetRequestBody Function({String roleKey, String toRoleKey}) get copyWith => _copyWith;
+  ReplaceRoleInRoleSetRequestBody Function({String roleKey, String toRoleKey})
+      get copyWith => _copyWith;
 
-  ReplaceRoleInRoleSetRequestBody _copyWith({Object? roleKey = sdkOmittedValue, Object? toRoleKey = sdkOmittedValue}) => ReplaceRoleInRoleSetRequestBody(
-    roleKey: identical(roleKey, sdkOmittedValue) ? this.roleKey : roleKey as String,
-    toRoleKey: identical(toRoleKey, sdkOmittedValue) ? this.toRoleKey : toRoleKey as String,
-  );
+  ReplaceRoleInRoleSetRequestBody _copyWith(
+          {Object? roleKey = sdkOmittedValue,
+          Object? toRoleKey = sdkOmittedValue}) =>
+      ReplaceRoleInRoleSetRequestBody(
+        roleKey: identical(roleKey, sdkOmittedValue)
+            ? this.roleKey
+            : roleKey as String,
+        toRoleKey: identical(toRoleKey, sdkOmittedValue)
+            ? this.toRoleKey
+            : toRoleKey as String,
+      );
 
-  factory ReplaceRoleInRoleSetRequestBody.fromJson(Map<String, dynamic> json) => ReplaceRoleInRoleSetRequestBody(
-    roleKey: (json['role_key'] as String?)!,
-    toRoleKey: (json['to_role_key'] as String?)!,
-  );
+  factory ReplaceRoleInRoleSetRequestBody.fromJson(Map<String, dynamic> json) =>
+      ReplaceRoleInRoleSetRequestBody(
+        roleKey: (json['role_key'] as String?)!,
+        toRoleKey: (json['to_role_key'] as String?)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'role_key': roleKey,
-    'to_role_key': toRoleKey,
-  };
+        'role_key': roleKey,
+        'to_role_key': toRoleKey,
+      };
 }
 
 class CreateSCIMDirectoryRequestBodyGroupRoleMappingsItem {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The SCIM group ID from the identity provider.
   final String scimGroupId;
+
   /// Optional display name for the SCIM group.
   final SdkOptional<String> scimGroupDisplayName;
+
   /// The organization role ID to assign to members of the SCIM group.
   final String roleId;
+
   /// The precedence for this mapping. If omitted, precedence is assigned by array order.
   final SdkOptional<int> precedence;
 
-  const CreateSCIMDirectoryRequestBodyGroupRoleMappingsItem({required this.scimGroupId, this.scimGroupDisplayName = const SdkOmitted(), required this.roleId, this.precedence = const SdkOmitted()});
+  const CreateSCIMDirectoryRequestBodyGroupRoleMappingsItem(
+      {required this.scimGroupId,
+      this.scimGroupDisplayName = const SdkOmitted(),
+      required this.roleId,
+      this.precedence = const SdkOmitted()});
 
-  CreateSCIMDirectoryRequestBodyGroupRoleMappingsItem Function({String scimGroupId, SdkOptional<String> scimGroupDisplayName, String roleId, SdkOptional<int> precedence}) get copyWith => _copyWith;
+  CreateSCIMDirectoryRequestBodyGroupRoleMappingsItem Function(
+      {String scimGroupId,
+      SdkOptional<String> scimGroupDisplayName,
+      String roleId,
+      SdkOptional<int> precedence}) get copyWith => _copyWith;
 
-  CreateSCIMDirectoryRequestBodyGroupRoleMappingsItem _copyWith({Object? scimGroupId = sdkOmittedValue, Object? scimGroupDisplayName = sdkOmittedValue, Object? roleId = sdkOmittedValue, Object? precedence = sdkOmittedValue}) => CreateSCIMDirectoryRequestBodyGroupRoleMappingsItem(
-    scimGroupId: identical(scimGroupId, sdkOmittedValue) ? this.scimGroupId : scimGroupId as String,
-    scimGroupDisplayName: identical(scimGroupDisplayName, sdkOmittedValue) ? this.scimGroupDisplayName : scimGroupDisplayName as SdkOptional<String>,
-    roleId: identical(roleId, sdkOmittedValue) ? this.roleId : roleId as String,
-    precedence: identical(precedence, sdkOmittedValue) ? this.precedence : precedence as SdkOptional<int>,
-  );
+  CreateSCIMDirectoryRequestBodyGroupRoleMappingsItem _copyWith(
+          {Object? scimGroupId = sdkOmittedValue,
+          Object? scimGroupDisplayName = sdkOmittedValue,
+          Object? roleId = sdkOmittedValue,
+          Object? precedence = sdkOmittedValue}) =>
+      CreateSCIMDirectoryRequestBodyGroupRoleMappingsItem(
+        scimGroupId: identical(scimGroupId, sdkOmittedValue)
+            ? this.scimGroupId
+            : scimGroupId as String,
+        scimGroupDisplayName: identical(scimGroupDisplayName, sdkOmittedValue)
+            ? this.scimGroupDisplayName
+            : scimGroupDisplayName as SdkOptional<String>,
+        roleId:
+            identical(roleId, sdkOmittedValue) ? this.roleId : roleId as String,
+        precedence: identical(precedence, sdkOmittedValue)
+            ? this.precedence
+            : precedence as SdkOptional<int>,
+      );
 
-  factory CreateSCIMDirectoryRequestBodyGroupRoleMappingsItem.fromJson(Map<String, dynamic> json) => CreateSCIMDirectoryRequestBodyGroupRoleMappingsItem(
-    scimGroupId: (json['scim_group_id'] as String?)!,
-    scimGroupDisplayName: json['scim_group_display_name'] != null ? SdkPresent((json['scim_group_display_name'] as String?)!) : const SdkOmitted(),
-    roleId: (json['role_id'] as String?)!,
-    precedence: json['precedence'] != null ? SdkPresent(((json['precedence'] as num?)?.toInt())!) : const SdkOmitted(),
-  );
+  factory CreateSCIMDirectoryRequestBodyGroupRoleMappingsItem.fromJson(
+          Map<String, dynamic> json) =>
+      CreateSCIMDirectoryRequestBodyGroupRoleMappingsItem(
+        scimGroupId: (json['scim_group_id'] as String?)!,
+        scimGroupDisplayName: json['scim_group_display_name'] != null
+            ? SdkPresent((json['scim_group_display_name'] as String?)!)
+            : const SdkOmitted(),
+        roleId: (json['role_id'] as String?)!,
+        precedence: json['precedence'] != null
+            ? SdkPresent(((json['precedence'] as num?)?.toInt())!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    'scim_group_id': scimGroupId,
-    ...switch (scimGroupDisplayName) {
-      SdkPresent<String>(value: final value) => {'scim_group_display_name': value,},
-      _ => const <String, dynamic>{},
-    },
-    'role_id': roleId,
-    ...switch (precedence) {
-      SdkPresent<int>(value: final value) => {'precedence': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        'scim_group_id': scimGroupId,
+        ...switch (scimGroupDisplayName) {
+          SdkPresent<String>(value: final value) => {
+              'scim_group_display_name': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        'role_id': roleId,
+        ...switch (precedence) {
+          SdkPresent<int>(value: final value) => {
+              'precedence': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 class CreateSCIMDirectoryRequestBody {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The ID of the enterprise connection to associate with this directory.
   final String enterpriseConnectionId;
+
   /// A human-friendly name for the directory.
   final SdkOptional<String> name;
+
   /// The identity provider for this directory.
   final String provider;
+
   /// Optional SCIM group to organization role mappings to create with the directory.
-  final SdkOptional<List<CreateSCIMDirectoryRequestBodyGroupRoleMappingsItem>> groupRoleMappings;
+  final SdkOptional<List<CreateSCIMDirectoryRequestBodyGroupRoleMappingsItem>>
+      groupRoleMappings;
 
-  const CreateSCIMDirectoryRequestBody({required this.enterpriseConnectionId, this.name = const SdkOmitted(), required this.provider, this.groupRoleMappings = const SdkOmitted()});
+  const CreateSCIMDirectoryRequestBody(
+      {required this.enterpriseConnectionId,
+      this.name = const SdkOmitted(),
+      required this.provider,
+      this.groupRoleMappings = const SdkOmitted()});
 
-  CreateSCIMDirectoryRequestBody Function({String enterpriseConnectionId, SdkOptional<String> name, String provider, SdkOptional<List<CreateSCIMDirectoryRequestBodyGroupRoleMappingsItem>> groupRoleMappings}) get copyWith => _copyWith;
+  CreateSCIMDirectoryRequestBody Function(
+      {String enterpriseConnectionId,
+      SdkOptional<String> name,
+      String provider,
+      SdkOptional<List<CreateSCIMDirectoryRequestBodyGroupRoleMappingsItem>>
+          groupRoleMappings}) get copyWith => _copyWith;
 
-  CreateSCIMDirectoryRequestBody _copyWith({Object? enterpriseConnectionId = sdkOmittedValue, Object? name = sdkOmittedValue, Object? provider = sdkOmittedValue, Object? groupRoleMappings = sdkOmittedValue}) => CreateSCIMDirectoryRequestBody(
-    enterpriseConnectionId: identical(enterpriseConnectionId, sdkOmittedValue) ? this.enterpriseConnectionId : enterpriseConnectionId as String,
-    name: identical(name, sdkOmittedValue) ? this.name : name as SdkOptional<String>,
-    provider: identical(provider, sdkOmittedValue) ? this.provider : provider as String,
-    groupRoleMappings: identical(groupRoleMappings, sdkOmittedValue) ? this.groupRoleMappings : groupRoleMappings as SdkOptional<List<CreateSCIMDirectoryRequestBodyGroupRoleMappingsItem>>,
-  );
+  CreateSCIMDirectoryRequestBody _copyWith(
+          {Object? enterpriseConnectionId = sdkOmittedValue,
+          Object? name = sdkOmittedValue,
+          Object? provider = sdkOmittedValue,
+          Object? groupRoleMappings = sdkOmittedValue}) =>
+      CreateSCIMDirectoryRequestBody(
+        enterpriseConnectionId:
+            identical(enterpriseConnectionId, sdkOmittedValue)
+                ? this.enterpriseConnectionId
+                : enterpriseConnectionId as String,
+        name: identical(name, sdkOmittedValue)
+            ? this.name
+            : name as SdkOptional<String>,
+        provider: identical(provider, sdkOmittedValue)
+            ? this.provider
+            : provider as String,
+        groupRoleMappings: identical(groupRoleMappings, sdkOmittedValue)
+            ? this.groupRoleMappings
+            : groupRoleMappings as SdkOptional<
+                List<CreateSCIMDirectoryRequestBodyGroupRoleMappingsItem>>,
+      );
 
-  factory CreateSCIMDirectoryRequestBody.fromJson(Map<String, dynamic> json) => CreateSCIMDirectoryRequestBody(
-    enterpriseConnectionId: (json['enterprise_connection_id'] as String?)!,
-    name: json['name'] != null ? SdkPresent((json['name'] as String?)!) : const SdkOmitted(),
-    provider: (json['provider'] as String?)!,
-    groupRoleMappings: json['group_role_mappings'] != null ? SdkPresent(((json['group_role_mappings'] as List?)?.map((e) => CreateSCIMDirectoryRequestBodyGroupRoleMappingsItem.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-  );
+  factory CreateSCIMDirectoryRequestBody.fromJson(Map<String, dynamic> json) =>
+      CreateSCIMDirectoryRequestBody(
+        enterpriseConnectionId: (json['enterprise_connection_id'] as String?)!,
+        name: json['name'] != null
+            ? SdkPresent((json['name'] as String?)!)
+            : const SdkOmitted(),
+        provider: (json['provider'] as String?)!,
+        groupRoleMappings: json['group_role_mappings'] != null
+            ? SdkPresent(((json['group_role_mappings'] as List?)
+                ?.map((e) => CreateSCIMDirectoryRequestBodyGroupRoleMappingsItem
+                    .fromJson(e as Map<String, dynamic>))
+                .toList())!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    'enterprise_connection_id': enterpriseConnectionId,
-    ...switch (name) {
-      SdkPresent<String>(value: final value) => {'name': value,},
-      _ => const <String, dynamic>{},
-    },
-    'provider': provider,
-    ...switch (groupRoleMappings) {
-      SdkPresent<List<CreateSCIMDirectoryRequestBodyGroupRoleMappingsItem>>(value: final value) => {'group_role_mappings': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        'enterprise_connection_id': enterpriseConnectionId,
+        ...switch (name) {
+          SdkPresent<String>(value: final value) => {
+              'name': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        'provider': provider,
+        ...switch (groupRoleMappings) {
+          SdkPresent<List<CreateSCIMDirectoryRequestBodyGroupRoleMappingsItem>>(
+            value: final value
+          ) =>
+            {
+              'group_role_mappings':
+                  value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

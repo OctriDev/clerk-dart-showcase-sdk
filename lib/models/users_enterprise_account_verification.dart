@@ -10,40 +10,81 @@ sealed class EnterpriseAccountVerification {
   const EnterpriseAccountVerification();
   factory EnterpriseAccountVerification.fromJson(Object? json) {
     if (json is Map<String, dynamic>) {
-      try { final value = VerificationTicket.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return EnterpriseAccountVerificationVerificationTicket(value); } } catch (_) {}
-      try { final value = VerificationSaml.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return EnterpriseAccountVerificationVerificationSaml(value); } } catch (_) {}
-      try { final value = VerificationOauth.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return EnterpriseAccountVerificationVerificationOauth(value); } } catch (_) {}
+      try {
+        final value = VerificationTicket.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return EnterpriseAccountVerificationVerificationTicket(value);
+        }
+      } catch (_) {}
+      try {
+        final value = VerificationSaml.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return EnterpriseAccountVerificationVerificationSaml(value);
+        }
+      } catch (_) {}
+      try {
+        final value = VerificationOauth.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return EnterpriseAccountVerificationVerificationOauth(value);
+        }
+      } catch (_) {}
     }
-    try { return EnterpriseAccountVerificationVerificationTicket(VerificationTicket.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return EnterpriseAccountVerificationVerificationSaml(VerificationSaml.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return EnterpriseAccountVerificationVerificationOauth(VerificationOauth.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    if (json is Map<String, dynamic> && json["object"] is String && !const {"verification_ticket", "verification_saml", "verification_oauth"}.contains(json["object"])) { return UnknownEnterpriseAccountVerification(json); }
-    throw FormatException("No variant matched for EnterpriseAccountVerification");
+    try {
+      return EnterpriseAccountVerificationVerificationTicket(
+          VerificationTicket.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return EnterpriseAccountVerificationVerificationSaml(
+          VerificationSaml.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return EnterpriseAccountVerificationVerificationOauth(
+          VerificationOauth.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    if (json is Map<String, dynamic> &&
+        json["object"] is String &&
+        !const {
+          "verification_ticket",
+          "verification_saml",
+          "verification_oauth"
+        }.contains(json["object"])) {
+      return UnknownEnterpriseAccountVerification(json);
+    }
+    throw FormatException(
+        "No variant matched for EnterpriseAccountVerification");
   }
   Object? toJson();
 }
 
-final class EnterpriseAccountVerificationVerificationTicket extends EnterpriseAccountVerification {
+final class EnterpriseAccountVerificationVerificationTicket
+    extends EnterpriseAccountVerification {
   final VerificationTicket value;
   const EnterpriseAccountVerificationVerificationTicket(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class EnterpriseAccountVerificationVerificationSaml extends EnterpriseAccountVerification {
+final class EnterpriseAccountVerificationVerificationSaml
+    extends EnterpriseAccountVerification {
   final VerificationSaml value;
   const EnterpriseAccountVerificationVerificationSaml(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class EnterpriseAccountVerificationVerificationOauth extends EnterpriseAccountVerification {
+final class EnterpriseAccountVerificationVerificationOauth
+    extends EnterpriseAccountVerification {
   final VerificationOauth value;
   const EnterpriseAccountVerificationVerificationOauth(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 /// A [EnterpriseAccountVerification] whose `object` names no branch this SDK knows, kept as received.
-final class UnknownEnterpriseAccountVerification extends EnterpriseAccountVerification {
+final class UnknownEnterpriseAccountVerification
+    extends EnterpriseAccountVerification {
   final Map<String, dynamic> raw;
   const UnknownEnterpriseAccountVerification(this.raw);
-  @override Object? toJson() => raw;
+  @override
+  Object? toJson() => raw;
 }

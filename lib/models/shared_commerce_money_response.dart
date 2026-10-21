@@ -8,37 +8,62 @@ part of 'shared_commerce.dart';
 class CommerceMoneyResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The amount in cents.
   final int amount;
+
   /// The formatted amount as a string (e.g., "$49.99").
   final String amountFormatted;
+
   /// The currency code (e.g., "USD").
   final String currency;
+
   /// The currency symbol (e.g., "$").
   final String currencySymbol;
 
-  const CommerceMoneyResponse({required this.amount, required this.amountFormatted, required this.currency, required this.currencySymbol});
+  const CommerceMoneyResponse(
+      {required this.amount,
+      required this.amountFormatted,
+      required this.currency,
+      required this.currencySymbol});
 
-  CommerceMoneyResponse Function({int amount, String amountFormatted, String currency, String currencySymbol}) get copyWith => _copyWith;
+  CommerceMoneyResponse Function(
+      {int amount,
+      String amountFormatted,
+      String currency,
+      String currencySymbol}) get copyWith => _copyWith;
 
-  CommerceMoneyResponse _copyWith({Object? amount = sdkOmittedValue, Object? amountFormatted = sdkOmittedValue, Object? currency = sdkOmittedValue, Object? currencySymbol = sdkOmittedValue}) => CommerceMoneyResponse(
-    amount: identical(amount, sdkOmittedValue) ? this.amount : amount as int,
-    amountFormatted: identical(amountFormatted, sdkOmittedValue) ? this.amountFormatted : amountFormatted as String,
-    currency: identical(currency, sdkOmittedValue) ? this.currency : currency as String,
-    currencySymbol: identical(currencySymbol, sdkOmittedValue) ? this.currencySymbol : currencySymbol as String,
-  );
+  CommerceMoneyResponse _copyWith(
+          {Object? amount = sdkOmittedValue,
+          Object? amountFormatted = sdkOmittedValue,
+          Object? currency = sdkOmittedValue,
+          Object? currencySymbol = sdkOmittedValue}) =>
+      CommerceMoneyResponse(
+        amount:
+            identical(amount, sdkOmittedValue) ? this.amount : amount as int,
+        amountFormatted: identical(amountFormatted, sdkOmittedValue)
+            ? this.amountFormatted
+            : amountFormatted as String,
+        currency: identical(currency, sdkOmittedValue)
+            ? this.currency
+            : currency as String,
+        currencySymbol: identical(currencySymbol, sdkOmittedValue)
+            ? this.currencySymbol
+            : currencySymbol as String,
+      );
 
-  factory CommerceMoneyResponse.fromJson(Map<String, dynamic> json) => CommerceMoneyResponse(
-    amount: ((json['amount'] as num?)?.toInt())!,
-    amountFormatted: (json['amount_formatted'] as String?)!,
-    currency: (json['currency'] as String?)!,
-    currencySymbol: (json['currency_symbol'] as String?)!,
-  );
+  factory CommerceMoneyResponse.fromJson(Map<String, dynamic> json) =>
+      CommerceMoneyResponse(
+        amount: ((json['amount'] as num?)?.toInt())!,
+        amountFormatted: (json['amount_formatted'] as String?)!,
+        currency: (json['currency'] as String?)!,
+        currencySymbol: (json['currency_symbol'] as String?)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'amount': amount,
-    'amount_formatted': amountFormatted,
-    'currency': currency,
-    'currency_symbol': currencySymbol,
-  };
+        'amount': amount,
+        'amount_formatted': amountFormatted,
+        'currency': currency,
+        'currency_symbol': currencySymbol,
+      };
 }

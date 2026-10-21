@@ -8,32 +8,51 @@ part of 'machines.dart';
 class MachineDeleted {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// String representing the object's type.
   final MachineDeletedObject object;
+
   /// The ID of the deleted machine
   final String id;
+
   /// Whether the machine was successfully deleted
   final MachineDeletedDeleted deleted;
 
-  const MachineDeleted({required this.object, required this.id, required this.deleted});
+  const MachineDeleted(
+      {required this.object, required this.id, required this.deleted});
 
-  MachineDeleted Function({MachineDeletedObject object, String id, MachineDeletedDeleted deleted}) get copyWith => _copyWith;
+  MachineDeleted Function(
+      {MachineDeletedObject object,
+      String id,
+      MachineDeletedDeleted deleted}) get copyWith => _copyWith;
 
-  MachineDeleted _copyWith({Object? object = sdkOmittedValue, Object? id = sdkOmittedValue, Object? deleted = sdkOmittedValue}) => MachineDeleted(
-    object: identical(object, sdkOmittedValue) ? this.object : object as MachineDeletedObject,
-    id: identical(id, sdkOmittedValue) ? this.id : id as String,
-    deleted: identical(deleted, sdkOmittedValue) ? this.deleted : deleted as MachineDeletedDeleted,
-  );
+  MachineDeleted _copyWith(
+          {Object? object = sdkOmittedValue,
+          Object? id = sdkOmittedValue,
+          Object? deleted = sdkOmittedValue}) =>
+      MachineDeleted(
+        object: identical(object, sdkOmittedValue)
+            ? this.object
+            : object as MachineDeletedObject,
+        id: identical(id, sdkOmittedValue) ? this.id : id as String,
+        deleted: identical(deleted, sdkOmittedValue)
+            ? this.deleted
+            : deleted as MachineDeletedDeleted,
+      );
 
   factory MachineDeleted.fromJson(Map<String, dynamic> json) => MachineDeleted(
-    object: (json['object'] != null ? MachineDeletedObject.fromJson(json['object'] as String) : null)!,
-    id: (json['id'] as String?)!,
-    deleted: (json['deleted'] != null ? MachineDeletedDeleted.fromJson(json['deleted'] as bool) : null)!,
-  );
+        object: (json['object'] != null
+            ? MachineDeletedObject.fromJson(json['object'] as String)
+            : null)!,
+        id: (json['id'] as String?)!,
+        deleted: (json['deleted'] != null
+            ? MachineDeletedDeleted.fromJson(json['deleted'] as bool)
+            : null)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'object': object.toJson(),
-    'id': id,
-    'deleted': deleted.toJson(),
-  };
+        'object': object.toJson(),
+        'id': id,
+        'deleted': deleted.toJson(),
+      };
 }

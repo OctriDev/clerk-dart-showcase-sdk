@@ -8,27 +8,42 @@ part of 'shared_organization.dart';
 class OrganizationMemberships {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Required array value serialized in the `data` wire field.
   final List<OrganizationMembership> data;
+
   /// Total number of organization memberships
   final int totalCount;
 
   const OrganizationMemberships({required this.data, required this.totalCount});
 
-  OrganizationMemberships Function({List<OrganizationMembership> data, int totalCount}) get copyWith => _copyWith;
+  OrganizationMemberships Function(
+      {List<OrganizationMembership> data,
+      int totalCount}) get copyWith => _copyWith;
 
-  OrganizationMemberships _copyWith({Object? data = sdkOmittedValue, Object? totalCount = sdkOmittedValue}) => OrganizationMemberships(
-    data: identical(data, sdkOmittedValue) ? this.data : data as List<OrganizationMembership>,
-    totalCount: identical(totalCount, sdkOmittedValue) ? this.totalCount : totalCount as int,
-  );
+  OrganizationMemberships _copyWith(
+          {Object? data = sdkOmittedValue,
+          Object? totalCount = sdkOmittedValue}) =>
+      OrganizationMemberships(
+        data: identical(data, sdkOmittedValue)
+            ? this.data
+            : data as List<OrganizationMembership>,
+        totalCount: identical(totalCount, sdkOmittedValue)
+            ? this.totalCount
+            : totalCount as int,
+      );
 
-  factory OrganizationMemberships.fromJson(Map<String, dynamic> json) => OrganizationMemberships(
-    data: ((json['data'] as List?)?.map((e) => OrganizationMembership.fromJson(e as Map<String, dynamic>)).toList())!,
-    totalCount: ((json['total_count'] as num?)?.toInt())!,
-  );
+  factory OrganizationMemberships.fromJson(Map<String, dynamic> json) =>
+      OrganizationMemberships(
+        data: ((json['data'] as List?)
+            ?.map((e) =>
+                OrganizationMembership.fromJson(e as Map<String, dynamic>))
+            .toList())!,
+        totalCount: ((json['total_count'] as num?)?.toInt())!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'data': data.map((item) => item.toJson()).toList(),
-    'total_count': totalCount,
-  };
+        'data': data.map((item) => item.toJson()).toList(),
+        'total_count': totalCount,
+      };
 }

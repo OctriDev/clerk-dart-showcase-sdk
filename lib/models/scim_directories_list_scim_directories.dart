@@ -10,27 +10,40 @@ part of 'scim_directories.dart';
 class SCIMDirectoryList {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Required array value serialized in the `data` wire field.
   final List<SCIMDirectory> data;
+
   /// Total number of directories.
   final int totalCount;
 
   const SCIMDirectoryList({required this.data, required this.totalCount});
 
-  SCIMDirectoryList Function({List<SCIMDirectory> data, int totalCount}) get copyWith => _copyWith;
+  SCIMDirectoryList Function({List<SCIMDirectory> data, int totalCount})
+      get copyWith => _copyWith;
 
-  SCIMDirectoryList _copyWith({Object? data = sdkOmittedValue, Object? totalCount = sdkOmittedValue}) => SCIMDirectoryList(
-    data: identical(data, sdkOmittedValue) ? this.data : data as List<SCIMDirectory>,
-    totalCount: identical(totalCount, sdkOmittedValue) ? this.totalCount : totalCount as int,
-  );
+  SCIMDirectoryList _copyWith(
+          {Object? data = sdkOmittedValue,
+          Object? totalCount = sdkOmittedValue}) =>
+      SCIMDirectoryList(
+        data: identical(data, sdkOmittedValue)
+            ? this.data
+            : data as List<SCIMDirectory>,
+        totalCount: identical(totalCount, sdkOmittedValue)
+            ? this.totalCount
+            : totalCount as int,
+      );
 
-  factory SCIMDirectoryList.fromJson(Map<String, dynamic> json) => SCIMDirectoryList(
-    data: ((json['data'] as List?)?.map((e) => SCIMDirectory.fromJson(e as Map<String, dynamic>)).toList())!,
-    totalCount: ((json['total_count'] as num?)?.toInt())!,
-  );
+  factory SCIMDirectoryList.fromJson(Map<String, dynamic> json) =>
+      SCIMDirectoryList(
+        data: ((json['data'] as List?)
+            ?.map((e) => SCIMDirectory.fromJson(e as Map<String, dynamic>))
+            .toList())!,
+        totalCount: ((json['total_count'] as num?)?.toInt())!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'data': data.map((item) => item.toJson()).toList(),
-    'total_count': totalCount,
-  };
+        'data': data.map((item) => item.toJson()).toList(),
+        'total_count': totalCount,
+      };
 }

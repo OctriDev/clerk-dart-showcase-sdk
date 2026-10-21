@@ -8,69 +8,147 @@ part of 'users.dart';
 class VerificationWeb3 {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Optional enumerated value serialized in the `object` wire field.
   final SdkOptional<VerificationWeb3Object> object;
+
   /// Required enumerated value serialized in the `status` wire field.
   final VerificationWeb3Status status;
+
   /// Required enumerated value serialized in the `strategy` wire field.
   final VerificationWeb3Strategy strategy;
+
   /// Optional `string` value serialized in the `nonce` wire field.
   final SdkOptional<String?> nonce;
+
   /// Optional `string` value serialized in the `message` wire field.
   final SdkOptional<String?> message;
+
   /// Required `integer` value serialized in the `attempts` wire field.
   final int? attempts;
+
   /// Required `integer` value serialized in the `expire_at` wire field.
   final int? expireAt;
+
   /// Optional `string` value serialized in the `verified_at_client` wire field.
   final SdkOptional<String?> verifiedAtClient;
 
-  const VerificationWeb3({this.object = const SdkOmitted(), required this.status, required this.strategy, this.nonce = const SdkOmitted(), this.message = const SdkOmitted(), required this.attempts, required this.expireAt, this.verifiedAtClient = const SdkOmitted()});
+  const VerificationWeb3(
+      {this.object = const SdkOmitted(),
+      required this.status,
+      required this.strategy,
+      this.nonce = const SdkOmitted(),
+      this.message = const SdkOmitted(),
+      required this.attempts,
+      required this.expireAt,
+      this.verifiedAtClient = const SdkOmitted()});
 
-  VerificationWeb3 Function({SdkOptional<VerificationWeb3Object> object, VerificationWeb3Status status, VerificationWeb3Strategy strategy, SdkOptional<String?> nonce, SdkOptional<String?> message, int? attempts, int? expireAt, SdkOptional<String?> verifiedAtClient}) get copyWith => _copyWith;
+  VerificationWeb3 Function(
+      {SdkOptional<VerificationWeb3Object> object,
+      VerificationWeb3Status status,
+      VerificationWeb3Strategy strategy,
+      SdkOptional<String?> nonce,
+      SdkOptional<String?> message,
+      int? attempts,
+      int? expireAt,
+      SdkOptional<String?> verifiedAtClient}) get copyWith => _copyWith;
 
-  VerificationWeb3 _copyWith({Object? object = sdkOmittedValue, Object? status = sdkOmittedValue, Object? strategy = sdkOmittedValue, Object? nonce = sdkOmittedValue, Object? message = sdkOmittedValue, Object? attempts = sdkOmittedValue, Object? expireAt = sdkOmittedValue, Object? verifiedAtClient = sdkOmittedValue}) => VerificationWeb3(
-    object: identical(object, sdkOmittedValue) ? this.object : object as SdkOptional<VerificationWeb3Object>,
-    status: identical(status, sdkOmittedValue) ? this.status : status as VerificationWeb3Status,
-    strategy: identical(strategy, sdkOmittedValue) ? this.strategy : strategy as VerificationWeb3Strategy,
-    nonce: identical(nonce, sdkOmittedValue) ? this.nonce : nonce as SdkOptional<String?>,
-    message: identical(message, sdkOmittedValue) ? this.message : message as SdkOptional<String?>,
-    attempts: identical(attempts, sdkOmittedValue) ? this.attempts : attempts as int?,
-    expireAt: identical(expireAt, sdkOmittedValue) ? this.expireAt : expireAt as int?,
-    verifiedAtClient: identical(verifiedAtClient, sdkOmittedValue) ? this.verifiedAtClient : verifiedAtClient as SdkOptional<String?>,
-  );
+  VerificationWeb3 _copyWith(
+          {Object? object = sdkOmittedValue,
+          Object? status = sdkOmittedValue,
+          Object? strategy = sdkOmittedValue,
+          Object? nonce = sdkOmittedValue,
+          Object? message = sdkOmittedValue,
+          Object? attempts = sdkOmittedValue,
+          Object? expireAt = sdkOmittedValue,
+          Object? verifiedAtClient = sdkOmittedValue}) =>
+      VerificationWeb3(
+        object: identical(object, sdkOmittedValue)
+            ? this.object
+            : object as SdkOptional<VerificationWeb3Object>,
+        status: identical(status, sdkOmittedValue)
+            ? this.status
+            : status as VerificationWeb3Status,
+        strategy: identical(strategy, sdkOmittedValue)
+            ? this.strategy
+            : strategy as VerificationWeb3Strategy,
+        nonce: identical(nonce, sdkOmittedValue)
+            ? this.nonce
+            : nonce as SdkOptional<String?>,
+        message: identical(message, sdkOmittedValue)
+            ? this.message
+            : message as SdkOptional<String?>,
+        attempts: identical(attempts, sdkOmittedValue)
+            ? this.attempts
+            : attempts as int?,
+        expireAt: identical(expireAt, sdkOmittedValue)
+            ? this.expireAt
+            : expireAt as int?,
+        verifiedAtClient: identical(verifiedAtClient, sdkOmittedValue)
+            ? this.verifiedAtClient
+            : verifiedAtClient as SdkOptional<String?>,
+      );
 
-  factory VerificationWeb3.fromJson(Map<String, dynamic> json) => VerificationWeb3(
-    object: json['object'] != null ? SdkPresent((json['object'] != null ? VerificationWeb3Object.fromJson(json['object'] as String) : null)!) : const SdkOmitted(),
-    status: (json['status'] != null ? VerificationWeb3Status.fromJson(json['status'] as String) : null)!,
-    strategy: (json['strategy'] != null ? VerificationWeb3Strategy.fromJson(json['strategy'] as String) : null)!,
-    nonce: json.containsKey('nonce') ? SdkPresent(json['nonce'] as String?) : const SdkOmitted(),
-    message: json.containsKey('message') ? SdkPresent(json['message'] as String?) : const SdkOmitted(),
-    attempts: json.containsKey('attempts') ? (json['attempts'] as num?)?.toInt() : throw ArgumentError.value(null, 'attempts', 'Required property is missing'),
-    expireAt: json.containsKey('expire_at') ? (json['expire_at'] as num?)?.toInt() : throw ArgumentError.value(null, 'expire_at', 'Required property is missing'),
-    verifiedAtClient: json.containsKey('verified_at_client') ? SdkPresent(json['verified_at_client'] as String?) : const SdkOmitted(),
-  );
+  factory VerificationWeb3.fromJson(Map<String, dynamic> json) =>
+      VerificationWeb3(
+        object: json['object'] != null
+            ? SdkPresent((json['object'] != null
+                ? VerificationWeb3Object.fromJson(json['object'] as String)
+                : null)!)
+            : const SdkOmitted(),
+        status: (json['status'] != null
+            ? VerificationWeb3Status.fromJson(json['status'] as String)
+            : null)!,
+        strategy: (json['strategy'] != null
+            ? VerificationWeb3Strategy.fromJson(json['strategy'] as String)
+            : null)!,
+        nonce: json.containsKey('nonce')
+            ? SdkPresent(json['nonce'] as String?)
+            : const SdkOmitted(),
+        message: json.containsKey('message')
+            ? SdkPresent(json['message'] as String?)
+            : const SdkOmitted(),
+        attempts: json.containsKey('attempts')
+            ? (json['attempts'] as num?)?.toInt()
+            : throw ArgumentError.value(
+                null, 'attempts', 'Required property is missing'),
+        expireAt: json.containsKey('expire_at')
+            ? (json['expire_at'] as num?)?.toInt()
+            : throw ArgumentError.value(
+                null, 'expire_at', 'Required property is missing'),
+        verifiedAtClient: json.containsKey('verified_at_client')
+            ? SdkPresent(json['verified_at_client'] as String?)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (object) {
-      SdkPresent<VerificationWeb3Object>(value: final value) => {'object': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    'status': status.toJson(),
-    'strategy': strategy.toJson(),
-    ...switch (nonce) {
-      SdkPresent<String?>(value: final value) => {'nonce': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (message) {
-      SdkPresent<String?>(value: final value) => {'message': value,},
-      _ => const <String, dynamic>{},
-    },
-    'attempts': attempts,
-    'expire_at': expireAt,
-    ...switch (verifiedAtClient) {
-      SdkPresent<String?>(value: final value) => {'verified_at_client': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (object) {
+          SdkPresent<VerificationWeb3Object>(value: final value) => {
+              'object': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        'status': status.toJson(),
+        'strategy': strategy.toJson(),
+        ...switch (nonce) {
+          SdkPresent<String?>(value: final value) => {
+              'nonce': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (message) {
+          SdkPresent<String?>(value: final value) => {
+              'message': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        'attempts': attempts,
+        'expire_at': expireAt,
+        ...switch (verifiedAtClient) {
+          SdkPresent<String?>(value: final value) => {
+              'verified_at_client': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

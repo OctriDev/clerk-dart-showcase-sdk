@@ -8,220 +8,391 @@ part of 'shared_commerce.dart';
 class CommerceCreditBalanceResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// String representing the object's type. Always "commerce_credit_balance".
   final String object;
+
   /// The current credit balance. Null when the payer has never had credits.
   final CommerceMoneyResponse? balance;
 
-  const CommerceCreditBalanceResponse({required this.object, required this.balance});
+  const CommerceCreditBalanceResponse(
+      {required this.object, required this.balance});
 
-  CommerceCreditBalanceResponse Function({String object, CommerceMoneyResponse? balance}) get copyWith => _copyWith;
+  CommerceCreditBalanceResponse Function(
+      {String object,
+      CommerceMoneyResponse? balance}) get copyWith => _copyWith;
 
-  CommerceCreditBalanceResponse _copyWith({Object? object = sdkOmittedValue, Object? balance = sdkOmittedValue}) => CommerceCreditBalanceResponse(
-    object: identical(object, sdkOmittedValue) ? this.object : object as String,
-    balance: identical(balance, sdkOmittedValue) ? this.balance : balance as CommerceMoneyResponse?,
-  );
+  CommerceCreditBalanceResponse _copyWith(
+          {Object? object = sdkOmittedValue,
+          Object? balance = sdkOmittedValue}) =>
+      CommerceCreditBalanceResponse(
+        object:
+            identical(object, sdkOmittedValue) ? this.object : object as String,
+        balance: identical(balance, sdkOmittedValue)
+            ? this.balance
+            : balance as CommerceMoneyResponse?,
+      );
 
-  factory CommerceCreditBalanceResponse.fromJson(Map<String, dynamic> json) => CommerceCreditBalanceResponse(
-    object: (json['object'] as String?)!,
-    balance: json.containsKey('balance') ? json['balance'] != null ? CommerceMoneyResponse.fromJson(json['balance'] as Map<String, dynamic>) : null : throw ArgumentError.value(null, 'balance', 'Required property is missing'),
-  );
+  factory CommerceCreditBalanceResponse.fromJson(Map<String, dynamic> json) =>
+      CommerceCreditBalanceResponse(
+        object: (json['object'] as String?)!,
+        balance: json.containsKey('balance')
+            ? json['balance'] != null
+                ? CommerceMoneyResponse.fromJson(
+                    json['balance'] as Map<String, dynamic>)
+                : null
+            : throw ArgumentError.value(
+                null, 'balance', 'Required property is missing'),
+      );
 
   Map<String, dynamic> toJson() => {
-    'object': object,
-    'balance': balance?.toJson(),
-  };
+        'object': object,
+        'balance': balance?.toJson(),
+      };
 }
 
 /// Typed representation of the `CommerceCreditLedgerResponse` API schema.
 class CommerceCreditLedgerResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// String representing the object's type. Always "commerce_credit_ledger".
   final String object;
+
   /// Unique identifier for the ledger entry.
   final String id;
+
   /// The ID of the payer whose balance was adjusted.
   final String payerId;
+
   /// The credit amount with formatting. Positive for increases, negative for decreases.
   final CommerceMoneyResponse amount;
+
   /// The type of source that originated the adjustment (e.g. "grant").
   final String sourceType;
+
   /// The ID of the source that originated the adjustment.
   final String sourceId;
+
   /// An optional note attached to the ledger entry.
   final SdkOptional<String?> note;
+
   /// Timestamp when the ledger entry was created.
   final String createdAt;
 
-  const CommerceCreditLedgerResponse({required this.object, required this.id, required this.payerId, required this.amount, required this.sourceType, required this.sourceId, this.note = const SdkOmitted(), required this.createdAt});
+  const CommerceCreditLedgerResponse(
+      {required this.object,
+      required this.id,
+      required this.payerId,
+      required this.amount,
+      required this.sourceType,
+      required this.sourceId,
+      this.note = const SdkOmitted(),
+      required this.createdAt});
 
-  CommerceCreditLedgerResponse Function({String object, String id, String payerId, CommerceMoneyResponse amount, String sourceType, String sourceId, SdkOptional<String?> note, String createdAt}) get copyWith => _copyWith;
+  CommerceCreditLedgerResponse Function(
+      {String object,
+      String id,
+      String payerId,
+      CommerceMoneyResponse amount,
+      String sourceType,
+      String sourceId,
+      SdkOptional<String?> note,
+      String createdAt}) get copyWith => _copyWith;
 
-  CommerceCreditLedgerResponse _copyWith({Object? object = sdkOmittedValue, Object? id = sdkOmittedValue, Object? payerId = sdkOmittedValue, Object? amount = sdkOmittedValue, Object? sourceType = sdkOmittedValue, Object? sourceId = sdkOmittedValue, Object? note = sdkOmittedValue, Object? createdAt = sdkOmittedValue}) => CommerceCreditLedgerResponse(
-    object: identical(object, sdkOmittedValue) ? this.object : object as String,
-    id: identical(id, sdkOmittedValue) ? this.id : id as String,
-    payerId: identical(payerId, sdkOmittedValue) ? this.payerId : payerId as String,
-    amount: identical(amount, sdkOmittedValue) ? this.amount : amount as CommerceMoneyResponse,
-    sourceType: identical(sourceType, sdkOmittedValue) ? this.sourceType : sourceType as String,
-    sourceId: identical(sourceId, sdkOmittedValue) ? this.sourceId : sourceId as String,
-    note: identical(note, sdkOmittedValue) ? this.note : note as SdkOptional<String?>,
-    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as String,
-  );
+  CommerceCreditLedgerResponse _copyWith(
+          {Object? object = sdkOmittedValue,
+          Object? id = sdkOmittedValue,
+          Object? payerId = sdkOmittedValue,
+          Object? amount = sdkOmittedValue,
+          Object? sourceType = sdkOmittedValue,
+          Object? sourceId = sdkOmittedValue,
+          Object? note = sdkOmittedValue,
+          Object? createdAt = sdkOmittedValue}) =>
+      CommerceCreditLedgerResponse(
+        object:
+            identical(object, sdkOmittedValue) ? this.object : object as String,
+        id: identical(id, sdkOmittedValue) ? this.id : id as String,
+        payerId: identical(payerId, sdkOmittedValue)
+            ? this.payerId
+            : payerId as String,
+        amount: identical(amount, sdkOmittedValue)
+            ? this.amount
+            : amount as CommerceMoneyResponse,
+        sourceType: identical(sourceType, sdkOmittedValue)
+            ? this.sourceType
+            : sourceType as String,
+        sourceId: identical(sourceId, sdkOmittedValue)
+            ? this.sourceId
+            : sourceId as String,
+        note: identical(note, sdkOmittedValue)
+            ? this.note
+            : note as SdkOptional<String?>,
+        createdAt: identical(createdAt, sdkOmittedValue)
+            ? this.createdAt
+            : createdAt as String,
+      );
 
-  factory CommerceCreditLedgerResponse.fromJson(Map<String, dynamic> json) => CommerceCreditLedgerResponse(
-    object: (json['object'] as String?)!,
-    id: (json['id'] as String?)!,
-    payerId: (json['payer_id'] as String?)!,
-    amount: (json['amount'] != null ? CommerceMoneyResponse.fromJson(json['amount'] as Map<String, dynamic>) : null)!,
-    sourceType: (json['source_type'] as String?)!,
-    sourceId: (json['source_id'] as String?)!,
-    note: json.containsKey('note') ? SdkPresent(json['note'] as String?) : const SdkOmitted(),
-    createdAt: (json['created_at'] as String?)!,
-  );
+  factory CommerceCreditLedgerResponse.fromJson(Map<String, dynamic> json) =>
+      CommerceCreditLedgerResponse(
+        object: (json['object'] as String?)!,
+        id: (json['id'] as String?)!,
+        payerId: (json['payer_id'] as String?)!,
+        amount: (json['amount'] != null
+            ? CommerceMoneyResponse.fromJson(
+                json['amount'] as Map<String, dynamic>)
+            : null)!,
+        sourceType: (json['source_type'] as String?)!,
+        sourceId: (json['source_id'] as String?)!,
+        note: json.containsKey('note')
+            ? SdkPresent(json['note'] as String?)
+            : const SdkOmitted(),
+        createdAt: (json['created_at'] as String?)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'object': object,
-    'id': id,
-    'payer_id': payerId,
-    'amount': amount.toJson(),
-    'source_type': sourceType,
-    'source_id': sourceId,
-    ...switch (note) {
-      SdkPresent<String?>(value: final value) => {'note': value,},
-      _ => const <String, dynamic>{},
-    },
-    'created_at': createdAt,
-  };
+        'object': object,
+        'id': id,
+        'payer_id': payerId,
+        'amount': amount.toJson(),
+        'source_type': sourceType,
+        'source_id': sourceId,
+        ...switch (note) {
+          SdkPresent<String?>(value: final value) => {
+              'note': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        'created_at': createdAt,
+      };
 }
 
 /// Typed representation of the `CommerceCreditsResponse` API schema.
 class CommerceCreditsResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Required object value serialized in the `proration` wire field.
   final CommerceProrationCreditDetailResponse? proration;
+
   /// Required object value serialized in the `payer` wire field.
   final CommercePayerCreditResponse? payer;
+
   /// Required object value serialized in the `total` wire field.
   final CommerceMoneyResponse total;
 
-  const CommerceCreditsResponse({required this.proration, required this.payer, required this.total});
+  const CommerceCreditsResponse(
+      {required this.proration, required this.payer, required this.total});
 
-  CommerceCreditsResponse Function({CommerceProrationCreditDetailResponse? proration, CommercePayerCreditResponse? payer, CommerceMoneyResponse total}) get copyWith => _copyWith;
+  CommerceCreditsResponse Function(
+      {CommerceProrationCreditDetailResponse? proration,
+      CommercePayerCreditResponse? payer,
+      CommerceMoneyResponse total}) get copyWith => _copyWith;
 
-  CommerceCreditsResponse _copyWith({Object? proration = sdkOmittedValue, Object? payer = sdkOmittedValue, Object? total = sdkOmittedValue}) => CommerceCreditsResponse(
-    proration: identical(proration, sdkOmittedValue) ? this.proration : proration as CommerceProrationCreditDetailResponse?,
-    payer: identical(payer, sdkOmittedValue) ? this.payer : payer as CommercePayerCreditResponse?,
-    total: identical(total, sdkOmittedValue) ? this.total : total as CommerceMoneyResponse,
-  );
+  CommerceCreditsResponse _copyWith(
+          {Object? proration = sdkOmittedValue,
+          Object? payer = sdkOmittedValue,
+          Object? total = sdkOmittedValue}) =>
+      CommerceCreditsResponse(
+        proration: identical(proration, sdkOmittedValue)
+            ? this.proration
+            : proration as CommerceProrationCreditDetailResponse?,
+        payer: identical(payer, sdkOmittedValue)
+            ? this.payer
+            : payer as CommercePayerCreditResponse?,
+        total: identical(total, sdkOmittedValue)
+            ? this.total
+            : total as CommerceMoneyResponse,
+      );
 
-  factory CommerceCreditsResponse.fromJson(Map<String, dynamic> json) => CommerceCreditsResponse(
-    proration: json.containsKey('proration') ? json['proration'] != null ? CommerceProrationCreditDetailResponse.fromJson(json['proration'] as Map<String, dynamic>) : null : throw ArgumentError.value(null, 'proration', 'Required property is missing'),
-    payer: json.containsKey('payer') ? json['payer'] != null ? CommercePayerCreditResponse.fromJson(json['payer'] as Map<String, dynamic>) : null : throw ArgumentError.value(null, 'payer', 'Required property is missing'),
-    total: (json['total'] != null ? CommerceMoneyResponse.fromJson(json['total'] as Map<String, dynamic>) : null)!,
-  );
+  factory CommerceCreditsResponse.fromJson(Map<String, dynamic> json) =>
+      CommerceCreditsResponse(
+        proration: json.containsKey('proration')
+            ? json['proration'] != null
+                ? CommerceProrationCreditDetailResponse.fromJson(
+                    json['proration'] as Map<String, dynamic>)
+                : null
+            : throw ArgumentError.value(
+                null, 'proration', 'Required property is missing'),
+        payer: json.containsKey('payer')
+            ? json['payer'] != null
+                ? CommercePayerCreditResponse.fromJson(
+                    json['payer'] as Map<String, dynamic>)
+                : null
+            : throw ArgumentError.value(
+                null, 'payer', 'Required property is missing'),
+        total: (json['total'] != null
+            ? CommerceMoneyResponse.fromJson(
+                json['total'] as Map<String, dynamic>)
+            : null)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'proration': proration?.toJson(),
-    'payer': payer?.toJson(),
-    'total': total.toJson(),
-  };
+        'proration': proration?.toJson(),
+        'payer': payer?.toJson(),
+        'total': total.toJson(),
+      };
 }
 
 /// Typed representation of the `CommerceDiscountsResponse` API schema.
 class CommerceDiscountsResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Required object value serialized in the `proration` wire field.
   final CommerceProrationDiscountResponse? proration;
+
   /// Required object value serialized in the `total` wire field.
   final CommerceMoneyResponse total;
 
-  const CommerceDiscountsResponse({required this.proration, required this.total});
+  const CommerceDiscountsResponse(
+      {required this.proration, required this.total});
 
-  CommerceDiscountsResponse Function({CommerceProrationDiscountResponse? proration, CommerceMoneyResponse total}) get copyWith => _copyWith;
+  CommerceDiscountsResponse Function(
+      {CommerceProrationDiscountResponse? proration,
+      CommerceMoneyResponse total}) get copyWith => _copyWith;
 
-  CommerceDiscountsResponse _copyWith({Object? proration = sdkOmittedValue, Object? total = sdkOmittedValue}) => CommerceDiscountsResponse(
-    proration: identical(proration, sdkOmittedValue) ? this.proration : proration as CommerceProrationDiscountResponse?,
-    total: identical(total, sdkOmittedValue) ? this.total : total as CommerceMoneyResponse,
-  );
+  CommerceDiscountsResponse _copyWith(
+          {Object? proration = sdkOmittedValue,
+          Object? total = sdkOmittedValue}) =>
+      CommerceDiscountsResponse(
+        proration: identical(proration, sdkOmittedValue)
+            ? this.proration
+            : proration as CommerceProrationDiscountResponse?,
+        total: identical(total, sdkOmittedValue)
+            ? this.total
+            : total as CommerceMoneyResponse,
+      );
 
-  factory CommerceDiscountsResponse.fromJson(Map<String, dynamic> json) => CommerceDiscountsResponse(
-    proration: json.containsKey('proration') ? json['proration'] != null ? CommerceProrationDiscountResponse.fromJson(json['proration'] as Map<String, dynamic>) : null : throw ArgumentError.value(null, 'proration', 'Required property is missing'),
-    total: (json['total'] != null ? CommerceMoneyResponse.fromJson(json['total'] as Map<String, dynamic>) : null)!,
-  );
+  factory CommerceDiscountsResponse.fromJson(Map<String, dynamic> json) =>
+      CommerceDiscountsResponse(
+        proration: json.containsKey('proration')
+            ? json['proration'] != null
+                ? CommerceProrationDiscountResponse.fromJson(
+                    json['proration'] as Map<String, dynamic>)
+                : null
+            : throw ArgumentError.value(
+                null, 'proration', 'Required property is missing'),
+        total: (json['total'] != null
+            ? CommerceMoneyResponse.fromJson(
+                json['total'] as Map<String, dynamic>)
+            : null)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'proration': proration?.toJson(),
-    'total': total.toJson(),
-  };
+        'proration': proration?.toJson(),
+        'total': total.toJson(),
+      };
 }
 
 /// Typed representation of the `CommerceMoneyResponse` API schema.
 class CommerceMoneyResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The amount in cents.
   final int amount;
+
   /// The formatted amount as a string (e.g., "$49.99").
   final String amountFormatted;
+
   /// The currency code (e.g., "USD").
   final String currency;
+
   /// The currency symbol (e.g., "$").
   final String currencySymbol;
 
-  const CommerceMoneyResponse({required this.amount, required this.amountFormatted, required this.currency, required this.currencySymbol});
+  const CommerceMoneyResponse(
+      {required this.amount,
+      required this.amountFormatted,
+      required this.currency,
+      required this.currencySymbol});
 
-  CommerceMoneyResponse Function({int amount, String amountFormatted, String currency, String currencySymbol}) get copyWith => _copyWith;
+  CommerceMoneyResponse Function(
+      {int amount,
+      String amountFormatted,
+      String currency,
+      String currencySymbol}) get copyWith => _copyWith;
 
-  CommerceMoneyResponse _copyWith({Object? amount = sdkOmittedValue, Object? amountFormatted = sdkOmittedValue, Object? currency = sdkOmittedValue, Object? currencySymbol = sdkOmittedValue}) => CommerceMoneyResponse(
-    amount: identical(amount, sdkOmittedValue) ? this.amount : amount as int,
-    amountFormatted: identical(amountFormatted, sdkOmittedValue) ? this.amountFormatted : amountFormatted as String,
-    currency: identical(currency, sdkOmittedValue) ? this.currency : currency as String,
-    currencySymbol: identical(currencySymbol, sdkOmittedValue) ? this.currencySymbol : currencySymbol as String,
-  );
+  CommerceMoneyResponse _copyWith(
+          {Object? amount = sdkOmittedValue,
+          Object? amountFormatted = sdkOmittedValue,
+          Object? currency = sdkOmittedValue,
+          Object? currencySymbol = sdkOmittedValue}) =>
+      CommerceMoneyResponse(
+        amount:
+            identical(amount, sdkOmittedValue) ? this.amount : amount as int,
+        amountFormatted: identical(amountFormatted, sdkOmittedValue)
+            ? this.amountFormatted
+            : amountFormatted as String,
+        currency: identical(currency, sdkOmittedValue)
+            ? this.currency
+            : currency as String,
+        currencySymbol: identical(currencySymbol, sdkOmittedValue)
+            ? this.currencySymbol
+            : currencySymbol as String,
+      );
 
-  factory CommerceMoneyResponse.fromJson(Map<String, dynamic> json) => CommerceMoneyResponse(
-    amount: ((json['amount'] as num?)?.toInt())!,
-    amountFormatted: (json['amount_formatted'] as String?)!,
-    currency: (json['currency'] as String?)!,
-    currencySymbol: (json['currency_symbol'] as String?)!,
-  );
+  factory CommerceMoneyResponse.fromJson(Map<String, dynamic> json) =>
+      CommerceMoneyResponse(
+        amount: ((json['amount'] as num?)?.toInt())!,
+        amountFormatted: (json['amount_formatted'] as String?)!,
+        currency: (json['currency'] as String?)!,
+        currencySymbol: (json['currency_symbol'] as String?)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'amount': amount,
-    'amount_formatted': amountFormatted,
-    'currency': currency,
-    'currency_symbol': currencySymbol,
-  };
+        'amount': amount,
+        'amount_formatted': amountFormatted,
+        'currency': currency,
+        'currency_symbol': currencySymbol,
+      };
 }
 
 /// Typed representation of the `CommercePayerCreditResponse` API schema.
 class CommercePayerCreditResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Required object value serialized in the `remaining_balance` wire field.
   final CommerceMoneyResponse remainingBalance;
+
   /// Required object value serialized in the `applied_amount` wire field.
   final CommerceMoneyResponse appliedAmount;
 
-  const CommercePayerCreditResponse({required this.remainingBalance, required this.appliedAmount});
+  const CommercePayerCreditResponse(
+      {required this.remainingBalance, required this.appliedAmount});
 
-  CommercePayerCreditResponse Function({CommerceMoneyResponse remainingBalance, CommerceMoneyResponse appliedAmount}) get copyWith => _copyWith;
+  CommercePayerCreditResponse Function(
+      {CommerceMoneyResponse remainingBalance,
+      CommerceMoneyResponse appliedAmount}) get copyWith => _copyWith;
 
-  CommercePayerCreditResponse _copyWith({Object? remainingBalance = sdkOmittedValue, Object? appliedAmount = sdkOmittedValue}) => CommercePayerCreditResponse(
-    remainingBalance: identical(remainingBalance, sdkOmittedValue) ? this.remainingBalance : remainingBalance as CommerceMoneyResponse,
-    appliedAmount: identical(appliedAmount, sdkOmittedValue) ? this.appliedAmount : appliedAmount as CommerceMoneyResponse,
-  );
+  CommercePayerCreditResponse _copyWith(
+          {Object? remainingBalance = sdkOmittedValue,
+          Object? appliedAmount = sdkOmittedValue}) =>
+      CommercePayerCreditResponse(
+        remainingBalance: identical(remainingBalance, sdkOmittedValue)
+            ? this.remainingBalance
+            : remainingBalance as CommerceMoneyResponse,
+        appliedAmount: identical(appliedAmount, sdkOmittedValue)
+            ? this.appliedAmount
+            : appliedAmount as CommerceMoneyResponse,
+      );
 
-  factory CommercePayerCreditResponse.fromJson(Map<String, dynamic> json) => CommercePayerCreditResponse(
-    remainingBalance: (json['remaining_balance'] != null ? CommerceMoneyResponse.fromJson(json['remaining_balance'] as Map<String, dynamic>) : null)!,
-    appliedAmount: (json['applied_amount'] != null ? CommerceMoneyResponse.fromJson(json['applied_amount'] as Map<String, dynamic>) : null)!,
-  );
+  factory CommercePayerCreditResponse.fromJson(Map<String, dynamic> json) =>
+      CommercePayerCreditResponse(
+        remainingBalance: (json['remaining_balance'] != null
+            ? CommerceMoneyResponse.fromJson(
+                json['remaining_balance'] as Map<String, dynamic>)
+            : null)!,
+        appliedAmount: (json['applied_amount'] != null
+            ? CommerceMoneyResponse.fromJson(
+                json['applied_amount'] as Map<String, dynamic>)
+            : null)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'remaining_balance': remainingBalance.toJson(),
-    'applied_amount': appliedAmount.toJson(),
-  };
+        'remaining_balance': remainingBalance.toJson(),
+        'applied_amount': appliedAmount.toJson(),
+      };
 }

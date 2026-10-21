@@ -45,19 +45,30 @@ Future<OAuthApplications> listOAuthApplications(ClientConfig config,
   return (await sdkRequest<OAuthApplications>('GET', '/oauth_applications',
           config: config,
           query: {
-            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit), style: 'form', explode: true),
-            'offset': SdkQueryValue(SdkUtils.unwrapOptional(offset), style: 'form', explode: true),
-            'order_by': SdkQueryValue(SdkUtils.unwrapOptional(orderBy), style: 'form', explode: true),
-            'name_query': SdkQueryValue(SdkUtils.unwrapOptional(nameQuery), style: 'form', explode: true)
+            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit),
+                style: 'form', explode: true),
+            'offset': SdkQueryValue(SdkUtils.unwrapOptional(offset),
+                style: 'form', explode: true),
+            'order_by': SdkQueryValue(SdkUtils.unwrapOptional(orderBy),
+                style: 'form', explode: true),
+            'name_query': SdkQueryValue(SdkUtils.unwrapOptional(nameQuery),
+                style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'listOAuthApplications',
-          fromJsonRaw: (value) => OAuthApplications.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              OAuthApplications.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '403': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '422': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '400': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>),
+            '403': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>),
+            '422': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Creates a new OAuth application with the given name and callback URL for an instance. The callback URL must be a valid URL. All URL schemes are allowed such as `http://`, `https://`, `myapp://`, etc...
 ///
@@ -121,22 +132,33 @@ Future<OAuthApplicationWithSecret> createOAuthApplication(ClientConfig config,
             'redirect_uris': SdkUtils.unwrapOptional(redirectUris),
             'callback_url': SdkUtils.unwrapOptional(callbackUrl),
             'scopes': SdkUtils.unwrapOptional(scopes),
-            'consent_screen_enabled': SdkUtils.unwrapOptional(consentScreenEnabled),
+            'consent_screen_enabled':
+                SdkUtils.unwrapOptional(consentScreenEnabled),
             'pkce_required': SdkUtils.unwrapOptional(pkceRequired),
             'audience_uri': SdkUtils.unwrapOptional(audienceUri),
-            'token_exchange_enabled': SdkUtils.unwrapOptional(tokenExchangeEnabled),
-            'adopt_audience_resource': SdkUtils.unwrapOptional(adoptAudienceResource),
-            'device_authorization_grant_enabled': SdkUtils.unwrapOptional(deviceAuthorizationGrantEnabled),
+            'token_exchange_enabled':
+                SdkUtils.unwrapOptional(tokenExchangeEnabled),
+            'adopt_audience_resource':
+                SdkUtils.unwrapOptional(adoptAudienceResource),
+            'device_authorization_grant_enabled':
+                SdkUtils.unwrapOptional(deviceAuthorizationGrantEnabled),
             'public': SdkUtils.unwrapOptional(public)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'createOAuthApplication',
-          fromJsonRaw: (value) => OAuthApplicationWithSecret.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => OAuthApplicationWithSecret.fromJson(
+              value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '403': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '422': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '400': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>),
+            '403': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>),
+            '422': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Fetches the OAuth application whose ID matches the provided `id` in the path.
 ///
@@ -149,12 +171,15 @@ Future<OAuthApplication> getOAuthApplication(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'getOAuthApplication',
-          fromJsonRaw: (value) => OAuthApplication.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              OAuthApplication.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'403': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '404': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '403': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>),
+        '404': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// Updates an existing OAuth application with the properties you provide. Use `scopes` to replace the application's complete built-in and custom scope ceiling, rather than adding individual scopes. Include required built-in scopes and use custom scope keys from the instance OAuth scope catalog.
 ///
@@ -227,22 +252,35 @@ Future<OAuthApplication> updateOAuthApplication(ClientConfig config,
             'redirect_uris': SdkUtils.unwrapOptional(redirectUris),
             'callback_url': SdkUtils.unwrapOptional(callbackUrl),
             'scopes': SdkUtils.unwrapOptional(scopes),
-            'consent_screen_enabled': SdkUtils.unwrapOptional(consentScreenEnabled),
+            'consent_screen_enabled':
+                SdkUtils.unwrapOptional(consentScreenEnabled),
             'pkce_required': SdkUtils.unwrapOptional(pkceRequired),
             'audience_uri': SdkUtils.unwrapOptional(audienceUri),
-            'token_exchange_enabled': SdkUtils.unwrapOptional(tokenExchangeEnabled),
-            'adopt_audience_resource': SdkUtils.unwrapOptional(adoptAudienceResource),
-            'device_authorization_grant_enabled': SdkUtils.unwrapOptional(deviceAuthorizationGrantEnabled),
+            'token_exchange_enabled':
+                SdkUtils.unwrapOptional(tokenExchangeEnabled),
+            'adopt_audience_resource':
+                SdkUtils.unwrapOptional(adoptAudienceResource),
+            'device_authorization_grant_enabled':
+                SdkUtils.unwrapOptional(deviceAuthorizationGrantEnabled),
             'public': SdkUtils.unwrapOptional(public)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'updateOAuthApplication',
-          fromJsonRaw: (value) => OAuthApplication.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              OAuthApplication.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '403': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '404': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '422': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '400': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>),
+            '403': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>),
+            '404': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>),
+            '422': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Deletes the given OAuth application. This is not reversible.
 ///
@@ -255,12 +293,15 @@ Future<DeletedObject> deleteOAuthApplication(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'deleteOAuthApplication',
-          fromJsonRaw: (value) => DeletedObject.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              DeletedObject.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'403': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '404': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '403': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>),
+        '404': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// Uploads an image to set or replace an OAuth application's logo. Send the request as `multipart/form-data` with the image in the `file` field; supported types are JPEG, PNG, GIF, and WebP, and the file must not exceed 10 MB. You can provide `uploader_user_id` to credit a user with the upload.
 ///
@@ -285,32 +326,44 @@ Future<OAuthApplication> uploadOAuthApplicationLogo(ClientConfig config,
           contentType: 'multipart/form-data',
           decoder: SdkResponseDecoder.json,
           operationId: 'uploadOAuthApplicationLogo',
-          fromJsonRaw: (value) => OAuthApplication.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              OAuthApplication.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '403': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '404': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '413': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '400': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>),
+            '403': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>),
+            '404': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>),
+            '413': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Rotates the OAuth application's client secret. When the client secret is rotated, make sure to update it in authorized OAuth clients.
 ///
 /// [oauthApplicationId] The ID of the OAuth application for which to rotate the
 ///   client secret
-Future<OAuthApplicationWithSecret>
-    rotateOAuthApplicationSecret(ClientConfig config,
-        {required String oauthApplicationId,
-        RequestOptions? requestOptions}) async {
+Future<OAuthApplicationWithSecret> rotateOAuthApplicationSecret(
+    ClientConfig config,
+    {required String oauthApplicationId,
+    RequestOptions? requestOptions}) async {
   return (await sdkRequest<OAuthApplicationWithSecret>('POST',
           '/oauth_applications/${Uri.encodeComponent(oauthApplicationId.toString())}/rotate_secret',
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'rotateOAuthApplicationSecret',
-          fromJsonRaw: (value) => OAuthApplicationWithSecret.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => OAuthApplicationWithSecret.fromJson(
+              value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'403': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '404': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '403': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>),
+        '404': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// Revoke both OAuth access token and refresh token for the associated grant for the given OAuth application. The request may specify either token. JWT access tokens cannot be revoked.
 ///
@@ -329,6 +382,15 @@ Future<void> revokeOAuthApplicationToken(ClientConfig config,
           decoder: SdkResponseDecoder.empty,
           operationId: 'revokeOAuthApplicationToken',
           options: requestOptions,
-          errors: {'400': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '403': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '404': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '422': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '400': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>),
+            '403': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>),
+            '404': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>),
+            '422': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }

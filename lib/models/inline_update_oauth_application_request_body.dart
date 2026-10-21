@@ -7,160 +7,300 @@ part of 'inline.dart';
 class UpdateOAuthApplicationRequestBody {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The new name of the OAuth application. Max length: 256
   final SdkOptional<String?> name;
+
   /// An array of redirect URIs of the new OAuth application
   final SdkOptional<List<String>?> redirectUris;
+
   /// The new callback URL of the OAuth application
   final SdkOptional<String?> callbackUrl;
+
   /// Replace the application's complete built-in and custom scope ceiling. Provide scope keys as a space-delimited string. Custom keys must exist in the instance OAuth scope catalog. Required built-in scopes, such as `offline_access`, must be included in the replacement set, otherwise the request is rejected. Omit this field to leave all scope assignments unchanged.
   final SdkOptional<String?> scopes;
+
   /// True to enable a consent screen to display in the authentication flow. This cannot be disabled for dynamically registered OAuth Applications.
   final SdkOptional<bool?> consentScreenEnabled;
+
   /// True to require the Proof Key of Code Exchange (PKCE) flow.
   final SdkOptional<bool?> pkceRequired;
+
   /// An absolute resource URI for a confidential application (RFC 8707 section 2). Registers a resource with no accepted scopes, or adopts an unowned resource with confirmation. Every claimed URI remains permanently reserved to this app, including retirement and deletion, and counts toward the instance resource quota. Changing it stops new exchanges from the old audience immediately. Already-issued tokens retain their lifetime. Clearing requires exchange disabled in an earlier update.
   final SdkOptional<String?> audienceUri;
+
   /// Enable exchanges from the active audience. Requires an audience URI. Disabling preserves target configuration.
   final SdkOptional<bool> tokenExchangeEnabled;
+
   /// Confirm adoption of an existing unowned resource, preserving its accepted scopes and target references. Does not override another application's reservation.
   final SdkOptional<bool> adoptAudienceResource;
+
   /// True to enable the OAuth Device Authorization Grant for this application. Enabling requires the new OAuth IdP and a reachable device verification page. Omit this field to leave the setting unchanged.
   final SdkOptional<bool?> deviceAuthorizationGrantEnabled;
+
   /// If true, this client is public and you can use the Proof Key of Code Exchange (PKCE) flow.
   final SdkOptional<bool?> public;
 
-  const UpdateOAuthApplicationRequestBody({this.name = const SdkOmitted(), this.redirectUris = const SdkOmitted(), this.callbackUrl = const SdkOmitted(), this.scopes = const SdkOmitted(), this.consentScreenEnabled = const SdkOmitted(), this.pkceRequired = const SdkOmitted(), this.audienceUri = const SdkOmitted(), this.tokenExchangeEnabled = const SdkOmitted(), this.adoptAudienceResource = const SdkOmitted(), this.deviceAuthorizationGrantEnabled = const SdkOmitted(), this.public = const SdkOmitted()});
+  const UpdateOAuthApplicationRequestBody(
+      {this.name = const SdkOmitted(),
+      this.redirectUris = const SdkOmitted(),
+      this.callbackUrl = const SdkOmitted(),
+      this.scopes = const SdkOmitted(),
+      this.consentScreenEnabled = const SdkOmitted(),
+      this.pkceRequired = const SdkOmitted(),
+      this.audienceUri = const SdkOmitted(),
+      this.tokenExchangeEnabled = const SdkOmitted(),
+      this.adoptAudienceResource = const SdkOmitted(),
+      this.deviceAuthorizationGrantEnabled = const SdkOmitted(),
+      this.public = const SdkOmitted()});
 
-  UpdateOAuthApplicationRequestBody Function({SdkOptional<String?> name, SdkOptional<List<String>?> redirectUris, SdkOptional<String?> callbackUrl, SdkOptional<String?> scopes, SdkOptional<bool?> consentScreenEnabled, SdkOptional<bool?> pkceRequired, SdkOptional<String?> audienceUri, SdkOptional<bool> tokenExchangeEnabled, SdkOptional<bool> adoptAudienceResource, SdkOptional<bool?> deviceAuthorizationGrantEnabled, SdkOptional<bool?> public}) get copyWith => _copyWith;
+  UpdateOAuthApplicationRequestBody Function(
+      {SdkOptional<String?> name,
+      SdkOptional<List<String>?> redirectUris,
+      SdkOptional<String?> callbackUrl,
+      SdkOptional<String?> scopes,
+      SdkOptional<bool?> consentScreenEnabled,
+      SdkOptional<bool?> pkceRequired,
+      SdkOptional<String?> audienceUri,
+      SdkOptional<bool> tokenExchangeEnabled,
+      SdkOptional<bool> adoptAudienceResource,
+      SdkOptional<bool?> deviceAuthorizationGrantEnabled,
+      SdkOptional<bool?> public}) get copyWith => _copyWith;
 
-  UpdateOAuthApplicationRequestBody _copyWith({Object? name = sdkOmittedValue, Object? redirectUris = sdkOmittedValue, Object? callbackUrl = sdkOmittedValue, Object? scopes = sdkOmittedValue, Object? consentScreenEnabled = sdkOmittedValue, Object? pkceRequired = sdkOmittedValue, Object? audienceUri = sdkOmittedValue, Object? tokenExchangeEnabled = sdkOmittedValue, Object? adoptAudienceResource = sdkOmittedValue, Object? deviceAuthorizationGrantEnabled = sdkOmittedValue, Object? public = sdkOmittedValue}) => UpdateOAuthApplicationRequestBody(
-    name: identical(name, sdkOmittedValue) ? this.name : name as SdkOptional<String?>,
-    redirectUris: identical(redirectUris, sdkOmittedValue) ? this.redirectUris : redirectUris as SdkOptional<List<String>?>,
-    callbackUrl: identical(callbackUrl, sdkOmittedValue) ? this.callbackUrl : callbackUrl as SdkOptional<String?>,
-    scopes: identical(scopes, sdkOmittedValue) ? this.scopes : scopes as SdkOptional<String?>,
-    consentScreenEnabled: identical(consentScreenEnabled, sdkOmittedValue) ? this.consentScreenEnabled : consentScreenEnabled as SdkOptional<bool?>,
-    pkceRequired: identical(pkceRequired, sdkOmittedValue) ? this.pkceRequired : pkceRequired as SdkOptional<bool?>,
-    audienceUri: identical(audienceUri, sdkOmittedValue) ? this.audienceUri : audienceUri as SdkOptional<String?>,
-    tokenExchangeEnabled: identical(tokenExchangeEnabled, sdkOmittedValue) ? this.tokenExchangeEnabled : tokenExchangeEnabled as SdkOptional<bool>,
-    adoptAudienceResource: identical(adoptAudienceResource, sdkOmittedValue) ? this.adoptAudienceResource : adoptAudienceResource as SdkOptional<bool>,
-    deviceAuthorizationGrantEnabled: identical(deviceAuthorizationGrantEnabled, sdkOmittedValue) ? this.deviceAuthorizationGrantEnabled : deviceAuthorizationGrantEnabled as SdkOptional<bool?>,
-    public: identical(public, sdkOmittedValue) ? this.public : public as SdkOptional<bool?>,
-  );
+  UpdateOAuthApplicationRequestBody _copyWith(
+          {Object? name = sdkOmittedValue,
+          Object? redirectUris = sdkOmittedValue,
+          Object? callbackUrl = sdkOmittedValue,
+          Object? scopes = sdkOmittedValue,
+          Object? consentScreenEnabled = sdkOmittedValue,
+          Object? pkceRequired = sdkOmittedValue,
+          Object? audienceUri = sdkOmittedValue,
+          Object? tokenExchangeEnabled = sdkOmittedValue,
+          Object? adoptAudienceResource = sdkOmittedValue,
+          Object? deviceAuthorizationGrantEnabled = sdkOmittedValue,
+          Object? public = sdkOmittedValue}) =>
+      UpdateOAuthApplicationRequestBody(
+        name: identical(name, sdkOmittedValue)
+            ? this.name
+            : name as SdkOptional<String?>,
+        redirectUris: identical(redirectUris, sdkOmittedValue)
+            ? this.redirectUris
+            : redirectUris as SdkOptional<List<String>?>,
+        callbackUrl: identical(callbackUrl, sdkOmittedValue)
+            ? this.callbackUrl
+            : callbackUrl as SdkOptional<String?>,
+        scopes: identical(scopes, sdkOmittedValue)
+            ? this.scopes
+            : scopes as SdkOptional<String?>,
+        consentScreenEnabled: identical(consentScreenEnabled, sdkOmittedValue)
+            ? this.consentScreenEnabled
+            : consentScreenEnabled as SdkOptional<bool?>,
+        pkceRequired: identical(pkceRequired, sdkOmittedValue)
+            ? this.pkceRequired
+            : pkceRequired as SdkOptional<bool?>,
+        audienceUri: identical(audienceUri, sdkOmittedValue)
+            ? this.audienceUri
+            : audienceUri as SdkOptional<String?>,
+        tokenExchangeEnabled: identical(tokenExchangeEnabled, sdkOmittedValue)
+            ? this.tokenExchangeEnabled
+            : tokenExchangeEnabled as SdkOptional<bool>,
+        adoptAudienceResource: identical(adoptAudienceResource, sdkOmittedValue)
+            ? this.adoptAudienceResource
+            : adoptAudienceResource as SdkOptional<bool>,
+        deviceAuthorizationGrantEnabled:
+            identical(deviceAuthorizationGrantEnabled, sdkOmittedValue)
+                ? this.deviceAuthorizationGrantEnabled
+                : deviceAuthorizationGrantEnabled as SdkOptional<bool?>,
+        public: identical(public, sdkOmittedValue)
+            ? this.public
+            : public as SdkOptional<bool?>,
+      );
 
-  factory UpdateOAuthApplicationRequestBody.fromJson(Map<String, dynamic> json) => UpdateOAuthApplicationRequestBody(
-    name: json.containsKey('name') ? SdkPresent(json['name'] as String?) : const SdkOmitted(),
-    redirectUris: json.containsKey('redirect_uris') ? SdkPresent((json['redirect_uris'] as List?)?.map((e) => e as String).toList()) : const SdkOmitted(),
-    callbackUrl: json.containsKey('callback_url') ? SdkPresent(json['callback_url'] as String?) : const SdkOmitted(),
-    scopes: json.containsKey('scopes') ? SdkPresent(json['scopes'] as String?) : const SdkOmitted(),
-    consentScreenEnabled: json.containsKey('consent_screen_enabled') ? SdkPresent(json['consent_screen_enabled'] as bool?) : const SdkOmitted(),
-    pkceRequired: json.containsKey('pkce_required') ? SdkPresent(json['pkce_required'] as bool?) : const SdkOmitted(),
-    audienceUri: json.containsKey('audience_uri') ? SdkPresent(json['audience_uri'] as String?) : const SdkOmitted(),
-    tokenExchangeEnabled: json['token_exchange_enabled'] != null ? SdkPresent((json['token_exchange_enabled'] as bool?)!) : const SdkOmitted(),
-    adoptAudienceResource: json['adopt_audience_resource'] != null ? SdkPresent((json['adopt_audience_resource'] as bool?)!) : const SdkOmitted(),
-    deviceAuthorizationGrantEnabled: json.containsKey('device_authorization_grant_enabled') ? SdkPresent(json['device_authorization_grant_enabled'] as bool?) : const SdkOmitted(),
-    public: json.containsKey('public') ? SdkPresent(json['public'] as bool?) : const SdkOmitted(),
-  );
+  factory UpdateOAuthApplicationRequestBody.fromJson(
+          Map<String, dynamic> json) =>
+      UpdateOAuthApplicationRequestBody(
+        name: json.containsKey('name')
+            ? SdkPresent(json['name'] as String?)
+            : const SdkOmitted(),
+        redirectUris: json.containsKey('redirect_uris')
+            ? SdkPresent((json['redirect_uris'] as List?)
+                ?.map((e) => e as String)
+                .toList())
+            : const SdkOmitted(),
+        callbackUrl: json.containsKey('callback_url')
+            ? SdkPresent(json['callback_url'] as String?)
+            : const SdkOmitted(),
+        scopes: json.containsKey('scopes')
+            ? SdkPresent(json['scopes'] as String?)
+            : const SdkOmitted(),
+        consentScreenEnabled: json.containsKey('consent_screen_enabled')
+            ? SdkPresent(json['consent_screen_enabled'] as bool?)
+            : const SdkOmitted(),
+        pkceRequired: json.containsKey('pkce_required')
+            ? SdkPresent(json['pkce_required'] as bool?)
+            : const SdkOmitted(),
+        audienceUri: json.containsKey('audience_uri')
+            ? SdkPresent(json['audience_uri'] as String?)
+            : const SdkOmitted(),
+        tokenExchangeEnabled: json['token_exchange_enabled'] != null
+            ? SdkPresent((json['token_exchange_enabled'] as bool?)!)
+            : const SdkOmitted(),
+        adoptAudienceResource: json['adopt_audience_resource'] != null
+            ? SdkPresent((json['adopt_audience_resource'] as bool?)!)
+            : const SdkOmitted(),
+        deviceAuthorizationGrantEnabled: json
+                .containsKey('device_authorization_grant_enabled')
+            ? SdkPresent(json['device_authorization_grant_enabled'] as bool?)
+            : const SdkOmitted(),
+        public: json.containsKey('public')
+            ? SdkPresent(json['public'] as bool?)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (name) {
-      SdkPresent<String?>(value: final value) => {'name': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (redirectUris) {
-      SdkPresent<List<String>?>(value: final value) => {'redirect_uris': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (callbackUrl) {
-      SdkPresent<String?>(value: final value) => {'callback_url': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (scopes) {
-      SdkPresent<String?>(value: final value) => {'scopes': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (consentScreenEnabled) {
-      SdkPresent<bool?>(value: final value) => {'consent_screen_enabled': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (pkceRequired) {
-      SdkPresent<bool?>(value: final value) => {'pkce_required': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (audienceUri) {
-      SdkPresent<String?>(value: final value) => {'audience_uri': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (tokenExchangeEnabled) {
-      SdkPresent<bool>(value: final value) => {'token_exchange_enabled': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (adoptAudienceResource) {
-      SdkPresent<bool>(value: final value) => {'adopt_audience_resource': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (deviceAuthorizationGrantEnabled) {
-      SdkPresent<bool?>(value: final value) => {'device_authorization_grant_enabled': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (public) {
-      SdkPresent<bool?>(value: final value) => {'public': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (name) {
+          SdkPresent<String?>(value: final value) => {
+              'name': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (redirectUris) {
+          SdkPresent<List<String>?>(value: final value) => {
+              'redirect_uris': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (callbackUrl) {
+          SdkPresent<String?>(value: final value) => {
+              'callback_url': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (scopes) {
+          SdkPresent<String?>(value: final value) => {
+              'scopes': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (consentScreenEnabled) {
+          SdkPresent<bool?>(value: final value) => {
+              'consent_screen_enabled': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (pkceRequired) {
+          SdkPresent<bool?>(value: final value) => {
+              'pkce_required': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (audienceUri) {
+          SdkPresent<String?>(value: final value) => {
+              'audience_uri': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (tokenExchangeEnabled) {
+          SdkPresent<bool>(value: final value) => {
+              'token_exchange_enabled': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (adoptAudienceResource) {
+          SdkPresent<bool>(value: final value) => {
+              'adopt_audience_resource': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (deviceAuthorizationGrantEnabled) {
+          SdkPresent<bool?>(value: final value) => {
+              'device_authorization_grant_enabled': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (public) {
+          SdkPresent<bool?>(value: final value) => {
+              'public': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 class UploadOAuthApplicationLogoRequestBody {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The ID of the user that will be credited with the image upload.
   final SdkOptional<String> uploaderUserId;
   final List<int> file;
 
-  const UploadOAuthApplicationLogoRequestBody({this.uploaderUserId = const SdkOmitted(), required this.file});
+  const UploadOAuthApplicationLogoRequestBody(
+      {this.uploaderUserId = const SdkOmitted(), required this.file});
 
-  UploadOAuthApplicationLogoRequestBody Function({SdkOptional<String> uploaderUserId, List<int> file}) get copyWith => _copyWith;
+  UploadOAuthApplicationLogoRequestBody Function(
+      {SdkOptional<String> uploaderUserId,
+      List<int> file}) get copyWith => _copyWith;
 
-  UploadOAuthApplicationLogoRequestBody _copyWith({Object? uploaderUserId = sdkOmittedValue, Object? file = sdkOmittedValue}) => UploadOAuthApplicationLogoRequestBody(
-    uploaderUserId: identical(uploaderUserId, sdkOmittedValue) ? this.uploaderUserId : uploaderUserId as SdkOptional<String>,
-    file: identical(file, sdkOmittedValue) ? this.file : file as List<int>,
-  );
+  UploadOAuthApplicationLogoRequestBody _copyWith(
+          {Object? uploaderUserId = sdkOmittedValue,
+          Object? file = sdkOmittedValue}) =>
+      UploadOAuthApplicationLogoRequestBody(
+        uploaderUserId: identical(uploaderUserId, sdkOmittedValue)
+            ? this.uploaderUserId
+            : uploaderUserId as SdkOptional<String>,
+        file: identical(file, sdkOmittedValue) ? this.file : file as List<int>,
+      );
 
-  factory UploadOAuthApplicationLogoRequestBody.fromJson(Map<String, dynamic> json) => UploadOAuthApplicationLogoRequestBody(
-    uploaderUserId: json['uploader_user_id'] != null ? SdkPresent((json['uploader_user_id'] as String?)!) : const SdkOmitted(),
-    file: (json['file'] != null ? base64Decode(json['file'] as String) : null)!,
-  );
+  factory UploadOAuthApplicationLogoRequestBody.fromJson(
+          Map<String, dynamic> json) =>
+      UploadOAuthApplicationLogoRequestBody(
+        uploaderUserId: json['uploader_user_id'] != null
+            ? SdkPresent((json['uploader_user_id'] as String?)!)
+            : const SdkOmitted(),
+        file: (json['file'] != null
+            ? base64Decode(json['file'] as String)
+            : null)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (uploaderUserId) {
-      SdkPresent<String>(value: final value) => {'uploader_user_id': value,},
-      _ => const <String, dynamic>{},
-    },
-    'file': base64Encode(file),
-  };
+        ...switch (uploaderUserId) {
+          SdkPresent<String>(value: final value) => {
+              'uploader_user_id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        'file': base64Encode(file),
+      };
 }
 
 class RevokeOAuthApplicationTokenRequestBody {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The opaque OAuth access token or refresh token to revoke. All tokens associated with the same OAuth grant are also revoked.
   final String token;
 
   const RevokeOAuthApplicationTokenRequestBody({required this.token});
 
-  RevokeOAuthApplicationTokenRequestBody Function({String token}) get copyWith => _copyWith;
+  RevokeOAuthApplicationTokenRequestBody Function({String token})
+      get copyWith => _copyWith;
 
-  RevokeOAuthApplicationTokenRequestBody _copyWith({Object? token = sdkOmittedValue}) => RevokeOAuthApplicationTokenRequestBody(
-    token: identical(token, sdkOmittedValue) ? this.token : token as String,
-  );
+  RevokeOAuthApplicationTokenRequestBody _copyWith(
+          {Object? token = sdkOmittedValue}) =>
+      RevokeOAuthApplicationTokenRequestBody(
+        token: identical(token, sdkOmittedValue) ? this.token : token as String,
+      );
 
-  factory RevokeOAuthApplicationTokenRequestBody.fromJson(Map<String, dynamic> json) => RevokeOAuthApplicationTokenRequestBody(
-    token: (json['token'] as String?)!,
-  );
+  factory RevokeOAuthApplicationTokenRequestBody.fromJson(
+          Map<String, dynamic> json) =>
+      RevokeOAuthApplicationTokenRequestBody(
+        token: (json['token'] as String?)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'token': token,
-  };
+        'token': token,
+      };
 }
 
 /// Define the attribute name mapping between Identity Provider and Clerk's user properties
@@ -172,72 +312,131 @@ class CreateSAMLConnectionRequestBodyAttributeMapping {
   final SdkOptional<String> firstName;
   final SdkOptional<String> lastName;
 
-  const CreateSAMLConnectionRequestBodyAttributeMapping({this.userId = const SdkOmitted(), this.emailAddress = const SdkOmitted(), this.firstName = const SdkOmitted(), this.lastName = const SdkOmitted()});
+  const CreateSAMLConnectionRequestBodyAttributeMapping(
+      {this.userId = const SdkOmitted(),
+      this.emailAddress = const SdkOmitted(),
+      this.firstName = const SdkOmitted(),
+      this.lastName = const SdkOmitted()});
 
-  CreateSAMLConnectionRequestBodyAttributeMapping Function({SdkOptional<String> userId, SdkOptional<String> emailAddress, SdkOptional<String> firstName, SdkOptional<String> lastName}) get copyWith => _copyWith;
+  CreateSAMLConnectionRequestBodyAttributeMapping Function(
+      {SdkOptional<String> userId,
+      SdkOptional<String> emailAddress,
+      SdkOptional<String> firstName,
+      SdkOptional<String> lastName}) get copyWith => _copyWith;
 
-  CreateSAMLConnectionRequestBodyAttributeMapping _copyWith({Object? userId = sdkOmittedValue, Object? emailAddress = sdkOmittedValue, Object? firstName = sdkOmittedValue, Object? lastName = sdkOmittedValue}) => CreateSAMLConnectionRequestBodyAttributeMapping(
-    userId: identical(userId, sdkOmittedValue) ? this.userId : userId as SdkOptional<String>,
-    emailAddress: identical(emailAddress, sdkOmittedValue) ? this.emailAddress : emailAddress as SdkOptional<String>,
-    firstName: identical(firstName, sdkOmittedValue) ? this.firstName : firstName as SdkOptional<String>,
-    lastName: identical(lastName, sdkOmittedValue) ? this.lastName : lastName as SdkOptional<String>,
-  );
+  CreateSAMLConnectionRequestBodyAttributeMapping _copyWith(
+          {Object? userId = sdkOmittedValue,
+          Object? emailAddress = sdkOmittedValue,
+          Object? firstName = sdkOmittedValue,
+          Object? lastName = sdkOmittedValue}) =>
+      CreateSAMLConnectionRequestBodyAttributeMapping(
+        userId: identical(userId, sdkOmittedValue)
+            ? this.userId
+            : userId as SdkOptional<String>,
+        emailAddress: identical(emailAddress, sdkOmittedValue)
+            ? this.emailAddress
+            : emailAddress as SdkOptional<String>,
+        firstName: identical(firstName, sdkOmittedValue)
+            ? this.firstName
+            : firstName as SdkOptional<String>,
+        lastName: identical(lastName, sdkOmittedValue)
+            ? this.lastName
+            : lastName as SdkOptional<String>,
+      );
 
-  factory CreateSAMLConnectionRequestBodyAttributeMapping.fromJson(Map<String, dynamic> json) => CreateSAMLConnectionRequestBodyAttributeMapping(
-    userId: json['user_id'] != null ? SdkPresent((json['user_id'] as String?)!) : const SdkOmitted(),
-    emailAddress: json['email_address'] != null ? SdkPresent((json['email_address'] as String?)!) : const SdkOmitted(),
-    firstName: json['first_name'] != null ? SdkPresent((json['first_name'] as String?)!) : const SdkOmitted(),
-    lastName: json['last_name'] != null ? SdkPresent((json['last_name'] as String?)!) : const SdkOmitted(),
-  );
+  factory CreateSAMLConnectionRequestBodyAttributeMapping.fromJson(
+          Map<String, dynamic> json) =>
+      CreateSAMLConnectionRequestBodyAttributeMapping(
+        userId: json['user_id'] != null
+            ? SdkPresent((json['user_id'] as String?)!)
+            : const SdkOmitted(),
+        emailAddress: json['email_address'] != null
+            ? SdkPresent((json['email_address'] as String?)!)
+            : const SdkOmitted(),
+        firstName: json['first_name'] != null
+            ? SdkPresent((json['first_name'] as String?)!)
+            : const SdkOmitted(),
+        lastName: json['last_name'] != null
+            ? SdkPresent((json['last_name'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (userId) {
-      SdkPresent<String>(value: final value) => {'user_id': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (emailAddress) {
-      SdkPresent<String>(value: final value) => {'email_address': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (firstName) {
-      SdkPresent<String>(value: final value) => {'first_name': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (lastName) {
-      SdkPresent<String>(value: final value) => {'last_name': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (userId) {
+          SdkPresent<String>(value: final value) => {
+              'user_id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (emailAddress) {
+          SdkPresent<String>(value: final value) => {
+              'email_address': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (firstName) {
+          SdkPresent<String>(value: final value) => {
+              'first_name': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (lastName) {
+          SdkPresent<String>(value: final value) => {
+              'last_name': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 /// Configuration for the login_hint sent to the IdP on SSO sign-in
 class CreateSAMLConnectionRequestBodyLoginHint {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Controls the login_hint sent to the IdP on SSO sign-in
   final CreateSAMLConnectionRequestBodyLoginHintMode mode;
+
   /// The user public_metadata key whose value is sent as the login_hint when mode is custom_attribute
   final SdkOptional<String> source;
 
-  const CreateSAMLConnectionRequestBodyLoginHint({required this.mode, this.source = const SdkOmitted()});
+  const CreateSAMLConnectionRequestBodyLoginHint(
+      {required this.mode, this.source = const SdkOmitted()});
 
-  CreateSAMLConnectionRequestBodyLoginHint Function({CreateSAMLConnectionRequestBodyLoginHintMode mode, SdkOptional<String> source}) get copyWith => _copyWith;
+  CreateSAMLConnectionRequestBodyLoginHint Function(
+      {CreateSAMLConnectionRequestBodyLoginHintMode mode,
+      SdkOptional<String> source}) get copyWith => _copyWith;
 
-  CreateSAMLConnectionRequestBodyLoginHint _copyWith({Object? mode = sdkOmittedValue, Object? source = sdkOmittedValue}) => CreateSAMLConnectionRequestBodyLoginHint(
-    mode: identical(mode, sdkOmittedValue) ? this.mode : mode as CreateSAMLConnectionRequestBodyLoginHintMode,
-    source: identical(source, sdkOmittedValue) ? this.source : source as SdkOptional<String>,
-  );
+  CreateSAMLConnectionRequestBodyLoginHint _copyWith(
+          {Object? mode = sdkOmittedValue, Object? source = sdkOmittedValue}) =>
+      CreateSAMLConnectionRequestBodyLoginHint(
+        mode: identical(mode, sdkOmittedValue)
+            ? this.mode
+            : mode as CreateSAMLConnectionRequestBodyLoginHintMode,
+        source: identical(source, sdkOmittedValue)
+            ? this.source
+            : source as SdkOptional<String>,
+      );
 
-  factory CreateSAMLConnectionRequestBodyLoginHint.fromJson(Map<String, dynamic> json) => CreateSAMLConnectionRequestBodyLoginHint(
-    mode: (json['mode'] != null ? CreateSAMLConnectionRequestBodyLoginHintMode.fromJson(json['mode'] as String) : null)!,
-    source: json['source'] != null ? SdkPresent((json['source'] as String?)!) : const SdkOmitted(),
-  );
+  factory CreateSAMLConnectionRequestBodyLoginHint.fromJson(
+          Map<String, dynamic> json) =>
+      CreateSAMLConnectionRequestBodyLoginHint(
+        mode: (json['mode'] != null
+            ? CreateSAMLConnectionRequestBodyLoginHintMode.fromJson(
+                json['mode'] as String)
+            : null)!,
+        source: json['source'] != null
+            ? SdkPresent((json['source'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    'mode': mode.toJson(),
-    ...switch (source) {
-      SdkPresent<String>(value: final value) => {'source': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        'mode': mode.toJson(),
+        ...switch (source) {
+          SdkPresent<String>(value: final value) => {
+              'source': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

@@ -8,51 +8,93 @@ part of 'shared.dart';
 class DeletedObject {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Required `string` value serialized in the `object` wire field.
   final String object;
+
   /// Optional `string` value serialized in the `id` wire field.
   final SdkOptional<String> id;
+
   /// Optional `string` value serialized in the `slug` wire field.
   final SdkOptional<String> slug;
+
   /// Required `boolean` value serialized in the `deleted` wire field.
   final bool deleted;
+
   /// Optional `string` value serialized in the `external_id` wire field.
   final SdkOptional<String> externalId;
 
-  const DeletedObject({required this.object, this.id = const SdkOmitted(), this.slug = const SdkOmitted(), required this.deleted, this.externalId = const SdkOmitted()});
+  const DeletedObject(
+      {required this.object,
+      this.id = const SdkOmitted(),
+      this.slug = const SdkOmitted(),
+      required this.deleted,
+      this.externalId = const SdkOmitted()});
 
-  DeletedObject Function({String object, SdkOptional<String> id, SdkOptional<String> slug, bool deleted, SdkOptional<String> externalId}) get copyWith => _copyWith;
+  DeletedObject Function(
+      {String object,
+      SdkOptional<String> id,
+      SdkOptional<String> slug,
+      bool deleted,
+      SdkOptional<String> externalId}) get copyWith => _copyWith;
 
-  DeletedObject _copyWith({Object? object = sdkOmittedValue, Object? id = sdkOmittedValue, Object? slug = sdkOmittedValue, Object? deleted = sdkOmittedValue, Object? externalId = sdkOmittedValue}) => DeletedObject(
-    object: identical(object, sdkOmittedValue) ? this.object : object as String,
-    id: identical(id, sdkOmittedValue) ? this.id : id as SdkOptional<String>,
-    slug: identical(slug, sdkOmittedValue) ? this.slug : slug as SdkOptional<String>,
-    deleted: identical(deleted, sdkOmittedValue) ? this.deleted : deleted as bool,
-    externalId: identical(externalId, sdkOmittedValue) ? this.externalId : externalId as SdkOptional<String>,
-  );
+  DeletedObject _copyWith(
+          {Object? object = sdkOmittedValue,
+          Object? id = sdkOmittedValue,
+          Object? slug = sdkOmittedValue,
+          Object? deleted = sdkOmittedValue,
+          Object? externalId = sdkOmittedValue}) =>
+      DeletedObject(
+        object:
+            identical(object, sdkOmittedValue) ? this.object : object as String,
+        id: identical(id, sdkOmittedValue)
+            ? this.id
+            : id as SdkOptional<String>,
+        slug: identical(slug, sdkOmittedValue)
+            ? this.slug
+            : slug as SdkOptional<String>,
+        deleted: identical(deleted, sdkOmittedValue)
+            ? this.deleted
+            : deleted as bool,
+        externalId: identical(externalId, sdkOmittedValue)
+            ? this.externalId
+            : externalId as SdkOptional<String>,
+      );
 
   factory DeletedObject.fromJson(Map<String, dynamic> json) => DeletedObject(
-    object: (json['object'] as String?)!,
-    id: json['id'] != null ? SdkPresent((json['id'] as String?)!) : const SdkOmitted(),
-    slug: json['slug'] != null ? SdkPresent((json['slug'] as String?)!) : const SdkOmitted(),
-    deleted: (json['deleted'] as bool?)!,
-    externalId: json['external_id'] != null ? SdkPresent((json['external_id'] as String?)!) : const SdkOmitted(),
-  );
+        object: (json['object'] as String?)!,
+        id: json['id'] != null
+            ? SdkPresent((json['id'] as String?)!)
+            : const SdkOmitted(),
+        slug: json['slug'] != null
+            ? SdkPresent((json['slug'] as String?)!)
+            : const SdkOmitted(),
+        deleted: (json['deleted'] as bool?)!,
+        externalId: json['external_id'] != null
+            ? SdkPresent((json['external_id'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    'object': object,
-    ...switch (id) {
-      SdkPresent<String>(value: final value) => {'id': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (slug) {
-      SdkPresent<String>(value: final value) => {'slug': value,},
-      _ => const <String, dynamic>{},
-    },
-    'deleted': deleted,
-    ...switch (externalId) {
-      SdkPresent<String>(value: final value) => {'external_id': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        'object': object,
+        ...switch (id) {
+          SdkPresent<String>(value: final value) => {
+              'id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (slug) {
+          SdkPresent<String>(value: final value) => {
+              'slug': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        'deleted': deleted,
+        ...switch (externalId) {
+          SdkPresent<String>(value: final value) => {
+              'external_id': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

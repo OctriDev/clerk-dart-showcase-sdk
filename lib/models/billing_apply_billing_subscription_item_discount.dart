@@ -8,22 +8,29 @@ part of 'billing.dart';
 class ApplyCommerceDiscountRequest {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The ID of the discount to apply to the subscription item.
   final String discountId;
 
   const ApplyCommerceDiscountRequest({required this.discountId});
 
-  ApplyCommerceDiscountRequest Function({String discountId}) get copyWith => _copyWith;
+  ApplyCommerceDiscountRequest Function({String discountId}) get copyWith =>
+      _copyWith;
 
-  ApplyCommerceDiscountRequest _copyWith({Object? discountId = sdkOmittedValue}) => ApplyCommerceDiscountRequest(
-    discountId: identical(discountId, sdkOmittedValue) ? this.discountId : discountId as String,
-  );
+  ApplyCommerceDiscountRequest _copyWith(
+          {Object? discountId = sdkOmittedValue}) =>
+      ApplyCommerceDiscountRequest(
+        discountId: identical(discountId, sdkOmittedValue)
+            ? this.discountId
+            : discountId as String,
+      );
 
-  factory ApplyCommerceDiscountRequest.fromJson(Map<String, dynamic> json) => ApplyCommerceDiscountRequest(
-    discountId: (json['discount_id'] as String?)!,
-  );
+  factory ApplyCommerceDiscountRequest.fromJson(Map<String, dynamic> json) =>
+      ApplyCommerceDiscountRequest(
+        discountId: (json['discount_id'] as String?)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'discount_id': discountId,
-  };
+        'discount_id': discountId,
+      };
 }

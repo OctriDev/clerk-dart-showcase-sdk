@@ -8,27 +8,39 @@ part of 'users.dart';
 class TotalCount {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// String representing the object's type. Objects of the same type share the same value.
   final TotalCountObject object;
+
   /// Required `int64`-formatted value serialized in the `total_count` wire field.
   final int totalCount;
 
   const TotalCount({required this.object, required this.totalCount});
 
-  TotalCount Function({TotalCountObject object, int totalCount}) get copyWith => _copyWith;
+  TotalCount Function({TotalCountObject object, int totalCount}) get copyWith =>
+      _copyWith;
 
-  TotalCount _copyWith({Object? object = sdkOmittedValue, Object? totalCount = sdkOmittedValue}) => TotalCount(
-    object: identical(object, sdkOmittedValue) ? this.object : object as TotalCountObject,
-    totalCount: identical(totalCount, sdkOmittedValue) ? this.totalCount : totalCount as int,
-  );
+  TotalCount _copyWith(
+          {Object? object = sdkOmittedValue,
+          Object? totalCount = sdkOmittedValue}) =>
+      TotalCount(
+        object: identical(object, sdkOmittedValue)
+            ? this.object
+            : object as TotalCountObject,
+        totalCount: identical(totalCount, sdkOmittedValue)
+            ? this.totalCount
+            : totalCount as int,
+      );
 
   factory TotalCount.fromJson(Map<String, dynamic> json) => TotalCount(
-    object: (json['object'] != null ? TotalCountObject.fromJson(json['object'] as String) : null)!,
-    totalCount: ((json['total_count'] as num?)?.toInt())!,
-  );
+        object: (json['object'] != null
+            ? TotalCountObject.fromJson(json['object'] as String)
+            : null)!,
+        totalCount: ((json['total_count'] as num?)?.toInt())!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'object': object.toJson(),
-    'total_count': totalCount,
-  };
+        'object': object.toJson(),
+        'total_count': totalCount,
+      };
 }

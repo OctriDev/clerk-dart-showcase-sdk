@@ -8,49 +8,101 @@ part of 'shared_commerce.dart';
 class CommerceSubscriptionItemNextPaymentResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Base plan fee for the next payment. Does not include per-unit (e.g. seat) charges; see `totals.grand_total` for the full amount.
   final SdkOptional<CommerceMoneyResponse?> amount;
+
   /// Unix timestamp (in milliseconds) for the next payment date.
   final SdkOptional<int?> date;
+
   /// Per-unit total breakdown (for example, seats) for the next payment.
   final SdkOptional<List<CommercePerUnitTotal>> perUnitTotals;
+
   /// Breakdown of the recurring amount that will be billed at renewal (base fee + per-unit charges). Tax and credits are not previewed.
   final SdkOptional<CommerceTotalsResponse?> totals;
 
-  const CommerceSubscriptionItemNextPaymentResponse({this.amount = const SdkOmitted(), this.date = const SdkOmitted(), this.perUnitTotals = const SdkOmitted(), this.totals = const SdkOmitted()});
+  const CommerceSubscriptionItemNextPaymentResponse(
+      {this.amount = const SdkOmitted(),
+      this.date = const SdkOmitted(),
+      this.perUnitTotals = const SdkOmitted(),
+      this.totals = const SdkOmitted()});
 
-  CommerceSubscriptionItemNextPaymentResponse Function({SdkOptional<CommerceMoneyResponse?> amount, SdkOptional<int?> date, SdkOptional<List<CommercePerUnitTotal>> perUnitTotals, SdkOptional<CommerceTotalsResponse?> totals}) get copyWith => _copyWith;
+  CommerceSubscriptionItemNextPaymentResponse Function(
+      {SdkOptional<CommerceMoneyResponse?> amount,
+      SdkOptional<int?> date,
+      SdkOptional<List<CommercePerUnitTotal>> perUnitTotals,
+      SdkOptional<CommerceTotalsResponse?> totals}) get copyWith => _copyWith;
 
-  CommerceSubscriptionItemNextPaymentResponse _copyWith({Object? amount = sdkOmittedValue, Object? date = sdkOmittedValue, Object? perUnitTotals = sdkOmittedValue, Object? totals = sdkOmittedValue}) => CommerceSubscriptionItemNextPaymentResponse(
-    amount: identical(amount, sdkOmittedValue) ? this.amount : amount as SdkOptional<CommerceMoneyResponse?>,
-    date: identical(date, sdkOmittedValue) ? this.date : date as SdkOptional<int?>,
-    perUnitTotals: identical(perUnitTotals, sdkOmittedValue) ? this.perUnitTotals : perUnitTotals as SdkOptional<List<CommercePerUnitTotal>>,
-    totals: identical(totals, sdkOmittedValue) ? this.totals : totals as SdkOptional<CommerceTotalsResponse?>,
-  );
+  CommerceSubscriptionItemNextPaymentResponse _copyWith(
+          {Object? amount = sdkOmittedValue,
+          Object? date = sdkOmittedValue,
+          Object? perUnitTotals = sdkOmittedValue,
+          Object? totals = sdkOmittedValue}) =>
+      CommerceSubscriptionItemNextPaymentResponse(
+        amount: identical(amount, sdkOmittedValue)
+            ? this.amount
+            : amount as SdkOptional<CommerceMoneyResponse?>,
+        date: identical(date, sdkOmittedValue)
+            ? this.date
+            : date as SdkOptional<int?>,
+        perUnitTotals: identical(perUnitTotals, sdkOmittedValue)
+            ? this.perUnitTotals
+            : perUnitTotals as SdkOptional<List<CommercePerUnitTotal>>,
+        totals: identical(totals, sdkOmittedValue)
+            ? this.totals
+            : totals as SdkOptional<CommerceTotalsResponse?>,
+      );
 
-  factory CommerceSubscriptionItemNextPaymentResponse.fromJson(Map<String, dynamic> json) => CommerceSubscriptionItemNextPaymentResponse(
-    amount: json.containsKey('amount') ? SdkPresent(json['amount'] != null ? CommerceMoneyResponse.fromJson(json['amount'] as Map<String, dynamic>) : null) : const SdkOmitted(),
-    date: json.containsKey('date') ? SdkPresent((json['date'] as num?)?.toInt()) : const SdkOmitted(),
-    perUnitTotals: json['per_unit_totals'] != null ? SdkPresent(((json['per_unit_totals'] as List?)?.map((e) => CommercePerUnitTotal.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-    totals: json.containsKey('totals') ? SdkPresent(json['totals'] != null ? CommerceTotalsResponse.fromJson(json['totals'] as Map<String, dynamic>) : null) : const SdkOmitted(),
-  );
+  factory CommerceSubscriptionItemNextPaymentResponse.fromJson(
+          Map<String, dynamic> json) =>
+      CommerceSubscriptionItemNextPaymentResponse(
+        amount: json.containsKey('amount')
+            ? SdkPresent(json['amount'] != null
+                ? CommerceMoneyResponse.fromJson(
+                    json['amount'] as Map<String, dynamic>)
+                : null)
+            : const SdkOmitted(),
+        date: json.containsKey('date')
+            ? SdkPresent((json['date'] as num?)?.toInt())
+            : const SdkOmitted(),
+        perUnitTotals: json['per_unit_totals'] != null
+            ? SdkPresent(((json['per_unit_totals'] as List?)
+                ?.map((e) =>
+                    CommercePerUnitTotal.fromJson(e as Map<String, dynamic>))
+                .toList())!)
+            : const SdkOmitted(),
+        totals: json.containsKey('totals')
+            ? SdkPresent(json['totals'] != null
+                ? CommerceTotalsResponse.fromJson(
+                    json['totals'] as Map<String, dynamic>)
+                : null)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (amount) {
-      SdkPresent<CommerceMoneyResponse?>(value: final value) => {'amount': value?.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (date) {
-      SdkPresent<int?>(value: final value) => {'date': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (perUnitTotals) {
-      SdkPresent<List<CommercePerUnitTotal>>(value: final value) => {'per_unit_totals': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (totals) {
-      SdkPresent<CommerceTotalsResponse?>(value: final value) => {'totals': value?.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (amount) {
+          SdkPresent<CommerceMoneyResponse?>(value: final value) => {
+              'amount': value?.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (date) {
+          SdkPresent<int?>(value: final value) => {
+              'date': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (perUnitTotals) {
+          SdkPresent<List<CommercePerUnitTotal>>(value: final value) => {
+              'per_unit_totals': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (totals) {
+          SdkPresent<CommerceTotalsResponse?>(value: final value) => {
+              'totals': value?.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

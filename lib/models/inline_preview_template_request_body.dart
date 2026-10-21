@@ -7,75 +7,130 @@ part of 'inline.dart';
 class PreviewTemplateRequestBody {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The email subject. Applicable only to email templates.
   final SdkOptional<String?> subject;
+
   /// The template body before variable interpolation
   final SdkOptional<String> body;
+
   /// The local part of the From email address that will be used for emails. For example, in the address 'hello@example.com', the local part is 'hello'. Applicable only to email templates.
   final SdkOptional<String> fromEmailName;
+
   /// The local part of the Reply To email address that will be used for emails. For example, in the address 'hello@example.com', the local part is 'hello'. Applicable only to email templates.
   final SdkOptional<String> replyToEmailName;
 
-  const PreviewTemplateRequestBody({this.subject = const SdkOmitted(), this.body = const SdkOmitted(), this.fromEmailName = const SdkOmitted(), this.replyToEmailName = const SdkOmitted()});
+  const PreviewTemplateRequestBody(
+      {this.subject = const SdkOmitted(),
+      this.body = const SdkOmitted(),
+      this.fromEmailName = const SdkOmitted(),
+      this.replyToEmailName = const SdkOmitted()});
 
-  PreviewTemplateRequestBody Function({SdkOptional<String?> subject, SdkOptional<String> body, SdkOptional<String> fromEmailName, SdkOptional<String> replyToEmailName}) get copyWith => _copyWith;
+  PreviewTemplateRequestBody Function(
+      {SdkOptional<String?> subject,
+      SdkOptional<String> body,
+      SdkOptional<String> fromEmailName,
+      SdkOptional<String> replyToEmailName}) get copyWith => _copyWith;
 
-  PreviewTemplateRequestBody _copyWith({Object? subject = sdkOmittedValue, Object? body = sdkOmittedValue, Object? fromEmailName = sdkOmittedValue, Object? replyToEmailName = sdkOmittedValue}) => PreviewTemplateRequestBody(
-    subject: identical(subject, sdkOmittedValue) ? this.subject : subject as SdkOptional<String?>,
-    body: identical(body, sdkOmittedValue) ? this.body : body as SdkOptional<String>,
-    fromEmailName: identical(fromEmailName, sdkOmittedValue) ? this.fromEmailName : fromEmailName as SdkOptional<String>,
-    replyToEmailName: identical(replyToEmailName, sdkOmittedValue) ? this.replyToEmailName : replyToEmailName as SdkOptional<String>,
-  );
+  PreviewTemplateRequestBody _copyWith(
+          {Object? subject = sdkOmittedValue,
+          Object? body = sdkOmittedValue,
+          Object? fromEmailName = sdkOmittedValue,
+          Object? replyToEmailName = sdkOmittedValue}) =>
+      PreviewTemplateRequestBody(
+        subject: identical(subject, sdkOmittedValue)
+            ? this.subject
+            : subject as SdkOptional<String?>,
+        body: identical(body, sdkOmittedValue)
+            ? this.body
+            : body as SdkOptional<String>,
+        fromEmailName: identical(fromEmailName, sdkOmittedValue)
+            ? this.fromEmailName
+            : fromEmailName as SdkOptional<String>,
+        replyToEmailName: identical(replyToEmailName, sdkOmittedValue)
+            ? this.replyToEmailName
+            : replyToEmailName as SdkOptional<String>,
+      );
 
-  factory PreviewTemplateRequestBody.fromJson(Map<String, dynamic> json) => PreviewTemplateRequestBody(
-    subject: json.containsKey('subject') ? SdkPresent(json['subject'] as String?) : const SdkOmitted(),
-    body: json['body'] != null ? SdkPresent((json['body'] as String?)!) : const SdkOmitted(),
-    fromEmailName: json['from_email_name'] != null ? SdkPresent((json['from_email_name'] as String?)!) : const SdkOmitted(),
-    replyToEmailName: json['reply_to_email_name'] != null ? SdkPresent((json['reply_to_email_name'] as String?)!) : const SdkOmitted(),
-  );
+  factory PreviewTemplateRequestBody.fromJson(Map<String, dynamic> json) =>
+      PreviewTemplateRequestBody(
+        subject: json.containsKey('subject')
+            ? SdkPresent(json['subject'] as String?)
+            : const SdkOmitted(),
+        body: json['body'] != null
+            ? SdkPresent((json['body'] as String?)!)
+            : const SdkOmitted(),
+        fromEmailName: json['from_email_name'] != null
+            ? SdkPresent((json['from_email_name'] as String?)!)
+            : const SdkOmitted(),
+        replyToEmailName: json['reply_to_email_name'] != null
+            ? SdkPresent((json['reply_to_email_name'] as String?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (subject) {
-      SdkPresent<String?>(value: final value) => {'subject': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (body) {
-      SdkPresent<String>(value: final value) => {'body': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (fromEmailName) {
-      SdkPresent<String>(value: final value) => {'from_email_name': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (replyToEmailName) {
-      SdkPresent<String>(value: final value) => {'reply_to_email_name': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (subject) {
+          SdkPresent<String?>(value: final value) => {
+              'subject': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (body) {
+          SdkPresent<String>(value: final value) => {
+              'body': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (fromEmailName) {
+          SdkPresent<String>(value: final value) => {
+              'from_email_name': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (replyToEmailName) {
+          SdkPresent<String>(value: final value) => {
+              'reply_to_email_name': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 class ToggleTemplateDeliveryRequestBody {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Whether Clerk should deliver emails or SMS messages based on the current template
   final SdkOptional<bool> deliveredByClerk;
 
-  const ToggleTemplateDeliveryRequestBody({this.deliveredByClerk = const SdkOmitted()});
+  const ToggleTemplateDeliveryRequestBody(
+      {this.deliveredByClerk = const SdkOmitted()});
 
-  ToggleTemplateDeliveryRequestBody Function({SdkOptional<bool> deliveredByClerk}) get copyWith => _copyWith;
+  ToggleTemplateDeliveryRequestBody Function(
+      {SdkOptional<bool> deliveredByClerk}) get copyWith => _copyWith;
 
-  ToggleTemplateDeliveryRequestBody _copyWith({Object? deliveredByClerk = sdkOmittedValue}) => ToggleTemplateDeliveryRequestBody(
-    deliveredByClerk: identical(deliveredByClerk, sdkOmittedValue) ? this.deliveredByClerk : deliveredByClerk as SdkOptional<bool>,
-  );
+  ToggleTemplateDeliveryRequestBody _copyWith(
+          {Object? deliveredByClerk = sdkOmittedValue}) =>
+      ToggleTemplateDeliveryRequestBody(
+        deliveredByClerk: identical(deliveredByClerk, sdkOmittedValue)
+            ? this.deliveredByClerk
+            : deliveredByClerk as SdkOptional<bool>,
+      );
 
-  factory ToggleTemplateDeliveryRequestBody.fromJson(Map<String, dynamic> json) => ToggleTemplateDeliveryRequestBody(
-    deliveredByClerk: json['delivered_by_clerk'] != null ? SdkPresent((json['delivered_by_clerk'] as bool?)!) : const SdkOmitted(),
-  );
+  factory ToggleTemplateDeliveryRequestBody.fromJson(
+          Map<String, dynamic> json) =>
+      ToggleTemplateDeliveryRequestBody(
+        deliveredByClerk: json['delivered_by_clerk'] != null
+            ? SdkPresent((json['delivered_by_clerk'] as bool?)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (deliveredByClerk) {
-      SdkPresent<bool>(value: final value) => {'delivered_by_clerk': value,},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (deliveredByClerk) {
+          SdkPresent<bool>(value: final value) => {
+              'delivered_by_clerk': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

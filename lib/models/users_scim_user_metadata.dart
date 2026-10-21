@@ -8,89 +8,161 @@ part of 'users.dart';
 class SCIMUserMetadataGroupsItem {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Required `string` value serialized in the `id` wire field.
   final String id;
+
   /// Required `string` value serialized in the `display_name` wire field.
   final String displayName;
 
-  const SCIMUserMetadataGroupsItem({required this.id, required this.displayName});
+  const SCIMUserMetadataGroupsItem(
+      {required this.id, required this.displayName});
 
-  SCIMUserMetadataGroupsItem Function({String id, String displayName}) get copyWith => _copyWith;
+  SCIMUserMetadataGroupsItem Function({String id, String displayName})
+      get copyWith => _copyWith;
 
-  SCIMUserMetadataGroupsItem _copyWith({Object? id = sdkOmittedValue, Object? displayName = sdkOmittedValue}) => SCIMUserMetadataGroupsItem(
-    id: identical(id, sdkOmittedValue) ? this.id : id as String,
-    displayName: identical(displayName, sdkOmittedValue) ? this.displayName : displayName as String,
-  );
+  SCIMUserMetadataGroupsItem _copyWith(
+          {Object? id = sdkOmittedValue,
+          Object? displayName = sdkOmittedValue}) =>
+      SCIMUserMetadataGroupsItem(
+        id: identical(id, sdkOmittedValue) ? this.id : id as String,
+        displayName: identical(displayName, sdkOmittedValue)
+            ? this.displayName
+            : displayName as String,
+      );
 
-  factory SCIMUserMetadataGroupsItem.fromJson(Map<String, dynamic> json) => SCIMUserMetadataGroupsItem(
-    id: (json['id'] as String?)!,
-    displayName: (json['display_name'] as String?)!,
-  );
+  factory SCIMUserMetadataGroupsItem.fromJson(Map<String, dynamic> json) =>
+      SCIMUserMetadataGroupsItem(
+        id: (json['id'] as String?)!,
+        displayName: (json['display_name'] as String?)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'id': id,
-    'display_name': displayName,
-  };
+        'id': id,
+        'display_name': displayName,
+      };
 }
 
 /// Metadata describing a user's linkage to a directory. Included in user responses when directory data is requested, and in directory-triggered user webhooks. Its absence does not necessarily mean the user is not managed by a directory.
 class SCIMUserMetadata {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// The user's resource ID in this directory.
   final String id;
+
   /// Required `string` value serialized in the `directory_name` wire field.
   final String directoryName;
+
   /// Required `string` value serialized in the `provider` wire field.
   final String provider;
+
   /// Required `string` value serialized in the `enterprise_connection_id` wire field.
   final String? enterpriseConnectionId;
+
   /// Omitted when groups were not loaded; an empty array means no group memberships.
   final SdkOptional<List<SCIMUserMetadataGroupsItem>> groups;
+
   /// The ID of the directory the user is provisioned from.
   final String directoryId;
+
   /// Whether the directory is currently enabled.
   final bool directoryEnabled;
+
   /// The user's external ID as reported by the directory, if any.
   final String? externalId;
 
-  const SCIMUserMetadata({required this.id, required this.directoryName, required this.provider, required this.enterpriseConnectionId, this.groups = const SdkOmitted(), required this.directoryId, required this.directoryEnabled, required this.externalId});
+  const SCIMUserMetadata(
+      {required this.id,
+      required this.directoryName,
+      required this.provider,
+      required this.enterpriseConnectionId,
+      this.groups = const SdkOmitted(),
+      required this.directoryId,
+      required this.directoryEnabled,
+      required this.externalId});
 
-  SCIMUserMetadata Function({String id, String directoryName, String provider, String? enterpriseConnectionId, SdkOptional<List<SCIMUserMetadataGroupsItem>> groups, String directoryId, bool directoryEnabled, String? externalId}) get copyWith => _copyWith;
+  SCIMUserMetadata Function(
+      {String id,
+      String directoryName,
+      String provider,
+      String? enterpriseConnectionId,
+      SdkOptional<List<SCIMUserMetadataGroupsItem>> groups,
+      String directoryId,
+      bool directoryEnabled,
+      String? externalId}) get copyWith => _copyWith;
 
-  SCIMUserMetadata _copyWith({Object? id = sdkOmittedValue, Object? directoryName = sdkOmittedValue, Object? provider = sdkOmittedValue, Object? enterpriseConnectionId = sdkOmittedValue, Object? groups = sdkOmittedValue, Object? directoryId = sdkOmittedValue, Object? directoryEnabled = sdkOmittedValue, Object? externalId = sdkOmittedValue}) => SCIMUserMetadata(
-    id: identical(id, sdkOmittedValue) ? this.id : id as String,
-    directoryName: identical(directoryName, sdkOmittedValue) ? this.directoryName : directoryName as String,
-    provider: identical(provider, sdkOmittedValue) ? this.provider : provider as String,
-    enterpriseConnectionId: identical(enterpriseConnectionId, sdkOmittedValue) ? this.enterpriseConnectionId : enterpriseConnectionId as String?,
-    groups: identical(groups, sdkOmittedValue) ? this.groups : groups as SdkOptional<List<SCIMUserMetadataGroupsItem>>,
-    directoryId: identical(directoryId, sdkOmittedValue) ? this.directoryId : directoryId as String,
-    directoryEnabled: identical(directoryEnabled, sdkOmittedValue) ? this.directoryEnabled : directoryEnabled as bool,
-    externalId: identical(externalId, sdkOmittedValue) ? this.externalId : externalId as String?,
-  );
+  SCIMUserMetadata _copyWith(
+          {Object? id = sdkOmittedValue,
+          Object? directoryName = sdkOmittedValue,
+          Object? provider = sdkOmittedValue,
+          Object? enterpriseConnectionId = sdkOmittedValue,
+          Object? groups = sdkOmittedValue,
+          Object? directoryId = sdkOmittedValue,
+          Object? directoryEnabled = sdkOmittedValue,
+          Object? externalId = sdkOmittedValue}) =>
+      SCIMUserMetadata(
+        id: identical(id, sdkOmittedValue) ? this.id : id as String,
+        directoryName: identical(directoryName, sdkOmittedValue)
+            ? this.directoryName
+            : directoryName as String,
+        provider: identical(provider, sdkOmittedValue)
+            ? this.provider
+            : provider as String,
+        enterpriseConnectionId:
+            identical(enterpriseConnectionId, sdkOmittedValue)
+                ? this.enterpriseConnectionId
+                : enterpriseConnectionId as String?,
+        groups: identical(groups, sdkOmittedValue)
+            ? this.groups
+            : groups as SdkOptional<List<SCIMUserMetadataGroupsItem>>,
+        directoryId: identical(directoryId, sdkOmittedValue)
+            ? this.directoryId
+            : directoryId as String,
+        directoryEnabled: identical(directoryEnabled, sdkOmittedValue)
+            ? this.directoryEnabled
+            : directoryEnabled as bool,
+        externalId: identical(externalId, sdkOmittedValue)
+            ? this.externalId
+            : externalId as String?,
+      );
 
-  factory SCIMUserMetadata.fromJson(Map<String, dynamic> json) => SCIMUserMetadata(
-    id: (json['id'] as String?)!,
-    directoryName: (json['directory_name'] as String?)!,
-    provider: (json['provider'] as String?)!,
-    enterpriseConnectionId: json.containsKey('enterprise_connection_id') ? json['enterprise_connection_id'] as String? : throw ArgumentError.value(null, 'enterprise_connection_id', 'Required property is missing'),
-    groups: json['groups'] != null ? SdkPresent(((json['groups'] as List?)?.map((e) => SCIMUserMetadataGroupsItem.fromJson(e as Map<String, dynamic>)).toList())!) : const SdkOmitted(),
-    directoryId: (json['directory_id'] as String?)!,
-    directoryEnabled: (json['directory_enabled'] as bool?)!,
-    externalId: json.containsKey('external_id') ? json['external_id'] as String? : throw ArgumentError.value(null, 'external_id', 'Required property is missing'),
-  );
+  factory SCIMUserMetadata.fromJson(Map<String, dynamic> json) =>
+      SCIMUserMetadata(
+        id: (json['id'] as String?)!,
+        directoryName: (json['directory_name'] as String?)!,
+        provider: (json['provider'] as String?)!,
+        enterpriseConnectionId: json.containsKey('enterprise_connection_id')
+            ? json['enterprise_connection_id'] as String?
+            : throw ArgumentError.value(null, 'enterprise_connection_id',
+                'Required property is missing'),
+        groups: json['groups'] != null
+            ? SdkPresent(((json['groups'] as List?)
+                ?.map((e) => SCIMUserMetadataGroupsItem.fromJson(
+                    e as Map<String, dynamic>))
+                .toList())!)
+            : const SdkOmitted(),
+        directoryId: (json['directory_id'] as String?)!,
+        directoryEnabled: (json['directory_enabled'] as bool?)!,
+        externalId: json.containsKey('external_id')
+            ? json['external_id'] as String?
+            : throw ArgumentError.value(
+                null, 'external_id', 'Required property is missing'),
+      );
 
   Map<String, dynamic> toJson() => {
-    'id': id,
-    'directory_name': directoryName,
-    'provider': provider,
-    'enterprise_connection_id': enterpriseConnectionId,
-    ...switch (groups) {
-      SdkPresent<List<SCIMUserMetadataGroupsItem>>(value: final value) => {'groups': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-    'directory_id': directoryId,
-    'directory_enabled': directoryEnabled,
-    'external_id': externalId,
-  };
+        'id': id,
+        'directory_name': directoryName,
+        'provider': provider,
+        'enterprise_connection_id': enterpriseConnectionId,
+        ...switch (groups) {
+          SdkPresent<List<SCIMUserMetadataGroupsItem>>(value: final value) => {
+              'groups': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        'directory_id': directoryId,
+        'directory_enabled': directoryEnabled,
+        'external_id': externalId,
+      };
 }

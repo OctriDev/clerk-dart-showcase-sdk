@@ -10,27 +10,39 @@ class VerifyOAuthAccessTokenResponseVariant0ActAct {
   final SdkOptional<String> iss;
   final String sub;
 
-  const VerifyOAuthAccessTokenResponseVariant0ActAct({this.iss = const SdkOmitted(), required this.sub});
+  const VerifyOAuthAccessTokenResponseVariant0ActAct(
+      {this.iss = const SdkOmitted(), required this.sub});
 
-  VerifyOAuthAccessTokenResponseVariant0ActAct Function({SdkOptional<String> iss, String sub}) get copyWith => _copyWith;
+  VerifyOAuthAccessTokenResponseVariant0ActAct Function(
+      {SdkOptional<String> iss, String sub}) get copyWith => _copyWith;
 
-  VerifyOAuthAccessTokenResponseVariant0ActAct _copyWith({Object? iss = sdkOmittedValue, Object? sub = sdkOmittedValue}) => VerifyOAuthAccessTokenResponseVariant0ActAct(
-    iss: identical(iss, sdkOmittedValue) ? this.iss : iss as SdkOptional<String>,
-    sub: identical(sub, sdkOmittedValue) ? this.sub : sub as String,
-  );
+  VerifyOAuthAccessTokenResponseVariant0ActAct _copyWith(
+          {Object? iss = sdkOmittedValue, Object? sub = sdkOmittedValue}) =>
+      VerifyOAuthAccessTokenResponseVariant0ActAct(
+        iss: identical(iss, sdkOmittedValue)
+            ? this.iss
+            : iss as SdkOptional<String>,
+        sub: identical(sub, sdkOmittedValue) ? this.sub : sub as String,
+      );
 
-  factory VerifyOAuthAccessTokenResponseVariant0ActAct.fromJson(Map<String, dynamic> json) => VerifyOAuthAccessTokenResponseVariant0ActAct(
-    iss: json['iss'] != null ? SdkPresent((json['iss'] as String?)!) : const SdkOmitted(),
-    sub: (json['sub'] as String?)!,
-  );
+  factory VerifyOAuthAccessTokenResponseVariant0ActAct.fromJson(
+          Map<String, dynamic> json) =>
+      VerifyOAuthAccessTokenResponseVariant0ActAct(
+        iss: json['iss'] != null
+            ? SdkPresent((json['iss'] as String?)!)
+            : const SdkOmitted(),
+        sub: (json['sub'] as String?)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (iss) {
-      SdkPresent<String>(value: final value) => {'iss': value,},
-      _ => const <String, dynamic>{},
-    },
-    'sub': sub,
-  };
+        ...switch (iss) {
+          SdkPresent<String>(value: final value) => {
+              'iss': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        'sub': sub,
+      };
 }
 
 /// The actor chain of an access token issued by an OAuth 2.0 Token Exchange (RFC 8693 section 4.1). Omitted for other access tokens.
@@ -41,33 +53,64 @@ class VerifyOAuthAccessTokenResponseVariant0Act {
   final String sub;
   final SdkOptional<VerifyOAuthAccessTokenResponseVariant0ActAct> act;
 
-  const VerifyOAuthAccessTokenResponseVariant0Act({this.iss = const SdkOmitted(), required this.sub, this.act = const SdkOmitted()});
+  const VerifyOAuthAccessTokenResponseVariant0Act(
+      {this.iss = const SdkOmitted(),
+      required this.sub,
+      this.act = const SdkOmitted()});
 
-  VerifyOAuthAccessTokenResponseVariant0Act Function({SdkOptional<String> iss, String sub, SdkOptional<VerifyOAuthAccessTokenResponseVariant0ActAct> act}) get copyWith => _copyWith;
+  VerifyOAuthAccessTokenResponseVariant0Act Function(
+          {SdkOptional<String> iss,
+          String sub,
+          SdkOptional<VerifyOAuthAccessTokenResponseVariant0ActAct> act})
+      get copyWith => _copyWith;
 
-  VerifyOAuthAccessTokenResponseVariant0Act _copyWith({Object? iss = sdkOmittedValue, Object? sub = sdkOmittedValue, Object? act = sdkOmittedValue}) => VerifyOAuthAccessTokenResponseVariant0Act(
-    iss: identical(iss, sdkOmittedValue) ? this.iss : iss as SdkOptional<String>,
-    sub: identical(sub, sdkOmittedValue) ? this.sub : sub as String,
-    act: identical(act, sdkOmittedValue) ? this.act : act as SdkOptional<VerifyOAuthAccessTokenResponseVariant0ActAct>,
-  );
+  VerifyOAuthAccessTokenResponseVariant0Act _copyWith(
+          {Object? iss = sdkOmittedValue,
+          Object? sub = sdkOmittedValue,
+          Object? act = sdkOmittedValue}) =>
+      VerifyOAuthAccessTokenResponseVariant0Act(
+        iss: identical(iss, sdkOmittedValue)
+            ? this.iss
+            : iss as SdkOptional<String>,
+        sub: identical(sub, sdkOmittedValue) ? this.sub : sub as String,
+        act: identical(act, sdkOmittedValue)
+            ? this.act
+            : act as SdkOptional<VerifyOAuthAccessTokenResponseVariant0ActAct>,
+      );
 
-  factory VerifyOAuthAccessTokenResponseVariant0Act.fromJson(Map<String, dynamic> json) => VerifyOAuthAccessTokenResponseVariant0Act(
-    iss: json['iss'] != null ? SdkPresent((json['iss'] as String?)!) : const SdkOmitted(),
-    sub: (json['sub'] as String?)!,
-    act: json['act'] != null ? SdkPresent((json['act'] != null ? VerifyOAuthAccessTokenResponseVariant0ActAct.fromJson(json['act'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-  );
+  factory VerifyOAuthAccessTokenResponseVariant0Act.fromJson(
+          Map<String, dynamic> json) =>
+      VerifyOAuthAccessTokenResponseVariant0Act(
+        iss: json['iss'] != null
+            ? SdkPresent((json['iss'] as String?)!)
+            : const SdkOmitted(),
+        sub: (json['sub'] as String?)!,
+        act: json['act'] != null
+            ? SdkPresent((json['act'] != null
+                ? VerifyOAuthAccessTokenResponseVariant0ActAct.fromJson(
+                    json['act'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (iss) {
-      SdkPresent<String>(value: final value) => {'iss': value,},
-      _ => const <String, dynamic>{},
-    },
-    'sub': sub,
-    ...switch (act) {
-      SdkPresent<VerifyOAuthAccessTokenResponseVariant0ActAct>(value: final value) => {'act': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (iss) {
+          SdkPresent<String>(value: final value) => {
+              'iss': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        'sub': sub,
+        ...switch (act) {
+          SdkPresent<VerifyOAuthAccessTokenResponseVariant0ActAct>(
+            value: final value
+          ) =>
+            {
+              'act': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }
 
 class VerifyOAuthAccessTokenResponseVariant0 {
@@ -78,8 +121,10 @@ class VerifyOAuthAccessTokenResponseVariant0 {
   final String clientId;
   final String subject;
   final List<String> scopes;
+
   /// The audiences of the access token. Omitted when no audience is set.
   final SdkOptional<List<String>> aud;
+
   /// The actor chain of an access token issued by an OAuth 2.0 Token Exchange (RFC 8693 section 4.1). Omitted for other access tokens.
   final SdkOptional<VerifyOAuthAccessTokenResponseVariant0Act> act;
   final bool revoked;
@@ -89,86 +134,188 @@ class VerifyOAuthAccessTokenResponseVariant0 {
   final double createdAt;
   final double updatedAt;
 
-  const VerifyOAuthAccessTokenResponseVariant0({required this.object, required this.id, required this.clientId, required this.subject, required this.scopes, this.aud = const SdkOmitted(), this.act = const SdkOmitted(), required this.revoked, required this.revocationReason, required this.expired, required this.expiration, required this.createdAt, required this.updatedAt});
+  const VerifyOAuthAccessTokenResponseVariant0(
+      {required this.object,
+      required this.id,
+      required this.clientId,
+      required this.subject,
+      required this.scopes,
+      this.aud = const SdkOmitted(),
+      this.act = const SdkOmitted(),
+      required this.revoked,
+      required this.revocationReason,
+      required this.expired,
+      required this.expiration,
+      required this.createdAt,
+      required this.updatedAt});
 
-  VerifyOAuthAccessTokenResponseVariant0 Function({VerifyOAuthAccessTokenResponseVariant0Object object, String id, String clientId, String subject, List<String> scopes, SdkOptional<List<String>> aud, SdkOptional<VerifyOAuthAccessTokenResponseVariant0Act> act, bool revoked, String? revocationReason, bool expired, double? expiration, double createdAt, double updatedAt}) get copyWith => _copyWith;
+  VerifyOAuthAccessTokenResponseVariant0 Function(
+      {VerifyOAuthAccessTokenResponseVariant0Object object,
+      String id,
+      String clientId,
+      String subject,
+      List<String> scopes,
+      SdkOptional<List<String>> aud,
+      SdkOptional<VerifyOAuthAccessTokenResponseVariant0Act> act,
+      bool revoked,
+      String? revocationReason,
+      bool expired,
+      double? expiration,
+      double createdAt,
+      double updatedAt}) get copyWith => _copyWith;
 
-  VerifyOAuthAccessTokenResponseVariant0 _copyWith({Object? object = sdkOmittedValue, Object? id = sdkOmittedValue, Object? clientId = sdkOmittedValue, Object? subject = sdkOmittedValue, Object? scopes = sdkOmittedValue, Object? aud = sdkOmittedValue, Object? act = sdkOmittedValue, Object? revoked = sdkOmittedValue, Object? revocationReason = sdkOmittedValue, Object? expired = sdkOmittedValue, Object? expiration = sdkOmittedValue, Object? createdAt = sdkOmittedValue, Object? updatedAt = sdkOmittedValue}) => VerifyOAuthAccessTokenResponseVariant0(
-    object: identical(object, sdkOmittedValue) ? this.object : object as VerifyOAuthAccessTokenResponseVariant0Object,
-    id: identical(id, sdkOmittedValue) ? this.id : id as String,
-    clientId: identical(clientId, sdkOmittedValue) ? this.clientId : clientId as String,
-    subject: identical(subject, sdkOmittedValue) ? this.subject : subject as String,
-    scopes: identical(scopes, sdkOmittedValue) ? this.scopes : scopes as List<String>,
-    aud: identical(aud, sdkOmittedValue) ? this.aud : aud as SdkOptional<List<String>>,
-    act: identical(act, sdkOmittedValue) ? this.act : act as SdkOptional<VerifyOAuthAccessTokenResponseVariant0Act>,
-    revoked: identical(revoked, sdkOmittedValue) ? this.revoked : revoked as bool,
-    revocationReason: identical(revocationReason, sdkOmittedValue) ? this.revocationReason : revocationReason as String?,
-    expired: identical(expired, sdkOmittedValue) ? this.expired : expired as bool,
-    expiration: identical(expiration, sdkOmittedValue) ? this.expiration : expiration as double?,
-    createdAt: identical(createdAt, sdkOmittedValue) ? this.createdAt : createdAt as double,
-    updatedAt: identical(updatedAt, sdkOmittedValue) ? this.updatedAt : updatedAt as double,
-  );
+  VerifyOAuthAccessTokenResponseVariant0 _copyWith(
+          {Object? object = sdkOmittedValue,
+          Object? id = sdkOmittedValue,
+          Object? clientId = sdkOmittedValue,
+          Object? subject = sdkOmittedValue,
+          Object? scopes = sdkOmittedValue,
+          Object? aud = sdkOmittedValue,
+          Object? act = sdkOmittedValue,
+          Object? revoked = sdkOmittedValue,
+          Object? revocationReason = sdkOmittedValue,
+          Object? expired = sdkOmittedValue,
+          Object? expiration = sdkOmittedValue,
+          Object? createdAt = sdkOmittedValue,
+          Object? updatedAt = sdkOmittedValue}) =>
+      VerifyOAuthAccessTokenResponseVariant0(
+        object: identical(object, sdkOmittedValue)
+            ? this.object
+            : object as VerifyOAuthAccessTokenResponseVariant0Object,
+        id: identical(id, sdkOmittedValue) ? this.id : id as String,
+        clientId: identical(clientId, sdkOmittedValue)
+            ? this.clientId
+            : clientId as String,
+        subject: identical(subject, sdkOmittedValue)
+            ? this.subject
+            : subject as String,
+        scopes: identical(scopes, sdkOmittedValue)
+            ? this.scopes
+            : scopes as List<String>,
+        aud: identical(aud, sdkOmittedValue)
+            ? this.aud
+            : aud as SdkOptional<List<String>>,
+        act: identical(act, sdkOmittedValue)
+            ? this.act
+            : act as SdkOptional<VerifyOAuthAccessTokenResponseVariant0Act>,
+        revoked: identical(revoked, sdkOmittedValue)
+            ? this.revoked
+            : revoked as bool,
+        revocationReason: identical(revocationReason, sdkOmittedValue)
+            ? this.revocationReason
+            : revocationReason as String?,
+        expired: identical(expired, sdkOmittedValue)
+            ? this.expired
+            : expired as bool,
+        expiration: identical(expiration, sdkOmittedValue)
+            ? this.expiration
+            : expiration as double?,
+        createdAt: identical(createdAt, sdkOmittedValue)
+            ? this.createdAt
+            : createdAt as double,
+        updatedAt: identical(updatedAt, sdkOmittedValue)
+            ? this.updatedAt
+            : updatedAt as double,
+      );
 
-  factory VerifyOAuthAccessTokenResponseVariant0.fromJson(Map<String, dynamic> json) => VerifyOAuthAccessTokenResponseVariant0(
-    object: (json['object'] != null ? VerifyOAuthAccessTokenResponseVariant0Object.fromJson(json['object'] as String) : null)!,
-    id: (json['id'] as String?)!,
-    clientId: (json['client_id'] as String?)!,
-    subject: (json['subject'] as String?)!,
-    scopes: ((json['scopes'] as List?)?.map((e) => e as String).toList())!,
-    aud: json['aud'] != null ? SdkPresent(((json['aud'] as List?)?.map((e) => e as String).toList())!) : const SdkOmitted(),
-    act: json['act'] != null ? SdkPresent((json['act'] != null ? VerifyOAuthAccessTokenResponseVariant0Act.fromJson(json['act'] as Map<String, dynamic>) : null)!) : const SdkOmitted(),
-    revoked: (json['revoked'] as bool?)!,
-    revocationReason: json.containsKey('revocation_reason') ? json['revocation_reason'] as String? : throw ArgumentError.value(null, 'revocation_reason', 'Required property is missing'),
-    expired: (json['expired'] as bool?)!,
-    expiration: json.containsKey('expiration') ? (json['expiration'] as num?)?.toDouble() : throw ArgumentError.value(null, 'expiration', 'Required property is missing'),
-    createdAt: ((json['created_at'] as num?)?.toDouble())!,
-    updatedAt: ((json['updated_at'] as num?)?.toDouble())!,
-  );
+  factory VerifyOAuthAccessTokenResponseVariant0.fromJson(
+          Map<String, dynamic> json) =>
+      VerifyOAuthAccessTokenResponseVariant0(
+        object: (json['object'] != null
+            ? VerifyOAuthAccessTokenResponseVariant0Object.fromJson(
+                json['object'] as String)
+            : null)!,
+        id: (json['id'] as String?)!,
+        clientId: (json['client_id'] as String?)!,
+        subject: (json['subject'] as String?)!,
+        scopes: ((json['scopes'] as List?)?.map((e) => e as String).toList())!,
+        aud: json['aud'] != null
+            ? SdkPresent(
+                ((json['aud'] as List?)?.map((e) => e as String).toList())!)
+            : const SdkOmitted(),
+        act: json['act'] != null
+            ? SdkPresent((json['act'] != null
+                ? VerifyOAuthAccessTokenResponseVariant0Act.fromJson(
+                    json['act'] as Map<String, dynamic>)
+                : null)!)
+            : const SdkOmitted(),
+        revoked: (json['revoked'] as bool?)!,
+        revocationReason: json.containsKey('revocation_reason')
+            ? json['revocation_reason'] as String?
+            : throw ArgumentError.value(
+                null, 'revocation_reason', 'Required property is missing'),
+        expired: (json['expired'] as bool?)!,
+        expiration: json.containsKey('expiration')
+            ? (json['expiration'] as num?)?.toDouble()
+            : throw ArgumentError.value(
+                null, 'expiration', 'Required property is missing'),
+        createdAt: ((json['created_at'] as num?)?.toDouble())!,
+        updatedAt: ((json['updated_at'] as num?)?.toDouble())!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'object': object.toJson(),
-    'id': id,
-    'client_id': clientId,
-    'subject': subject,
-    'scopes': scopes,
-    ...switch (aud) {
-      SdkPresent<List<String>>(value: final value) => {'aud': value,},
-      _ => const <String, dynamic>{},
-    },
-    ...switch (act) {
-      SdkPresent<VerifyOAuthAccessTokenResponseVariant0Act>(value: final value) => {'act': value.toJson(),},
-      _ => const <String, dynamic>{},
-    },
-    'revoked': revoked,
-    'revocation_reason': revocationReason,
-    'expired': expired,
-    'expiration': expiration,
-    'created_at': createdAt,
-    'updated_at': updatedAt,
-  };
+        'object': object.toJson(),
+        'id': id,
+        'client_id': clientId,
+        'subject': subject,
+        'scopes': scopes,
+        ...switch (aud) {
+          SdkPresent<List<String>>(value: final value) => {
+              'aud': value,
+            },
+          _ => const <String, dynamic>{},
+        },
+        ...switch (act) {
+          SdkPresent<VerifyOAuthAccessTokenResponseVariant0Act>(
+            value: final value
+          ) =>
+            {
+              'act': value.toJson(),
+            },
+          _ => const <String, dynamic>{},
+        },
+        'revoked': revoked,
+        'revocation_reason': revocationReason,
+        'expired': expired,
+        'expiration': expiration,
+        'created_at': createdAt,
+        'updated_at': updatedAt,
+      };
 }
 
 class VerifyOAuthAccessTokenResponseVariant1 {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Indicates that a JWT access token is not active (expired)
   final VerifyOAuthAccessTokenResponseVariant1Active active;
 
   const VerifyOAuthAccessTokenResponseVariant1({required this.active});
 
-  VerifyOAuthAccessTokenResponseVariant1 Function({VerifyOAuthAccessTokenResponseVariant1Active active}) get copyWith => _copyWith;
+  VerifyOAuthAccessTokenResponseVariant1 Function(
+          {VerifyOAuthAccessTokenResponseVariant1Active active})
+      get copyWith => _copyWith;
 
-  VerifyOAuthAccessTokenResponseVariant1 _copyWith({Object? active = sdkOmittedValue}) => VerifyOAuthAccessTokenResponseVariant1(
-    active: identical(active, sdkOmittedValue) ? this.active : active as VerifyOAuthAccessTokenResponseVariant1Active,
-  );
+  VerifyOAuthAccessTokenResponseVariant1 _copyWith(
+          {Object? active = sdkOmittedValue}) =>
+      VerifyOAuthAccessTokenResponseVariant1(
+        active: identical(active, sdkOmittedValue)
+            ? this.active
+            : active as VerifyOAuthAccessTokenResponseVariant1Active,
+      );
 
-  factory VerifyOAuthAccessTokenResponseVariant1.fromJson(Map<String, dynamic> json) => VerifyOAuthAccessTokenResponseVariant1(
-    active: (json['active'] != null ? VerifyOAuthAccessTokenResponseVariant1Active.fromJson(json['active'] as bool) : null)!,
-  );
+  factory VerifyOAuthAccessTokenResponseVariant1.fromJson(
+          Map<String, dynamic> json) =>
+      VerifyOAuthAccessTokenResponseVariant1(
+        active: (json['active'] != null
+            ? VerifyOAuthAccessTokenResponseVariant1Active.fromJson(
+                json['active'] as bool)
+            : null)!,
+      );
 
   Map<String, dynamic> toJson() => {
-    'active': active.toJson(),
-  };
+        'active': active.toJson(),
+      };
 }
 
 sealed class VerifyOAuthAccessTokenResponse {
@@ -177,24 +324,51 @@ sealed class VerifyOAuthAccessTokenResponse {
   const VerifyOAuthAccessTokenResponse();
   factory VerifyOAuthAccessTokenResponse.fromJson(Object? json) {
     if (json is Map<String, dynamic>) {
-      try { final value = VerifyOAuthAccessTokenResponseVariant0.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return VerifyOAuthAccessTokenResponseVerifyOAuthAccessTokenResponseVariant0(value); } } catch (_) {}
-      try { final value = VerifyOAuthAccessTokenResponseVariant1.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return VerifyOAuthAccessTokenResponseVerifyOAuthAccessTokenResponseVariant1(value); } } catch (_) {}
+      try {
+        final value = VerifyOAuthAccessTokenResponseVariant0.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return VerifyOAuthAccessTokenResponseVerifyOAuthAccessTokenResponseVariant0(
+              value);
+        }
+      } catch (_) {}
+      try {
+        final value = VerifyOAuthAccessTokenResponseVariant1.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return VerifyOAuthAccessTokenResponseVerifyOAuthAccessTokenResponseVariant1(
+              value);
+        }
+      } catch (_) {}
     }
-    try { return VerifyOAuthAccessTokenResponseVerifyOAuthAccessTokenResponseVariant0(VerifyOAuthAccessTokenResponseVariant0.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return VerifyOAuthAccessTokenResponseVerifyOAuthAccessTokenResponseVariant1(VerifyOAuthAccessTokenResponseVariant1.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    throw FormatException("No variant matched for VerifyOAuthAccessTokenResponse");
+    try {
+      return VerifyOAuthAccessTokenResponseVerifyOAuthAccessTokenResponseVariant0(
+          VerifyOAuthAccessTokenResponseVariant0.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return VerifyOAuthAccessTokenResponseVerifyOAuthAccessTokenResponseVariant1(
+          VerifyOAuthAccessTokenResponseVariant1.fromJson(
+              json as Map<String, dynamic>));
+    } catch (_) {}
+    throw FormatException(
+        "No variant matched for VerifyOAuthAccessTokenResponse");
   }
   Object? toJson();
 }
 
-final class VerifyOAuthAccessTokenResponseVerifyOAuthAccessTokenResponseVariant0 extends VerifyOAuthAccessTokenResponse {
+final class VerifyOAuthAccessTokenResponseVerifyOAuthAccessTokenResponseVariant0
+    extends VerifyOAuthAccessTokenResponse {
   final VerifyOAuthAccessTokenResponseVariant0 value;
-  const VerifyOAuthAccessTokenResponseVerifyOAuthAccessTokenResponseVariant0(this.value);
-  @override Object? toJson() => value.toJson();
+  const VerifyOAuthAccessTokenResponseVerifyOAuthAccessTokenResponseVariant0(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class VerifyOAuthAccessTokenResponseVerifyOAuthAccessTokenResponseVariant1 extends VerifyOAuthAccessTokenResponse {
+final class VerifyOAuthAccessTokenResponseVerifyOAuthAccessTokenResponseVariant1
+    extends VerifyOAuthAccessTokenResponse {
   final VerifyOAuthAccessTokenResponseVariant1 value;
-  const VerifyOAuthAccessTokenResponseVerifyOAuthAccessTokenResponseVariant1(this.value);
-  @override Object? toJson() => value.toJson();
+  const VerifyOAuthAccessTokenResponseVerifyOAuthAccessTokenResponseVariant1(
+      this.value);
+  @override
+  Object? toJson() => value.toJson();
 }

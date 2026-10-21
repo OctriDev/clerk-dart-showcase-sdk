@@ -8,25 +8,35 @@ part of 'jwks.dart';
 class JWKS {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Optional array value serialized in the `keys` wire field.
   final SdkOptional<List<JWKSKeysItem>> keys;
 
   const JWKS({this.keys = const SdkOmitted()});
 
-  JWKS Function({SdkOptional<List<JWKSKeysItem>> keys}) get copyWith => _copyWith;
+  JWKS Function({SdkOptional<List<JWKSKeysItem>> keys}) get copyWith =>
+      _copyWith;
 
   JWKS _copyWith({Object? keys = sdkOmittedValue}) => JWKS(
-    keys: identical(keys, sdkOmittedValue) ? this.keys : keys as SdkOptional<List<JWKSKeysItem>>,
-  );
+        keys: identical(keys, sdkOmittedValue)
+            ? this.keys
+            : keys as SdkOptional<List<JWKSKeysItem>>,
+      );
 
   factory JWKS.fromJson(Map<String, dynamic> json) => JWKS(
-    keys: json['keys'] != null ? SdkPresent(((json['keys'] as List?)?.map((e) => JWKSKeysItem.fromJson(e)).toList())!) : const SdkOmitted(),
-  );
+        keys: json['keys'] != null
+            ? SdkPresent(((json['keys'] as List?)
+                ?.map((e) => JWKSKeysItem.fromJson(e))
+                .toList())!)
+            : const SdkOmitted(),
+      );
 
   Map<String, dynamic> toJson() => {
-    ...switch (keys) {
-      SdkPresent<List<JWKSKeysItem>>(value: final value) => {'keys': value.map((item) => item.toJson()).toList(),},
-      _ => const <String, dynamic>{},
-    },
-  };
+        ...switch (keys) {
+          SdkPresent<List<JWKSKeysItem>>(value: final value) => {
+              'keys': value.map((item) => item.toJson()).toList(),
+            },
+          _ => const <String, dynamic>{},
+        },
+      };
 }

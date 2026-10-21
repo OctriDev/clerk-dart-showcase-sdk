@@ -8,47 +8,87 @@ part of 'shared.dart';
 class FeatureResponse {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// String representing the object's type. Objects of the same type share the same value.
   final FeatureResponseObject object;
+
   /// Unique identifier for the feature.
   final String id;
+
   /// The name of the feature.
   final String name;
+
   /// The description of the feature.
   final String? description;
+
   /// The URL-friendly slug for the feature.
   final String slug;
+
   /// The URL of the feature's avatar image.
   final String? avatarUrl;
 
-  const FeatureResponse({required this.object, required this.id, required this.name, required this.description, required this.slug, required this.avatarUrl});
+  const FeatureResponse(
+      {required this.object,
+      required this.id,
+      required this.name,
+      required this.description,
+      required this.slug,
+      required this.avatarUrl});
 
-  FeatureResponse Function({FeatureResponseObject object, String id, String name, String? description, String slug, String? avatarUrl}) get copyWith => _copyWith;
+  FeatureResponse Function(
+      {FeatureResponseObject object,
+      String id,
+      String name,
+      String? description,
+      String slug,
+      String? avatarUrl}) get copyWith => _copyWith;
 
-  FeatureResponse _copyWith({Object? object = sdkOmittedValue, Object? id = sdkOmittedValue, Object? name = sdkOmittedValue, Object? description = sdkOmittedValue, Object? slug = sdkOmittedValue, Object? avatarUrl = sdkOmittedValue}) => FeatureResponse(
-    object: identical(object, sdkOmittedValue) ? this.object : object as FeatureResponseObject,
-    id: identical(id, sdkOmittedValue) ? this.id : id as String,
-    name: identical(name, sdkOmittedValue) ? this.name : name as String,
-    description: identical(description, sdkOmittedValue) ? this.description : description as String?,
-    slug: identical(slug, sdkOmittedValue) ? this.slug : slug as String,
-    avatarUrl: identical(avatarUrl, sdkOmittedValue) ? this.avatarUrl : avatarUrl as String?,
-  );
+  FeatureResponse _copyWith(
+          {Object? object = sdkOmittedValue,
+          Object? id = sdkOmittedValue,
+          Object? name = sdkOmittedValue,
+          Object? description = sdkOmittedValue,
+          Object? slug = sdkOmittedValue,
+          Object? avatarUrl = sdkOmittedValue}) =>
+      FeatureResponse(
+        object: identical(object, sdkOmittedValue)
+            ? this.object
+            : object as FeatureResponseObject,
+        id: identical(id, sdkOmittedValue) ? this.id : id as String,
+        name: identical(name, sdkOmittedValue) ? this.name : name as String,
+        description: identical(description, sdkOmittedValue)
+            ? this.description
+            : description as String?,
+        slug: identical(slug, sdkOmittedValue) ? this.slug : slug as String,
+        avatarUrl: identical(avatarUrl, sdkOmittedValue)
+            ? this.avatarUrl
+            : avatarUrl as String?,
+      );
 
-  factory FeatureResponse.fromJson(Map<String, dynamic> json) => FeatureResponse(
-    object: (json['object'] != null ? FeatureResponseObject.fromJson(json['object'] as String) : null)!,
-    id: (json['id'] as String?)!,
-    name: (json['name'] as String?)!,
-    description: json.containsKey('description') ? json['description'] as String? : throw ArgumentError.value(null, 'description', 'Required property is missing'),
-    slug: (json['slug'] as String?)!,
-    avatarUrl: json.containsKey('avatar_url') ? json['avatar_url'] as String? : throw ArgumentError.value(null, 'avatar_url', 'Required property is missing'),
-  );
+  factory FeatureResponse.fromJson(Map<String, dynamic> json) =>
+      FeatureResponse(
+        object: (json['object'] != null
+            ? FeatureResponseObject.fromJson(json['object'] as String)
+            : null)!,
+        id: (json['id'] as String?)!,
+        name: (json['name'] as String?)!,
+        description: json.containsKey('description')
+            ? json['description'] as String?
+            : throw ArgumentError.value(
+                null, 'description', 'Required property is missing'),
+        slug: (json['slug'] as String?)!,
+        avatarUrl: json.containsKey('avatar_url')
+            ? json['avatar_url'] as String?
+            : throw ArgumentError.value(
+                null, 'avatar_url', 'Required property is missing'),
+      );
 
   Map<String, dynamic> toJson() => {
-    'object': object.toJson(),
-    'id': id,
-    'name': name,
-    'description': description,
-    'slug': slug,
-    'avatar_url': avatarUrl,
-  };
+        'object': object.toJson(),
+        'id': id,
+        'name': name,
+        'description': description,
+        'slug': slug,
+        'avatar_url': avatarUrl,
+      };
 }

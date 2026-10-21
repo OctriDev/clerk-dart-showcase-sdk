@@ -6,34 +6,48 @@ part of 'inline.dart';
 // Inline operation models (part 16)
 /// When password is required at the instance level, sets the preferred sign-in strategy surfaced to Clerk components. Has no effect when password is not required. Defaults to `password`. Set to an empty string to clear the override.
 final class UpdateInstanceRequestBodyPreferredSignInStrategyWhenPasswordRequired {
-
   final String value;
 
-  const UpdateInstanceRequestBodyPreferredSignInStrategyWhenPasswordRequired._(this.value);
+  const UpdateInstanceRequestBodyPreferredSignInStrategyWhenPasswordRequired._(
+      this.value);
 
-  factory UpdateInstanceRequestBodyPreferredSignInStrategyWhenPasswordRequired.fromJson(String value) => UpdateInstanceRequestBodyPreferredSignInStrategyWhenPasswordRequired._(value);
+  factory UpdateInstanceRequestBodyPreferredSignInStrategyWhenPasswordRequired.fromJson(
+          String value) =>
+      UpdateInstanceRequestBodyPreferredSignInStrategyWhenPasswordRequired._(
+          value);
 
-  static const password = UpdateInstanceRequestBodyPreferredSignInStrategyWhenPasswordRequired._('password');
-  static const otp = UpdateInstanceRequestBodyPreferredSignInStrategyWhenPasswordRequired._('otp');
-  static const unknown = UpdateInstanceRequestBodyPreferredSignInStrategyWhenPasswordRequired._('');
+  static const password =
+      UpdateInstanceRequestBodyPreferredSignInStrategyWhenPasswordRequired._(
+          'password');
+  static const otp =
+      UpdateInstanceRequestBodyPreferredSignInStrategyWhenPasswordRequired._(
+          'otp');
+  static const unknown =
+      UpdateInstanceRequestBodyPreferredSignInStrategyWhenPasswordRequired._(
+          '');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is UpdateInstanceRequestBodyPreferredSignInStrategyWhenPasswordRequired && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other
+          is UpdateInstanceRequestBodyPreferredSignInStrategyWhenPasswordRequired &&
+      other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 final class ListInvitationsStatus {
-
   final String value;
 
   const ListInvitationsStatus._(this.value);
 
-  factory ListInvitationsStatus.fromJson(String value) => ListInvitationsStatus._(value);
+  factory ListInvitationsStatus.fromJson(String value) =>
+      ListInvitationsStatus._(value);
 
   static const pending = ListInvitationsStatus._('pending');
   static const accepted = ListInvitationsStatus._('accepted');
@@ -42,237 +56,291 @@ final class ListInvitationsStatus {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is ListInvitationsStatus && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is ListInvitationsStatus && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The slug of the email template to use for the invitation email.
 final class CreateInvitationRequestBodyTemplateSlug {
-
   final String value;
 
   const CreateInvitationRequestBodyTemplateSlug._(this.value);
 
-  factory CreateInvitationRequestBodyTemplateSlug.fromJson(String value) => CreateInvitationRequestBodyTemplateSlug._(value);
+  factory CreateInvitationRequestBodyTemplateSlug.fromJson(String value) =>
+      CreateInvitationRequestBodyTemplateSlug._(value);
 
-  static const invitation = CreateInvitationRequestBodyTemplateSlug._('invitation');
-  static const waitlistInvitation = CreateInvitationRequestBodyTemplateSlug._('waitlist_invitation');
+  static const invitation =
+      CreateInvitationRequestBodyTemplateSlug._('invitation');
+  static const waitlistInvitation =
+      CreateInvitationRequestBodyTemplateSlug._('waitlist_invitation');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is CreateInvitationRequestBodyTemplateSlug && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is CreateInvitationRequestBodyTemplateSlug && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The slug of the email template to use for the invitation email.
 final class CreateBulkInvitationsRequestBodyItemTemplateSlug {
-
   final String value;
 
   const CreateBulkInvitationsRequestBodyItemTemplateSlug._(this.value);
 
-  factory CreateBulkInvitationsRequestBodyItemTemplateSlug.fromJson(String value) => CreateBulkInvitationsRequestBodyItemTemplateSlug._(value);
+  factory CreateBulkInvitationsRequestBodyItemTemplateSlug.fromJson(
+          String value) =>
+      CreateBulkInvitationsRequestBodyItemTemplateSlug._(value);
 
-  static const invitation = CreateBulkInvitationsRequestBodyItemTemplateSlug._('invitation');
-  static const waitlistInvitation = CreateBulkInvitationsRequestBodyItemTemplateSlug._('waitlist_invitation');
+  static const invitation =
+      CreateBulkInvitationsRequestBodyItemTemplateSlug._('invitation');
+  static const waitlistInvitation =
+      CreateBulkInvitationsRequestBodyItemTemplateSlug._('waitlist_invitation');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is CreateBulkInvitationsRequestBodyItemTemplateSlug && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is CreateBulkInvitationsRequestBodyItemTemplateSlug &&
+      other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 final class GetM2MTokensResponseM2mTokensItemObject {
-
   final String value;
 
   const GetM2MTokensResponseM2mTokensItemObject._(this.value);
 
-  factory GetM2MTokensResponseM2mTokensItemObject.fromJson(String value) => GetM2MTokensResponseM2mTokensItemObject._(value);
+  factory GetM2MTokensResponseM2mTokensItemObject.fromJson(String value) =>
+      GetM2MTokensResponseM2mTokensItemObject._(value);
 
-  static const machineToMachineToken = GetM2MTokensResponseM2mTokensItemObject._('machine_to_machine_token');
+  static const machineToMachineToken =
+      GetM2MTokensResponseM2mTokensItemObject._('machine_to_machine_token');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is GetM2MTokensResponseM2mTokensItemObject && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is GetM2MTokensResponseM2mTokensItemObject && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 final class CreateM2MTokenRequestBodyTokenFormat {
-
   final String value;
 
   const CreateM2MTokenRequestBodyTokenFormat._(this.value);
 
-  factory CreateM2MTokenRequestBodyTokenFormat.fromJson(String value) => CreateM2MTokenRequestBodyTokenFormat._(value);
+  factory CreateM2MTokenRequestBodyTokenFormat.fromJson(String value) =>
+      CreateM2MTokenRequestBodyTokenFormat._(value);
 
   static const opaque = CreateM2MTokenRequestBodyTokenFormat._('opaque');
   static const jwt = CreateM2MTokenRequestBodyTokenFormat._('jwt');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is CreateM2MTokenRequestBodyTokenFormat && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is CreateM2MTokenRequestBodyTokenFormat && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 final class CreateM2MTokenResponseObject {
-
   final String value;
 
   const CreateM2MTokenResponseObject._(this.value);
 
-  factory CreateM2MTokenResponseObject.fromJson(String value) => CreateM2MTokenResponseObject._(value);
+  factory CreateM2MTokenResponseObject.fromJson(String value) =>
+      CreateM2MTokenResponseObject._(value);
 
-  static const machineToMachineToken = CreateM2MTokenResponseObject._('machine_to_machine_token');
+  static const machineToMachineToken =
+      CreateM2MTokenResponseObject._('machine_to_machine_token');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is CreateM2MTokenResponseObject && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is CreateM2MTokenResponseObject && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 final class RevokeM2MTokenResponseObject {
-
   final String value;
 
   const RevokeM2MTokenResponseObject._(this.value);
 
-  factory RevokeM2MTokenResponseObject.fromJson(String value) => RevokeM2MTokenResponseObject._(value);
+  factory RevokeM2MTokenResponseObject.fromJson(String value) =>
+      RevokeM2MTokenResponseObject._(value);
 
-  static const machineToMachineToken = RevokeM2MTokenResponseObject._('machine_to_machine_token');
+  static const machineToMachineToken =
+      RevokeM2MTokenResponseObject._('machine_to_machine_token');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is RevokeM2MTokenResponseObject && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is RevokeM2MTokenResponseObject && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 final class VerifyM2MTokenResponseObject {
-
   final String value;
 
   const VerifyM2MTokenResponseObject._(this.value);
 
-  factory VerifyM2MTokenResponseObject.fromJson(String value) => VerifyM2MTokenResponseObject._(value);
+  factory VerifyM2MTokenResponseObject.fromJson(String value) =>
+      VerifyM2MTokenResponseObject._(value);
 
-  static const machineToMachineToken = VerifyM2MTokenResponseObject._('machine_to_machine_token');
+  static const machineToMachineToken =
+      VerifyM2MTokenResponseObject._('machine_to_machine_token');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is VerifyM2MTokenResponseObject && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is VerifyM2MTokenResponseObject && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 final class ListAllOrganizationDomainsVerified {
-
   final String value;
 
   const ListAllOrganizationDomainsVerified._(this.value);
 
-  factory ListAllOrganizationDomainsVerified.fromJson(String value) => ListAllOrganizationDomainsVerified._(value);
+  factory ListAllOrganizationDomainsVerified.fromJson(String value) =>
+      ListAllOrganizationDomainsVerified._(value);
 
   static const true_ = ListAllOrganizationDomainsVerified._('true');
   static const false_ = ListAllOrganizationDomainsVerified._('false');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is ListAllOrganizationDomainsVerified && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is ListAllOrganizationDomainsVerified && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 final class ListAllOrganizationDomainsEnrollmentModeItem {
-
   final String value;
 
   const ListAllOrganizationDomainsEnrollmentModeItem._(this.value);
 
-  factory ListAllOrganizationDomainsEnrollmentModeItem.fromJson(String value) => ListAllOrganizationDomainsEnrollmentModeItem._(value);
+  factory ListAllOrganizationDomainsEnrollmentModeItem.fromJson(String value) =>
+      ListAllOrganizationDomainsEnrollmentModeItem._(value);
 
-  static const manualInvitation = ListAllOrganizationDomainsEnrollmentModeItem._('manual_invitation');
-  static const automaticInvitation = ListAllOrganizationDomainsEnrollmentModeItem._('automatic_invitation');
-  static const automaticSuggestion = ListAllOrganizationDomainsEnrollmentModeItem._('automatic_suggestion');
-  static const enterpriseSso = ListAllOrganizationDomainsEnrollmentModeItem._('enterprise_sso');
-  static const manualInvitation2 = ListAllOrganizationDomainsEnrollmentModeItem._('-manual_invitation');
-  static const automaticInvitation2 = ListAllOrganizationDomainsEnrollmentModeItem._('-automatic_invitation');
-  static const automaticSuggestion2 = ListAllOrganizationDomainsEnrollmentModeItem._('-automatic_suggestion');
-  static const enterpriseSso2 = ListAllOrganizationDomainsEnrollmentModeItem._('-enterprise_sso');
+  static const manualInvitation =
+      ListAllOrganizationDomainsEnrollmentModeItem._('manual_invitation');
+  static const automaticInvitation =
+      ListAllOrganizationDomainsEnrollmentModeItem._('automatic_invitation');
+  static const automaticSuggestion =
+      ListAllOrganizationDomainsEnrollmentModeItem._('automatic_suggestion');
+  static const enterpriseSso =
+      ListAllOrganizationDomainsEnrollmentModeItem._('enterprise_sso');
+  static const manualInvitation2 =
+      ListAllOrganizationDomainsEnrollmentModeItem._('-manual_invitation');
+  static const automaticInvitation2 =
+      ListAllOrganizationDomainsEnrollmentModeItem._('-automatic_invitation');
+  static const automaticSuggestion2 =
+      ListAllOrganizationDomainsEnrollmentModeItem._('-automatic_suggestion');
+  static const enterpriseSso2 =
+      ListAllOrganizationDomainsEnrollmentModeItem._('-enterprise_sso');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is ListAllOrganizationDomainsEnrollmentModeItem && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is ListAllOrganizationDomainsEnrollmentModeItem &&
+      other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 final class ListInstanceOrganizationInvitationsStatus {
-
   final String value;
 
   const ListInstanceOrganizationInvitationsStatus._(this.value);
 
-  factory ListInstanceOrganizationInvitationsStatus.fromJson(String value) => ListInstanceOrganizationInvitationsStatus._(value);
+  factory ListInstanceOrganizationInvitationsStatus.fromJson(String value) =>
+      ListInstanceOrganizationInvitationsStatus._(value);
 
   static const pending = ListInstanceOrganizationInvitationsStatus._('pending');
-  static const accepted = ListInstanceOrganizationInvitationsStatus._('accepted');
+  static const accepted =
+      ListInstanceOrganizationInvitationsStatus._('accepted');
   static const revoked = ListInstanceOrganizationInvitationsStatus._('revoked');
   static const expired = ListInstanceOrganizationInvitationsStatus._('expired');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is ListInstanceOrganizationInvitationsStatus && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is ListInstanceOrganizationInvitationsStatus &&
+      other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 final class ListOrganizationInvitationsStatus {
-
   final String value;
 
   const ListOrganizationInvitationsStatus._(this.value);
 
-  factory ListOrganizationInvitationsStatus.fromJson(String value) => ListOrganizationInvitationsStatus._(value);
+  factory ListOrganizationInvitationsStatus.fromJson(String value) =>
+      ListOrganizationInvitationsStatus._(value);
 
   static const pending = ListOrganizationInvitationsStatus._('pending');
   static const accepted = ListOrganizationInvitationsStatus._('accepted');
@@ -281,10 +349,13 @@ final class ListOrganizationInvitationsStatus {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is ListOrganizationInvitationsStatus && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is ListOrganizationInvitationsStatus && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }

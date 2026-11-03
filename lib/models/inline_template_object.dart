@@ -6,7 +6,6 @@ part of 'inline.dart';
 // Inline operation models
 /// String representing the object's type. Objects of the same type share the same value.
 final class TemplateObject {
-
   final String value;
 
   const TemplateObject._(this.value);
@@ -17,33 +16,39 @@ final class TemplateObject {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is TemplateObject && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is TemplateObject && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Required enumerated value serialized in the `object` wire field.
 final class TestingTokenObject {
-
   final String value;
 
   const TestingTokenObject._(this.value);
 
-  factory TestingTokenObject.fromJson(String value) => TestingTokenObject._(value);
+  factory TestingTokenObject.fromJson(String value) =>
+      TestingTokenObject._(value);
 
   static const testingToken = TestingTokenObject._('testing_token');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is TestingTokenObject && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is TestingTokenObject && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// String representing the object's type. Objects of the same type share the same value.
@@ -52,14 +57,17 @@ enum TokenObject {
 
   static TokenObject fromJson(String value) {
     switch (value) {
-      case 'token': return TokenObject.token;
-      default: throw ArgumentError('Unknown TokenObject: $value');
+      case 'token':
+        return TokenObject.token;
+      default:
+        throw ArgumentError('Unknown TokenObject: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case TokenObject.token: return 'token';
+      case TokenObject.token:
+        return 'token';
     }
   }
 
@@ -69,7 +77,6 @@ enum TokenObject {
 
 /// String representing the object's type. Objects of the same type share the same value.
 final class TotalCountObject {
-
   final String value;
 
   const TotalCountObject._(this.value);
@@ -80,103 +87,117 @@ final class TotalCountObject {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is TotalCountObject && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is TotalCountObject && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Required enumerated value serialized in the `algorithm` wire field.
 final class TrustedDeviceAlgorithm {
-
   final String value;
 
   const TrustedDeviceAlgorithm._(this.value);
 
-  factory TrustedDeviceAlgorithm.fromJson(String value) => TrustedDeviceAlgorithm._(value);
+  factory TrustedDeviceAlgorithm.fromJson(String value) =>
+      TrustedDeviceAlgorithm._(value);
 
   static const es256 = TrustedDeviceAlgorithm._('ES256');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is TrustedDeviceAlgorithm && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is TrustedDeviceAlgorithm && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// String representing the object's type.
 final class TrustedDeviceObject {
-
   final String value;
 
   const TrustedDeviceObject._(this.value);
 
-  factory TrustedDeviceObject.fromJson(String value) => TrustedDeviceObject._(value);
+  factory TrustedDeviceObject.fromJson(String value) =>
+      TrustedDeviceObject._(value);
 
   static const trustedDevice = TrustedDeviceObject._('trusted_device');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is TrustedDeviceObject && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is TrustedDeviceObject && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Required enumerated value serialized in the `platform` wire field.
 final class TrustedDevicePlatform {
-
   final String value;
 
   const TrustedDevicePlatform._(this.value);
 
-  factory TrustedDevicePlatform.fromJson(String value) => TrustedDevicePlatform._(value);
+  factory TrustedDevicePlatform.fromJson(String value) =>
+      TrustedDevicePlatform._(value);
 
   static const ios = TrustedDevicePlatform._('ios');
   static const android = TrustedDevicePlatform._('android');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is TrustedDevicePlatform && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is TrustedDevicePlatform && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Required enumerated value serialized in the `status` wire field.
 final class TrustedDeviceStatus {
-
   final String value;
 
   const TrustedDeviceStatus._(this.value);
 
-  factory TrustedDeviceStatus.fromJson(String value) => TrustedDeviceStatus._(value);
+  factory TrustedDeviceStatus.fromJson(String value) =>
+      TrustedDeviceStatus._(value);
 
   static const active = TrustedDeviceStatus._('active');
   static const revoked = TrustedDeviceStatus._('revoked');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is TrustedDeviceStatus && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is TrustedDeviceStatus && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// String representing the object's type. Objects of the same type share the same value.
 final class UserObject {
-
   final String value;
 
   const UserObject._(this.value);
@@ -187,12 +208,14 @@ final class UserObject {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is UserObject && other.value == value;
+  @override
+  bool operator ==(Object other) => other is UserObject && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Optional enumerated value serialized in the `object` wire field.
@@ -201,14 +224,17 @@ enum VerificationAdminObject {
 
   static VerificationAdminObject fromJson(String value) {
     switch (value) {
-      case 'verification_admin': return VerificationAdminObject.verificationAdmin;
-      default: throw ArgumentError('Unknown VerificationAdminObject: $value');
+      case 'verification_admin':
+        return VerificationAdminObject.verificationAdmin;
+      default:
+        throw ArgumentError('Unknown VerificationAdminObject: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case VerificationAdminObject.verificationAdmin: return 'verification_admin';
+      case VerificationAdminObject.verificationAdmin:
+        return 'verification_admin';
     }
   }
 
@@ -218,44 +244,50 @@ enum VerificationAdminObject {
 
 /// Required enumerated value serialized in the `status` wire field.
 final class VerificationAdminStatus {
-
   final String value;
 
   const VerificationAdminStatus._(this.value);
 
-  factory VerificationAdminStatus.fromJson(String value) => VerificationAdminStatus._(value);
+  factory VerificationAdminStatus.fromJson(String value) =>
+      VerificationAdminStatus._(value);
 
   static const verified = VerificationAdminStatus._('verified');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is VerificationAdminStatus && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is VerificationAdminStatus && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Required enumerated value serialized in the `strategy` wire field.
 final class VerificationAdminStrategy {
-
   final String value;
 
   const VerificationAdminStrategy._(this.value);
 
-  factory VerificationAdminStrategy.fromJson(String value) => VerificationAdminStrategy._(value);
+  factory VerificationAdminStrategy.fromJson(String value) =>
+      VerificationAdminStrategy._(value);
 
   static const admin = VerificationAdminStrategy._('admin');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is VerificationAdminStrategy && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is VerificationAdminStrategy && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Optional enumerated value serialized in the `object` wire field.
@@ -264,14 +296,17 @@ enum VerificationEmailLinkObject {
 
   static VerificationEmailLinkObject fromJson(String value) {
     switch (value) {
-      case 'verification_email_link': return VerificationEmailLinkObject.verificationEmailLink;
-      default: throw ArgumentError('Unknown VerificationEmailLinkObject: $value');
+      case 'verification_email_link':
+        return VerificationEmailLinkObject.verificationEmailLink;
+      default:
+        throw ArgumentError('Unknown VerificationEmailLinkObject: $value');
     }
   }
 
   String toJson() {
     switch (this) {
-      case VerificationEmailLinkObject.verificationEmailLink: return 'verification_email_link';
+      case VerificationEmailLinkObject.verificationEmailLink:
+        return 'verification_email_link';
     }
   }
 

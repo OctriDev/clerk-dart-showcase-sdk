@@ -8,33 +8,54 @@ part of 'shared_commerce.dart';
 class CommercePerUnitTotal implements SdkJsonModel {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Name of the billable unit (for example, `seats`).
   final String name;
+
   /// Number of units included in each pricing block.
   final int blockSize;
+
   /// Computed totals for each pricing tier.
   final List<CommercePerUnitTotalTier> tiers;
 
-  const CommercePerUnitTotal({required this.name, required this.blockSize, required this.tiers});
+  const CommercePerUnitTotal(
+      {required this.name, required this.blockSize, required this.tiers});
 
-  CommercePerUnitTotal Function({String name, int blockSize, List<CommercePerUnitTotalTier> tiers}) get copyWith => _copyWith;
+  CommercePerUnitTotal Function(
+      {String name,
+      int blockSize,
+      List<CommercePerUnitTotalTier> tiers}) get copyWith => _copyWith;
 
-  CommercePerUnitTotal _copyWith({Object? name = sdkOmittedValue, Object? blockSize = sdkOmittedValue, Object? tiers = sdkOmittedValue}) => CommercePerUnitTotal(
-    name: identical(name, sdkOmittedValue) ? this.name : name as String,
-    blockSize: identical(blockSize, sdkOmittedValue) ? this.blockSize : blockSize as int,
-    tiers: identical(tiers, sdkOmittedValue) ? this.tiers : tiers as List<CommercePerUnitTotalTier>,
-  );
+  CommercePerUnitTotal _copyWith(
+          {Object? name = sdkOmittedValue,
+          Object? blockSize = sdkOmittedValue,
+          Object? tiers = sdkOmittedValue}) =>
+      CommercePerUnitTotal(
+        name: identical(name, sdkOmittedValue) ? this.name : name as String,
+        blockSize: identical(blockSize, sdkOmittedValue)
+            ? this.blockSize
+            : blockSize as int,
+        tiers: identical(tiers, sdkOmittedValue)
+            ? this.tiers
+            : tiers as List<CommercePerUnitTotalTier>,
+      );
 
-  factory CommercePerUnitTotal.fromJson(Map<String, dynamic> json) => sdkKeepRawJson(CommercePerUnitTotal(
-    name: (json['name'] as String?)!,
-    blockSize: ((json['block_size'] as num?)?.toInt())!,
-    tiers: ((json['tiers'] as List?)?.map((e) => CommercePerUnitTotalTier.fromJson(e as Map<String, dynamic>)).toList())!,
-  ), json);
+  factory CommercePerUnitTotal.fromJson(Map<String, dynamic> json) =>
+      sdkKeepRawJson(
+          CommercePerUnitTotal(
+            name: (json['name'] as String?)!,
+            blockSize: ((json['block_size'] as num?)?.toInt())!,
+            tiers: ((json['tiers'] as List?)
+                ?.map((e) => CommercePerUnitTotalTier.fromJson(
+                    e as Map<String, dynamic>))
+                .toList())!,
+          ),
+          json);
 
   @override
   Map<String, dynamic> toJson() => {
-    'name': name,
-    'block_size': blockSize,
-    'tiers': tiers.map((item) => item.toJson()).toList(),
-  };
+        'name': name,
+        'block_size': blockSize,
+        'tiers': tiers.map((item) => item.toJson()).toList(),
+      };
 }

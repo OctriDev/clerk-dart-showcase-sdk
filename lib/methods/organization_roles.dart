@@ -39,19 +39,31 @@ Future<Roles> listOrganizationRoles(ClientConfig config,
   return (await sdkRequest<Roles>('GET', '/organization_roles',
           config: config,
           query: {
-            'query': SdkQueryValue(SdkUtils.unwrapOptional(query), style: 'form', explode: true),
-            'order_by': SdkQueryValue(SdkUtils.unwrapOptional(orderBy), style: 'form', explode: true),
-            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit), style: 'form', explode: true),
-            'offset': SdkQueryValue(SdkUtils.unwrapOptional(offset), style: 'form', explode: true)
+            'query': SdkQueryValue(SdkUtils.unwrapOptional(query),
+                style: 'form', explode: true),
+            'order_by': SdkQueryValue(SdkUtils.unwrapOptional(orderBy),
+                style: 'form', explode: true),
+            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit),
+                style: 'form', explode: true),
+            'offset': SdkQueryValue(SdkUtils.unwrapOptional(offset),
+                style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'listOrganizationRoles',
           fromJsonRaw: (value) => Roles.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '401': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '403': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '422': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '400': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>),
+            '401': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>),
+            '403': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>),
+            '422': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Creates a new organization role with the given name and permissions for an instance. The key must be unique for the instance and start with the 'org:' prefix, followed by lowercase alphanumeric characters and underscores only. You can optionally provide a description for the role and specify whether it should be included in the initial role set. Organization roles support permissions that can be assigned to control access within the organization.
 ///
@@ -76,16 +88,29 @@ Future<Role> createOrganizationRole(ClientConfig config,
             'key': key,
             'description': SdkUtils.unwrapOptional(description),
             'permissions': SdkUtils.unwrapOptional(permissions),
-            'include_in_initial_role_set': SdkUtils.unwrapOptional(includeInInitialRoleSet)
+            'include_in_initial_role_set':
+                SdkUtils.unwrapOptional(includeInInitialRoleSet)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'createOrganizationRole',
           fromJsonRaw: (value) => Role.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '401': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '402': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '403': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '404': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '422': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '400': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>),
+            '401': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>),
+            '402': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>),
+            '403': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>),
+            '404': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>),
+            '422': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Use this request to retrieve an existing organization role by its ID.
 ///
@@ -100,10 +125,13 @@ Future<Role> getOrganizationRole(ClientConfig config,
           operationId: 'getOrganizationRole',
           fromJsonRaw: (value) => Role.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '403': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '404': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '401': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>),
+        '403': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>),
+        '404': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// Updates an existing organization role. You can update the name, key, description, and permissions of the role. All parameters are optional - you can update only the fields you want to change. If the role is used as a creator role or domain default role, updating the key will cascade the update to the organization settings.
 ///
@@ -134,10 +162,20 @@ Future<Role> updateOrganizationRole(ClientConfig config,
           operationId: 'updateOrganizationRole',
           fromJsonRaw: (value) => Role.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '401': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '403': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '404': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '422': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '400': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>),
+            '401': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>),
+            '403': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>),
+            '404': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>),
+            '422': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Deletes the organization role. The role cannot be deleted if it is currently used as the default creator role, domain default role, assigned to any members, or exists in any invitations.
 ///
@@ -150,12 +188,17 @@ Future<DeletedObject> deleteOrganizationRole(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'deleteOrganizationRole',
-          fromJsonRaw: (value) => DeletedObject.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              DeletedObject.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '403': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '404': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '422': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '401': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>),
+        '403': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>),
+        '404': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>),
+        '422': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// Assigns a permission to an organization role. Use the `organization_role_id` and `permission_id` path parameters to identify the role and permission to link. The response contains the updated role and its permissions.
 ///
@@ -174,10 +217,14 @@ Future<Role> assignPermissionToOrganizationRole(ClientConfig config,
           operationId: 'assignPermissionToOrganizationRole',
           fromJsonRaw: (value) => Role.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '403': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '404': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '409': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '401': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>),
+        '403': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>),
+        '404': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>),
+        '409': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// Removes a permission from an organization role. Use the `organization_role_id` and `permission_id` path parameters to identify the role and permission to unlink. The response contains the updated role and its remaining permissions.
 ///
@@ -196,6 +243,11 @@ Future<Role> removePermissionFromOrganizationRole(ClientConfig config,
           operationId: 'removePermissionFromOrganizationRole',
           fromJsonRaw: (value) => Role.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '403': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '404': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '422': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '401': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>),
+        '403': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>),
+        '404': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>),
+        '422': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }

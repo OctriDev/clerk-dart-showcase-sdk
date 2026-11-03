@@ -37,12 +37,21 @@ Future<OrganizationMembership> createOrganizationMembership(ClientConfig config,
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'createOrganizationMembership',
-          fromJsonRaw: (value) => OrganizationMembership.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              OrganizationMembership.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '403': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '404': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '422': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '400': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>),
+            '403': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>),
+            '404': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>),
+            '422': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Retrieves all user memberships for the given organization
 ///
@@ -130,33 +139,72 @@ Future<OrganizationMemberships> listOrganizationMemberships(ClientConfig config,
           '/organizations/${Uri.encodeComponent(organizationId.toString())}/memberships',
           config: config,
           query: {
-            'order_by': SdkQueryValue(SdkUtils.unwrapOptional(orderBy), style: 'form', explode: true),
-            'user_id': SdkQueryValue(SdkUtils.unwrapOptional(userId), style: 'form', explode: true),
-            'email_address': SdkQueryValue(SdkUtils.unwrapOptional(emailAddress), style: 'form', explode: true),
-            'phone_number': SdkQueryValue(SdkUtils.unwrapOptional(phoneNumber), style: 'form', explode: true),
-            'username': SdkQueryValue(SdkUtils.unwrapOptional(username), style: 'form', explode: true),
-            'web3_wallet': SdkQueryValue(SdkUtils.unwrapOptional(web3Wallet), style: 'form', explode: true),
-            'role': SdkQueryValue(SdkUtils.unwrapOptional(role), style: 'form', explode: true),
-            'query': SdkQueryValue(SdkUtils.unwrapOptional(query), style: 'form', explode: true),
-            'email_address_query': SdkQueryValue(SdkUtils.unwrapOptional(emailAddressQuery), style: 'form', explode: true),
-            'phone_number_query': SdkQueryValue(SdkUtils.unwrapOptional(phoneNumberQuery), style: 'form', explode: true),
-            'username_query': SdkQueryValue(SdkUtils.unwrapOptional(usernameQuery), style: 'form', explode: true),
-            'name_query': SdkQueryValue(SdkUtils.unwrapOptional(nameQuery), style: 'form', explode: true),
-            'last_active_at_before': SdkQueryValue(SdkUtils.unwrapOptional(lastActiveAtBefore), style: 'form', explode: true),
-            'last_active_at_after': SdkQueryValue(SdkUtils.unwrapOptional(lastActiveAtAfter), style: 'form', explode: true),
-            'created_at_before': SdkQueryValue(SdkUtils.unwrapOptional(createdAtBefore), style: 'form', explode: true),
-            'created_at_after': SdkQueryValue(SdkUtils.unwrapOptional(createdAtAfter), style: 'form', explode: true),
-            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit), style: 'form', explode: true),
-            'offset': SdkQueryValue(SdkUtils.unwrapOptional(offset), style: 'form', explode: true)
+            'order_by': SdkQueryValue(SdkUtils.unwrapOptional(orderBy),
+                style: 'form', explode: true),
+            'user_id': SdkQueryValue(SdkUtils.unwrapOptional(userId),
+                style: 'form', explode: true),
+            'email_address': SdkQueryValue(
+                SdkUtils.unwrapOptional(emailAddress),
+                style: 'form',
+                explode: true),
+            'phone_number': SdkQueryValue(SdkUtils.unwrapOptional(phoneNumber),
+                style: 'form', explode: true),
+            'username': SdkQueryValue(SdkUtils.unwrapOptional(username),
+                style: 'form', explode: true),
+            'web3_wallet': SdkQueryValue(SdkUtils.unwrapOptional(web3Wallet),
+                style: 'form', explode: true),
+            'role': SdkQueryValue(SdkUtils.unwrapOptional(role),
+                style: 'form', explode: true),
+            'query': SdkQueryValue(SdkUtils.unwrapOptional(query),
+                style: 'form', explode: true),
+            'email_address_query': SdkQueryValue(
+                SdkUtils.unwrapOptional(emailAddressQuery),
+                style: 'form',
+                explode: true),
+            'phone_number_query': SdkQueryValue(
+                SdkUtils.unwrapOptional(phoneNumberQuery),
+                style: 'form',
+                explode: true),
+            'username_query': SdkQueryValue(
+                SdkUtils.unwrapOptional(usernameQuery),
+                style: 'form',
+                explode: true),
+            'name_query': SdkQueryValue(SdkUtils.unwrapOptional(nameQuery),
+                style: 'form', explode: true),
+            'last_active_at_before': SdkQueryValue(
+                SdkUtils.unwrapOptional(lastActiveAtBefore),
+                style: 'form',
+                explode: true),
+            'last_active_at_after': SdkQueryValue(
+                SdkUtils.unwrapOptional(lastActiveAtAfter),
+                style: 'form',
+                explode: true),
+            'created_at_before': SdkQueryValue(
+                SdkUtils.unwrapOptional(createdAtBefore),
+                style: 'form',
+                explode: true),
+            'created_at_after': SdkQueryValue(
+                SdkUtils.unwrapOptional(createdAtAfter),
+                style: 'form',
+                explode: true),
+            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit),
+                style: 'form', explode: true),
+            'offset': SdkQueryValue(SdkUtils.unwrapOptional(offset),
+                style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'listOrganizationMemberships',
-          fromJsonRaw: (value) => OrganizationMemberships.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              OrganizationMemberships.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '422': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '401': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>),
+            '422': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Updates the properties of an existing organization membership
 ///
@@ -174,12 +222,17 @@ Future<OrganizationMembership> updateOrganizationMembership(ClientConfig config,
           body: {'role': role},
           decoder: SdkResponseDecoder.json,
           operationId: 'updateOrganizationMembership',
-          fromJsonRaw: (value) => OrganizationMembership.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              OrganizationMembership.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'404': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '422': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '404': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>),
+            '422': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Removes the given membership from the organization
 ///
@@ -194,12 +247,16 @@ Future<OrganizationMembership> deleteOrganizationMembership(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'deleteOrganizationMembership',
-          fromJsonRaw: (value) => OrganizationMembership.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              OrganizationMembership.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '404': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '422': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '401': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>),
+        '404': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>),
+        '422': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// Update an organization membership's metadata attributes by merging existing values with the provided parameters. Metadata values will be updated via a deep merge. Deep means that any nested JSON objects will be merged as well. You can remove metadata keys at any level by setting their value to `null`.
 ///
@@ -211,13 +268,13 @@ Future<OrganizationMembership> deleteOrganizationMembership(ClientConfig config,
 /// [privateMetadata] Metadata saved on the organization membership that is only
 ///   visible to your backend. The new object will be merged with the existing
 ///   value.
-Future<OrganizationMembership>
-    updateOrganizationMembershipMetadata(ClientConfig config,
-        {required String organizationId,
-        required String userId,
-        SdkOptional<Map<String, Object?>> publicMetadata = const SdkOmitted(),
-        SdkOptional<Map<String, Object?>> privateMetadata = const SdkOmitted(),
-        RequestOptions? requestOptions}) async {
+Future<OrganizationMembership> updateOrganizationMembershipMetadata(
+    ClientConfig config,
+    {required String organizationId,
+    required String userId,
+    SdkOptional<Map<String, Object?>> publicMetadata = const SdkOmitted(),
+    SdkOptional<Map<String, Object?>> privateMetadata = const SdkOmitted(),
+    RequestOptions? requestOptions}) async {
   return (await sdkRequest<OrganizationMembership>('PATCH',
           '/organizations/${Uri.encodeComponent(organizationId.toString())}/memberships/${Uri.encodeComponent(userId.toString())}/metadata',
           config: config,
@@ -227,12 +284,19 @@ Future<OrganizationMembership>
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'updateOrganizationMembershipMetadata',
-          fromJsonRaw: (value) => OrganizationMembership.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              OrganizationMembership.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '404': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '422': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '400': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>),
+            '404': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>),
+            '422': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Retrieves all organization user memberships for the given instance.
 ///
@@ -244,12 +308,12 @@ Future<OrganizationMembership>
 ///   paginating the results together with `offset`.
 /// [offset] Skip the first `offset` results when paginating. Needs to be an
 ///   integer greater or equal to zero. To be used in conjunction with `limit`.
-Future<OrganizationMemberships>
-    listOrganizationMembershipsAll(ClientConfig config,
-        {SdkOptional<String> orderBy = const SdkOmitted(),
-        SdkOptional<int> limit = const SdkOmitted(),
-        SdkOptional<int> offset = const SdkOmitted(),
-        RequestOptions? requestOptions}) async {
+Future<OrganizationMemberships> listOrganizationMembershipsAll(
+    ClientConfig config,
+    {SdkOptional<String> orderBy = const SdkOmitted(),
+    SdkOptional<int> limit = const SdkOmitted(),
+    SdkOptional<int> offset = const SdkOmitted(),
+    RequestOptions? requestOptions}) async {
   if (limit is SdkPresent<int>) {
     validateRange('limit', limit.value, min: 1, max: 500);
   }
@@ -261,14 +325,27 @@ Future<OrganizationMemberships>
           'GET', '/organization_memberships',
           config: config,
           query: {
-            'order_by': SdkQueryValue(SdkUtils.unwrapOptional(orderBy), style: 'form', explode: true),
-            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit), style: 'form', explode: true),
-            'offset': SdkQueryValue(SdkUtils.unwrapOptional(offset), style: 'form', explode: true)
+            'order_by': SdkQueryValue(SdkUtils.unwrapOptional(orderBy),
+                style: 'form', explode: true),
+            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit),
+                style: 'form', explode: true),
+            'offset': SdkQueryValue(SdkUtils.unwrapOptional(offset),
+                style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'listOrganizationMembershipsAll',
-          fromJsonRaw: (value) => OrganizationMemberships.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              OrganizationMemberships.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '401': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '422': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '500': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '400': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>),
+            '401': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>),
+            '422': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>),
+            '500': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }

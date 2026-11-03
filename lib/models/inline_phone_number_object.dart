@@ -6,28 +6,30 @@ part of 'inline.dart';
 // Inline operation models
 /// String representing the object's type. Objects of the same type share the same value.
 final class PhoneNumberObject {
-
   final String value;
 
   const PhoneNumberObject._(this.value);
 
-  factory PhoneNumberObject.fromJson(String value) => PhoneNumberObject._(value);
+  factory PhoneNumberObject.fromJson(String value) =>
+      PhoneNumberObject._(value);
 
   static const phoneNumber = PhoneNumberObject._('phone_number');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is PhoneNumberObject && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is PhoneNumberObject && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Required enumerated value serialized in the `object` wire field.
 final class ProxyCheckObject {
-
   final String value;
 
   const ProxyCheckObject._(this.value);
@@ -38,43 +40,49 @@ final class ProxyCheckObject {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is ProxyCheckObject && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is ProxyCheckObject && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Required enumerated value serialized in the `object` wire field.
 final class RedirectURLObject {
-
   final String value;
 
   const RedirectURLObject._(this.value);
 
-  factory RedirectURLObject.fromJson(String value) => RedirectURLObject._(value);
+  factory RedirectURLObject.fromJson(String value) =>
+      RedirectURLObject._(value);
 
   static const redirectUrl = RedirectURLObject._('redirect_url');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is RedirectURLObject && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is RedirectURLObject && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The level used for the reverification
 final class ReverificationLevel {
-
   final String value;
 
   const ReverificationLevel._(this.value);
 
-  factory ReverificationLevel.fromJson(String value) => ReverificationLevel._(value);
+  factory ReverificationLevel.fromJson(String value) =>
+      ReverificationLevel._(value);
 
   static const firstFactor = ReverificationLevel._('first_factor');
   static const secondFactor = ReverificationLevel._('second_factor');
@@ -82,61 +90,70 @@ final class ReverificationLevel {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is ReverificationLevel && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is ReverificationLevel && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// String representing the object's type. Objects of the same type share the same value.
 final class ReverificationObject {
-
   final String value;
 
   const ReverificationObject._(this.value);
 
-  factory ReverificationObject.fromJson(String value) => ReverificationObject._(value);
+  factory ReverificationObject.fromJson(String value) =>
+      ReverificationObject._(value);
 
   static const reverification = ReverificationObject._('reverification');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is ReverificationObject && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is ReverificationObject && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Required enumerated value serialized in the `status` wire field.
 final class ReverificationStatus {
-
   final String value;
 
   const ReverificationStatus._(this.value);
 
-  factory ReverificationStatus.fromJson(String value) => ReverificationStatus._(value);
+  factory ReverificationStatus.fromJson(String value) =>
+      ReverificationStatus._(value);
 
   static const needsFirstFactor = ReverificationStatus._('needs_first_factor');
-  static const needsSecondFactor = ReverificationStatus._('needs_second_factor');
+  static const needsSecondFactor =
+      ReverificationStatus._('needs_second_factor');
   static const complete = ReverificationStatus._('complete');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is ReverificationStatus && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is ReverificationStatus && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Required enumerated value serialized in the `object` wire field.
 final class RoleObject {
-
   final String value;
 
   const RoleObject._(this.value);
@@ -147,17 +164,18 @@ final class RoleObject {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is RoleObject && other.value == value;
+  @override
+  bool operator ==(Object other) => other is RoleObject && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Required enumerated value serialized in the `object` wire field.
 final class RoleSetObject {
-
   final String value;
 
   const RoleSetObject._(this.value);
@@ -168,17 +186,19 @@ final class RoleSetObject {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is RoleSetObject && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is RoleSetObject && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// The type of the role set ("initial" or "custom")
 final class RoleSetType {
-
   final String value;
 
   const RoleSetType._(this.value);
@@ -190,94 +210,110 @@ final class RoleSetType {
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is RoleSetType && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is RoleSetType && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Required enumerated value serialized in the `object` wire field.
 final class RoleSetItemObject {
-
   final String value;
 
   const RoleSetItemObject._(this.value);
 
-  factory RoleSetItemObject.fromJson(String value) => RoleSetItemObject._(value);
+  factory RoleSetItemObject.fromJson(String value) =>
+      RoleSetItemObject._(value);
 
   static const roleSetItem = RoleSetItemObject._('role_set_item');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is RoleSetItemObject && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is RoleSetItemObject && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Required enumerated value serialized in the `object` wire field.
 final class RoleSetMigrationObject {
-
   final String value;
 
   const RoleSetMigrationObject._(this.value);
 
-  factory RoleSetMigrationObject.fromJson(String value) => RoleSetMigrationObject._(value);
+  factory RoleSetMigrationObject.fromJson(String value) =>
+      RoleSetMigrationObject._(value);
 
-  static const roleSetMigration = RoleSetMigrationObject._('role_set_migration');
+  static const roleSetMigration =
+      RoleSetMigrationObject._('role_set_migration');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is RoleSetMigrationObject && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is RoleSetMigrationObject && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// String representing the object's type. Objects of the same type share the same value.
 final class SAMLAccountObject {
-
   final String value;
 
   const SAMLAccountObject._(this.value);
 
-  factory SAMLAccountObject.fromJson(String value) => SAMLAccountObject._(value);
+  factory SAMLAccountObject.fromJson(String value) =>
+      SAMLAccountObject._(value);
 
   static const samlAccount = SAMLAccountObject._('saml_account');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is SAMLAccountObject && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is SAMLAccountObject && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }
 
 /// Required enumerated value serialized in the `object` wire field.
 final class SAMLConnectionObject {
-
   final String value;
 
   const SAMLConnectionObject._(this.value);
 
-  factory SAMLConnectionObject.fromJson(String value) => SAMLConnectionObject._(value);
+  factory SAMLConnectionObject.fromJson(String value) =>
+      SAMLConnectionObject._(value);
 
   static const samlConnection = SAMLConnectionObject._('saml_connection');
 
   String toJson() => value;
 
-  @override String toString() => value.toString();
+  @override
+  String toString() => value.toString();
 
-  @override bool operator ==(Object other) => other is SAMLConnectionObject && other.value == value;
+  @override
+  bool operator ==(Object other) =>
+      other is SAMLConnectionObject && other.value == value;
 
-  @override int get hashCode => value.hashCode;
-
+  @override
+  int get hashCode => value.hashCode;
 }

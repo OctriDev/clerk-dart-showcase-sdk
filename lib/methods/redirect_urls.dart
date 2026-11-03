@@ -30,17 +30,21 @@ Future<List<RedirectURL>> listRedirectUrls(ClientConfig config,
   return (await sdkRequest<List<RedirectURL>>('GET', '/redirect_urls',
           config: config,
           query: {
-            'paginated': SdkQueryValue(SdkUtils.unwrapOptional(paginated), style: 'form', explode: true),
-            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit), style: 'form', explode: true),
-            'offset': SdkQueryValue(SdkUtils.unwrapOptional(offset), style: 'form', explode: true)
+            'paginated': SdkQueryValue(SdkUtils.unwrapOptional(paginated),
+                style: 'form', explode: true),
+            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit),
+                style: 'form', explode: true),
+            'offset': SdkQueryValue(SdkUtils.unwrapOptional(offset),
+                style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'listRedirectUrls',
-          fromJsonRaw: (value) => (value as List).map((item) => RedirectURL.fromJson(item as Map<String, dynamic>)).toList(),
+          fromJsonRaw: (value) => (value as List)
+              .map((item) => RedirectURL.fromJson(item as Map<String, dynamic>))
+              .toList(),
           options: requestOptions))
       .data;
 }
-
 
 /// Creates a redirect URL. When you provide a request body, include `url` as a full URL prefixed with `https://` or a URL using a custom scheme. The response includes the created redirect URL and its timestamps.
 ///
@@ -55,12 +59,17 @@ Future<RedirectURL> createRedirectUrl(ClientConfig config,
           body: {'url': url},
           decoder: SdkResponseDecoder.json,
           operationId: 'createRedirectUrl',
-          fromJsonRaw: (value) => RedirectURL.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              RedirectURL.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '422': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '400': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>),
+            '422': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Retrieve the details of the redirect URL with the given ID
 ///
@@ -72,12 +81,14 @@ Future<RedirectURL> getRedirectUrl(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'getRedirectUrl',
-          fromJsonRaw: (value) => RedirectURL.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              RedirectURL.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'404': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '404': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// Remove the selected redirect URL from the whitelist of the instance
 ///
@@ -89,8 +100,11 @@ Future<DeletedObject> deleteRedirectUrl(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'deleteRedirectUrl',
-          fromJsonRaw: (value) => DeletedObject.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              DeletedObject.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'404': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '404': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }

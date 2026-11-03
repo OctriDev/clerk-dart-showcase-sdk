@@ -36,21 +36,35 @@ Future<List<Session>> listSessions(ClientConfig config,
   return (await sdkRequest<List<Session>>('GET', '/sessions',
           config: config,
           query: {
-            'client_id': SdkQueryValue(SdkUtils.unwrapOptional(clientId), style: 'form', explode: true),
-            'user_id': SdkQueryValue(SdkUtils.unwrapOptional(userId), style: 'form', explode: true),
-            'status': SdkQueryValue(SdkUtils.unwrapOptional(status), style: 'form', explode: true),
-            'paginated': SdkQueryValue(SdkUtils.unwrapOptional(paginated), style: 'form', explode: true),
-            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit), style: 'form', explode: true),
-            'offset': SdkQueryValue(SdkUtils.unwrapOptional(offset), style: 'form', explode: true)
+            'client_id': SdkQueryValue(SdkUtils.unwrapOptional(clientId),
+                style: 'form', explode: true),
+            'user_id': SdkQueryValue(SdkUtils.unwrapOptional(userId),
+                style: 'form', explode: true),
+            'status': SdkQueryValue(SdkUtils.unwrapOptional(status),
+                style: 'form', explode: true),
+            'paginated': SdkQueryValue(SdkUtils.unwrapOptional(paginated),
+                style: 'form', explode: true),
+            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit),
+                style: 'form', explode: true),
+            'offset': SdkQueryValue(SdkUtils.unwrapOptional(offset),
+                style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'listSessions',
-          fromJsonRaw: (value) => (value as List).map((item) => Session.fromJson(item as Map<String, dynamic>)).toList(),
+          fromJsonRaw: (value) => (value as List)
+              .map((item) => Session.fromJson(item as Map<String, dynamic>))
+              .toList(),
           options: requestOptions,
-          errors: {'400': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '401': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '422': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '400': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>),
+            '401': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>),
+            '422': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Create a new active session for the provided user ID. **This operation is intended only for use in testing, and is not available for production instances.** If you are looking to generate a user session from the backend, we recommend using the [Sign-in Tokens](https://clerk.com/docs/reference/backend-api/tag/Sign-in-Tokens#operation/CreateSignInToken) resource instead.
 ///
@@ -65,16 +79,26 @@ Future<Session> createSession(ClientConfig config,
           config: config,
           body: {
             'user_id': userId,
-            'active_organization_id': SdkUtils.unwrapOptional(activeOrganizationId)
+            'active_organization_id':
+                SdkUtils.unwrapOptional(activeOrganizationId)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'createSession',
-          fromJsonRaw: (value) => Session.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              Session.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '401': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '404': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '422': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '400': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>),
+            '401': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>),
+            '404': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>),
+            '422': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Retrieves the details and current status of a session identified by its session ID. Use `session_id` to look up the session and inspect its user, client, activity timestamps, expiry, and latest activity when available.
 ///
@@ -88,12 +112,16 @@ Future<Session> getSession(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'getSession',
-          fromJsonRaw: (value) => Session.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              Session.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '401': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '404': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '400': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>),
+        '401': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>),
+        '404': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// Refreshes a session by creating a new session token. A 401 is returned when there are validation errors, which signals the SDKs to fall back to the handshake flow.
 ///
@@ -124,16 +152,21 @@ Future<SessionRefresh> refreshSession(ClientConfig config,
             'request_origin': requestOrigin,
             'request_headers': SdkUtils.unwrapOptional(requestHeaders),
             'format': SdkUtils.unwrapOptional(format),
-            'request_originating_ip': SdkUtils.unwrapOptional(requestOriginatingIp)
+            'request_originating_ip':
+                SdkUtils.unwrapOptional(requestOriginatingIp)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'refreshSession',
           fromJsonRaw: (value) => SessionRefresh.fromJson(value),
           options: requestOptions,
-          errors: {'400': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '401': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '400': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>),
+            '401': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Retrieve a reverification scoped to a session. A resource server can use this to validate a reverification id it received from its client: confirm it is real, scoped to the expected session, completed, and how fresh each factor is. Single-use / replay detection is the caller's responsibility (the id is stable, so the caller dedups consumed ids).
 ///
@@ -148,12 +181,16 @@ Future<Reverification> getReverification(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'getReverification',
-          fromJsonRaw: (value) => Reverification.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              Reverification.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '401': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '404': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '400': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>),
+        '401': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>),
+        '404': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// Sets the status of a session as "revoked", which is an unauthenticated state. In multi-session mode, a revoked session will still be returned along with its client object, however the user will need to sign in again.
 ///
@@ -165,12 +202,16 @@ Future<Session> revokeSession(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'revokeSession',
-          fromJsonRaw: (value) => Session.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              Session.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '401': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '404': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '400': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>),
+        '401': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>),
+        '404': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// Creates a session JSON Web Token (JWT) for the specified session. You can optionally set `expires_in_seconds` to override the default token lifetime; the value must be between 30 and 315360000 seconds.
 ///
@@ -186,24 +227,30 @@ Future<CreateSessionTokenResponse> createSessionToken(ClientConfig config,
   if (expiresInSeconds is SdkPresent<int?>) {
     final expiresInSecondsValue = expiresInSeconds.value;
     if (expiresInSecondsValue != null) {
-      validateRange('expires_in_seconds', expiresInSecondsValue, min: 30, max: 315360000);
+      validateRange('expires_in_seconds', expiresInSecondsValue,
+          min: 30, max: 315360000);
     }
   }
 
-  return (await sdkRequest<CreateSessionTokenResponse>('POST',
-          '/sessions/${Uri.encodeComponent(sessionId.toString())}/tokens',
+  return (await sdkRequest<CreateSessionTokenResponse>(
+          'POST', '/sessions/${Uri.encodeComponent(sessionId.toString())}/tokens',
           config: config,
           body: {
             'expires_in_seconds': SdkUtils.unwrapOptional(expiresInSeconds)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'createSessionToken',
-          fromJsonRaw: (value) => CreateSessionTokenResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => CreateSessionTokenResponse.fromJson(
+              value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '404': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '401': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>),
+            '404': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Creates a JSON Web Token (JWT) for the specified session using a JWT template defined for your instance. Use `template_name` to select the template and optionally set `expires_in_seconds` to override the token lifetime, between 30 and 315360000 seconds.
 ///
@@ -213,16 +260,17 @@ Future<CreateSessionTokenResponse> createSessionToken(ClientConfig config,
 /// [templateName] The name of the JWT template defined in your instance (e.g.
 ///   `custom_hasura`).
 /// [expiresInSeconds] Use this parameter to override the JWT lifetime.
-Future<CreateSessionTokenFromTemplateResponse>
-    createSessionTokenFromTemplate(ClientConfig config,
-        {required String sessionId,
-        required String templateName,
-        SdkOptional<int?> expiresInSeconds = const SdkOmitted(),
-        RequestOptions? requestOptions}) async {
+Future<CreateSessionTokenFromTemplateResponse> createSessionTokenFromTemplate(
+    ClientConfig config,
+    {required String sessionId,
+    required String templateName,
+    SdkOptional<int?> expiresInSeconds = const SdkOmitted(),
+    RequestOptions? requestOptions}) async {
   if (expiresInSeconds is SdkPresent<int?>) {
     final expiresInSecondsValue = expiresInSeconds.value;
     if (expiresInSecondsValue != null) {
-      validateRange('expires_in_seconds', expiresInSecondsValue, min: 30, max: 315360000);
+      validateRange('expires_in_seconds', expiresInSecondsValue,
+          min: 30, max: 315360000);
     }
   }
 
@@ -234,8 +282,15 @@ Future<CreateSessionTokenFromTemplateResponse>
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'createSessionTokenFromTemplate',
-          fromJsonRaw: (value) => CreateSessionTokenFromTemplateResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              CreateSessionTokenFromTemplateResponse.fromJson(
+                  value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '404': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '401': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>),
+            '404': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }

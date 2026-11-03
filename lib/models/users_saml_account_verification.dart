@@ -10,32 +10,58 @@ sealed class SAMLAccountVerification {
   const SAMLAccountVerification();
   factory SAMLAccountVerification.fromJson(Object? json) {
     if (json is Map<String, dynamic>) {
-      try { final value = VerificationSaml.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return SAMLAccountVerificationVerificationSaml(value); } } catch (_) {}
-      try { final value = VerificationTicket.fromJson(json); if (sdkKeepsEveryKey(json, value.toJson())) { return SAMLAccountVerificationVerificationTicket(value); } } catch (_) {}
+      try {
+        final value = VerificationSaml.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return SAMLAccountVerificationVerificationSaml(value);
+        }
+      } catch (_) {}
+      try {
+        final value = VerificationTicket.fromJson(json);
+        if (sdkKeepsEveryKey(json, value.toJson())) {
+          return SAMLAccountVerificationVerificationTicket(value);
+        }
+      } catch (_) {}
     }
-    try { return SAMLAccountVerificationVerificationSaml(VerificationSaml.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    try { return SAMLAccountVerificationVerificationTicket(VerificationTicket.fromJson(json as Map<String, dynamic>)); } catch (_) {}
-    if (json is Map<String, dynamic> && json["object"] is String && !const {"verification_saml", "verification_ticket"}.contains(json["object"])) { return UnknownSAMLAccountVerification(json); }
+    try {
+      return SAMLAccountVerificationVerificationSaml(
+          VerificationSaml.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    try {
+      return SAMLAccountVerificationVerificationTicket(
+          VerificationTicket.fromJson(json as Map<String, dynamic>));
+    } catch (_) {}
+    if (json is Map<String, dynamic> &&
+        json["object"] is String &&
+        !const {"verification_saml", "verification_ticket"}
+            .contains(json["object"])) {
+      return UnknownSAMLAccountVerification(json);
+    }
     throw FormatException("No variant matched for SAMLAccountVerification");
   }
   Object? toJson();
 }
 
-final class SAMLAccountVerificationVerificationSaml extends SAMLAccountVerification {
+final class SAMLAccountVerificationVerificationSaml
+    extends SAMLAccountVerification {
   final VerificationSaml value;
   const SAMLAccountVerificationVerificationSaml(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
-final class SAMLAccountVerificationVerificationTicket extends SAMLAccountVerification {
+final class SAMLAccountVerificationVerificationTicket
+    extends SAMLAccountVerification {
   final VerificationTicket value;
   const SAMLAccountVerificationVerificationTicket(this.value);
-  @override Object? toJson() => value.toJson();
+  @override
+  Object? toJson() => value.toJson();
 }
 
 /// A [SAMLAccountVerification] whose `object` names no branch this SDK knows, kept as received.
 final class UnknownSAMLAccountVerification extends SAMLAccountVerification {
   final Map<String, dynamic> raw;
   const UnknownSAMLAccountVerification(this.raw);
-  @override Object? toJson() => raw;
+  @override
+  Object? toJson() => raw;
 }

@@ -8,28 +8,46 @@ part of 'billing.dart';
 class PaginatedBillingPriceResponse implements SdkJsonModel {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Array of prices.
   final List<BillingPriceResponse> data;
+
   /// Total number of prices.
   final int totalCount;
 
-  const PaginatedBillingPriceResponse({required this.data, required this.totalCount});
+  const PaginatedBillingPriceResponse(
+      {required this.data, required this.totalCount});
 
-  PaginatedBillingPriceResponse Function({List<BillingPriceResponse> data, int totalCount}) get copyWith => _copyWith;
+  PaginatedBillingPriceResponse Function(
+      {List<BillingPriceResponse> data,
+      int totalCount}) get copyWith => _copyWith;
 
-  PaginatedBillingPriceResponse _copyWith({Object? data = sdkOmittedValue, Object? totalCount = sdkOmittedValue}) => PaginatedBillingPriceResponse(
-    data: identical(data, sdkOmittedValue) ? this.data : data as List<BillingPriceResponse>,
-    totalCount: identical(totalCount, sdkOmittedValue) ? this.totalCount : totalCount as int,
-  );
+  PaginatedBillingPriceResponse _copyWith(
+          {Object? data = sdkOmittedValue,
+          Object? totalCount = sdkOmittedValue}) =>
+      PaginatedBillingPriceResponse(
+        data: identical(data, sdkOmittedValue)
+            ? this.data
+            : data as List<BillingPriceResponse>,
+        totalCount: identical(totalCount, sdkOmittedValue)
+            ? this.totalCount
+            : totalCount as int,
+      );
 
-  factory PaginatedBillingPriceResponse.fromJson(Map<String, dynamic> json) => sdkKeepRawJson(PaginatedBillingPriceResponse(
-    data: ((json['data'] as List?)?.map((e) => BillingPriceResponse.fromJson(e as Map<String, dynamic>)).toList())!,
-    totalCount: ((json['total_count'] as num?)?.toInt())!,
-  ), json);
+  factory PaginatedBillingPriceResponse.fromJson(Map<String, dynamic> json) =>
+      sdkKeepRawJson(
+          PaginatedBillingPriceResponse(
+            data: ((json['data'] as List?)
+                ?.map((e) =>
+                    BillingPriceResponse.fromJson(e as Map<String, dynamic>))
+                .toList())!,
+            totalCount: ((json['total_count'] as num?)?.toInt())!,
+          ),
+          json);
 
   @override
   Map<String, dynamic> toJson() => {
-    'data': data.map((item) => item.toJson()).toList(),
-    'total_count': totalCount,
-  };
+        'data': data.map((item) => item.toJson()).toList(),
+        'total_count': totalCount,
+      };
 }

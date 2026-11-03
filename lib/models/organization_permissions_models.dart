@@ -8,28 +8,42 @@ part of 'organization_permissions.dart';
 class Permissions implements SdkJsonModel {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Required array value serialized in the `data` wire field.
   final List<Permission> data;
+
   /// Total number of permissions
   final int totalCount;
 
   const Permissions({required this.data, required this.totalCount});
 
-  Permissions Function({List<Permission> data, int totalCount}) get copyWith => _copyWith;
+  Permissions Function({List<Permission> data, int totalCount}) get copyWith =>
+      _copyWith;
 
-  Permissions _copyWith({Object? data = sdkOmittedValue, Object? totalCount = sdkOmittedValue}) => Permissions(
-    data: identical(data, sdkOmittedValue) ? this.data : data as List<Permission>,
-    totalCount: identical(totalCount, sdkOmittedValue) ? this.totalCount : totalCount as int,
-  );
+  Permissions _copyWith(
+          {Object? data = sdkOmittedValue,
+          Object? totalCount = sdkOmittedValue}) =>
+      Permissions(
+        data: identical(data, sdkOmittedValue)
+            ? this.data
+            : data as List<Permission>,
+        totalCount: identical(totalCount, sdkOmittedValue)
+            ? this.totalCount
+            : totalCount as int,
+      );
 
-  factory Permissions.fromJson(Map<String, dynamic> json) => sdkKeepRawJson(Permissions(
-    data: ((json['data'] as List?)?.map((e) => Permission.fromJson(e as Map<String, dynamic>)).toList())!,
-    totalCount: ((json['total_count'] as num?)?.toInt())!,
-  ), json);
+  factory Permissions.fromJson(Map<String, dynamic> json) => sdkKeepRawJson(
+      Permissions(
+        data: ((json['data'] as List?)
+            ?.map((e) => Permission.fromJson(e as Map<String, dynamic>))
+            .toList())!,
+        totalCount: ((json['total_count'] as num?)?.toInt())!,
+      ),
+      json);
 
   @override
   Map<String, dynamic> toJson() => {
-    'data': data.map((item) => item.toJson()).toList(),
-    'total_count': totalCount,
-  };
+        'data': data.map((item) => item.toJson()).toList(),
+        'total_count': totalCount,
+      };
 }

@@ -44,16 +44,24 @@ Future<AgentTask> createAgentTask(ClientConfig config,
             'agent_name': agentName,
             'task_description': taskDescription,
             'redirect_url': redirectUrl,
-            'session_max_duration_in_seconds': SdkUtils.unwrapOptional(sessionMaxDurationInSeconds)
+            'session_max_duration_in_seconds':
+                SdkUtils.unwrapOptional(sessionMaxDurationInSeconds)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'createAgentTask',
-          fromJsonRaw: (value) => AgentTask.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              AgentTask.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '404': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '422': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '400': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>),
+            '404': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>),
+            '422': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Revokes a pending agent task. Use `agent_task_id` to identify the task whose pending status you want to revoke.
 ///
@@ -67,8 +75,12 @@ Future<AgentTask> revokeAgentTask(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'revokeAgentTask',
-          fromJsonRaw: (value) => AgentTask.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              AgentTask.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '404': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '400': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>),
+        '404': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }

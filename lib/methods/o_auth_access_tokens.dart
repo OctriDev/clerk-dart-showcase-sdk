@@ -11,11 +11,11 @@ import '../types.dart';
 /// [accessToken] The access token to verify.
 /// [secret] The access token to verify. This is deprecated, use `access_token`
 ///   instead.
-Future<VerifyOAuthAccessTokenResponse>
-    verifyOAuthAccessToken(ClientConfig config,
-        {SdkOptional<String> accessToken = const SdkOmitted(),
-        SdkOptional<String> secret = const SdkOmitted(),
-        RequestOptions? requestOptions}) async {
+Future<VerifyOAuthAccessTokenResponse> verifyOAuthAccessToken(
+    ClientConfig config,
+    {SdkOptional<String> accessToken = const SdkOmitted(),
+    SdkOptional<String> secret = const SdkOmitted(),
+    RequestOptions? requestOptions}) async {
   return (await sdkRequest<VerifyOAuthAccessTokenResponse>(
           'POST', '/oauth_applications/access_tokens/verify',
           config: config,
@@ -25,7 +25,8 @@ Future<VerifyOAuthAccessTokenResponse>
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'verifyOAuthAccessToken',
-          fromJsonRaw: (value) => VerifyOAuthAccessTokenResponse.fromJson(value),
+          fromJsonRaw: (value) =>
+              VerifyOAuthAccessTokenResponse.fromJson(value),
           options: requestOptions))
       .data;
 }

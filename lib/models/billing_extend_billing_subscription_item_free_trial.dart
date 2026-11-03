@@ -8,6 +8,7 @@ part of 'billing.dart';
 class ExtendFreeTrialRequest implements SdkJsonModel {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// RFC3339 timestamp to extend the free trial to. Must be in the future and not more than 365 days from now.
   final String extendTo;
 
@@ -15,16 +16,22 @@ class ExtendFreeTrialRequest implements SdkJsonModel {
 
   ExtendFreeTrialRequest Function({String extendTo}) get copyWith => _copyWith;
 
-  ExtendFreeTrialRequest _copyWith({Object? extendTo = sdkOmittedValue}) => ExtendFreeTrialRequest(
-    extendTo: identical(extendTo, sdkOmittedValue) ? this.extendTo : extendTo as String,
-  );
+  ExtendFreeTrialRequest _copyWith({Object? extendTo = sdkOmittedValue}) =>
+      ExtendFreeTrialRequest(
+        extendTo: identical(extendTo, sdkOmittedValue)
+            ? this.extendTo
+            : extendTo as String,
+      );
 
-  factory ExtendFreeTrialRequest.fromJson(Map<String, dynamic> json) => sdkKeepRawJson(ExtendFreeTrialRequest(
-    extendTo: (json['extend_to'] as String?)!,
-  ), json);
+  factory ExtendFreeTrialRequest.fromJson(Map<String, dynamic> json) =>
+      sdkKeepRawJson(
+          ExtendFreeTrialRequest(
+            extendTo: (json['extend_to'] as String?)!,
+          ),
+          json);
 
   @override
   Map<String, dynamic> toJson() => {
-    'extend_to': extendTo,
-  };
+        'extend_to': extendTo,
+      };
 }

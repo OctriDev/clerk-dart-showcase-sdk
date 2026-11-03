@@ -38,19 +38,32 @@ Future<RoleSets> listRoleSets(ClientConfig config,
   return (await sdkRequest<RoleSets>('GET', '/role_sets',
           config: config,
           query: {
-            'query': SdkQueryValue(SdkUtils.unwrapOptional(query), style: 'form', explode: true),
-            'order_by': SdkQueryValue(SdkUtils.unwrapOptional(orderBy), style: 'form', explode: true),
-            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit), style: 'form', explode: true),
-            'offset': SdkQueryValue(SdkUtils.unwrapOptional(offset), style: 'form', explode: true)
+            'query': SdkQueryValue(SdkUtils.unwrapOptional(query),
+                style: 'form', explode: true),
+            'order_by': SdkQueryValue(SdkUtils.unwrapOptional(orderBy),
+                style: 'form', explode: true),
+            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit),
+                style: 'form', explode: true),
+            'offset': SdkQueryValue(SdkUtils.unwrapOptional(offset),
+                style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'listRoleSets',
-          fromJsonRaw: (value) => RoleSets.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              RoleSets.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '401': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '403': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '422': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '400': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>),
+            '401': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>),
+            '403': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>),
+            '422': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Creates a new role set with the given name and roles. The key must be unique for the instance and start with the 'role_set:' prefix, followed by lowercase alphanumeric characters and underscores only. You must provide at least one role and specify a default role key and creator role key.
 ///
@@ -89,12 +102,25 @@ Future<RoleSet> createRoleSet(ClientConfig config,
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'createRoleSet',
-          fromJsonRaw: (value) => RoleSet.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              RoleSet.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '401': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '402': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '403': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '404': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '422': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '400': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>),
+            '401': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>),
+            '402': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>),
+            '403': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>),
+            '404': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>),
+            '422': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Retrieves a role set by its key or ID, including its roles and organization-member defaults. Use `role_set_key_or_id` to identify the role set; the response also includes its type and creation and update timestamps.
 ///
@@ -108,12 +134,16 @@ Future<RoleSet> getRoleSet(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'getRoleSet',
-          fromJsonRaw: (value) => RoleSet.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              RoleSet.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '403': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '404': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '401': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>),
+        '403': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>),
+        '404': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// Updates an existing role set. You can update the name, key, description, type, default role, or creator role. All parameters are optional - you can update only the fields you want to change.
 ///
@@ -151,12 +181,23 @@ Future<RoleSet> updateRoleSet(ClientConfig config,
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'updateRoleSet',
-          fromJsonRaw: (value) => RoleSet.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              RoleSet.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '401': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '403': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '404': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '422': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '400': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>),
+            '401': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>),
+            '403': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>),
+            '404': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>),
+            '422': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Replaces a role set with another role set. This is functionally equivalent to deleting the role set but allows for atomic replacement with migration support. Organizations using this role set will be migrated to the destination role set.
 ///
@@ -174,16 +215,28 @@ Future<DeletedObject> replaceRoleSet(ClientConfig config,
           config: config,
           body: {
             'dest_role_set_key': destRoleSetKey,
-            'reassignment_mappings': SdkUtils.unwrapOptional(reassignmentMappings)
+            'reassignment_mappings':
+                SdkUtils.unwrapOptional(reassignmentMappings)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'replaceRoleSet',
-          fromJsonRaw: (value) => DeletedObject.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              DeletedObject.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '401': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '403': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '404': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '422': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '400': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>),
+            '401': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>),
+            '403': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>),
+            '404': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>),
+            '422': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Adds one or more roles to an existing role set. You can optionally update the default role or creator role when adding new roles.
 ///
@@ -210,12 +263,23 @@ Future<RoleSet> addRolesToRoleSet(ClientConfig config,
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'addRolesToRoleSet',
-          fromJsonRaw: (value) => RoleSet.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              RoleSet.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '401': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '403': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '404': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '422': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '400': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>),
+            '401': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>),
+            '403': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>),
+            '404': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>),
+            '422': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Replaces a role in a role set with another role. This atomically removes the source role and reassigns any members to the destination role.
 ///
@@ -233,8 +297,20 @@ Future<RoleSet> replaceRoleInRoleSet(ClientConfig config,
           body: {'role_key': roleKey, 'to_role_key': toRoleKey},
           decoder: SdkResponseDecoder.json,
           operationId: 'replaceRoleInRoleSet',
-          fromJsonRaw: (value) => RoleSet.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              RoleSet.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '401': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '403': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '404': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '422': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '400': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>),
+            '401': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>),
+            '403': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>),
+            '404': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>),
+            '422': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }

@@ -8,28 +8,49 @@ part of 'shared_commerce.dart';
 class CommercePayerCreditResponse implements SdkJsonModel {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Required object value serialized in the `remaining_balance` wire field.
   final CommerceMoneyResponse remainingBalance;
+
   /// Required object value serialized in the `applied_amount` wire field.
   final CommerceMoneyResponse appliedAmount;
 
-  const CommercePayerCreditResponse({required this.remainingBalance, required this.appliedAmount});
+  const CommercePayerCreditResponse(
+      {required this.remainingBalance, required this.appliedAmount});
 
-  CommercePayerCreditResponse Function({CommerceMoneyResponse remainingBalance, CommerceMoneyResponse appliedAmount}) get copyWith => _copyWith;
+  CommercePayerCreditResponse Function(
+      {CommerceMoneyResponse remainingBalance,
+      CommerceMoneyResponse appliedAmount}) get copyWith => _copyWith;
 
-  CommercePayerCreditResponse _copyWith({Object? remainingBalance = sdkOmittedValue, Object? appliedAmount = sdkOmittedValue}) => CommercePayerCreditResponse(
-    remainingBalance: identical(remainingBalance, sdkOmittedValue) ? this.remainingBalance : remainingBalance as CommerceMoneyResponse,
-    appliedAmount: identical(appliedAmount, sdkOmittedValue) ? this.appliedAmount : appliedAmount as CommerceMoneyResponse,
-  );
+  CommercePayerCreditResponse _copyWith(
+          {Object? remainingBalance = sdkOmittedValue,
+          Object? appliedAmount = sdkOmittedValue}) =>
+      CommercePayerCreditResponse(
+        remainingBalance: identical(remainingBalance, sdkOmittedValue)
+            ? this.remainingBalance
+            : remainingBalance as CommerceMoneyResponse,
+        appliedAmount: identical(appliedAmount, sdkOmittedValue)
+            ? this.appliedAmount
+            : appliedAmount as CommerceMoneyResponse,
+      );
 
-  factory CommercePayerCreditResponse.fromJson(Map<String, dynamic> json) => sdkKeepRawJson(CommercePayerCreditResponse(
-    remainingBalance: (json['remaining_balance'] != null ? CommerceMoneyResponse.fromJson(json['remaining_balance'] as Map<String, dynamic>) : null)!,
-    appliedAmount: (json['applied_amount'] != null ? CommerceMoneyResponse.fromJson(json['applied_amount'] as Map<String, dynamic>) : null)!,
-  ), json);
+  factory CommercePayerCreditResponse.fromJson(Map<String, dynamic> json) =>
+      sdkKeepRawJson(
+          CommercePayerCreditResponse(
+            remainingBalance: (json['remaining_balance'] != null
+                ? CommerceMoneyResponse.fromJson(
+                    json['remaining_balance'] as Map<String, dynamic>)
+                : null)!,
+            appliedAmount: (json['applied_amount'] != null
+                ? CommerceMoneyResponse.fromJson(
+                    json['applied_amount'] as Map<String, dynamic>)
+                : null)!,
+          ),
+          json);
 
   @override
   Map<String, dynamic> toJson() => {
-    'remaining_balance': remainingBalance.toJson(),
-    'applied_amount': appliedAmount.toJson(),
-  };
+        'remaining_balance': remainingBalance.toJson(),
+        'applied_amount': appliedAmount.toJson(),
+      };
 }

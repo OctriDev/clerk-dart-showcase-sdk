@@ -38,19 +38,28 @@ Future<Permissions> listOrganizationPermissions(ClientConfig config,
   return (await sdkRequest<Permissions>('GET', '/organization_permissions',
           config: config,
           query: {
-            'query': SdkQueryValue(SdkUtils.unwrapOptional(query), style: 'form', explode: true),
-            'order_by': SdkQueryValue(SdkUtils.unwrapOptional(orderBy), style: 'form', explode: true),
-            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit), style: 'form', explode: true),
-            'offset': SdkQueryValue(SdkUtils.unwrapOptional(offset), style: 'form', explode: true)
+            'query': SdkQueryValue(SdkUtils.unwrapOptional(query),
+                style: 'form', explode: true),
+            'order_by': SdkQueryValue(SdkUtils.unwrapOptional(orderBy),
+                style: 'form', explode: true),
+            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit),
+                style: 'form', explode: true),
+            'offset': SdkQueryValue(SdkUtils.unwrapOptional(offset),
+                style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'listOrganizationPermissions',
-          fromJsonRaw: (value) => Permissions.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              Permissions.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '422': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '401': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>),
+            '422': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Creates a new organization permission for the given instance.
 ///
@@ -75,12 +84,23 @@ Future<Permission> createOrganizationPermission(ClientConfig config,
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'createOrganizationPermission',
-          fromJsonRaw: (value) => Permission.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              Permission.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '401': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '402': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '404': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '422': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '400': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>),
+            '401': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>),
+            '402': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>),
+            '404': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>),
+            '422': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Retrieves the details of an organization permission.
 ///
@@ -92,12 +112,15 @@ Future<Permission> getOrganizationPermission(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'getOrganizationPermission',
-          fromJsonRaw: (value) => Permission.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              Permission.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '404': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '401': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>),
+        '404': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// Updates the properties of an existing organization permission. System permissions cannot be updated.
 ///
@@ -124,12 +147,23 @@ Future<Permission> updateOrganizationPermission(ClientConfig config,
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'updateOrganizationPermission',
-          fromJsonRaw: (value) => Permission.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              Permission.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '401': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '403': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '404': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '422': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '400': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>),
+            '401': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>),
+            '403': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>),
+            '404': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>),
+            '422': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Deletes an organization permission. System permissions cannot be deleted.
 ///
@@ -141,8 +175,13 @@ Future<DeletedObject> deleteOrganizationPermission(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'deleteOrganizationPermission',
-          fromJsonRaw: (value) => DeletedObject.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              DeletedObject.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '403': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '404': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '401': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>),
+        '403': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>),
+        '404': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }

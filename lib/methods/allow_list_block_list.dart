@@ -31,18 +31,28 @@ Future<List<AllowlistIdentifier>> listAllowlistIdentifiers(ClientConfig config,
           'GET', '/allowlist_identifiers',
           config: config,
           query: {
-            'paginated': SdkQueryValue(SdkUtils.unwrapOptional(paginated), style: 'form', explode: true),
-            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit), style: 'form', explode: true),
-            'offset': SdkQueryValue(SdkUtils.unwrapOptional(offset), style: 'form', explode: true)
+            'paginated': SdkQueryValue(SdkUtils.unwrapOptional(paginated),
+                style: 'form', explode: true),
+            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit),
+                style: 'form', explode: true),
+            'offset': SdkQueryValue(SdkUtils.unwrapOptional(offset),
+                style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'listAllowlistIdentifiers',
-          fromJsonRaw: (value) => (value as List).map((item) => AllowlistIdentifier.fromJson(item as Map<String, dynamic>)).toList(),
+          fromJsonRaw: (value) => (value as List)
+              .map((item) =>
+                  AllowlistIdentifier.fromJson(item as Map<String, dynamic>))
+              .toList(),
           options: requestOptions,
-          errors: {'401': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '402': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '401': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>),
+            '402': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Create an identifier allowed to sign up to an instance
 ///
@@ -64,12 +74,19 @@ Future<AllowlistIdentifier> createAllowlistIdentifier(ClientConfig config,
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'createAllowlistIdentifier',
-          fromJsonRaw: (value) => AllowlistIdentifier.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              AllowlistIdentifier.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '402': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '422': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '400': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>),
+            '402': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>),
+            '422': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Deletes an identifier from the instance allow-list. Use the `identifier_id` path parameter to select the entry to remove. The response confirms whether the object was deleted.
 ///
@@ -83,12 +100,15 @@ Future<DeletedObject> deleteAllowlistIdentifier(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'deleteAllowlistIdentifier',
-          fromJsonRaw: (value) => DeletedObject.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              DeletedObject.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'402': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '404': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '402': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>),
+        '404': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// Get a list of all identifiers which are not allowed to access an instance
 Future<BlocklistIdentifiers> listBlocklistIdentifiers(ClientConfig config,
@@ -98,12 +118,15 @@ Future<BlocklistIdentifiers> listBlocklistIdentifiers(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'listBlocklistIdentifiers',
-          fromJsonRaw: (value) => BlocklistIdentifiers.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              BlocklistIdentifiers.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'401': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '402': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '401': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>),
+        '402': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// Create an identifier that is blocked from accessing an instance
 ///
@@ -117,12 +140,19 @@ Future<BlocklistIdentifier> createBlocklistIdentifier(ClientConfig config,
           body: {'identifier': identifier},
           decoder: SdkResponseDecoder.json,
           operationId: 'createBlocklistIdentifier',
-          fromJsonRaw: (value) => BlocklistIdentifier.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              BlocklistIdentifier.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '402': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '422': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '400': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>),
+            '402': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>),
+            '422': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Deletes an identifier from the instance block-list. Supply `identifier_id` to select the block-list identifier; a successful response indicates whether the object was deleted.
 ///
@@ -136,8 +166,12 @@ Future<DeletedObject> deleteBlocklistIdentifier(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'deleteBlocklistIdentifier',
-          fromJsonRaw: (value) => DeletedObject.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              DeletedObject.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'402': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '404': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '402': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>),
+        '404': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }

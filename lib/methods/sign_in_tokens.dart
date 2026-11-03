@@ -32,7 +32,8 @@ Future<SignInToken> createSignInToken(ClientConfig config,
     {required String userId,
     SdkOptional<String?> orgId = const SdkOmitted(),
     SdkOptional<int?> expiresInSeconds = const SdkOmitted(),
-    SdkOptional<CreateSignInTokenRequestBodySecondFactorVerification?> secondFactorVerification = const SdkOmitted(),
+    SdkOptional<CreateSignInTokenRequestBodySecondFactorVerification?>
+        secondFactorVerification = const SdkOmitted(),
     RequestOptions? requestOptions}) async {
   if (expiresInSeconds is SdkPresent<int?>) {
     final expiresInSecondsValue = expiresInSeconds.value;
@@ -47,16 +48,24 @@ Future<SignInToken> createSignInToken(ClientConfig config,
             'user_id': userId,
             'org_id': SdkUtils.unwrapOptional(orgId),
             'expires_in_seconds': SdkUtils.unwrapOptional(expiresInSeconds),
-            'second_factor_verification': SdkUtils.unwrapOptional(secondFactorVerification)
+            'second_factor_verification':
+                SdkUtils.unwrapOptional(secondFactorVerification)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'createSignInToken',
-          fromJsonRaw: (value) => SignInToken.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              SignInToken.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'403': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '404': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '422': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '403': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>),
+            '404': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>),
+            '422': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Revokes a pending sign-in token. Use the `sign_in_token_id` path parameter to identify the token; a successful response returns the token with its updated status.
 ///
@@ -70,8 +79,12 @@ Future<SignInToken> revokeSignInToken(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'revokeSignInToken',
-          fromJsonRaw: (value) => SignInToken.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              SignInToken.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '404': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '400': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>),
+        '404': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }

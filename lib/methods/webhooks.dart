@@ -12,12 +12,14 @@ Future<SvixURL> createSvixApp(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'createSvixApp',
-          fromJsonRaw: (value) => SvixURL.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              SvixURL.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '400': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// Delete a Svix app and disassociate it from the current instance
 Future<void> deleteSvixApp(ClientConfig config,
@@ -27,10 +29,11 @@ Future<void> deleteSvixApp(ClientConfig config,
           decoder: SdkResponseDecoder.empty,
           operationId: 'deleteSvixApp',
           options: requestOptions,
-          errors: {'400': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '400': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// Generate a new URL for accessing the Svix's management dashboard for that particular instance
 Future<SvixURL> generateSvixAuthUrl(ClientConfig config,
@@ -39,8 +42,11 @@ Future<SvixURL> generateSvixAuthUrl(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'generateSvixAuthUrl',
-          fromJsonRaw: (value) => SvixURL.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              SvixURL.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '400': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }

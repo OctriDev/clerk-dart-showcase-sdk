@@ -8,8 +8,10 @@ part of 'organization_roles.dart';
 class Roles implements SdkJsonModel {
   /// This model is constructed from named fields in one call.
   static const String constructionSurface = 'named';
+
   /// Required array value serialized in the `data` wire field.
   final List<Role> data;
+
   /// Total number of roles
   final int totalCount;
 
@@ -17,19 +19,28 @@ class Roles implements SdkJsonModel {
 
   Roles Function({List<Role> data, int totalCount}) get copyWith => _copyWith;
 
-  Roles _copyWith({Object? data = sdkOmittedValue, Object? totalCount = sdkOmittedValue}) => Roles(
-    data: identical(data, sdkOmittedValue) ? this.data : data as List<Role>,
-    totalCount: identical(totalCount, sdkOmittedValue) ? this.totalCount : totalCount as int,
-  );
+  Roles _copyWith(
+          {Object? data = sdkOmittedValue,
+          Object? totalCount = sdkOmittedValue}) =>
+      Roles(
+        data: identical(data, sdkOmittedValue) ? this.data : data as List<Role>,
+        totalCount: identical(totalCount, sdkOmittedValue)
+            ? this.totalCount
+            : totalCount as int,
+      );
 
-  factory Roles.fromJson(Map<String, dynamic> json) => sdkKeepRawJson(Roles(
-    data: ((json['data'] as List?)?.map((e) => Role.fromJson(e as Map<String, dynamic>)).toList())!,
-    totalCount: ((json['total_count'] as num?)?.toInt())!,
-  ), json);
+  factory Roles.fromJson(Map<String, dynamic> json) => sdkKeepRawJson(
+      Roles(
+        data: ((json['data'] as List?)
+            ?.map((e) => Role.fromJson(e as Map<String, dynamic>))
+            .toList())!,
+        totalCount: ((json['total_count'] as num?)?.toInt())!,
+      ),
+      json);
 
   @override
   Map<String, dynamic> toJson() => {
-    'data': data.map((item) => item.toJson()).toList(),
-    'total_count': totalCount,
-  };
+        'data': data.map((item) => item.toJson()).toList(),
+        'total_count': totalCount,
+      };
 }

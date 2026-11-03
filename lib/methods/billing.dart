@@ -33,19 +33,32 @@ Future<PaginatedCommercePlanResponse> getCommercePlanList(ClientConfig config,
           'GET', '/billing/plans',
           config: config,
           query: {
-            'paginated': SdkQueryValue(SdkUtils.unwrapOptional(paginated), style: 'form', explode: true),
-            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit), style: 'form', explode: true),
-            'offset': SdkQueryValue(SdkUtils.unwrapOptional(offset), style: 'form', explode: true),
-            'payer_type': SdkQueryValue(SdkUtils.unwrapOptional(payerType), style: 'form', explode: true)
+            'paginated': SdkQueryValue(SdkUtils.unwrapOptional(paginated),
+                style: 'form', explode: true),
+            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit),
+                style: 'form', explode: true),
+            'offset': SdkQueryValue(SdkUtils.unwrapOptional(offset),
+                style: 'form', explode: true),
+            'payer_type': SdkQueryValue(SdkUtils.unwrapOptional(payerType),
+                style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'getCommercePlanList',
-          fromJsonRaw: (value) => PaginatedCommercePlanResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => PaginatedCommercePlanResponse.fromJson(
+              value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '401': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '422': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '500': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '400': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>),
+            '401': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>),
+            '422': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>),
+            '500': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Returns a list of all prices for the instance. The prices are returned sorted by amount ascending, then by creation date descending. This includes both default and custom prices. Pagination is supported.
 ///
@@ -73,19 +86,34 @@ Future<PaginatedBillingPriceResponse> getBillingPriceList(ClientConfig config,
           'GET', '/billing/prices',
           config: config,
           query: {
-            'paginated': SdkQueryValue(SdkUtils.unwrapOptional(paginated), style: 'form', explode: true),
-            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit), style: 'form', explode: true),
-            'offset': SdkQueryValue(SdkUtils.unwrapOptional(offset), style: 'form', explode: true),
-            'plan_id': SdkQueryValue(SdkUtils.unwrapOptional(planId), style: 'form', explode: true)
+            'paginated': SdkQueryValue(SdkUtils.unwrapOptional(paginated),
+                style: 'form', explode: true),
+            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit),
+                style: 'form', explode: true),
+            'offset': SdkQueryValue(SdkUtils.unwrapOptional(offset),
+                style: 'form', explode: true),
+            'plan_id': SdkQueryValue(SdkUtils.unwrapOptional(planId),
+                style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'getBillingPriceList',
-          fromJsonRaw: (value) => PaginatedBillingPriceResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => PaginatedBillingPriceResponse.fromJson(
+              value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '401': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '404': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '422': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '500': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '400': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>),
+            '401': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>),
+            '404': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>),
+            '422': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>),
+            '500': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Creates a custom price for a billing plan. Custom prices allow you to offer different pricing to specific customers while maintaining the same plan structure.
 ///
@@ -105,7 +133,8 @@ Future<BillingPriceResponse> createBillingPrice(ClientConfig config,
     SdkOptional<String> currency = const SdkOmitted(),
     SdkOptional<int?> annualMonthlyAmount = const SdkOmitted(),
     SdkOptional<String> description = const SdkOmitted(),
-    SdkOptional<CreateBillingPriceRequestSupportedBillingPeriods> supportedBillingPeriods = const SdkOmitted(),
+    SdkOptional<CreateBillingPriceRequestSupportedBillingPeriods>
+        supportedBillingPeriods = const SdkOmitted(),
     RequestOptions? requestOptions}) async {
   return (await sdkRequest<BillingPriceResponse>('POST', '/billing/prices',
           config: config,
@@ -113,18 +142,31 @@ Future<BillingPriceResponse> createBillingPrice(ClientConfig config,
             'plan_id': planId,
             'amount': amount,
             'currency': SdkUtils.unwrapOptional(currency),
-            'annual_monthly_amount': SdkUtils.unwrapOptional(annualMonthlyAmount),
+            'annual_monthly_amount':
+                SdkUtils.unwrapOptional(annualMonthlyAmount),
             'description': SdkUtils.unwrapOptional(description),
-            'supported_billing_periods': SdkUtils.unwrapOptional(supportedBillingPeriods)
+            'supported_billing_periods':
+                SdkUtils.unwrapOptional(supportedBillingPeriods)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'createBillingPrice',
-          fromJsonRaw: (value) => BillingPriceResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              BillingPriceResponse.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '401': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '404': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '422': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '500': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '400': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>),
+            '401': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>),
+            '404': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>),
+            '422': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>),
+            '500': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Returns a list of all subscription items for the instance. The subscription items are returned sorted by creation date, with the newest appearing first. This includes subscriptions for both users and organizations. Pagination is supported.
 ///
@@ -144,8 +186,10 @@ Future<PaginatedCommerceSubscriptionItemResponse>
         {SdkOptional<bool> paginated = const SdkOmitted(),
         SdkOptional<int> limit = const SdkOmitted(),
         SdkOptional<int> offset = const SdkOmitted(),
-        SdkOptional<GetCommerceSubscriptionItemListStatus> status = const SdkOmitted(),
-        SdkOptional<GetCommerceSubscriptionItemListPayerType> payerType = const SdkOmitted(),
+        SdkOptional<GetCommerceSubscriptionItemListStatus> status =
+            const SdkOmitted(),
+        SdkOptional<GetCommerceSubscriptionItemListPayerType> payerType =
+            const SdkOmitted(),
         SdkOptional<String> planId = const SdkOmitted(),
         SdkOptional<bool> includeFree = const SdkOmitted(),
         SdkOptional<String> query = const SdkOmitted(),
@@ -161,48 +205,80 @@ Future<PaginatedCommerceSubscriptionItemResponse>
           'GET', '/billing/subscription_items',
           config: config,
           query: {
-            'paginated': SdkQueryValue(SdkUtils.unwrapOptional(paginated), style: 'form', explode: true),
-            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit), style: 'form', explode: true),
-            'offset': SdkQueryValue(SdkUtils.unwrapOptional(offset), style: 'form', explode: true),
-            'status': SdkQueryValue(SdkUtils.unwrapOptional(status), style: 'form', explode: true),
-            'payer_type': SdkQueryValue(SdkUtils.unwrapOptional(payerType), style: 'form', explode: true),
-            'plan_id': SdkQueryValue(SdkUtils.unwrapOptional(planId), style: 'form', explode: true),
-            'include_free': SdkQueryValue(SdkUtils.unwrapOptional(includeFree), style: 'form', explode: true),
-            'query': SdkQueryValue(SdkUtils.unwrapOptional(query), style: 'form', explode: true)
+            'paginated': SdkQueryValue(SdkUtils.unwrapOptional(paginated),
+                style: 'form', explode: true),
+            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit),
+                style: 'form', explode: true),
+            'offset': SdkQueryValue(SdkUtils.unwrapOptional(offset),
+                style: 'form', explode: true),
+            'status': SdkQueryValue(SdkUtils.unwrapOptional(status),
+                style: 'form', explode: true),
+            'payer_type': SdkQueryValue(SdkUtils.unwrapOptional(payerType),
+                style: 'form', explode: true),
+            'plan_id': SdkQueryValue(SdkUtils.unwrapOptional(planId),
+                style: 'form', explode: true),
+            'include_free': SdkQueryValue(SdkUtils.unwrapOptional(includeFree),
+                style: 'form', explode: true),
+            'query': SdkQueryValue(SdkUtils.unwrapOptional(query),
+                style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'getCommerceSubscriptionItemList',
-          fromJsonRaw: (value) => PaginatedCommerceSubscriptionItemResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              PaginatedCommerceSubscriptionItemResponse.fromJson(
+                  value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '401': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '422': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '500': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '400': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>),
+            '401': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>),
+            '422': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>),
+            '500': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Cancel a specific subscription item. The subscription item can be canceled immediately or at the end of the current billing period.
 ///
 /// [subscriptionItemId] The ID of the subscription item to cancel
 /// [endNow] Whether to cancel the subscription immediately (true) or at the end
 ///   of the current billing period (false, default)
-Future<CommerceSubscriptionItem>
-    cancelCommerceSubscriptionItem(ClientConfig config,
-        {required String subscriptionItemId,
-        SdkOptional<bool> endNow = const SdkOmitted(),
-        RequestOptions? requestOptions}) async {
+Future<CommerceSubscriptionItem> cancelCommerceSubscriptionItem(
+    ClientConfig config,
+    {required String subscriptionItemId,
+    SdkOptional<bool> endNow = const SdkOmitted(),
+    RequestOptions? requestOptions}) async {
   return (await sdkRequest<CommerceSubscriptionItem>('DELETE',
           '/billing/subscription_items/${Uri.encodeComponent(subscriptionItemId.toString())}',
           config: config,
           query: {
-            'end_now': SdkQueryValue(SdkUtils.unwrapOptional(endNow), style: 'form', explode: true)
+            'end_now': SdkQueryValue(SdkUtils.unwrapOptional(endNow),
+                style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'cancelCommerceSubscriptionItem',
-          fromJsonRaw: (value) => CommerceSubscriptionItem.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              CommerceSubscriptionItem.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '401': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '403': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '404': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '422': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '500': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '400': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>),
+            '401': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>),
+            '403': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>),
+            '404': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>),
+            '422': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>),
+            '500': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Extends the free trial period for a specific subscription item to the specified timestamp. The subscription item must be currently in a free trial period, and the plan must support free trials. The timestamp must be in the future and not more than 365 days from the end of the current trial period This operation is idempotent - repeated requests with the same timestamp will not change the trial period.
 ///
@@ -210,11 +286,11 @@ Future<CommerceSubscriptionItem>
 ///   trial for
 /// [extendTo] RFC3339 timestamp to extend the free trial to. Must be in the
 ///   future and not more than 365 days from now.
-Future<CommerceSubscriptionItem2>
-    extendBillingSubscriptionItemFreeTrial(ClientConfig config,
-        {required String subscriptionItemId,
-        required String extendTo,
-        RequestOptions? requestOptions}) async {
+Future<CommerceSubscriptionItem2> extendBillingSubscriptionItemFreeTrial(
+    ClientConfig config,
+    {required String subscriptionItemId,
+    required String extendTo,
+    RequestOptions? requestOptions}) async {
   sdkValidateDateTime('extend_to', extendTo);
 
   return (await sdkRequest<CommerceSubscriptionItem2>('POST',
@@ -223,59 +299,102 @@ Future<CommerceSubscriptionItem2>
           body: {'extend_to': extendTo},
           decoder: SdkResponseDecoder.json,
           operationId: 'extendBillingSubscriptionItemFreeTrial',
-          fromJsonRaw: (value) => CommerceSubscriptionItem2.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              CommerceSubscriptionItem2.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '401': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '403': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '404': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '422': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '500': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '400': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>),
+            '401': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>),
+            '403': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>),
+            '404': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>),
+            '422': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>),
+            '500': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Creates a price transition for the specified subscription item. This may create an upcoming subscription item or activate immediately depending on plan and payer rules.
 ///
 /// [subscriptionItemId] The ID of the subscription item to transition
 /// [fromPriceId] The current price ID of the subscription item.
 /// [toPriceId] The target price ID to transition to.
-Future<CommercePriceTransitionResponse>
-    createBillingPriceTransition(ClientConfig config,
-        {required String subscriptionItemId,
-        required String fromPriceId,
-        required String toPriceId,
-        RequestOptions? requestOptions}) async {
+Future<CommercePriceTransitionResponse> createBillingPriceTransition(
+    ClientConfig config,
+    {required String subscriptionItemId,
+    required String fromPriceId,
+    required String toPriceId,
+    RequestOptions? requestOptions}) async {
   return (await sdkRequest<CommercePriceTransitionResponse>('POST',
           '/billing/subscription_items/${Uri.encodeComponent(subscriptionItemId.toString())}/price_transition',
           config: config,
           body: {'from_price_id': fromPriceId, 'to_price_id': toPriceId},
           decoder: SdkResponseDecoder.json,
           operationId: 'createBillingPriceTransition',
-          fromJsonRaw: (value) => CommercePriceTransitionResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => CommercePriceTransitionResponse.fromJson(
+              value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '401': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '403': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '404': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '409': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '422': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '500': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '400': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>),
+            '401': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>),
+            '403': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>),
+            '404': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>),
+            '409': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>),
+            '422': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>),
+            '500': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Applies an existing discount to a subscription item. Manual application is an override path: self-serve distribution rules are not enforced. At most one active discount is allowed per subscription item; applying a different discount replaces the currently active one. Re-applying the same active discount returns a conflict.
 ///
 /// [subscriptionItemId] The ID of the subscription item to apply the discount
 ///   to
 /// [discountId] The ID of the discount to apply to the subscription item.
-Future<CommerceDiscountRedemptionResponse>
-    applyBillingSubscriptionItemDiscount(ClientConfig config,
-        {required String subscriptionItemId,
-        required String discountId,
-        RequestOptions? requestOptions}) async {
+Future<CommerceDiscountRedemptionResponse> applyBillingSubscriptionItemDiscount(
+    ClientConfig config,
+    {required String subscriptionItemId,
+    required String discountId,
+    RequestOptions? requestOptions}) async {
   return (await sdkRequest<CommerceDiscountRedemptionResponse>('POST',
           '/billing/subscription_items/${Uri.encodeComponent(subscriptionItemId.toString())}/discounts',
           config: config,
           body: {'discount_id': discountId},
           decoder: SdkResponseDecoder.json,
           operationId: 'applyBillingSubscriptionItemDiscount',
-          fromJsonRaw: (value) => CommerceDiscountRedemptionResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => CommerceDiscountRedemptionResponse.fromJson(
+              value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '401': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '403': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '404': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '409': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '422': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '500': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '400': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>),
+            '401': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>),
+            '403': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>),
+            '404': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>),
+            '409': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>),
+            '422': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>),
+            '500': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Removes the active discount from a subscription item. The discount_id must match the subscription item's currently active discount.
 ///
@@ -292,12 +411,20 @@ Future<CommerceDiscountRedemptionResponse>
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'removeBillingSubscriptionItemDiscount',
-          fromJsonRaw: (value) => CommerceDiscountRedemptionResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => CommerceDiscountRedemptionResponse.fromJson(
+              value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '401': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '403': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '404': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '409': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '422': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '500': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '400': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>),
+        '401': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>),
+        '403': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>),
+        '404': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>),
+        '409': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>),
+        '422': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>),
+        '500': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// Returns a list of all billing statements for the instance. The statements are returned sorted by creation date, with the newest statements appearing first. Pagination is supported.
 ///
@@ -307,12 +434,12 @@ Future<CommerceDiscountRedemptionResponse>
 ///   paginating the results together with `offset`.
 /// [offset] Skip the first `offset` results when paginating. Needs to be an
 ///   integer greater or equal to zero. To be used in conjunction with `limit`.
-Future<PaginatedBillingStatementResponse>
-    getBillingStatementList(ClientConfig config,
-        {SdkOptional<bool> paginated = const SdkOmitted(),
-        SdkOptional<int> limit = const SdkOmitted(),
-        SdkOptional<int> offset = const SdkOmitted(),
-        RequestOptions? requestOptions}) async {
+Future<PaginatedBillingStatementResponse> getBillingStatementList(
+    ClientConfig config,
+    {SdkOptional<bool> paginated = const SdkOmitted(),
+    SdkOptional<int> limit = const SdkOmitted(),
+    SdkOptional<int> offset = const SdkOmitted(),
+    RequestOptions? requestOptions}) async {
   if (limit is SdkPresent<int>) {
     validateRange('limit', limit.value, min: 1, max: 500);
   }
@@ -324,18 +451,30 @@ Future<PaginatedBillingStatementResponse>
           'GET', '/billing/statements',
           config: config,
           query: {
-            'paginated': SdkQueryValue(SdkUtils.unwrapOptional(paginated), style: 'form', explode: true),
-            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit), style: 'form', explode: true),
-            'offset': SdkQueryValue(SdkUtils.unwrapOptional(offset), style: 'form', explode: true)
+            'paginated': SdkQueryValue(SdkUtils.unwrapOptional(paginated),
+                style: 'form', explode: true),
+            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit),
+                style: 'form', explode: true),
+            'offset': SdkQueryValue(SdkUtils.unwrapOptional(offset),
+                style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'getBillingStatementList',
-          fromJsonRaw: (value) => PaginatedBillingStatementResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) => PaginatedBillingStatementResponse.fromJson(
+              value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '401': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '422': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '500': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '400': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>),
+            '401': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>),
+            '422': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>),
+            '500': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
-
 
 /// Retrieves a billing statement by its unique identifier. Use `statementID` to inspect the statement’s payer, current status, totals, and grouped items.
 ///
@@ -349,12 +488,18 @@ Future<BillingStatement> getBillingStatement(ClientConfig config,
           config: config,
           decoder: SdkResponseDecoder.json,
           operationId: 'getBillingStatement',
-          fromJsonRaw: (value) => BillingStatement.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              BillingStatement.fromJson(value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '401': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '404': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '422': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '500': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+        '400': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>),
+        '401': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>),
+        '404': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>),
+        '422': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>),
+        '500': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)
+      }))
       .data;
 }
-
 
 /// Returns a list of all payment attempts for a specific billing statement. The payment attempts are returned sorted by creation date, with the newest payment attempts appearing first. Pagination is supported.
 ///
@@ -383,14 +528,30 @@ Future<PaginatedBillingPaymentAttemptResponse>
           '/billing/statements/${Uri.encodeComponent(statementId.toString())}/payment_attempts',
           config: config,
           query: {
-            'paginated': SdkQueryValue(SdkUtils.unwrapOptional(paginated), style: 'form', explode: true),
-            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit), style: 'form', explode: true),
-            'offset': SdkQueryValue(SdkUtils.unwrapOptional(offset), style: 'form', explode: true)
+            'paginated': SdkQueryValue(SdkUtils.unwrapOptional(paginated),
+                style: 'form', explode: true),
+            'limit': SdkQueryValue(SdkUtils.unwrapOptional(limit),
+                style: 'form', explode: true),
+            'offset': SdkQueryValue(SdkUtils.unwrapOptional(offset),
+                style: 'form', explode: true)
           },
           decoder: SdkResponseDecoder.json,
           operationId: 'getBillingStatementPaymentAttempts',
-          fromJsonRaw: (value) => PaginatedBillingPaymentAttemptResponse.fromJson(value as Map<String, dynamic>),
+          fromJsonRaw: (value) =>
+              PaginatedBillingPaymentAttemptResponse.fromJson(
+                  value as Map<String, dynamic>),
           options: requestOptions,
-          errors: {'400': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '401': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '404': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '422': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>), '500': (value) => ClerkErrors.fromJson(value as Map<String, dynamic>)}))
+          errors: {
+            '400': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>),
+            '401': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>),
+            '404': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>),
+            '422': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>),
+            '500': (value) =>
+                ClerkErrors.fromJson(value as Map<String, dynamic>)
+          }))
       .data;
 }
